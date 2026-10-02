@@ -1,10 +1,11 @@
-# Atlas Map v0.1
+# Atlas Map v0.2
 
-**Status:** architecture seed  
+**Status:** dependency-refined architecture  
 **Parts:** 14  
-**Chapter contracts:** 80
+**Chapter contracts:** 80  
+**Hard dependency semantics:** `governance/DEPENDENCY_GRAPH.md` / `.yaml`
 
-The map records purpose and dependency, not final chapter numbering. Stable IDs survive reordering.
+The map records purpose and hard dependency, not final chapter numbering. Stable IDs survive reordering. Soft cross-links and dependency-role annotations live in the dependency-graph supplement.
 
 ## Part 1 — Orientation: What Adaptive Intelligence Is
 `ATLAS-PART-ORIENTATION`
