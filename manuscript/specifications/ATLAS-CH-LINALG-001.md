@@ -64,7 +64,7 @@ Not every useful neural transformation is linear, diagonalizable, or well descri
 At minimum:
 
 [
-A=USigma V^	op,
+A=USigma V^\top,
 qquad
 |A|_2=sigma_{max}(A),
 ]
@@ -72,7 +72,7 @@ qquad
 orthogonal projection
 
 [
-P=QQ^	op
+P=QQ^\top
 ]
 
 for orthonormal columns of (Q), and the least-squares pseudoinverse relation.
