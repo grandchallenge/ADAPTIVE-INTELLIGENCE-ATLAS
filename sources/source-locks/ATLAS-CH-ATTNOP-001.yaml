@@ -1,4 +1,4 @@
-schema_version: "0.1.0"
+schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-ATTNOP-001"
 retrieved: "2026-10-02"
 sources:
@@ -52,6 +52,9 @@ sources:
     year: 2020
     locator: "https://proceedings.mlr.press/v119/katharopoulos20a.html"
     authority_note: "Primary linear-attention reference expressing attention using kernel feature maps and associativity."
+claim_boundary: >
+  These sources support the standard Transformer equations and the stated kernel/linear-attention interpretations. They do not establish that attention weights are causal explanations or that every attention mechanism is one fixed kernel machine.
+
 claim_scope:
   - "The Atlas distinction among score matrix S, normalized operator A, value field V, and full nonlinear map X->Y is an explicit re-expression of the standard equations."
   - "Linearity is claimed only for V->AV when Q and K, hence A, are fixed."
