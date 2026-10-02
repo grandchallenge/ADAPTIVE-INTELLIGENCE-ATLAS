@@ -1,4 +1,5 @@
-id: "ATLAS-FIG-MANIFOLD-001"
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-MANIFOLD-001"
 chapter_id: "ATLAS-CH-GEOM-001"
 title: "Tangent update, exponential map, and retraction"
 status: "rendered-witness"
@@ -11,9 +12,10 @@ generator:
   version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
   system_id: "Linux-x86-64"
   source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl"
+  source_git_blob_sha1: "16cfefd6fe09a01b425dd463a75ed08dd47379f1"
   rendered: "figures/masters/ATLAS-FIG-MANIFOLD-001.png"
-  git_blob_sha1: "39c6a40522b4d65c8ef34a0c4f6a36119dceab66"
-  approximate_png_bytes: 82032
+  rendered_git_blob_sha1: "39c6a40522b4d65c8ef34a0c4f6a36119dceab66"
+  rendered_bytes: 82032
 parameters:
   x: [0, 0, 1]
   v: [0.8, 0, 0]
