@@ -102,24 +102,29 @@ for link in depgraph.get('soft_cross_links') or []:
         if cid not in known:
             errors.append(f"soft cross-link references unknown chapter {cid}")
 
-# Keystone specifications and manuscript promotion.
+# Chapter specifications and manuscript promotion.
 for c in chapters:
-    if not c.get('keystone'):
-        continue
     status = c.get('status')
     spec = c.get('spec_path')
-    if status in ('specification-ready', 'draft-v0.1'):
+    if c.get('keystone') and status == 'specification-ready':
         if not spec:
             errors.append(f"keystone {c['id']} missing spec_path")
         elif not (ROOT/spec).is_file():
             errors.append(f"keystone {c['id']} spec file missing: {spec}")
     if status == 'draft-v0.1':
-        for field in ('manuscript_path','derivation_path','source_lock_path','computational_witness_path'):
+        if not spec:
+            errors.append(f"draft chapter {c['id']} missing spec_path")
+        elif not (ROOT/spec).is_file():
+            errors.append(f"draft chapter {c['id']} spec file missing: {spec}")
+        for field in ('manuscript_path','derivation_path','source_lock_path'):
             path = c.get(field)
             if not path:
-                errors.append(f"draft keystone {c['id']} missing {field}")
+                errors.append(f"draft chapter {c['id']} missing {field}")
             elif not (ROOT/path).is_file():
-                errors.append(f"draft keystone {c['id']} missing file for {field}: {path}")
+                errors.append(f"draft chapter {c['id']} missing file for {field}: {path}")
+        witness = c.get('computational_witness_path')
+        if witness and not (ROOT/witness).is_file():
+            errors.append(f"draft chapter {c['id']} missing computational witness: {witness}")
 
         manuscript_path = c.get('manuscript_path')
         if manuscript_path and (ROOT/manuscript_path).is_file():
