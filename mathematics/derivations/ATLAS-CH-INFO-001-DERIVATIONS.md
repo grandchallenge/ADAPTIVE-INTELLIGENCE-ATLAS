@@ -19,7 +19,7 @@ For discrete distributions (P,Q),
 [
 D_{mathrm{KL}}(P|Q)
 =
-sum_x p(x)lograc{p(x)}{q(x)}
+sum_x p(x)log\frac{p(x)}{q(x)}
 ]
 
 when (P) is absolutely continuous with respect to (Q) on the relevant support.
@@ -39,7 +39,7 @@ For the exact witness
 [
 P_{XY}
 =
-egin{pmatrix}
+\begin{pmatrix}
 3/8&1/8\
 1/8&3/8
 end{pmatrix},
@@ -50,7 +50,7 @@ both marginals are uniform and
 [
 I(X;Y)
 =
-rac{log(27/16)}{log 16}
+\frac{log(27/16)}{log 16}
 approx
 0.1887218755408671
 ]
@@ -74,7 +74,7 @@ A regular exponential-family form is
 [
 p_eta(x)
 =
-h(x)exp{eta^	op T(x)-A(eta)}.
+h(x)exp{eta^\top T(x)-A(eta)}.
 ]
 
 For Bernoulli (xin{0,1}),
@@ -88,7 +88,7 @@ exp{xeta-A(eta)}
 with
 
 [
-eta=lograc{p}{1-p},
+eta=log\frac{p}{1-p},
 qquad
 A(eta)=log(1+e^eta).
 ]
