@@ -1,4 +1,4 @@
-schema_version: "0.1.0"
+schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-GEOM-001"
 retrieved: "2026-10-02"
 sources:
@@ -53,6 +53,9 @@ sources:
     doi: "10.1145/325165.325242"
     locator: "https://doi.org/10.1145/325165.325242"
     authority_note: "Historical source for spherical linear interpolation terminology and construction in quaternion rotation interpolation."
+claim_boundary: >
+  These sources support the standard sphere, Stiefel, Grassmann, retraction, geodesic and SLERP mathematics used by the chapter. They do not establish that a particular learned representation empirically lies on one of these manifolds.
+
 claim_scope:
   - "Sphere tangent-space and normalized-retraction derivations are rederived in the Atlas."
   - "Stiefel tangent-space condition is rederived from the orthogonality constraint."
