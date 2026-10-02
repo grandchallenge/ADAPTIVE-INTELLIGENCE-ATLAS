@@ -114,7 +114,7 @@ if len(src_ids) != len(set(src_ids)):
 
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
-bib_keys = set(re.findall(r'@\\w+\\{([^,]+),', bib_text))
+bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))
 for md in (ROOT/'manuscript/parts').rglob('*.md'):
     text = md.read_text(encoding='utf-8')
     for key in set(re.findall(r'@([A-Za-z0-9:_-]+)', text)):
