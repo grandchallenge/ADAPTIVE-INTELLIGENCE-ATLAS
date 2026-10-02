@@ -40,8 +40,8 @@ Run the source file in repository root. It exports:
 
 The committed PNG Git blob is:
 
-`aded6f0764e04dd17457a71a32cb4a1ae5d42a84`.
+`39c6a40522b4d65c8ef34a0c4f6a36119dceab66`.
 
-## Claim boundary
+The earlier KEYSTONE-002 render blob `aded6f0764e04dd17457a71a32cb4a1ae5d42a84` was superseded during AUDIT-001 by a label/accessibility-only rerender; the underlying equations and parameters are unchanged.\n\n## Claim boundary
 
 This witness reconstructs an exact unit-sphere example. It verifies neither a general manifold theorem nor an empirical claim about neural representations.
