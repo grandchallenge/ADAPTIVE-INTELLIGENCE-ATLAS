@@ -1,0 +1,66 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-REPLAY-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  These sources support computational reproducibility terminology, provenance modeling,
+  exact GCL lifecycle and authority-separation examples, and documentary practices.
+  They do not imply that replay establishes truth, proof, certification, or institutional authority.
+sources:
+  - id: "RP-NASEM-2019"
+    citation_key: "NASEM2019Reproducibility"
+    kind: "consensus-report"
+    title: "Reproducibility and Replicability in Science"
+    url: "https://nap.nationalacademies.org/catalog/25303/reproducibility-and-replicability-in-science"
+    authority: >
+      Terminology distinguishing computational reproducibility from replication with new data.
+  - id: "RP-SANDVE-2013"
+    citation_key: "SandveEtAl2013"
+    kind: "peer-reviewed-practice-article"
+    title: "Ten Simple Rules for Reproducible Computational Research"
+    doi: "10.1371/journal.pcbi.1003285"
+    authority: "Practical computational-reproducibility discipline."
+  - id: "RP-W3C-PROV-2013"
+    citation_key: "W3CPROVDM2013"
+    kind: "web-standard"
+    title: "PROV-DM: The PROV Data Model"
+    url: "https://www.w3.org/TR/2013/REC-prov-dm-20130430/"
+    authority: "Domain-agnostic provenance concepts: entities, activities, agents, derivation and provenance bundles."
+gcl_sources:
+  - id: "RP-GCL-TWR-20261002"
+    repository: "grandchallenge/MATH-PROGRAMME"
+    commit: "9c09521f0f7b1b7bbb2830b42f097f227f209d7d"
+    path: "docs/TECHNICAL_WRITING_REFERENCE.md"
+    git_blob_sha1: "25d04554ee16f570566ec0d9dc45c06f29b0ad7d"
+    authority: >
+      Current GCL writing invariants: bounded evidence, provenance, review specificity,
+      authority separation, public inheritance and fail-closed promotion.
+  - id: "RP-GCL-OPENMATH-CONTROLLER-20261002"
+    repository: "grandchallenge/MATH-PROGRAMME"
+    commit: "9c09521f0f7b1b7bbb2830b42f097f227f209d7d"
+    path: "governance/openmath_unattended_lifecycle_controller.json"
+    git_blob_sha1: "72c5b7ee3ba2e586af14d09a42c0898fe5f20f96"
+    authority: >
+      Exact current lifecycle states, durable GitHub substrate, RESULT/1 grammar,
+      Forge-to-Solve-to-Cert authority boundary, fail-closed rule, and prohibition on
+      the controller claiming mathematical correctness or MATHCERT certification.
+  - id: "RP-GCL-OPENMATH-REPLAY-HANDOFF-20261002"
+    repository: "grandchallenge/MATHSOLVE"
+    commit: "4d56fb23baf9b5112cd9df79b9c21330cf340f5a"
+    path: "handoffs/OPENMATH-2026/launch/OM26-H4-WP04.md"
+    git_blob_sha1: "433ae4dfb1e18a258b0c4b7c284a0f3551c3de64"
+    authority: >
+      Concrete replay-closure work packet with protected predecessor result, exact hashes,
+      derivation, replay source, and explicit non-certification authority boundary.
+  - id: "RP-GCL-MATHCERT-INTAKE-20261002"
+    repository: "grandchallenge/MATHCERT"
+    commit: "8a2610215989bec15474f0a088945c0a1b6d8172"
+    path: "evidence/openmath_2026/OM26-H1/INTAKE.json"
+    git_blob_sha1: "dbd2098d3891c9a0c5050993d8a82b736330c5f4"
+    authority: >
+      Concrete example where source, Solve proof/replay receipts and candidate identity
+      are admitted while certification_effect remains false pending an independent Cert executor.
+epistemic_rules:
+  - "Successful replay establishes reconstructability of the replayed computation under the stated identity and environment, not truth of an arbitrary surrounding claim."
+  - "Internal replay is not independent replication or independent review."
+  - "Formal verification is only as strong as the formalized statement and trust base."
+  - "Certification is a governed authority transition, not a synonym for reproducibility."
