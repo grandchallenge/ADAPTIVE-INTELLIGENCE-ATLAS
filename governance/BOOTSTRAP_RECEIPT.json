@@ -1,0 +1,14 @@
+{
+  "receipt_version": "0.1.0",
+  "operation_id": "ATLAS-BOOTSTRAP-001",
+  "title": "A Mathematical Atlas of Adaptive Intelligence",
+  "target_repository": "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS",
+  "bootstrap_issue": "https://github.com/grandchallenge/.github/issues/99",
+  "status": "repository_created_bootstrap_committed",
+  "part_count": 14,
+  "chapter_count": 80,
+  "seed_source_sha256": "8b017e43eeb5ff6bb78bd05fbc9f61b31e2d317ef03a8d80ca2bb998082acc66",
+  "pinned_math_programme_commit": "4a7150d2b3a3c6e7ddac38f4006c69dd9dd7bbf0",
+  "repository_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS",
+  "ledger_form": "compact_machine_ledger; chapter contracts retained in ATLAS_MAP.md"
+}
