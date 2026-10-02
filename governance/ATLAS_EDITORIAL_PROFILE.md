@@ -1,7 +1,7 @@
 # Atlas Editorial Profile
 
 **Profile ID:** `GCL-ATLAS-AI-EDITORIAL-001`  
-**Status:** project-local bootstrap profile  
+**Status:** canonical project-local profile, post six-keystone synthesis  
 **Title:** *A Mathematical Atlas of Adaptive Intelligence*
 
 ## Purpose
@@ -30,9 +30,22 @@ Future upstream revisions do not silently alter this profile. Adoption changes r
 
 The Atlas uses:
 
-`architecture first -> dependency graph -> keystone chapters -> chapter families -> global synthesis`
+`architecture first -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis`
 
 The macro-architecture is stable enough to coordinate work but revisable through explicit ADRs.
+
+The canonical chapter-level composition grammar is now:
+
+- `governance/CHAPTER_COMPOSITION_PROTOCOL.md`;
+- `governance/EPISTEMIC_STATUS.yaml`;
+- `governance/COMPUTATIONAL_WITNESS_STANDARD.md`;
+- `governance/SOURCE_LOCK_STANDARD.md`.
+
+Chapter-family rollout is dependency-driven through:
+
+- `governance/CHAPTER_FAMILY_ROLLOUT.md`.
+
+These documents were derived from the six audited keystone drafts. They specialize this profile; they do not enlarge upstream GCL authority.
 
 ## Governing conceptual spine
 
@@ -42,16 +55,9 @@ The manuscript is a coherent argument, not an encyclopedia of machine-learning t
 
 ## Epistemic vocabulary
 
-Reader-facing technical claims should distinguish at least:
+The canonical machine-readable vocabulary is `governance/EPISTEMIC_STATUS.yaml`.
 
-- Definition
-- Result
-- Computational Witness
-- Observation
-- Interpretation
-- Conjecture
-- Open Problem
-- GCL Programme
+Reader-facing technical claims must preserve the distinction among established external theory, Atlas derivation, computational witness, observation, interpretation, public GCL project evidence, GCL programme context, conjecture, open problem, and institutional status.
 
 Presentation may reveal status. It does not create status.
 

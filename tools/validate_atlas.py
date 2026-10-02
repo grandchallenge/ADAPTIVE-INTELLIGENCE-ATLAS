@@ -7,6 +7,8 @@ ledger = yaml.safe_load((ROOT/'governance/CHAPTER_LEDGER.yaml').read_text(encodi
 figs = yaml.safe_load((ROOT/'governance/FIGURE_REGISTER.yaml').read_text(encoding='utf-8'))
 sources = yaml.safe_load((ROOT/'governance/SOURCE_REGISTER.yaml').read_text(encoding='utf-8'))
 depgraph = yaml.safe_load((ROOT/'governance/DEPENDENCY_GRAPH.yaml').read_text(encoding='utf-8'))
+epistemic = yaml.safe_load((ROOT/'governance/EPISTEMIC_STATUS.yaml').read_text(encoding='utf-8'))
+lexicon = yaml.safe_load((ROOT/'governance/MATHEMATICAL_LEXICON.yaml').read_text(encoding='utf-8'))
 
 errors = []
 chapters = ledger.get('chapters', [])
@@ -14,6 +16,42 @@ ids = [c.get('id') for c in chapters]
 known = set(ids)
 if len(ids) != len(known):
     errors.append('duplicate chapter IDs')
+
+# Canonical synthesis artifacts and vocabularies.
+required_governance_files = [
+    'governance/CHAPTER_COMPOSITION_PROTOCOL.md',
+    'governance/EPISTEMIC_STATUS.yaml',
+    'governance/COMPUTATIONAL_WITNESS_STANDARD.md',
+    'governance/SOURCE_LOCK_STANDARD.md',
+    'governance/CHAPTER_FAMILY_ROLLOUT.md',
+    'governance/decisions/ADR-0005-six-keystone-composition-grammar.md',
+]
+for rel in required_governance_files:
+    if not (ROOT/rel).is_file():
+        errors.append(f"missing synthesis governance artifact: {rel}")
+
+epistemic_ids = [x.get('id') for x in epistemic.get('labels', [])]
+required_epistemic = {
+    'definition', 'established_result', 'atlas_derivation',
+    'computational_witness', 'observation', 'interpretation',
+    'gcl_public_project_evidence', 'gcl_programme_context',
+    'conjecture', 'open_problem', 'institutional_status',
+}
+if len(epistemic_ids) != len(set(epistemic_ids)):
+    errors.append('duplicate epistemic status IDs')
+missing_epistemic = required_epistemic - set(epistemic_ids)
+if missing_epistemic:
+    errors.append(f"missing epistemic statuses: {sorted(missing_epistemic)}")
+
+lex_terms = [x.get('term') for x in lexicon.get('entries', [])]
+if len(lex_terms) != len(set(lex_terms)):
+    errors.append('duplicate mathematical lexicon terms')
+for term in ('boundary contract','computational witness','claim boundary','source lock','replay','certification','epistemic status','representation class'):
+    if term not in set(lex_terms):
+        errors.append(f"mathematical lexicon missing synthesized term: {term}")
+for notation_key in ('operator_norm','spectral_radius','tangent_space','jacobian','transpose_or_adjoint','jvp','vjp'):
+    if notation_key not in (lexicon.get('notation') or {}):
+        errors.append(f"mathematical lexicon missing notation key: {notation_key}")
 
 # Hard dependency validity + acyclicity.
 indegree = {cid: 0 for cid in known}
@@ -83,6 +121,27 @@ for c in chapters:
             elif not (ROOT/path).is_file():
                 errors.append(f"draft keystone {c['id']} missing file for {field}: {path}")
 
+        manuscript_path = c.get('manuscript_path')
+        if manuscript_path and (ROOT/manuscript_path).is_file():
+            manuscript_text = (ROOT/manuscript_path).read_text(encoding='utf-8')
+            for marker in ('**Epistemic status:**', '## References used in this chapter', 'sources/source-locks/'):
+                if marker not in manuscript_text:
+                    errors.append(f"draft keystone {c['id']} manuscript missing protocol marker: {marker}")
+
+        source_lock_path = c.get('source_lock_path')
+        if source_lock_path and (ROOT/source_lock_path).is_file():
+            source_lock = yaml.safe_load((ROOT/source_lock_path).read_text(encoding='utf-8'))
+            if source_lock.get('chapter_id') != c['id']:
+                errors.append(f"draft keystone {c['id']} source lock chapter_id mismatch")
+            if not source_lock.get('claim_boundary'):
+                errors.append(f"draft keystone {c['id']} source lock missing claim_boundary")
+
+        witness_path = c.get('computational_witness_path')
+        if witness_path and (ROOT/witness_path).is_file():
+            witness_text = (ROOT/witness_path).read_text(encoding='utf-8')
+            if '## Claim boundary' not in witness_text:
+                errors.append(f"draft keystone {c['id']} witness missing Claim boundary")
+
 # Figure and source registries.
 fig_ids = []
 classes = set(figs.get('representation_classes') or [])
@@ -105,6 +164,15 @@ for f in figs.get('figures', []):
             value = gen.get(field)
             if value and not (ROOT/value).is_file():
                 errors.append(f"rendered figure {f.get('id')} missing file: {value}")
+        manifest_path = gen.get('manifest')
+        if manifest_path and (ROOT/manifest_path).is_file():
+            manifest = yaml.safe_load((ROOT/manifest_path).read_text(encoding='utf-8'))
+            if manifest.get('figure_id') != f.get('id'):
+                errors.append(f"rendered figure {f.get('id')} manifest figure_id mismatch")
+            if manifest.get('chapter_id') != f.get('chapter_id'):
+                errors.append(f"rendered figure {f.get('id')} manifest chapter_id mismatch")
+            if not manifest.get('claim_boundary'):
+                errors.append(f"rendered figure {f.get('id')} manifest missing claim_boundary")
 if len(fig_ids) != len(set(fig_ids)):
     errors.append('duplicate figure IDs')
 
@@ -160,6 +228,71 @@ if replay_manifest_path.is_file():
             errors.append('deterministic replay stdout differs from locked expected output')
 else:
     errors.append('deterministic replay manifest missing')
+
+# Six-keystone synthesis governance.
+synthesis_required = [
+    'governance/CHAPTER_COMPOSITION_PROTOCOL.md',
+    'governance/EPISTEMIC_STATUS.yaml',
+    'governance/COMPUTATIONAL_WITNESS_STANDARD.md',
+    'governance/SOURCE_LOCK_STANDARD.md',
+    'governance/CHAPTER_FAMILY_ROLLOUT.md',
+    'governance/decisions/ADR-0005-six-keystone-composition-grammar.md',
+]
+for rel in synthesis_required:
+    if not (ROOT/rel).is_file():
+        errors.append(f"missing synthesis governance artifact: {rel}")
+
+epistemic_path = ROOT/'governance/EPISTEMIC_STATUS.yaml'
+if epistemic_path.is_file():
+    epistemic = yaml.safe_load(epistemic_path.read_text(encoding='utf-8'))
+    label_ids = [x.get('id') for x in epistemic.get('labels', [])]
+    if len(label_ids) != len(set(label_ids)):
+        errors.append('duplicate epistemic label IDs')
+    required_labels = {
+        'definition',
+        'established_result',
+        'atlas_derivation',
+        'computational_witness',
+        'observation',
+        'interpretation',
+        'gcl_public_project_evidence',
+        'gcl_programme_context',
+        'conjecture',
+        'open_problem',
+        'institutional_status',
+    }
+    missing = sorted(required_labels - set(label_ids))
+    if missing:
+        errors.append(f"missing canonical epistemic labels: {missing}")
+
+lexicon_path = ROOT/'governance/MATHEMATICAL_LEXICON.yaml'
+if lexicon_path.is_file():
+    lexicon = yaml.safe_load(lexicon_path.read_text(encoding='utf-8'))
+    terms = {entry.get('term') for entry in lexicon.get('entries', [])}
+    required_terms = {
+        'source lock',
+        'replay',
+        'certification',
+        'epistemic status',
+        'representation class',
+    }
+    missing_terms = sorted(required_terms - terms)
+    if missing_terms:
+        errors.append(f"mathematical lexicon missing synthesis terms: {missing_terms}")
+
+for c in chapters:
+    if not c.get('keystone') or c.get('status') != 'draft-v0.1':
+        continue
+    manuscript = ROOT/c['manuscript_path']
+    witness = ROOT/c['computational_witness_path']
+    if manuscript.is_file():
+        body = manuscript.read_text(encoding='utf-8')
+        if '**Epistemic status:**' not in body:
+            errors.append(f"draft keystone {c['id']} missing reader-facing epistemic status")
+    if witness.is_file():
+        body = witness.read_text(encoding='utf-8')
+        if 'claim boundary' not in body.lower():
+            errors.append(f"draft keystone {c['id']} witness missing claim boundary")
 
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')

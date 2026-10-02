@@ -1,4 +1,5 @@
-id: "ATLAS-FIG-ATTNOP-001"
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-ATTNOP-001"
 chapter_id: "ATLAS-CH-ATTNOP-001"
 title: "Attention as a state-dependent operator"
 status: "rendered-witness"
@@ -11,9 +12,10 @@ generator:
   version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
   system_id: "Linux-x86-64"
   source: "figures/wolfram/ATLAS-FIG-ATTNOP-001.wl"
+  source_git_blob_sha1: "0c6f1404b77d3909e26797407e9438e0732e43a0"
   rendered: "figures/masters/ATLAS-FIG-ATTNOP-001.png"
-  git_blob_sha1: "2ba96f6f30311c117f27c0717961145ce9cbb0cd"
-  approximate_png_bytes: 24852
+  rendered_git_blob_sha1: "2ba96f6f30311c117f27c0717961145ce9cbb0cd"
+  rendered_bytes: 24852
 parameters:
   Q: [[1,0],[0,1],[1,1]]
   K: [[1,0],[0,1],[1,1]]
