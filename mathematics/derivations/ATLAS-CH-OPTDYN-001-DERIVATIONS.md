@@ -1,368 +1,295 @@
 # ATLAS-CH-OPTDYN-001 — Derivation Packet
 
 **Status:** first-pass derivations  
-**Norm convention:** spectral/operator (2)-norm unless explicitly stated  
-**Source lock:** `sources/source-locks/ATLAS-CH-OPTDYN-001.yaml`
+**Norm convention:** spectral/operator \(2\)-norm unless explicitly stated  
+**Source lock:** \`sources/source-locks/ATLAS-CH-OPTDYN-001.yaml\`
 
 ## D1. Momentum is an augmented-state dynamical system
 
 Consider the scalar quadratic
 
-[
-L(	heta)=rac h2	heta^2,
-qquad
-h>0,
-]
+\[
+L(\theta)=\frac h2\theta^2,
+\qquad h>0,
+\]
 
 so
 
-[
-g(	heta)=h	heta.
-]
+\[
+g(\theta)=h\theta.
+\]
 
 Use the momentum recurrence
 
-[
-v_{t+1}=eta v_t+h	heta_t,
-]
+\[
+v_{t+1}=\beta v_t+h\theta_t,
+\]
 
-[
-	heta_{t+1}=	heta_t-eta v_{t+1}.
-]
+\[
+\theta_{t+1}=\theta_t-\eta v_{t+1}.
+\]
 
-Define the augmented state
+Substituting the first equation into the second gives
 
-[
+\[
+\theta_{t+1}
+=
+(1-\eta h)\theta_t-\eta\beta v_t.
+\]
+
+Define
+
+\[
 z_t=
-egin{pmatrix}
-	heta_t\
+\begin{pmatrix}
+\theta_t\\
 v_t
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
 Then
 
-[
-z_{t+1}=Jz_t
-]
+\[
+z_{t+1}=Jz_t,
+\]
 
 with
 
-[
-oxed{
+\[
+\boxed{
 J=
-egin{pmatrix}
-1-eta h & -etaeta\
-h & eta
-end{pmatrix}.
+\begin{pmatrix}
+1-\eta h&-\eta\beta\\
+h&\beta
+\end{pmatrix}.
 }
-]
+\]
 
-The optimizer's memory variable is therefore part of the state of the dynamical system, not merely an implementation detail.
+Optimizer state is therefore part of the state of the dynamical system, not merely bookkeeping.
 
-## D2. Characteristic polynomial and asymptotic stability
+## D2. Characteristic polynomial
 
-The trace and determinant are
+The trace is
 
-[
-operatorname{tr}J
-=
-1+eta-eta h,
-]
+\[
+\operatorname{tr}J=1-\eta h+\beta,
+\]
 
-[
-det J=eta.
-]
+and
+
+\[
+\det J=\beta.
+\]
 
 Therefore
 
-[
-oxed{
-p(lambda)
+\[
+\boxed{
+p(\lambda)
 =
-lambda^2
--
-(1+eta-eta h)lambda
-+
-eta.
+\lambda^2-(1-\eta h+\beta)\lambda+\beta.
 }
-]
+\]
 
-For a real second-order polynomial
+For the worked example
 
-[
-lambda^2-	aulambda+eta
-]
+\[
+h=1,\qquad
+\eta=\frac1{10},\qquad
+\beta=\frac9{10},
+\]
 
-the Jury conditions for roots strictly inside the unit disk are
+we obtain
 
-[
-1-	au+eta>0,
-]
-
-[
-1+	au+eta>0,
-]
-
-[
-1-eta>0.
-]
-
-With (	au=1+eta-eta h), these become
-
-[
-eta h>0,
-]
-
-[
-2(1+eta)-eta h>0,
-]
-
-[
-eta<1.
-]
-
-For the usual momentum range (0leeta<1),
-
-[
-oxed{
-0<eta h<2(1+eta)
-}
-]
-
-is therefore the strict linear stability interval for this scalar quadratic recurrence.
-
-## D3. A stable but non-normal optimizer-state example
-
-Choose
-
-[
-h=1,qquad
-eta=rac1{10},qquad
-eta=rac9{10}.
-]
-
-Then
-
-[
+\[
 J=
-egin{pmatrix}
-0.9&-0.09\
-1&0.9
-end{pmatrix}.
-]
+\begin{pmatrix}
+\frac9{10}&-\frac9{100}\\
+1&\frac9{10}
+\end{pmatrix}.
+\]
 
-The characteristic polynomial is
+Its characteristic polynomial is
 
-[
-lambda^2-1.8lambda+0.9,
-]
+\[
+\lambda^2-\frac95\lambda+\frac9{10}.
+\]
 
-with eigenvalues
+Hence
 
-[
-oxed{
-lambda_{pm}
+\[
+\lambda_{\pm}
 =
-0.9pm0.3i.
+\frac9{10}\pm\frac3{10}i.
+\]
+
+Their magnitude is
+
+\[
+|\lambda_\pm|
+=
+\sqrt{\frac9{10}}
+\approx0.9486832981<1.
+\]
+
+The linear fixed point is asymptotically stable.
+
+## D3. The stable Jacobian is non-normal
+
+For the same \(J\),
+
+\[
+J^\top J
+=
+\begin{pmatrix}
+\frac{181}{100}&\frac{819}{1000}\\
+\frac{819}{1000}&\frac{8181}{10000}
+\end{pmatrix},
+\]
+
+whereas
+
+\[
+JJ^\top
+=
+\begin{pmatrix}
+\frac{8181}{10000}&\frac{819}{1000}\\
+\frac{819}{1000}&\frac{181}{100}
+\end{pmatrix}.
+\]
+
+Therefore
+
+\[
+J^\top J\neq JJ^\top,
+\]
+
+so \(J\) is non-normal.
+
+Asymptotic stability and normality are different properties.
+
+## D4. Exact finite-horizon amplification
+
+The fourth power is
+
+\[
+J^4
+=
+\begin{pmatrix}
+\frac{567}{2500}&-\frac{729}{3125}\\
+\frac{324}{125}&\frac{567}{2500}
+\end{pmatrix}.
+\]
+
+Its singular values are approximately
+
+\[
+\sigma(J^4)
+\approx
+(2.610090585959495,\;0.251370585959495).
+\]
+
+Thus
+
+\[
+\boxed{
+\|J^4\|_2\approx2.610090585959495>1.
 }
-]
+\]
 
-Their common modulus is
+Even though every eigenvalue lies strictly inside the unit disk, there exists a unit perturbation amplified by more than \(2.6\times\) after four steps.
 
-[
-|lambda_pm|
+A Wolfram sweep over \(n=0,\ldots,20\) verifies that the peak in this range occurs at
+
+\[
+n=4.
+\]
+
+## D5. Eigenvalue stability does not bound transient gain
+
+For a normal matrix \(N\),
+
+\[
+\|N^n\|_2=\rho(N)^n.
+\]
+
+For the non-normal \(J\), no such equality holds.
+
+This is the exact bridge from the earlier Non-normality chapter: the optimizer-state update can be asymptotically stable while still having a large finite-horizon gain.
+
+The conclusion is bounded to the linearized state map.
+
+## D6. Fixed-point linearization versus trajectory-dependent dynamics
+
+For a general augmented state
+
+\[
+z_{t+1}=F_t(z_t,\xi_t),
+\]
+
+a perturbation satisfies locally
+
+\[
+\delta z_{t+1}
+\approx
+J_t\,\delta z_t,
+\qquad
+J_t=
+\frac{\partial F_t}{\partial z}(z_t,\xi_t).
+\]
+
+Over \(k\) steps,
+
+\[
+\delta z_{t+k}
+\approx
+J_{t+k-1}\cdots J_t\,\delta z_t.
+\]
+
+When \(J_t\) changes with \(t\), no single local eigenvalue calculation controls the whole product.
+
+The autonomous quadratic example therefore demonstrates a mechanism, not a complete theory of nonlinear training.
+
+## D7. Adam enlarges the state further
+
+Adam maintains first- and second-moment state, schematically
+
+\[
+m_{t+1}
 =
-sqrt{0.9}
-approx0.948683<1.
-]
+\beta_1m_t+(1-\beta_1)g_t,
+\]
 
-Thus the linear system is asymptotically stable.
-
-Yet (J) is non-normal.
-
-For the general real momentum matrix,
-
-[
-J^	op J-JJ^	op
+\[
+v_{t+1}
 =
-egin{pmatrix}
-h^2-eta^2eta^2
-&
-(etaeta+h)(-1+eta+eta h)
-\
-(etaeta+h)(-1+eta+eta h)
-&
-(etaeta-h)(etaeta+h)
-end{pmatrix}.
-]
+\beta_2v_t+(1-\beta_2)g_t^2,
+\]
 
-For the chosen parameters this matrix is nonzero.
+followed by a parameter update using normalized moment estimates [@KingmaBa2015].
 
-## D4. Finite-horizon amplification
+The exact state map is therefore higher-dimensional and state-dependent. The chapter uses momentum for its exact worked example because the mechanism is visible without hiding it inside a large Jacobian.
 
-Despite (ho(J)<1), Wolfram evaluation gives
+## D8. Relation to control-theoretic optimization analysis
 
-[
-|J|_2
-approx1.5071525555.
-]
+Viewing iterative optimization as a feedback/dynamical system has a substantial literature. Lessard, Recht, and Packard analyze optimization algorithms with integral quadratic constraints from robust control [@LessardRechtPackard2016].
 
-Over (k=0,ldots,30), the peak is
+The Atlas use is narrower: it treats the optimizer-model pair as an augmented state and asks what finite-horizon behavior the local or time-varying Jacobian permits.
 
-[
-oxed{
-max_k|J^k|_2
-=
-2.61009058596ldots
-}
-]
+## D9. Learning-rate boundaries are coupled-state boundaries
 
-at
+For the scalar momentum quadratic, the characteristic polynomial depends jointly on
 
-[
-oxed{k=4.}
-]
+\[
+\eta,\quad \beta,\quad h.
+\]
 
-The optimizer state can therefore amplify a perturbation by a factor greater than (2.6) over a short horizon even though both eigenvalues lie inside the unit circle.
+Thus the linear stability boundary is not solely a property of curvature \(h\), nor solely a property of the learning rate \(\eta\), nor solely a property of momentum \(\beta\).
 
-This is the exact bridge from the previous Non-normality chapter into optimization.
+It is a property of the coupled recurrence.
 
-## D5. Why a parameter-only state is insufficient
+This does not imply that every empirical learning-rate failure is explained by this local model.
 
-If one writes only
+## Claim boundary
 
-[
-	heta_{t+1}=	heta_t-eta h	heta_t,
-]
-
-the model is ordinary gradient descent and has a one-dimensional state.
-
-Momentum changes the system order. Eliminating (v_t) produces a second-order recurrence in (	heta); retaining (v_t) produces a first-order recurrence in a larger state.
-
-These are equivalent descriptions.
-
-The augmented-state form is preferable for the Atlas because it generalizes directly to optimizers with several memory variables.
-
-## D6. Adam as a richer state system
-
-Adam maintains first- and second-moment estimates:
-
-[
-m_t
-=
-eta_1m_{t-1}
-+
-(1-eta_1)g_t,
-]
-
-[
-v_t
-=
-eta_2v_{t-1}
-+
-(1-eta_2)g_t^2.
-]
-
-With bias corrections
-
-[
-hat m_t
-=
-rac{m_t}{1-eta_1^t},
-qquad
-hat v_t
-=
-rac{v_t}{1-eta_2^t},
-]
-
-the parameter update is
-
-[
-	heta_t
-=
-	heta_{t-1}
--
-alpha
-rac{hat m_t}{sqrt{hat v_t}+epsilon}.
-]
-
-Thus a natural state contains at least
-
-[
-z_t=(	heta_t,m_t,v_t),
-]
-
-and, if the explicit bias-correction dependence is not absorbed into a time-varying map, the iteration counter (t) is also part of the state description.
-
-The chapter uses Adam to establish the architectural point that modern optimizers are stateful. It does not use Adam for the exact non-normal example because the scalar momentum system exposes the mechanism with far less algebra.
-
-## D7. Local linearization of a nonlinear optimizer
-
-For a differentiable autonomous augmented update
-
-[
-z_{t+1}=F(z_t),
-]
-
-a small perturbation obeys locally
-
-[
-delta z_{t+1}
-approx
-J_F(z_t),delta z_t.
-]
-
-Over (k) steps,
-
-[
-oxed{
-delta z_{t+k}
-approx
-J_F(z_{t+k-1})cdots J_F(z_t),delta z_t.
-}
-]
-
-For a fixed point with constant Jacobian (J), this reduces to (J^k).
-
-For actual training, the Jacobian is generally time-dependent because the loss curvature, mini-batch, schedule, and optimizer state change. Therefore a fixed-matrix eigenvalue analysis is a local model, not a global predictor.
-
-## D8. Curvature and optimizer state are different objects
-
-For the scalar quadratic, the Hessian is simply
-
-[
-
-abla^2L=h.
-]
-
-But the coupled Jacobian depends on
-
-[
-h,eta,eta.
-]
-
-Thus even in the simplest case the Hessian does not determine the optimizer dynamics by itself.
-
-The loss geometry supplies part of the update. The optimizer introduces memory and gain structure of its own.
-
-## D9. Control-theoretic connection
-
-Optimization algorithms have been analyzed as feedback/dynamical systems, including through integral quadratic constraints. That literature provides rigorous precedent for treating an optimizer as an interconnected dynamical object rather than only as an algebraic rule.
-
-The Atlas uses a simpler local Jacobian language here because its later diagnostic programme needs quantities that can be estimated along training trajectories.
-
-## D10. CPS boundary
-
-The Atlas architecture names **Coupling-Phase Spectroscopy (CPS)** as a downstream GCL programme concerned with optimizer-state Jacobian probes and phase-transition diagnostics.
-
-No separate public GCL source for the exact CPS phrase was found in the organization search performed for this source lock. Therefore this chapter may motivate the instrumentation question but must not attach specific empirical CPS results until an exact source object is bound.
-
-## Source boundary
-
-- Heavy-ball/multistep origin: `OPTDYN-POLYAK-1964`.
-- Momentum in deep learning: `OPTDYN-SUTSKEVER-ETAL-2013`.
-- Adam formulation: `OPTDYN-KINGMA-BA-2015`.
-- Control-theoretic optimization analysis: `OPTDYN-LESSARD-RECHT-PACKARD-2016`.
-
-The augmented-state Jacobian, scalar stability derivation, and stable non-normal worked example are Atlas-owned derivations.
+This packet proves and computationally replays an exact one-dimensional quadratic momentum example and states the local Jacobian product for general augmented-state training. It does not claim that local linearization globally predicts nonlinear training, that every training spike is caused by non-normality, or that the toy parameters are representative of frontier-scale optimization.
