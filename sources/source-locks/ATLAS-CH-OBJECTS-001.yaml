@@ -1,0 +1,31 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-OBJECTS-001"
+locked_on: "2026-10-02"
+epistemic_class: "atlas_synthesis"
+claim_boundary: >
+  The four-object taxonomy (states, operators, flows/dynamics, interfaces/contracts)
+  is an Atlas organizing synthesis. Standard mathematics supplies instances of these
+  objects, but the taxonomy itself is not claimed as a canonical external classification.
+atlas_sources:
+  - id: "OBJECTS-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: "Project-scope inventory containing the repeated vectors-to-operators/layers-to-flows/interfaces shifts."
+  - id: "OBJECTS-LEXICON"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "governance/MATHEMATICAL_LEXICON.yaml"
+    git_blob_sha1: "b425518b4a5a20cbd90eb6979df3bf57ca1c9043"
+    authority: "Canonical Atlas meanings for state, operator, flow, transport, representation, boundary contract and evidence terms."
+  - id: "OBJECTS-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Architecture showing where the four object types become load-bearing."
+epistemic_rules:
+  - "A state is not an operator merely because both may be represented by arrays."
+  - "A flow is a family/evolution of transformations, not a synonym for one layer."
+  - "An interface or contract describes obligations between objects; it is not the internal object itself."
