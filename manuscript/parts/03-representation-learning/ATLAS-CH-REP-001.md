@@ -247,6 +247,8 @@ Group-equivariant neural architectures provide concrete examples of this princip
 
 ## 8. Reflection witness
 
+![A reflection example showing an equivariant vector and invariant norm beside an invertible coordinate recoding that preserves a linear readout.](../../figures/masters/ATLAS-FIG-REP-001.png)
+
 Let
 
 \[
