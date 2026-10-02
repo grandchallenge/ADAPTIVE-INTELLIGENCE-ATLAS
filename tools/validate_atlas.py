@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import sys, re, yaml
+import sys, re, json, hashlib, subprocess, yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 ledger = yaml.safe_load((ROOT/'governance/CHAPTER_LEDGER.yaml').read_text(encoding='utf-8'))
@@ -124,12 +124,48 @@ for root_name in ('manuscript','mathematics'):
                 errors.append(f"control character U+{code:04X} in {md.relative_to(ROOT)} at offset {i}")
                 break
 
+# Executable deterministic replay witness.
+replay_manifest_path = ROOT/'mathematics/computational-witnesses/replay_examples/deterministic_fraction_sum.manifest.json'
+if replay_manifest_path.is_file():
+    replay_manifest = json.loads(replay_manifest_path.read_text(encoding='utf-8'))
+    replay_script = ROOT/replay_manifest['script_path']
+    replay_expected = ROOT/replay_manifest['expected_output_path']
+    if not replay_script.is_file():
+        errors.append(f"replay script missing: {replay_script.relative_to(ROOT)}")
+    if not replay_expected.is_file():
+        errors.append(f"replay expected output missing: {replay_expected.relative_to(ROOT)}")
+    if replay_script.is_file():
+        script_digest = hashlib.sha256(replay_script.read_bytes()).hexdigest()
+        if script_digest != replay_manifest.get('script_sha256'):
+            errors.append('deterministic replay script SHA-256 mismatch')
+    if replay_expected.is_file():
+        expected_bytes = replay_expected.read_bytes()
+        expected_digest = hashlib.sha256(expected_bytes).hexdigest()
+        if expected_digest != replay_manifest.get('expected_output_sha256'):
+            errors.append('deterministic replay expected-output SHA-256 mismatch')
+    if replay_script.is_file() and replay_expected.is_file():
+        proc = subprocess.run(
+            [sys.executable, str(replay_script)],
+            cwd=ROOT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if proc.returncode != 0:
+            errors.append(f"deterministic replay exited {proc.returncode}: {proc.stderr.decode('utf-8', errors='replace')}")
+        elif proc.stdout != replay_expected.read_bytes():
+            errors.append('deterministic replay stdout differs from locked expected output')
+else:
+    errors.append('deterministic replay manifest missing')
+
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
 bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))
 for md in (ROOT/'manuscript/parts').rglob('*.md'):
     text = md.read_text(encoding='utf-8')
-    for key in set(re.findall(r'@([A-Za-z0-9:_-]+)', text)):
+    # Citation keys may appear as [@Key] or after punctuation/whitespace, but
+    # repository revisions such as repo@<commit> and email-like strings are not citations.
+    for key in set(re.findall(r'(?<![A-Za-z0-9._/-])@([A-Za-z0-9:_-]+)', text)):
         if key not in bib_keys:
             errors.append(f"unresolved citation key {key} in {md.relative_to(ROOT)}")
 

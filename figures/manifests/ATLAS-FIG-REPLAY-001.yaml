@@ -1,0 +1,45 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-REPLAY-001"
+chapter_id: "ATLAS-CH-REPLAY-001"
+status: "rendered-witness"
+representation_class: "exact"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-REPLAY-001.wl"
+  source_git_blob_sha1: "661508536ce7d9ef2a62c6fa2bd4a311223edca3"
+  rendered: "figures/masters/ATLAS-FIG-REPLAY-001.png"
+  rendered_git_blob_sha1: "5a62f3b3341b9d9ff575cbfff644d330c6125701"
+  rendered_bytes: 26170
+graph:
+  evidence_nodes:
+    - "Source"
+    - "Method"
+    - "Execution"
+    - "Observation"
+    - "Interpretation"
+    - "Claim"
+  authority_nodes:
+    - "Review / replay"
+    - "Adjudication"
+    - "Certification"
+  evidence_edges:
+    - ["Source", "Method"]
+    - ["Method", "Execution"]
+    - ["Execution", "Observation"]
+    - ["Observation", "Interpretation"]
+    - ["Interpretation", "Claim"]
+  authority_edges:
+    - ["Claim", "Review / replay"]
+    - ["Review / replay", "Adjudication"]
+    - ["Adjudication", "Certification"]
+literal_semantics: >
+  Every node and directed edge in the rendered figure is declared in this manifest
+  and generator. Solid edges denote the evidence/derivation path; dashed edges denote
+  separate governed review and authority transitions.
+nonliteral_semantics: >
+  Horizontal/vertical placement, box dimensions, grayscale fill and spacing do not
+  encode epistemic strength.
+claim_boundary: >
+  The graph distinguishes evidence lineage from authority transitions. It does not
+  imply that every scientific institution must use these exact stages.
