@@ -1,0 +1,26 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-INFO-001"
+chapter_id: "ATLAS-CH-INFO-001"
+status: "rendered-witness"
+representation_class: "exact"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-INFO-001.wl"
+  source_git_blob_sha1: "9b4feabb9f0413dd3fa499b8353e84e405391da4"
+  rendered: "figures/masters/ATLAS-FIG-INFO-001.png"
+  rendered_git_blob_sha1: "46ac60a0ff3c0b14fa81bf970e8307f182442d08"
+  rendered_bytes: 21815
+parameters:
+  joint_distribution: "[[3/8,1/8],[1/8,3/8]]"
+  marginals: "[1/2,1/2]"
+  mutual_information_bits: 0.1887218755408671
+literal_semantics: >
+  Cell labels are the exact declared joint probabilities; the marginal statement
+  and mutual-information value are computed from that distribution.
+nonliteral_semantics: >
+  Grayscale intensity and cell sizing are presentation choices and do not encode
+  additional statistical claims.
+claim_boundary: >
+  The figure demonstrates statistical dependence in one exact binary distribution.
+  It does not encode or identify a causal direction.
