@@ -580,6 +580,8 @@ The Boundary Contracts and optimizer-dynamics chapters both rely on this limitat
 
 ## 18. Computational witness
 
+![The unit circle mapped by a non-normal matrix into an ellipse beside an exact conditioning example with condition number 100.](../../figures/masters/ATLAS-FIG-LINALG-001.png)
+
 The companion witness replays three exact facts.
 
 For
