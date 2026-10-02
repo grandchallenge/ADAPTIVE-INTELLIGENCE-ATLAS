@@ -2,7 +2,7 @@
   "schema_version": "0.1.1",
   "scope": "remote architecture bootstrap tree; excludes this manifest file",
   "files": [
-    {"path": ".github/workflows/validate.yml", "bytes": 351, "sha256": "040491277d5387ddccd16163664dc9f876c41fb044295f9a9250a8ad717ca0ec"},
+    {"path": ".github/workflows/validate.yml", "bytes": 542, "sha256": "61c5865c2e38ecc5ae3f8ca322ac1cea75972437e5ac8b9a23fa2fe7d6518437"},
     {"path": "CITATION.cff", "bytes": 275, "sha256": "584fa5fc8d10955d9866f0b87fc2b98815895d953fb27c622b31e191a626bd03"},
     {"path": "LICENSE", "bytes": 225, "sha256": "30596c737d39e436b71f20ca092d4a68886422721de72296f596709c572a6055"},
     {"path": "README.md", "bytes": 1570, "sha256": "114d6160ed84091eee0c6aafe266892106d1afc3625e3fb67c2204b23d47b0d5"},
