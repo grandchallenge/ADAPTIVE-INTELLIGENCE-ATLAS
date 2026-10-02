@@ -49,7 +49,7 @@ and exponential family
 [
 p_eta(x)
 =
-h(x)exp{eta^	op T(x)-A(eta)}.
+h(x)exp{eta^\top T(x)-A(eta)}.
 ]
 
 Include an explicit support/absolute-continuity warning for KL.
@@ -69,7 +69,7 @@ The analogy breaks whenever “information” is used in the everyday semantic s
 At minimum:
 
 - entropy chain rule for a finite joint distribution;
-- (I(X;Y)=D_{m KL}(P_{XY}|P_XP_Y));
+- (I(X;Y)=D_{\rm KL}(P_{XY}|P_XP_Y));
 - Bernoulli as an exponential family with sufficient statistic (T(x)=x);
 - one concentration calculation with explicit assumptions.
 
