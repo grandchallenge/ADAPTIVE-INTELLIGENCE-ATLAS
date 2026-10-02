@@ -76,7 +76,7 @@ for c in chapters:
         elif not (ROOT/spec).is_file():
             errors.append(f"keystone {c['id']} spec file missing: {spec}")
     if status == 'draft-v0.1':
-        for field in ('manuscript_path','derivation_path','source_lock_path'):
+        for field in ('manuscript_path','derivation_path','source_lock_path','computational_witness_path'):
             path = c.get(field)
             if not path:
                 errors.append(f"draft keystone {c['id']} missing {field}")
