@@ -163,7 +163,9 @@ bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
 bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))
 for md in (ROOT/'manuscript/parts').rglob('*.md'):
     text = md.read_text(encoding='utf-8')
-    for key in set(re.findall(r'@([A-Za-z0-9:_-]+)', text)):
+    # Citation keys may appear as [@Key] or after punctuation/whitespace, but
+    # repository revisions such as repo@<commit> and email-like strings are not citations.
+    for key in set(re.findall(r'(?<![A-Za-z0-9._/-])@([A-Za-z0-9:_-]+)', text)):
         if key not in bib_keys:
             errors.append(f"unresolved citation key {key} in {md.relative_to(ROOT)}")
 
