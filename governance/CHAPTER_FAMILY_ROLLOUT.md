@@ -1,87 +1,162 @@
 # Chapter-Family Rollout After the Six Keystones
 
 **Status:** dependency-driven drafting plan  
-**Baseline:** six audited keystones at `draft-v0.1`
+**Baseline:** six audited keystones at `draft-v0.1`  
+**Remaining chapters:** 74
 
 ## Principle
 
-Draft by **dependency cone and conceptual leverage**, not by table-of-contents order alone.
+Draft by **dependency closure and conceptual leverage**, not by table-of-contents order alone.
 
-The six keystone descendant counts at the synthesis baseline are:
+The six keystones proved the local authoring grammar. They do not erase their undrafted prerequisites.
 
-| Keystone | Downstream descendants |
+At the synthesis baseline, the highest-reach undrafted nodes are:
+
+| Chapter ID | Current downstream descendants |
 |---|---:|
-| Geometry of Constrained State Spaces | 28 |
-| Attention as an Operator | 9 |
-| Normality, Pseudospectra, and Transient Growth | 6 |
-| Replayable Evidence Objects | 5 |
-| Optimizer-State Dynamics | 3 |
-| Boundary Contracts | 3 |
+| `ATLAS-CH-THESIS-001` | 79 |
+| `ATLAS-CH-OBJECTS-001` | 68 |
+| `ATLAS-CH-LINALG-001` | 63 |
+| `ATLAS-CH-DYN-001` | 48 |
+| `ATLAS-CH-INFO-001` | 28 |
+| `ATLAS-CH-ARCHHIST-001` | 28 |
+| `ATLAS-CH-TRANSFORMER-001` | 20 |
+| `ATLAS-CH-REP-001` | 19 |
+| `ATLAS-CH-NUMERICS-001` | 17 |
+| `ATLAS-CH-OPTBASE-001` | 17 |
 
-This does not rank chapter importance. It measures graph reach in the current architecture and therefore informs drafting leverage.
+These counts measure graph reach, not intellectual importance.
 
-## Family 1 — Geometric representation and optimization spine
+## Family 0 — Orientation and load-bearing mathematical spine
 
-Start here because Geometry unlocks the largest dependency cone.
+This family comes first even though several downstream keystones already exist.
+
+Primary targets:
+
+- `ATLAS-CH-THESIS-001`;
+- `ATLAS-CH-MAP-001`;
+- `ATLAS-CH-OBJECTS-001`;
+- `ATLAS-CH-EVIDENCE-001`;
+- `ATLAS-CH-LINALG-001`;
+- `ATLAS-CH-DYN-001`;
+- `ATLAS-CH-INFO-001`;
+- `ATLAS-CH-NUMERICS-001`;
+- `ATLAS-CH-LOCALGLOBAL-001`.
+
+Goal:
+
+- remove hidden prerequisites from later families;
+- freeze state/operator/object language before it proliferates;
+- establish evidence classes before the Atlas accumulates many synthesis claims;
+- supply the dynamics and numerical-analysis language consumed by later chapters.
+
+The existing keystones are valid style anchors, not substitutes for these prerequisites.
+
+## Family 1 — Geometric representation and architecture
+
+Enter after the Family 0 mathematical notation stabilizes.
 
 Primary targets:
 
 - `ATLAS-CH-REP-001`;
+- `ATLAS-CH-ARCHHIST-001`;
+- `ATLAS-CH-TRANSFORMER-001`;
+- `ATLAS-CH-DEPTH-001`;
 - `ATLAS-CH-NORMREP-001`;
 - `ATLAS-CH-QUOTIENT-001`;
-- `ATLAS-CH-MANOPT-001`;
-- `ATLAS-CH-SECOND-001`;
-- `ATLAS-CH-TRANSPORT-001`.
+- `ATLAS-CH-RESIDUAL-001`.
+
+Then expand through the remaining representation and architecture descendants.
 
 Goal:
 
-establish the common language connecting representation geometry, normalized states, quotient structure, manifold optimization, curvature, and transport.
+connect the Geometry keystone to learned representations, normalized states, quotient structure, architecture history, and the Transformer substrate consumed by later attention, sparse-compute, systems, and memory chapters.
 
-## Family 2 — Attention, position, and operator structure
+## Family 2 — Optimization and numerical computation
 
 Primary targets:
+
+- `ATLAS-CH-OPTBASE-001`;
+- `ATLAS-CH-SPECTRALSHAPE-001`;
+- `ATLAS-CH-MANOPT-001`;
+- `ATLAS-CH-SECOND-001`;
+- `ATLAS-CH-TRANSPORT-001`;
+- `ATLAS-CH-NETNUM-001`;
+- `ATLAS-CH-BOUNDARYPROBE-001`;
+- `ATLAS-CH-COMPOSE-001`;
+- `ATLAS-CH-NEURALKRYLOV-001`;
+- `ATLAS-CH-ADAPTDEPTH-001`.
+
+Goal:
+
+connect Geometry, Non-normality, Optimizer-State Dynamics, and Boundary Contracts into one numerical-dynamical family before GCL-specific optimizer programmes become load-bearing examples.
+
+## Family 3 — Attention, position, sparse computation, and routing
+
+Build around the existing Attention keystone once the Transformer and optimization substrate is explicit.
+
+Primary targets include:
 
 - `ATLAS-CH-ATTNAPPROX-001`;
 - `ATLAS-CH-POSGEOM-001`;
 - `ATLAS-CH-RPO-001`;
-- positional/RoPE descendants exposed by the ledger.
+- remaining positional/RoPE descendants;
+- `ATLAS-CH-SPARSE-001`;
+- `ATLAS-CH-MOE-001`;
+- `ATLAS-CH-ROUTERDYN-001`;
+- `ATLAS-CH-REGRETROUTE-001`.
 
 Goal:
 
-carry the operator viewpoint from ordinary attention into approximation, positional geometry, and relative-position operators without prematurely elevating GCL RPO hypotheses to established theory.
+unify operator language across attention, position, routing, and conditional computation while keeping standard Transformer mathematics distinct from GCL RPO/SPLICE programme evidence.
 
-## Family 3 — Spectral optimization and dynamics
+## Family 4 — Memory, data, curriculum, and decision
 
-Primary targets:
+Run as two coupled subfamilies with a synthesis checkpoint.
 
-- `ATLAS-CH-SPECTRALSHAPE-001`;
-- `ATLAS-CH-CPS-001`;
-- `ATLAS-CH-SPECTRALDIAG-001`;
-- `ATLAS-CH-ROUTERDYN-001`.
+Memory/data targets include:
 
-Goal:
+- `ATLAS-CH-MEMTAX-001`;
+- `ATLAS-CH-RETRIEVAL-001`;
+- `ATLAS-CH-CONTINUAL-001`;
+- `ATLAS-CH-EXTMEM-001`;
+- `ATLAS-CH-CONTEXTCOMP-001`;
+- tokenizer/data/curriculum descendants.
 
-connect non-normal transient behavior, optimizer-state dynamics, spectral shaping, diagnostics, and conditional-computation dynamics.
+Decision targets include:
 
-## Family 4 — Numerical composition
-
-Primary targets:
-
-- `ATLAS-CH-NETNUM-001`;
-- `ATLAS-CH-ADAPTDEPTH-001`;
-- `ATLAS-CH-BOUNDARYPROBE-001`;
-- `ATLAS-CH-COMPOSE-001`;
-- `ATLAS-CH-NEURALKRYLOV-001`.
+- `ATLAS-CH-RLBASE-001`;
+- `ATLAS-CH-EXPLORE-001`;
+- uncertainty/robustness descendants;
+- optionality/regret descendants.
 
 Goal:
 
-make numerical-analysis language operational for networks and establish the prerequisites that make Boundary Contracts sit naturally inside a broader theory of composition rather than as an isolated GCL idea.
+make the allocation problem among weights, context, memory, experience, and action explicit, and provide a standard substrate for minimal-curriculum and learning-progress questions.
 
-## Family 5 — Evidence, formal methods, and governed research
+## Family 5 — Agents, polity, hardware, and systems
 
-Primary targets:
+Primary spine:
 
-- `ATLAS-CH-EVIDENCE-001`;
+- `ATLAS-CH-AGENTS-001`;
+- `ATLAS-CH-COORD-001`;
+- `ATLAS-CH-EVIDEX-001`;
+- remaining polity/distributed-intelligence descendants;
+- hardware and systems chapters.
+
+Goal:
+
+move from single-model computation to coordinated systems whose behavior depends on communication, persistent memory, tools, evidence exchange, and physical machine constraints.
+
+Hardware chapters may be drafted earlier when another family needs a concrete systems explanation, but they should not become undocumented prerequisites.
+
+## Family 6 — Diagnostics, experiments, formal methods, and governance
+
+Use the Replayable Evidence keystone as the evidentiary style anchor.
+
+Primary spine:
+
+- mechanistic and spectral diagnostic chapters;
 - `ATLAS-CH-EXPERIMENT-001`;
 - `ATLAS-CH-FORMAL-001`;
 - `ATLAS-CH-RESEARCHSM-001`;
@@ -89,37 +164,47 @@ Primary targets:
 
 Goal:
 
-turn Replayable Evidence Objects into one stage of a larger scientific-intelligence architecture: evidence generation, replay, formalization, adjudication, certification, and governed adaptation.
+make diagnosis, experiment, replay, formal support, adjudication, certification, and governed adaptation distinct objects before the final synthesis depends on them.
 
-## Family 6 — Memory, agents, and polity
+## Family 7 — Frontier and global synthesis
 
-Primary targets:
+Do not draft these to completion until the preceding dependency cones are mature:
 
-- memory taxonomy and retrieval;
-- external-memory thesis;
-- context compilation;
-- AETHER/polity coordination descendants;
-- agent/evidence-exchange chapters.
+- `ATLAS-CH-FRONTIER-001`;
+- `ATLAS-CH-SYNTHESIS-001`;
+- explicit frontier-programme chapters whose prerequisites are then mature.
 
 Goal:
 
-connect the Atlas claim that intelligence can be distributed across model, memory, context, tools, agents, humans, and governance.
+synthesize rather than preview.
 
-## Family 7 — Final frontier synthesis
+The final argument should be earned by the dependency graph.
 
-Do not draft `ATLAS-CH-FRONTIER-001` or `ATLAS-CH-SYNTHESIS-001` to completion until the preceding families have supplied their mature local arguments.
-
-The final synthesis should be earned by the graph.
-
-## Tranche rule
+## Family execution rhythm
 
 For each family:
 
-1. identify the smallest dependency-closed tranche;
-2. source-lock the family;
-3. draft at least one mathematically exact style anchor;
-4. build figures/witnesses concurrently with prose;
-5. audit the tranche;
-6. update soft cross-links only after actual manuscript relationships are visible.
+1. recompute the dependency cone;
+2. identify the smallest dependency-closed tranche;
+3. source-lock the family;
+4. update or write chapter specifications where needed;
+5. draft two to five representative chapters;
+6. build figures and computational witnesses concurrently with prose;
+7. audit the representative tranche;
+8. freeze family-local notation and cross-links;
+9. draft the remaining family chapters;
+10. run a family synthesis pass.
 
-This preserves the architecture-first discipline without pretending the original architecture is infallible.
+Do not draft an entire family blindly in parallel. Representative chapters are probes for notation, figure semantics, and hidden prerequisites.
+
+## Global synthesis cadence
+
+Run global synthesis after:
+
+- Family 0;
+- Family 2;
+- the Family 4/5 boundary;
+- Family 6;
+- immediately before release candidate.
+
+The Atlas should become more coherent as it grows, not merely longer.
