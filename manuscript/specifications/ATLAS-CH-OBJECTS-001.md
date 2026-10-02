@@ -43,15 +43,15 @@ Use typed maps:
 [
 xinmathcal X,
 qquad
-F:mathcal X	omathcal Y,
+F:mathcal X\tomathcal Y,
 qquad
-Phi_t:mathcal X	omathcal X,
+Phi_t:mathcal X\tomathcal X,
 ]
 
 and a provisional interface declaration
 
 [
-C_F=(	ext{domain},	ext{codomain},	ext{semantics},	ext{obligations}).
+C_F=(\text{domain},\text{codomain},\text{semantics},\text{obligations}).
 ]
 
 The chapter does not need category theory.
