@@ -42,7 +42,7 @@ A reader should be able to:
 Let a representation map be
 
 [
-r:mathcal X	omathcal Z.
+r:mathcal X\tomathcal Z.
 ]
 
 For group (G) acting on inputs and representation space, define:
@@ -56,13 +56,13 @@ r(gcdot x)=r(x),
 and equivariance
 
 [
-r(gcdot x)=ho(g)r(x).
+r(gcdot x)=\rho(g)r(x).
 ]
 
 Introduce representation equivalence through an invertible recoding
 
 [
-	ilde r = Tcirc r
+\tilde r = Tcirc r
 ]
 
 when downstream maps transform compatibly.
