@@ -1,4 +1,4 @@
-schema_version: "0.1.0"
+schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-OPTDYN-001"
 retrieved: "2026-10-02"
 sources:
@@ -61,6 +61,9 @@ sources:
 gcl_boundary:
   cps_public_source_search: "No separate public Grand Challenge GitHub source for the exact phrase Coupling-Phase Spectroscopy or optimizer-state Jacobian was found in the organization search on 2026-10-02."
   allowed_use: "The chapter may name CPS as a downstream GCL research programme already declared in the Atlas architecture, but must not attribute project-specific empirical results without an exact source lock."
+claim_boundary: >
+  These sources support canonical momentum/Adam formulations and established dynamical/control-system views of optimization. The Atlas toy transient-growth example is local and does not establish frontier-training prevalence; CPS remains programme context without an exact public project-result source.
+
 claim_scope:
   - "The augmented-state recurrence and 1D quadratic Jacobian are Atlas-owned derivations."
   - "The stable non-normal numerical example is an Atlas-owned worked example."
