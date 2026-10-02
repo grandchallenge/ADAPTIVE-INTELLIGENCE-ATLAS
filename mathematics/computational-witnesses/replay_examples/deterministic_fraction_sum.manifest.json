@@ -16,6 +16,6 @@
     "dependencies": "stdlib-only",
     "arithmetic": "fractions.Fraction exact rational arithmetic"
   },
-  "expected_stdout": "1/1\\n",
+  "expected_stdout": "1/1\n",
   "claim_boundary": "Replays a deterministic exact-arithmetic toy computation only; it does not establish a broader mathematical or institutional claim."
 }
