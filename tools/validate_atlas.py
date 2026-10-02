@@ -183,7 +183,7 @@ if len(src_ids) != len(set(src_ids)):
 # Reject hidden control characters in prose/math Markdown. Tabs are forbidden in
 # Atlas-authored Markdown so an accidental JavaScript escape such as \\times -> TAB
 # cannot silently corrupt TeX.
-for root_name in ('manuscript','mathematics'):
+for root_name in ('manuscript','mathematics','governance'):
     for md in (ROOT/root_name).rglob('*.md'):
         raw = md.read_text(encoding='utf-8')
         for i, ch in enumerate(raw):
