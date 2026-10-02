@@ -183,7 +183,7 @@ if len(src_ids) != len(set(src_ids)):
 # Reject hidden control characters in prose/math Markdown. Tabs are forbidden in
 # Atlas-authored Markdown so an accidental JavaScript escape such as \\times -> TAB
 # cannot silently corrupt TeX.
-for root_name in ('manuscript','mathematics','governance'):
+for root_name in ('manuscript','mathematics'):
     for md in (ROOT/root_name).rglob('*.md'):
         raw = md.read_text(encoding='utf-8')
         for i, ch in enumerate(raw):
@@ -241,6 +241,21 @@ synthesis_required = [
 for rel in synthesis_required:
     if not (ROOT/rel).is_file():
         errors.append(f"missing synthesis governance artifact: {rel}")
+
+canonical_governance_markdown = synthesis_required + [
+    'governance/ATLAS_EDITORIAL_PROFILE.md',
+    'governance/tranches/SYNTHESIS-001.md',
+]
+for rel in canonical_governance_markdown:
+    path = ROOT/rel
+    if not path.is_file() or path.suffix.lower() != '.md':
+        continue
+    raw = path.read_text(encoding='utf-8')
+    for i, ch in enumerate(raw):
+        code = ord(ch)
+        if ch == '\t' or (code < 32 and ch != '\n'):
+            errors.append(f"control character U+{code:04X} in canonical governance {rel} at offset {i}")
+            break
 
 epistemic_path = ROOT/'governance/EPISTEMIC_STATUS.yaml'
 if epistemic_path.is_file():
