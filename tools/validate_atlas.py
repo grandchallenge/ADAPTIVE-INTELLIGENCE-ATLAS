@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import sys, yaml
+import sys, re, yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 ledger = yaml.safe_load((ROOT/'governance/CHAPTER_LEDGER.yaml').read_text(encoding='utf-8'))
@@ -112,6 +112,15 @@ src_ids = [s.get('id') for s in sources.get('sources', [])]
 if len(src_ids) != len(set(src_ids)):
     errors.append('duplicate source IDs')
 
+# Manuscript citation closure against the canonical bibliography.
+bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
+bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))
+for md in (ROOT/'manuscript/parts').rglob('*.md'):
+    text = md.read_text(encoding='utf-8')
+    for key in set(re.findall(r'@([A-Za-z0-9:_-]+)', text)):
+        if key not in bib_keys:
+            errors.append(f"unresolved citation key {key} in {md.relative_to(ROOT)}")
+
 if not (60 <= len(chapters) <= 80):
     errors.append(f"chapter count {len(chapters)} outside architecture target")
 
@@ -127,5 +136,5 @@ print(
     f"OK: {len(chapters)} chapters, {edge_count} hard edges, "
     f"{len(roots)} root(s), {specified} specification-ready keystones, "
     f"{drafts} draft keystones, {rendered} rendered witnesses, "
-    f"{len(fig_ids)} registered figures, {len(src_ids)} sources"
+    f"{len(fig_ids)} registered figures, {len(src_ids)} sources, {len(bib_keys)} bibliography keys"
 )

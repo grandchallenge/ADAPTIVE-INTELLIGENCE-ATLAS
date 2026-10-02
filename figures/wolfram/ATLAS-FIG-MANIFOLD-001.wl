@@ -27,7 +27,7 @@ fig = Show[
     Text[Style["x", 14], x + {0, 0, 0.10}],
     Text[Style["Exp_x(v)", 14], expPoint + {0.08, 0, 0.03}],
     Text[Style["R_x(v)", 14], retPoint + {0.08, 0, -0.02}],
-    Text[Style["tangent step", 13], x + 0.55 v + {0, 0, 0.08}]
+    Text[Style["tangent step", 13], x + 0.55 v + {0, 0, 0.08}],\n    Text[Style["T_x S^2", 13], x + {-0.48, 0.42, 0.02}]
   }],
   ParametricPlot3D[
     geodesic[t], {t, 0, 1},

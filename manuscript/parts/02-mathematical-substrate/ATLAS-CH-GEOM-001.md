@@ -195,7 +195,7 @@ For small (|v|), both maps agree to first order. They are not globally identical
 
 That difference is visible in the first Wolfram plate:
 
-![ATLAS-FIG-MANIFOLD-001](../../figures/masters/ATLAS-FIG-MANIFOLD-001.png)
+![Unit sphere with tangent plane at x, a tangent step v, the great-circle exponential-map endpoint, and a distinct normalized-retraction endpoint.](../../figures/masters/ATLAS-FIG-MANIFOLD-001.png)
 
 The figure is generated from the exact unit-sphere formulas in `figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl`. The sphere, tangent plane, tangent vector, exponential-map endpoint, normalized-retraction endpoint, and great-circle arc carry literal mathematical meaning. Perspective, opacity, plane extent, and label placement do not.
 

@@ -327,7 +327,7 @@ That is not a numerical accident. It follows from the exact power formula.
 
 ## 7. The first Atlas plate
 
-![ATLAS-FIG-PSPECTRUM-001](../../figures/masters/ATLAS-FIG-PSPECTRUM-001.png)
+![Two-panel comparison: the non-normal matrix has large finite-horizon 2-norm amplification while the matched normal matrix decays; its epsilon-pseudospectral circles are also much larger despite identical eigenvalues.](../../figures/masters/ATLAS-FIG-PSPECTRUM-001.png)
 
 The left panel compares finite-horizon (2)-norm gain for the non-normal (A) and the matched normal matrix (N_0).
 

@@ -12,8 +12,8 @@ generator:
   system_id: "Linux-x86-64"
   source: "figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl"
   rendered: "figures/masters/ATLAS-FIG-PSPECTRUM-001.png"
-  git_blob_sha1: "b8901f7ef153598e7b6fe60756ef14f808798734"
-  approximate_png_bytes: 54408
+  git_blob_sha1: "cf87cec053f71b22ce25adfd12224fd601a49f9e"
+  approximate_png_bytes: 61065
 parameters:
   a: "4/5"
   K: 4

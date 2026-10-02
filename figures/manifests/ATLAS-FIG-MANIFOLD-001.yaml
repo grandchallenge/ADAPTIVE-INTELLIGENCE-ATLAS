@@ -12,8 +12,8 @@ generator:
   system_id: "Linux-x86-64"
   source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl"
   rendered: "figures/masters/ATLAS-FIG-MANIFOLD-001.png"
-  git_blob_sha1: "aded6f0764e04dd17457a71a32cb4a1ae5d42a84"
-  approximate_png_bytes: 78918
+  git_blob_sha1: "39c6a40522b4d65c8ef34a0c4f6a36119dceab66"
+  approximate_png_bytes: 82032
 parameters:
   x: [0, 0, 1]
   v: [0.8, 0, 0]
