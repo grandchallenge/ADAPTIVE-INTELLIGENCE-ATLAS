@@ -5,14 +5,14 @@
 A representation is modeled as
 
 [
-r:mathcal X	omathcal Z.
+r:mathcal X\tomathcal Z.
 ]
 
 The coordinates in (mathcal Z) are not themselves the semantics.
 
 ## D2. Invariance and equivariance
 
-Let a group element (g) act on inputs and let (ho(g)) act on the representation space.
+Let a group element (g) act on inputs and let (\rho(g)) act on the representation space.
 
 Invariance:
 
@@ -23,25 +23,25 @@ r(gcdot x)=r(x).
 Equivariance:
 
 [
-r(gcdot x)=ho(g)r(x).
+r(gcdot x)=\rho(g)r(x).
 ]
 
 For reflection
 
 [
 G=
-egin{pmatrix}
+\begin{pmatrix}
 -1&0\
 0&1
 end{pmatrix},
 ]
 
-the identity representation (r(x)=x) is equivariant under (ho(G)=G).
+the identity representation (r(x)=x) is equivariant under (\rho(G)=G).
 
 The scalar representation
 
 [
-r_{m inv}(x)=|x|_2^2
+r_{\rm inv}(x)=|x|_2^2
 ]
 
 is invariant under this reflection.
@@ -61,14 +61,14 @@ Let
 [
 zinmathbb R^2,
 qquad
-	ilde z=Tz,
+\tilde z=Tz,
 ]
 
 with invertible
 
 [
 T=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\
 0&1
 end{pmatrix}.
@@ -77,21 +77,21 @@ end{pmatrix}.
 A linear readout
 
 [
-y=w^	op z
+y=w^\top z
 ]
 
 is preserved by choosing
 
 [
-	ilde w=T^{-	op}w.
+\tilde w=T^{-\top}w.
 ]
 
 Then
 
 [
-	ilde w^	op	ilde z
+\tilde w^\top\tilde z
 =
-w^	op z.
+w^\top z.
 ]
 
 For
@@ -107,9 +107,9 @@ the original output is (5).
 The transformed objects are
 
 [
-	ilde z=(5,3),
+\tilde z=(5,3),
 qquad
-	ilde w=(4,-5),
+\tilde w=(4,-5),
 ]
 
 and the output remains (5).
