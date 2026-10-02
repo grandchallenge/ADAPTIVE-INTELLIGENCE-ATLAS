@@ -1,0 +1,60 @@
+schema_version: "0.1.0"
+chapter_id: "ATLAS-CH-GEOM-001"
+retrieved: "2026-10-02"
+sources:
+  - id: "GEOM-LEE-2018"
+    role: "standard differential-geometry reference"
+    type: "book"
+    authors: ["John M. Lee"]
+    title: "Introduction to Riemannian Manifolds"
+    edition: "2"
+    publisher: "Springer"
+    year: 2018
+    doi: "10.1007/978-3-319-91755-9"
+    isbn_ebook: "978-3-319-91755-9"
+    locator: "https://doi.org/10.1007/978-3-319-91755-9"
+    authority_note: "General manifold, Riemannian metric, geodesic, and tangent-space background."
+  - id: "GEOM-ABSIL-MAHONY-SEPULCHRE-2008"
+    role: "canonical matrix-manifold and retraction reference"
+    type: "book"
+    authors: ["P.-A. Absil", "R. Mahony", "R. Sepulchre"]
+    title: "Optimization Algorithms on Matrix Manifolds"
+    publisher: "Princeton University Press"
+    year: 2008
+    isbn: "978-0-691-13298-3"
+    doi_electronic: "10.1515/9781400830244"
+    locator_author: "https://sites.uclouvain.be/absil/amsbook/"
+    locator_doi: "https://doi.org/10.1515/9781400830244"
+    authority_note: "First-order matrix-manifold geometry, retractions, and optimization-oriented definitions."
+  - id: "GEOM-EDELMAN-ARIAS-SMITH-1998"
+    role: "primary Stiefel/Grassmann algorithmic geometry source"
+    type: "article"
+    authors: ["Alan Edelman", "Tomás A. Arias", "Steven T. Smith"]
+    title: "The Geometry of Algorithms with Orthogonality Constraints"
+    journal: "SIAM Journal on Matrix Analysis and Applications"
+    volume: 20
+    issue: 2
+    pages: "303-353"
+    year: 1998
+    doi: "10.1137/S0895479895290954"
+    locator: "https://doi.org/10.1137/S0895479895290954"
+    author_pdf: "https://math.mit.edu/~edelman/publications/geometry_of_algorithms.pdf"
+    authority_note: "Primary source for Stiefel and Grassmann geometry in orthogonality-constrained algorithms."
+  - id: "GEOM-SHOEMAKE-1985"
+    role: "historical SLERP source"
+    type: "conference_article"
+    authors: ["Ken Shoemake"]
+    title: "Animating Rotation with Quaternion Curves"
+    venue: "SIGGRAPH 1985 / ACM SIGGRAPH Computer Graphics"
+    volume: 19
+    issue: 3
+    pages: "245-254"
+    year: 1985
+    doi: "10.1145/325165.325242"
+    locator: "https://doi.org/10.1145/325165.325242"
+    authority_note: "Historical source for spherical linear interpolation terminology and construction in quaternion rotation interpolation."
+claim_scope:
+  - "Sphere tangent-space and normalized-retraction derivations are rederived in the Atlas."
+  - "Stiefel tangent-space condition is rederived from the orthogonality constraint."
+  - "Grassmann quotient interpretation is source-backed and re-expressed in Atlas notation."
+  - "SLERP is derived for unit vectors; Shoemake is used for historical attribution, not as the sole geometry reference."
