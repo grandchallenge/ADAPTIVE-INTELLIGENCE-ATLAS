@@ -39,15 +39,7 @@ If an allegory is used, the chapter must expose:
 
 The required sequence is:
 
-[
-	ext{allegory}
-	o
-	ext{structural mapping}
-	o
-	ext{mathematics}
-	o
-	ext{limit of allegory}.
-]
+allegory -> structural mapping -> mathematics -> limit of allegory.
 
 An allegory must never carry a claim that the mathematics does not support.
 
