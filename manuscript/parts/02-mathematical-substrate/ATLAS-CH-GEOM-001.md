@@ -1,495 +1,529 @@
 # Geometry of Constrained State Spaces
 <!-- ATLAS-CH-GEOM-001 -->
 
-**Epistemic status:** mathematical exposition with source-locked standard results and Atlas-owned derivations.  
-**Primary figure:** `ATLAS-FIG-MANIFOLD-001`  
-**Derivation packet:** `mathematics/derivations/ATLAS-CH-GEOM-001-DERIVATIONS.md`
+**Epistemic status:** mathematical exposition based on standard Riemannian and matrix-manifold geometry, with Atlas-owned elementary derivations.  
+**Primary figure:** \`ATLAS-FIG-MANIFOLD-001\`  
+**Derivation packet:** \`mathematics/derivations/ATLAS-CH-GEOM-001-DERIVATIONS.md\`
 
-## 1. The map and the mountain
+## 1. The space you write in is not always the space you may move in
 
-A vector of numbers can describe a state without telling us which changes of that state are admissible.
+Machine learning often presents objects in ambient Euclidean coordinates. A unit vector lives in \(\mathbb R^d\). An orthonormal frame is stored as an array in \(\mathbb R^{n\times p}\). A subspace may be represented by many different matrices.
 
-That distinction is easy to miss because ordinary neural-network notation is usually written in an ambient Euclidean space. Hidden states are vectors in (mathbb R^d). Weight matrices are arrays in (mathbb R^{m	imes n}). Gradients are represented by vectors of partial derivatives. In that coordinate language, every sufficiently small Euclidean displacement appears legal.
+Coordinates are convenient. They can also hide constraints.
 
-But many computational objects carry constraints that make most ambient displacements wrong.
+If a state must satisfy
 
-A normalized representation may be required to stay on a unit sphere. An orthogonal matrix must remain orthogonal. A matrix whose columns form an orthonormal frame must satisfy (X^	op X=I). A subspace is unchanged when we rotate the basis used to represent it. In each case the coordinates live in a larger space than the object itself.
+\[
+\|x\|=1,
+\]
 
-The useful allegory is a cartographer standing before a mountain. A flat map gives coordinates for the mountain, but a straight line drawn through the paper need not correspond to a walk on the surface. The map is not false. It is simply larger than the set of physically admissible motions.
+then an arbitrary Euclidean step \(x\mapsto x-\eta g\) will generally leave the admissible set. If a matrix must satisfy
 
-The correspondence is:
+\[
+X^\top X=I,
+\]
 
-- the map coordinates are the **ambient space**;
-- the mountain surface is the **admissible state space**;
-- a locally flat patch is the **tangent space**;
-- a shortest admissible route is a **geodesic**;
-- a rule that takes a tangent step and returns us to the surface is a **retraction**.
+then an arbitrary matrix update will generally destroy orthogonality.
 
-The limit of the allegory matters. A mathematical manifold need not be a visible surface embedded in three-dimensional space. Many important manifolds are spaces of matrices or equivalence classes. A retraction is not literally a projection performed by gravity. The image teaches one structural fact only: coordinates can permit motions that the object itself does not.
+The geometric question is therefore:
 
-That fact will recur throughout this Atlas.
+> What are the legal local directions, and how do we turn them into legal finite moves?
 
-## 2. Ambient space versus admissible space
+The useful allegory is a **cartographer walking on a mountain**.
 
-Let (M) denote a smooth state space embedded in an ambient Euclidean space (mathbb R^N). A point (xin M) is represented by (N) coordinates, but those coordinates may satisfy constraints.
+The map coordinates are the ambient coordinates. The mountain surface is the admissible state space. A tangent plane gives a locally linear set of legal directions. A geodesic stays intrinsically on the surface. A retraction takes a locally legal direction and returns a nearby ambient step to the constraint.
 
-The first geometric object we need is the tangent space (T_xM). Informally, it contains the instantaneous velocities of curves that remain in (M).
+The limit of the allegory is important. A manifold need not be a visible surface in three-dimensional space, and a retraction need not be an orthogonal projection. The image teaches constrained motion, not all of differential geometry.
 
-If (gamma:(-epsilon,epsilon)	o M) is differentiable and (gamma(0)=x), then
+## 2. Ambient space and admissible space
 
-[
-dotgamma(0)in T_xM.
-]
+A smooth embedded manifold \(M\subseteq\mathbb R^N\) is locally well approximated by a linear space even though \(M\) need not itself be linear [@Lee2018Riemannian].
 
-The crucial move is that (T_xM) is linear even when (M) is curved. We replace a curved state space locally by a linear space of legal first-order motions.
+At a point \(x\in M\), the tangent space
 
-This gives a recurring pattern:
+\[
+T_xM
+\]
 
-[
-	ext{constrained object}
-longrightarrow
-	ext{tangent linearization}
-longrightarrow
-	ext{legal local update}
-longrightarrow
-	ext{return to the constraint}.
-]
+contains the velocities of differentiable curves through \(x\).
 
-Later chapters will specialize this pattern to manifold optimization, normalized representations, positional geometry, and transport.
+If
 
-For now, the unit sphere gives the cleanest complete example.
+\[
+\gamma:(-\varepsilon,\varepsilon)\to M,
+\qquad
+\gamma(0)=x,
+\]
+
+then
+
+\[
+\dot\gamma(0)\in T_xM.
+\]
+
+This gives a recurring Atlas pattern:
+
+\[
+\boxed{
+\text{constrained object}
+\longrightarrow
+\text{tangent linearization}
+\longrightarrow
+\text{local update}
+\longrightarrow
+\text{return to the constraint}.
+}
+\]
+
+The tangent space is linear. The manifold is not.
+
+That distinction will later let us separate “what direction should the optimizer choose?” from “how should the chosen direction be represented as a legal state update?”
 
 ## 3. The unit sphere
 
-Define
+Consider
 
-[
+\[
 S^{d-1}
 =
-{xinmathbb R^d:|x|_2=1}.
-]
+\{x\in\mathbb R^d:x^\top x=1\}.
+\]
 
-The sphere is an admissible state space cut out of (mathbb R^d) by the constraint
+Let \(\gamma(t)\in S^{d-1}\) with
 
-[
-x^	op x=1.
-]
+\[
+\gamma(0)=x,
+\qquad
+\dot\gamma(0)=v.
+\]
 
-Take a differentiable curve (gamma(t)in S^{d-1}) with (gamma(0)=x) and velocity (v=dotgamma(0)). Because the curve stays on the sphere,
+Because the curve remains on the sphere,
 
-[
-gamma(t)^	opgamma(t)=1.
-]
+\[
+\gamma(t)^\top\gamma(t)=1.
+\]
 
-Differentiating at (t=0),
+Differentiate at \(t=0\):
 
-[
-2x^	op v=0.
-]
+\[
+2x^\top v=0.
+\]
 
-Therefore
+Hence
 
-[
-oxed{
+\[
+\boxed{
 T_xS^{d-1}
 =
-{vinmathbb R^d:x^	op v=0}.
+\{v\in\mathbb R^d:x^\top v=0\}.
 }
-]
+\]
 
-The tangent space is exactly the hyperplane orthogonal to (x).
+The tangent space is the hyperplane orthogonal to \(x\).
 
-This is already enough to expose the difference between an ambient gradient and a geometric direction. If an unconstrained update proposes a vector (ginmathbb R^d), the component parallel to (x) tries to change the radius. The tangent component is
+If \(g\in\mathbb R^d\) is an arbitrary ambient direction, its tangent component is
 
-[
-g_{mathrm{tan}}
+\[
+g_{\rm tan}
 =
-g-(x^	op g)x.
-]
+g-(x^\top g)x.
+\]
 
-That is a legal first-order direction on the sphere.
+The geometry has already changed the update rule. The radial component is not a legal first-order direction.
 
-The phrase **first-order** is important. The point (x+g_{mathrm{tan}}) does not generally lie on the sphere. Tangency constrains velocity, not finite displacement.
+## 4. Retractions: step locally, return legally
 
-## 4. Retraction: step locally, return globally
+A retraction \(R_x:T_xM\to M\) is a smooth local map satisfying, at minimum,
 
-A retraction is a controlled way to convert a tangent displacement into a new point on the manifold. In the optimization-oriented formulation used by Absil, Mahony, and Sepulchre, a retraction locally agrees with the manifold at the base point and has the identity as its first derivative on the tangent space [@AbsilMahonySepulchre2008].
-
-For the unit sphere, the simplest useful retraction is normalization:
-
-[
-R_x(v)
-=
-rac{x+v}{|x+v|},
-qquad
-vin T_xS^{d-1}.
-]
-
-It obviously returns a unit vector. More importantly,
-
-[
+\[
 R_x(0)=x
-]
+\]
 
 and
 
-[
-D R_x(0)[v]=v.
-]
+\[
+DR_x(0)=\operatorname{id}_{T_xM}.
+\]
 
-The derivation is short enough that there is no reason to hide it.
+For the sphere, a simple retraction is normalization:
+
+\[
+\boxed{
+R_x(v)
+=
+\frac{x+v}{\|x+v\|},
+\qquad
+v\in T_xS^{d-1}.
+}
+\]
+
+Why is this a valid first-order retraction?
+
+Set
+
+\[
+r(t)
+=
+\frac{x+tv}{\|x+tv\|}.
+\]
+
+Because \(x^\top v=0\) and \(\|x\|=1\),
+
+\[
+r'(0)=v.
+\]
+
+So the map agrees with the tangent direction to first order while returning every sufficiently small step to the sphere.
+
+This is a common numerical idea: do the difficult reasoning in a linear tangent space, then use a controlled map back to the nonlinear constraint.
+
+Matrix-manifold optimization develops this pattern systematically [@AbsilMahonySepulchre2008].
+
+## 5. Retraction is not exponential map
+
+The Riemannian exponential map moves along a geodesic.
+
+On the unit sphere, for nonzero \(v\in T_xS^{d-1}\),
+
+\[
+\operatorname{Exp}_x(v)
+=
+\cos(\|v\|)x
++
+\sin(\|v\|)
+\frac{v}{\|v\|}.
+\]
+
+The normalized retraction is
+
+\[
+R_x(v)
+=
+\frac{x+v}{\sqrt{1+\|v\|^2}},
+\]
+
+because \(x^\top v=0\).
+
+Both are legal maps back to the sphere. They are not the same map.
+
+For small \(v\),
+
+\[
+\operatorname{Exp}_x(v)
+=
+x+v-\frac{\|v\|^2}{2}x+O(\|v\|^3),
+\]
+
+and
+
+\[
+R_x(v)
+=
+x+v-\frac{\|v\|^2}{2}x+O(\|v\|^3).
+\]
+
+They agree through the first-order retraction requirement and share the same quadratic radial correction, but differ at higher order.
+
+This distinction matters later. “Geometry-aware” should not become a vague synonym for “normalize after every step.”
+
+## 6. The primary geometric plate
+
+The Atlas figure fixes
+
+\[
+x=(0,0,1),
+\qquad
+v=(0.8,0,0).
+\]
+
+Since
+
+\[
+x^\top v=0,
+\]
+
+\(v\) is tangent to the sphere at \(x\).
+
+The figure shows:
+
+- the unit sphere;
+- the tangent plane at \(x\);
+- the tangent vector \(v\);
+- the spherical exponential-map endpoint;
+- the normalized-retraction endpoint;
+- the great-circle direction.
+
+![Unit sphere with the tangent plane at x, a tangent vector v, and separate exponential-map and normalized-retraction endpoints.](../../figures/masters/ATLAS-FIG-MANIFOLD-001.png)
+
+The plate is partly schematic. Perspective, tangent-plane extent, and label placement are pedagogical. The plotted points themselves are generated from the stated equations.
+
+Its purpose is to make one fact visible:
+
+> a tangent vector belongs to a linear space, but a finite update must still be interpreted through the manifold.
+
+## 7. Geodesics and spherical distance
+
+On a Riemannian manifold, a geodesic generalizes the idea of a locally straight path.
+
+For unit vectors \(x,y\in S^{d-1}\), define their angle
+
+\[
+\theta
+=
+\arccos(x^\top y),
+\qquad
+0\le\theta\le\pi.
+\]
+
+For non-antipodal endpoints, the shorter great-circle distance is
+
+\[
+d_{S}(x,y)=\theta.
+\]
+
+The ambient chord distance is
+
+\[
+\|x-y\|
+=
+2\sin\frac{\theta}{2}.
+\]
+
+For small \(\theta\),
+
+\[
+2\sin\frac{\theta}{2}
+=
+\theta+O(\theta^3),
+\]
+
+so local Euclidean distance approximates geodesic distance.
+
+Globally they are different.
+
+This is a simple example of a recurring principle: local linearization can be excellent without making the global geometry flat.
+
+## 8. SLERP: interpolate on the sphere
 
 Let
 
-[
-r(t)
+\[
+x^\top y=\cos\theta,
+\qquad
+0<\theta<\pi.
+\]
+
+Spherical linear interpolation is
+
+\[
+\boxed{
+\operatorname{SLERP}(x,y;t)
 =
-rac{x+t v}{|x+t v|}.
-]
-
-Then
-
-[
-r'(0)
-=
-v-x(x^	op v).
-]
-
-For tangent (v), (x^	op v=0), so
-
-[
-r'(0)=v.
-]
-
-Thus normalization preserves the intended tangent direction to first order.
-
-This is the first place where geometric language earns its keep. “Normalize after every step” can sound like an implementation trick. “Use a retraction on the sphere” says what structural property the operation has: it is a local approximation to legal manifold motion.
-
-## 5. Exponential map versus retraction
-
-A retraction should not be confused with exact geodesic motion.
-
-On the unit sphere, for nonzero tangent (v),
-
-[
-operatorname{Exp}_x(v)
-=
-cos(|v|)x
+\frac{\sin((1-t)\theta)}{\sin\theta}x
 +
-sin(|v|)rac{v}{|v|}.
-]
+\frac{\sin(t\theta)}{\sin\theta}y,
+\qquad
+0\le t\le1.
+}
+\]
 
-This point lies on the great circle determined by (x) and (v), at geodesic distance (|v|) from (x).
-
-By contrast,
-
-[
-R_x(v)
-=
-rac{x+v}{sqrt{1+|v|^2}},
-]
-
-where the denominator simplifies because (x^	op v=0).
-
-For small (|v|), both maps agree to first order. They are not globally identical.
-
-That difference is visible in the first Wolfram plate:
-
-![Unit sphere with tangent plane at x, a tangent step v, the great-circle exponential-map endpoint, and a distinct normalized-retraction endpoint.](../../figures/masters/ATLAS-FIG-MANIFOLD-001.png)
-
-The figure is generated from the exact unit-sphere formulas in `figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl`. The sphere, tangent plane, tangent vector, exponential-map endpoint, normalized-retraction endpoint, and great-circle arc carry literal mathematical meaning. Perspective, opacity, plane extent, and label placement do not.
-
-The distinction will matter later. A retraction is often cheaper than an exponential map and may be entirely adequate for an optimization method. But replacing one by the other changes the finite step.
-
-## 6. Spherical interpolation
-
-Suppose (x,yin S^{d-1}) are unit vectors with
-
-[
-x^	op y=cos	heta,
-qquad
-0<	heta<pi.
-]
-
-The shorter great-circle interpolation is
-
-[
-operatorname{SLERP}(x,y;t)
-=
-rac{sin((1-t)	heta)}{sin	heta}x
-+
-rac{sin(t	heta)}{sin	heta}y,
-qquad
-0le tle1.
-]
-
-The acronym comes from spherical linear interpolation, historically associated with Shoemake's quaternion interpolation work [@Shoemake1985]. The geometry itself is broader than quaternions.
-
-The important property is not that the coefficients look elegant. It is that the interpolation remains on the sphere.
+Shoemake introduced SLERP in quaternion interpolation for computer animation [@Shoemake1985]. The underlying formula is simply great-circle interpolation on a sphere.
 
 Writing
 
-[
-alpha
+\[
+\alpha
 =
-rac{sin((1-t)	heta)}{sin	heta},
-qquad
-eta
+\frac{\sin((1-t)\theta)}{\sin\theta},
+\qquad
+\beta
 =
-rac{sin(t	heta)}{sin	heta},
-]
+\frac{\sin(t\theta)}{\sin\theta},
+\]
 
-we have
+we obtain
 
-[
-|alpha x+eta y|^2
+\[
+\|\alpha x+\beta y\|^2
 =
-alpha^2+eta^2+2alphaetacos	heta
+\alpha^2+\beta^2+2\alpha\beta\cos\theta
 =
 1.
-]
+\]
 
-The path therefore preserves unit norm exactly.
+So the path remains on the unit sphere exactly.
 
-At (	heta=0), the apparent singularity is removable: the endpoints coincide. At (	heta=pi), the singularity expresses a genuine geometric ambiguity. Antipodal points have infinitely many shortest great-circle connections. The formula cannot choose a direction that the data did not specify.
+There are two important boundaries:
 
-This is a useful example of a broader lesson: singular formulas are not always numerical defects. Sometimes they faithfully report that the underlying object is not uniquely determined.
+- as \(\theta\to0\), the apparent singularity is removable;
+- at \(\theta=\pi\), the shortest geodesic is not unique, so an additional directional choice is required.
 
-## 7. From spheres to orthonormal frames
+The antipodal singularity is geometric information, not merely a numerical nuisance.
 
-The sphere constrains one vector. Many learning systems constrain several vectors or matrix columns simultaneously.
+## 9. Stiefel geometry: orthonormal frames
 
-The real Stiefel manifold is
+For \(X\in\mathbb R^{n\times p}\), the Stiefel manifold is
 
-[
-operatorname{St}(n,p)
+\[
+\operatorname{St}(n,p)
 =
-{Xinmathbb R^{n	imes p}:X^	op X=I_p}.
-]
+\{X:X^\top X=I_p\}.
+\]
 
-Its points are ordered orthonormal (p)-frames in (mathbb R^n). When (p=1), the Stiefel manifold reduces to a sphere.
+Its points are ordered orthonormal \(p\)-frames.
 
-Let (X(t)inoperatorname{St}(n,p)) be differentiable with (X(0)=X) and (dot X(0)=Z). Differentiate the constraint:
+Let \(X(t)\in\operatorname{St}(n,p)\) and set
 
-[
-X(t)^	op X(t)=I_p.
-]
+\[
+X(0)=X,
+\qquad
+\dot X(0)=Z.
+\]
 
-At (t=0),
+Differentiate
 
-[
-Z^	op X+X^	op Z=0.
-]
+\[
+X(t)^\top X(t)=I_p.
+\]
 
-Thus
+At \(t=0\),
 
-[
-oxed{
-T_Xoperatorname{St}(n,p)
+\[
+Z^\top X+X^\top Z=0.
+\]
+
+Therefore
+
+\[
+\boxed{
+T_X\operatorname{St}(n,p)
 =
-{Z:X^	op Z+Z^	op X=0}.
+\{Z:X^\top Z+Z^\top X=0\}.
 }
-]
+\]
 
-This condition says that (X^	op Z) must be skew-symmetric.
+This is the matrix analogue of the sphere condition \(x^\top v=0\).
 
-The result is the matrix analogue of the sphere condition (x^	op v=0). In both cases, differentiating the constraint reveals the legal first-order directions.
+The Stiefel manifold is especially important in optimization with orthogonality constraints; Edelman, Arias, and Smith provide a canonical geometric treatment [@EdelmanAriasSmith1998].
 
-The geometry and algorithms of Stiefel and Grassmann manifolds are developed in detail by Edelman, Arias, and Smith [@EdelmanAriasSmith1998], and by Absil, Mahony, and Sepulchre [@AbsilMahonySepulchre2008]. The Atlas will use only the portion needed for learning systems: what the object is, what counts as a legal direction, how redundant coordinates arise, and how an update can respect those structures.
+## 10. Grassmann geometry: the frame is not the subspace
 
-## 8. Frames are not subspaces
+A Stiefel matrix \(X\) stores an ordered orthonormal basis.
 
-A point (Xinoperatorname{St}(n,p)) carries more information than the subspace spanned by its columns.
+But if the object of interest is only the \(p\)-dimensional subspace spanned by its columns, then
 
-For any orthogonal (Qin O(p)),
+\[
+X
+\]
 
-[
-(XQ)^	op(XQ)
-=
-Q^	op X^	op XQ
-=
-I,
-]
+and
 
-so (XQ) is another Stiefel point. But
+\[
+XQ,
+\qquad
+Q\in O(p),
+\]
 
-[
-operatorname{span}(XQ)
-=
-operatorname{span}(X).
-]
+represent the same subspace.
 
-If the problem depends only on the subspace, then (X) and (XQ) represent the same mathematical object.
+The Grassmann manifold identifies all such frames:
 
-That object belongs to the Grassmann manifold:
+\[
+\boxed{
+\operatorname{Gr}(n,p)
+\cong
+\operatorname{St}(n,p)/O(p).
+}
+\]
 
-[
-operatorname{Gr}(n,p)
-cong
-operatorname{St}(n,p)/O(p).
-]
+This is the first important quotient-geometry example in the Atlas.
 
-This quotient is not cosmetic notation. It changes what counts as a meaningful displacement.
+A parameterization can contain distinctions that the represented object does not.
 
-Imagine describing a plane through the origin using two orthonormal basis vectors. Rotating those two basis vectors within the plane changes the frame but not the plane. If an objective depends only on the plane, movement corresponding purely to basis rotation is representational redundancy.
+Later, when we discuss semantic equivalence and benign nonconvexity, this pattern returns in a broader form:
 
-This is the first bridge to quotient geometry, which later chapters will develop explicitly.
+> if two parameter states represent the same functional object, should the optimization landscape distinguish them?
 
-## 9. Coordinates, objects, and redundancy
+The Grassmannian gives a clean finite-dimensional case where the answer is no.
 
-The Atlas repeatedly asks whether a difficult learning problem is difficult because the underlying object is difficult, or because the coordinates used to represent it introduce unnecessary degrees of freedom.
+## 11. Geometry changes what an optimizer is allowed to do
 
-Geometry gives a disciplined way to ask that question.
+Suppose \(f:M\to\mathbb R\).
 
-Three spaces may need to be distinguished:
+In ambient coordinates, automatic differentiation may give an ordinary gradient \(\nabla f\). A manifold-aware method must convert that ambient information into a tangent direction and then map a finite step back to \(M\).
 
-1. the **ambient coordinate space** in which we store numbers;
-2. the **constraint manifold** describing admissible states;
-3. a possible **quotient space** identifying coordinates that represent the same semantic object.
+Schematically,
 
-For a unit vector, the first two are enough:
+\[
+\nabla f
+\longrightarrow
+\operatorname{Proj}_{T_xM}(\nabla f)
+\longrightarrow
+v
+\longrightarrow
+R_x(v).
+\]
 
-[
-mathbb R^d
-supset
-S^{d-1}.
-]
+The exact Riemannian gradient depends on the chosen metric, and later chapters will treat that carefully.
 
-For an orthonormal frame representing only a subspace, all three appear:
+The present chapter establishes the more basic point:
 
-[
-mathbb R^{n	imes p}
-supset
-operatorname{St}(n,p)
-	o
-operatorname{Gr}(n,p).
-]
+> constraints are part of the state geometry, so they should appear in the update mathematics rather than only as after-the-fact repairs.
 
-The move from parameters to geometry is therefore not “replace vectors by manifolds everywhere.” It is:
+## 12. Four mistakes to avoid
 
-> identify the actual object, then choose mathematics that respects the object's admissible motions and equivalences.
+### Mistake 1: “The tangent space is the manifold.”
 
-Sometimes the actual object really is Euclidean. The geometric treatment should then reduce to ordinary linear algebra and calculus.
+No. It is a local linearization at one point.
 
-## 10. Why this matters for adaptive intelligence
+### Mistake 2: “Normalization is the exponential map.”
 
-The immediate machine-learning consequence is not that every hidden state should be normalized.
+No. On the sphere it is a useful retraction, not the same finite map as geodesic motion.
 
-It is that architectural constraints create geometry whether or not the implementation acknowledges it.
+### Mistake 3: “A Stiefel point and a Grassmann point are the same object.”
 
-If a state is constrained to unit norm, radial motion is not part of the represented degree of freedom. If a weight matrix is orthogonal, an unconstrained gradient contains components that attempt to leave the orthogonal group or Stiefel manifold. If several parameterizations encode the same function or subspace, Euclidean distance in parameter coordinates may measure representational redundancy rather than semantic change.
+No. The first is an ordered frame; the second is a subspace modulo basis change.
 
-This changes how we should interpret optimization.
+### Mistake 4: “Local Euclidean behavior means the space is globally Euclidean.”
 
-A generic Euclidean update is
-
-[
-x_{t+1}=x_t-eta g_t.
-]
-
-A geometry-aware update separates three operations:
-
-[
-	ext{ambient signal}
-longrightarrow
-	ext{tangent direction}
-longrightarrow
-	ext{manifold-respecting finite step}.
-]
-
-On the sphere, a simple version is
-
-[
-g_t^{mathrm{tan}}
-=
-g_t-(x_t^	op g_t)x_t,
-]
-
-followed by
-
-[
-x_{t+1}
-=
-R_{x_t}(-eta g_t^{mathrm{tan}}).
-]
-
-Later chapters will ask whether such geometry is merely a constraint-handling device or whether it can provide a better inductive organization for representation learning itself.
-
-That is a research question, not a theorem of this chapter.
-
-## 11. Four mistakes to avoid
-
-### Mistake 1: “A tangent step stays on the manifold.”
-
-No. A tangent vector is an infinitesimal direction. The finite point (x+v) generally leaves the manifold.
-
-### Mistake 2: “Retraction means exponential map.”
-
-No. A retraction matches the manifold locally to the required order. The exponential map follows geodesics exactly.
-
-### Mistake 3: “An embedded manifold is globally flat because every tangent space is linear.”
-
-No. Tangent spaces are local linear models. Curvature appears precisely in how those local models change and fail to identify globally.
-
-### Mistake 4: “A matrix representation is the object.”
-
-Not always. On the Grassmannian, many Stiefel frames represent the same subspace. Similar quotient phenomena recur throughout learning systems.
-
-These mistakes are worth stating explicitly because later chapters will use the geometric vocabulary compactly.
-
-## 12. What the figure establishes
-
-The Wolfram witness in this chapter is deliberately modest.
-
-It establishes, for a specific unit-sphere example, that:
-
-- the tangent vector lies in the tangent plane;
-- the spherical exponential map follows the great circle;
-- normalization yields a different finite endpoint;
-- both endpoints remain on the sphere.
-
-It does not establish that a neural hidden state empirically lies on a sphere, that normalization is always beneficial, or that a specific optimizer should use the exponential map.
-
-The figure carries geometry, not architectural advocacy.
+No. Local tangent approximations coexist with global curvature and topological structure.
 
 ## 13. Atlas connections
 
-This chapter supplies the mathematical language for several later moves.
-
 **Normalized representations.**  
-If hidden states are constrained to (S^{d-1}), angular information and tangent transport become primary objects.
+Unit-norm states move naturally on spheres rather than unconstrained Euclidean space.
 
-**Quotient geometry.**  
-The Stiefel/Grassmann distinction provides the first concrete example of coordinate redundancy being removed by an equivalence relation.
+**Optimization on manifolds.**  
+Tangent gradients, retractions, and matrix manifolds turn the present geometry into algorithms.
 
-**Positional geometry.**  
-Rotary and spherical positional mechanisms act through structured transformations whose geometry matters.
-
-**Manifold optimization.**  
-Gradients, retractions, and transport will later be used algorithmically rather than merely descriptively.
+**Position geometry.**  
+Rotations and spherical constructions recur in positional encodings.
 
 **Representation as transport.**  
-A layer can be viewed not only as a function evaluation but as movement through a structured state space.
+A representation update can be treated as motion through a constrained state space.
 
-The point is not that geometry replaces neural computation. The point is that once the computational state has structure, geometry tells us which changes are meaningful.
+**Quotient geometry.**  
+Grassmann geometry supplies the simplest durable example of removing representational redundancy.
 
-## 14. Closing coordinate change
+The recurring Atlas shift is:
 
-The Euclidean picture asks:
+\[
+\boxed{
+\text{parameters as coordinates}
+\longrightarrow
+\text{parameters as points in a structured state space}.
+}
+\]
 
-> In which direction should this vector move?
+## 14. Closing view
 
-The geometric picture asks three questions:
+The mountain allegory is useful only until the mathematics becomes visible.
 
-> What object does this vector represent?
+A constrained representation has an admissible state space. At each point, tangent geometry tells us which first-order motions are legal. Geodesics describe intrinsic motion. Retractions provide practical finite updates. Quotient geometry tells us when different coordinates describe the same underlying object.
 
-> Which infinitesimal motions are legal for that object?
+The map is not the territory.
 
-> How should a finite computation realize such a motion without destroying the constraint?
-
-That is a small change in wording and a large change in architecture.
-
-The map was never the mountain. But a good map tells us how to walk on it.
+The ambient coordinates are not the admissible state space.
 
 ## References used in this chapter
 
@@ -498,4 +532,4 @@ The map was never the mountain. But a good map tells us how to walk on it.
 - [@EdelmanAriasSmith1998]
 - [@Shoemake1985]
 
-See `sources/source-locks/ATLAS-CH-GEOM-001.yaml` for exact source identities and claim scope.
+See \`sources/source-locks/ATLAS-CH-GEOM-001.yaml\` for exact source identities and claim scope.
