@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-REP-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  These sources support representation-learning framing, group equivariance,
+  identifiability limitations for unsupervised disentanglement, and a bounded research
+  example of neural superposition. The chapter's broader equivalence/invariant synthesis
+  is Atlas-owned and should be labeled as such.
+sources:
+  - id: "REP-BENGIO-COURVILLE-VINCENT-2013"
+    citation_key: "BengioCourvilleVincent2013"
+    kind: "peer-reviewed-review"
+    title: "Representation Learning: A Review and New Perspectives"
+    authors: "Yoshua Bengio; Aaron Courville; Pascal Vincent"
+    journal: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+    volume: 35
+    number: 8
+    pages: "1798-1828"
+    year: 2013
+    doi: "10.1109/TPAMI.2013.50"
+    authority: "Established representation-learning framing and major representation-learning approaches."
+  - id: "REP-COHEN-WELLING-2016"
+    citation_key: "CohenWelling2016"
+    kind: "peer-reviewed-conference"
+    title: "Group Equivariant Convolutional Networks"
+    authors: "Taco Cohen; Max Welling"
+    venue: "ICML / PMLR 48"
+    pages: "2990-2999"
+    year: 2016
+    authority: "Concrete group-equivariant neural construction and symmetry motivation."
+  - id: "REP-LOCATELLO-2019"
+    citation_key: "LocatelloEtAl2019"
+    kind: "peer-reviewed-conference"
+    title: "Challenging Common Assumptions in the Unsupervised Learning of Disentangled Representations"
+    authors: "Francesco Locatello et al."
+    venue: "ICML / PMLR 97"
+    pages: "4114-4124"
+    year: 2019
+    authority: "Identifiability/impossibility limitations for unsupervised disentanglement without inductive biases."
+  - id: "REP-ELHAGE-SUPERPOSITION-2022"
+    citation_key: "ElhageEtAl2022Superposition"
+    kind: "research-article-non-peer-reviewed"
+    title: "Toy Models of Superposition"
+    authors: "Nelson Elhage et al."
+    venue: "Transformer Circuits Thread"
+    year: 2022
+    url: "https://transformer-circuits.pub/2022/toy_model/index.html"
+    authority: "Toy-model research evidence and vocabulary for feature superposition; not an established universal theorem about neural representations."
+atlas_sources:
+  - id: "REP-GEOMETRY-KEYSTONE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md"
+    authority: "Existing audited Atlas geometry substrate consumed by Representation."
+epistemic_rules:
+  - "Invariance, equivariance and identifiability are distinct properties."
+  - "Disentanglement is not assumed identifiable without inductive bias."
+  - "Superposition discussion must retain toy-model/research-programme scope."
+  - "Representation equivalence is Atlas synthesis unless tied to a specific established equivalence relation."
