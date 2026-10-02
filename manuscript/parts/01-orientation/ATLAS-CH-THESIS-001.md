@@ -440,3 +440,7 @@ Whether that wager survives is the work of the chapters ahead.
 The Atlas begins by naming the territory.
 
 It will spend the rest of the book trying to deserve the map.
+
+## References used in this chapter
+
+This chapter is Atlas synthesis. Its load-bearing documentary sources are the source inventory, Atlas Map, Editorial Profile, and Chapter Composition Protocol bound in sources/source-locks/ATLAS-CH-THESIS-001.yaml. External mathematical claims are deferred to the downstream chapters that source them directly.
