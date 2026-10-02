@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted by SYNTHESIS-001 pending merge.
+Accepted on merge of SYNTHESIS-001.
 
 ## Context
 
