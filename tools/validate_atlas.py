@@ -242,6 +242,21 @@ for rel in synthesis_required:
     if not (ROOT/rel).is_file():
         errors.append(f"missing synthesis governance artifact: {rel}")
 
+canonical_governance_markdown = synthesis_required + [
+    'governance/ATLAS_EDITORIAL_PROFILE.md',
+    'governance/tranches/SYNTHESIS-001.md',
+]
+for rel in canonical_governance_markdown:
+    path = ROOT/rel
+    if not path.is_file() or path.suffix.lower() != '.md':
+        continue
+    raw = path.read_text(encoding='utf-8')
+    for i, ch in enumerate(raw):
+        code = ord(ch)
+        if ch == '\t' or (code < 32 and ch != '\n'):
+            errors.append(f"control character U+{code:04X} in canonical governance {rel} at offset {i}")
+            break
+
 epistemic_path = ROOT/'governance/EPISTEMIC_STATUS.yaml'
 if epistemic_path.is_file():
     epistemic = yaml.safe_load(epistemic_path.read_text(encoding='utf-8'))
