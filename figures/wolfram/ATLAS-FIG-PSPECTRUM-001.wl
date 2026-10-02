@@ -44,7 +44,7 @@ pseudo = Graphics[
     PointSize[0.018], Point[{a, 0}],
     Text[Style["eigenvalue a", 13], {a + 0.15, 0.08}],
     Text[Style["solid: non-normal", 12], {-0.7, 1.0}],
-    Text[Style["dashed: normal", 12], {-0.7, 0.82}]
+    Text[Style["dashed: normal", 12], {-0.7, 0.82}],\n    Table[\n      Text[Style["eps=" <> ToString[eps], 10],\n        {a, 0} + 1.06 rNon[eps] {Cos[0.45], Sin[0.45]}],\n      {eps, epsilons}\n    ]
   },
   Frame -> True,
   FrameLabel -> {"Re z", "Im z"},
