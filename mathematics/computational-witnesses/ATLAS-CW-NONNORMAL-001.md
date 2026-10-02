@@ -1,103 +1,120 @@
 # ATLAS-CW-NONNORMAL-001 — Non-normal Transient-Growth Witness
 
-**Chapter:** `ATLAS-CH-NONNORMAL-001`  
+**Chapter:** \`ATLAS-CH-NONNORMAL-001\`  
 **System:** Wolfram Language 15.0.1 for Linux x86 (64-bit), July 2 2026  
 **System ID:** Linux-x86-64  
-**MaxExtraPrecision:** 50  
-**Norm:** spectral/operator (2)-norm  
-**Figure source:** `figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl`
+**Norm:** spectral/operator \(2\)-norm  
+**Figure source:** \`figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl\`
 
-## Matrix
+## Matrices
 
-[
+\[
 A=
-egin{pmatrix}
-4/5&4\
+\begin{pmatrix}
+4/5&4\\
 0&4/5
-end{pmatrix},
-qquad
-N_0=(4/5)I.
-]
+\end{pmatrix},
+\qquad
+N_0=\frac45I.
+\]
 
-## Symbolic power check
+Both matrices have the same eigenvalue \(4/5\), with multiplicity two.
 
-Wolfram returned, for integer (nge1),
+## Exact power check
 
-[
+For integer \(n\ge1\),
+
+\[
 A^n
 =
-egin{pmatrix}
-(5/4)^{-n}&4^n5^{1-n}n\
-0&(5/4)^{-n}
-end{pmatrix},
-]
-
-which simplifies to
-
-[
-egin{pmatrix}
-(4/5)^n&4n(4/5)^{n-1}\
-0&(4/5)^n
-end{pmatrix}.
-]
+\begin{pmatrix}
+(4/5)^n&
+4n(4/5)^{n-1}\\
+0&
+(4/5)^n
+\end{pmatrix}.
+\]
 
 ## Singular-value check
 
 For
 
-[
+\[
 B=
-egin{pmatrix}
-p&q\0&p
-end{pmatrix},
-]
+\begin{pmatrix}
+p&q\\
+0&p
+\end{pmatrix},
+\]
 
-Wolfram returned the squared singular values
+Wolfram confirms squared singular values
 
-[
-rac{2p^2+q^2mp |q|sqrt{4p^2+q^2}}{2}.
-]
+\[
+\frac{
+2p^2+q^2
+\pm
+|q|\sqrt{4p^2+q^2}
+}{2}.
+\]
 
 ## Finite-horizon check
 
-Over (n=0,ldots,40), Wolfram returned
+Over \(n=0,\ldots,40\),
 
-[
-max|A^n|_2
+\[
+\max_n\|A^n\|_2
 =
-8.212429054411118
-]
+8.2124290544\ldots
+\]
 
 at
 
-[
+\[
 n=4.
-]
+\]
+
+By contrast,
+
+\[
+\|N_0^n\|_2
+=
+(4/5)^n.
+\]
 
 ## Pseudospectral-boundary check
 
-For the exact smallest-singular-value formula, substituting
+For
 
-[
-r^2=arepsilon(arepsilon+K)
-]
+\[
+r^2
+=
+\varepsilon(\varepsilon+K),
+\]
 
-simplified the residual
+Wolfram symbolically verifies that the exact smallest-singular-value expression satisfies
 
-[
-sigma_{min}^2-arepsilon^2
-]
+\[
+\sigma_{\min}^2-\varepsilon^2=0.
+\]
 
-to exactly (0).
+For \(K=4\), the non-normal boundary radius is
+
+\[
+\sqrt{\varepsilon(\varepsilon+4)},
+\]
+
+while the normal boundary radius is
+
+\[
+\varepsilon.
+\]
 
 ## Rendered witness
 
-`figures/masters/ATLAS-FIG-PSPECTRUM-001.png`
+\`figures/masters/ATLAS-FIG-PSPECTRUM-001.png\`
 
-Committed PNG Git blob:
+The active figure manifest records the displayed epsilon levels, parameters, and literal/nonliteral semantics.
 
-`cf87cec053f71b22ce25adfd12224fd601a49f9e`.
+## Claim boundary
 
-The earlier KEYSTONE-002 render blob `b8901f7ef153598e7b6fe60756ef14f808798734` was superseded during AUDIT-001 by an epsilon-label/panel-title rerender; the underlying matrices, exact radii, and gain calculations are unchanged.\n\n## Claim boundary
-
-This witness establishes the exact finite-dimensional example and its rendering. It does not infer the prevalence or cause of transient instability in any learned system.
+The witness establishes exact finite-dimensional behavior for the stated matrices. It does not establish that non-normality is sufficient for large transient growth in general, nor that the same mechanism is responsible for a particular learning-system failure.

@@ -1,0 +1,22 @@
+id: "ATLAS-FIG-ATTNOP-001"
+chapter_id: "ATLAS-CH-ATTNOP-001"
+title: "Attention as a state-dependent operator"
+status: "rendered-witness"
+representation_class: "data-derived"
+literal_semantics: "All displayed matrix entries are computed from Q=K=[[1,0],[0,1],[1,1]], V=[[1,0],[0,1],[1,-1]], d_k=2, row-wise softmax, and Y=AV."
+nonliteral_semantics: "Gray intensity, panel spacing, cell size, and text placement are presentation choices; numeric cell labels are the authoritative displayed values."
+support_role: "Make the distinction among scores, normalized mixing operator, value field, and operator output explicit."
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  source: "figures/wolfram/ATLAS-FIG-ATTNOP-001.wl"
+  rendered: "figures/masters/ATLAS-FIG-ATTNOP-001.png"
+  git_blob_sha1: "2ba96f6f30311c117f27c0717961145ce9cbb0cd"
+  approximate_png_bytes: 24852
+parameters:
+  Q: [[1,0],[0,1],[1,1]]
+  K: [[1,0],[0,1],[1,1]]
+  V: [[1,0],[0,1],[1,-1]]
+  d_k: 2
+claim_boundary: "The plate exactly reconstructs one toy attention head. It demonstrates the operator decomposition but does not establish that attention weights are causal explanations or feature importances."

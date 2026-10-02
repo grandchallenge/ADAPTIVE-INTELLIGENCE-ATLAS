@@ -1,47 +1,62 @@
-# ATLAS-CW-GEOM-001 — Sphere Geometry Witness
+# ATLAS-CW-GEOM-001 — Constrained Geometry Witness
 
-**Chapter:** `ATLAS-CH-GEOM-001`  
+**Chapter:** \`ATLAS-CH-GEOM-001\`  
 **System:** Wolfram Language 15.0.1 for Linux x86 (64-bit), July 2 2026  
 **System ID:** Linux-x86-64  
-**MaxExtraPrecision:** 50  
-**Figure source:** `figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl`
+**Figure source:** \`figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl\`
 
 ## Purpose
 
-Reconstruct the unit-sphere plate from explicit equations and confirm that the two finite updates shown are distinct:
+Render one explicit sphere example showing:
 
-[
-operatorname{Exp}_x(v)
-=
-cos(|v|)x+sin(|v|)rac{v}{|v|},
-]
-
-[
-R_x(v)=rac{x+v}{|x+v|}.
-]
+- the admissible manifold;
+- the tangent plane;
+- a legal tangent vector;
+- the exponential-map endpoint;
+- the normalized-retraction endpoint.
 
 ## Parameters
 
-[
-x=(0,0,1),qquad v=(0.8,0,0).
-]
+\[
+x=(0,0,1),
+\qquad
+v=(0.8,0,0).
+\]
 
 The tangent condition is exact:
 
-[
-x^	op v=0.
-]
+\[
+x^\top v=0.
+\]
 
-## Reconstruction
+## Endpoints
 
-Run the source file in repository root. It exports:
+The exponential-map endpoint is
 
-`figures/masters/ATLAS-FIG-MANIFOLD-001.png`.
+\[
+\operatorname{Exp}_x(v)
+=
+\cos(0.8)x
++
+\sin(0.8)\frac{v}{0.8}.
+\]
 
-The committed PNG Git blob is:
+The normalized-retraction endpoint is
 
-`39c6a40522b4d65c8ef34a0c4f6a36119dceab66`.
+\[
+R_x(v)
+=
+\frac{x+v}{\|x+v\|}.
+\]
 
-The earlier KEYSTONE-002 render blob `aded6f0764e04dd17457a71a32cb4a1ae5d42a84` was superseded during AUDIT-001 by a label/accessibility-only rerender; the underlying equations and parameters are unchanged.\n\n## Claim boundary
+Both endpoints have unit norm; they are distinct finite moves.
 
-This witness reconstructs an exact unit-sphere example. It verifies neither a general manifold theorem nor an empirical claim about neural representations.
+## Rendered witness
+
+\`figures/masters/ATLAS-FIG-MANIFOLD-001.png\`
+
+The corresponding figure manifest records the literal and nonliteral semantics.
+
+## Claim boundary
+
+The witness illustrates exact sphere geometry for one chosen point and tangent vector. The extent of the tangent-plane patch, perspective, opacity, and label placement are schematic. The figure does not establish that a neural representation is empirically spherical.

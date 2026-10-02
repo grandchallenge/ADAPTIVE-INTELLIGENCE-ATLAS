@@ -112,6 +112,18 @@ src_ids = [s.get('id') for s in sources.get('sources', [])]
 if len(src_ids) != len(set(src_ids)):
     errors.append('duplicate source IDs')
 
+# Reject hidden control characters in prose/math Markdown. Tabs are forbidden in
+# Atlas-authored Markdown so an accidental JavaScript escape such as \\times -> TAB
+# cannot silently corrupt TeX.
+for root_name in ('manuscript','mathematics'):
+    for md in (ROOT/root_name).rglob('*.md'):
+        raw = md.read_text(encoding='utf-8')
+        for i, ch in enumerate(raw):
+            code = ord(ch)
+            if ch == '\t' or (code < 32 and ch != '\n'):
+                errors.append(f"control character U+{code:04X} in {md.relative_to(ROOT)} at offset {i}")
+                break
+
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
 bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))

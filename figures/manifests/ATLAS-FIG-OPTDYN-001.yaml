@@ -1,0 +1,25 @@
+id: "ATLAS-FIG-OPTDYN-001"
+chapter_id: "ATLAS-CH-OPTDYN-001"
+title: "Coupled optimizer-state phase portrait"
+status: "rendered-witness"
+representation_class: "simulation-derived"
+literal_semantics: "Trajectories, eigenvalues, unit circle, and finite-horizon 2-norm gain are computed from J=[[0.9,-0.09],[1,0.9]], the exact momentum state matrix for h=1, eta=0.1, beta=0.9."
+nonliteral_semantics: "Choice of starting states, panel layout, marker placement, and line styles are pedagogical; the toy quadratic is not asserted to model frontier training quantitatively."
+support_role: "Show that an asymptotically stable optimizer-state Jacobian can be non-normal and exhibit substantial finite-horizon amplification."
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  source: "figures/wolfram/ATLAS-FIG-OPTDYN-001.wl"
+  rendered: "figures/masters/ATLAS-FIG-OPTDYN-001.png"
+  git_blob_sha1: "fa8e5231cb6451c026a0ccd7beecdfcff330c98d"
+  approximate_png_bytes: 65403
+parameters:
+  h: 1
+  eta: "1/10"
+  beta: "9/10"
+  initial_states: [[2,0],[0,2],[-2,1]]
+  steps_phase: 18
+  steps_gain: "0..20"
+norm: "spectral/operator 2-norm"
+claim_boundary: "The plate establishes the mechanism for the stated linear momentum-on-quadratic example only. It does not show that any particular neural training run is governed by this local Jacobian."

@@ -1,0 +1,68 @@
+schema_version: "0.1.0"
+chapter_id: "ATLAS-CH-OPTDYN-001"
+retrieved: "2026-10-02"
+sources:
+  - id: "OPTDYN-POLYAK-1964"
+    role: "heavy-ball / multistep optimization origin"
+    type: "article"
+    authors: ["B. T. Polyak"]
+    title: "Some Methods of Speeding up the Convergence of Iteration Methods"
+    journal: "USSR Computational Mathematics and Mathematical Physics"
+    volume: 4
+    issue: 5
+    pages: "1-17"
+    year: 1964
+    doi: "10.1016/0041-5553(64)90137-5"
+    locator: "https://www.mathnet.ru/eng/zvmmf7713"
+    authority_note: "Primary historical source for multistep/heavy-ball acceleration."
+  - id: "OPTDYN-SUTSKEVER-ETAL-2013"
+    role: "deep-learning momentum reference"
+    type: "conference_article"
+    authors:
+      - "Ilya Sutskever"
+      - "James Martens"
+      - "George Dahl"
+      - "Geoffrey Hinton"
+    title: "On the importance of initialization and momentum in deep learning"
+    venue: "Proceedings of the 30th International Conference on Machine Learning"
+    series: "Proceedings of Machine Learning Research"
+    volume: "28(3)"
+    pages: "1139-1147"
+    year: 2013
+    locator: "https://proceedings.mlr.press/v28/sutskever13.html"
+    authority_note: "Primary empirical deep-learning reference for momentum and initialization."
+  - id: "OPTDYN-KINGMA-BA-2015"
+    role: "canonical Adam formulation"
+    type: "conference_article"
+    authors: ["Diederik P. Kingma", "Jimmy Ba"]
+    title: "Adam: A Method for Stochastic Optimization"
+    venue: "3rd International Conference on Learning Representations"
+    year: 2015
+    arxiv: "1412.6980"
+    arxiv_version_note: "arXiv v9 dated 2017-01-30; paper published at ICLR 2015"
+    locator: "https://arxiv.org/abs/1412.6980"
+    authority_note: "Primary source for Adam first- and second-moment optimizer state."
+  - id: "OPTDYN-LESSARD-RECHT-PACKARD-2016"
+    role: "optimization-as-dynamical/control-system reference"
+    type: "article"
+    authors:
+      - "Laurent Lessard"
+      - "Benjamin Recht"
+      - "Andrew Packard"
+    title: "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints"
+    journal: "SIAM Journal on Optimization"
+    volume: 26
+    issue: 1
+    pages: "57-95"
+    year: 2016
+    doi: "10.1137/15M1009597"
+    locator: "https://doi.org/10.1137/15M1009597"
+    authority_note: "Peer-reviewed control-theoretic analysis of iterative optimization algorithms including heavy-ball and accelerated methods."
+gcl_boundary:
+  cps_public_source_search: "No separate public Grand Challenge GitHub source for the exact phrase Coupling-Phase Spectroscopy or optimizer-state Jacobian was found in the organization search on 2026-10-02."
+  allowed_use: "The chapter may name CPS as a downstream GCL research programme already declared in the Atlas architecture, but must not attribute project-specific empirical results without an exact source lock."
+claim_scope:
+  - "The augmented-state recurrence and 1D quadratic Jacobian are Atlas-owned derivations."
+  - "The stable non-normal numerical example is an Atlas-owned worked example."
+  - "The chapter does not claim that local linearization globally predicts nonlinear training."
+  - "Adam is introduced to show richer optimizer state; the main exact transient-growth example uses momentum, where all algebra remains transparent."

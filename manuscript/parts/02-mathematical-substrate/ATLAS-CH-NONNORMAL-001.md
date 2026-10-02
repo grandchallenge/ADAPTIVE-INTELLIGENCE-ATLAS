@@ -1,766 +1,681 @@
 # Normality, Pseudospectra, and Transient Growth
 <!-- ATLAS-CH-NONNORMAL-001 -->
 
-**Epistemic status:** mathematical exposition with source-locked standard results and Atlas-owned finite-dimensional derivations.  
-**Norm convention:** spectral/operator (2)-norm unless explicitly stated otherwise.  
-**Primary figure:** `ATLAS-FIG-PSPECTRUM-001`  
-**Derivation packet:** `mathematics/derivations/ATLAS-CH-NONNORMAL-001-DERIVATIONS.md`
+**Epistemic status:** mathematical exposition based on standard matrix analysis and pseudospectral theory, with Atlas-owned finite-dimensional derivations.  
+**Primary figure:** \`ATLAS-FIG-PSPECTRUM-001\`  
+**Derivation packet:** \`mathematics/derivations/ATLAS-CH-NONNORMAL-001-DERIVATIONS.md\`
 
-## 1. The eigenvalue story can be true and still be incomplete
+## 1. Stable eigenvalues can tell an incomplete story
 
-A standard stability instinct is to inspect eigenvalues.
+Suppose every eigenvalue of a matrix lies strictly inside the unit disk.
 
-For the discrete linear system
+For a normal matrix, this strongly controls the powers of the matrix. For a non-normal matrix, it may not control what happens over the first few steps.
 
-[
-x_{t+1}=Ax_t,
-]
+The key distinction is between:
 
-if every eigenvalue of (A) lies strictly inside the unit disk, then (A^t	o0) under the usual finite-dimensional hypotheses. The asymptotic statement is correct.
+\[
+\text{asymptotic spectral behavior}
+\]
 
-It does not follow that every disturbance shrinks monotonically on the way to zero.
+and
 
-That gap between eventual decay and finite-time behavior is the subject of this chapter.
+\[
+\text{finite-horizon amplification}.
+\]
 
-The smallest useful counterexample fits in a (2	imes2) matrix. The lesson scales far beyond it.
+A matrix can satisfy
 
-Consider
+\[
+\rho(A)<1
+\]
 
-[
-A=
-egin{pmatrix}
-a & K\
-0 & a
-end{pmatrix},
-qquad
-|a|<1.
-]
+and still have
 
-Both eigenvalues equal (a). If the eigenvalue plot were all we saw, the system would appear almost boring: one stable point, repeated twice.
+\[
+\|A^k\|_2>1
+\]
 
-Yet for large enough (K), the matrix can strongly amplify some inputs before its asymptotic decay wins.
+for some finite \(k\).
 
-The matrix is **non-normal**.
+This chapter explains exactly how.
 
-That word is not a synonym for unstable. It identifies a geometric property of the operator that determines how safely eigenvalue intuition can be converted into statements about finite-time amplification.
+The useful allegory is **aligned currents in a harbor**.
 
-## 2. Normality
-
-A complex matrix (A) is normal when
-
-[
-A^*A=AA^*,
-]
-
-where (A^*) denotes the conjugate transpose.
-
-Real symmetric matrices are normal. Orthogonal and unitary matrices are normal. More generally, a finite-dimensional matrix is normal exactly when it can be diagonalized by a unitary change of basis.
-
-Thus
-
-[
-A=ULambda U^*
-]
-
-with (U) unitary.
-
-For such a matrix,
-
-[
-A^k=ULambda^kU^*,
-]
-
-and the spectral (2)-norm obeys
-
-[
-|A^k|_2
-=
-|Lambda^k|_2
-=
-max_i|lambda_i|^k
-=
-ho(A)^k.
-]
-
-For a normal matrix, the eigenvalue picture and the (2)-norm growth picture align perfectly.
-
-If (ho(A)<1), then every power decays monotonically in operator norm.
-
-This is one reason normal operators are so pleasant: their eigenvectors form an orthonormal basis, so modal directions do not interfere geometrically.
-
-## 3. Non-normality is about geometry between directions
-
-A matrix can be diagonalizable without being normal.
-
-Suppose
-
-[
-A=VLambda V^{-1}
-]
-
-with a non-unitary eigenvector matrix (V). Then
-
-[
-A^k
-=
-VLambda^kV^{-1},
-]
-
-and therefore
-
-[
-|A^k|_2
-le
-|V|_2,
-|V^{-1}|_2,
-|Lambda^k|_2.
-]
-
-Writing
-
-[
-kappa_2(V)=|V|_2|V^{-1}|_2,
-]
-
-we obtain
-
-[
-|A^k|_2
-le
-kappa_2(V)ho(A)^k
-]
-
-when the eigenvalues are ordered by magnitude.
-
-The factor (kappa_2(V)) is absent in the normal case because a unitary (V) has condition number one.
-
-This gives the first geometric clue: if eigenvectors become nearly linearly dependent, a state can be represented as a large cancellation among modal components. The modes may each decay while the cancellation changes in a way that temporarily increases the physical norm.
-
-The useful allegory is a harbor with aligned currents.
-
-Imagine two currents that eventually carry every floating object toward calm water. If the currents point in nearly the same geometric direction, motion can be transferred between them so that the observable displacement grows before the long-term decay dominates.
+Each current may eventually decay, but if their directions are badly aligned, motion can transfer among them in a way that produces a temporary surge.
 
 The correspondence is:
 
-- asymptotic modal decay ↔ eigenvalues inside the unit disk;
-- nearly aligned modal directions ↔ non-orthogonal eigenvectors or generalized directions;
-- temporary surge ↔ transient growth of (|A^k|).
+- modal decay ↔ eigenvalues inside the unit disk;
+- non-orthogonal modal geometry ↔ non-normality;
+- temporary surge ↔ transient norm growth.
 
-The limit of the allegory is equally important. A matrix is not literally a fluid, and non-normality is not identical to hydrodynamic energy transfer. Fluid mechanics is historically important here because it provided striking applications of pseudospectral and transient-growth analysis [@ReddySchmidHenningson1993; @TrefethenEtAl1993]. The mathematics is more general.
+The limit is strict. A matrix need not represent a fluid. The analogy is only about geometric interaction among directions.
 
-## 4. An exact two-dimensional example
+## 2. Normality
 
-Return to
+A real matrix \(A\) is normal when
 
-[
+\[
+A^\top A=AA^\top.
+\]
+
+For complex matrices, transpose is replaced by conjugate transpose.
+
+Normal matrices admit an orthogonal/unitary eigenbasis. In the real symmetric or complex normal setting,
+
+\[
+A=U\Lambda U^*,
+\]
+
+with \(U\) unitary.
+
+Then
+
+\[
+A^k=U\Lambda^kU^*,
+\]
+
+so
+
+\[
+\|A^k\|_2
+=
+\|\Lambda^k\|_2
+=
+\max_i|\lambda_i|^k
+=
+\rho(A)^k.
+\]
+
+Thus if
+
+\[
+\rho(A)<1,
+\]
+
+the operator norm decays monotonically with \(k\).
+
+For normal matrices, eigenvalue geometry and singular-value growth align unusually well [@HornJohnson2012].
+
+## 3. Non-normality breaks that alignment
+
+If \(A\) is diagonalizable but non-normal,
+
+\[
+A=V\Lambda V^{-1},
+\]
+
+then
+
+\[
+A^k
+=
+V\Lambda^kV^{-1},
+\]
+
+so
+
+\[
+\|A^k\|_2
+\le
+\kappa_2(V)\rho(A)^k,
+\]
+
+where
+
+\[
+\kappa_2(V)=\|V\|_2\|V^{-1}\|_2.
+\]
+
+A badly conditioned eigenvector matrix can therefore permit substantial finite-horizon amplification even when every eigenmode decays.
+
+The deeper contrast is not simply
+
+\[
+\text{diagonalizable}
+\quad\text{versus}\quad
+\text{non-diagonalizable}.
+\]
+
+It is closer to
+
+\[
+\text{orthogonal modal geometry}
+\quad\text{versus}\quad
+\text{non-orthogonal modal geometry}.
+\]
+
+Normality removes the amplification associated with geometric misalignment of eigen-directions.
+
+## 4. The smallest useful counterexample
+
+Consider
+
+\[
 A=
-egin{pmatrix}
-a & K\
-0 & a
-end{pmatrix}.
-]
+\begin{pmatrix}
+a&K\\
+0&a
+\end{pmatrix},
+\qquad
+|a|<1.
+\]
 
 Write
 
-[
+\[
 A=aI+KN,
-qquad
+\qquad
 N=
-egin{pmatrix}
-0&1\
+\begin{pmatrix}
+0&1\\
 0&0
-end{pmatrix}.
-]
+\end{pmatrix},
+\qquad
+N^2=0.
+\]
 
-Since (N^2=0),
+The binomial expansion truncates:
 
-[
+\[
 A^n
 =
 a^nI
 +
 n a^{n-1}KN.
-]
+\]
 
 Therefore
 
-[
-oxed{
-A^n=
-egin{pmatrix}
-a^n & nKa^{n-1}\
-0 & a^n
-end{pmatrix}.
+\[
+\boxed{
+A^n
+=
+\begin{pmatrix}
+a^n&nKa^{n-1}\\
+0&a^n
+\end{pmatrix}.
 }
-]
+\]
 
-The eigenvalues remain (a). The spectral radius of every power is
+The eigenvalue is always \(a\), with algebraic multiplicity two, so
 
-[
-ho(A^n)=|a|^n.
-]
+\[
+\rho(A)=|a|.
+\]
 
-But the off-diagonal term is
+If \(|a|<1\), then \(A^n\to0\).
 
-[
-nKa^{n-1}.
-]
+But the off-diagonal term
 
-For (|a|<1), this term eventually decays. Before it decays, the factor (nK) can make it large.
+\[
+nKa^{n-1}
+\]
 
-This is transient amplification in its simplest exact form.
+can first grow before eventual decay.
 
-## 5. The operator norm says what the eigenvalue plot does not
+The matrix is asymptotically stable and can still amplify some perturbations strongly over a finite horizon.
+
+## 5. Singular values expose the amplification
 
 For
 
-[
+\[
 B=
-egin{pmatrix}
-p&q\
+\begin{pmatrix}
+p&q\\
 0&p
-end{pmatrix},
-]
+\end{pmatrix},
+\]
 
-we compute
+we have
 
-[
-B^	op B
+\[
+B^\top B
 =
-egin{pmatrix}
-p^2&pq\
+\begin{pmatrix}
+p^2&pq\\
 pq&p^2+q^2
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
 Its eigenvalues are
 
-[
-lambda_{pm}
+\[
+\lambda_{\pm}
 =
-rac{
+\frac{
 2p^2+q^2
-pm
-|q|sqrt{4p^2+q^2}
+\pm
+|q|\sqrt{4p^2+q^2}
 }{2}.
-]
+\]
 
-Thus
+The spectral norm is therefore
 
-[
-|B|_2
+\[
+\boxed{
+\|B\|_2
 =
-sqrt{lambda_+}.
-]
+\sqrt{
+\frac{
+2p^2+q^2
++
+|q|\sqrt{4p^2+q^2}
+}{2}
+}.
+}
+\]
 
-Substituting
+For \(A^n\),
 
-[
-p=a^n,qquad q=nKa^{n-1},
-]
+\[
+p=a^n,
+\qquad
+q=nKa^{n-1}.
+\]
 
-gives an exact expression for (|A^n|_2).
+This is an exact finite-horizon gain formula.
 
-The formula looks more complicated than the spectral radius because finite-time gain depends on singular geometry, not eigenvalues alone.
+Nothing in the eigenvalue set alone displays the \(q\)-term.
 
-This is a recurring theme in the Atlas:
-
-> eigenvalues describe invariant modal rates; singular values describe worst-case instantaneous or finite-horizon amplification.
-
-Neither replaces the other.
-
-## 6. Same eigenvalues, different behavior
+## 6. A matched normal comparison
 
 The Atlas witness fixes
 
-[
-a=rac45,qquad K=4.
-]
+\[
+a=\frac45,
+\qquad
+K=4.
+\]
 
 Then
 
-[
+\[
 A=
-egin{pmatrix}
-4/5&4\
+\begin{pmatrix}
+4/5&4\\
 0&4/5
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
-Compare it with the normal matrix
+Compare it with
 
-[
-N_0=rac45 I.
-]
+\[
+N_0=\frac45I.
+\]
 
-The two matrices have exactly the same eigenvalue multiset:
+Both matrices have exactly the same eigenvalue set:
 
-[
-{0.8,0.8}.
-]
+\[
+\left\{\frac45,\frac45\right\}.
+\]
 
 For the normal matrix,
 
-[
-|N_0^n|_2=(0.8)^n.
-]
-
-It decays immediately.
-
-For the non-normal matrix, an exact Wolfram evaluation of the derived norm over (n=0,dots,40) gives
-
-[
-max |A^n|_2
+\[
+\|N_0^n\|_2
 =
-8.2124290544ldots
-]
+\left(\frac45\right)^n.
+\]
+
+For the non-normal matrix, Wolfram evaluation gives
+
+\[
+\max_{0\le n\le40}\|A^n\|_2
+=
+8.2124290544\ldots
+\]
 
 at
 
-[
+\[
 n=4.
-]
+\]
 
-The system whose eigenvalues suggest simple decay amplifies some input by more than a factor of eight before decaying.
+The two matrices have the same eigenvalue story and radically different finite-time stories.
 
-That is not a numerical accident. It follows from the exact power formula.
+## 7. The primary figure
 
-## 7. The first Atlas plate
+![Matched-eigenvalue normal and non-normal matrices compared through transient 2-norm gain and pseudospectral contours.](../../figures/masters/ATLAS-FIG-PSPECTRUM-001.png)
 
-![Two-panel comparison: the non-normal matrix has large finite-horizon 2-norm amplification while the matched normal matrix decays; its epsilon-pseudospectral circles are also much larger despite identical eigenvalues.](../../figures/masters/ATLAS-FIG-PSPECTRUM-001.png)
+The left panel compares
 
-The left panel compares finite-horizon (2)-norm gain for the non-normal (A) and the matched normal matrix (N_0).
+\[
+\|A^n\|_2
+\]
 
-The right panel compares their (arepsilon)-pseudospectral boundaries.
+against
 
-The figure is generated by Wolfram Language 15.0.1 from the source-controlled file
+\[
+\|N_0^n\|_2.
+\]
 
-`figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl`.
+The right panel compares their \(\varepsilon\)-pseudospectral boundaries.
 
-The curves and circles are not hand-drawn explanatory art. They are derived from the exact matrices stated above. Panel layout and annotation are editorial; the mathematics is literal.
+The plate is not merely numerical decoration. For this \(2\times2\) example, the pseudospectral radii are available in closed form.
 
-## 8. From spectrum to pseudospectrum
+## 8. The pseudospectrum
 
-The spectrum asks:
+We use the closed \(2\)-norm convention
 
-> for which (z) is (zI-A) singular?
-
-The pseudospectrum asks a more graded question:
-
-> for which (z) is (zI-A) nearly singular?
-
-For the spectral (2)-norm, one convenient finite-dimensional definition is
-
-[
-Lambda_arepsilon(A)
+\[
+\boxed{
+\Lambda_\varepsilon(A)
 =
-left{
-zinmathbb C:
-sigma_{min}(zI-A)learepsilon
-ight}.
-]
+\left\{
+z\in\mathbb C:
+\sigma_{\min}(zI-A)\le\varepsilon
+\right\}.
+}
+\]
 
 Outside the spectrum,
 
-[
-|(zI-A)^{-1}|_2
+\[
+\|(zI-A)^{-1}\|_2
 =
-rac{1}{sigma_{min}(zI-A)},
-]
+\frac1{\sigma_{\min}(zI-A)},
+\]
 
-so equivalently
+so equivalently,
 
-[
-Lambda_arepsilon(A)
+\[
+\Lambda_\varepsilon(A)
 =
-left{
+\sigma(A)
+\cup
+\left\{
 z:
-|(zI-A)^{-1}|_2gearepsilon^{-1}
-ight}
-cupsigma(A).
-]
+\|(zI-A)^{-1}\|_2\ge\varepsilon^{-1}
+\right\}.
+\]
 
-A further equivalent characterization says that (z) belongs to the (arepsilon)-pseudospectrum exactly when it is an eigenvalue of some perturbed matrix (A+E) with (|E|_2learepsilon). This perturbation formulation is standard in the pseudospectra literature [@TrefethenEmbree2005; @ReddySchmidHenningson1993].
+Another equivalent finite-dimensional characterization is:
 
-The pseudospectrum therefore measures more than where the eigenvalues are. It reveals how sensitive spectral behavior is to perturbation and how large the resolvent can become away from the exact spectrum.
+\[
+z\in\Lambda_\varepsilon(A)
+\]
 
-## 9. An exact pseudospectrum, not a numerical contour
+if and only if \(z\) is an eigenvalue of \(A+E\) for some perturbation satisfying
 
-For our matrix,
+\[
+\|E\|_2\le\varepsilon.
+\]
 
-[
+These equivalent views connect pseudospectra to both resolvent growth and eigenvalue sensitivity [@TrefethenEmbree2005].
+
+## 9. Exact pseudospectrum of the \(2\times2\) example
+
+For
+
+\[
+A=
+\begin{pmatrix}
+a&K\\
+0&a
+\end{pmatrix},
+\qquad
+K>0,
+\]
+
+write
+
+\[
+z-a=\delta,
+\qquad
+r=|\delta|.
+\]
+
+Then
+
+\[
 zI-A
 =
-egin{pmatrix}
-z-a&-K\
-0&z-a
-end{pmatrix}.
-]
+\begin{pmatrix}
+\delta&-K\\
+0&\delta
+\end{pmatrix}.
+\]
 
-Let
+Its squared singular values are
 
-[
-r=|z-a|.
-]
-
-The squared singular values are
-
-[
-sigma_{pm}^2
+\[
+\sigma_{\pm}^2
 =
-rac{
+\frac{
 2r^2+K^2
-pm
-Ksqrt{K^2+4r^2}
-}{2},
-qquad K>0.
-]
+\pm
+K\sqrt{K^2+4r^2}
+}{2}.
+\]
 
-On the (arepsilon)-pseudospectral boundary,
+On the \(\varepsilon\)-pseudospectral boundary,
 
-[
-sigma_{min}=arepsilon.
-]
+\[
+\sigma_{\min}=\varepsilon.
+\]
 
-The product of the two singular values is the magnitude of the determinant:
+Because the product of the singular values is
 
-[
-sigma_{max}sigma_{min}
+\[
+|\det(zI-A)|=r^2,
+\]
+
+we have
+
+\[
+\sigma_{\max}
 =
-|det(zI-A)|
-=
-r^2.
-]
+\frac{r^2}{\varepsilon}.
+\]
 
-Thus
+The sum of squared singular values is
 
-[
-sigma_{max}
-=
-rac{r^2}{arepsilon}.
-]
-
-The sum of the squared singular values is
-
-[
-sigma_{max}^2+sigma_{min}^2
+\[
+\sigma_{\max}^2+\sigma_{\min}^2
 =
 2r^2+K^2.
-]
+\]
 
-Substitution gives
+Substituting gives
 
-[
-rac{r^4}{arepsilon^2}
+\[
+\frac{r^4}{\varepsilon^2}
 +
-arepsilon^2
+\varepsilon^2
 =
 2r^2+K^2.
-]
+\]
 
-Rearranging,
+Hence
 
-[
-(r^2-arepsilon^2)^2
+\[
+(r^2-\varepsilon^2)^2
 =
-K^2arepsilon^2.
-]
+K^2\varepsilon^2.
+\]
 
-Because (sigma_{max}gesigma_{min}) implies (r^2gearepsilon^2), the relevant branch is
+The admissible boundary branch is
 
-[
-oxed{
-r^2=arepsilon(arepsilon+K).
+\[
+\boxed{
+r^2
+=
+\varepsilon(\varepsilon+K).
 }
-]
+\]
 
 Therefore
 
-[
-oxed{
-Lambda_arepsilon(A)
+\[
+\boxed{
+\Lambda_\varepsilon(A)
 =
-left{
+\left\{
 z:
 |z-a|
-le
-sqrt{arepsilon(arepsilon+K)}
-ight}.
+\le
+\sqrt{\varepsilon(\varepsilon+K)}
+\right\}.
 }
-]
+\]
 
-For the normal comparison
+For the normal comparison \(N_0=aI\),
 
-[
-N_0=aI,
-]
-
-we have simply
-
-[
-oxed{
-Lambda_arepsilon(N_0)
+\[
+\boxed{
+\Lambda_\varepsilon(N_0)
 =
-{z:|z-a|learepsilon}.
+\{z:|z-a|\le\varepsilon\}.
 }
-]
+\]
 
-The eigenvalue plot is identical. The pseudospectral neighborhoods are not.
+The eigenvalue plot is identical.
 
-For small (arepsilon),
+The perturbation neighborhood is not.
 
-[
-sqrt{arepsilon(arepsilon+K)}
-sim
-sqrt{Karepsilon},
-]
+For small \(\varepsilon\),
 
-which is much larger than (arepsilon) when (K) is large.
+\[
+\sqrt{\varepsilon(\varepsilon+K)}
+\sim
+\sqrt{K\varepsilon},
+\]
 
-This is why the right panel of the figure opens dramatically around the non-normal operator.
+which can be much larger than \(\varepsilon\).
 
-## 10. What “nearly singular” buys us
+## 10. Why pseudospectra matter
 
-The resolvent
+Eigenvalues answer:
 
-[
-(zI-A)^{-1}
-]
+> Where are the exact modal growth factors?
 
-acts as a frequency-like or response-like object in many linear problems. If its norm is large, a small forcing or perturbation can produce a large response.
+Pseudospectra ask:
 
-Pseudospectra map those regions of large resolvent norm.
+> How sensitive is that spectral picture, and how large can the resolvent become nearby?
 
-This is one reason the subject became influential in hydrodynamic stability. Classical eigenvalue analysis could predict modal decay while experiments and simulations exhibited strong finite-time amplification. Pseudospectral analysis made the missing sensitivity visible [@TrefethenEtAl1993].
+For normal matrices, \(\varepsilon\)-pseudospectra are simply \(\varepsilon\)-neighborhoods of the spectrum in the \(2\)-norm.
 
-The lesson should not be overgeneralized. The Atlas does not infer from this history that every transient in a learning system is a pseudospectral phenomenon. The correct transfer is methodological:
+For non-normal matrices they can expand far beyond those neighborhoods.
 
-> if a system is non-normal, finite-time amplification and perturbation sensitivity require tools beyond an eigenvalue plot.
+This enlargement signals that small perturbations can move eigenvalues much farther than the ordinary eigenvalue plot suggests, and that resolvent response can be large.
 
-## 11. Spectral radius, norm, and horizon
+Pseudospectra are therefore a way to visualize **spectral fragility**.
 
-Three quantities answer different questions.
+They are not a causal diagnosis by themselves.
 
-### Spectral radius
+## 11. Transient growth in broader non-normal systems
 
-[
-ho(A)=max_i|lambda_i|.
-]
+The importance of non-normal transient growth is not peculiar to the Atlas toy matrix. It has a substantial literature in hydrodynamic stability, where decaying eigenmodes can combine to produce substantial transient energy growth [@ReddySchmidHenningson1993; @TrefethenEtAl1993].
 
-It is central to asymptotic power behavior.
+Those examples motivate the general lesson without making a direct identification with neural optimization.
 
-### One-step operator norm
+The Atlas will use the mathematics, not import the application wholesale.
 
-[
-|A|_2=sigma_{max}(A).
-]
+Later, when an optimizer-state Jacobian or router linearization is non-normal, the correct question is not:
 
-It measures the largest one-step amplification of Euclidean norm.
+> Is this secretly a fluid?
 
-### Finite-horizon gain
+It is:
 
-[
-G(k)=|A^k|_2.
-]
+> Can non-orthogonal dynamical directions create finite-horizon amplification that an eigenvalue-only analysis misses?
 
-It measures the largest amplification over exactly (k) repeated steps.
+## 12. What the Wolfram witness establishes
 
-For a normal matrix these quantities align unusually well:
+For the exact matrix pair
 
-[
-G(k)=ho(A)^k.
-]
+\[
+A=
+\begin{pmatrix}
+4/5&4\\
+0&4/5
+\end{pmatrix},
+\qquad
+N_0=\frac45I,
+\]
 
-For a non-normal matrix, they can separate dramatically.
+the witness establishes:
 
-That separation is the phenomenon, not a pathology in the mathematics.
+1. identical eigenvalues;
+2. exact powers of \(A\);
+3. large finite-horizon \(2\)-norm gain for \(A\);
+4. monotone decay for \(N_0\);
+5. exact non-normal pseudospectral radius
+   \[
+   \sqrt{\varepsilon(\varepsilon+4)};
+   \]
+6. normal pseudospectral radius
+   \[
+   \varepsilon.
+   \]
 
-## 12. Diagonalizable does not mean harmless
+The witness does **not** establish:
 
-The Jordan-like example is defective when (K
-eq0): it has only one eigenvector. It is useful because the derivation is exact.
+- that every non-normal system exhibits large transient growth;
+- that transient growth implies asymptotic instability;
+- that broad pseudospectra identify a causal mechanism in a trained model;
+- that one norm is universally privileged.
 
-But non-normal transient growth does not require defectiveness.
+## 13. Five mistakes to avoid
 
-A diagonalizable matrix
+### Mistake 1: “Non-normal means unstable.”
 
-[
-A=VLambda V^{-1}
-]
+No. The worked matrix satisfies \(\rho(A)<1\) and \(A^n\to0\).
 
-can still have nearly parallel eigenvectors and a large (kappa_2(V)). In that case, modal coordinates are badly conditioned. Large intermediate cancellations can occur even though every modal coefficient decays according to (Lambda^k).
+### Mistake 2: “Stable eigenvalues imply monotone decay.”
 
-Thus the deeper contrast is not
+No. The worked matrix amplifies strongly before decaying.
 
-[
-	ext{diagonalizable}
-quad	ext{versus}quad
-	ext{non-diagonalizable}.
-]
+### Mistake 3: “A transient spike proves divergence.”
 
-It is closer to
+No. Finite-horizon gain and asymptotic divergence are different.
 
-[
-	ext{orthogonal modal geometry}
-quad	ext{versus}quad
-	ext{non-orthogonal modal geometry}.
-]
+### Mistake 4: “Pseudospectra replace eigenvalues.”
 
-Normality provides the cleanest finite-dimensional boundary for that distinction.
+No. They supplement the spectral picture by adding perturbation and resolvent information.
 
-## 13. Pseudospectra are norm-dependent
+### Mistake 5: “Broad pseudospectra explain a neural failure.”
 
-The Atlas fixes the spectral (2)-norm in this chapter.
+No. They expose a possible amplification mechanism. Causal attribution requires additional evidence.
 
-That choice is not invisible.
-
-For a different induced norm, the numerical shape and size of the pseudospectrum can change. Statements about “large pseudospectra” should therefore specify the norm.
-
-Likewise, transient gain depends on the norm used to measure state magnitude.
-
-In applications, Euclidean energy may be natural, but not always. A physically or statistically meaningful metric can induce a different operator norm.
-
-This is not a technical footnote. It connects directly back to the previous chapter: geometry determines what a magnitude means.
-
-## 14. A useful finite-time question
-
-Suppose a system is asymptotically stable.
-
-The question
-
-> Does it converge?
-
-may be too weak for an adaptive system.
-
-We may instead need to ask:
-
-> Before it converges, how much can it amplify perturbations?
-
-For training dynamics, routing systems, recurrent computation, or iterative numerical methods, a large transient can be operationally decisive even if the asymptotic fixed point is stable.
-
-Finite precision can saturate. Nonlinearities can activate. A downstream subsystem can leave its valid regime. An optimizer can enter a region from which the local linearization no longer applies.
-
-None of those consequences are contained in the linear theory alone. But the linear transient can be the event that exposes them.
-
-## 15. Bridge to optimizer-state dynamics
-
-Later we will treat an optimizer and its internal state as a coupled dynamical system.
-
-A local update may be written
-
-[
-z_{t+1}=F_t(z_t),
-]
-
-with local Jacobian
-
-[
-J_t=D F_t(z_t).
-]
-
-Over (k) steps, perturbations are propagated by
-
-[
-J_{t+k-1}cdots J_t.
-]
-
-Even if each local spectrum appears benign, non-normal geometry and time variation can create finite-horizon amplification.
-
-This chapter supplies the mathematics needed to formulate that possibility.
-
-It does not yet establish that any particular optimizer exhibits the mechanism. That requires an optimizer-specific model or measurement. The later chapter on Optimizer-State Dynamics will make that transition explicitly.
-
-## 16. Five statements we will not make
-
-### “Non-normal means unstable.”
-
-False. The Atlas example is asymptotically stable.
-
-### “Spectral radius below one means every perturbation shrinks immediately.”
-
-False for non-normal matrices.
-
-### “A large pseudospectrum proves transient growth of a particular magnitude.”
-
-Not by itself. Pseudospectra provide sensitivity and growth information through precise bounds and relationships, but the statement being made must specify the relevant theorem, norm, and horizon [@TrefethenEmbree2005].
-
-### “A transient spike proves eventual divergence.”
-
-False. Transient amplification and asymptotic instability are different phenomena.
-
-### “Eigenvalues are useless.”
-
-False. The point is insufficiency, not irrelevance.
-
-The spectrum remains an essential invariant. Pseudospectra and singular-value growth answer questions that the spectrum alone does not.
-
-## 17. What the Wolfram witness establishes
-
-The rendered plate is a computational witness for one exact system.
-
-It establishes:
-
-1. (A) and (N_0) have the same eigenvalues;
-2. their finite-horizon (2)-norm gains differ strongly;
-3. the non-normal example reaches gain (8.2124290544ldots) at (n=4) over the inspected range;
-4. the plotted pseudospectral circles follow the exact analytic radii
-   [
-   sqrt{arepsilon(arepsilon+K)}
-   ]
-   for (A) and
-   [
-   arepsilon
-   ]
-   for (N_0).
-
-Wolfram Language 15.0.1 independently verified the symbolic matrix power and the boundary substitution recorded in the derivation packet.
-
-The witness does not establish prevalence in machine learning.
-
-## 18. Atlas connections
+## 14. Atlas connections
 
 **Spectral shaping.**  
-An optimizer or architecture can alter singular geometry without merely moving eigenvalues.
+An optimizer that changes singular structure may alter transient behavior even when eigenvalue summaries appear similar.
 
 **Optimizer-State Dynamics.**  
-The coupled state Jacobian may exhibit transient amplification invisible to a parameter-only analysis.
+The augmented optimizer Jacobian can inherit exactly the stable-but-amplifying structure developed here.
 
-**Router Dynamics.**  
-A routing system can have stable-looking average behavior while perturbations amplify over short horizons.
+**Router dynamics.**  
+Routing systems can possess non-normal local update operators and finite-horizon amplification.
 
-**Spectral Diagnostics.**  
-Pseudospectra, singular values, effective rank, and ordinary eigenvalues become complementary probes rather than competing doctrines.
+**Spectral diagnostics.**  
+Eigenvalues, singular values, pseudospectra, and finite-horizon propagators become complementary diagnostic objects.
 
-**Numerical stability.**  
-Iteration stability is a finite-horizon computational question as well as an asymptotic one.
+The recurring Atlas shift is:
 
-The conceptual shift is:
+\[
+\boxed{
+\text{Where are the eigenvalues?}
+\longrightarrow
+\text{What can this operator do to perturbations over the horizon that matters?}
+}
+\]
 
-[
-	ext{Where are the eigenvalues?}
-]
+## 15. Closing view
 
-becomes
+Eigenvalues are not wrong.
 
-[
-	ext{What can this operator do to perturbations over the horizon that matters?}
-]
+They are sometimes incomplete.
 
-## 19. Closing view
+Normal matrices make eigenvalue geometry unusually transparent. Non-normal matrices can hide large finite-time behavior in the geometry of their directions.
 
-The spectrum is a set of points.
+Pseudospectra reveal part of that hidden sensitivity.
 
-The pseudospectrum is a landscape of sensitivity around those points.
+The aligned-currents allegory is only an intuition pump.
 
-For normal operators, that landscape hugs the spectrum tightly and eigenvalue intuition is unusually trustworthy. For non-normal operators, the landscape can swell outward, revealing directions in which small perturbations or finite-time propagation become unexpectedly large.
-
-Our (2	imes2) example is intentionally small enough that nothing is hidden behind simulation. Its eigenvalues are stable. Its powers are exact. Its singular values are exact. Its pseudospectral circles are exact.
-
-And still, the naive story fails.
-
-That is the utility of a good counterexample: it does not merely contradict an intuition. It tells us which extra object must enter the mathematics.
-
-Here, that object is the geometry of the operator beyond its eigenvalues.
+The operator norm, resolvent, singular values, and pseudospectrum are the objects.
 
 ## References used in this chapter
 
@@ -769,4 +684,4 @@ Here, that object is the geometry of the operator beyond its eigenvalues.
 - [@ReddySchmidHenningson1993]
 - [@TrefethenEtAl1993]
 
-See `sources/source-locks/ATLAS-CH-NONNORMAL-001.yaml` for exact source identities and claim scope.
+See \`sources/source-locks/ATLAS-CH-NONNORMAL-001.yaml\` for exact source identities and claim scope.
