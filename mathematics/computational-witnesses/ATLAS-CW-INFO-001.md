@@ -15,7 +15,7 @@ Let
 [
 P_{XY}
 =
-egin{pmatrix}
+\begin{pmatrix}
 3/8&1/8\
 1/8&3/8
 end{pmatrix}.
@@ -32,7 +32,7 @@ Wolfram evaluates
 [
 I(X;Y)
 =
-rac{log(27/16)}{log 16}
+\frac{log(27/16)}{log 16}
 approx
 0.1887218755408671
 ]
@@ -56,7 +56,7 @@ For a fair binary variable with (Y=X),
 [
 P_{XY}
 =
-egin{pmatrix}
+\begin{pmatrix}
 1/2&0\
 0&1/2
 end{pmatrix},
@@ -85,7 +85,7 @@ Q=(1,0),
 then (P) assigns positive mass where (Q) assigns zero mass, so
 
 [
-D_{m KL}(P|Q)=infty.
+D_{\rm KL}(P|Q)=infty.
 ]
 
 ## Claim boundary
