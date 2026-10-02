@@ -1,79 +1,90 @@
 # ATLAS-CW-ATTNOP-001 — Attention Operator Witness
 
-**Chapter:** `ATLAS-CH-ATTNOP-001`  
+**Chapter:** \`ATLAS-CH-ATTNOP-001\`  
 **System:** Wolfram Language 15.0.1 for Linux x86 (64-bit), July 2 2026  
 **System ID:** Linux-x86-64  
-**Figure source:** `figures/wolfram/ATLAS-FIG-ATTNOP-001.wl`
+**Figure source:** \`figures/wolfram/ATLAS-FIG-ATTNOP-001.wl\`
 
 ## Purpose
 
 Reconstruct one attention head as four explicit objects:
 
-[
-S,qquad A=operatorname{softmax}_{m row}(S),qquad V,qquad Y=AV.
-]
+\[
+S,\qquad
+A=\operatorname{softmax}_{\rm row}(S),\qquad
+V,\qquad
+Y=AV.
+\]
 
 ## Parameters
 
-[
+\[
 Q=K=
-egin{pmatrix}
-1&0\
-0&1\
+\begin{pmatrix}
+1&0\\
+0&1\\
 1&1
-end{pmatrix},
-qquad
+\end{pmatrix},
+\qquad
 V=
-egin{pmatrix}
-1&0\
-0&1\
+\begin{pmatrix}
+1&0\\
+0&1\\
 1&-1
-end{pmatrix},
-qquad
+\end{pmatrix},
+\qquad
 d_k=2.
-]
+\]
 
 ## Computed operator
 
 Wolfram evaluates
 
-[
-Aapprox
-egin{pmatrix}
-0.401112&0.197776&0.401112\
-0.197776&0.401112&0.401112\
+\[
+A\approx
+\begin{pmatrix}
+0.401112&0.197776&0.401112\\
+0.197776&0.401112&0.401112\\
 0.248255&0.248255&0.503490
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
-Each row sums to one to the displayed precision.
+Each row sums to one to numerical precision.
 
 The output is
 
-[
-Yapprox
-egin{pmatrix}
-0.802224&-0.203336\
-0.598888&0\
-0.751745&-0.255235
-end{pmatrix}.
-]
+\[
+Y\approx
+\begin{pmatrix}
+0.80222418536&-0.20333627804\\
+0.59888790732&0\\
+0.75174492174&-0.25523476523
+\end{pmatrix}.
+\]
 
 ## Conditional-linearity check
 
-Holding (Q,K), hence (A), fixed, Wolfram returns exactly zero at machine tolerance for
+Holding \(Q,K\), hence \(A\), fixed, Wolfram returns residual
 
-[
-A(2V)-2(AV).
-]
+\[
+A(2V)-2(AV)=0.
+\]
 
 ## State-dependence check
 
-Perturb only (q_1) from ((1,0)) to ((1,1/2)). The first operator row changes by approximately
+Perturb only
 
-[
-(-0.081246, 0.026831, 0.054415),
-]
+\[
+q_1=(1,0)
+\quad\longrightarrow\quad
+q_1'=(1,\tfrac12).
+\]
+
+The first operator row changes by approximately
+
+\[
+(-0.08124592681,\;0.02683052899,\;0.05441539782),
+\]
 
 while the other rows remain unchanged.
 
@@ -81,36 +92,42 @@ while the other rows remain unchanged.
 
 For scalar self-attention with
 
-[
-X=(1,0)^	op,qquad W_Q=W_K=W_V=1,
-]
+\[
+X=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\qquad
+W_Q=W_K=W_V=1,
+\]
 
-Wolfram returns
+the first component satisfies
 
-[
-F(2X)-2F(X)
+\[
+F(2X)_1-2F(X)_1
 =
-egin{pmatrix}
-rac{2}{1+e}-rac{2}{1+e^4}\
-0
-end{pmatrix}
-approx
-egin{pmatrix}
-0.5019104228\
-0
-end{pmatrix}.
-]
+\frac{2e^4}{1+e^4}
+-
+\frac{2e}{1+e},
+\]
 
-Thus the full self-attention map is not linear in (X).
+whose magnitude is approximately
+
+\[
+0.5019104228.
+\]
+
+Thus the full self-attention map is not linear in \(X\).
 
 ## Rendered witness
 
-`figures/masters/ATLAS-FIG-ATTNOP-001.png`
+\`figures/masters/ATLAS-FIG-ATTNOP-001.png\`
 
 Committed PNG Git blob:
 
-`2ba96f6f30311c117f27c0717961145ce9cbb0cd`.
+\`2ba96f6f30311c117f27c0717961145ce9cbb0cd\`.
 
 ## Claim boundary
 
-The witness reconstructs an exact toy attention computation. It establishes the distinction between a fixed mixing operator acting linearly on values and the full state-dependent nonlinear transformation. It does not show that attention weights are causal explanations, semantic importance scores, or a complete mechanistic account.
+The witness reconstructs one exact toy attention computation. It establishes the distinction between a fixed mixing operator acting linearly on values and the full state-dependent nonlinear transformation. It does not show that attention weights are causal explanations, semantic importance scores, or a complete mechanistic account.
