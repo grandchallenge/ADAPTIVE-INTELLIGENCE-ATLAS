@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-BCONTRACT-001"
+chapter_id: "ATLAS-CH-BCONTRACT-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-BCONTRACT-001.wl"
+  source_git_blob_sha1: "e064df23ccea715198fe91f9e20a817fb59302e9"
+  rendered: "figures/masters/ATLAS-FIG-BCONTRACT-001.png"
+  rendered_git_blob_sha1: "e3106af2b200823fb3b2cb699e8436a7fc89d0b8"
+  rendered_bytes: 48873
+parameters:
+  C: "[[2, 1/2], [0, 1]]"
+  exact_spectral_norm: "sqrt((21 + sqrt(185))/8)"
+  spectral_norm_numeric: 2.079707626949502
+literal_semantics: >
+  The right panel is generated from the exact linear boundary map C and maps the
+  unit circle to its perturbation ellipse. The displayed local 2-norm is computed
+  from C. The left panel names the four Atlas contract obligation classes and
+  JVP/VJP channels.
+nonliteral_semantics: >
+  The left-panel boxes, arrows, geometry, spacing and flange-like interface layout
+  are schematic. They do not assert a mechanical model, global stability theorem,
+  or implemented MODULUS BoundaryContract object.
+claim_boundary: >
+  This figure visualizes one exact local sensitivity map alongside a schematic
+  boundary-contract vocabulary. It does not establish global compositional safety.
