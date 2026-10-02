@@ -120,7 +120,7 @@ for root_name in ('manuscript','mathematics'):
         raw = md.read_text(encoding='utf-8')
         for i, ch in enumerate(raw):
             code = ord(ch)
-            if ch == '\t' or (code < 32 and ch not in ('\n','\r')):
+            if ch == '\t' or (code < 32 and ch != '\n'):
                 errors.append(f"control character U+{code:04X} in {md.relative_to(ROOT)} at offset {i}")
                 break
 
