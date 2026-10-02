@@ -1,0 +1,59 @@
+schema_version: "0.1.0"
+chapter_id: "ATLAS-CH-NONNORMAL-001"
+retrieved: "2026-10-02"
+norm_convention: "spectral/operator 2-norm unless explicitly stated otherwise"
+sources:
+  - id: "NONNORMAL-HORN-JOHNSON-2012"
+    role: "matrix-analysis baseline"
+    type: "book"
+    authors: ["Roger A. Horn", "Charles R. Johnson"]
+    title: "Matrix Analysis"
+    edition: "2"
+    publisher: "Cambridge University Press"
+    year: 2012
+    doi: "10.1017/CBO9781139020411"
+    isbn_hardback: "9780521839402"
+    locator: "https://doi.org/10.1017/CBO9781139020411"
+    authority_note: "Normal matrices, unitary similarity, norms, eigenvalue perturbation, and matrix-analysis conventions."
+  - id: "NONNORMAL-TREFETHEN-EMBREE-2005"
+    role: "canonical pseudospectra reference"
+    type: "book"
+    authors: ["Lloyd N. Trefethen", "Mark Embree"]
+    title: "Spectra and Pseudospectra: The Behavior of Nonnormal Matrices and Operators"
+    publisher: "Princeton University Press"
+    year: 2005
+    isbn: "978-0-691-11946-5"
+    doi_jstor: "10.2307/j.ctvzxx9kj"
+    locator: "https://doi.org/10.2307/j.ctvzxx9kj"
+    authority_note: "Canonical reference for nonnormal matrices/operators, resolvent growth, pseudospectra, and transient behavior."
+  - id: "NONNORMAL-REDDY-SCHMID-HENNINGSON-1993"
+    role: "primary pseudospectra/transient-growth application"
+    type: "article"
+    authors: ["Satish C. Reddy", "Peter J. Schmid", "Dan S. Henningson"]
+    title: "Pseudospectra of the Orr-Sommerfeld Operator"
+    journal: "SIAM Journal on Applied Mathematics"
+    volume: 53
+    issue: 1
+    pages: "15-47"
+    year: 1993
+    doi: "10.1137/0153002"
+    locator: "https://doi.org/10.1137/0153002"
+    authority_note: "Primary source connecting pseudospectra, sensitive eigenstructure, and transient energy growth."
+  - id: "NONNORMAL-TREFETHEN-TREFETHEN-REDDY-DRISCOLL-1993"
+    role: "primary broad transient-growth motivation"
+    type: "article"
+    authors: ["L. N. Trefethen", "A. E. Trefethen", "S. C. Reddy", "T. A. Driscoll"]
+    title: "Hydrodynamic Stability Without Eigenvalues"
+    journal: "Science"
+    volume: 261
+    issue: 5121
+    pages: "578-584"
+    year: 1993
+    doi: "10.1126/science.261.5121.578"
+    pmid: "17758167"
+    locator: "https://doi.org/10.1126/science.261.5121.578"
+    authority_note: "Historical application emphasizing large linear amplification despite modal decay."
+claim_scope:
+  - "The Atlas 2x2 Jordan-like example is independently derived and is not attributed as a theorem from these sources."
+  - "The epsilon-pseudospectrum uses the 2-norm resolvent/smallest-singular-value convention."
+  - "Fluid-mechanical examples motivate the general phenomenon but do not imply that neural-training instability has the same mechanism."

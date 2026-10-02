@@ -1,0 +1,28 @@
+id: "ATLAS-FIG-PSPECTRUM-001"
+chapter_id: "ATLAS-CH-NONNORMAL-001"
+title: "Equal-looking spectra, unequal transient growth"
+status: "rendered-witness"
+representation_class: "data-derived"
+literal_semantics: "Transient-gain curves are 2-norm evaluations of the stated matrices. Pseudospectral boundaries use the exact analytic radii for the 2x2 Jordan-like matrix and the matched normal matrix."
+nonliteral_semantics: "Panel layout, line style, text placement, and selected epsilon levels are editorial choices."
+support_role: "Demonstrate that identical eigenvalue locations can coexist with radically different finite-horizon gain and pseudospectral sensitivity."
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  source: "figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl"
+  rendered: "figures/masters/ATLAS-FIG-PSPECTRUM-001.png"
+  git_blob_sha1: "b8901f7ef153598e7b6fe60756ef14f808798734"
+  approximate_png_bytes: 54408
+parameters:
+  a: "4/5"
+  K: 4
+  steps: "0..20"
+  epsilons: [0.01, 0.03, 0.1, 0.3]
+norm: "spectral/operator 2-norm"
+mathematics:
+  nonnormal_matrix: "A=[[a,K],[0,a]]"
+  normal_comparison: "N=a I"
+  exact_power: "A^n=[[a^n,n K a^(n-1)],[0,a^n]]"
+  pseudospectrum_boundary: "|z-a|^2=epsilon(epsilon+K)"
+claim_boundary: "The figure establishes the mechanism for this exact finite-dimensional example. It does not establish that a particular neural optimizer or network exhibits the same mechanism."

@@ -1,0 +1,23 @@
+id: "ATLAS-FIG-MANIFOLD-001"
+chapter_id: "ATLAS-CH-GEOM-001"
+title: "Tangent update, exponential map, and retraction"
+status: "rendered-witness"
+representation_class: "schematic"
+literal_semantics: "The unit sphere, tangent plane at x, tangent vector v, spherical exponential-map endpoint, normalized-retraction endpoint, and great-circle arc are computed from the stated equations."
+nonliteral_semantics: "Perspective, tangent-plane patch extent, opacity, line style, and label offsets are illustrative."
+support_role: "Make the distinction between ambient tangent motion and manifold-respecting update visible."
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl"
+  rendered: "figures/masters/ATLAS-FIG-MANIFOLD-001.png"
+  git_blob_sha1: "aded6f0764e04dd17457a71a32cb4a1ae5d42a84"
+  approximate_png_bytes: 78918
+parameters:
+  x: [0, 0, 1]
+  v: [0.8, 0, 0]
+mathematics:
+  exponential_map: "Exp_x(v)=cos(||v||)x+sin(||v||)v/||v|| on the unit sphere"
+  retraction: "R_x(v)=(x+v)/||x+v||"
+claim_boundary: "The figure is exact for the stated unit-sphere example. It does not assert that an arbitrary learned representation lies on a sphere or that the chosen retraction equals the exponential map."
