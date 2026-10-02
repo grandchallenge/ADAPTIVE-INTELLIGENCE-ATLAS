@@ -5,23 +5,23 @@
 Given bases for finite-dimensional spaces, a linear map
 
 [
-T:V	o W
+T:V\to W
 ]
 
 is represented by a matrix (A). A basis change changes the coordinate matrix but need not change the underlying map.
 
 ## D2. Orthogonal projection
 
-If (Qinmathbb R^{n	imes k}) has orthonormal columns,
+If (Qinmathbb R^{n\times k}) has orthonormal columns,
 
 [
-Q^	op Q=I,
+Q^\top Q=I,
 ]
 
 then
 
 [
-P=QQ^	op
+P=QQ^\top
 ]
 
 satisfies
@@ -29,7 +29,7 @@ satisfies
 [
 P^2=P,
 qquad
-P^	op=P.
+P^\top=P.
 ]
 
 Hence (P) is the orthogonal projector onto (operatorname{col}(Q)).
@@ -39,13 +39,13 @@ Hence (P) is the orthogonal projector onto (operatorname{col}(Q)).
 For
 
 [
-Ainmathbb R^{m	imes n},
+Ainmathbb R^{m\times n},
 ]
 
 the SVD is
 
 [
-A=USigma V^	op.
+A=USigma V^\top.
 ]
 
 The induced Euclidean operator norm is
@@ -58,7 +58,7 @@ For the non-normal witness
 
 [
 A=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\
 0&1
 end{pmatrix},
@@ -67,9 +67,9 @@ end{pmatrix},
 the eigenvalues are both (1), while the singular values are
 
 [
-sigma_1=rac{1+sqrt5}{2},
+sigma_1=\frac{1+sqrt5}{2},
 qquad
-sigma_2=rac{sqrt5-1}{2}.
+sigma_2=\frac{sqrt5-1}{2}.
 ]
 
 Thus eigenvalue magnitude and one-step Euclidean amplification answer different questions.
@@ -91,7 +91,7 @@ sigma_{k+1}.
 For the witness matrix above, the best rank-one approximation error is
 
 [
-rac{sqrt5-1}{2}.
+\frac{sqrt5-1}{2}.
 ]
 
 ## D5. Conditioning
@@ -100,7 +100,7 @@ For nonsingular
 
 [
 D=
-egin{pmatrix}
+\begin{pmatrix}
 1&0\
 0&1/100
 end{pmatrix},
@@ -109,7 +109,7 @@ end{pmatrix},
 [
 kappa_2(D)
 =
-rac{sigma_{max}(D)}{sigma_{min}(D)}
+\frac{sigma_{max}(D)}{sigma_{min}(D)}
 =
 100.
 ]
@@ -121,13 +121,13 @@ A relative perturbation aligned with the weak singular direction can therefore b
 For
 
 [
-A=USigma V^	op,
+A=USigma V^\top,
 ]
 
 the Moore-Penrose pseudoinverse is
 
 [
-A^+=VSigma^+U^	op,
+A^+=VSigma^+U^\top,
 ]
 
 with nonzero singular values inverted.
