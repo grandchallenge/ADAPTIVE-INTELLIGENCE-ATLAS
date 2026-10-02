@@ -1,349 +1,371 @@
 # ATLAS-CH-ATTNOP-001 — Derivation Packet
 
 **Status:** first-pass derivations  
-**Source lock:** `sources/source-locks/ATLAS-CH-ATTNOP-001.yaml`
+**Source lock:** \`sources/source-locks/ATLAS-CH-ATTNOP-001.yaml\`  
+**Norm convention:** ordinary Euclidean/Frobenius conventions unless stated otherwise.
 
 ## D1. Standard scaled dot-product attention
 
-For hidden states (Xinmathbb R^{n	imes d}),
+For hidden states \(X\in\mathbb R^{n\times d}\),
 
-[
-Q=XW_Q,qquad K=XW_K,qquad V=XW_V.
-]
+\[
+Q=XW_Q,\qquad K=XW_K,\qquad V=XW_V.
+\]
 
-For one head of key dimension (d_k),
+For one head of key dimension \(d_k\),
 
-[
-S(X)=rac{QK^	op}{sqrt{d_k}},
-]
+\[
+S(X)=\frac{QK^\top}{\sqrt{d_k}},
+\]
 
 and row-wise softmax gives
 
-[
+\[
 A(X)_{ij}
 =
-rac{exp S_{ij}}{sum_{ell=1}^nexp S_{iell}}.
-]
+\frac{\exp S_{ij}}{\sum_{\ell=1}^n \exp S_{i\ell}}.
+\]
 
 The head output is
 
-[
-oxed{Y=A(X)V.}
-]
+\[
+\boxed{Y=A(X)V.}
+\]
 
-This is the standard scaled dot-product construction of Vaswani et al. The Atlas separates three mathematical objects:
+This is the standard scaled dot-product attention construction [@VaswaniEtAl2017].
 
-1. score matrix (S);
-2. normalized mixing operator (A);
-3. value field (V).
+The Atlas keeps four objects distinct:
 
-The full map (Xmapsto A(X)V(X)) is a fourth object.
+\[
+S=\text{score matrix},\qquad
+A=\text{normalized mixing operator},\qquad
+V=\text{value field},\qquad
+F(X)=A(X)V(X).
+\]
 
 ## D2. Conditional linearity in the value field
 
-Fix (Q) and (K). Then (S) and (A) are fixed.
+Fix \(Q\) and \(K\), hence fix \(A\).
 
-For value fields (V_1,V_2) and scalars (alpha,eta),
+For value fields \(V_1,V_2\) and scalars \(\alpha,\beta\),
 
-[
-A(alpha V_1+eta V_2)
+\[
+A(\alpha V_1+\beta V_2)
 =
-alpha AV_1+eta AV_2.
-]
-
-Thus
-
-[
-oxed{Vmapsto AV	ext{ is linear when }Q,K	ext{ are fixed}.}
-]
-
-This statement does **not** imply that self-attention is linear in (X), because (A) and (V) normally both depend on (X).
-
-## D3. Row-stochastic structure
-
-For finite unmasked scores,
-
-[
-A_{ij}>0,
-]
-
-and
-
-[
-sum_j A_{ij}
-=
-rac{sum_j e^{S_{ij}}}{sum_ell e^{S_{iell}}}
-=
-1.
-]
-
-Hence each row lies on a probability simplex:
-
-[
-oxed{Amathbf 1=mathbf 1.}
-]
-
-With a causal or structural mask implemented by (-infty) logits, disallowed entries become zero after softmax while the remaining admissible row still sums to one, provided at least one entry remains admissible.
-
-This stochastic-matrix structure concerns the **mixing weights**. The complete head also includes learned value transformation and later output projection.
-
-## D4. The full self-attention map is nonlinear
-
-Use the smallest nontrivial scalar self-attention example:
-
-[
-X=
-egin{pmatrix}
-1\
-0
-end{pmatrix},
-qquad
-W_Q=W_K=W_V=1.
-]
-
-With (d_k=1), the score matrix is (XX^	op). The output is
-
-[
-F(X)
-=
-egin{pmatrix}
-rac{e}{1+e}\[4pt]
-rac12
-end{pmatrix}.
-]
-
-Scale the input by (2):
-
-[
-F(2X)
-=
-egin{pmatrix}
-rac{2e^4}{1+e^4}\[4pt]
-1
-end{pmatrix}.
-]
-
-But
-
-[
-2F(X)
-=
-egin{pmatrix}
-rac{2e}{1+e}\[4pt]
-1
-end{pmatrix}.
-]
-
-Their first components differ by
-
-[
-rac{2}{1+e}
--
-rac{2}{1+e^4}
-approx
-0.5019104228.
-]
+\alpha AV_1+\beta AV_2.
+\]
 
 Therefore
 
-[
-oxed{F(2X)
-e 2F(X).}
-]
+\[
+V\mapsto AV
+\]
 
-The operator viewpoint is thus conditional: attention acts linearly on (V) **after** the state-dependent operator (A(X)) has been formed.
+is linear when the mixing operator is held fixed.
 
-## D5. Permutation equivariance without position or asymmetric masking
+This does **not** imply that self-attention is linear in \(X\), because both \(A(X)\) and \(V(X)\) depend on \(X\).
 
-Let (P) be an (n	imes n) permutation matrix and define
+## D3. Row-stochastic structure
 
-[
-X'=PX.
-]
+For every finite unmasked score row,
 
-Then
+\[
+A_{ij}>0
+\]
 
-[
-Q'=PQ,qquad K'=PK,qquad V'=PV.
-]
+and
 
-The score matrix transforms as
-
-[
-S'
-=
-rac{Q'K'^	op}{sqrt{d_k}}
-=
-PSP^	op.
-]
-
-Row-wise softmax commutes with simultaneous row/column permutation:
-
-[
-operatorname{softmax}_{m row}(PSP^	op)
-=
-P,operatorname{softmax}_{m row}(S),P^	op.
-]
+\[
+\sum_{j=1}^n A_{ij}=1.
+\]
 
 Hence
 
-[
-A'=PAP^	op.
-]
+\[
+\boxed{A\mathbf 1=\mathbf 1.}
+\]
 
-The output transforms as
+Each output row is therefore a convex combination of value rows before any later output projection.
 
-[
-Y'
+This algebraic fact does not make the whole attention layer a Markov process.
+
+## D4. The full self-attention map is nonlinear
+
+Take
+
+\[
+X=
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix},
+\qquad
+W_Q=W_K=W_V=1,
+\qquad d_k=1.
+\]
+
+Then
+
+\[
+Q=K=V=X,\qquad
+S=XX^\top.
+\]
+
+The first output component is
+
+\[
+F(X)_1=\frac{e}{1+e}.
+\]
+
+For \(2X\),
+
+\[
+F(2X)_1=\frac{2e^4}{1+e^4},
+\]
+
+whereas
+
+\[
+2F(X)_1=\frac{2e}{1+e}.
+\]
+
+Thus
+
+\[
+F(2X)_1-2F(X)_1
 =
-A'V'
+\frac{2e^4}{1+e^4}
+-
+\frac{2e}{1+e}
+\neq 0.
+\]
+
+Numerically the magnitude of the discrepancy is about \(0.5019104228\).
+
+Therefore
+
+\[
+\boxed{F(2X)\neq 2F(X).}
+\]
+
+## D5. Exact three-token witness
+
+Use
+
+\[
+Q=K=
+\begin{pmatrix}
+1&0\\
+0&1\\
+1&1
+\end{pmatrix},
+\qquad
+V=
+\begin{pmatrix}
+1&0\\
+0&1\\
+1&-1
+\end{pmatrix},
+\qquad d_k=2.
+\]
+
+Then
+
+\[
+S=
+\frac1{\sqrt2}
+\begin{pmatrix}
+1&0&1\\
+0&1&1\\
+1&1&2
+\end{pmatrix}.
+\]
+
+The row-softmax operator is approximately
+
+\[
+A\approx
+\begin{pmatrix}
+0.401112&0.197776&0.401112\\
+0.197776&0.401112&0.401112\\
+0.248255&0.248255&0.503490
+\end{pmatrix},
+\]
+
+and
+
+\[
+Y=AV\approx
+\begin{pmatrix}
+0.802224&-0.203336\\
+0.598888&0\\
+0.751745&-0.255235
+\end{pmatrix}.
+\]
+
+Wolfram replay gives row sums equal to \(1\) to numerical precision and fixed-\(A\) linearity residual \(0\).
+
+## D6. Query perturbation induces operator perturbation
+
+Perturb only the first query,
+
+\[
+q_1=(1,0)
+\quad\longrightarrow\quad
+q_1'=(1,\tfrac12),
+\]
+
+holding \(K\) and \(V\) fixed.
+
+Only the first score row changes, hence only the first row of \(A\) changes.
+
+Wolfram replay gives
+
+\[
+\Delta A_{1,:}
+\approx
+(-0.08124593,\;0.02683053,\;0.05441540).
+\]
+
+This is a bounded example of
+
+\[
+\text{state perturbation}
+\longrightarrow
+\text{operator perturbation}
+\longrightarrow
+\text{output perturbation}.
+\]
+
+## D7. Permutation equivariance without positional asymmetry
+
+Let \(P\) be a permutation matrix and \(X'=PX\). Then
+
+\[
+Q'=PQ,\qquad K'=PK,\qquad V'=PV.
+\]
+
+Therefore
+
+\[
+S'
 =
-PAP^	op PV
+\frac{Q'K'^\top}{\sqrt{d_k}}
+=
+PSP^\top.
+\]
+
+Row-wise softmax commutes with the simultaneous row/column permutation:
+
+\[
+A'=PAP^\top.
+\]
+
+Hence
+
+\[
+Y'=A'V'
+=
+PAP^\top PV
 =
 PY.
-]
+\]
 
-Thus, absent positional information or an asymmetric mask,
+So, in the absence of positional encodings or asymmetric masks,
 
-[
-oxed{F(PX)=PF(X).}
-]
+\[
+\boxed{F(PX)=PF(X).}
+\]
 
-Positional encodings and causal masks deliberately break or modify this symmetry.
+This is permutation **equivariance**, not invariance.
 
-## D6. Causal attention changes the admissible operator structure
+## D8. Causal masking as an operator constraint
 
-For causal self-attention, define a mask (M) with
+Let
 
-[
+\[
 M_{ij}
 =
-egin{cases}
-0,&jle i,\
--infty,&j>i.
-end{cases}
-]
+\begin{cases}
+0,&j\le i,\\
+-\infty,&j>i.
+\end{cases}
+\]
 
 Then
 
-[
-A=operatorname{softmax}_{m row}(S+M)
-]
+\[
+A=\operatorname{softmax}_{\rm row}(S+M)
+\]
 
-has
+satisfies
 
-[
-A_{ij}=0
-qquad
-(j>i).
-]
+\[
+A_{ij}=0\qquad\text{for }j>i.
+\]
 
-The mixing operator is lower triangular in token order. This is not merely a visualization choice: it encodes a directed information-flow constraint.
+The mask therefore constrains the admissible support pattern of the mixing operator.
 
-## D7. Exact Atlas toy operator
+## D9. Differential sensitivity of a softmax row
 
-The rendered witness uses
+For a softmax row
 
-[
-Q=K=
-egin{pmatrix}
-1&0\
-0&1\
-1&1
-end{pmatrix},
-qquad
-V=
-egin{pmatrix}
-1&0\
-0&1\
-1&-1
-end{pmatrix},
-qquad
-d_k=2.
-]
+\[
+a=\operatorname{softmax}(s),
+\]
 
-Then
+the Jacobian is
 
-[
-S=
-rac1{sqrt2}
-egin{pmatrix}
-1&0&1\
-0&1&1\
-1&1&2
-end{pmatrix}.
-]
+\[
+J_{\rm softmax}(a)
+=
+\operatorname{diag}(a)-aa^\top.
+\]
 
-Wolfram Language 15.0.1 evaluates
+A query perturbation \(\delta q_i\) induces
 
-[
-Aapprox
-egin{pmatrix}
-0.401112&0.197776&0.401112\
-0.197776&0.401112&0.401112\
-0.248255&0.248255&0.503490
-end{pmatrix}
-]
+\[
+\delta s_i
+=
+\frac{\delta q_i K^\top}{\sqrt{d_k}},
+\]
 
-with row sums equal to one to the displayed precision.
+and, to first order,
 
-The output is
+\[
+\delta a_i
+\approx
+\left(\operatorname{diag}(a_i)-a_i a_i^\top\right)
+\frac{\delta q_iK^\top}{\sqrt{d_k}}.
+\]
 
-[
-Y=AVapprox
-egin{pmatrix}
-0.802224&-0.203336\
-0.598888&0\
-0.751745&-0.255235
-end{pmatrix}.
-]
+This gives a concrete local operator-sensitivity calculation without elevating attention weights to causal explanations.
 
-It also verifies exactly at machine tolerance that
+## D10. Kernel-feature reassociation
 
-[
-A(2V)-2(AV)=0
-]
+For a similarity admitting
 
-when (A) is held fixed.
+\[
+k(q,k)=\phi(q)^\top\phi(k),
+\]
 
-## D8. State dependence of the operator
+an unnormalized numerator
 
-Perturb only the first query from
+\[
+\sum_j \phi(q_i)^\top\phi(k_j)v_j^\top
+\]
 
-[
-q_1=(1,0)
-]
+can be reassociated as
 
-to
+\[
+\phi(q_i)^\top
+\left(
+\sum_j \phi(k_j)v_j^\top
+\right).
+\]
 
-[
-q_1'=(1,1/2),
-]
+This algebra is the basis of linear-attention constructions such as Katharopoulos et al. [@KatharopoulosEtAl2020]. It changes the computational factorization of the operator action; it does not license a universal claim that every attention mechanism is a fixed kernel machine.
 
-holding (K,V) fixed.
+## Claim boundary
 
-Only the first score row changes, and Wolfram obtains the first-row operator change
-
-[
-Delta A_{1,:}
-approx
-(-0.081246, 0.026831, 0.054415).
-]
-
-The remaining rows are unchanged.
-
-This is the operational meaning of a **state-dependent operator**: the map applied to the value field is itself configured by the current query/key state.
-
-## D9. Kernel interpretation boundary
-
-Softmax attention can be written as normalized similarity-weighted averaging, and kernel-smoother formulations have been developed explicitly in the literature. Linear-attention methods further replace the exponential similarity with feature-map factorizations that permit associative evaluation.
-
-The Atlas uses this connection when it clarifies structure, but does not identify every attention mechanism with a fixed positive-definite kernel. In ordinary self-attention, learned projections, normalization, masking, position, and state dependence all matter.
-
-## Source boundary
-
-- Scaled dot-product attention and Transformer formulation: `ATTN-VASWANI-2017`.
-- Kernel-smoother interpretation: `ATTN-TSAI-ETAL-2019`.
-- Kernel feature-map / linear attention: `ATTN-KATHAROPOULOS-ETAL-2020`.
-
-The operator decomposition and toy derivations above are Atlas-owned expository derivations.
+This packet establishes algebraic properties of standard scaled dot-product attention and two finite toy systems. It does not establish that attention weights are causal explanations, that the toy matrices resemble a trained head, or that kernel language exhausts the possible interpretations of attention.
