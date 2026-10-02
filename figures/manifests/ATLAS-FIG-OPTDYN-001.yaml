@@ -1,4 +1,5 @@
-id: "ATLAS-FIG-OPTDYN-001"
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-OPTDYN-001"
 chapter_id: "ATLAS-CH-OPTDYN-001"
 title: "Coupled optimizer-state phase portrait"
 status: "rendered-witness"
@@ -11,9 +12,10 @@ generator:
   version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
   system_id: "Linux-x86-64"
   source: "figures/wolfram/ATLAS-FIG-OPTDYN-001.wl"
+  source_git_blob_sha1: "58e3b96aff40d7ce2b9eec144c58a6ca035346b8"
   rendered: "figures/masters/ATLAS-FIG-OPTDYN-001.png"
-  git_blob_sha1: "fa8e5231cb6451c026a0ccd7beecdfcff330c98d"
-  approximate_png_bytes: 65403
+  rendered_git_blob_sha1: "fa8e5231cb6451c026a0ccd7beecdfcff330c98d"
+  rendered_bytes: 65403
 parameters:
   h: 1
   eta: "1/10"
