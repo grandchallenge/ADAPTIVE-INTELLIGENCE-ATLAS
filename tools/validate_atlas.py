@@ -3,6 +3,11 @@ from pathlib import Path
 import sys, re, json, hashlib, subprocess, yaml
 
 ROOT = Path(__file__).resolve().parents[1]
+
+def git_blob_sha1(data: bytes) -> str:
+    header = f"blob {len(data)}\0".encode('ascii')
+    return hashlib.sha1(header + data).hexdigest()
+
 ledger = yaml.safe_load((ROOT/'governance/CHAPTER_LEDGER.yaml').read_text(encoding='utf-8'))
 figs = yaml.safe_load((ROOT/'governance/FIGURE_REGISTER.yaml').read_text(encoding='utf-8'))
 sources = yaml.safe_load((ROOT/'governance/SOURCE_REGISTER.yaml').read_text(encoding='utf-8'))
@@ -178,6 +183,27 @@ for f in figs.get('figures', []):
                 errors.append(f"rendered figure {f.get('id')} manifest chapter_id mismatch")
             if not manifest.get('claim_boundary'):
                 errors.append(f"rendered figure {f.get('id')} manifest missing claim_boundary")
+            mgen = manifest.get('generator') or {}
+            source_rel = mgen.get('source')
+            rendered_rel = mgen.get('rendered')
+            if source_rel and (ROOT/source_rel).is_file():
+                actual_source_sha = git_blob_sha1((ROOT/source_rel).read_bytes())
+                expected_source_sha = mgen.get('source_git_blob_sha1')
+                if expected_source_sha != actual_source_sha:
+                    errors.append(f"rendered figure {f.get('id')} source Git blob SHA-1 mismatch")
+            else:
+                errors.append(f"rendered figure {f.get('id')} manifest source missing: {source_rel}")
+            if rendered_rel and (ROOT/rendered_rel).is_file():
+                rendered_bytes = (ROOT/rendered_rel).read_bytes()
+                actual_rendered_sha = git_blob_sha1(rendered_bytes)
+                expected_rendered_sha = mgen.get('rendered_git_blob_sha1')
+                if expected_rendered_sha != actual_rendered_sha:
+                    errors.append(f"rendered figure {f.get('id')} rendered Git blob SHA-1 mismatch")
+                expected_size = mgen.get('rendered_bytes')
+                if expected_size != len(rendered_bytes):
+                    errors.append(f"rendered figure {f.get('id')} rendered byte count mismatch")
+            else:
+                errors.append(f"rendered figure {f.get('id')} manifest rendered file missing: {rendered_rel}")
 if len(fig_ids) != len(set(fig_ids)):
     errors.append('duplicate figure IDs')
 
