@@ -5,167 +5,162 @@
 **Title:** Normality, Pseudospectra, and Transient Growth  
 **Part:** Mathematical Substrate  
 **Status:** specification-ready  
-**Keystone role:** establish the mathematics required to understand why apparently stable operators can amplify disturbances over finite horizons.
+**Keystone role:** establish the mathematics needed to understand why apparently stable operators can amplify disturbances over finite horizons.
 
 ## Chapter contract
 
-The chapter must destroy one specific naive intuition:
+The chapter must break one naive intuition:
 
-> eigenvalues alone determine whether finite-time behavior is benign.
+> Eigenvalues alone determine whether finite-time behavior is benign.
 
-The reader should leave understanding why non-normal operators can have stable-looking spectra and still produce large transient amplification, why eigenvectors and conditioning matter, and what pseudospectra add to ordinary spectral analysis.
+The reader should leave understanding why non-normal operators can have stable-looking spectra and still produce substantial transient amplification, why eigenvector geometry matters, and what pseudospectra reveal beyond ordinary eigenvalue plots.
 
 ## Dependency contract
 
 Immediate hard prerequisite:
 
-- `ATLAS-CH-LINALG-001` — formal.
+- \`ATLAS-CH-LINALG-001\` — formal.
 
-Inherited prerequisite cone:
+Inherited foundation:
 
-- `ATLAS-CH-OBJECTS-001`;
-- `ATLAS-CH-THESIS-001`.
+- \`ATLAS-CH-OBJECTS-001\`;
+- \`ATLAS-CH-THESIS-001\`.
 
-The chapter may assume eigenvalues, eigenvectors, SVD, induced norms, singular values, and conditioning. It may not assume dynamical-systems stability theory or optimizer dynamics.
+The chapter may assume eigenvalues, eigenvectors, SVD, induced norms, singular values, and conditioning. It may not assume optimizer dynamics.
 
 ## Reader outcome
 
 The reader should be able to:
 
 1. define normal and non-normal matrices;
-2. explain why orthogonal/unitary diagonalization matters;
-3. construct a stable-eigenvalue matrix with substantial transient norm growth;
+2. explain the role of orthogonal/unitary diagonalization;
+3. construct a stable-eigenvalue matrix with transient growth;
 4. distinguish spectral radius from operator norm;
 5. explain eigenvector conditioning;
-6. define the (arepsilon)-pseudospectrum in at least two equivalent finite-dimensional ways;
+6. define the \(\varepsilon\)-pseudospectrum;
 7. interpret resolvent growth;
-8. connect transient amplification to later learning-system diagnostics without claiming that all training instability is non-normal.
+8. connect the mathematics to later learning-system diagnostics without universalizing the mechanism.
 
 ## Formal spine
 
-### Minimal opening counterexample
+Open with
 
-Use a (2	imes 2) upper-triangular matrix such as
+\[
+A=
+\begin{pmatrix}
+a&K\\
+0&a
+\end{pmatrix},
+\qquad |a|<1.
+\]
 
-[
-A=egin{pmatrix}a & K\\0 & aend{pmatrix},
-qquad |a|<1,
-]
+Derive
 
-with (K) large.
+\[
+A^n
+=
+\begin{pmatrix}
+a^n&nKa^{n-1}\\
+0&a^n
+\end{pmatrix}.
+\]
 
-Derive (A^k) explicitly and show that (ho(A)<1) can coexist with substantial finite-time (|A^k|).
+Definitions:
 
-The exact parameter choice should be selected to make the amplification visually clear while remaining numerically well-conditioned enough for reproduction.
-
-### Definitions
-
-- normal operator;
-- departure from normality, with care that several measures exist;
+- normal matrix/operator;
 - spectral radius;
 - transient amplification;
 - resolvent;
-- (arepsilon)-pseudospectrum.
+- \(\varepsilon\)-pseudospectrum.
 
-### Core results / derivations
+Core results should establish or source-lock:
 
-The chapter should establish or source-lock:
-
-1. normal matrices satisfy (|A^k|_2=ho(A)^k) when the spectral radius is realized by the largest absolute eigenvalue under unitary diagonalization;
-2. diagonalizable non-normal matrices inherit bounds involving eigenvector-condition numbers;
+1. for a normal matrix,
+   \[
+   \|A^n\|_2=\rho(A)^n;
+   \]
+2. diagonalizable non-normal bounds include eigenvector conditioning;
 3. resolvent norm controls pseudospectral expansion;
-4. pseudospectra expose sensitivity invisible in the eigenvalue set alone.
+4. broad pseudospectra expose sensitivity invisible in the eigenvalue set alone.
 
-Avoid presenting a pseudospectral bound without its norm convention and hypotheses.
+Every norm convention and hypothesis must be explicit.
 
 ## Principal intuition device
 
 ### Allegory: aligned currents in a harbor
 
-Two individually decaying directions can be geometrically aligned so that motion transferred between them produces a temporary surge before decay dominates.
+Several individually decaying directions can be aligned so that interaction among them produces a temporary surge before decay dominates.
 
 Structural correspondence:
 
 - asymptotic decay ↔ eigenvalues inside the unit disk;
-- aligned directions ↔ non-orthogonal eigenvectors/generalized directions;
+- non-orthogonal directions ↔ non-normal modal geometry;
 - temporary surge ↔ transient operator-norm growth.
 
 Limit of allegory:
 
-The matrix need not represent a physical fluid, and non-normality is not identical to energy transfer in fluids. The analogy is about geometric interaction among directions.
+The matrix need not describe a fluid. The analogy is only about geometric interaction among directions.
 
 ## Figure programme
 
-### ATLAS-FIG-PSPECTRUM-001 — Equal-looking spectra, unequal transient growth
+### ATLAS-FIG-PSPECTRUM-001
 
-Required comparison:
+Compare:
 
 - one normal matrix;
 - one non-normal matrix;
-- matched or deliberately similar eigenvalue locations;
-- (|A^k|_2) over finite (k);
-- pseudospectral contours for both.
+- matched eigenvalues;
+- \(\|A^n\|_2\) over finite \(n\);
+- pseudospectral contours.
 
-The strongest teaching frame is “same eigenvalue story, different finite-time story.”
+The teaching frame is:
 
-Representation class: `data-derived`.
+> same eigenvalue story, different finite-time story.
 
-## Wolfram computational witnesses
+## Wolfram witnesses
 
-1. exact symbolic power of the (2	imes2) Jordan-like example;
-2. singular-value computation of (A^k);
-3. pseudospectral contour calculation via smallest singular value of (zI-A);
-4. parameter sweep in (K) showing growth of peak transient amplification;
-5. optional comparison with a normal matrix sharing the same eigenvalues.
-
-High precision should be available for contour validation near small singular values.
+1. exact power of the \(2\times2\) Jordan-like example;
+2. singular-value computation of \(A^n\);
+3. pseudospectral contours via \(\sigma_{\min}(zI-A)\);
+4. parameter sweep in \(K\);
+5. matched normal comparison.
 
 ## Counterexamples and failure boundaries
 
-The chapter must explicitly block these overstatements:
+State explicitly:
 
 - non-normal does not mean unstable;
 - transient growth does not imply eventual divergence;
-- a large pseudospectrum does not by itself identify a causal mechanism in a neural network;
-- eigenvalues remain informative, but can be insufficient;
-- the magnitude of transient growth depends on norm and horizon.
-
-## Bridge to learning systems
-
-The final section may preview optimizer-state dynamics:
-
-A learning update linearized around a trajectory or local state can inherit non-normal transient amplification. This is a motivation for later analysis, not yet an empirical claim about a particular optimizer.
-
-No optimizer-specific conclusion should be promoted here.
+- broad pseudospectra do not identify a neural causal mechanism;
+- eigenvalues remain informative but may be insufficient;
+- transient gain depends on norm and horizon.
 
 ## Downstream obligations
 
-The chapter provides formal machinery for:
+Provides machinery for:
 
-- `ATLAS-CH-SPECTRALSHAPE-001`;
-- `ATLAS-CH-OPTDYN-001`;
-- `ATLAS-CH-ROUTERDYN-001`;
-- `ATLAS-CH-SPECTRALDIAG-001`.
-
-Definitions and norm conventions must therefore remain stable.
+- \`ATLAS-CH-SPECTRALSHAPE-001\`;
+- \`ATLAS-CH-OPTDYN-001\`;
+- \`ATLAS-CH-ROUTERDYN-001\`;
+- \`ATLAS-CH-SPECTRALDIAG-001\`.
 
 ## Source-lock plan
 
-Before review-ready drafting, source-lock:
+Source-lock:
 
 - a standard matrix-analysis reference;
-- a primary or canonical pseudospectra reference;
-- one reliable source for transient growth in non-normal systems;
-- later, separate primary sources for any application to optimization or neural dynamics.
+- a canonical pseudospectra reference;
+- primary work on transient growth in non-normal systems;
+- separate primary sources for later neural/optimization applications.
 
 ## Acceptance criteria
 
-The drafted chapter must include:
+The draft must include:
 
-- an exact (2	imes2) transient-growth derivation;
+- an exact \(2\times2\) transient-growth derivation;
 - a normal/non-normal comparison;
-- a precise pseudospectrum definition;
+- a precise pseudospectrum convention;
 - a Wolfram-rendered contour witness;
 - explicit norm conventions;
-- at least three failure-boundary statements;
-- no claim that non-normality alone explains observed training instability.
+- failure-boundary statements;
+- no claim that non-normality alone explains training instability.
