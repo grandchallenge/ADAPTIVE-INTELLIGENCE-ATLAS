@@ -1,4 +1,4 @@
-schema_version: "0.1.0"
+schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-NONNORMAL-001"
 retrieved: "2026-10-02"
 norm_convention: "spectral/operator 2-norm unless explicitly stated otherwise"
@@ -53,6 +53,9 @@ sources:
     pmid: "17758167"
     locator: "https://doi.org/10.1126/science.261.5121.578"
     authority_note: "Historical application emphasizing large linear amplification despite modal decay."
+claim_boundary: >
+  These sources support normal/non-normal matrix analysis, resolvent and pseudospectral theory, and established transient-growth examples. They do not establish that non-normality explains a particular neural-training instability.
+
 claim_scope:
   - "The Atlas 2x2 Jordan-like example is independently derived and is not attributed as a theorem from these sources."
   - "The epsilon-pseudospectrum uses the 2-norm resolvent/smallest-singular-value convention."
