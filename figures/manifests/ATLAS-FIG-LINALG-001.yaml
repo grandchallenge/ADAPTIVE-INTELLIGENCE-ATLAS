@@ -1,0 +1,27 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-LINALG-001"
+chapter_id: "ATLAS-CH-LINALG-001"
+status: "rendered-witness"
+representation_class: "exact"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-LINALG-001.wl"
+  source_git_blob_sha1: "94450cbddb6c10c06d61f758454ef0aa0090caf8"
+  rendered: "figures/masters/ATLAS-FIG-LINALG-001.png"
+  rendered_git_blob_sha1: "d861c038e841450ccfabb8f0709e161d6a555450"
+  rendered_bytes: 41238
+parameters:
+  A: "[[1,1],[0,1]]"
+  D: "diag(1,1/100)"
+  singular_values_A: "[(1+sqrt(5))/2,(sqrt(5)-1)/2]"
+  condition_number_D: 100
+literal_semantics: >
+  The left panel maps the unit circle through the exact matrix A and labels its
+  singular values. The right panel reports the exact singular-value conditioning
+  of D=diag(1,1/100).
+nonliteral_semantics: >
+  Panel layout, label placement, grayscale, and box geometry are presentation choices.
+claim_boundary: >
+  The figure demonstrates finite-dimensional operator gain and conditioning only.
+  It does not assert a neural-network training mechanism.

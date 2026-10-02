@@ -1,0 +1,41 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-LINALG-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  These sources support the standard finite-dimensional linear algebra and numerical
+  linear algebra used by the Atlas: linear maps, subspaces, projections, SVD,
+  eigendecomposition, pseudoinverses, low-rank approximation, operator norms,
+  conditioning and structured matrix computation. They do not by themselves support
+  later neural-network interpretations.
+sources:
+  - id: "LA-TREFETHEN-BAU-1997"
+    citation_key: "TrefethenBau1997"
+    kind: "monograph"
+    title: "Numerical Linear Algebra"
+    authors: "Lloyd N. Trefethen; David Bau III"
+    publisher: "SIAM"
+    year: 1997
+    doi: "10.1137/1.9780898719574"
+    authority: "Numerical linear algebra, SVD, norms, least squares, eigenvalue computations and conditioning."
+  - id: "LA-HORN-JOHNSON-2012"
+    citation_key: "HornJohnson2012"
+    kind: "monograph"
+    title: "Matrix Analysis"
+    edition: 2
+    authors: "Roger A. Horn; Charles R. Johnson"
+    publisher: "Cambridge University Press"
+    year: 2012
+    doi: "10.1017/CBO9781139020411"
+    authority: "Matrix analysis, canonical forms, norms, singular values and spectral structure."
+  - id: "LA-GOLUB-VANLOAN-2013"
+    citation_key: "GolubVanLoan2013"
+    kind: "monograph"
+    title: "Matrix Computations"
+    edition: 4
+    authors: "Gene H. Golub; Charles F. Van Loan"
+    publisher: "Johns Hopkins University Press"
+    year: 2013
+    authority: "Numerical decompositions, least squares, structured matrix computations and algorithmic conditioning."
+epistemic_rules:
+  - "The chapter is a selective substrate, not a complete linear-algebra course."
+  - "Matrix representations and basis-independent operators are distinguished where material."

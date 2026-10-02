@@ -102,45 +102,50 @@ for link in depgraph.get('soft_cross_links') or []:
         if cid not in known:
             errors.append(f"soft cross-link references unknown chapter {cid}")
 
-# Keystone specifications and manuscript promotion.
+# Chapter specifications and manuscript promotion.
 for c in chapters:
-    if not c.get('keystone'):
-        continue
     status = c.get('status')
     spec = c.get('spec_path')
-    if status in ('specification-ready', 'draft-v0.1'):
+    if c.get('keystone') and status == 'specification-ready':
         if not spec:
             errors.append(f"keystone {c['id']} missing spec_path")
         elif not (ROOT/spec).is_file():
             errors.append(f"keystone {c['id']} spec file missing: {spec}")
     if status == 'draft-v0.1':
-        for field in ('manuscript_path','derivation_path','source_lock_path','computational_witness_path'):
+        if not spec:
+            errors.append(f"draft chapter {c['id']} missing spec_path")
+        elif not (ROOT/spec).is_file():
+            errors.append(f"draft chapter {c['id']} spec file missing: {spec}")
+        for field in ('manuscript_path','derivation_path','source_lock_path'):
             path = c.get(field)
             if not path:
-                errors.append(f"draft keystone {c['id']} missing {field}")
+                errors.append(f"draft chapter {c['id']} missing {field}")
             elif not (ROOT/path).is_file():
-                errors.append(f"draft keystone {c['id']} missing file for {field}: {path}")
+                errors.append(f"draft chapter {c['id']} missing file for {field}: {path}")
+        witness = c.get('computational_witness_path')
+        if witness and not (ROOT/witness).is_file():
+            errors.append(f"draft chapter {c['id']} missing computational witness: {witness}")
 
         manuscript_path = c.get('manuscript_path')
         if manuscript_path and (ROOT/manuscript_path).is_file():
             manuscript_text = (ROOT/manuscript_path).read_text(encoding='utf-8')
             for marker in ('**Epistemic status:**', '## References used in this chapter', 'sources/source-locks/'):
                 if marker not in manuscript_text:
-                    errors.append(f"draft keystone {c['id']} manuscript missing protocol marker: {marker}")
+                    errors.append(f"draft chapter {c['id']} manuscript missing protocol marker: {marker}")
 
         source_lock_path = c.get('source_lock_path')
         if source_lock_path and (ROOT/source_lock_path).is_file():
             source_lock = yaml.safe_load((ROOT/source_lock_path).read_text(encoding='utf-8'))
             if source_lock.get('chapter_id') != c['id']:
-                errors.append(f"draft keystone {c['id']} source lock chapter_id mismatch")
+                errors.append(f"draft chapter {c['id']} source lock chapter_id mismatch")
             if not source_lock.get('claim_boundary'):
-                errors.append(f"draft keystone {c['id']} source lock missing claim_boundary")
+                errors.append(f"draft chapter {c['id']} source lock missing claim_boundary")
 
         witness_path = c.get('computational_witness_path')
         if witness_path and (ROOT/witness_path).is_file():
             witness_text = (ROOT/witness_path).read_text(encoding='utf-8')
             if '## Claim boundary' not in witness_text:
-                errors.append(f"draft keystone {c['id']} witness missing Claim boundary")
+                errors.append(f"draft chapter {c['id']} witness missing Claim boundary")
 
 # Figure and source registries.
 fig_ids = []
@@ -303,11 +308,11 @@ for c in chapters:
     if manuscript.is_file():
         body = manuscript.read_text(encoding='utf-8')
         if '**Epistemic status:**' not in body:
-            errors.append(f"draft keystone {c['id']} missing reader-facing epistemic status")
+            errors.append(f"draft chapter {c['id']} missing reader-facing epistemic status")
     if witness.is_file():
         body = witness.read_text(encoding='utf-8')
         if 'claim boundary' not in body.lower():
-            errors.append(f"draft keystone {c['id']} witness missing claim boundary")
+            errors.append(f"draft chapter {c['id']} witness missing claim boundary")
 
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
@@ -334,6 +339,6 @@ rendered = sum(1 for f in figs.get('figures', []) if f.get('status') == 'rendere
 print(
     f"OK: {len(chapters)} chapters, {edge_count} hard edges, "
     f"{len(roots)} root(s), {specified} specification-ready keystones, "
-    f"{drafts} draft keystones, {rendered} rendered witnesses, "
+    f"{drafts} draft chapters, {rendered} rendered witnesses, "
     f"{len(fig_ids)} registered figures, {len(src_ids)} sources, {len(bib_keys)} bibliography keys"
 )

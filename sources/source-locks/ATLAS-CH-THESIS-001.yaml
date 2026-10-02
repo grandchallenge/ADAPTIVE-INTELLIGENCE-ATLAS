@@ -1,0 +1,40 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-THESIS-001"
+locked_on: "2026-10-02"
+epistemic_class: "atlas_synthesis"
+claim_boundary: >
+  This chapter states the Atlas governing thesis and conceptual programme. The thesis
+  is not attributed to an external theorem or claimed as established scientific fact.
+  External literature may support constituent concepts in downstream chapters, but
+  the synthesis itself is Atlas-owned.
+atlas_sources:
+  - id: "THESIS-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      User-supplied programme inventory defining the intended mathematical and research
+      territory; authoritative for project scope, not independent evidence for external facts.
+  - id: "THESIS-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical architecture and chapter contracts at the Foundation-001 baseline."
+  - id: "THESIS-EDITORIAL-PROFILE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "governance/ATLAS_EDITORIAL_PROFILE.md"
+    git_blob_sha1: "4e54b0bebd39dd4432e7caf8238456dac8b9cebf"
+    authority: "Canonical project-local composition doctrine and conceptual spine."
+  - id: "THESIS-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3f74175d14e587d2567140025a79bfa78eefd125"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Post-keystone authoring and epistemic discipline."
+epistemic_rules:
+  - "The Adaptive-System Thesis is Atlas synthesis, not an externally established theorem."
+  - "Examples may motivate the thesis without proving the full thesis."
+  - "The chapter must distinguish descriptive claims about existing systems from the Atlas normative/research programme."
