@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-BCONTRACT-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  These sources support automatic-differentiation/JVP-VJP mechanics, conditioning and
+  local sensitivity, local-to-global compatibility language, and exact public GCL
+  project-state statements. They do not establish a universal boundary-contract
+  formalism or a global safety theorem for learned-system composition.
+sources:
+  - id: "BC-BAYDIN-2018"
+    citation_key: "BaydinEtAl2018"
+    kind: "peer-reviewed-survey"
+    title: "Automatic Differentiation in Machine Learning: a Survey"
+    url: "https://www.jmlr.org/papers/v18/17-468.html"
+    authority: "Forward/reverse automatic differentiation and derivative-program mechanics."
+  - id: "BC-HIGHAM-2002"
+    citation_key: "Higham2002"
+    kind: "monograph"
+    title: "Accuracy and Stability of Numerical Algorithms"
+    doi: "10.1137/1.9780898718027"
+    authority: "Conditioning, perturbation, numerical stability, and condition estimation."
+  - id: "BC-CURRY-2013"
+    citation_key: "Curry2013Sheaves"
+    kind: "doctoral-thesis"
+    title: "Sheaves, Cosheaves and Applications"
+    arxiv: "1303.3255"
+    authority: "Local-to-global compatibility language and cellular sheaf context; used conceptually, not as a claim that Atlas contracts are sheaves."
+gcl_project_state:
+  repository: "grandchallenge/MODULUS"
+  inspected_commit: "9fc42eb5f29d5fff396f13e1a6c972af8fe64b35"
+  inspected_tree_scope: "recursive public tree at inspected_commit"
+  nearest_public_contract_object:
+    path: "modulus/online/contracts.py"
+    git_blob_sha1: "33b8c325203adc7a54a5b8b3ad4e0db6092af51d"
+    object: "RegretContract"
+    scope_note: >
+      This is a typed online-control contract and is not asserted to be the
+      BoundaryContract concept used by this Atlas chapter.
+  named_extension_search:
+    terms:
+      - "BoundaryContract"
+      - "SeparatorCompiler"
+      - "Modula"
+    result: "NOT_FOUND_IN_CURRENT_PUBLIC_MODULUS_TREE_OR_SEARCHABLE_COMMIT_HISTORY"
+    consequence: >
+      The chapter may describe boundary contracts as an Atlas/GCL research direction,
+      but may not claim that the named MODULUS extension is present in the current
+      public repository or attribute implementation results to it.
+epistemic_rules:
+  - "JVP/VJP calculations establish local differential behavior only."
+  - "A local operator-norm or singular-value bound is not automatically a global stability guarantee."
+  - "A low-order separator may omit state relevant to composition."
+  - "GCL project-memory terminology is not promoted to public-source evidence without an exact repository object."
