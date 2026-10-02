@@ -37,6 +37,19 @@ sources:
     pages: "4114-4124"
     year: 2019
     authority: "Identifiability/impossibility limitations for unsupervised disentanglement without inductive biases."
+  - id: "REP-OLSHAUSEN-FIELD-1996"
+    citation_key: "OlshausenField1996"
+    kind: "peer-reviewed-article"
+    title: "Emergence of simple-cell receptive field properties by learning a sparse code for natural images"
+    authors: "Bruno A. Olshausen; David J. Field"
+    journal: "Nature"
+    volume: 381
+    number: 6583
+    pages: "607-609"
+    year: 1996
+    doi: "10.1038/381607a0"
+    authority: "Historical sparse-coding model and learned dictionary example; not a universal claim that neural representations are sparse."
+
   - id: "REP-ELHAGE-SUPERPOSITION-2022"
     citation_key: "ElhageEtAl2022Superposition"
     kind: "research-article-non-peer-reviewed"
