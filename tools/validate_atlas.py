@@ -229,6 +229,71 @@ if replay_manifest_path.is_file():
 else:
     errors.append('deterministic replay manifest missing')
 
+# Six-keystone synthesis governance.
+synthesis_required = [
+    'governance/CHAPTER_COMPOSITION_PROTOCOL.md',
+    'governance/EPISTEMIC_STATUS.yaml',
+    'governance/COMPUTATIONAL_WITNESS_STANDARD.md',
+    'governance/SOURCE_LOCK_STANDARD.md',
+    'governance/CHAPTER_FAMILY_ROLLOUT.md',
+    'governance/decisions/ADR-0005-six-keystone-composition-grammar.md',
+]
+for rel in synthesis_required:
+    if not (ROOT/rel).is_file():
+        errors.append(f"missing synthesis governance artifact: {rel}")
+
+epistemic_path = ROOT/'governance/EPISTEMIC_STATUS.yaml'
+if epistemic_path.is_file():
+    epistemic = yaml.safe_load(epistemic_path.read_text(encoding='utf-8'))
+    label_ids = [x.get('id') for x in epistemic.get('labels', [])]
+    if len(label_ids) != len(set(label_ids)):
+        errors.append('duplicate epistemic label IDs')
+    required_labels = {
+        'definition',
+        'established_result',
+        'atlas_derivation',
+        'computational_witness',
+        'observation',
+        'interpretation',
+        'gcl_public_project_evidence',
+        'gcl_programme_context',
+        'conjecture',
+        'open_problem',
+        'institutional_status',
+    }
+    missing = sorted(required_labels - set(label_ids))
+    if missing:
+        errors.append(f"missing canonical epistemic labels: {missing}")
+
+lexicon_path = ROOT/'governance/MATHEMATICAL_LEXICON.yaml'
+if lexicon_path.is_file():
+    lexicon = yaml.safe_load(lexicon_path.read_text(encoding='utf-8'))
+    terms = {entry.get('term') for entry in lexicon.get('entries', [])}
+    required_terms = {
+        'source lock',
+        'replay',
+        'certification',
+        'epistemic status',
+        'representation class',
+    }
+    missing_terms = sorted(required_terms - terms)
+    if missing_terms:
+        errors.append(f"mathematical lexicon missing synthesis terms: {missing_terms}")
+
+for c in chapters:
+    if not c.get('keystone') or c.get('status') != 'draft-v0.1':
+        continue
+    manuscript = ROOT/c['manuscript_path']
+    witness = ROOT/c['computational_witness_path']
+    if manuscript.is_file():
+        body = manuscript.read_text(encoding='utf-8')
+        if '**Epistemic status:**' not in body:
+            errors.append(f"draft keystone {c['id']} missing reader-facing epistemic status")
+    if witness.is_file():
+        body = witness.read_text(encoding='utf-8')
+        if 'claim boundary' not in body.lower():
+            errors.append(f"draft keystone {c['id']} witness missing claim boundary")
+
 # Manuscript citation closure against the canonical bibliography.
 bib_text = (ROOT/'sources/bibliography.bib').read_text(encoding='utf-8')
 bib_keys = set(re.findall(r'@\w+\{([^,]+),', bib_text))
