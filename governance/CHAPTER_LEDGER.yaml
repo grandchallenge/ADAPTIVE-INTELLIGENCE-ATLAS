@@ -57,7 +57,10 @@
       "manuscript_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md",
       "derivation_path": "mathematics/derivations/ATLAS-CH-LINALG-001-DERIVATIONS.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-LINALG-001.yaml",
-      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-LINALG-001.md"
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-LINALG-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-LINALG-001"
+      ]
     },
     {
       "id": "ATLAS-CH-NONNORMAL-001",
@@ -94,7 +97,10 @@
       "manuscript_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md",
       "derivation_path": "mathematics/derivations/ATLAS-CH-INFO-001-DERIVATIONS.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-INFO-001.yaml",
-      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-INFO-001.md"
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-INFO-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-INFO-001"
+      ]
     },
     {
       "id": "ATLAS-CH-GEOM-001",
@@ -150,7 +156,10 @@
       "manuscript_path": "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md",
       "derivation_path": "mathematics/derivations/ATLAS-CH-REP-001-DERIVATIONS.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-REP-001.yaml",
-      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-REP-001.md"
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-REP-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-REP-001"
+      ]
     },
     {
       "id": "ATLAS-CH-NORMREP-001",
