@@ -143,6 +143,9 @@ if replay_manifest_path.is_file():
         expected_digest = hashlib.sha256(expected_bytes).hexdigest()
         if expected_digest != replay_manifest.get('expected_output_sha256'):
             errors.append('deterministic replay expected-output SHA-256 mismatch')
+        manifest_stdout = replay_manifest.get('expected_stdout')
+        if manifest_stdout is not None and manifest_stdout.encode('utf-8') != expected_bytes:
+            errors.append('deterministic replay expected_stdout disagrees with locked expected-output bytes')
     if replay_script.is_file() and replay_expected.is_file():
         proc = subprocess.run(
             [sys.executable, str(replay_script)],
