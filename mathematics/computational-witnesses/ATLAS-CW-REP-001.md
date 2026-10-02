@@ -13,7 +13,7 @@ Let
 
 [
 G=
-egin{pmatrix}
+\begin{pmatrix}
 -1&0\
 0&1
 end{pmatrix},
@@ -30,15 +30,15 @@ Gx=(-2,3).
 For the scalar representation
 
 [
-r_{m inv}(x)=|x|_2^2,
+r_{\rm inv}(x)=|x|_2^2,
 ]
 
 Wolfram gives
 
 [
-r_{m inv}(x)
+r_{\rm inv}(x)
 =
-r_{m inv}(Gx)
+r_{\rm inv}(Gx)
 =
 13.
 ]
@@ -57,7 +57,7 @@ Let
 
 [
 T=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\
 0&1
 end{pmatrix},
@@ -70,25 +70,25 @@ w=(4,-1).
 The original readout is
 
 [
-w^	op z=5.
+w^\top z=5.
 ]
 
 Define
 
 [
-	ilde z=Tz=(5,3),
+\tilde z=Tz=(5,3),
 ]
 
 and
 
 [
-	ilde w=T^{-	op}w=(4,-5).
+\tilde w=T^{-\top}w=(4,-5).
 ]
 
 Then
 
 [
-	ilde w^	op	ilde z=5.
+\tilde w^\top\tilde z=5.
 ]
 
 This demonstrates exact task-preserving recoding for this declared linear readout.
