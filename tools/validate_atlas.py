@@ -339,6 +339,6 @@ rendered = sum(1 for f in figs.get('figures', []) if f.get('status') == 'rendere
 print(
     f"OK: {len(chapters)} chapters, {edge_count} hard edges, "
     f"{len(roots)} root(s), {specified} specification-ready keystones, "
-    f"{drafts} draft keystones, {rendered} rendered witnesses, "
+    f"{drafts} draft chapters, {rendered} rendered witnesses, "
     f"{len(fig_ids)} registered figures, {len(src_ids)} sources, {len(bib_keys)} bibliography keys"
 )
