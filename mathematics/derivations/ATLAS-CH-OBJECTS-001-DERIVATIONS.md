@@ -15,10 +15,10 @@ Its array representation does not determine its semantic role.
 An operator is a transformation
 
 [
-F:mathcal X	omathcal Y.
+F:mathcal X\tomathcal Y.
 ]
 
-If (Ainmathbb R^{n	imes n}), the same stored array may represent:
+If (Ainmathbb R^{n\times n}), the same stored array may represent:
 
 - a state whose entries are data;
 - a linear operator (xmapsto Ax).
@@ -30,7 +30,7 @@ The distinction is semantic and operational.
 A flow is a parameterized family
 
 [
-Phi_t:mathcal X	omathcal X
+Phi_t:mathcal X\tomathcal X
 ]
 
 with composition law
