@@ -1,0 +1,71 @@
+schema_version: "0.2.0"
+canonical_hard_adjacency: "governance/CHAPTER_LEDGER.yaml"
+audit:
+  node_count: 80
+  hard_edge_count: 126
+  root_nodes:
+    - ATLAS-CH-THESIS-001
+  acyclic: true
+hard_edge_roles:
+  ATLAS-CH-GEOM-001:
+    - source: ATLAS-CH-LINALG-001
+      role: formal
+      reason: "Consumes linear maps, norms, bases, and decompositions to define tangent and constrained geometry."
+  ATLAS-CH-NONNORMAL-001:
+    - source: ATLAS-CH-LINALG-001
+      role: formal
+      reason: "Consumes eigendecomposition, norms, singular values, and operator language."
+  ATLAS-CH-ATTNOP-001:
+    - source: ATLAS-CH-TRANSFORMER-001
+      role: conceptual
+      reason: "Assumes standard Transformer attention anatomy is already available."
+    - source: ATLAS-CH-LINALG-001
+      role: formal
+      reason: "Uses matrix/operator notation, bilinear forms, kernels, and linear maps."
+  ATLAS-CH-OPTDYN-001:
+    - source: ATLAS-CH-NONNORMAL-001
+      role: formal
+      reason: "Uses transient amplification and pseudospectral intuition."
+    - source: ATLAS-CH-OPTBASE-001
+      role: formal
+      reason: "Assumes first-order optimizer state and update equations."
+  ATLAS-CH-BCONTRACT-001:
+    - source: ATLAS-CH-BOUNDARYPROBE-001
+      role: formal
+      reason: "Consumes JVP/VJP, sensitivity, and interface-probe machinery."
+    - source: ATLAS-CH-LOCALGLOBAL-001
+      role: conceptual
+      reason: "Consumes compatibility and local-to-global composition language."
+  ATLAS-CH-REPLAY-001:
+    - source: ATLAS-CH-EXPERIMENT-001
+      role: methodological
+      reason: "Assumes experiment design, reproducibility, and support-route classification."
+    - source: ATLAS-CH-EVIDEX-001
+      role: methodological
+      reason: "Assumes provenance-bearing handoffs and evidence exchange among actors."
+soft_cross_links:
+  - chapters: [ATLAS-CH-GEOM-001, ATLAS-CH-INFO-001]
+    relation: "Information geometry is a later bridge between probabilistic and geometric descriptions."
+  - chapters: [ATLAS-CH-GEOM-001, ATLAS-CH-ATTNOP-001]
+    relation: "Attention acts on learned states whose admissible geometry matters downstream."
+  - chapters: [ATLAS-CH-NONNORMAL-001, ATLAS-CH-DYN-001]
+    relation: "Transient growth provides a finite-dimensional bridge between linear algebra and dynamical stability."
+  - chapters: [ATLAS-CH-NONNORMAL-001, ATLAS-CH-OPTDYN-001]
+    relation: "Non-normal amplification becomes a concrete diagnostic in coupled optimizer-state dynamics."
+  - chapters: [ATLAS-CH-ATTNOP-001, ATLAS-CH-RPO-001]
+    relation: "Operator-valued position extends the operator reading introduced for attention."
+  - chapters: [ATLAS-CH-OPTDYN-001, ATLAS-CH-CPS-001]
+    relation: "CPS operationalizes the optimizer-state Jacobian viewpoint."
+  - chapters: [ATLAS-CH-BCONTRACT-001, ATLAS-CH-SPLIT-001]
+    relation: "Noncommuting operator composition motivates explicit interface obligations."
+  - chapters: [ATLAS-CH-BCONTRACT-001, ATLAS-CH-REPLAY-001]
+    relation: "Both chapters ask what information must cross a boundary for composition to remain trustworthy."
+  - chapters: [ATLAS-CH-REPLAY-001, ATLAS-CH-FORMAL-001]
+    relation: "Replay and formal checking are complementary but non-equivalent support routes."
+keystone_order:
+  - ATLAS-CH-GEOM-001
+  - ATLAS-CH-NONNORMAL-001
+  - ATLAS-CH-ATTNOP-001
+  - ATLAS-CH-OPTDYN-001
+  - ATLAS-CH-BCONTRACT-001
+  - ATLAS-CH-REPLAY-001
