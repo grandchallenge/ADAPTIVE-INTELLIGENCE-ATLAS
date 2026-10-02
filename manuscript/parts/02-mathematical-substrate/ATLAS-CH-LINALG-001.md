@@ -704,3 +704,11 @@ Which operator is ill-conditioned?
 The SVD, projections, pseudoinverses, norms, and decompositions give precise answers to those questions.
 
 They become useful when we remember what kind of object they describe.
+
+## References used in this chapter
+
+- [@TrefethenBau1997]
+- [@HornJohnson2012]
+- [@GolubVanLoan2013]
+
+See sources/source-locks/ATLAS-CH-LINALG-001.yaml for exact source roles and claim scope.
