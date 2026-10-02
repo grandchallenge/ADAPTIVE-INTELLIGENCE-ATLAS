@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+title: "A Mathematical Atlas of Adaptive Intelligence"
+type: book
+authors:
+  - name: "Grand Challenge Labs"
+message: "Please cite the specific tagged release or commit used."
+repository-code: "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"

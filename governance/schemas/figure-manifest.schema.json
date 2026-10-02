@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Atlas Figure Manifest",
+  "type": "object",
+  "required": [
+    "id",
+    "chapter_id",
+    "representation_class",
+    "literal_semantics",
+    "nonliteral_semantics",
+    "support_role"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ATLAS-FIG-[A-Z0-9-]+$"
+    },
+    "chapter_id": {
+      "type": "string",
+      "pattern": "^ATLAS-CH-[A-Z0-9-]+$"
+    },
+    "representation_class": {
+      "enum": [
+        "exact",
+        "data-derived",
+        "simulation-derived",
+        "schematic",
+        "metaphorical",
+        "historical"
+      ]
+    },
+    "literal_semantics": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonliteral_semantics": {
+      "type": "string"
+    },
+    "support_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generator": {
+      "type": "object"
+    }
+  }
+}

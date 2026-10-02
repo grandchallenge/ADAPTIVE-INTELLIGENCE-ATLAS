@@ -1,11 +1,12 @@
 # A Mathematical Atlas of Adaptive Intelligence
 
 **Status:** architecture bootstrap  
+**Repository target:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Bootstrap record:** https://github.com/grandchallenge/.github/issues/99
 
 A Grand Challenge Labs monograph on geometry, operators, dynamics, optimization, composition, memory, coordination, diagnostics, and governed adaptation.
 
-This repository is a first-class GCL research-publication surface. It is not itself a mathematical certification authority and does not replace `INTELLECT`, `gcl-standards`, `AETHER`, or the MATHFORGE → MATHSOLVE → MATHCERT pipeline.
+This repository is intended to be a first-class GCL research-publication surface. It is not itself a mathematical certification authority and it does not replace `INTELLECT`, `gcl-standards`, `AETHER`, or the MATHFORGE → MATHSOLVE → MATHCERT pipeline.
 
 ## Composition method
 
@@ -32,3 +33,5 @@ Figures are part of the reasoning. A computationally rendered image must preserv
 ## First target release
 
 `atlas-v0.1-architecture`
+
+That tag is not created by this bootstrap bundle. It is the first repository milestone after remote creation and validation.

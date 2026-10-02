@@ -1,0 +1,575 @@
+- **1. Mathematical substrate**
+  - Linear algebra: bases, projections, eigendecompositions, SVD, low-rank approximation, pseudoinverses
+  - Matrix norms, operator norms, singular values, conditioning
+  - Spectral theory, spectral gaps, pseudospectra
+  - Normal versus non-normal operators; transient amplification
+  - Krylov subspaces, Arnoldi/Lanczos methods, iterative linear solvers
+  - Matrix functions: exponentials, square roots, inverse square roots
+  - Polar decomposition, QR, orthogonalization
+  - Newton–Schulz and related matrix iterations
+  - Probability, conditional probability, expectation, concentration
+  - Entropy, KL divergence, mutual information, cross-entropy
+  - Exponential families and sufficient statistics
+  - Information geometry
+  - Differential geometry and manifolds
+  - Tangent spaces, geodesics, exponential maps, retractions
+  - Sphere and hypersphere geometry
+  - Stiefel and Grassmann manifolds
+  - SLERP and spherical interpolation
+  - Lie groups, generators, flows
+  - ODEs, dynamical systems, fixed points, bifurcations
+  - Stability: Lyapunov, linearized, numerical
+  - Hamiltonian and symplectic dynamics
+  - Operator splitting: Lie–Trotter, Strang, split-step methods
+  - Calculus of variations and discrete variational mechanics
+  - Functional analysis and operator viewpoints
+  - Koopman operators and lifted dynamics
+  - Commutators and noncommuting transformations
+  - Fourier analysis, wavelets, scattering transforms
+  - Spherical harmonics
+  - Graphs, hypergraphs, Laplacians
+  - Topology where useful
+  - Sheaves, local-to-global consistency, data fusion
+  - Category/compositional viewpoints where they earn their keep
+- **2. Statistical learning fundamentals**
+  - Supervised, unsupervised, self-supervised, semi-supervised learning
+  - Empirical risk minimization
+  - Bias–variance tradeoff
+  - Generalization
+  - Regularization
+  - Maximum likelihood and Bayesian inference
+  - PAC and PAC-Bayes viewpoints
+  - Calibration
+  - Dataset shift and out-of-distribution generalization
+  - Interpolation and double descent
+  - Overparameterization
+  - Inductive bias
+  - Implicit regularization
+  - Scaling laws
+  - Data versus parameter versus compute scaling
+  - Representation versus memorization
+  - Train/test contamination and benchmark pathologies
+  - Active learning
+  - Curriculum learning
+  - Meta-learning
+  - Transfer learning
+  - Multitask learning
+- **3. Representation learning**
+  - Distributed representations
+  - Embeddings
+  - Latent-variable models
+  - Representation geometry
+  - Similarity and metric learning
+  - Contrastive learning
+  - Invariances and equivariances
+  - Group actions on representations
+  - Quotient representations
+  - Identifiability
+  - Disentanglement
+  - Superposition
+  - Feature sparsity
+  - Feature dictionaries
+  - Manifold hypotheses
+  - Normalized representations
+  - Hyperspherical representations
+  - Angular versus radial information
+  - Representation collapse
+  - Reconstruction and autoencoding
+  - Bottlenecks
+  - Information bottleneck
+  - Semantic equivalence under representational change
+  - Minimal transferable representations
+  - The “Residual”: structure that survives representation change
+- **4. Neural architectures**
+  - MLPs
+  - CNNs
+  - RNNs, LSTMs, GRUs
+  - Residual networks
+  - Highway networks
+  - Encoder–decoder architectures
+  - Attention
+  - Transformers
+  - State-space models
+  - Neural ODEs
+  - Implicit/deep-equilibrium networks
+  - Graph neural networks
+  - Mixture-of-experts
+  - Sparse architectures
+  - Hypernetworks
+  - Weight tying
+  - Recurrent depth
+  - Reversible networks
+  - Adaptive-depth networks
+  - Conditional computation
+  - Modular architectures
+  - Seed-generated/algorithmically generated weights
+  - Unit-normalized architectures
+  - Geometry-preserving architectures
+  - Computation as transport rather than repeated function approximation
+- **5. Attention and sequence geometry**
+  - Queries, keys, values
+  - Dot-product attention
+  - Softmax attention
+  - Attention as kernel regression
+  - Attention as an operator
+  - Sparse attention
+  - Linear attention
+  - Random-feature attention
+  - FAVOR+
+  - Structured random projections
+  - Entmax and alternatives to softmax
+  - Attention sinks
+  - BOS/EOS effects
+  - Key/query centering
+  - DC components in representations
+  - Relative versus absolute position
+  - Sinusoidal position encoding
+  - RoPE
+  - Geometry of rotary embeddings
+  - Long-context extrapolation
+  - 2D and multidimensional position encoding
+  - Block-Givens rotations
+  - Spherical position encodings
+  - Spherical harmonics for position
+  - Scattering-inspired rotary encodings
+  - Relative-position operators rather than position vectors
+  - Frequency decomposition of positional mechanisms
+  - Latent clocks
+  - Dynamic time warping for multimodal temporal alignment
+  - Position as an operator acting on representation space
+- **6. Optimization**
+  - Gradient descent
+  - SGD
+  - Momentum and Nesterov acceleration
+  - Adam/AdamW
+  - RMSProp
+  - AdaGrad
+  - Learning-rate schedules
+  - Weight decay
+  - Gradient clipping
+  - Initialization
+  - Natural gradient
+  - Mirror descent
+  - Proximal methods
+  - Trust regions
+  - Newton and quasi-Newton methods
+  - Hessians and Hessian-vector products
+  - Fisher information
+  - Shampoo and matrix-preconditioned methods
+  - Muon and orthogonalized updates
+  - Spectral normalization of updates
+  - Rectangular versus square matrix optimization
+  - Riemannian optimization
+  - Optimization on spheres and Stiefel manifolds
+  - Retractions
+  - Spectral shaping versus spectral flattening
+  - Conditioning
+  - Sharpness
+  - Flat minima
+  - Saddle points
+  - Benign nonconvexity
+  - Landscape topology
+  - Gradient noise
+  - Optimization as dynamical system
+  - Optimizer-state dynamics
+  - Non-normal transient instability
+  - Learning-rate stability boundaries
+  - Optimizer-state Jacobians
+  - Coupling-phase spectroscopy
+  - Divergences as optimization geometry
+  - Optimization rules derived from discrete Lagrangians
+- **7. Numerical analysis as a language for neural computation**
+  - Discretization error
+  - Consistency, stability, convergence
+  - Explicit versus implicit integration
+  - Symplectic integration
+  - Reversible integration
+  - Operator splitting
+  - Stiff systems
+  - Preconditioning
+  - Krylov acceleration
+  - Multiscale methods
+  - Adaptive time stepping
+  - Adaptive computational depth
+  - Neural computation as numerical flow
+  - Residual blocks as integration steps
+  - Deep networks as discretized dynamical systems
+  - Learned preconditioners
+  - Neural Krylov transport
+  - Local versus global error
+  - Boundary conditions
+  - Interface conditions
+  - Composition of separately trained operators
+  - JVPs and VJPs as boundary probes
+  - Spectral power iteration
+  - Semantic boundary contracts
+  - Compositional numerical guarantees
+  - MODULUS-style divergence geometry
+  - SPINDLE-style split-operator computation
+- **8. Sparse and conditional computation**
+  - Mixture-of-experts
+  - Routing
+  - Top-k routing
+  - Load balancing
+  - Expert specialization
+  - Expert collapse
+  - Router churn
+  - Sparse gating
+  - Token–expert assignment
+  - Communication cost
+  - Capacity constraints
+  - Conditional depth
+  - Dynamic sparsity
+  - Sparse attention
+  - Structured sparsity
+  - Router stability
+  - Lifted commutators
+  - Spectral diagnostics of routing
+  - Routing as an online decision problem
+  - Regret-minimizing routers
+  - Optionality-preserving routing
+  - Coordination costs versus specialization gains
+  - Governed sparse compute
+- **9. Memory**
+  - Parametric versus non-parametric memory
+  - Working memory
+  - Episodic memory
+  - Semantic memory
+  - Associative memory
+  - Hopfield networks and modern Hopfield networks
+  - Key–value memories
+  - Retrieval-augmented generation
+  - Vector retrieval
+  - Symbolic retrieval
+  - Hybrid retrieval
+  - Multi-index retrieval
+  - Memory consolidation
+  - Context compilation
+  - Provenance-aware memory
+  - Typed memory
+  - Shared memory
+  - Transactional memory
+  - Continual learning
+  - Catastrophic forgetting
+  - Replay
+  - Elastic weight consolidation
+  - Progressive networks
+  - Parameter isolation
+  - External memory versus storing the world in weights
+  - AETHER-MEM-style polity memory
+  - Memory as infrastructure rather than model anatomy
+- **10. Tokenization, data and curriculum**
+  - Characters, bytes, words, subwords
+  - BPE
+  - WordPiece
+  - Unigram tokenization
+  - Byte-level models
+  - Vocabulary size tradeoffs
+  - Morphology
+  - Token fertility
+  - Tokenizer-induced bias
+  - Tokenization and multilinguality
+  - Tokenization as compression
+  - Tokenization as an interface between models
+  - Tokenizer lingua francas
+  - Static versus adaptive tokenization
+  - Learned segmentation
+  - Hierarchical representations
+  - Data deduplication
+  - Data quality
+  - Data mixtures
+  - Synthetic data
+  - Curriculum ordering
+  - Difficulty estimation
+  - Competence-based curricula
+  - Learning progress
+  - Learning progress as a search operator over experiences
+  - Automatic curriculum generation
+  - Minimal curricula
+  - Dyck languages and synthetic mechanism probes
+  - Finding early computational mechanisms from which later capability can be reconstructed
+- **11. Reinforcement learning and decision theory**
+  - MDPs
+  - POMDPs
+  - Bellman equations
+  - Dynamic programming
+  - Policy evaluation
+  - Policy iteration
+  - Q-learning
+  - Actor–critic
+  - Policy gradients
+  - Model-based RL
+  - Exploration–exploitation
+  - Bandits
+  - Regret
+  - Bayesian regret
+  - Minimax regret
+  - Distributional RL
+  - Offline RL
+  - Preference learning
+  - Reward models
+  - Credit assignment
+  - Temporal abstraction
+  - Hierarchical RL
+  - Option discovery
+  - Value of information
+  - Information gain
+  - Safe exploration
+  - Decision making under model uncertainty
+  - Optionality
+  - Option-preserving policies
+  - Correction capacity
+  - Joint propagation of transition, reward, observation and future-value uncertainty
+  - OPRM-style optionality-preserving regret minimization
+- **12. Uncertainty and robustness**
+  - Aleatoric versus epistemic uncertainty
+  - Bayesian neural networks
+  - Ensembles
+  - Bootstrap uncertainty
+  - Posterior approximation
+  - Conformal prediction
+  - Calibration
+  - Reliability diagrams
+  - Selective prediction
+  - Abstention
+  - Distribution shift
+  - Covariate shift
+  - Concept drift
+  - Adversarial robustness
+  - Robust optimization
+  - Distributionally robust optimization
+  - Worst-case analysis
+  - Uncertainty propagation
+  - Joint rather than independently summed uncertainty
+  - Sensitivity analysis
+  - Perturbation theory
+  - Numerical robustness
+  - Structural robustness
+- **13. Mechanistic analysis and diagnostics**
+  - Representation probing
+  - Linear probes
+  - Causal interventions
+  - Activation patching
+  - Ablation
+  - Attribution
+  - Feature visualization
+  - Sparse autoencoders
+  - Circuits
+  - Induction heads
+  - Attention-head specialization
+  - Singular-value spectra
+  - Effective rank
+  - Jacobian spectra
+  - Hessian spectra
+  - Pseudospectra
+  - Training-phase transitions
+  - Spectral drift
+  - Gradient alignment
+  - Representation similarity
+  - CKA and related similarity measures
+  - Key and query statistics
+  - Mean/DC modes
+  - Relative-position operators
+  - Frequency decomposition
+  - Koopman diagnostics
+  - Optimizer-state diagnostics
+  - Router churn and routing diagnostics
+  - Counterfactual substitution
+  - Exact component replacement experiments
+  - “What computation is actually being performed?” as the governing question
+- **14. Compression and computational economy**
+  - Information theory
+  - Minimum description length
+  - Kolmogorov-complexity intuition
+  - Lossless versus lossy compression
+  - Model compression
+  - Pruning
+  - Quantization
+  - Distillation
+  - Low-rank factorization
+  - Weight sharing
+  - Weight generation
+  - Seed-generated parameters
+  - Structured transforms
+  - Butterfly matrices
+  - Sparse coding
+  - Compute–memory tradeoffs
+  - Data compression versus learned models
+  - Hutter-style compression as an intelligence probe
+  - Compression as discovering reusable computation rather than merely shrinking files
+- **15. Agents and distributed intelligence**
+  - Tool use
+  - Planning
+  - Search
+  - Reflection
+  - Decomposition
+  - Delegation
+  - Blackboard architectures
+  - Tuple spaces
+  - Linda `in/out/rd`
+  - Rendezvous
+  - Shared state
+  - Message passing
+  - Event-driven systems
+  - Transactions
+  - Concurrency
+  - Coordination
+  - Multi-agent learning
+  - Agent specialization
+  - Agent memory
+  - Evidence exchange
+  - Provenance
+  - Contract-based interaction
+  - Bounded delegation
+  - Agent handoffs
+  - Zero-context workers
+  - Independent replay
+  - Adjudication
+  - Recursive improvement
+  - Guarded self-modification
+  - AETHER-style coordination fabrics
+  - Intelligence as a property of a coordinated polity rather than a monolithic model
+- **16. Systems and hardware**
+  - GPU architecture
+  - SIMD/SIMT execution
+  - Memory hierarchy
+  - Arithmetic intensity
+  - Roofline thinking
+  - Kernel fusion
+  - CUDA
+  - Triton
+  - FlashAttention
+  - Fused rotary kernels
+  - Matrix multiplication
+  - Tensor cores
+  - Mixed precision
+  - Quantization
+  - KV caches
+  - Memory bandwidth
+  - Parallelism: data, tensor, pipeline, expert
+  - Distributed training
+  - Communication collectives
+  - Checkpointing
+  - Recompute
+  - Inference serving
+  - Batching
+  - Latency versus throughput
+  - Profiling
+  - Benchmark methodology
+  - Hardware-aware algorithm design
+  - When theoretically elegant structure survives contact with a T4
+- **17. Scientific methodology**
+  - Hypothesis formation
+  - Falsifiability
+  - Baselines
+  - Controls
+  - Ablations
+  - Counterfactual experiments
+  - Multi-seed experiments
+  - Confidence intervals
+  - Effect sizes
+  - Statistical power
+  - Leakage
+  - Reproducibility
+  - Exact replay
+  - Artifact capture
+  - Environment pinning
+  - Dataset versioning
+  - Provenance
+  - Source locking
+  - Unit tests
+  - Property tests
+  - Numerical tolerances
+  - Independent reproduction
+  - Adversarial review
+  - Separating observations from interpretations
+  - Separating exploratory from confirmatory experiments
+  - Knowing when a toy result establishes mechanism and when it does not
+- **18. Formal methods and governed research**
+  - Specifications
+  - Invariants
+  - Contracts
+  - Acceptance criteria
+  - Type systems
+  - Proof assistants
+  - Lean
+  - Formal verification
+  - Machine-checkable certificates
+  - Evidence grammars
+  - Reproducible result packets
+  - Provenance graphs
+  - Separation of generation, solving and certification
+  - Forge → Solve → Cert
+  - Independent actors
+  - Bounded work packages
+  - Replay before promotion
+  - State machines for research processes
+  - Idempotent automation
+  - Governance as part of system architecture
+  - GCL-ID-style durable doctrine
+  - “Can another competent actor reconstruct why we believe this?” as an acceptance test
+- **19. Compositionality**
+  - Modules and interfaces
+  - Local versus global properties
+  - Encapsulation
+  - Interface invariants
+  - Semantic contracts
+  - Algebra of components
+  - Operator composition
+  - Noncommutativity
+  - Error propagation across boundaries
+  - Local certificates
+  - Boundary conditions
+  - Separator variables
+  - Low-order interfaces
+  - JVP/VJP interface characterization
+  - Boundary contracts
+  - Sheaf-like consistency
+  - Compositional learning
+  - Compositional optimization
+  - Compositional verification
+  - “How do individually valid pieces remain valid when assembled?”
+- **20. GCL frontier questions**
+  - Can normalized geometry replace layers of normalization machinery?
+  - Can representation updates be understood as transport on constrained manifolds?
+  - Can optimizer design be derived from geometry instead of accumulated heuristics?
+  - Can spectral shaping explain when orthogonalized optimizers help?
+  - Are important Transformer phenomena better represented as operators than vectors?
+  - How much positional computation lives in a low-dimensional relative-position operator?
+  - Can adaptive depth be treated as numerical error control?
+  - Can reversible computation provide materially better long-context memory?
+  - Can Krylov-style short-horizon solves serve as representation computation?
+  - Can routing be treated as a no-regret coordination problem?
+  - Can shared external memory remove the need for models to carry the world in their weights?
+  - What information belongs in parameters, context, persistent memory, or the surrounding polity?
+  - Can learning progress itself drive intelligent exploration of training experiences?
+  - What is the smallest curriculum that reconstructs broad capability?
+  - What is the minimal transferable basis of reasoning operations?
+  - Are there only a small number of canonical reasoning transformations underlying apparently diverse chains?
+  - What survives when representations, architectures, and parameterizations change?
+  - Can that invariant “Residual” be isolated and transferred?
+  - Can benign nonconvexity be characterized constructively rather than merely observed?
+  - Can semantic equivalence classes turn pathological optimization landscapes into well-behaved quotient geometries?
+  - Can boundary contracts make independently learned systems safely composable?
+  - Can we build adaptive systems whose ability to change exceeds their ability to corrupt themselves?
+  - Can scientific intelligence be organized as a governed network of generation, criticism, replay and certification rather than a single increasingly capable model?
+
+The contrast with a fairly typical broad ML list would be revealing. We would still have “attention, CNNs, RL, Adam, diffusion, contrastive learning, etc.” But those would not be the distinctive part.
+
+The GCL fingerprint is approximately:
+
+**geometry → operators → dynamics → optimization → composition → memory → coordination → diagnostics → governed adaptation.**
+
+There are also several recurring shifts in viewpoint:
+
+**vectors → operators**\
+**layers → flows/integrators**\
+**parameters → geometry**\
+**depth → computational time**\
+**routing → online decision making**\
+**context → compiled memory access**\
+**agents → distributed systems**\
+**training → dynamical identification**\
+**interpretability → intervention and substitution**\
+**architecture → composition of contracts**\
+**research result → replayable evidence object**
