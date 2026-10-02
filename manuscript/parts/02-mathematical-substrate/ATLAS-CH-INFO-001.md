@@ -324,6 +324,8 @@ It does not specify a causal direction.
 
 ## 12. Exact correlated-bit witness
 
+![A 2 by 2 exact joint probability table with uniform marginals and mutual information about 0.1887 bits, explicitly labeled as dependence rather than causal direction.](../../figures/masters/ATLAS-FIG-INFO-001.png)
+
 Consider
 
 \[
