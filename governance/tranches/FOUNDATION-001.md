@@ -329,3 +329,18 @@ The audit should independently check:
 - source-scope boundaries;
 - dependency closure;
 - no epistemic promotion beyond `draft-v0.1`.
+
+
+## Integrity repair
+
+The first PR validation run failed on hidden C0 control characters introduced when TeX escapes in generated Markdown were interpreted by the write-layer string serializer.
+
+Disposition:
+
+- the mathematical intent was unchanged;
+- all affected FOUNDATION-001 specifications, derivation packets, and computational-witness receipts were scanned;
+- control characters were repaired back to their intended TeX escapes;
+- a direct branch scan confirmed the repaired files contain no hidden control characters;
+- the existing repository validator remains the authoritative whole-tree check.
+
+This repair is recorded rather than hidden because generated-document integrity is itself part of the Atlas evidence model.
