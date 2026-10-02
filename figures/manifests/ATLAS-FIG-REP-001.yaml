@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-REP-001"
+chapter_id: "ATLAS-CH-REP-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-REP-001.wl"
+  source_git_blob_sha1: "9aad5571d51fd9c8dcfc08dfebd300c3758c5a2a"
+  rendered: "figures/masters/ATLAS-FIG-REP-001.png"
+  rendered_git_blob_sha1: "e14a1b9738190ed9b5930657c82dbe3c8ea21492"
+  rendered_bytes: 44643
+parameters:
+  reflection: "[[-1,0],[0,1]]"
+  x: "[2,3]"
+  invariant_norm_squared: 13
+  T: "[[1,1],[0,1]]"
+  z: "[2,3]"
+  transformed_z: "[5,3]"
+  original_readout: 5
+  transformed_readout: 5
+literal_semantics: >
+  The plotted reflection uses x=(2,3), Gx=(-2,3), and equal squared norm 13.
+  The recoding annotations use the exact declared invertible map and preserve the
+  stated linear readout value 5.
+nonliteral_semantics: >
+  The right-panel boxes, arrow length, spacing, and relative positions are schematic
+  and do not encode a metric on representation space.
+claim_boundary: >
+  The figure establishes one exact invariance/equivariance witness and one exact
+  readout-preserving recoding. It does not establish semantic equivalence for arbitrary tasks.
