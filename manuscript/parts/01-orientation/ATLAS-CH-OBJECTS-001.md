@@ -551,3 +551,7 @@ An interface states what composition may assume.
 These distinctions are not the final theory.
 
 They are the grammar that lets the rest of the book say what kind of thing it is talking about.
+
+## References used in this chapter
+
+This chapter is Atlas synthesis. Its project-local vocabulary is bound through sources/source-locks/ATLAS-CH-OBJECTS-001.yaml to the source inventory, Mathematical Lexicon, and Atlas Map. Standard mathematical instances are developed and externally sourced in downstream chapters.
