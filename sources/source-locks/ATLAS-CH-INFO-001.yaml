@@ -1,0 +1,41 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-INFO-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  These sources support standard probability/information definitions, information
+  inequalities, exponential-family/sufficient-statistic structure and concentration.
+  The chapter must state support/absolute-continuity assumptions for KL divergence
+  and must not identify mutual information with causal influence.
+sources:
+  - id: "INFO-COVER-THOMAS-2006"
+    citation_key: "CoverThomas2006"
+    kind: "monograph"
+    title: "Elements of Information Theory"
+    edition: 2
+    authors: "Thomas M. Cover; Joy A. Thomas"
+    publisher: "Wiley"
+    year: 2006
+    doi: "10.1002/047174882X"
+    authority: "Entropy, KL divergence, mutual information, conditional information and information inequalities."
+  - id: "INFO-WAINWRIGHT-JORDAN-2008"
+    citation_key: "WainwrightJordan2008"
+    kind: "peer-reviewed-monograph"
+    title: "Graphical Models, Exponential Families, and Variational Inference"
+    authors: "Martin J. Wainwright; Michael I. Jordan"
+    journal: "Foundations and Trends in Machine Learning"
+    year: 2008
+    doi: "10.1561/2200000001"
+    authority: "Exponential families, sufficient statistics, convex duality and variational representation."
+  - id: "INFO-VERSHYNIN-2018"
+    citation_key: "Vershynin2018"
+    kind: "monograph"
+    title: "High-Dimensional Probability: An Introduction with Applications in Data Science"
+    authors: "Roman Vershynin"
+    publisher: "Cambridge University Press"
+    year: 2018
+    doi: "10.1017/9781108231596"
+    authority: "Concentration inequalities and high-dimensional probabilistic tools."
+epistemic_rules:
+  - "Entropy and mutual information depend on the declared probability model."
+  - "KL divergence may be infinite when absolute continuity/support conditions fail."
+  - "Mutual information is symmetric dependence information, not a causal direction."
