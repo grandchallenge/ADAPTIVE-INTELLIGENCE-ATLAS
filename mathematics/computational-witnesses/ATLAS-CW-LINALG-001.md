@@ -11,7 +11,7 @@ Check the exact distinction among eigenvalues, singular values, projection struc
 
 [
 A=
-egin{pmatrix}
+\begin{pmatrix}
 1&1\
 0&1
 end{pmatrix}.
@@ -27,9 +27,9 @@ but singular values
 
 [
 left{
-rac{1+sqrt5}{2},
-rac{sqrt5-1}{2}
-ight}.
+\frac{1+sqrt5}{2},
+\frac{sqrt5-1}{2}
+\right}.
 ]
 
 Thus equal eigenvalue moduli do not determine one-step Euclidean amplification.
@@ -39,7 +39,7 @@ The best rank-one approximation error in induced (2)-norm is
 [
 sigma_2(A)
 =
-rac{sqrt5-1}{2}.
+\frac{sqrt5-1}{2}.
 ]
 
 ## Witness B — orthogonal projection
@@ -48,7 +48,7 @@ For
 
 [
 P=
-egin{pmatrix}
+\begin{pmatrix}
 1&0\
 0&0
 end{pmatrix},
@@ -66,7 +66,7 @@ For
 
 [
 D=
-egin{pmatrix}
+\begin{pmatrix}
 1&0\
 0&1/100
 end{pmatrix},
