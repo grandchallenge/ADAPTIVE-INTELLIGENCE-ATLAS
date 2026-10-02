@@ -96,8 +96,8 @@ to exactly (0).
 
 Committed PNG Git blob:
 
-`b8901f7ef153598e7b6fe60756ef14f808798734`.
+`cf87cec053f71b22ce25adfd12224fd601a49f9e`.
 
-## Claim boundary
+The earlier KEYSTONE-002 render blob `b8901f7ef153598e7b6fe60756ef14f808798734` was superseded during AUDIT-001 by an epsilon-label/panel-title rerender; the underlying matrices, exact radii, and gain calculations are unchanged.\n\n## Claim boundary
 
 This witness establishes the exact finite-dimensional example and its rendering. It does not infer the prevalence or cause of transient instability in any learned system.
