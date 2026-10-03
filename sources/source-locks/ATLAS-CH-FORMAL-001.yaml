@@ -55,18 +55,6 @@ sources:
     authority: >
       Primary system-description source for Lean as an interactive theorem prover with
       a small trusted kernel based on dependent type theory and proof-producing automation.
-  - id: "FORMAL-LEAN-REFERENCE-20261003"
-    citation_key: "LeanReference2026"
-    kind: "official-reference"
-    title: "The Lean Language Reference — Introduction"
-    publisher: "Lean FRO"
-    url: "https://lean-lang.org/doc/reference/latest/Introduction/"
-    accessed: "2026-10-03"
-    observed_version: "4.34.0-rc2"
-    authority: >
-      Current official Lean reference used only for the contemporary statement that Lean
-      retains a small trusted proof-checking core while supporting substantial automation.
-      The version/access date is part of the source identity because 'latest' is mutable.
   - id: "FORMAL-LAMPORT-2002"
     citation_key: "Lamport2002SpecifyingSystems"
     kind: "book"
