@@ -3,14 +3,15 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: undefined
+  issue_number: 76
   tranche_id: "COORD-001"
   chapter_ids: ["ATLAS-CH-COORD-001"]
   baseline_commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
   branch: "work/coord-001"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Lock exact sources, compose specification/formal packet/manuscript, promote ledger/register, validate, and open the implementation PR."
+  state: "draft-complete"
+  head_commit: "773df4e1419fc59c47e9d5e2f692904a409e2fa9"
+  next_action: "Open implementation PR, run repository validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-COORD-001"
     downstream_architecture_count: 7
