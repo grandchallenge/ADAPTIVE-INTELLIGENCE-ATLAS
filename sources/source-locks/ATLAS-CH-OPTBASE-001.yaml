@@ -1,0 +1,118 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-OPTBASE-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_first_order_optimization_plus_bounded_deep_learning_practice"
+claim_boundary: >
+  Gradient descent, stochastic approximation, momentum, adaptive coordinate scaling,
+  gradient clipping, and variance-oriented initialization are externally established
+  in the cited settings. The chapter is a baseline synthesis for later Atlas
+  optimization chapters. It does not claim that Adam, momentum, clipping, warmup, or
+  any initialization rule is universally optimal; nor does it identify coupled L2
+  regularization with decoupled weight decay under adaptive preconditioning.
+sources:
+  - id: "OPTBASE-ROBBINS-MONRO-1951"
+    citation_key: "RobbinsMonro1951"
+    kind: "peer-reviewed-article"
+    title: "A Stochastic Approximation Method"
+    authority: >
+      Foundational stochastic-approximation source used for the distinction between
+      noisy sample updates and an underlying expected objective/root condition.
+  - id: "OPTBASE-POLYAK-1964"
+    citation_key: "Polyak1964"
+    kind: "peer-reviewed-article"
+    title: "Some Methods of Speeding up the Convergence of Iteration Methods"
+    authority: "Classical momentum / acceleration source."
+  - id: "OPTBASE-NESTEROV-2004"
+    citation_key: "Nesterov2004"
+    kind: "monograph"
+    title: "Introductory Lectures on Convex Optimization: A Basic Course"
+    authority: >
+      Standard source for accelerated first-order convex optimization and
+      Nesterov-style lookahead/acceleration. Convex-rate claims remain source-scoped.
+  - id: "OPTBASE-DUCHI-2011"
+    citation_key: "DuchiHazanSinger2011"
+    kind: "peer-reviewed-article"
+    title: "Adaptive Subgradient Methods for Online Learning and Stochastic Optimization"
+    authority: "AdaGrad and coordinatewise accumulated-gradient scaling."
+  - id: "OPTBASE-RMSPROP-2012"
+    citation_key: "TielemanHinton2012"
+    kind: "course-lecture"
+    title: "RMSProp: Divide the Gradient by a Running Average of Its Recent Magnitude"
+    authority: >
+      Original RMSProp course-material description. This source is explicitly
+      non-peer-reviewed and used only for the algorithmic update form.
+  - id: "OPTBASE-ADAM-2015"
+    citation_key: "KingmaBa2015"
+    kind: "peer-reviewed-conference"
+    title: "Adam: A Method for Stochastic Optimization"
+    authority: >
+      Adam moment estimates, bias corrections, and algorithmic update. Convergence
+      claims are not generalized beyond later theory or the paper's scope.
+  - id: "OPTBASE-ADAMW-2019"
+    citation_key: "LoshchilovHutter2019AdamW"
+    kind: "peer-reviewed-conference"
+    title: "Decoupled Weight Decay Regularization"
+    authority: >
+      Decoupled weight decay and the distinction from L2 regularization for adaptive
+      gradient methods.
+  - id: "OPTBASE-CLIPPING-2013"
+    citation_key: "PascanuMikolovBengio2013"
+    kind: "peer-reviewed-conference"
+    title: "On the Difficulty of Training Recurrent Neural Networks"
+    authority: >
+      Gradient-norm clipping as a practical response to exploding gradients in the
+      studied recurrent setting. No unbiasedness claim is made.
+  - id: "OPTBASE-GLOROT-2010"
+    citation_key: "GlorotBengio2010"
+    kind: "peer-reviewed-conference"
+    title: "Understanding the Difficulty of Training Deep Feedforward Neural Networks"
+    authority: >
+      Variance/saturation-motivated initialization analysis in feedforward networks
+      under stated independence/distribution approximations.
+  - id: "OPTBASE-HE-2015"
+    citation_key: "HeEtAl2015"
+    kind: "peer-reviewed-conference"
+    title: "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification"
+    authority: >
+      Rectifier-aware variance-scaling initialization under the paper's modeling
+      assumptions.
+  - id: "OPTBASE-SUTSKEVER-2013"
+    citation_key: "SutskeverEtAl2013"
+    kind: "peer-reviewed-conference"
+    title: "On the importance of initialization and momentum in deep learning"
+    authority: >
+      Deep-learning-specific empirical bridge for initialization and momentum. It is
+      not used to establish a universal optimizer ranking.
+  - id: "OPTBASE-WARMUP-2017"
+    citation_key: "VaswaniEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Attention Is All You Need"
+    authority: >
+      One influential example of warmup plus inverse-square-root learning-rate
+      scheduling; not treated as a universal schedule theorem.
+atlas_sources:
+  - id: "OPTBASE-DYNAMICS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "532c076af66c8638c71a7ec91d6335bd8012e94f"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "f4aa89075f221529401e56a152a6cdfca3dcc47d"
+    authority: >
+      Audited Atlas source for discrete/continuous dynamical-system distinctions,
+      stability language, and state/update discipline assumed by later optimizer
+      dynamics chapters.
+  - id: "OPTBASE-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "532c076af66c8638c71a7ec91d6335bd8012e94f"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project inventory naming gradient descent, SGD, momentum/Nesterov,
+      Adam/AdamW, RMSProp, AdaGrad, schedules, weight decay, clipping,
+      initialization, and downstream geometric/spectral optimization.
+epistemic_rules:
+  - "Gradient descent stability on a quadratic is objective- and spectrum-dependent."
+  - "An unbiased stochastic gradient can still have high variance."
+  - "Gradient clipping changes the estimator and is not treated as unbiased."
+  - "Adaptive scaling changes the geometry of an update and breaks the general equivalence between coupled L2 regularization and decoupled weight decay."
+  - "Initialization variance calculations depend on explicit independence/distribution approximations."
+  - "Warmup and schedule examples are practices/recipes, not universal convergence theorems."
