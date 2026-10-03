@@ -80,5 +80,5 @@ epistemic_rules:
   - "Transfer is task/domain-relative; no universal representation quality is assumed."
   - "Parameter reuse is not sufficient evidence of capability transfer."
   - "A representation can transfer poorly despite high source-task performance."
-  - "Exact transfer certificates in this chapter are sufficient conditions for declared toy settings, not necessary-and-sufficient characterizations of transfer learning generally."
+  - "Exact reconstruction certificates in this chapter are sufficient conditions for declared toy settings, not necessary-and-sufficient characterizations of transfer learning generally."
   - "Negative transfer remains possible when source structure, target task, adaptation dynamics, or bottlenecks are mismatched."
