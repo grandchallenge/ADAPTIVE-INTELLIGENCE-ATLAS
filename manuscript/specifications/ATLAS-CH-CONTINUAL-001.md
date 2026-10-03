@@ -16,7 +16,7 @@ Study replay, consolidation, EWC, parameter isolation, and forgetting under sequ
 
 ## Evaluation object
 
-For contexts `1,...,T`, let `R_{i,j}` be performance on context `j` after training through context `i`.
+For contexts `1,...,T`, let `R_{i,j}` be performance on context `j` after training through context `i`. Forgetting requires the encountered-context entries `j<=i`. If forward transfer is evaluated, the protocol must additionally define scores on not-yet-trained contexts `j>i` and an appropriate untrained/reference baseline; forward transfer cannot be inferred from the encountered-context triangle alone.
 
 For a sequence with `T>=2`, and for `j<T`, define
 
