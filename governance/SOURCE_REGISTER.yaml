@@ -158,3 +158,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-EVIDENCE-001.yaml"
     authority: "Project-local evidence grammar binding canonical epistemic classes, computational-witness boundaries, source authority, and the audited MAP prerequisite."
+
+  - id: "ATLAS-SRC-AGENTS-LOCK-001"
+    title: "From Models to Agents source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-AGENTS-001.yaml"
+    authority: "Representative agent-mechanism literature plus audited Atlas system-boundary provenance for the formal agent loop, planning, reflection, tool use, and bounded delegation."

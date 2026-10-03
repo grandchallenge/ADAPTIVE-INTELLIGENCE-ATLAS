@@ -1,0 +1,118 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-AGENTS-001"
+locked_on: "2026-10-02"
+epistemic_class: "established_mechanisms_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support representative mechanisms for interleaving reasoning
+  and action, learned API use, search over reasoning states, and feedback-driven
+  reflective memory. They do not establish a universal definition of an agent or
+  prove that any one mechanism is necessary or sufficient for general agency.
+  The Atlas formal agent loop, authority budget, and bounded-delegation contract are
+  chapter-owned synthesis built on the audited Adaptive-System Thesis.
+sources:
+  - id: "AGENTS-REACT-2023"
+    kind: "peer-reviewed-conference"
+    title: "ReAct: Synergizing Reasoning and Acting in Language Models"
+    authors: "Shunyu Yao; Jeffrey Zhao; Dian Yu; Nan Du; Izhak Shafran; Karthik Narasimhan; Yuan Cao"
+    venue: "ICLR"
+    year: 2023
+    arxiv_id: "2210.03629"
+    arxiv_version: "v3"
+    doi: "10.48550/arXiv.2210.03629"
+    authority: >
+      Primary representative source for interleaving model-generated reasoning traces
+      with task-specific actions and observations from external environments.
+  - id: "AGENTS-TOOLFORMER-2023"
+    kind: "peer-reviewed-conference"
+    title: "Toolformer: Language Models Can Teach Themselves to Use Tools"
+    authors: "Timo Schick; Jane Dwivedi-Yu; Roberto Dessi; Roberta Raileanu; Maria Lomeli; Eric Hambro; Luke Zettlemoyer; Nicola Cancedda; Thomas Scialom"
+    venue: "NeurIPS"
+    year: 2023
+    arxiv_id: "2302.04761"
+    doi: "10.52202/075280-2997"
+    authority: >
+      Primary representative source for learning when to invoke external APIs, which
+      API to call, which arguments to provide, and how returned results enter later prediction.
+  - id: "AGENTS-TREE-OF-THOUGHTS-2023"
+    kind: "peer-reviewed-conference"
+    title: "Tree of Thoughts: Deliberate Problem Solving with Large Language Models"
+    authors: "Shunyu Yao; Dian Yu; Jeffrey Zhao; Izhak Shafran; Thomas L. Griffiths; Yuan Cao; Karthik Narasimhan"
+    venue: "NeurIPS"
+    year: 2023
+    arxiv_id: "2305.10601"
+    arxiv_version: "v2"
+    doi: "10.48550/arXiv.2305.10601"
+    authority: >
+      Primary representative source for explicit search over intermediate reasoning
+      states with branching, evaluation, lookahead, and backtracking.
+  - id: "AGENTS-REFLEXION-2023"
+    kind: "peer-reviewed-conference"
+    title: "Reflexion: Language Agents with Verbal Reinforcement Learning"
+    authors: "Noah Shinn; Federico Cassano; Ashwin Gopinath; Karthik Narasimhan; Shunyu Yao"
+    venue: "NeurIPS"
+    year: 2023
+    arxiv_id: "2303.11366"
+    arxiv_version: "v4"
+    doi: "10.52202/075280-0377"
+    authority: >
+      Primary representative source for converting task feedback into verbal reflection
+      stored in episodic memory and consumed by subsequent decision episodes.
+atlas_sources:
+  - id: "AGENTS-THESIS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "manuscript/parts/01-orientation/ATLAS-CH-THESIS-001.md"
+    git_blob_sha1: "ae89cf78b1bed99dc8d0f4c64b3c1c6553548544"
+    authority: >
+      Audited hard prerequisite establishing the Atlas distinction between a learned
+      model and a larger adaptive computational system containing state, memory, tools,
+      interfaces, evidence, and governance.
+  - id: "AGENTS-THESIS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: >
+      Bounded audit confirming the Thesis system boundary and its explicit non-universal status.
+  - id: "AGENTS-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: >
+      Canonical chapter contract and direct dependency handoff to Coordination Architectures.
+  - id: "AGENTS-FAMILY-ROLLOUT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "governance/CHAPTER_FAMILY_ROLLOUT.md"
+    git_blob_sha1: "1e11c1f2acc3648b92f4027a51415c9a5e159b8c"
+    authority: >
+      Canonical family-level requirement to move from single-model computation toward
+      coordinated systems through agents, coordination, evidence exchange, hardware, and systems.
+  - id: "AGENTS-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "AGENTS-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the chapter computational witness."
+  - id: "AGENTS-SOURCE-LOCK-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
+    path: "governance/SOURCE_LOCK_STANDARD.md"
+    git_blob_sha1: "df1384f164133a58d430af9934b1609ea2dbc857"
+    authority: "Canonical distinction between source identity and claim authority."
+epistemic_rules:
+  - "An agent is modeled here as an interaction architecture around a model, not as an anthropomorphic essence."
+  - "A language model can be a component of an agent without being identical to the complete agent."
+  - "Tool use changes the available transition relation; it does not guarantee that selected actions are correct."
+  - "Planning and search allocate inference over candidate futures; they do not eliminate model or evaluator error."
+  - "Reflection is represented as an update to state consumed by later decisions; self-description is not automatic self-correction."
+  - "Delegation must carry explicit task, authority, budget, return, and stop boundaries."
+  - "A child delegation does not inherit authority that was not explicitly granted."
+  - "Autonomy is not treated as an unbounded permission set."
