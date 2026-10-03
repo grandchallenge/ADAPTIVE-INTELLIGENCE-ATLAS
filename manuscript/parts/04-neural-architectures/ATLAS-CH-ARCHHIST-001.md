@@ -445,7 +445,7 @@ This is one reason gated recurrent systems were developed.
 
 ## 15. LSTM: persistent state plus gates
 
-Long Short-Term Memory introduced gated recurrent machinery designed to address long-lag learning difficulties [@HochreiterSchmidhuber1997].
+The Long Short-Term Memory architecture uses gated recurrent machinery designed to address long-lag learning difficulties [@HochreiterSchmidhuber1997].
 
 The structural shift is important:
 
@@ -566,7 +566,7 @@ But the encoder–decoder lesson remains:
 
 ## 21. Highway Networks: transform or carry
 
-Highway Networks introduced learned transform and carry gates across depth [@SrivastavaGreffSchmidhuber2015].
+Highway Networks use learned transform and carry gates across depth [@SrivastavaGreffSchmidhuber2015].
 
 A structural form is
 
@@ -634,7 +634,7 @@ we obtain
 y=H(x).
 \]
 
-Between the limits, the layer interpolates coordinatewise between carried and transformed state.
+With the tied gate constrained coordinatewise to ([0,1]), the layer interpolates coordinatewise between carried and transformed state.
 
 ## 23. Exact highway witness
 
