@@ -3,15 +3,15 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: 62
-  tranche_id: "MAP-001"
+  issue_number: 66
+  tranche_id: "AUDIT-011"
   chapter_ids:
     - "ATLAS-CH-MAP-001"
-  baseline_commit: "48f7615e4955b3aadab2cd61f94cf5d714d68bac"
-  branch: "orientation/map-001-how-to-read"
-  pull_request: 65
-  state: "ci-repair-committed"
-  next_action: "Rerun repository-wide CI on the current PR #65 head; merge on green; instantiate and complete the bounded MAP post-draft audit."
+  baseline_commit: "46ff1af604e9e08540493ab4d94735a660e78dd8"
+  branch: "audit/audit-011-map"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Run bounded documentary audit; repair defects; write reviews/AUDIT-011.md; open PR; validate; merge; close MAP-001 and AUDIT-011 issues."
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
