@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-RLBASE-001"]
   baseline_commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
   branch: "work/rlbase-001"
-  head_commit: "3da486b634e577fbb2a15f43e2c6b65c4897cf6c"
+  head_commit: "39932c4067bd3d3f85a4d223586875cd2063e3b7"
   pull_request: 81
-  state: "ci-green"
-  next_action: "Merge PR #81 at its validated head, then instantiate the bounded post-draft audit."
+  state: "merged"
+  next_action: "Instantiate AUDIT-017 for ATLAS-CH-RLBASE-001 on merge 39932c4067bd3d3f85a4d223586875cd2063e3b7 and execute the bounded audit."
 frontier:
   - id: "ATLAS-CH-RLBASE-001"
     downstream_architecture_count: 7
