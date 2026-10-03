@@ -340,9 +340,15 @@ The non-growth condition is
 
 `|1-h|<=1`.
 
-For real positive `h`, this means
+For real nonnegative `h`, the non-growth set is
 
 `0<=h<=2`.
+
+Strict asymptotic decay requires
+
+`0<h<2`.
+
+At `h=2`, the factor is `-1`: bounded but non-decaying.
 
 Now choose
 
