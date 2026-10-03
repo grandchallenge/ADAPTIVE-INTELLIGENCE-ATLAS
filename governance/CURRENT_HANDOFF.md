@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `8a08c5db5322f027dd9214618f21ed88ce9255c0`
+**Current main:** `c257c8400a329cb127ac322cf8bfb70d4693b10c`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,25 +69,73 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `8a08c5db5322f027dd9214618f21ed88ce9255c0`;
-- next target: `ATLAS-CH-CONTINUAL-001`;
-- title: **Continual Learning and Forgetting**;
+- baseline/main: `c257c8400a329cb127ac322cf8bfb70d4693b10c`;
+- next target: `ATLAS-CH-FORMAL-001`;
+- title: **Formal Methods and Machine-Checkable Claims**;
 - reason: it ties for the largest unlocked downstream architecture cone at 4 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-023:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-024:
 
-1. `ATLAS-CH-CONTINUAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-2. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
-3. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
-4. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-5. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
-6. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
-7. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-8. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
-9. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-10. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+1. `ATLAS-CH-FORMAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
+2. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
+3. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+4. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+5. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
+6. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+7. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### CONTINUAL-001 — Continual Learning and Forgetting
+
+- implementation PR: #105;
+- implementation merge:
+  `b726917e1b40d37ce0f0459035ef9b7e07e0fa6b`;
+- audit:
+  `AUDIT-024`;
+- audit PR: #106;
+- audit merge / current main:
+  `c257c8400a329cb127ac322cf8bfb70d4693b10c`.
+
+Central evaluation object:
+
+- performance-through-time score `R_{i,j}`;
+- encountered-context lower triangle for retention/forgetting;
+- optional full matrix plus untrained/reference baseline for forward-transfer claims;
+- per-context endpoint forgetting
+  `F_j=max(0,max_{k=j,...,T-1}R_{k,j}-R_{T,j})`;
+- average and worst-context summaries only when scores are commensurate or explicitly normalized.
+
+Mechanism distinctions:
+
+- replay restores earlier evidence to optimization;
+- EWC adds a Fisher-weighted local quadratic parameter penalty;
+- GEM uses episodic-memory gradients to constrain first-order update directions;
+- parameter isolation prevents direct overwrite by changing the writable-capacity/routing contract.
+
+Exact witness:
+
+`L_A(w)=(1/2)(w+1)^2`,
+`L_B(w)=(1/2)(w-1)^2`.
+
+Sequential B-only training raises old-task loss from `0` to `2`.
+
+For
+
+`J_lambda=L_B+(lambda/2)(w+1)^2`,
+
+`w_lambda=(1-lambda)/(1+lambda)`.
+
+At `lambda=1`, both task losses are `1/2`.
+
+Equal-weight replay reaches the same point only because the old task loss is exactly the chosen quadratic penalty. Two isolated task-selected parameters reach zero/zero only by adding capacity and routing.
+
+AUDIT-024 repairs:
+
+- bounded forgetting aggregation to `T>=2` and commensurate/normalized cross-context score scales;
+- separated lower-triangular retention evaluation from forward-transfer evaluation, which requires future-context scores plus a baseline.
 
 ### NETNUM-001 — Networks as Numerical Schemes
 
@@ -354,41 +402,40 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — CONTINUAL-001
+## 7. Next tranche — FORMAL-001
 
 Stable ID:
 
-`ATLAS-CH-CONTINUAL-001`
+`ATLAS-CH-FORMAL-001`
 
 Title:
 
-**Continual Learning and Forgetting**
+**Formal Methods and Machine-Checkable Claims**
 
-Declared hard dependencies in the Atlas Map/Ledger:
+Declared hard dependency in the Atlas Map/Ledger:
 
-- `ATLAS-CH-MEMTAX-001`;
-- `ATLAS-CH-OPTBASE-001`.
+- `ATLAS-CH-REPLAY-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Study replay, consolidation, EWC, parameter isolation, and catastrophic forgetting.
+> Develop specifications, invariants, contracts, proof assistants, Lean, and the limits of formal certification.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Memory Taxonomy prerequisite may supply the distinction among parametric, working, episodic, semantic, associative, and external memory. The First-Order Optimization prerequisite may supply SGD/optimizer mechanics and regularization language.
+The audited Replayable Evidence Objects prerequisite may supply exact source/environment/artifact identity, replay semantics, and the distinction between reproducing an execution and validating the claim that execution is intended to support.
 
 A sound intellectual spine should distinguish at least:
 
-1. task performance loss from representational change;
-2. interference from ordinary optimization noise;
-3. replay from parameter regularization;
-4. consolidation penalties from exact retention guarantees;
-5. parameter isolation from external memory;
-6. average retained performance from worst-task forgetting;
-7. task-incremental, domain-incremental, and class-incremental evaluation regimes where source support permits;
-8. empirical anti-forgetting mechanisms from theorem-grade guarantees.
+1. natural-language requirement from formal specification;
+2. implementation from the mathematical model of the implementation;
+3. tests/examples from universal proofs;
+4. invariants from post-hoc observations;
+5. executable checker from proof object and trusted kernel;
+6. theorem correctness from adequacy of the formalized specification;
+7. proof-assistant soundness assumptions from automation convenience;
+8. machine-checked software properties from empirical claims about data, users, environments, or learned-model behavior.
 
-The chapter should use a small exact sequential-learning witness where two objectives conflict in one parameter, making interference and the stabilizing effect of a retention term mathematically visible without claiming that the toy model establishes general continual-learning performance.
+The chapter should include one tiny exact state-machine witness in which an invariant is proved inductively for all reachable states while a finite test suite is shown to establish only the tested cases. A Lean artifact is appropriate only if the repository can bind the exact toolchain and replay it through the existing evidence machinery; otherwise the chapter should keep the formal kernel/proof-assistant discussion source-locked and use a self-contained mathematical witness.
 
 ## 8. Durable restart instruction for a fresh chat
 
