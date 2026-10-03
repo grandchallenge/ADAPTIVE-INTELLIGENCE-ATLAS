@@ -242,15 +242,15 @@ The boundary T must be stated explicitly.
 
 ## 10. Coordination cost
 
-Let c_comm count communication cost, c_sync synchronization/serialization delay, c_retry expected retry/recovery cost, and c_meta provenance/coordination metadata cost.
+Let c_comm track communication cost, c_sync synchronization/serialization cost, c_retry retry/recovery cost, and c_meta provenance/coordination metadata cost.
 
-The chapter uses the bookkeeping identity
+The chapter therefore uses the bookkeeping vector
 
-c_coord = c_comm + c_sync + c_retry + c_meta
+c_coord = (c_comm, c_sync, c_retry, c_meta).
 
-only as an explanatory decomposition.
+No scalar addition is asserted when the components have different units.
 
-It is not assumed that all terms share a universal physical unit.
+A later application may scalarize this vector only after declaring a conversion, objective, or cost model.
 
 The point is that coordination consumes resources and can constrain throughput or latency.
 
