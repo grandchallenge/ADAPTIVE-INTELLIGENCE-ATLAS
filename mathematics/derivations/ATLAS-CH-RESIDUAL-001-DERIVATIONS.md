@@ -135,6 +135,49 @@ Equivalently, every other invariant sufficient descriptor can be post-processed 
 
 Existence is not guaranteed.
 
+## D5a. Behavior-table trivialization
+
+If the admissible class \(\mathfrak D\) contains arbitrary behavior profiles, define
+
+\[
+R_B(x)=B_x,
+\]
+
+where \(B_x\) is the complete function
+
+\[
+q\mapsto B(x,q).
+\]
+
+Then \(R_B\) is capability sufficient with evaluation decoder
+
+\[
+D(R_B(x),q)=R_B(x)(q).
+\]
+
+If the behavior profile itself is invariant under the declared representation changes, \(R_B\) is also invariant.
+
+Moreover, for any sufficient descriptor \(S\), its decoder produces \(B_x\), so
+
+\[
+R_B\preceq S.
+\]
+
+Therefore the full behavior profile is a trivial least sufficient descriptor whenever it is admitted.
+
+This is mathematically valid and scientifically unhelpful if the goal is to discover compact transferable mechanism.
+
+The nontrivial Residual programme must therefore declare restrictions on \(\mathfrak D\), such as:
+
+- portability;
+- finite description length;
+- computational accessibility;
+- architectural independence;
+- intervention-stable structure;
+- bounded reconstruction cost.
+
+The choice of admissible descriptor class is part of the problem statement.
+
 ## D6. Uniqueness up to realized-image recoding
 
 Suppose \(R\) and \(R'\) are both least elements.
@@ -516,6 +559,6 @@ A strictly coarser sufficient invariant descriptor refutes leastness.
 
 ## Claim boundary
 
-This packet defines a provisional least invariant sufficient descriptor under a factorization preorder and proves its properties in one exact toy setting.
+This packet defines a provisional least invariant sufficient descriptor under a factorization preorder **relative to a declared admissible descriptor class and capability probe family**, exposes the behavior-table trivialization when that class is unconstrained, and proves the toy properties in one exact setting.
 
 It does not prove that frontier neural systems possess a unique, finite-dimensional, learnable, or architecture-independent Residual.
