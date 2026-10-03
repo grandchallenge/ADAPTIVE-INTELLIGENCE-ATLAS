@@ -178,9 +178,15 @@ Residual/Euler step:
 
 `|1-h|<=1`
 
-gives
+gives the non-growth interval
 
 `0<=h<=2`.
+
+Strict decay requires
+
+`0<h<2`.
+
+At `h=2`, the discrete factor is `-1`, so the mode is bounded but non-decaying.
 
 For `h=3`, the continuous system decays but the discrete factor is `-2`.
 
