@@ -1,0 +1,109 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-REGRET-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_bandit_regret_theory_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support standard stochastic/adversarial bandit regret definitions,
+  finite- and asymptotic-regret analysis, Bayesian bandit formulations, minimax/worst-case
+  criteria, comparator-relative regret, and the distinction between cumulative regret and
+  pure-exploration/final recommendation objectives. They do not establish that low regret
+  implies safety, calibration, fairness, robustness, recoverability, option preservation,
+  or low simple regret under every evaluation protocol.
+sources:
+  - id: "REGRET-LAI-ROBBINS-1985"
+    citation_key: "LaiRobbins1985"
+    kind: "peer-reviewed-journal"
+    title: "Asymptotically Efficient Adaptive Allocation Rules"
+    authors: "T. L. Lai; Herbert Robbins"
+    journal: "Advances in Applied Mathematics"
+    volume: 6
+    issue: 1
+    pages: "4-22"
+    year: 1985
+    doi: "10.1016/0196-8858(85)90002-8"
+    authority: >
+      Classical asymptotic stochastic-bandit allocation/lower-bound source. Used to
+      establish the long-run information cost of identifying suboptimal arms under
+      regular parametric assumptions, not as a universal lower bound for every bandit model.
+  - id: "REGRET-BUBECK-CESA-2012"
+    citation_key: "BubeckCesaBianchi2012"
+    kind: "peer-reviewed-monograph"
+    title: "Regret Analysis of Stochastic and Nonstochastic Multi-Armed Bandit Problems"
+    authors: "Sébastien Bubeck; Nicolò Cesa-Bianchi"
+    journal: "Foundations and Trends in Machine Learning"
+    volume: 5
+    pages: "1-122"
+    year: 2012
+    doi: "10.1561/2200000024"
+    arxiv_id: "1204.5721"
+    authority: >
+      Standard source for stochastic and adversarial multi-armed bandit regret,
+      pseudo-regret/expected-regret conventions, fixed-action comparators, minimax
+      rates, and exploration-regret tradeoffs.
+  - id: "REGRET-LATTIMORE-SZEPESVARI-2020"
+    citation_key: "LattimoreSzepesvari2020"
+    kind: "book"
+    title: "Bandit Algorithms"
+    authors: "Tor Lattimore; Csaba Szepesvári"
+    publisher: "Cambridge University Press"
+    year: 2020
+    doi: "10.1017/9781108571401"
+    isbn: "9781108486828"
+    authority: >
+      Comprehensive reference for stochastic, adversarial, Bayesian, minimax, lower-bound,
+      and pure-exploration bandit theory. Used for explicit separation of frequentist,
+      Bayesian, worst-case/minimax, cumulative-regret, and recommendation objectives.
+  - id: "REGRET-AUER-2002"
+    citation_key: "AuerEtAl2002Bandit"
+    kind: "peer-reviewed-journal"
+    title: "Finite-time Analysis of the Multiarmed Bandit Problem"
+    authors: "Peter Auer; Nicolò Cesa-Bianchi; Paul Fischer"
+    journal: "Machine Learning"
+    volume: 47
+    pages: "235-256"
+    year: 2002
+    doi: "10.1023/A:1013689704352"
+    authority: >
+      Inherited representative finite-time stochastic-bandit/UCB source from EXPLORE-001.
+      Used only to connect exploration policies to finite-time regret analysis.
+  - id: "REGRET-RUSSO-VANROY-2014"
+    citation_key: "RussoVanRoy2014"
+    kind: "peer-reviewed-conference"
+    title: "Learning to Optimize via Information-Directed Sampling"
+    authors: "Daniel Russo; Benjamin Van Roy"
+    venue: "Advances in Neural Information Processing Systems 27"
+    year: 2014
+    arxiv_id: "1403.5556"
+    authority: >
+      Inherited representative source linking expected single-period regret and information
+      acquisition in Bayesian online optimization. Used only at that bounded conceptual level.
+atlas_sources:
+  - id: "REGRET-EXPLORE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "f94a18010d969f80ddb96663bec02e449f4eb5eb"
+    path: "manuscript/parts/11-decision-making/ATLAS-CH-EXPLORE-001.md"
+    git_blob_sha1: "d358ec986bb1baa604668707ae0d598856247d89"
+    authority: >
+      Audited hard prerequisite supplying stochastic-bandit notation, exploration/exploitation,
+      exploration cost, immediate-versus-continuation value, and representative UCB,
+      posterior-sampling, and information-directed mechanisms.
+  - id: "REGRET-EXPLORE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "f94a18010d969f80ddb96663bec02e449f4eb5eb"
+    path: "reviews/AUDIT-022.md"
+    git_blob_sha1: "f4b76500f62e5d92571e0fcab648d4f3c6d81abf"
+    authority: "Audit record for the Exploration and Information Value prerequisite."
+  - id: "REGRET-EXPLORE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "f94a18010d969f80ddb96663bec02e449f4eb5eb"
+    path: "sources/source-locks/ATLAS-CH-EXPLORE-001.yaml"
+    git_blob_sha1: "44bf1f2ca6f98a1b852f50ecc6eaf2d42cadadcc"
+    authority: "Exact source/authority boundaries inherited from EXPLORE-001."
+epistemic_rules:
+  - "Every regret quantity is relative to a horizon, reward/loss convention, environment class, policy class, and comparator."
+  - "Pathwise realized regret, expected regret, and pseudo-regret are different random/deterministic objects and must not be silently interchanged."
+  - "Bayesian regret averages over a declared prior; minimax regret optimizes against the worst environment in a declared class."
+  - "Sublinear cumulative regret means average regret tends to zero; it does not mean zero cumulative regret."
+  - "Cumulative regret and simple/final-recommendation regret answer different questions."
+  - "Changing the comparator class can change regret without changing the learner's realized trajectory."
+  - "Low regret does not imply safety, fairness, calibration, robustness, recoverability, or preserved future options unless those properties are explicitly part of the objective/comparator/constraints."
