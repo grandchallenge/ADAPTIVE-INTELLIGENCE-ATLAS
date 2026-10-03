@@ -15,11 +15,9 @@ Under the Euclidean inner product on parameter coordinates, the gradient answers
 
 For nonzero gradient, that direction is
 
-[
-rac{
-abla F}{|
-abla F|_2}.
-]
+\[
+\frac{\nabla F}{\|\nabla F\|_2}.
+\]
 
 Its negative is the Euclidean steepest-descent direction.
 
