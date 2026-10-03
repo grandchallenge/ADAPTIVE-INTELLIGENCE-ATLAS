@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-AGENTS-001"]
   baseline_commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
   branch: "audit/agents-001"
-  pull_request: null
-  state: "audit-instantiated"
+  pull_request: 75
+  state: "audit-pr-open"
   head_commit: "84e888476a93a1661deb109ef9a760726a69cfda"
-  next_action: "Execute AUDIT-015, repair every in-scope defect, write reviews/AUDIT-015.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
+  next_action: "Inspect AUDIT-015 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-AGENTS-001"
     downstream_architecture_count: 8
