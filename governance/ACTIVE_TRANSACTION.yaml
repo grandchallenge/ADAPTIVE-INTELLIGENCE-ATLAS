@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-COORD-001"]
   baseline_commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
   branch: "audit/coord-001"
-  pull_request: null
-  state: "audit-instantiated"
+  pull_request: 79
+  state: "audit-pr-open"
   head_commit: "7fe595987e57b4b1117b87ad0d786352c04cb4cf"
-  next_action: "Execute AUDIT-016, repair every in-scope defect, write reviews/AUDIT-016.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
+  next_action: "Inspect AUDIT-016 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-COORD-001"
     downstream_architecture_count: 7
