@@ -1,0 +1,111 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SPARSE-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_sparse_and_conditional_computation_mechanisms_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support representative mechanisms for parameter pruning,
+  spatially adaptive computation, input-dependent block skipping, dynamic token
+  sparsification, and hardware performance modeling. They do not establish that
+  nominal FLOP reduction implies wall-clock speedup on every device, that every
+  soft gate yields sparse execution, or that conditional computation universally
+  improves quality-efficiency tradeoffs. The Atlas synthesis is the separation of
+  static sparsity, input-dependent routing, executed work, resource vectors, and
+  realized hardware cost.
+sources:
+  - id: "SPARSE-HAN-MAO-DALLY-2016"
+    citation_key: "HanMaoDally2016"
+    kind: "peer-reviewed-conference"
+    title: "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding"
+    authors: "Song Han; Huizi Mao; William J. Dally"
+    venue: "ICLR"
+    year: 2016
+    arxiv_id: "1510.00149"
+    authority: >
+      Representative source for static parameter pruning/compression and the distinction
+      between reducing stored/nonzero parameter structure and input-dependent routing.
+  - id: "SPARSE-FIGURNOV-ETAL-2017"
+    citation_key: "FigurnovEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Spatially Adaptive Computation Time for Residual Networks"
+    authors: "Michael Figurnov; Maxwell D. Collins; Yukun Zhu; Li Zhang; Jonathan Huang; Dmitry Vetrov; Ruslan Salakhutdinov"
+    venue: "CVPR"
+    year: 2017
+    authority: >
+      Primary source for spatially varying adaptive computation in residual networks.
+      Used as evidence that computation can be conditionally allocated across spatial
+      positions rather than uniformly.
+  - id: "SPARSE-SKIPNET-2018"
+    citation_key: "WangEtAl2018SkipNet"
+    kind: "peer-reviewed-conference"
+    title: "SkipNet: Learning Dynamic Routing in Convolutional Networks"
+    authors: "Xin Wang; Fisher Yu; Zi-Yi Dou; Trevor Darrell; Joseph E. Gonzalez"
+    venue: "ECCV"
+    pages: "409-424"
+    year: 2018
+    arxiv_id: "1711.09485"
+    authority: >
+      Primary source for input-dependent gating that selectively skips residual blocks.
+      Used for hard conditional execution and routing semantics, not for a universal speedup claim.
+  - id: "SPARSE-DYNAMICVIT-2021"
+    citation_key: "RaoEtAl2021DynamicViT"
+    kind: "peer-reviewed-conference"
+    title: "DynamicViT: Efficient Vision Transformers with Dynamic Token Sparsification"
+    authors: "Yongming Rao; Wenliang Zhao; Benlin Liu; Jiwen Lu; Jie Zhou; Cho-Jui Hsieh"
+    venue: "NeurIPS"
+    volume: 34
+    year: 2021
+    authority: >
+      Primary source for progressive input-dependent token sparsification in vision
+      transformers. Used as evidence that token selection can change the executed
+      sequence width and that measured throughput should be reported separately from FLOPs.
+  - id: "SPARSE-GALE-ELSEN-HOOKER-2019"
+    citation_key: "GaleElsenHooker2019"
+    kind: "research-preprint"
+    title: "The State of Sparsity in Deep Neural Networks"
+    authors: "Trevor Gale; Erich Elsen; Sara Hooker"
+    year: 2019
+    arxiv_id: "1902.09574"
+    authority: >
+      Large-scale empirical study of parameter sparsification methods. Used to keep
+      parameter sparsity distinct from dynamic conditional execution and to support
+      the need for empirical hardware/task evaluation rather than sparsity ratio alone.
+  - id: "SPARSE-ROOFLINE-2009"
+    citation_key: "WilliamsWatermanPatterson2009"
+    kind: "peer-reviewed-performance-model"
+    title: "Roofline: An Insightful Visual Performance Model for Floating-Point Programs and Multicore Architectures"
+    authors: "Samuel Williams; Andrew Waterman; David Patterson"
+    year: 2009
+    authority: >
+      Hardware performance-model source relating attainable performance to arithmetic
+      intensity, compute capability, and memory bandwidth. Used to establish that
+      arithmetic counts alone do not determine realized latency or throughput.
+atlas_sources:
+  - id: "SPARSE-DEPTH"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "98e146cbd150625ecac4a5f1416da221ec7abff3"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-DEPTH-001.md"
+    git_blob_sha1: "9d365778e873217c40604a621dbe9f88ca2153e0"
+    authority: >
+      Audited hard prerequisite supplying computational-time, hard/soft gating,
+      conditional execution, stopping semantics, and heterogeneous resource accounting.
+  - id: "SPARSE-DEPTH-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "98e146cbd150625ecac4a5f1416da221ec7abff3"
+    path: "reviews/AUDIT-018.md"
+    git_blob_sha1: "0c9f5405bd7d94018d76aa93ebe74ec3e505cabe"
+    authority: "Audit record for Depth as Computational Time."
+  - id: "SPARSE-DEPTH-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "98e146cbd150625ecac4a5f1416da221ec7abff3"
+    path: "sources/source-locks/ATLAS-CH-DEPTH-001.yaml"
+    git_blob_sha1: "b6c18e2e0e3ab82c65d830967e2874bfb41e9bb2"
+    authority: "Exact source/authority boundary inherited from DEPTH-001."
+epistemic_rules:
+  - "Parameter sparsity, activation sparsity, token sparsity, expert/block sparsity, and conditional depth are distinct objects."
+  - "Static sparsity can be identical across inputs; conditional computation is input- or state-dependent execution."
+  - "A soft gate is not realized sparse execution when the gated branch must still be computed."
+  - "Nominal FLOPs, executed operators, memory traffic, communication, kernel-launch overhead, latency, throughput, and energy are distinct resource measures."
+  - "Average executed compute does not determine peak or tail compute."
+  - "A routing decision and the computation selected by that decision are separate objects."
+  - "Training-time support may be denser than inference-time execution and must be reported separately."
+  - "A measured hardware speedup is device/software/batch-shape dependent and must not be promoted to a hardware-independent theorem."
