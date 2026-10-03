@@ -63,7 +63,7 @@ A reader should be able to:
 x(0)=x_0.
 \]
 
-Where existence and uniqueness hold, define the flow
+Assuming a unique local solution exists on the time interval under discussion, define the local flow
 
 \[
 \Phi_t(x_0)=x(t;x_0).
