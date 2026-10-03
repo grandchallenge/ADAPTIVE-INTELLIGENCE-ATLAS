@@ -26,9 +26,13 @@ The environment does not become a policy merely because both appear in the same 
 
 ## 2. Return and value
 
+Assume a finite MDP with finite one-step reward values. The reward table is then bounded.
+
 For gamma in [0,1),
 
 G_t = sum_{k=0}^\infty gamma^k R_{t+k+1}.
+
+For gamma<1, bounded rewards make the discounted series absolutely bounded.
 
 The state value under policy pi is
 
@@ -58,7 +62,7 @@ V^pi = T^pi V^pi,
 
 where T^pi is the Bellman expectation operator.
 
-For a finite discounted MDP, T^pi is a gamma-contraction in the sup norm and therefore has a unique fixed point.
+For a finite discounted MDP, T^pi acts on the finite-dimensional space of bounded real-valued functions on S and is a gamma-contraction in the sup norm. It therefore has a unique fixed point.
 
 ## 4. Bellman optimality
 
@@ -205,7 +209,11 @@ The theorem does not transfer automatically to arbitrary nonlinear function appr
 
 Let pi_theta be a differentiable stochastic policy and J(theta) its expected return.
 
-REINFORCE uses sampled returns to form an unbiased-style stochastic gradient estimator of the policy objective under its stated assumptions.
+REINFORCE uses the score-function identity: sampled terms of the form
+
+grad_theta log pi_theta(A_t|S_t) G_t
+
+have expectation equal to the corresponding policy-objective gradient under the stated trajectory-distribution assumptions. Variance-reduction baselines require their own admissibility conditions.
 
 This route differentiates the policy objective directly.
 
@@ -235,7 +243,7 @@ b_t(s) = P(S_t=s | history_t)
 
 is a probability distribution over hidden states given available history.
 
-Under standard POMDP assumptions, the belief state can itself serve as a sufficient information state for control.
+Under the standard POMDP model, when transition and observation kernels are fixed and the posterior is updated from the complete available history, the exact belief state can serve as a sufficient information state for control.
 
 This does not mean finite approximate memories preserve exact belief-state sufficiency.
 
