@@ -10,8 +10,8 @@ current:
   branch: "work/depth-001"
   head_commit: "2d629872eb8549807067c460f511099e63422aca"
   pull_request: 85
-  state: "pr-open"
-  next_action: "Inspect PR #85 validation, repair all in-scope defects, and merge only on green validation."
+  state: "ci-green"
+  next_action: "Merge PR #85 at its validated head, then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-DEPTH-001"
     downstream_architecture_count: 6
