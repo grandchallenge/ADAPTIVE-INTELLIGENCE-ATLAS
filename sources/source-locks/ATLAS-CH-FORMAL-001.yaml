@@ -1,0 +1,113 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-FORMAL-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_formal_methods_plus_proof_assistant_architecture_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support axiomatic program reasoning, formal specification and
+  state-based verification, the LCF-style small trusted-kernel architecture, and Lean
+  as an interactive theorem prover based on dependent type theory with a small trusted
+  kernel. They do not establish that a formally proved specification matches human intent,
+  that a model checker proves properties beyond its declared model/scope, or that machine
+  checking eliminates all trust assumptions. The Atlas synthesis separates requirement,
+  formal specification, model, proof object, checker/kernel, implementation, environment,
+  and interpretation.
+sources:
+  - id: "FORMAL-HOARE-1969"
+    citation_key: "Hoare1969"
+    kind: "peer-reviewed-journal"
+    title: "An Axiomatic Basis for Computer Programming"
+    author: "C. A. R. Hoare"
+    journal: "Communications of the ACM"
+    volume: 12
+    issue: 10
+    pages: "576-580"
+    year: 1969
+    doi: "10.1145/363235.363259"
+    authority: >
+      Foundational source for axioms and inference rules used to prove properties of
+      programs. Used for precondition/postcondition and invariant reasoning, not as a
+      claim that every software property is practically formalizable.
+  - id: "FORMAL-MILNER-1979"
+    citation_key: "Milner1979LCF"
+    kind: "peer-reviewed-conference"
+    title: "LCF: A Way of Doing Proofs with a Machine"
+    author: "Robin Milner"
+    venue: "Mathematical Foundations of Computer Science 1979"
+    series: "Lecture Notes in Computer Science"
+    volume: 74
+    pages: "146-159"
+    year: 1979
+    doi: "10.1007/3-540-09526-8_11"
+    authority: >
+      Foundational proof-assistant architecture source for reducing trust to a small
+      proof-producing/checking core. Used for the trusted-kernel principle.
+  - id: "FORMAL-LEAN-2015"
+    citation_key: "DeMouraEtAl2015Lean"
+    kind: "peer-reviewed-conference"
+    title: "The Lean Theorem Prover (System Description)"
+    authors: "Leonardo de Moura; Soonho Kong; Jeremy Avigad; Floris van Doorn; Jakob von Raumer"
+    venue: "Automated Deduction - CADE-25"
+    series: "Lecture Notes in Computer Science"
+    volume: 9195
+    pages: "378-388"
+    year: 2015
+    doi: "10.1007/978-3-319-21401-6_26"
+    authority: >
+      Primary system-description source for Lean as an interactive theorem prover with
+      a small trusted kernel based on dependent type theory and proof-producing automation.
+  - id: "FORMAL-LEAN-REFERENCE-20261003"
+    citation_key: "LeanReference2026"
+    kind: "official-reference"
+    title: "The Lean Language Reference — Introduction"
+    publisher: "Lean FRO"
+    url: "https://lean-lang.org/doc/reference/latest/Introduction/"
+    accessed: "2026-10-03"
+    observed_version: "4.34.0-rc2"
+    authority: >
+      Current official Lean reference used only for the contemporary statement that Lean
+      retains a small trusted proof-checking core while supporting substantial automation.
+      The version/access date is part of the source identity because 'latest' is mutable.
+  - id: "FORMAL-LAMPORT-2002"
+    citation_key: "Lamport2002SpecifyingSystems"
+    kind: "book"
+    title: "Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers"
+    author: "Leslie Lamport"
+    publisher: "Addison-Wesley"
+    year: 2002
+    isbn: "978-0-321-14306-8"
+    authoritative_page: "https://lamport.org/tla/book.html"
+    authority: >
+      Primary specification source for TLA+, safety/liveness specification, composition,
+      and TLC model checking. Used to distinguish model checking/specification from proof
+      assistant checking and from implementation testing.
+atlas_sources:
+  - id: "FORMAL-REPLAY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c257c8400a329cb127ac322cf8bfb70d4693b10c"
+    path: "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-REPLAY-001.md"
+    git_blob_sha1: "4d95568d12ec0b27bcace910d8573f4a22e8b161"
+    authority: >
+      Audited hard prerequisite for claim/source/method/environment/output/interpretation/
+      review identity and for the rule that replayability does not establish truth,
+      formal proof, certification, or authority.
+  - id: "FORMAL-REPLAY-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c257c8400a329cb127ac322cf8bfb70d4693b10c"
+    path: "sources/source-locks/ATLAS-CH-REPLAY-001.yaml"
+    git_blob_sha1: "b373efe80e4ced13c7e060e5036d0012d2e17686"
+    authority: "Exact source/authority boundaries inherited from REPLAY-001."
+  - id: "FORMAL-REPLAY-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c257c8400a329cb127ac322cf8bfb70d4693b10c"
+    path: "reviews/AUDIT-003.md"
+    git_blob_sha1: "9723fcb3dfa0111829b98f1c9bb416a13dbd714e"
+    authority: "Joint keystone audit record covering Replayable Evidence Objects."
+epistemic_rules:
+  - "A natural-language requirement and a formal specification are different objects connected by a semantic bridge."
+  - "A proof establishes the formal theorem in its formal environment, not automatically the adequacy of the theorem as a statement of real-world intent."
+  - "A test establishes only the tested executions unless an additional theorem lifts it."
+  - "An invariant proof requires an initial-state obligation and a preservation obligation."
+  - "A model checker proves or refutes properties only within the declared model, abstraction, bounds, and semantics of the tool."
+  - "Automation may be large while the trusted proof-checking kernel remains small; the trust base must still be stated."
+  - "A proof assistant's acceptance does not remove dependence on axioms, definitions, kernel correctness, compiler/runtime assumptions, or semantic adequacy."
+  - "Replayability and formal checking are complementary but non-equivalent support routes."
