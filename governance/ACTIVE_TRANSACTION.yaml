@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-FORMAL-001"
   baseline_commit: "c257c8400a329cb127ac322cf8bfb70d4693b10c"
   branch: "work/formal-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Continue FORMAL-001 implementation from issue #107 and branch work/formal-001; bind audited REPLAY-001, lock formal-methods sources, write the chapter packet, validate, merge, audit, and close the transaction."
+  pull_request: 107
+  state: "implementation-pr-validation"
+  next_action: "Validate PR #107 at exact head 7a5b316f51dc1965f668cc39ee4c962e5dc73999; repair all in-scope defects, merge when green, then run the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-FORMAL-001"
     downstream_architecture_count: 4
