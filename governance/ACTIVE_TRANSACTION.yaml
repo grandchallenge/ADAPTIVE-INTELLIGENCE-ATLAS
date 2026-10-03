@@ -10,8 +10,8 @@ current:
   baseline_commit: "48f7615e4955b3aadab2cd61f94cf5d714d68bac"
   branch: "orientation/map-001-how-to-read"
   pull_request: 65
-  state: "pr-opened"
-  next_action: "Run repository-wide CI on PR #65; repair any failure; merge on green; instantiate and complete the bounded MAP post-draft audit."
+  state: "ci-repair-committed"
+  next_action: "Rerun repository-wide CI on the current PR #65 head; merge on green; instantiate and complete the bounded MAP post-draft audit."
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
