@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `e1709bc5744a260c0a1eec5234d5ac4cb261b3b7`
+**Current main:** `98e146cbd150625ecac4a5f1416da221ec7abff3`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,24 +69,59 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `e1709bc5744a260c0a1eec5234d5ac4cb261b3b7`;
-- next target: `ATLAS-CH-RETRIEVAL-001`;
-- title: **Retrieval and Associative Access**;
-- reason: it ties for the largest unlocked downstream architecture cone at 4 nodes and is first under deterministic frontier ordering.
+- baseline/main: `98e146cbd150625ecac4a5f1416da221ec7abff3`;
+- next target: `ATLAS-CH-SPARSE-001`;
+- title: **Conditional Computation**;
+- reason: it has the largest unlocked downstream architecture cone at 4 nodes.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-026:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-027:
 
-1. `ATLAS-CH-RETRIEVAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-2. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
-3. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
-4. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-5. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+1. `ATLAS-CH-SPARSE-001` — downstream architecture count 4; direct consumer `ATLAS-CH-MOE-001`.
+2. `ATLAS-CH-BOUNDARYPROBE-001` — count 3.
+3. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+4. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
+5. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
 6. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 7. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
 9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### RETRIEVAL-001 — Retrieval and Associative Access
+
+- implementation PR: #112;
+- implementation merge: `e675cf95bb4a8df788bc96aed0b786b21d9fcb96`;
+- audit: `AUDIT-027`;
+- audit PR: #113;
+- audit merge / current main: `98e146cbd150625ecac4a5f1416da221ec7abff3`.
+
+Central retrieval contract:
+
+`Retr=(D,Q,F,s,pi,k,O)`.
+
+Load-bearing distinctions:
+
+- exact-key, symbolic, sparse, dense/vector, hybrid, and multi-index access remain distinct;
+- ranking score is not calibrated relevance probability;
+- top-k is an ordered truncation, not a completeness theorem;
+- exact nearest-neighbor and ANN semantics remain distinct;
+- logical record identity and index-entry identity remain separate;
+- retrieval rank does not create provenance or authority;
+- retrieval-contract correctness, task relevance, and downstream usefulness are separate evaluation layers.
+
+Exact witness:
+
+- exact-key `id=B` -> B;
+- symbolic `year>=2024` -> `{A,C}`;
+- vector ranking -> `C,A,B`;
+- paper-filter then rank top-1 -> A;
+- rank top-1 then paper-filter -> empty.
+
+AUDIT-027 repairs:
+
+- renamed the complete retrieval tuple from `R` to `Retr` to preserve the MEMTAX read-path coordinate;
+- made top-k an ordered list with a separate selected-set view.
 
 ### REGRET-001 — Regret
 
@@ -490,47 +525,33 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — RETRIEVAL-001
+## 7. Next tranche — SPARSE-001
 
 Stable ID:
 
-`ATLAS-CH-RETRIEVAL-001`
+`ATLAS-CH-SPARSE-001`
 
 Title:
 
-**Retrieval and Associative Access**
+**Conditional Computation**
 
-Declared hard dependencies in the Atlas Map/Ledger:
+Declared hard dependency:
 
-- `ATLAS-CH-MEMTAX-001`;
-- `ATLAS-CH-ATTNOP-001`.
+- `ATLAS-CH-DEPTH-001`.
 
-The chapter contract in the Atlas Map is:
+Atlas contract:
 
-> Develop vector, symbolic, hybrid, multi-index, and key–value retrieval.
+> Develop sparsity, dynamic computation, token selection, conditional depth, and hardware implications.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Memory Taxonomy prerequisite may supply locus/write/read/lifetime/addressability/mutability/provenance/sharing coordinates and the overlapping associative/external/episodic/semantic roles.
+The audited Depth prerequisite may supply architectural/execution depth, adaptive stopping, criterion-met versus budget-exhausted outcomes, and heterogeneous compute-resource accounting.
 
-The audited Attention as an Operator prerequisite may supply query/key/value operator language, similarity weighting, normalization, and exact attention semantics within its source-locked scope.
+The chapter should distinguish structural sparsity, parameter sparsity, activation/token sparsity, and input-dependent conditional execution; separate theoretical arithmetic reduction from realized hardware speedup; make selection/routing distinct from executed computation; and keep average compute distinct from peak/tail compute.
 
-A sound intellectual spine should distinguish at least:
+A bounded witness should compare a fixed-depth baseline with an input-dependent gated system, count exact executed blocks, and show that lower executed arithmetic does not imply lower latency without a hardware/parallelism cost model.
 
-1. exact-key lookup from associative similarity search;
-2. vector retrieval score from semantic correctness;
-3. top-k selection from calibrated relevance;
-4. dense vector search from symbolic predicate filtering;
-5. hybrid retrieval from merely concatenating two unrelated result lists;
-6. key-value retrieval from content-addressed identity and from provenance;
-7. one index from multi-index access over the same underlying record set;
-8. retrieval correctness from downstream context usefulness;
-9. approximate-nearest-neighbor acceleration from exact nearest-neighbor semantics;
-10. read contract from memory locus and persistence.
-
-A useful exact witness should use one immutable finite record store with at least two independent indices, such as exact key and vector similarity, and show that the same records can yield different valid result sets under different read contracts. A second bounded construction should expose a hybrid query whose symbolic admissibility filter changes the nearest-neighbor result, making the composition rule explicit rather than treating hybrid retrieval as a vague mixture.
-
-The downstream External-Memory chapter may consume retrieval semantics only after RETRIEVAL-001 itself is audited.
+The downstream Mixture-of-Experts chapter may consume conditional-computation semantics only after SPARSE-001 is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
