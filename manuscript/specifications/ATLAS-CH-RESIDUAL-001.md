@@ -93,7 +93,7 @@ R_1=\phi\circ R_2.
 
 Thus \(R_1\) contains no more distinctions than \(R_2\).
 
-A provisional **Residual** is an invariant, capability-sufficient descriptor minimal under this preorder:
+A provisional **Residual** is an invariant, capability-sufficient descriptor that is **least under the factorization preorder**:
 
 for every other invariant capability-sufficient descriptor \(S\),
 
@@ -101,7 +101,7 @@ for every other invariant capability-sufficient descriptor \(S\),
 R\preceq S.
 \]
 
-The chapter must state that minimal objects need not exist or be unique without additional assumptions.
+The chapter must state that a least object need not exist without additional assumptions. When it does exist, different least representatives are considered equivalent when they factor through one another on their realized images.
 
 ## Principal pedagogical device
 
@@ -214,7 +214,7 @@ Include:
   if capability changes to \(B'(s,n)=(s,n)\), then \(R=s\) is no longer sufficient;
 - too-large transformation family that identifies capability-distinct states;
 - no finite-dimensional Residual guaranteed in general;
-- two incomparable minimal candidates may exist without stronger structure.
+- a least sufficient invariant descriptor may fail to exist; if one weakens the target to merely minimal elements, incomparable candidates can occur.
 
 ## Computational witness
 
