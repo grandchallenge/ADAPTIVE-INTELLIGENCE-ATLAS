@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-DYN-001"
+chapter_id: "ATLAS-CH-DYN-001"
+status: "rendered-witness"
+representation_class: "computed"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-DYN-001.wl"
+  source_git_blob_sha1: "2cca3d0875f35d88d38fa9d9f1bd65d560ef4ad3"
+  rendered: "figures/masters/ATLAS-FIG-DYN-001.png"
+  rendered_git_blob_sha1: "b57903c3b8d1c86f37343784eee0aed9893a62a8"
+  rendered_bytes: 186291
+parameters:
+  pitchfork_equation: "dx/dt = mu*x - x^3"
+  pitchfork_mu_range: "[-2,2]"
+  stable_origin_range: "mu <= 0"
+  unstable_origin_range: "mu > 0"
+  stable_outer_branches: "x = +/-sqrt(mu), mu > 0"
+  oscillator_equation: "dq/dt=p; dp/dt=-q"
+  oscillator_hamiltonian: "H=(q^2+p^2)/2"
+  displayed_energy_level: "H=1/2"
+literal_semantics: >
+  The left panel plots the exact equilibrium branches of the declared pitchfork system
+  over the displayed parameter range, with stability classes determined from the exact
+  scalar derivative. The right panel renders the declared harmonic-oscillator vector
+  field together with the exact H=1/2 circular trajectory.
+nonliteral_semantics: >
+  Line thickness, grayscale, stream-density, label placement, arrow placement, and
+  panel layout are presentation choices and do not encode additional dynamical claims.
+claim_boundary: >
+  The figure illustrates two exact calibration systems only. It does not assert that
+  neural-network or optimizer dynamics generically undergo pitchfork bifurcations or
+  possess Hamiltonian/symplectic structure.
