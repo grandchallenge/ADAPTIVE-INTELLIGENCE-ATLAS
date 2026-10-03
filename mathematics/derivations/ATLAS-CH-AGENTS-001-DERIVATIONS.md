@@ -160,6 +160,8 @@ A' subseteq A,
 
 R' <= R.
 
+For vector-valued resources, the inequality is componentwise.
+
 This is a monotonicity condition on delegated authority and resources.
 
 An explicit external grant can enlarge authority, but that grant is then a separate transition with its own provenance.
@@ -170,7 +172,7 @@ Consider a finite delegation tree T.
 
 For every parent node v with children ch(v), suppose budgets are allocated so that the sum of child budgets is at most R_v - c_v, where c_v is the parent's own reserved execution cost.
 
-Then the total resource allocated below v cannot exceed R_v.
+Then the total resource consumed by the subtree rooted at v, including the parent's reserved cost c_v, cannot exceed R_v.
 
 Proof is by induction on tree depth.
 
