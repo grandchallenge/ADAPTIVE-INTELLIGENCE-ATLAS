@@ -327,35 +327,57 @@ R_{\rm EE}(z)=1+z.
 }
 \]
 
+Use the standard non-growth absolute-stability set
+
+\[
+\mathcal S
+=
+\{z:|R(z)|\le1\}.
+\]
+
+For explicit Euler,
+
+\[
+|1+z|\le1
+\]
+
+is the absolute-stability disk.
+
 For a decaying exact mode with
 
 \[
 \operatorname{Re}(\lambda)<0,
 \]
 
-the discrete mode decays asymptotically only when
+strict asymptotic decay of the discrete mode requires the interior condition
 
 \[
 |1+z|<1.
 \]
 
-This is the explicit-Euler absolute-stability disk.
-
 ## 13. The explicit stability disk
 
-The condition
+The non-growth condition
 
 \[
-|1+z|<1
+|1+z|\le1
 \]
 
-defines a disk of radius \(1\) centered at
+defines the closed disk of radius \(1\) centered at
 
 \[
 -1
 \]
 
 in the complex plane.
+
+Its open interior
+
+\[
+|1+z|<1
+\]
+
+gives strict asymptotic decay.
 
 A stable continuous eigenmode can therefore become unstable numerically if
 
@@ -399,32 +421,40 @@ R_{\rm IE}(z)
 }
 \]
 
-Absolute stability requires
+The standard non-growth absolute-stability condition is
 
 \[
 \left|
 \frac{1}{1-z}
 \right|
-<1.
+\le1.
 \]
 
 Equivalently,
 
 \[
-|1-z|>1.
+|1-z|\ge1.
 \]
+
+Strict decay uses the corresponding strict inequalities.
 
 ## 15. A-stability
 
-Every point in the open left half-plane satisfies
+Every point in the closed left half-plane satisfies
 
 \[
-|1-z|>1.
+|1-z|\ge1.
 \]
 
-Therefore implicit Euler is A-stable.
+Therefore implicit Euler is A-stable in the standard non-growth sense.
 
-This means every exponentially decaying scalar mode of the continuous test equation remains decaying for any positive step size.
+For every point in the open left half-plane,
+
+\[
+|1-z|>1,
+\]
+
+so an exponentially decaying scalar mode remains strictly decaying for any positive step size.
 
 That is a strong stability property.
 
