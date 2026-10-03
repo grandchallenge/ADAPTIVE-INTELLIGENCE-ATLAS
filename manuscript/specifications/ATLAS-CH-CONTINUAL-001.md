@@ -34,7 +34,7 @@ and
 
 `F_max=max_{j<T} F_j`.
 
-These are declared Atlas summaries, not universal metric definitions. Preserve positive backward transfer separately when relevant.
+These are declared Atlas summaries, not universal metric definitions. Aggregate across contexts only when scores are commensurate or a normalization is declared; otherwise retain the per-context values. Preserve positive backward transfer separately when relevant.
 
 ## Required distinctions
 
