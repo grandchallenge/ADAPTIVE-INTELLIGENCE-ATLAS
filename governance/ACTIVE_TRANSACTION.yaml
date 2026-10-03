@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 96
+  tranche_id: "EXPERIMENT-001"
+  chapter_ids:
+    - "ATLAS-CH-EXPERIMENT-001"
   baseline_commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
-  branch: null
+  branch: "work/experiment-001"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-EXPERIMENT-001; it ties for the largest unlocked downstream architecture cone (5 nodes) and is first under deterministic frontier ordering."
+  state: "implementation-active"
+  next_action: "Lock the audited EVIDENCE-001 prerequisite and authoritative experimental-method sources; write the EXPERIMENT-001 specification, derivation packet, exact confounding witness, manuscript, ledger/register updates, and tranche receipt; validate; repair until green; open and merge the implementation PR."
 frontier:
   - id: "ATLAS-CH-EXPERIMENT-001"
     downstream_architecture_count: 5
