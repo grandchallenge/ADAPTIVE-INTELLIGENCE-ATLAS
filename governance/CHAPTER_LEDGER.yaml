@@ -122,8 +122,16 @@
       "dependencies": [
         "ATLAS-CH-LINALG-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-DYN-001.md",
+      "manuscript_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-DYN-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-DYN-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-DYN-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-DYN-001"
+      ]
     },
     {
       "id": "ATLAS-CH-NUMERICS-001",
