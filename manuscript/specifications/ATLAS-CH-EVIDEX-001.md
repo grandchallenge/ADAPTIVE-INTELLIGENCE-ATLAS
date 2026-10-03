@@ -71,13 +71,17 @@ For a declared eligible actor class A, a dispatch is zero-context sufficient whe
 - present in D; or
 - referenced by an immutable identity in B;
 
-and the obligation, permissions, and return contract do not change with hidden session history.
+and the **authorized task contract** is fully determined by D and those imports.
 
-Equivalently, for admissible hidden histories H1 and H2,
+Hidden session history may influence an actor's psychology or mistakes, but it must not supply an authorized premise, permission, source, success criterion, or return requirement.
 
-Interpret(D, H1) = Interpret(D, H2).
+If Contract_A(D,H) denotes the normative contract obtained by supplementing D with only information that the protocol authorizes from hidden history H, then zero-context sufficiency requires
 
-This is a task-interface property, not a claim that the actor has no background knowledge.
+Contract_A(D,H1) = Contract_A(D,H2)
+
+for all admissible H1,H2.
+
+This is a task-interface property, not a claim that every actor will interpret instructions identically or has no background knowledge.
 
 ### Return object
 
