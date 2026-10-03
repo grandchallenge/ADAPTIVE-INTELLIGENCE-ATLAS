@@ -182,3 +182,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-DEPTH-001.yaml"
     authority: "Adaptive computation, recurrent depth, equilibrium depth, conditional routing, and audited Numerics/Architecture History sources."
+
+  - id: "ATLAS-SRC-MEMTAX-LOCK-001"
+    title: "A Taxonomy of Machine Memory source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-MEMTAX-001.yaml"
+    authority: "Working/episodic/semantic terminology lineages, associative and external-memory mechanisms, parametric-memory evidence, and audited Representation context."
