@@ -588,14 +588,25 @@ belongs in the definition.
 
 LayerNorm changes the representation.
 
-It removes one affine scale/offset component before applying learned \(\gamma,\beta\).
+Before the learned affine parameters are applied, it centers the declared feature vector by its sample mean and rescales it by the regularized sample standard deviation:
 
-It therefore changes:
+\[
+x
+\mapsto
+\frac{x-\mu(x)}
+{\sqrt{\sigma^2(x)+\varepsilon}}.
+\]
+
+It then applies learned coordinatewise scale and shift through \(\gamma\) and \(\beta\).
+
+This operation changes:
 
 - geometry;
 - scale;
 - derivative structure;
 - how residual and sublayer signals interact.
+
+It should not be summarized as an unconditional exact invariance to arbitrary affine rescaling. In particular, the explicit \(\varepsilon>0\) term breaks exact scale invariance in general, and learned \(\gamma,\beta\) restore trainable coordinatewise scale and offset after normalization.
 
 Later normalized-geometry chapters will ask whether some normalization machinery can be replaced by more intrinsic constraints.
 
