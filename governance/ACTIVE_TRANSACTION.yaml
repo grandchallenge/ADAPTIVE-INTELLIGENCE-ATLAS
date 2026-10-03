@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 114
+  issue_number: 115
   tranche_id: "SPARSE-001"
   chapter_ids:
     - "ATLAS-CH-SPARSE-001"
-  baseline_commit: "98e146cbd150625ecac4a5f1416da221ec7abff3"
-  branch: "work/sparse-001"
-  pull_request: 114
-  state: "implementation-pr-validation"
-  next_action: "Validate PR #114 at exact head 799d470f76467a05510543d9be6fec7493b96bbe; repair in-scope defects, merge when green, then run the bounded post-draft audit."
+  baseline_commit: "817cc0267c48235c50024a26f5473e1b4de0f935"
+  branch: "audit/sparse-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Execute AUDIT-028 on SPARSE-001 merge 817cc0267c48235c50024a26f5473e1b4de0f935; repair, validate, merge, and reset."
 frontier:
   - id: "ATLAS-CH-SPARSE-001"
     downstream_architecture_count: 4
