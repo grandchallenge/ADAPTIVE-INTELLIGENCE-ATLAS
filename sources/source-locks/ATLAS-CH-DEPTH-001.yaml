@@ -1,0 +1,113 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-DEPTH-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_adaptive_depth_mechanisms_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support representative mechanisms for recurrent depth,
+  adaptive halting, equilibrium/fixed-point depth, and conditional block execution.
+  They do not establish that variable depth is universally superior, that every
+  residual network is literally a time discretization of one underlying ODE, or
+  that a relaxed gate automatically yields hardware savings. The Atlas synthesis
+  is the separation of depth index, computational time, stopping rule, convergence
+  criterion, and realized execution cost.
+sources:
+  - id: "DEPTH-ACT-2016"
+    kind: "research-preprint"
+    title: "Adaptive Computation Time for Recurrent Neural Networks"
+    author: "Alex Graves"
+    year: 2016
+    arxiv_id: "1603.08983"
+    doi: "10.48550/arXiv.1603.08983"
+    authority: >
+      Primary source for a differentiable adaptive-computation mechanism that learns
+      how many recurrent computational steps to allocate before emitting an output.
+  - id: "DEPTH-UNIVERSAL-TRANSFORMER-2019"
+    kind: "peer-reviewed-conference"
+    title: "Universal Transformers"
+    authors: "Mostafa Dehghani; Stephan Gouws; Oriol Vinyals; Jakob Uszkoreit; Lukasz Kaiser"
+    venue: "ICLR"
+    year: 2019
+    openreview_id: "HyzdRiR9Y7"
+    arxiv_id: "1807.03819"
+    doi: "10.48550/arXiv.1807.03819"
+    authority: >
+      Primary source for recurrent application of a shared transformation across
+      depth in a Transformer-like architecture, together with dynamic per-position halting.
+  - id: "DEPTH-DEQ-2019"
+    kind: "peer-reviewed-conference"
+    title: "Deep Equilibrium Models"
+    authors: "Shaojie Bai; J. Zico Kolter; Vladlen Koltun"
+    venue: "NeurIPS"
+    year: 2019
+    arxiv_id: "1909.01377"
+    doi: "10.48550/arXiv.1909.01377"
+    authority: >
+      Primary source for replacing explicit unrolled depth by solving for an equilibrium
+      of a weight-tied transformation and differentiating through that equilibrium.
+  - id: "DEPTH-SKIPNET-2018"
+    kind: "peer-reviewed-conference"
+    title: "SkipNet: Learning Dynamic Routing in Convolutional Networks"
+    authors: "Xin Wang; Fisher Yu; Zi-Yi Dou; Trevor Darrell; Joseph E. Gonzalez"
+    venue: "ECCV"
+    year: 2018
+    pages: "409-424"
+    arxiv_id: "1711.09485"
+    authority: >
+      Primary source for input-dependent skipping of residual blocks and the resulting
+      conditional execution path.
+atlas_sources:
+  - id: "DEPTH-NUMERICS"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md"
+    git_blob_sha1: "a719a16e86d1feb76679e1f1cda2d9d3393d2e42"
+    authority: >
+      Audited numerical-analysis substrate for iteration, convergence, stability,
+      discretization error, explicit/implicit schemes, and stopping criteria.
+  - id: "DEPTH-NUMERICS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "reviews/AUDIT-009.md"
+    git_blob_sha1: "2bbb1b7687d6c4b8c0bfeed5206de836dac92dca"
+    authority: "Audit record for the numerical-analysis prerequisite."
+  - id: "DEPTH-ARCHHIST"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-ARCHHIST-001.md"
+    git_blob_sha1: "3d373695ed5516dbc3b0557112f204636e911897"
+    authority: >
+      Audited architecture-history substrate for layered composition, recurrent state,
+      Highway gating, residual updates, and the exact boundary between residual depth
+      and literal continuous-time models.
+  - id: "DEPTH-ARCHHIST-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "reviews/AUDIT-010.md"
+    git_blob_sha1: "c9aa1488b5041805e4695f00f462f3773a27dedf"
+    authority: "Audit record for the architecture-history prerequisite."
+  - id: "DEPTH-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract and direct downstream consumers."
+  - id: "DEPTH-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "DEPTH-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the exact finite witness."
+epistemic_rules:
+  - "Depth index is not automatically physical time."
+  - "A residual or recurrent update may support a computational-time interpretation without identifying one unique underlying ODE."
+  - "Weight tying makes repeated computation explicit but does not guarantee convergence."
+  - "An adaptive halting rule changes computation allocation; it does not certify correctness."
+  - "An equilibrium equation x*=F(x*) does not imply that naive fixed-point iteration converges to that equilibrium."
+  - "A relaxed gate in [0,1] is not equivalent to a skipped hardware operation unless execution actually avoids the block."
+  - "Effective depth, wall-clock latency, FLOPs, sequential steps, and energy are related but distinct resource measures."

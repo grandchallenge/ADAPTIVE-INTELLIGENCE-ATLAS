@@ -176,3 +176,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-RLBASE-001.yaml"
     authority: "Bellman/MDP, standard RL, Q-learning, policy-gradient, Dyna, POMDP, and audited Dynamics/Information sources for the decision-control substrate."
+
+  - id: "ATLAS-SRC-DEPTH-LOCK-001"
+    title: "Depth as Computational Time source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-DEPTH-001.yaml"
+    authority: "Adaptive computation, recurrent depth, equilibrium depth, conditional routing, and audited Numerics/Architecture History sources."
