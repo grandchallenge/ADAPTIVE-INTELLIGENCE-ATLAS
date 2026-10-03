@@ -1,0 +1,152 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-MEMTAX-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_memory_mechanisms_plus_atlas_taxonomy"
+claim_boundary: >
+  The external sources support representative terminology lineages and machine-memory
+  mechanisms: working memory, episodic/semantic distinction, content-addressable memory,
+  memory networks, differentiable external memory, neural episodic control, and evidence
+  that language-model parameters can store retrievable factual associations. They do not
+  establish that machine memory is biologically identical to human memory, that the six
+  Atlas memory roles are mutually exclusive physical subsystems, or that one memory locus
+  is universally superior. The eight-coordinate taxonomy and role matrix are Atlas synthesis.
+sources:
+  - id: "MEMTAX-BADDELEY-HITCH-1974"
+    kind: "book-chapter"
+    title: "Working Memory"
+    authors: "Alan D. Baddeley; Graham Hitch"
+    book: "Psychology of Learning and Motivation"
+    volume: 8
+    pages: "47-89"
+    year: 1974
+    publisher: "Academic Press"
+    doi: "10.1016/S0079-7421(08)60452-1"
+    authority: >
+      Terminology lineage for working memory as a limited-capacity active
+      storage-and-processing system. Used only as naming context, not as a claim
+      that machine working memory has the same biological architecture.
+  - id: "MEMTAX-TULVING-1972"
+    kind: "book-chapter"
+    title: "Episodic and Semantic Memory"
+    author: "Endel Tulving"
+    book: "Organization of Memory"
+    editors: "Endel Tulving; Wayne Donaldson"
+    pages: "381-403"
+    year: 1972
+    publisher: "Academic Press"
+    authority: >
+      Terminology lineage for episodic versus semantic memory. The Atlas imports
+      the distinction as an engineering analogy between event-bound records and
+      consolidated/generalized knowledge, not as biological equivalence.
+  - id: "MEMTAX-HOPFIELD-1982"
+    kind: "peer-reviewed-journal"
+    title: "Neural networks and physical systems with emergent collective computational abilities"
+    author: "J. J. Hopfield"
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: 79
+    issue: 8
+    pages: "2554-2558"
+    year: 1982
+    doi: "10.1073/pnas.79.8.2554"
+    authority: "Primary source for a neural content-addressable associative memory model."
+  - id: "MEMTAX-MEMORY-NETWORKS-2015"
+    kind: "peer-reviewed-conference"
+    title: "Memory Networks"
+    authors: "Jason Weston; Sumit Chopra; Antoine Bordes"
+    venue: "ICLR"
+    year: 2015
+    arxiv_id: "1410.3916"
+    arxiv_doi: "10.48550/arXiv.1410.3916"
+    authority: >
+      Primary source for learning systems that combine inference components with a
+      readable/writable long-term memory used for prediction and question answering.
+  - id: "MEMTAX-NTM-2014"
+    kind: "research-preprint"
+    title: "Neural Turing Machines"
+    authors: "Alex Graves; Greg Wayne; Ivo Danihelka"
+    year: 2014
+    arxiv_id: "1410.5401"
+    arxiv_doi: "10.48550/arXiv.1410.5401"
+    authority: >
+      Primary research source for coupling a neural controller to an external
+      differentiable memory with learned read/write operations.
+  - id: "MEMTAX-DNC-2016"
+    kind: "peer-reviewed-journal"
+    title: "Hybrid computing using a neural network with dynamic external memory"
+    authors: "Alex Graves et al."
+    journal: "Nature"
+    volume: 538
+    issue: 7626
+    pages: "471-476"
+    year: 2016
+    doi: "10.1038/nature20101"
+    authority: >
+      Primary source for a differentiable neural computer with external read/write
+      memory and learned addressing.
+  - id: "MEMTAX-NEC-2017"
+    kind: "peer-reviewed-conference"
+    title: "Neural Episodic Control"
+    authors: "Alexander Pritzel; Benigno Uria; Sriram Srinivasan; Adrià Puigdomènech Badia; Oriol Vinyals; Demis Hassabis; Daan Wierstra; Charles Blundell"
+    venue: "ICML"
+    series: "Proceedings of Machine Learning Research"
+    volume: 70
+    pages: "2827-2836"
+    year: 2017
+    authority: >
+      Primary source for rapidly written experience records used through an
+      episodic-value memory in reinforcement learning.
+  - id: "MEMTAX-PARAMETRIC-KNOWLEDGE-2020"
+    kind: "peer-reviewed-conference"
+    title: "How Much Knowledge Can You Pack Into the Parameters of a Language Model?"
+    authors: "Adam Roberts; Colin Raffel; Noam Shazeer"
+    venue: "EMNLP"
+    pages: "5418-5426"
+    year: 2020
+    doi: "10.18653/v1/2020.emnlp-main.437"
+    authority: >
+      Empirical evidence that language-model parameters can support retrieval of
+      factual associations without external context. Used as evidence for the
+      engineering notion of parametric memory, not proof that parameters form a
+      complete or reliable knowledge base.
+atlas_sources:
+  - id: "MEMTAX-REPRESENTATION"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md"
+    git_blob_sha1: "6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb"
+    authority: >
+      Audited hard prerequisite supplying representation maps, task-relative
+      equivalence, identifiability boundaries, and feature/address-space caution.
+  - id: "MEMTAX-REPRESENTATION-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Audit record for the consumed Representation chapter."
+  - id: "MEMTAX-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract and downstream consumers."
+  - id: "MEMTAX-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "MEMTAX-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the exact finite witness."
+epistemic_rules:
+  - "The six memory labels are typed roles, not a scalar hierarchy."
+  - "The roles are not mutually exclusive physical stores."
+  - "Working, episodic, and semantic terminology is borrowed cautiously from cognitive science; machine implementations are not asserted to be biologically homologous."
+  - "Associative memory primarily describes an access relation, not necessarily a distinct storage locus."
+  - "External memory describes locus and persistence, not truth or authority."
+  - "A parameter update is a memory write only under an explicitly declared engineering convention; not every parameter change is interpretable as a stable fact insertion."
+  - "Context residence is not durable persistence."
+  - "Persistence does not imply retrievability, freshness, provenance, or correctness."

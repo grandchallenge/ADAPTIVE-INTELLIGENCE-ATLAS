@@ -583,8 +583,13 @@
       "dependencies": [
         "ATLAS-CH-REP-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-MEMTAX-001.md",
+      "manuscript_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-MEMTAX-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-MEMTAX-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-MEMTAX-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-MEMTAX-001.md"
     },
     {
       "id": "ATLAS-CH-RETRIEVAL-001",
