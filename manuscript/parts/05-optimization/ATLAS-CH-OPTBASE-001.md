@@ -9,11 +9,21 @@
 
 ## 1. The gradient is not the optimizer
 
-The gradient answers a local question:
+Under the Euclidean inner product on parameter coordinates, the gradient answers a local question:
 
-> In parameter coordinates, which infinitesimal direction increases the objective fastest?
+> Among unit Euclidean directions, which infinitesimal direction increases the objective fastest?
 
-Its negative points locally downhill.
+For nonzero gradient, that direction is
+
+[
+rac{
+abla F}{|
+abla F|_2}.
+]
+
+Its negative is the Euclidean steepest-descent direction.
+
+Later geometry chapters will change the metric and therefore change what “steepest” means.
 
 An optimizer answers a different question:
 
