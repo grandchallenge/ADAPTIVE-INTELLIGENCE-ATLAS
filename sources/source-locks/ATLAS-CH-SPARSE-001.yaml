@@ -71,10 +71,15 @@ sources:
       the need for empirical hardware/task evaluation rather than sparsity ratio alone.
   - id: "SPARSE-ROOFLINE-2009"
     citation_key: "WilliamsWatermanPatterson2009"
-    kind: "peer-reviewed-performance-model"
-    title: "Roofline: An Insightful Visual Performance Model for Floating-Point Programs and Multicore Architectures"
+    kind: "peer-reviewed-journal"
+    title: "Roofline: An Insightful Visual Performance Model for Multicore Architectures"
     authors: "Samuel Williams; Andrew Waterman; David Patterson"
+    journal: "Communications of the ACM"
+    volume: 52
+    issue: 4
+    pages: "65-76"
     year: 2009
+    doi: "10.1145/1498765.1498785"
     authority: >
       Hardware performance-model source relating attainable performance to arithmetic
       intensity, compute capability, and memory bandwidth. Used to establish that
