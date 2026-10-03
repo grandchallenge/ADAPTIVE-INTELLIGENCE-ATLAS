@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `c257c8400a329cb127ac322cf8bfb70d4693b10c`
+**Current main:** `f94a18010d969f80ddb96663bec02e449f4eb5eb`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,24 +69,71 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `c257c8400a329cb127ac322cf8bfb70d4693b10c`;
-- next target: `ATLAS-CH-FORMAL-001`;
-- title: **Formal Methods and Machine-Checkable Claims**;
+- baseline/main: `f94a18010d969f80ddb96663bec02e449f4eb5eb`;
+- next target: `ATLAS-CH-REGRET-001`;
+- title: **Regret**;
 - reason: it ties for the largest unlocked downstream architecture cone at 4 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-024:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-025:
 
-1. `ATLAS-CH-FORMAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
-2. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
-3. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-4. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
-5. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
-6. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-7. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+1. `ATLAS-CH-REGRET-001` — downstream architecture count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
+2. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+3. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+4. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
+5. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+6. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+7. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
 9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### FORMAL-001 — Formal Methods and Machine-Checkable Claims
+
+- implementation PR: #107;
+- implementation merge:
+  `ea4b586d2b2c4a2e664345613ec7300c5e18ffda`;
+- audit:
+  `AUDIT-025`;
+- audit PR: #108;
+- audit merge / current main:
+  `f94a18010d969f80ddb96663bec02e449f4eb5eb`;
+- duplicate audit issue #109 was closed as duplicate after a connector retry partially succeeded.
+
+Central formal-support object set:
+
+`F=(R,S,M,P,K,I,W)`
+
+for requirement, formal specification, model/semantics, checked support object, checker/kernel, implementation, and deployed world.
+
+Typed support relations:
+
+- `Formalizes(S,R)`;
+- `Interprets(M,S)`;
+- `Checks(K,P,S,M)`;
+- `Conforms(I,M)`;
+- `AssumptionsHold(W,M)`.
+
+Load-bearing doctrine:
+
+- proof of a formal statement does not automatically prove adequacy of the human requirement;
+- a proved model does not automatically imply implementation conformance;
+- a machine-checked theorem remains conditional on its logic, axioms, definitions, trust base, and assumptions;
+- finite successful tests are not universal proofs without a completeness bridge;
+- replayability and formal proof are complementary, non-equivalent support routes;
+- theorem checking and institutional certification remain distinct states.
+
+Exact witness:
+
+- specification `x_0=0`, `SpecStep(x)=x+2`, invariant `Even(x)`;
+- induction proves every specified reachable state is even;
+- implementation tests `0->2->4->6` pass;
+- divergent implementation then maps `6->7`, violating both conformance and the invariant.
+
+AUDIT-025 repairs:
+
+- removed a mutable Lean `latest` documentation URL from the load-bearing source/citation chain because it did not satisfy the inherited immutable-identity discipline;
+- replaced the misleading linear claim stack with the typed support graph above.
 
 ### CONTINUAL-001 — Continual Learning and Forgetting
 
@@ -402,40 +449,46 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — FORMAL-001
+## 7. Next tranche — REGRET-001
 
 Stable ID:
 
-`ATLAS-CH-FORMAL-001`
+`ATLAS-CH-REGRET-001`
 
 Title:
 
-**Formal Methods and Machine-Checkable Claims**
+**Regret**
 
 Declared hard dependency in the Atlas Map/Ledger:
 
-- `ATLAS-CH-REPLAY-001`.
+- `ATLAS-CH-EXPLORE-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Develop specifications, invariants, contracts, proof assistants, Lean, and the limits of formal certification.
+> Develop Bayesian and minimax regret and clarify what regret controls do and do not imply.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Replayable Evidence Objects prerequisite may supply exact source/environment/artifact identity, replay semantics, and the distinction between reproducing an execution and validating the claim that execution is intended to support.
+The audited Exploration and Information Value prerequisite may supply:
+
+- stochastic-bandit notation;
+- exploration/exploitation distinction;
+- immediate versus continuation value;
+- representative optimism, posterior-sampling, and information-directed mechanisms;
+- the distinction between information gain and decision value.
 
 A sound intellectual spine should distinguish at least:
 
-1. natural-language requirement from formal specification;
-2. implementation from the mathematical model of the implementation;
-3. tests/examples from universal proofs;
-4. invariants from post-hoc observations;
-5. executable checker from proof object and trusted kernel;
-6. theorem correctness from adequacy of the formalized specification;
-7. proof-assistant soundness assumptions from automation convenience;
-8. machine-checked software properties from empirical claims about data, users, environments, or learned-model behavior.
+1. realized regret from expected regret;
+2. pseudo-regret from pathwise/realized regret where source conventions require the distinction;
+3. Bayesian regret from minimax/frequentist regret;
+4. comparator class and horizon as part of every regret statement;
+5. cumulative regret from simple/final recommendation error;
+6. sublinear regret from zero regret or pointwise dominance;
+7. regret guarantees from safety, calibration, fairness, robustness, or option preservation;
+8. worst-case minimax guarantees from prior-weighted Bayesian performance.
 
-The chapter should include one tiny exact state-machine witness in which an invariant is proved inductively for all reachable states while a finite test suite is shown to establish only the tested cases. A Lean artifact is appropriate only if the repository can bind the exact toolchain and replay it through the existing evidence machinery; otherwise the chapter should keep the formal kernel/proof-assistant discussion source-locked and use a self-contained mathematical witness.
+A useful exact witness should use a tiny finite bandit/decision family where the same policy has different realized regret on different outcome sequences while expected/pseudo-regret remains a separate quantity, and where changing the comparator changes the numerical regret. The witness must not import the downstream Optionality chapter as authority.
 
 ## 8. Durable restart instruction for a fresh chat
 
