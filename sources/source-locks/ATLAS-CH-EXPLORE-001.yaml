@@ -1,0 +1,97 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-EXPLORE-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_bandit_exploration_information_value_constrained_exploration_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support representative stochastic-bandit exploration methods,
+  posterior-probability allocation, information-directed sampling, decision-theoretic
+  value of information, and one explicit constrained exploration formulation in
+  unknown Markov decision processes. They do not establish one universally optimal
+  exploration method and do not identify information gain with decision value.
+sources:
+  - id: "EXPLORE-AUER-2002"
+    kind: "peer-reviewed-journal"
+    title: "Finite-time Analysis of the Multiarmed Bandit Problem"
+    authors: "Peter Auer; Nicolò Cesa-Bianchi; Paul Fischer"
+    journal: "Machine Learning"
+    volume: 47
+    pages: "235-256"
+    year: 2002
+    doi: "10.1023/A:1013689704352"
+    authority: "Primary source for finite-time stochastic-bandit analysis and upper-confidence-bound allocation."
+  - id: "EXPLORE-THOMPSON-1933"
+    kind: "peer-reviewed-journal"
+    title: "On the Likelihood that One Unknown Probability Exceeds Another in View of the Evidence of Two Samples"
+    author: "William R. Thompson"
+    journal: "Biometrika"
+    volume: 25
+    issue: "3-4"
+    pages: "285-294"
+    year: 1933
+    doi: "10.1093/biomet/25.3-4.285"
+    authority: "Primary historical source for posterior-probability allocation."
+  - id: "EXPLORE-RUSSO-VANROY-2014"
+    kind: "peer-reviewed-conference"
+    title: "Learning to Optimize via Information-Directed Sampling"
+    authors: "Daniel Russo; Benjamin Van Roy"
+    venue: "Advances in Neural Information Processing Systems 27"
+    year: 2014
+    arxiv_id: "1403.5556"
+    authority: "Primary source for information-directed sampling using expected single-period regret and mutual information."
+  - id: "EXPLORE-HOWARD-1966"
+    kind: "peer-reviewed-journal"
+    title: "Information Value Theory"
+    author: "Ronald A. Howard"
+    journal: "IEEE Transactions on Systems Science and Cybernetics"
+    volume: 2
+    issue: 1
+    pages: "22-26"
+    year: 1966
+    doi: "10.1109/TSSC.1966.300074"
+    authority: "Primary decision-analysis source for valuing information through its effect on decisions and consequences."
+  - id: "EXPLORE-MOLDOVAN-ABBEEL-2012"
+    kind: "peer-reviewed-conference"
+    title: "Safe Exploration in Markov Decision Processes"
+    authors: "Teodor Mihai Moldovan; Pieter Abbeel"
+    venue: "International Conference on Machine Learning"
+    year: 2012
+    arxiv_id: "1205.4810"
+    authority: "Primary source for one explicit constrained exploration formulation in unknown MDPs."
+atlas_sources:
+  - id: "EXPLORE-RLBASE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
+    path: "manuscript/parts/11-decision-making/ATLAS-CH-RLBASE-001.md"
+    git_blob_sha1: "a99f78b788b97bc1bb3346ca1f1b97802c0f84db"
+    authority: "Audited hard prerequisite supplying the MDP, reward, value, Bellman, policy, model, and observability substrate."
+  - id: "EXPLORE-RLBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
+    path: "reviews/AUDIT-017.md"
+    git_blob_sha1: "8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc"
+    authority: "Audit record for the RLBASE prerequisite."
+  - id: "EXPLORE-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract."
+  - id: "EXPLORE-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical chapter grammar."
+  - id: "EXPLORE-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded witness semantics."
+epistemic_rules:
+  - "Exploration is purposeful action under epistemic uncertainty; random action is not automatically informative."
+  - "Information gain is measured in information units and is not identical to value of information in reward or utility units."
+  - "An action can have lower immediate expected reward and higher total decision value because it changes future decisions."
+  - "Optimism, posterior sampling, and information-directed sampling are distinct mechanisms."
+  - "A bandit observes partial action feedback; a general MDP additionally couples actions to state transitions."
+  - "A constrained-exploration claim must state the constrained quantity, horizon, guarantee type, and model assumptions."
