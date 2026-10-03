@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-EXPLORE-001"
   baseline_commit: "2de8b7b6fd30f47e066eb475bbd282583926b681"
   branch: "audit/explore-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-022 against implementation merge 2de8b7b6fd30f47e066eb475bbd282583926b681; repair every in-scope defect, write the audit record, validate, merge, then recompute the frontier and reset to idle-ready."
+  pull_request: 102
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #102 at exact head b7321d8ff6eb9fa9e42bbda44788a286d22fb823; repair any in-scope validation defect, merge only when green, then recompute the dependency-legal frontier and reset to idle-ready."
 frontier:
   - id: "ATLAS-CH-EXPLORE-001"
     downstream_architecture_count: 5
