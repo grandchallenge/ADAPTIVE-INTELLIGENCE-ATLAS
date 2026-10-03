@@ -10,8 +10,8 @@ current:
   branch: "work/rlbase-001"
   head_commit: "3da486b634e577fbb2a15f43e2c6b65c4897cf6c"
   pull_request: 81
-  state: "pr-open"
-  next_action: "Inspect PR #81 validation, repair all in-scope defects, and merge only on green validation."
+  state: "ci-green"
+  next_action: "Merge PR #81 at its validated head, then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-RLBASE-001"
     downstream_architecture_count: 7
