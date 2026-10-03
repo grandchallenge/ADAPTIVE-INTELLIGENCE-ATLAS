@@ -9,9 +9,9 @@ current:
   baseline_commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
   branch: "audit/memtax-001"
   head_commit: "cd78611a76ba58a27644c37425a55c466090613b"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Execute AUDIT-019, repair every in-scope defect, write reviews/AUDIT-019.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
+  pull_request: 91
+  state: "audit-pr-open"
+  next_action: "Inspect AUDIT-019 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-MEMTAX-001"
     downstream_architecture_count: 6
