@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-EXPERIMENT-001"
   baseline_commit: "0e441ea8725a7527f138bf0b11b202a737b0dec8"
   branch: "audit/experiment-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-021 against implementation merge 0e441ea8725a7527f138bf0b11b202a737b0dec8; repair every in-scope defect on audit/experiment-001; write reviews/AUDIT-021.md; validate; open and merge the audit PR; then recompute the dependency-legal frontier and return the controller to idle-ready."
+  pull_request: 99
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #99 at exact head 75c67232669376246bb4c3ce2d008f1fcd292a73; repair any in-scope validation defect and replay at the new exact head; merge only when green; then recompute the dependency-legal frontier and return the controller to idle-ready."
 frontier:
   - id: "ATLAS-CH-EXPERIMENT-001"
     downstream_architecture_count: 5
