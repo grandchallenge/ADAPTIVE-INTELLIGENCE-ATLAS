@@ -432,7 +432,7 @@ Include:
 - attention alone is not the full Transformer;
 - causal masking is not a learned preference;
 - residual identity path does not guarantee good conditioning;
-- LayerNorm changes geometry and scale; it is not mere bookkeeping;
+- LayerNorm changes geometry and scale; with explicit \(\varepsilon>0\), do not claim unconditional exact scale invariance;
 - decoder-only is not synonymous with every language model;
 - encoder-only is not inherently bidirectional for arbitrary masking schemes;
 - pre-LN/post-LN labels must be tied to explicit equations;

@@ -75,6 +75,7 @@ epistemic_rules:
   - "Attention is one Transformer sublayer, not the complete architecture."
   - "Causal masking changes the permitted dependency graph before softmax; it is not a learned attention preference."
   - "Pre-LN and post-LN are distinct block orderings; neither is declared universally superior."
+  - "LayerNorm is defined operationally by centering, regularized variance rescaling, and learned affine parameters; no unconditional exact affine-scale invariance is claimed when epsilon is positive."
   - "Encoder-only, decoder-only, and encoder-decoder are topology families, not quality rankings."
   - "Residual-stream identity paths do not imply optimization is automatically well conditioned."
   - "Architecture anatomy is kept separate from training recipe, dataset, scale, and optimization choices."
