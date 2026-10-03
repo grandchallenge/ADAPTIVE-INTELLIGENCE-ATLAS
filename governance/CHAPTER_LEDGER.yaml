@@ -300,8 +300,13 @@
         "ATLAS-CH-NUMERICS-001",
         "ATLAS-CH-ARCHHIST-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-DEPTH-001.md",
+      "manuscript_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-DEPTH-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-DEPTH-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-DEPTH-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-DEPTH-001.md"
     },
     {
       "id": "ATLAS-CH-SPLIT-001",
