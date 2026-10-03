@@ -432,11 +432,15 @@ This is why exploration mechanisms should not be collapsed into one slogan such 
 
 ## 12. Information is useful only through a future decision
 
-Define the no-new-information future value
+Define the expected one-step payoff
+
+`bar r(theta,a')=E_{Y'~p(.|theta,a')}[r(theta,a',Y')]`.
+
+The no-new-information future value is
 
 `J_0(b)
 =
-max_{a'} E_b[r(theta,a')]`.
+max_{a'} E_b[bar r(theta,a')]`.
 
 Now imagine taking action `a`, observing `Y`, updating the posterior, and then making one more decision.
 
@@ -445,7 +449,7 @@ The expected informed future value is
 `J_1(b,a)
 =
 E_Y[
-max_{a'}E[r(theta,a')|Y,a]
+max_{a'}E[bar r(theta,a')|Y,a]
 ]`.
 
 The one-step value of information is
@@ -543,7 +547,7 @@ These are different constraints.
 
 They produce different feasible policy sets.
 
-Moldovan and Abbeel give one explicit formulation for safe exploration in unknown MDPs using ergodicity/returnability structure and restrictions to guaranteed-safe policy subsets [@MoldovanAbbeel2012].
+Moldovan and Abbeel give one explicit formulation for safe exploration in unknown MDPs using an ergodicity-based safety formulation and restrictions to guaranteed-safe policy subsets [@MoldovanAbbeel2012].
 
 The Atlas takes a narrower general lesson from that source:
 
