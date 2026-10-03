@@ -1,0 +1,13 @@
+schema_version: "1.0.0"
+mode: "transaction"
+repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+authoritative_branch: "state/atlas-controller"
+authoritative_path: "governance/ACTIVE_TRANSACTION.yaml"
+bootstrap_snapshot:
+  issue_number: 62
+  tranche_id: "MAP-001"
+  chapter_ids:
+    - "ATLAS-CH-MAP-001"
+  baseline_commit: "d278be42c9048abb1f5f1a0252b84ac78c858b11"
+  state: "instantiated"
+recovery_rule: "Read the authoritative checkpoint from state/atlas-controller first. This main-branch file is only a bootstrap pointer/snapshot."
