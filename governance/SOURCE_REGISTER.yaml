@@ -218,3 +218,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-CONTINUAL-001.yaml"
     authority: "Catastrophic interference, EWC/consolidation, exemplar replay, episodic gradient constraints, parameter isolation, incremental-learning scenario distinctions, and audited memory/optimization prerequisites."
+
+  - id: "ATLAS-SRC-FORMAL-LOCK-001"
+    title: "Formal Methods and Machine-Checkable Claims source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-FORMAL-001.yaml"
+    authority: "Hoare-style program logic, LCF trusted-kernel architecture, Lean theorem-prover architecture/reference, TLA+ specification/model checking, and audited Replayable Evidence Objects provenance discipline."
