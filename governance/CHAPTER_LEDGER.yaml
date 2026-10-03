@@ -203,8 +203,16 @@
       "dependencies": [
         "ATLAS-CH-QUOTIENT-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-RESIDUAL-001.md",
+      "manuscript_path": "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-RESIDUAL-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-RESIDUAL-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-RESIDUAL-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-RESIDUAL-001"
+      ]
     },
     {
       "id": "ATLAS-CH-TRANSFER-001",
