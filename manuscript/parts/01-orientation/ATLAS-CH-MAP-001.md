@@ -73,7 +73,7 @@ The Atlas is designed for movement among scales.
 At the largest scale:
 
 [
-	ext{Atlas}
+\text{Atlas}
 ]
 
 shows the whole conceptual landscape.
@@ -81,13 +81,13 @@ shows the whole conceptual landscape.
 Then come:
 
 [
-	ext{Part}
-	o
-	ext{Chapter}
-	o
-	ext{claim}
-	o
-	ext{support object}.
+\text{Part}
+\to
+\text{Chapter}
+\to
+\text{claim}
+\to
+\text{support object}.
 ]
 
 A reader may begin broadly and zoom inward.
@@ -117,7 +117,7 @@ For that reason, identity is not carried primarily by final numbering.
 It is carried by stable IDs such as
 
 [
-	exttt{ATLAS-CH-DYN-001}.
+\texttt{ATLAS-CH-DYN-001}.
 ]
 
 The Atlas Map explicitly treats numbering and physical order as revisable while stable IDs survive reordering.
@@ -288,10 +288,10 @@ But reproducibility is not magic.
 The canonical rule is:
 
 [
-	ext{reproducible computation}
+\text{reproducible computation}
 
 otRightarrow
-	ext{proof by default}.
+\text{proof by default}.
 ]
 
 Some exact computations can form part of a proof.
@@ -368,11 +368,11 @@ None of those visual properties creates epistemic status.
 The canonical rule is:
 
 [
-oxed{
-	ext{presentation}
+\boxed{
+\text{presentation}
 
 otRightarrow
-	ext{epistemic promotion}.
+\text{epistemic promotion}.
 }
 ]
 
@@ -416,11 +416,11 @@ That makes scientific handoff stronger.
 But the epistemic protocol states a critical nonimplication:
 
 [
-oxed{
-	ext{replay}
+\boxed{
+\text{replay}
 
 otRightarrow
-	ext{truth, independent replication, formal verification, or certification}.
+\text{truth, independent replication, formal verification, or certification}.
 }
 ]
 
@@ -516,11 +516,11 @@ A source lock records the exact objects consumed by the chapter and the authorit
 The operative principle is:
 
 [
-oxed{
-	ext{citation}
+\boxed{
+\text{citation}
 
 eq
-	ext{unbounded authority}.
+\text{unbounded authority}.
 }
 ]
 
@@ -668,15 +668,15 @@ Begin with the result you want to trust.
 Trace:
 
 [
-	ext{claim}
-	o
-	ext{derivation/proof}
-	o
-	ext{witness}
-	o
-	ext{source lock}
-	o
-	ext{audit/replay record}.
+\text{claim}
+\to
+\text{derivation/proof}
+\to
+\text{witness}
+\to
+\text{source lock}
+\to
+\text{audit/replay record}.
 ]
 
 Best for:
@@ -787,13 +787,13 @@ Examples include:
 The rule is always:
 
 [
-	ext{allegory}
-	o
-	ext{structural correspondence}
-	o
-	ext{formal object}
-	o
-	ext{limit}.
+\text{allegory}
+\to
+\text{structural correspondence}
+\to
+\text{formal object}
+\to
+\text{limit}.
 ]
 
 An allegory is successful when it makes the formal structure easier to see.
