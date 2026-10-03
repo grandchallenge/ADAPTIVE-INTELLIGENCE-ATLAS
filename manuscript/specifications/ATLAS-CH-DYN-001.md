@@ -29,7 +29,6 @@ Hard prerequisite:
 May assume:
 
 - eigenvalues/eigenvectors;
-- matrix exponentials for constant linear systems;
 - norms and linearization language.
 
 Must not assume:

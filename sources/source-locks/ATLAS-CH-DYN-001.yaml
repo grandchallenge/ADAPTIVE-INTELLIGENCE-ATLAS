@@ -50,8 +50,9 @@ atlas_sources:
     path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
     git_blob_sha1: "e7fcf56322f26d232d3a3043038d9850792b4bde"
     authority: >
-      Audited Atlas source for eigenvalues, singular values, linearization,
-      operator norms, and matrix exponentials/linear-map language assumed here.
+      Audited Atlas source for eigenvalues, singular values, operator norms, and
+      finite-dimensional linear-map language assumed here. Matrix exponentials are
+      introduced within the Dynamics chapter rather than attributed upstream.
   - id: "DYN-SEED-INVENTORY"
     repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
     commit: "283a992504e685d1e53c210aee91f89d9d448f9f"
