@@ -122,3 +122,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-DYN-001.yaml"
     authority: "Standard nonlinear stability, bifurcation, Hamiltonian, and symplectic references for the mathematical substrate consumed by later Atlas dynamics/numerics/optimization chapters."
+
+  - id: "ATLAS-SRC-NUMERICS-LOCK-001"
+    title: "Discretization, Stability, and Splitting source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-NUMERICS-001.yaml"
+    authority: "One-step numerical ODE analysis, stiffness/implicit stability, splitting/composition methods, and structure-preserving handoff."

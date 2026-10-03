@@ -1,0 +1,80 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-NUMERICS-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_numerical_analysis_plus_atlas_synthesis"
+claim_boundary: >
+  Consistency, convergence, absolute stability, stiffness, implicit/explicit
+  one-step schemes, and splitting/composition methods are externally established
+  in the cited references. The Atlas-specific synthesis is the interpretation of
+  these numerical ideas as architectural and computational design principles for
+  adaptive-depth, split-operator, and structure-preserving neural computation.
+  No claim is made that a neural layer is automatically a valid numerical integrator.
+sources:
+  - id: "NUMERICS-ISERLES-2008"
+    citation_key: "Iserles2008"
+    kind: "monograph"
+    title: "A First Course in the Numerical Analysis of Differential Equations"
+    edition: "2"
+    publisher: "Cambridge University Press"
+    year: 2008
+    doi: "10.1017/CBO9780511995569"
+    authority: >
+      Standard reference for consistency, convergence, one-step methods,
+      Runge-Kutta ideas, and numerical stability of differential-equation solvers.
+  - id: "NUMERICS-HAIRER-WANNER-1996"
+    citation_key: "HairerWanner1996"
+    kind: "monograph"
+    title: "Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems"
+    edition: "2"
+    publisher: "Springer"
+    year: 1996
+    doi: "10.1007/978-3-642-05221-7"
+    authority: >
+      Standard reference for stiff systems, implicit methods, and absolute-stability
+      considerations in stiff numerical integration.
+  - id: "NUMERICS-MCLACHLAN-QUISPEL-2002"
+    citation_key: "McLachlanQuispel2002"
+    kind: "peer-reviewed-article"
+    title: "Splitting methods"
+    journal: "Acta Numerica"
+    volume: 11
+    pages: "341-434"
+    year: 2002
+    doi: "10.1017/S0962492902000053"
+    authority: >
+      Peer-reviewed survey of operator/vector-field splitting and composition methods,
+      including geometric/structure-preserving applications.
+  - id: "NUMERICS-HAIRER-LUBICH-WANNER-2006"
+    citation_key: "HairerLubichWanner2006"
+    kind: "monograph"
+    title: "Geometric Numerical Integration: Structure-Preserving Algorithms for Ordinary Differential Equations"
+    edition: "2"
+    publisher: "Springer"
+    year: 2006
+    doi: "10.1007/3-540-30666-8"
+    authority: >
+      Structure-preserving and backward-error viewpoint used only as a handoff;
+      the full geometric-integration theory is not developed in this chapter.
+atlas_sources:
+  - id: "NUMERICS-DYNAMICS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3c5050b50663e16725620dcf236a6bad61841d82"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "a2a908264d119ef44c502f53f32798b83e16696d"
+    authority: >
+      Audited Atlas source for vector fields, exact flows, equilibria, stability,
+      Hamiltonian/symplectic structure, and the exact-flow versus discrete-update boundary.
+  - id: "NUMERICS-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3c5050b50663e16725620dcf236a6bad61841d82"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project inventory naming numerical stability, consistency/convergence,
+      structure-preserving integration, splitting, adaptive depth, and computation as transport.
+epistemic_rules:
+  - "Consistency alone does not guarantee convergence without the required stability/regularity assumptions."
+  - "Absolute-stability regions are properties of a numerical method on a declared test problem; they are not universal nonlinear guarantees."
+  - "Stiffness is problem/method-relative and is not synonymous with large derivative magnitude."
+  - "Lie-Trotter and Strang order claims require the regularity/domain assumptions appropriate to the operators involved."
+  - "A structure-preserving integrator preserves only the structures its construction actually guarantees."
