@@ -70,7 +70,7 @@ Let `D` be the underlying record set.
 
 Write a retrieval contract as
 
-`R=(D,Q,F,s,pi,k,O)`.
+`Retr=(D,Q,F,s,pi,k,O)`.
 
 Here:
 
@@ -283,9 +283,9 @@ Suppose candidate order is
 
 `d_(1),...,d_(n)`.
 
-Top-k returns only
+Top-k returns the ordered list
 
-`d_(1),...,d_(k)`.
+`(d_(1),...,d_(k))`.
 
 This is a computational and interface decision.
 
@@ -295,7 +295,7 @@ It does not prove:
 - the returned records are all relevant;
 - the k-th score marks a natural semantic boundary.
 
-Top-k converts an ordering into a bounded working set.
+Top-k converts an ordering into a bounded ordered working list; its underlying selected set is a separate view when set semantics are needed.
 
 That is useful precisely because downstream systems cannot consume everything.
 
