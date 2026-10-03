@@ -146,3 +146,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml"
     authority: "Classical first-order/stochastic optimization, adaptive-gradient methods, clipping, decoupled weight decay, initialization, and bounded deep-learning optimization practice."
+
+  - id: "ATLAS-SRC-MAP-LOCK-001"
+    title: "How to Read a Mathematical Atlas source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-MAP-001.yaml"
+    authority: "Project-internal canonical map, dependency, epistemic, composition, figure, and provenance objects used to explain Atlas reading semantics."
