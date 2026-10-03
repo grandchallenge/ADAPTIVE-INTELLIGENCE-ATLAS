@@ -1,0 +1,152 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-COORD-001"
+locked_on: "2026-10-02"
+epistemic_class: "established_coordination_mechanisms_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support representative coordination mechanisms: actor-style
+  message passing, communicating sequential processes and rendezvous, Linda tuple
+  spaces, blackboard systems, causal partial ordering, and transaction semantics.
+  They do not establish that one mechanism is universally optimal or that coordination
+  automatically creates agreement, consistency, reliability, or intelligence.
+  The Atlas coordination tuple, architecture comparison, lost-update witness, and
+  downstream handoff are chapter-owned synthesis built on the audited single-agent loop.
+sources:
+  - id: "COORD-ACTOR-1973"
+    kind: "peer-reviewed-conference"
+    title: "A Universal Modular ACTOR Formalism for Artificial Intelligence"
+    authors: "Carl Hewitt; Peter Bishop; Richard Steiger"
+    venue: "IJCAI"
+    year: 1973
+    proceedings: "Third International Joint Conference on Artificial Intelligence"
+    authority: >
+      Primary early source for actor-based modular computation in which independent
+      computational actors interact through message-like activation and behavior.
+  - id: "COORD-CSP-1978"
+    kind: "peer-reviewed-journal"
+    title: "Communicating Sequential Processes"
+    author: "C. A. R. Hoare"
+    journal: "Communications of the ACM"
+    volume: 21
+    issue: 8
+    pages: "666-677"
+    year: 1978
+    doi: "10.1145/359576.359585"
+    authority: >
+      Primary source for communication as a structuring primitive for parallel
+      sequential processes and for synchronized communication/rendezvous semantics.
+  - id: "COORD-LINDA-1989"
+    kind: "peer-reviewed-journal"
+    title: "Linda in Context"
+    authors: "Nicholas Carriero; David Gelernter"
+    journal: "Communications of the ACM"
+    volume: 32
+    issue: 4
+    pages: "444-458"
+    year: 1989
+    doi: "10.1145/63334.63337"
+    authority: >
+      Primary source for generative communication through a logically shared
+      associative tuple space, including out, read, and destructive input operations.
+  - id: "COORD-BLACKBOARD-1986"
+    kind: "peer-reviewed-journal"
+    title: "The Blackboard Model of Problem Solving and the Evolution of Blackboard Architectures"
+    author: "H. Penny Nii"
+    journal: "AI Magazine"
+    volume: 7
+    issue: 2
+    pages: "38-53"
+    year: 1986
+    doi: "10.1609/aimag.v7i2.537"
+    authority: >
+      Primary retrospective source defining the blackboard model of problem solving
+      and describing the evolution of blackboard architectures.
+  - id: "COORD-LAMPORT-1978"
+    kind: "peer-reviewed-journal"
+    title: "Time, Clocks, and the Ordering of Events in a Distributed System"
+    author: "Leslie Lamport"
+    journal: "Communications of the ACM"
+    volume: 21
+    issue: 7
+    pages: "558-565"
+    year: 1978
+    doi: "10.1145/359545.359563"
+    authority: >
+      Primary source for the happens-before relation, causal partial ordering of events,
+      and logical clocks in distributed systems.
+  - id: "COORD-GRAY-1981"
+    kind: "peer-reviewed-conference"
+    title: "The Transaction Concept: Virtues and Limitations"
+    author: "Jim Gray"
+    venue: "7th International Conference on Very Large Data Bases"
+    pages: "144-154"
+    year: 1981
+    authority: >
+      Primary transaction-processing source used here for atomic units of work,
+      consistency/recovery motivation, and the distinction between concurrent execution
+      and transaction semantics.
+atlas_sources:
+  - id: "COORD-AGENTS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-AGENTS-001.md"
+    git_blob_sha1: "decd7d7eb6404d54aa94905000f24d9bf068ca6f"
+    authority: >
+      Audited hard prerequisite supplying the single-agent transition object,
+      typed action interfaces, persistent state, budget and authority state,
+      bounded delegation, and stop conditions.
+  - id: "COORD-AGENTS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "reviews/AUDIT-015.md"
+    git_blob_sha1: "25b9009a9329c8ee51012dfad4712e5306128241"
+    authority: "Audit record for the hard prerequisite consumed by this chapter."
+  - id: "COORD-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract and direct consumers."
+  - id: "COORD-FAMILY-ROLLOUT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "governance/CHAPTER_FAMILY_ROLLOUT.md"
+    git_blob_sha1: "1e11c1f2acc3648b92f4027a51415c9a5e159b8c"
+    authority: "Canonical family-level requirement for the agents-to-polity drafting spine."
+  - id: "COORD-AETHER-README"
+    repository: "grandchallenge/AETHER"
+    commit: "74b2e322a4453f1665a076bc0682adcd0c5cfb44"
+    path: "README.md"
+    git_blob_sha1: "1b11a63a5f9e6729b33f92e8fb3cbd548e0e63fa"
+    authority: >
+      Exact public GCL project evidence that AETHER is organized around a semantic
+      coordination kernel with an append-only causal journal, deterministic resolver,
+      recursive rule engine, provenance, and governed shared-workspace patterns.
+  - id: "COORD-AETHER-INTERFACES"
+    repository: "grandchallenge/AETHER"
+    commit: "74b2e322a4453f1665a076bc0682adcd0c5cfb44"
+    path: "INTERFACES.md"
+    git_blob_sha1: "12e912e382bfec530af479ad566fbb2fbeb6c0c7"
+    authority: >
+      Exact public GCL interface record for journal, resolver, rules, runtime,
+      explainability, provenance, and deterministic fixed-prefix semantics.
+  - id: "COORD-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "COORD-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the chapter computational witness."
+epistemic_rules:
+  - "Communication does not imply agreement."
+  - "Shared state does not imply a consistent view of that state."
+  - "Delivery does not imply exactly-once effect."
+  - "A total order imposed by a system is stronger than the causal partial order the application may actually require."
+  - "Transactions group effects under declared atomicity/recovery semantics; they are not a universal cure for distributed failure."
+  - "A blackboard or tuple space is a coordination substrate, not an epistemic authority."
+  - "Retry requires an explicit idempotence or deduplication story when duplicate effects matter."
+  - "Coordination cost is part of the system, not free infrastructure."
