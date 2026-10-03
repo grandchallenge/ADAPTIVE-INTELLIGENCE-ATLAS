@@ -31,9 +31,12 @@ API latency, CI latency, connector pagination, or the need for another routine t
 
 ### Durable checkpoint
 
-The current transaction state is stored in:
+The current transaction state is stored on the fixed controller branch:
 
-`governance/ACTIVE_TRANSACTION.yaml`
+- branch: `state/atlas-controller`
+- path: `governance/ACTIVE_TRANSACTION.yaml`
+
+The controller branch is deliberately separate from manuscript branches and `main`, so checkpoints can be updated without opening a PR or perturbing a content branch.
 
 That file is the recovery authority after a conversation interruption. On resume:
 
@@ -44,7 +47,7 @@ That file is the recovery authority after a conversation interruption. On resume
 
 ### Checkpoint discipline
 
-Update the checkpoint whenever the transaction crosses a durable boundary:
+Update the checkpoint on `state/atlas-controller` whenever the transaction crosses a durable boundary:
 
 - tranche instantiated;
 - source lock complete;
