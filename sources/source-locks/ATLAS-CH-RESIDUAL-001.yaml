@@ -54,6 +54,6 @@ atlas_sources:
 epistemic_rules:
   - "The Residual is task/capability-relative unless a stronger theorem proves otherwise."
   - "Capability sufficiency is weaker than full-state reconstruction."
-  - "Minimality is defined relative to an explicit information/factorization preorder."
+  - "Leastness is defined relative to explicit descriptor and admissible post-processing classes; semantic and operational factorization are distinct."
   - "Existence, uniqueness, finite dimensionality, and efficient learnability are open unless proved in a declared setting."
   - "An invariant that survives transformations but cannot reconstruct the target capability is not a sufficient Residual."
