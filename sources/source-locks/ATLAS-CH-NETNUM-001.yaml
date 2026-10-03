@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-NETNUM-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_numerical_analysis_plus_primary_residual_architecture_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited prerequisite chapters support one-step numerical methods, local and global
+  error, stability, stiffness, splitting, residual architectures, and the bounded
+  integrator lens. The external bridge sources support explicit numerical-differential-
+  equation interpretations used to motivate architecture design and stability analysis.
+  They do not prove that an arbitrary residual network is a discretization of one
+  continuous system. The Atlas synthesis supplies the conditions under which local error,
+  global error, stability, step size, and reversibility language may be transferred to
+  network depth.
+sources:
+  - id: "NETNUM-HABER-RUTHOTTO-2018"
+    citation_key: "HaberRuthotto2018"
+    kind: "peer-reviewed-journal"
+    title: "Stable Architectures for Deep Neural Networks"
+    authors: "Eldad Haber; Lars Ruthotto"
+    journal: "Inverse Problems"
+    volume: 34
+    issue: 1
+    article: "014004"
+    year: 2018
+    doi: "10.1088/1361-6420/aa9a90"
+    arxiv_id: "1705.03341"
+    authority: >
+      Primary bridge source interpreting deep learning through nonlinear dynamical
+      systems and discrete ODE stability to motivate stable deep architectures.
+      Used as a design/stability perspective, not as a theorem about every ResNet.
+  - id: "NETNUM-LU-ETAL-2018"
+    citation_key: "LuZhongLiDong2018"
+    kind: "peer-reviewed-conference"
+    title: "Beyond Finite Layer Neural Networks: Bridging Deep Architectures and Numerical Differential Equations"
+    authors: "Yiping Lu; Aoxiao Zhong; Quanzheng Li; Bin Dong"
+    venue: "Proceedings of the 35th International Conference on Machine Learning"
+    series: "Proceedings of Machine Learning Research"
+    volume: 80
+    pages: "3276-3285"
+    year: 2018
+    url: "https://proceedings.mlr.press/v80/lu18d.html"
+    authority: >
+      Primary source for interpreting several deep architectures through numerical
+      differential-equation discretizations and for architecture design inspired by
+      numerical schemes. Used as a representative bridge, not as universal identity.
+atlas_sources:
+  - id: "NETNUM-NUMERICS"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md"
+    git_blob_sha1: "a719a16e86d1feb76679e1f1cda2d9d3393d2e42"
+    authority: >
+      Audited hard prerequisite for exact flow versus numerical map, local defect,
+      global error, consistency, stability, Euler methods, stiffness, splitting,
+      and structure-preserving numerical language.
+  - id: "NETNUM-NUMERICS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "reviews/AUDIT-009.md"
+    git_blob_sha1: "2bbb1b7687d6c4b8c0bfeed5206de836dac92dca"
+    authority: "Audit record for the Numerics prerequisite."
+  - id: "NETNUM-ARCHHIST"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-ARCHHIST-001.md"
+    git_blob_sha1: "3d373695ed5516dbc3b0557112f204636e911897"
+    authority: >
+      Audited hard prerequisite for residual update structure, residual Jacobians,
+      the integrator lens, and the boundary between ordinary ResNets and explicit
+      continuous-depth Neural ODE models.
+  - id: "NETNUM-ARCHHIST-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "reviews/AUDIT-010.md"
+    git_blob_sha1: "c9aa1488b5041805e4695f00f462f3773a27dedf"
+    authority: "Audit record for the Architecture History prerequisite."
+  - id: "NETNUM-NUMERICS-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "sources/source-locks/ATLAS-CH-NUMERICS-001.yaml"
+    git_blob_sha1: "7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d"
+    authority: "Inherited numerical-analysis bibliography and authority boundaries."
+  - id: "NETNUM-ARCHHIST-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
+    path: "sources/source-locks/ATLAS-CH-ARCHHIST-001.yaml"
+    git_blob_sha1: "17a7a9db9c24cd075aaf07d8489f7931cd09a958"
+    authority: "Inherited primary residual-network and Neural ODE source identities."
+epistemic_rules:
+  - "Residual form alone does not define a continuous differential equation."
+  - "Local truncation error is meaningful only relative to a declared exact flow and numerical step."
+  - "Global discretization error requires a common continuous reference and a refinement family."
+  - "Numerical forward stability is distinct from optimization or training stability."
+  - "Residual scaling is not automatically a time-step parameter unless the vector-field semantics are fixed."
+  - "Layer count is not automatically physical or computational time."
+  - "Invertibility of a layer map is distinct from time reversibility of a numerical method."
+  - "A time-reversible one-step method requires the declared relation Psi_{-h}=Psi_h^{-1}."
+  - "A numerical-scheme interpretation may be autonomous or nonautonomous; shared weights are not a universal requirement."

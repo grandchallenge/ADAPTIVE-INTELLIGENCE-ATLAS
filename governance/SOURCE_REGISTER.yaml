@@ -206,3 +206,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-EXPLORE-001.yaml"
     authority: "Bandits, optimism, posterior sampling, information-directed sampling, information value, constrained exploration, and audited RLBASE sources."
+
+  - id: "ATLAS-SRC-NETNUM-LOCK-001"
+    title: "Networks as Numerical Schemes source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-NETNUM-001.yaml"
+    authority: "Audited numerical-analysis and architecture prerequisites plus Haber–Ruthotto and Lu et al. bridge sources for residual networks as numerical schemes."
