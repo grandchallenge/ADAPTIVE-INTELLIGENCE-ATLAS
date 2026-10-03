@@ -45,9 +45,15 @@ Non-growth condition:
 
 `|1-h|<=1`.
 
-For real `h>=0`, this is exactly:
+For real `h>=0`, the non-growth set is exactly:
 
 `0<=h<=2`.
+
+Strict decay requires:
+
+`0<h<2`.
+
+At `h=2`, the factor is `-1`, so magnitude is preserved rather than decayed.
 
 At `h=3`:
 
