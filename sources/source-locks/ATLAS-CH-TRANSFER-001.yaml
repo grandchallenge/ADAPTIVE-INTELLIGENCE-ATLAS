@@ -1,0 +1,84 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-TRANSFER-001"
+locked_on: "2026-10-02"
+epistemic_class: "established_transfer_framework_plus_atlas_synthesis"
+claim_boundary: >
+  Standard transfer-learning terminology, source/target domain-task distinctions,
+  feature-transfer observations, and negative-transfer risks are externally established
+  in the cited literature. The Atlas reconstruction formulation that transfer succeeds
+  when source and target representations compile to a common capability-sufficient
+  Residual is a project synthesis. It is not claimed as a complete or universal theory
+  of transfer learning.
+sources:
+  - id: "TRANSFER-PAN-YANG-2010"
+    citation_key: "PanYang2010"
+    kind: "peer-reviewed-survey"
+    title: "A Survey on Transfer Learning"
+    journal: "IEEE Transactions on Knowledge and Data Engineering"
+    year: 2010
+    doi: "10.1109/TKDE.2009.191"
+    authority: >
+      Standard source/target domain and task framing, transfer-learning taxonomy,
+      relationships to domain adaptation/multitask learning, and the negative-transfer problem.
+  - id: "TRANSFER-YOSINSKI-2014"
+    citation_key: "YosinskiEtAl2014"
+    kind: "peer-reviewed-conference"
+    title: "How transferable are features in deep neural networks?"
+    venue: "NeurIPS 2014"
+    authority: >
+      Empirical evidence that transferability is layer- and task-dependent and can be
+      impaired by feature specialization and co-adaptation/optimization effects.
+  - id: "TRANSFER-KORNBLITH-2019"
+    citation_key: "KornblithShlensLe2019"
+    kind: "peer-reviewed-conference"
+    title: "Do Better ImageNet Models Transfer Better?"
+    venue: "CVPR 2019"
+    authority: >
+      Empirical evidence that source-task performance and transferred-feature quality
+      are not interchangeable and that transfer benefit depends on training and target task.
+  - id: "TRANSFER-ACHILLE-SOATTO-2018"
+    citation_key: "AchilleSoatto2018"
+    kind: "peer-reviewed-article"
+    title: "Emergence of Invariance and Disentanglement in Deep Representations"
+    authority: >
+      Task-relative sufficiency/minimality/nuisance-invariance framework used as a
+      supporting bridge between representation compression and transferability.
+  - id: "TRANSFER-TISHBY-IB"
+    citation_key: "TishbyPereiraBialek2000"
+    kind: "research-preprint"
+    title: "The Information Bottleneck Method"
+    authority: >
+      Supporting precedent for preserving target-relevant information under compression;
+      not used as a universal definition of transfer.
+atlas_sources:
+  - id: "TRANSFER-RESIDUAL-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "aaab3af8ea6e8019ac0214b613e4eafa09802a91"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md"
+    git_blob_sha1: "02b0886a87e1e17c749e15349e14f43674c3d1ff"
+    authority: >
+      Audited Atlas definition of invariant capability-sufficient Residual,
+      descriptor admissibility, and semantic versus operational factorization.
+  - id: "TRANSFER-INFO-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "aaab3af8ea6e8019ac0214b613e4eafa09802a91"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md"
+    git_blob_sha1: "0fca10cbc7476c5b729ee15dfad0dec563665821"
+    authority: >
+      Audited probability/information substrate for sufficiency, bottlenecks,
+      information loss, and statistical dependence caveats.
+  - id: "TRANSFER-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "aaab3af8ea6e8019ac0214b613e4eafa09802a91"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project inventory naming transfer learning, reconstruction/autoencoding,
+      bottlenecks, information bottleneck, semantic equivalence under representational
+      change, minimal transferable representations, and the Residual.
+epistemic_rules:
+  - "Transfer is task/domain-relative; no universal representation quality is assumed."
+  - "Parameter reuse is not sufficient evidence of capability transfer."
+  - "A representation can transfer poorly despite high source-task performance."
+  - "Exact transfer certificates in this chapter are sufficient conditions for declared toy settings, not necessary-and-sufficient characterizations of transfer learning generally."
+  - "Negative transfer remains possible when source structure, target task, adaptation dynamics, or bottlenecks are mismatched."
