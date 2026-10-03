@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-EXPERIMENT-001"
   baseline_commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
   branch: "work/experiment-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Lock the audited EVIDENCE-001 prerequisite and authoritative experimental-method sources; write the EXPERIMENT-001 specification, derivation packet, exact confounding witness, manuscript, ledger/register updates, and tranche receipt; validate; repair until green; open and merge the implementation PR."
+  pull_request: 97
+  state: "implementation-pr-validation"
+  next_action: "Validate PR #97 at exact head 57e3aa811e951400b75fb1c9d20d6b69f0b40b81; repair all in-scope defects until green; merge implementation PR; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-EXPERIMENT-001"
     downstream_architecture_count: 5
