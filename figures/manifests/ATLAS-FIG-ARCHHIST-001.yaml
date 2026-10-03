@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-ARCHHIST-001"
+chapter_id: "ATLAS-CH-ARCHHIST-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-ARCHHIST-001.wl"
+  source_git_blob_sha1: "057e0da8dabc55045bfd9c3afe3014005c6adc76"
+  rendered: "figures/masters/ATLAS-FIG-ARCHHIST-001.png"
+  rendered_git_blob_sha1: "296afa2a50cb63cce04a91ae9ef7b104f438406d"
+  rendered_bytes: 49015
+parameters:
+  panels:
+    - "layered composition"
+    - "shared convolution"
+    - "recurrent state"
+    - "encoder-decoder interface"
+    - "highway transform/carry gating"
+    - "residual identity bypass"
+literal_semantics: >
+  Each panel depicts the declared algebraic architecture pattern: composition,
+  spatial parameter sharing, recurrent state reuse, an explicit encoder-decoder
+  interface, transform/carry gating, and identity-plus-residual transport.
+nonliteral_semantics: >
+  Panel geometry, spacing, arrow lengths, chronology layout, and relative visual
+  prominence are pedagogical. They do not encode historical priority, empirical
+  accuracy, parameter count, computational cost, or architecture quality.
+claim_boundary: >
+  The figure shows structural transitions used by the chapter. It does not claim
+  that the history of neural architecture is linear, that later models dominate
+  earlier ones, or that residual systems are literally numerical ODE solvers.
