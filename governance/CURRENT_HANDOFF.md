@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `98e146cbd150625ecac4a5f1416da221ec7abff3`
+**Current main:** `c82f61da1ca457b9670273669c04fe3fd5459652`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,24 +69,63 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `98e146cbd150625ecac4a5f1416da221ec7abff3`;
-- next target: `ATLAS-CH-SPARSE-001`;
-- title: **Conditional Computation**;
-- reason: it has the largest unlocked downstream architecture cone at 4 nodes.
+- baseline/main: `c82f61da1ca457b9670273669c04fe3fd5459652`;
+- next target: `ATLAS-CH-BOUNDARYPROBE-001`;
+- title: **Boundary Probes**;
+- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-027:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-028:
 
-1. `ATLAS-CH-SPARSE-001` — downstream architecture count 4; direct consumer `ATLAS-CH-MOE-001`.
-2. `ATLAS-CH-BOUNDARYPROBE-001` — count 3.
-3. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-4. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
-5. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
+1. `ATLAS-CH-BOUNDARYPROBE-001` — downstream architecture count 3.
+2. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+3. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
+4. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
+5. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
 6. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 7. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
 9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### SPARSE-001 — Conditional Computation
+
+- implementation PR: #114;
+- implementation merge: `817cc0267c48235c50024a26f5473e1b4de0f935`;
+- audit: `AUDIT-028`;
+- audit PR: #115;
+- audit merge / current main: `c82f61da1ca457b9670273669c04fe3fd5459652`.
+
+Central sparsity/conditional-computation object:
+
+`S=(P,A,T,B,D,R)`
+
+for parameter sparsity, activation sparsity, token sparsity, block/module sparsity, conditional depth, and routing.
+
+Load-bearing distinctions:
+
+- static sparsity versus input/state-dependent conditional execution;
+- hard skipped work versus soft gating;
+- router cost versus executed-path cost;
+- average versus peak/tail compute;
+- total capacity versus active per-input work;
+- arithmetic operations versus launches, memory traffic, energy, communication, latency, and throughput;
+- training graph versus inference graph;
+- efficiency versus task-quality preservation.
+
+Exact witness:
+
+- fixed resource pair `(40,1)`;
+- conditional average `(55/2,15/4)`;
+- average arithmetic reduction `5/16=31.25%`;
+- unchanged peak arithmetic `40`;
+- compute-dominated toy cost favors conditional execution;
+- launch-dominated toy cost favors fixed execution.
+
+AUDIT-028 repairs:
+
+- aligned the primitive resource vector to `C=(F,K,M,E)`, keeping latency/throughput as hardware-dependent modeled or measured outputs;
+- aligned the Roofline manuscript title with the locked CACM source identity.
 
 ### RETRIEVAL-001 — Retrieval and Associative Access
 
@@ -525,33 +564,36 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — SPARSE-001
+## 7. Next tranche — BOUNDARYPROBE-001
 
 Stable ID:
 
-`ATLAS-CH-SPARSE-001`
+`ATLAS-CH-BOUNDARYPROBE-001`
 
 Title:
 
-**Conditional Computation**
+**Boundary Probes**
 
-Declared hard dependency:
+Declared hard dependencies:
 
-- `ATLAS-CH-DEPTH-001`.
+- `ATLAS-CH-LINALG-001`;
+- `ATLAS-CH-NETNUM-001`.
 
 Atlas contract:
 
-> Develop sparsity, dynamic computation, token selection, conditional depth, and hardware implications.
+> Develop JVPs, VJPs, power iteration, sensitivity, and interface conditions for learned components.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Depth prerequisite may supply architectural/execution depth, adaptive stopping, criterion-met versus budget-exhausted outcomes, and heterogeneous compute-resource accounting.
+The audited Linear Algebra prerequisite may supply Jacobians, adjoints/transposes, singular values, operator norms, and power-iteration language.
 
-The chapter should distinguish structural sparsity, parameter sparsity, activation/token sparsity, and input-dependent conditional execution; separate theoretical arithmetic reduction from realized hardware speedup; make selection/routing distinct from executed computation; and keep average compute distinct from peak/tail compute.
+The audited Networks as Numerical Schemes prerequisite may supply local/global numerical error, stability, discretization lenses, and exact boundaries between residual maps and continuous-time interpretations.
 
-A bounded witness should compare a fixed-depth baseline with an input-dependent gated system, count exact executed blocks, and show that lower executed arithmetic does not imply lower latency without a hardware/parallelism cost model.
+A sound intellectual spine should distinguish forward-mode JVPs from reverse-mode VJPs; local Jacobian sensitivity from global behavior; spectral/operator norm estimates from componentwise effects; exact power iteration from finite-iteration estimates; and interface sensitivity from semantic adequacy.
 
-The downstream Mixture-of-Experts chapter may consume conditional-computation semantics only after SPARSE-001 is audited.
+A bounded witness should use a small explicit nonlinear map with an exact Jacobian, compute JVP and VJP products, compare finite power iteration with the exact dominant singular value, and state precisely what the local probe does and does not certify.
+
+The downstream Boundary Contracts chapter may consume these probe semantics only after BOUNDARYPROBE-001 is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
