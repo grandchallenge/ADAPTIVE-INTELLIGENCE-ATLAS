@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
   issue_number: undefined
-  tranche_id: "MEMTAX-001"
+  tranche_id: "AUDIT-019"
   chapter_ids: ["ATLAS-CH-MEMTAX-001"]
   baseline_commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
-  branch: "work/memtax-001"
-  head_commit: "0dc62d6d71eb20f58f82bd9dbca08ef2aef3eee5"
-  pull_request: 89
-  state: "pr-open"
-  next_action: "Inspect PR #89 validation, repair all in-scope defects, and merge only on green validation."
+  branch: "audit/memtax-001"
+  head_commit: "cd78611a76ba58a27644c37425a55c466090613b"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Execute AUDIT-019, repair every in-scope defect, write reviews/AUDIT-019.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-MEMTAX-001"
     downstream_architecture_count: 6
