@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
   issue_number: 66
-  tranche_id: "AUDIT-011"
+  tranche_id: "AUDIT-013"
   chapter_ids:
     - "ATLAS-CH-MAP-001"
   baseline_commit: "46ff1af604e9e08540493ab4d94735a660e78dd8"
-  branch: "audit/audit-011-map"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Run bounded documentary audit; repair defects; write reviews/AUDIT-011.md; open PR; validate; merge; close MAP-001 and AUDIT-011 issues."
+  branch: "audit/audit-013-map"
+  pull_request: 67
+  state: "audit-pr-opened"
+  next_action: "Run CI on audit PR #67; merge on green; close issues #62 and #66; compute the next dependency-legal frontier; checkpoint it."
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
