@@ -84,6 +84,62 @@ The closed form independently gives
 h_3=\frac{69}{8}.
 \]
 
+## Highway witness
+
+Use scalar state
+
+\[
+x=2,
+\qquad
+H(x)=5.
+\]
+
+With tied transform/carry gates
+
+\[
+T=\frac14,
+\qquad
+C=1-T=\frac34,
+\]
+
+the layer returns
+
+\[
+y
+=
+T H(x)+C x
+=
+\frac{11}{4}.
+\]
+
+The exact carry limit
+
+\[
+T=0,
+\qquad
+C=1
+\]
+
+returns
+
+\[
+y=x=2.
+\]
+
+The exact transform limit
+
+\[
+T=1,
+\qquad
+C=0
+\]
+
+returns
+
+\[
+y=H(x)=5.
+\]
+
 ## Residual witness
 
 For
@@ -164,6 +220,14 @@ closed=
   ]
  ];
 
+xHighway=2;
+hHighway=5;
+tGate=1/4;
+cGate=1-tGate;
+highway=tGate hHighway+cGate xHighway;
+highwayCarry=0 hHighway+1 xHighway;
+highwayTransform=1 hHighway+0 xHighway;
+
 aa={{
   1,2
  },{
@@ -176,6 +240,9 @@ aa={{
  ss.cc.xx,
  hs,
  closed,
+ highway,
+ highwayCarry,
+ highwayTransform,
  IdentityMatrix[2]+aa,
  IdentityMatrix[2]
 }
