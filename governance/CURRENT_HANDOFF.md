@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `55085755626d60d2981a7cf17a6af7cbac60f9fc`
+**Current main:** `743df1ab6d3cb7ac8f7d35b248c988995170a3e0`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,22 +69,75 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `55085755626d60d2981a7cf17a6af7cbac60f9fc`;
-- next target: `ATLAS-CH-EXPERIMENT-001`;
-- title: **Experiments as Arguments**;
+- baseline/main: `743df1ab6d3cb7ac8f7d35b248c988995170a3e0`;
+- next target: `ATLAS-CH-EXPLORE-001`;
+- title: **Exploration and Information Value**;
 - reason: it ties for the largest unlocked downstream architecture cone at 5 nodes and is first under deterministic frontier ordering.
 
-Current frontier:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-021:
 
-1. `ATLAS-CH-EXPERIMENT-001` — downstream architecture count 5.
-2. `ATLAS-CH-EXPLORE-001` — count 5; direct consumer `ATLAS-CH-REGRET-001`.
-3. `ATLAS-CH-NETNUM-001` — count 5; direct consumers `ATLAS-CH-ADAPTDEPTH-001`, `ATLAS-CH-BOUNDARYPROBE-001`.
-4. `ATLAS-CH-CONTINUAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-5. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
-6. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-7. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+1. `ATLAS-CH-EXPLORE-001` — downstream architecture count 5; direct consumer `ATLAS-CH-REGRET-001`.
+2. `ATLAS-CH-NETNUM-001` — count 5; direct consumers `ATLAS-CH-ADAPTDEPTH-001`, `ATLAS-CH-BOUNDARYPROBE-001`.
+3. `ATLAS-CH-CONTINUAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+4. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
+5. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+6. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+7. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+8. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+9. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+10. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### EXPERIMENT-001 — Experiments as Arguments
+
+- implementation issue: #96, closed completed;
+- implementation PR: #97;
+- implementation merge:
+  `0e441ea8725a7527f138bf0b11b202a737b0dec8`;
+- audit issue: #98, closed completed;
+- audit:
+  `AUDIT-021`;
+- audit PR: #99;
+- audit merge / current main:
+  `743df1ab6d3cb7ac8f7d35b248c988995170a3e0`.
+
+Central experiment object:
+
+`E=(q,theta,U,A,Z,Y,g,V,rho,Omega)`
+
+with:
+
+- bounded claim;
+- estimand;
+- units/population/sample frame;
+- intervention/assignment rule;
+- nuisance structure;
+- outcome;
+- estimator/comparison rule;
+- variation/uncertainty description;
+- stopping/tuning/selection/reporting rule;
+- interpretation scope.
+
+Load-bearing doctrine:
+
+- a run is not yet an experimental argument;
+- hypothesis is distinct from estimand;
+- intervention is distinct from observational association;
+- a baseline is any comparator, while an ablation is a structured intervention on a component;
+- seed variance is conditional run-to-run variation, not a substitute for data/population/implementation uncertainty;
+- effect magnitude is distinct from statistical significance;
+- reproducibility is distinct from replication and from validity;
+- benchmark superiority does not by itself identify mechanism;
+- selection and stopping are part of the design and may not be erased from the report.
+
+Exact witness:
+
+a deterministic 20-unit two-stratum construction has individual treatment effect +1 everywhere, yet confounded assignment yields a naive aggregate contrast of -7 while both within-stratum contrasts and the equal-stratum standardized contrast are +1.
+
+AUDIT-021 repair:
+
+the original stopping/selection coordinate `tau` collided with the audited Evidence chapter's `tau` epistemic-class coordinate. The chapter now uses `rho` throughout. No mathematical claim changed.
 
 ### RLBASE-001 — Reinforcement Learning and Control
 
@@ -217,50 +270,38 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — EXPERIMENT-001
+## 7. Next tranche — EXPLORE-001
 
 Stable ID:
 
-`ATLAS-CH-EXPERIMENT-001`
+`ATLAS-CH-EXPLORE-001`
 
 Title:
 
-**Experiments as Arguments**
+**Exploration and Information Value**
 
 Declared hard dependency in the Atlas Map/Ledger:
 
-- `ATLAS-CH-EVIDENCE-001`.
+- `ATLAS-CH-RLBASE-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Develop falsifiability, baselines, controls, ablations, counterfactuals, effect sizes, seeds, and reproducibility.
+> Develop bandits, exploration–exploitation, information gain, value of information, and safe exploration.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-Recommended intellectual spine:
+The audited RLBASE prerequisite may supply the MDP/control substrate. No later Regret or Optionality chapter may be used as hidden prerequisite authority unless the Chapter Ledger explicitly changes.
 
-1. An experiment is not merely a run; it is an argument connecting an intervention/comparison to a bounded claim.
-2. Separate:
-   - hypothesis;
-   - estimand;
-   - intervention/treatment;
-   - control/baseline;
-   - randomization or sampling mechanism;
-   - outcome metric;
-   - uncertainty/effect estimate;
-   - nuisance variables;
-   - stopping rule;
-   - claim boundary.
-3. Distinguish:
-   - ablation from ordinary comparison;
-   - observational association from intervention;
-   - seed variance from data/population uncertainty;
-   - statistical significance from practical effect size;
-   - benchmark performance from mechanism evidence;
-   - reproducibility from validity.
-4. Use a small exact or deterministic witness where a confounded comparison points one way while a controlled comparison isolates the true intervention effect.
-5. Preserve the Evidence chapter's epistemic-class discipline.
-6. Do not use `ATLAS-CH-REPLAY-001` as hidden prerequisite authority even though it is already drafted. `EXPERIMENT-001` must stand on `EVIDENCE-001` plus properly source-locked external experimental-method sources.
+A sound intellectual spine should distinguish at least:
+
+1. exploration as information acquisition from reward maximization under known dynamics;
+2. multi-armed-bandit regret from full MDP exploration;
+3. epistemic uncertainty from environment stochasticity;
+4. value of information from immediate expected reward;
+5. optimism, posterior sampling, and information-directed strategies as different mechanisms rather than synonyms;
+6. safe exploration as constrained information acquisition, with the exact safety notion stated rather than assumed.
+
+The tranche should use an exact finite witness where information has positive decision value despite a lower immediate expected reward, or another comparably small construction that makes exploration value mathematically visible.
 
 ## 8. Durable restart instruction for a fresh chat
 
