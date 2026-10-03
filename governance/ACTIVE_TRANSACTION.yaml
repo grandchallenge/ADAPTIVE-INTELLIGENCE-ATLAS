@@ -9,7 +9,7 @@ current:
   baseline_commit: "015bc4dc465bde59105530cda2ad6d2d3500ab0e"
   branch: "audit/depth-001"
   head_commit: "4ef01e5c1d88a09e107a8ca95ed7fc9fb9766855"
-  pull_request: null
+  pull_request: 87
   state: "ci-green"
   next_action: "Merge PR #85 at its validated head, then instantiate the bounded post-draft audit."
 frontier:
