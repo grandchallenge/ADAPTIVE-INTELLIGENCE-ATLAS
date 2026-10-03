@@ -3,21 +3,47 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: undefined
-  tranche_id: "AUDIT-020"
-  chapter_ids: ["ATLAS-CH-EVIDEX-001"]
-  baseline_commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
-  branch: "audit/evidex-001"
-  head_commit: "dceb03af6b0c253b66a1c04a00f2285acd899c73"
-  pull_request: 95
-  state: "audit-pr-open"
-  next_action: "Inspect AUDIT-020 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-EXPERIMENT-001; it ties for the largest unlocked downstream architecture cone (5 nodes) and is first under deterministic frontier ordering."
 frontier:
-  - id: "ATLAS-CH-EVIDEX-001"
+  - id: "ATLAS-CH-EXPERIMENT-001"
     downstream_architecture_count: 5
     direct_consumers: []
+  - id: "ATLAS-CH-EXPLORE-001"
+    downstream_architecture_count: 5
+    direct_consumers: ["ATLAS-CH-REGRET-001"]
+  - id: "ATLAS-CH-NETNUM-001"
+    downstream_architecture_count: 5
+    direct_consumers: ["ATLAS-CH-ADAPTDEPTH-001", "ATLAS-CH-BOUNDARYPROBE-001"]
+  - id: "ATLAS-CH-CONTINUAL-001"
+    downstream_architecture_count: 4
+    direct_consumers: ["ATLAS-CH-EXTMEM-001"]
+  - id: "ATLAS-CH-FORMAL-001"
+    downstream_architecture_count: 4
+    direct_consumers: ["ATLAS-CH-RESEARCHSM-001"]
+  - id: "ATLAS-CH-RETRIEVAL-001"
+    downstream_architecture_count: 4
+    direct_consumers: ["ATLAS-CH-EXTMEM-001"]
+  - id: "ATLAS-CH-SPARSE-001"
+    downstream_architecture_count: 4
+    direct_consumers: ["ATLAS-CH-MOE-001"]
+  - id: "ATLAS-CH-DATA-001"
+    downstream_architecture_count: 3
+    direct_consumers: ["ATLAS-CH-CURRICULUM-001"]
+  - id: "ATLAS-CH-LOCALGLOBAL-001"
+    downstream_architecture_count: 3
+    direct_consumers: []
+  - id: "ATLAS-CH-SPLIT-001"
+    downstream_architecture_count: 3
+    direct_consumers: ["ATLAS-CH-TRANSPORT-001", "ATLAS-CH-COMPOSE-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read this file first after interruption and continue the recorded next_action from the recorded branch/baseline/PR."
+recovery_rule: "Read this file first after interruption. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute frontier first."
