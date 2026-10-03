@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SPARSE-001"
   baseline_commit: "817cc0267c48235c50024a26f5473e1b4de0f935"
   branch: "audit/sparse-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-028 on SPARSE-001 merge 817cc0267c48235c50024a26f5473e1b4de0f935; repair, validate, merge, and reset."
+  pull_request: 115
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #115 at exact head 7d9a1ca7517a7c6120ddfd7109c41d8144bac09c; repair any in-scope validation defect, merge only when green, then recompute the frontier and reset to idle-ready."
 frontier:
   - id: "ATLAS-CH-SPARSE-001"
     downstream_architecture_count: 4
