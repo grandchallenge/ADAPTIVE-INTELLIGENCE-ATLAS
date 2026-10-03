@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-NUMERICS-001"
+chapter_id: "ATLAS-CH-NUMERICS-001"
+status: "rendered-witness"
+representation_class: "computed"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-NUMERICS-001.wl"
+  source_git_blob_sha1: "cd5bb3eeefbf545f33a5fe98460b4abdb6ba09dd"
+  rendered: "figures/masters/ATLAS-FIG-NUMERICS-001.png"
+  rendered_git_blob_sha1: "127994b7f90403555ef80218ffd5d49bde680ee7"
+  rendered_bytes: 69708
+parameters:
+  scalar_test: "y'=lambda*y; z=h*lambda"
+  explicit_euler_region: "|1+z|<1"
+  implicit_euler_boundary: "|1-z|=1; left half-plane stable"
+  stiff_fast_mode: "lambda=-100; h=0.03"
+  exact_fast_amplification: "exp(-3)"
+  explicit_fast_amplification: "-2"
+  implicit_fast_amplification: "1/4"
+  split_A: "[[0,1],[0,0]]"
+  split_B: "[[0,0],[1,0]]"
+  split_h_grid: "2^(-2) through 2^(-9)"
+literal_semantics: >
+  The first panel uses the exact explicit-Euler stability disk and the implicit-Euler
+  unit-circle boundary in the complex z plane, with the entire open left half-plane
+  correctly identified as implicit-Euler stable. The second panel plots exact,
+  explicit-Euler, and implicit-Euler magnitudes for the declared fast mode at h=0.03.
+  The third panel computes Frobenius local defects for the declared noncommuting
+  matrices and displays the observed h^2 versus h^3 asymptotic scaling.
+nonliteral_semantics: >
+  Grayscale, line styles, marker choices, axis ranges, label placement, and finite
+  sampling of h are presentation choices. The plotted error slopes are numerical
+  visualizations of the exact symbolic defect orders established in the witness.
+claim_boundary: >
+  The figure demonstrates the declared scalar/stiff/splitting calibration systems only.
+  It does not establish stability, stiffness, or order for arbitrary neural architectures
+  or learned operator decompositions.
