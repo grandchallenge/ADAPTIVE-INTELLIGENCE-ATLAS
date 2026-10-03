@@ -40,6 +40,22 @@ sources:
       Foundational source for relation-based data representation and declarative operations.
       Used to motivate symbolic predicate selection as a different access contract from
       vector similarity search.
+  - id: "RETRIEVAL-ROBERTSON-ZARAGOZA-2009"
+    citation_key: "RobertsonZaragoza2009"
+    kind: "peer-reviewed-monograph"
+    title: "The Probabilistic Relevance Framework: BM25 and Beyond"
+    authors: "Stephen Robertson; Hugo Zaragoza"
+    journal: "Foundations and Trends in Information Retrieval"
+    volume: 4
+    issue: "1-2"
+    pages: "1-174"
+    year: 2009
+    doi: "10.1561/1500000019"
+    authority: >
+      Standard source for the probabilistic relevance framework and BM25-family sparse
+      text ranking. Used for lexical/sparse retrieval as a distinct scoring route, not
+      as a claim that BM25 scores are calibrated probabilities.
+
   - id: "RETRIEVAL-MALKOV-YASHUNIN-2020"
     citation_key: "MalkovYashunin2020"
     kind: "peer-reviewed-journal"
