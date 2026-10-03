@@ -9,9 +9,9 @@ current:
   baseline_commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
   branch: "work/agents-001"
   pull_request: 73
-  state: "ci-green"
-  head_commit: "a331f679a582abba683922686424b10da42747ab"
-  next_action: "Merge PR #73 at its validated head, then instantiate the bounded post-draft audit."
+  state: "merged"
+  head_commit: "84e888476a93a1661deb109ef9a760726a69cfda"
+  next_action: "Instantiate AUDIT-015 for ATLAS-CH-AGENTS-001 on merge 84e888476a93a1661deb109ef9a760726a69cfda and execute the bounded audit."
 frontier:
   - id: "ATLAS-CH-AGENTS-001"
     downstream_architecture_count: 8
