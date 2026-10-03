@@ -9,11 +9,11 @@ current:
     - "ATLAS-CH-MAP-001"
   baseline_commit: "48f7615e4955b3aadab2cd61f94cf5d714d68bac"
   branch: "orientation/map-001-how-to-read"
-  pull_request: null
-  state: "branch-created"
-  next_action: "Read and source-lock the canonical internal governance objects listed in issue #62; then write the chapter specification and documentary derivation packet."
+  pull_request: 65
+  state: "pr-opened"
+  next_action: "Run repository-wide CI on PR #65; repair any failure; merge on green; instantiate and complete the bounded MAP post-draft audit."
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "After interruption, read this exact file from state/atlas-controller first; verify branch and main heads; continue from next_action."
+recovery_rule: "Read this file first after interruption; verify branch/PR against GitHub; continue from next_action."
