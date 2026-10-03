@@ -356,13 +356,14 @@ J_{\rm residual}=I+A.
 
 ### ATLAS-FIG-ARCHHIST-001
 
-One schematic Atlas plate with five structural panels:
+One schematic Atlas plate with six structural panels:
 
 1. composition;
 2. spatially shared convolution;
 3. recurrent state loop;
 4. encoder–decoder interface;
-5. residual identity bypass.
+5. highway transform/carry gating;
+6. residual identity bypass.
 
 Representation class:
 schematic.
@@ -378,6 +379,7 @@ Include:
 - convolutional translation equivariance can be broken by boundary rules or subsampling;
 - recurrent parameter sharing does not guarantee long-memory retention;
 - a bottleneck can discard target-relevant information;
+- highway gating can preserve a carry path without guaranteeing optimization success;
 - residual identity transport does not imply every Jacobian product is well-conditioned;
 - an RNN is discrete state evolution, not automatically a continuous flow;
 - a residual block admits an integrator lens without proving one autonomous underlying ODE;
@@ -406,6 +408,7 @@ Important later consumers include:
 - [@LeCunBottouBengioHaffner1998]
 - [@HochreiterSchmidhuber1997]
 - [@SutskeverVinyalsLe2014]
+- [@SrivastavaGreffSchmidhuber2015]
 - [@HeZhangRenSun2016]
 - [@ChenRubanovaBettencourtDuvenaud2018]
 
