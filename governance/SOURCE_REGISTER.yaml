@@ -200,3 +200,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-EXPERIMENT-001.yaml"
     authority: "Experimental-design, causal-treatment, statistical-reporting, reproducibility, representative ML variance, and audited Evidence sources for the experiment-as-argument grammar."
+
+  - id: "ATLAS-SRC-EXPLORE-LOCK-001"
+    title: "Exploration and Information Value source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-EXPLORE-001.yaml"
+    authority: "Bandits, optimism, posterior sampling, information-directed sampling, information value, constrained exploration, and audited RLBASE sources."
