@@ -1,0 +1,100 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-ARCHHIST-001"
+locked_on: "2026-10-02"
+epistemic_class: "primary_architecture_history_plus_atlas_synthesis"
+claim_boundary: >
+  The cited primary papers support specific architectural mechanisms and influential
+  formulations: multilayer error back-propagation, convolutional/local weight sharing,
+  gated recurrent memory, sequence encoder-decoder learning, residual learning, and
+  continuous-depth Neural ODE models. The Atlas synthesis is the structural narrative
+  that these milestones progressively shift the useful object of analysis from static
+  composition toward state evolution, interfaces, and residual transport. No blanket
+  priority claim is made that any cited paper uniquely invented an entire architecture class.
+sources:
+  - id: "ARCHHIST-RUMELHART-HINTON-WILLIAMS-1986"
+    citation_key: "RumelhartHintonWilliams1986"
+    kind: "peer-reviewed-article"
+    title: "Learning Representations by Back-Propagating Errors"
+    journal: "Nature"
+    year: 1986
+    authority: >
+      Primary influential source for efficient error back-propagation in multilayer
+      networks and learned internal representations.
+  - id: "ARCHHIST-LECUN-ETAL-1998"
+    citation_key: "LeCunBottouBengioHaffner1998"
+    kind: "peer-reviewed-article"
+    title: "Gradient-Based Learning Applied to Document Recognition"
+    journal: "Proceedings of the IEEE"
+    year: 1998
+    authority: >
+      Primary source for convolutional/local receptive-field and weight-sharing
+      architecture in document-recognition systems; used here for structured spatial operators.
+  - id: "ARCHHIST-LSTM-1997"
+    citation_key: "HochreiterSchmidhuber1997"
+    kind: "peer-reviewed-article"
+    title: "Long Short-Term Memory"
+    journal: "Neural Computation"
+    year: 1997
+    authority: >
+      Primary source for gated recurrent state designed to address long-lag learning
+      difficulties; used here to motivate explicit persistent computational state.
+  - id: "ARCHHIST-SEQ2SEQ-2014"
+    citation_key: "SutskeverVinyalsLe2014"
+    kind: "peer-reviewed-conference"
+    title: "Sequence to Sequence Learning with Neural Networks"
+    venue: "NeurIPS"
+    year: 2014
+    authority: >
+      Primary sequence-to-sequence encoder-decoder source; used here for the separation
+      between an encoding process, interface state, and decoding process.
+  - id: "ARCHHIST-HIGHWAY-2015"
+    citation_key: "SrivastavaGreffSchmidhuber2015"
+    kind: "research-preprint"
+    title: "Highway Networks"
+    year: 2015
+    authority: >
+      Source for learned transform/carry gates that create an explicit information
+      highway across depth; used as a structural precursor to ungated additive residual transport.
+  - id: "ARCHHIST-RESNET-2016"
+    citation_key: "HeZhangRenSun2016"
+    kind: "peer-reviewed-conference"
+    title: "Deep Residual Learning for Image Recognition"
+    venue: "CVPR"
+    year: 2016
+    authority: >
+      Primary residual-learning source for blocks of the form identity plus learned residual,
+      and the empirical deep-network results reported in that paper.
+  - id: "ARCHHIST-NEURAL-ODE-2018"
+    citation_key: "ChenRubanovaBettencourtDuvenaud2018"
+    kind: "peer-reviewed-conference"
+    title: "Neural Ordinary Differential Equations"
+    venue: "NeurIPS"
+    year: 2018
+    authority: >
+      Primary source for a continuous-depth model class parameterized by an ODE and solved
+      through numerical integration. Used only as a later explicit continuous-depth formulation,
+      not as proof that ordinary residual networks are literally ODE solvers.
+atlas_sources:
+  - id: "ARCHHIST-DYNAMICS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c18a5067c29e2c34cfbec770c5220eea51555249"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "f4aa89075f221529401e56a152a6cdfca3dcc47d"
+    authority: >
+      Audited Atlas source for state evolution, flow, discrete updates, stability,
+      and the boundary between a flow-like interpretation and an exact ODE identity.
+  - id: "ARCHHIST-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6c15ccc243b861339d2fbfb100075e7d9303fc2"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project inventory naming MLPs, CNNs, RNN/LSTM/GRU, encoder-decoder,
+      residual/highway networks, Neural ODEs, recurrent depth, and computation as transport.
+epistemic_rules:
+  - "Historical significance is used only to expose a structural idea consumed later by the Atlas."
+  - "Architectural chronology is not used as an argument that later architectures are universally better."
+  - "Convolutional equivariance is proved for the declared mathematical convolution/shift model, not inferred solely from application history."
+  - "Recurrent state evolution is distinct from an autonomous continuous flow."
+  - "Residual update x_{k+1}=x_k+F_k(x_k) supports a dynamical/integrator lens but does not by itself identify one underlying ODE."
+  - "Neural ODEs are a specific continuous-depth architecture family, not a theorem that all depth is continuous time."

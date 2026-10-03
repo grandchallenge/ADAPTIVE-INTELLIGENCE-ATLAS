@@ -128,3 +128,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-NUMERICS-001.yaml"
     authority: "One-step numerical ODE analysis, stiffness/implicit stability, splitting/composition methods, and structure-preserving handoff."
+
+  - id: "ATLAS-SRC-ARCHHIST-LOCK-001"
+    title: "From Layered Networks to Residual Systems source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-ARCHHIST-001.yaml"
+    authority: "Primary architecture papers and audited Dynamics context used to trace structural changes from layered composition to state evolution and residual transport."
