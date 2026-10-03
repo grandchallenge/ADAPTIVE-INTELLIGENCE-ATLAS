@@ -18,7 +18,7 @@ Study replay, consolidation, EWC, parameter isolation, and forgetting under sequ
 
 For contexts `1,...,T`, let `R_{i,j}` be performance on context `j` after training through context `i`.
 
-For `j<T` define
+For a sequence with `T>=2`, and for `j<T`, define
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`
 
