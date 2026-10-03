@@ -165,21 +165,28 @@ R_{\rm IE}(z)
 \frac{1}{1-z}.
 \]
 
-Absolute stability requires
+Use the standard non-growth absolute-stability set
 
 \[
-|R(z)|<1
+\mathcal S
+=
+\{z:|R(z)|\le1\}.
 \]
 
-for asymptotic decay of the scalar discrete mode.
+Strict asymptotic decay of the scalar discrete mode requires
+
+\[
+|R(z)|<1.
+\]
 
 State:
 
-- explicit Euler stable region:
+- explicit Euler absolute-stability set:
   \[
-  |1+z|<1;
+  |1+z|\le1,
   \]
-- implicit Euler is A-stable because the entire open left half-plane lies in its stability region;
+  with strict decay in the open disk \(|1+z|<1\);
+- implicit Euler is A-stable because the entire closed left half-plane lies in its non-growth stability set, with strict decay for \(\operatorname{Re}z<0\);
 - implicit Euler is L-stable because
   \[
   R_{\rm IE}(z)\to0
