@@ -3,15 +3,15 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: 68
-  tranche_id: "EVIDENCE-001"
+  issue_number: undefined
+  tranche_id: "AUDIT-014"
   chapter_ids: ["ATLAS-CH-EVIDENCE-001"]
   baseline_commit: "a3361157cd98647ab3450a2a9786242af9930291"
-  branch: "work/evidence-001"
-  pull_request: 69
-  state: "merged"
+  branch: "audit/evidence-001"
+  pull_request: null
+  state: "audit-instantiated"
   head_commit: "95f71ecc4baafba19bad76fd8d67f7b5efbe4ebe"
-  next_action: "Instantiate AUDIT-014 for ATLAS-CH-EVIDENCE-001 on merge 95f71ecc4baafba19bad76fd8d67f7b5efbe4ebe and execute the bounded documentary audit."
+  next_action: "Execute AUDIT-014 checks, repair any in-scope defect, write reviews/AUDIT-014.md, validate, merge, and close the audit issue."
 frontier:
   - id: "ATLAS-CH-EVIDENCE-001"
     downstream_architecture_count: 13
