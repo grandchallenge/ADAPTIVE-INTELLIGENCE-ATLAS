@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-EVIDENCE-001"]
   baseline_commit: "a3361157cd98647ab3450a2a9786242af9930291"
   branch: "work/evidence-001"
-  pull_request: null
-  state: "draft-complete"
+  pull_request: 69
+  state: "pr-open"
   head_commit: "46dce4dd23ae94090f272928160e59942a9816d0"
-  next_action: "Open implementation PR, run repository validation, repair every in-scope defect, and merge only on green validation."
+  next_action: "Inspect PR validation; repair every in-scope defect; merge only when repository validation is green."
 frontier:
   - id: "ATLAS-CH-EVIDENCE-001"
     downstream_architecture_count: 13
