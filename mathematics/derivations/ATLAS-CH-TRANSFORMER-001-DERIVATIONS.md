@@ -323,6 +323,8 @@ Then
 
 Normalization acts within each token state over the chosen feature dimension.
 
+Before the learned affine parameters, the operation centers by the token's feature mean and rescales by the regularized feature standard deviation. Because (arepsilon>0) is explicit, the chapter does not claim exact invariance to arbitrary positive rescaling in general. The learned (gamma,eta) then apply coordinatewise affine parameters.
+
 ## D9. Post-LN block
 
 The original Transformer uses residual addition followed by LayerNorm around each sublayer.
