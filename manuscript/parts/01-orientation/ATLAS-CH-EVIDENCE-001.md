@@ -89,7 +89,7 @@ It is tempting to place these classes on a ladder from weak to strong. That woul
 
 A definition is not weak evidence; it is not evidence of that kind at all. An open problem is not a low-confidence theorem. Institutional status records a relation to an authority process, not a probability that a mathematical sentence is true. Interpretation sits on top of evidence without replacing it. Programme context can be valuable for choosing research directions while remaining deliberately barred from public implementation claims.
 
-The vocabulary is therefore closer to a set of typed roles than to a single confidence score.
+The vocabulary is therefore closer to a set of typed roles than to a single confidence score. The classes do not form a scalar ladder.
 
 Within a particular role, support can certainly be better or worse. A proof can be correct or defective. An experiment can be well or poorly controlled. A source can be primary or remote. But those judgments do not turn the role taxonomy itself into one scalar order.
 
@@ -319,13 +319,13 @@ None may be treated as a generic truth operator.
 
 Four architectural consumers depend directly on this chapter.
 
-Data Quality, Mixtures, and Contamination may assume that empirical claims must retain dataset, mixture, benchmark, contamination, and run scope.
+ATLAS-CH-DATA-001 — Data Quality, Mixtures, and Contamination may assume that empirical claims must retain dataset, mixture, benchmark, contamination, and run scope.
 
-Mechanistic Diagnostics may assume the distinction between Observation and Interpretation and may require stronger interventions before promoting correlation to mechanism.
+ATLAS-CH-MECHDIAG-001 — Mechanistic Diagnostics may assume the distinction between Observation and Interpretation and may require stronger interventions before promoting correlation to mechanism.
 
-Evidence Extraction and Claim Discipline may assume the claim-support packet and can refine it into operational extraction and adjudication procedures.
+ATLAS-CH-EVIDEX-001 — Evidence Extraction and Claim Discipline may assume the claim-support packet and can refine it into operational extraction and adjudication procedures.
 
-Experiments as Arguments may assume that controls, ablations, counterfactuals, effect sizes, seeds, and reproducibility are support routes whose force depends on the exact claim and scope.
+ATLAS-CH-EXPERIMENT-001 — Experiments as Arguments may assume that controls, ablations, counterfactuals, effect sizes, seeds, and reproducibility are support routes whose force depends on the exact claim and scope.
 
 The handoff is deliberately modest.
 
