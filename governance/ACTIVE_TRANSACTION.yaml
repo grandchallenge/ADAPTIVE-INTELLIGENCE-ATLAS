@@ -8,9 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-MEMTAX-001"]
   baseline_commit: "9a00ed8fc6b0ca160a9b7e1fb4deef7c078f69cf"
   branch: "work/memtax-001"
-  pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Lock exact prerequisite and memory-mechanism sources, compose specification/formal packet/manuscript/witness, promote ledger/register, validate, and open the implementation PR."
+  head_commit: "0dc62d6d71eb20f58f82bd9dbca08ef2aef3eee5"
+  pull_request: 89
+  state: "pr-open"
+  next_action: "Inspect PR #89 validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-MEMTAX-001"
     downstream_architecture_count: 6
