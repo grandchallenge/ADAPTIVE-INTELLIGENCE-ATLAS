@@ -1,0 +1,80 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-TRANSFORMER-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_architecture_plus_atlas_synthesis"
+claim_boundary: >
+  The cited sources support the original Transformer architecture, Layer Normalization,
+  normalization-placement analysis, and representative encoder-only / decoder-only
+  model topologies. The Atlas synthesis is the decomposition of the Transformer into
+  residual-stream state, attention/MLP sublayers, masking, normalization placement,
+  and readout topology so later chapters can state exactly what they modify. No claim
+  is made that one Transformer variant is universally canonical or superior.
+sources:
+  - id: "TRANSFORMER-VASWANI-2017"
+    citation_key: "VaswaniEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Attention Is All You Need"
+    venue: "NeurIPS"
+    year: 2017
+    authority: >
+      Primary source for the encoder-decoder Transformer architecture, multi-head
+      attention, position-wise feed-forward sublayers, residual connections,
+      layer normalization, positional encodings, and causal masking in the decoder.
+  - id: "TRANSFORMER-LAYERNORM-2016"
+    citation_key: "BaKirosHinton2016"
+    kind: "research-preprint"
+    title: "Layer Normalization"
+    year: 2016
+    authority: >
+      Source for the Layer Normalization operation used as the normalization primitive
+      in the chapter's baseline block equations.
+  - id: "TRANSFORMER-PRELN-POSTLN-2020"
+    citation_key: "XiongEtAl2020"
+    kind: "peer-reviewed-conference"
+    title: "On Layer Normalization in the Transformer Architecture"
+    venue: "ICML"
+    year: 2020
+    authority: >
+      Peer-reviewed analysis of pre-LN versus post-LN Transformer arrangements and
+      their optimization implications; used here only to document the ordering distinction.
+  - id: "TRANSFORMER-BERT-2019"
+    citation_key: "DevlinChangLeeToutanova2019"
+    kind: "peer-reviewed-conference"
+    title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+    venue: "NAACL-HLT"
+    year: 2019
+    authority: >
+      Representative encoder-only Transformer family used to document topology,
+      not as a universal architecture prescription.
+  - id: "TRANSFORMER-GPT2-2019"
+    citation_key: "RadfordEtAl2019"
+    kind: "technical-report"
+    title: "Language Models are Unsupervised Multitask Learners"
+    year: 2019
+    authority: >
+      Representative decoder-only autoregressive Transformer family used to document
+      causal topology, not as a universal architecture prescription.
+atlas_sources:
+  - id: "TRANSFORMER-ARCHHIST-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ecb15c976e4bb5cbc79b560ec19cbfdf9618607d"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-ARCHHIST-001.md"
+    git_blob_sha1: "3d373695ed5516dbc3b0557112f204636e911897"
+    authority: >
+      Audited Atlas source for layered composition, residual identity transport,
+      recurrent state, interfaces, Highway gating, and the residual-versus-ODE boundary.
+  - id: "TRANSFORMER-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ecb15c976e4bb5cbc79b560ec19cbfdf9618607d"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project inventory naming attention, Transformers, residual streams,
+      normalization, position encoding, causal masking, and later sparse/adaptive variants.
+epistemic_rules:
+  - "Attention is one Transformer sublayer, not the complete architecture."
+  - "Causal masking changes the permitted dependency graph before softmax; it is not a learned attention preference."
+  - "Pre-LN and post-LN are distinct block orderings; neither is declared universally superior."
+  - "Encoder-only, decoder-only, and encoder-decoder are topology families, not quality rankings."
+  - "Residual-stream identity paths do not imply optimization is automatically well conditioned."
+  - "Architecture anatomy is kept separate from training recipe, dataset, scale, and optimization choices."
