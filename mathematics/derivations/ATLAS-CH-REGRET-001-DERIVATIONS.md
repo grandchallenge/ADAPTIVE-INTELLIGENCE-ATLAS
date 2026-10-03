@@ -6,7 +6,7 @@ A regret claim binds:
 
 - horizon `T`;
 - environment `theta` or class `Theta`;
-- policy `pi`;
+- admissible policy class `Pi` and policy `pi in Pi`;
 - reward/loss convention;
 - comparator;
 - expectation/prior convention.
@@ -19,7 +19,7 @@ and
 
 `Delta_theta(a)=mu_theta^*-mu_theta(a)`.
 
-Policy `pi` selects `A_t` and receives `Y_t`, with
+Let `Pi` be the declared admissible policy class. Policy `pi in Pi` selects `A_t` and receives `Y_t`, with
 
 `E[Y_t | H_{t-1},A_t]=mu_theta(A_t)`.
 
@@ -124,11 +124,11 @@ sup_{theta in Theta}bar R_T(pi,theta)`.
 
 Define minimax regret
 
-`R_T^*(Theta)
+`R_T^*(Theta,Pi)
 =
-inf_pi sup_{theta in Theta}bar R_T(pi,theta)`.
+inf_{pi in Pi} sup_{theta in Theta}bar R_T(pi,theta)`.
 
-Bayesian and minimax criteria optimize different aggregations over environments.
+Bayesian and minimax criteria optimize different aggregations over environments. Comparisons between their optima use the same declared policy class `Pi` unless explicitly stated otherwise.
 
 ## 7. Exact Bayes/minimax witness
 
@@ -200,7 +200,7 @@ For comparator class `C` of action sequences,
 
 `Reg_T(C)
 =
-max_{c in C}sum_t r_t(c_t)-G_T`.
+sup_{c in C}sum_t r_t(c_t)-G_T`.
 
 The comparator class is part of the definition.
 

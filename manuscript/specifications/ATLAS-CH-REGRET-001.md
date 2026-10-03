@@ -45,7 +45,7 @@ Let
 
 `mu_theta^*=max_a mu_theta(a)`.
 
-Let policy `pi` select actions `A_1,...,A_T` and receive rewards `Y_t`.
+Let `Pi` be the declared admissible policy class. Let policy `pi in Pi` select actions `A_1,...,A_T` and receive rewards `Y_t`.
 
 Define gaps
 
@@ -109,11 +109,11 @@ sup_{theta in Theta} bar R_T(pi,theta)`.
 
 Define minimax regret:
 
-`R_T^*(Theta)
+`R_T^*(Theta,Pi)
 =
-inf_pi sup_{theta in Theta} bar R_T(pi,theta)`.
+inf_{pi in Pi} sup_{theta in Theta} bar R_T(pi,theta)`.
 
-The policy minimizing Bayesian regret for one prior need not minimize worst-case regret.
+All Bayes/minimax comparisons must use the same declared policy class `Pi` unless a different class is explicitly stated. The policy minimizing Bayesian regret for one prior need not minimize worst-case regret.
 
 ## Bayes versus minimax exact witness
 
