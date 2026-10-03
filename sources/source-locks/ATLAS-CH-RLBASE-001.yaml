@@ -14,9 +14,9 @@ sources:
     kind: "peer-reviewed-journal"
     title: "A Markovian Decision Process"
     author: "Richard Bellman"
-    journal: "Indiana University Mathematics Journal"
+    journal: "Journal of Mathematics and Mechanics"
     volume: 6
-    issue: 4
+    issue: 5
     pages: "679-684"
     year: 1957
     doi: "10.1512/iumj.1957.6.56038"

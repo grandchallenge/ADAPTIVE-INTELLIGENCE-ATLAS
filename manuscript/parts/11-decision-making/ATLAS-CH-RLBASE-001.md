@@ -85,13 +85,15 @@ Reward is local.
 
 Value is prospective.
 
+Assume throughout the finite-MDP discussion that one-step rewards are finite; because S and A are finite, the reward table is then bounded.
+
 Let
 
 G_t
 =
 sum_{k=0}^\infty gamma^k R_{t+k+1}
 
-be the discounted return.
+be the discounted return. With gamma<1 and bounded one-step reward, this series is absolutely bounded.
 
 For a fixed policy pi, define the state value
 
@@ -385,6 +387,8 @@ grad_theta J(theta)
 
 and update the policy parameters directly.
 
+For a sampled trajectory, REINFORCE uses the score-function term grad_theta log pi_theta(A_t|S_t) multiplied by an appropriate sampled return. Under the stated sampling assumptions, its expectation recovers the policy-objective gradient.
+
 Williams's REINFORCE family is a foundational example.
 
 This viewpoint is useful because the object being optimized is the policy distribution itself.
@@ -441,7 +445,7 @@ P(S_t=s | history_t).
 
 The belief is a probability distribution over hidden states.
 
-Under the standard POMDP formulation, belief state can recover a Markov control problem in information space.
+Under the standard POMDP formulation, with the transition/observation model fixed and the posterior updated from the complete available history, the exact belief state can recover a Markov control problem in information space.
 
 That is an elegant transformation.
 
