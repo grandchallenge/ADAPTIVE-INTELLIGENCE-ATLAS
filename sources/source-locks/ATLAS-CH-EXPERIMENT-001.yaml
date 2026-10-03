@@ -1,0 +1,119 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-EXPERIMENT-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_experimental_method_plus_atlas_argument_synthesis"
+claim_boundary: >
+  The external sources support established distinctions among experimental
+  intervention, randomization, nuisance-factor control, causal-effect estimation,
+  effect magnitude versus p-value significance, computational reproducibility,
+  replication, and variance across machine-learning runs. They do not establish
+  the Atlas experiment-argument tuple as a universal standard, do not imply that
+  randomization removes every source of bias, and do not convert benchmark
+  performance or reproducibility into mechanism evidence or external validity.
+sources:
+  - id: "EXPERIMENT-NIST-DOE"
+    kind: "authoritative-online-handbook"
+    title: "NIST/SEMATECH e-Handbook of Statistical Methods — Process Improvement / Design of Experiments"
+    organization: "National Institute of Standards and Technology"
+    urls:
+      - "https://www.itl.nist.gov/div898/handbook/pri/section1/pri11.htm"
+      - "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm"
+    authority: >
+      Authoritative engineering-statistics guidance for deliberate factor
+      intervention, response variables, nuisance factors, blocking, randomization,
+      and replication. Used for design concepts, not as a universal causal theorem.
+  - id: "EXPERIMENT-RUBIN-1974"
+    kind: "peer-reviewed-journal"
+    title: "Estimating causal effects of treatments in randomized and nonrandomized studies"
+    author: "Donald B. Rubin"
+    journal: "Journal of Educational Psychology"
+    volume: 66
+    number: 5
+    pages: "688-701"
+    year: 1974
+    doi: "10.1037/h0037350"
+    authority: >
+      Primary source for treatment-effect reasoning, randomization, matching,
+      sampling, and control of extraneous variation. Used to motivate explicit
+      estimands and the distinction between intervention and observational association.
+  - id: "EXPERIMENT-ASA-PVALUES-2016"
+    kind: "peer-reviewed-journal-statement"
+    title: "The ASA Statement on p-Values: Context, Process, and Purpose"
+    authors: "Ronald L. Wasserstein; Nicole A. Lazar"
+    journal: "The American Statistician"
+    volume: 70
+    number: 2
+    pages: "129-133"
+    year: 2016
+    doi: "10.1080/00031305.2016.1154108"
+    authority: >
+      Professional statistical guidance that p-values do not measure effect size
+      or practical importance and that proper inference requires context and
+      transparent reporting. Used to separate statistical thresholding from effect magnitude.
+  - id: "EXPERIMENT-NASEM-2019"
+    kind: "consensus-study-report"
+    title: "Reproducibility and Replicability in Science"
+    organization: "National Academies of Sciences, Engineering, and Medicine"
+    year: 2019
+    doi: "10.17226/25303"
+    authority: >
+      Consensus definitions distinguishing computational reproducibility
+      (same data/code/methods) from replication with newly obtained data, plus
+      the boundary between reproducibility and validity.
+  - id: "EXPERIMENT-HENDERSON-2018"
+    kind: "peer-reviewed-conference"
+    title: "Deep Reinforcement Learning That Matters"
+    authors: "Peter Henderson; Riashat Islam; Philip Bachman; Joelle Pineau; Doina Precup; David Meger"
+    venue: "AAAI Conference on Artificial Intelligence"
+    volume: 32
+    number: 1
+    year: 2018
+    doi: "10.1609/aaai.v32i1.11694"
+    authority: >
+      Primary machine-learning evidence that nondeterminism, method variance,
+      baseline choices, and reporting practice can materially affect interpretation
+      of deep-RL results. Used as a representative ML experimental-method source,
+      not as evidence that all ML domains have identical variance structure.
+atlas_sources:
+  - id: "EXPERIMENT-EVIDENCE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+    path: "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md"
+    git_blob_sha1: "17eaa9caf90ede47c74dccff052f93d9fb3d901e"
+    authority: >
+      Audited hard prerequisite supplying epistemic classes, claim-support packets,
+      source-authority boundaries, and the rule that a bounded witness supports only
+      its declared finite claim.
+  - id: "EXPERIMENT-EVIDENCE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+    path: "reviews/AUDIT-014.md"
+    git_blob_sha1: "6af518de0687a9cd8fe5635e2fba8f6a6271c77c"
+    authority: "Audit record for the Evidence prerequisite."
+  - id: "EXPERIMENT-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract and dependency declaration."
+  - id: "EXPERIMENT-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "EXPERIMENT-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "55085755626d60d2981a7cf17a6af7cbac60f9fc"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for exact computational witnesses."
+epistemic_rules:
+  - "An experiment is an argument from a declared design and observations to a bounded claim; a run alone is not the argument."
+  - "An estimand states what quantity is being estimated; a metric is only an observed summary until connected to that estimand."
+  - "Randomization addresses assignment-related confounding under its design; it does not remove measurement error, implementation defects, selection effects, or external-validity limits."
+  - "A baseline is any comparator; an ablation is a structured intervention that removes or changes a component relative to a reference system."
+  - "Seed variation is conditional on the fixed data, code, environment, and sampling protocol; it is not a substitute for population or dataset uncertainty."
+  - "A p-value is not an effect size and does not by itself establish practical importance."
+  - "Computational reproducibility does not imply scientific validity, causal identification, replication, or generalization."
+  - "Benchmark superiority does not by itself identify the mechanism responsible for the difference."
