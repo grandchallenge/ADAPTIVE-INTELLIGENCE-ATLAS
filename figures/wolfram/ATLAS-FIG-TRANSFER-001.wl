@@ -24,7 +24,7 @@ left=Graphics[{
  },
  PlotRange->{{-5.5,5.5},{-2,2.8}},
  ImageSize->560,
- PlotLabel->Style["Common-Residual transfer certificate",15,Bold]];
+ PlotLabel->Style["Common-Residual reconstruction certificate",15,Bold]];
 
 right=Graphics[{
   EdgeForm[Black],FaceForm[White],

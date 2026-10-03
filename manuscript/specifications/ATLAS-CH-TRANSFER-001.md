@@ -18,7 +18,7 @@ The chapter must distinguish:
 - exact representation recoding from lossy transfer;
 - task-specific sufficiency from task-family sufficiency;
 - positive transfer from negative transfer;
-- a sufficient transfer certificate from a complete theory of transfer.
+- a sufficient reconstruction certificate from a complete theory of transfer.
 
 ## Dependency contract
 
@@ -39,7 +39,7 @@ A reader should be able to:
 1. state source/target domain and task distinctions;
 2. define transfer operationally relative to a target objective/baseline;
 3. distinguish feature reuse, parameter initialization, adaptation, and exact capability reconstruction;
-4. state and prove the Atlas common-Residual transfer certificate;
+4. state and prove the Atlas common-Residual reconstruction certificate;
 5. show when a lossy bottleneck destroys transfer for a task family;
 6. explain why one-task sufficiency need not imply multi-task transferability;
 7. explain negative transfer without assuming transfer always helps;
@@ -61,7 +61,7 @@ from a task
 
 Use this only as a standard framing; later examples may work with deterministic finite capability maps.
 
-## Atlas transfer certificate
+## Atlas reconstruction certificate
 
 Let:
 
@@ -266,7 +266,7 @@ Supply a precise reconstruction/transfer language to:
 The draft must:
 
 - state standard source/target domain-task framing;
-- prove the common-Residual transfer certificate;
+- prove the common-Residual reconstruction certificate;
 - include exact invertible source/target recoding witness;
 - include a lossy-bottleneck impossibility witness;
 - define negative transfer operationally;

@@ -205,7 +205,7 @@ figures:
 
   - id: "ATLAS-FIG-TRANSFER-001"
     chapter_id: "ATLAS-CH-TRANSFER-001"
-    title: "Common-Residual transfer and bottleneck failure"
+    title: "Common-Residual reconstruction and bottleneck failure"
     status: "rendered-witness"
     representation_class: "schematic"
     literal_semantics: "Exact source/target recodings of r=(3,1), exact task outputs 4 and 5, and exact bottleneck conflict for r_A=(1,0), r_B=(1,1)."

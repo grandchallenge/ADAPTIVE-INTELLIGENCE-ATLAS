@@ -102,7 +102,7 @@ B_t(x,q)
 D_q(C_t(E_t(x))).
 \]
 
-This is the **common-Residual transfer certificate**.
+This is the **common-Residual reconstruction certificate**.
 
 It is sufficient.
 

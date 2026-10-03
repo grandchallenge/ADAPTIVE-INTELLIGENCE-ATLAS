@@ -242,7 +242,7 @@ The target asks:
 
 > Is the transferred representation still sufficient for the capability I now want?
 
-## 9. The common-Residual transfer certificate
+## 9. The common-Residual reconstruction certificate
 
 Let
 
@@ -322,7 +322,7 @@ B_t(x,q)
 D_q(C_t(E_t(x))).
 \]
 
-This is the **common-Residual transfer certificate**.
+This is the **common-Residual reconstruction certificate**.
 
 ## 10. What the certificate says
 
@@ -787,7 +787,7 @@ A source representation can preserve all distinctions needed on the source suppo
 
 The exact fiber criterion must therefore be evaluated over the declared target domain.
 
-A certificate over the wrong support is not a transfer certificate.
+A certificate over the wrong support is not a reconstruction certificate.
 
 This is one reason domain shift matters.
 
@@ -911,7 +911,7 @@ A post-fine-tuning representation cannot be treated as unchanged source structur
 
 Transfer attribution requires care.
 
-## 31. A transfer certificate is not a training algorithm
+## 31. A reconstruction certificate is not a training algorithm
 
 The common-Residual certificate proves that exact target reconstruction is possible under declared maps.
 
