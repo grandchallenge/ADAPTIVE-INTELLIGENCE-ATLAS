@@ -255,7 +255,7 @@ The Jacobian provides the first local approximation to the nonlinear system.
 
 ## 10. Hyperbolic local stability
 
-For a hyperbolic equilibrium, the Jacobian spectrum gives strong local information.
+For a (C^1) vector field near a hyperbolic equilibrium, the Jacobian spectrum gives strong local information.
 
 If every eigenvalue of
 
