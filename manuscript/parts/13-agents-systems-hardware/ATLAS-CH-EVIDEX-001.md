@@ -117,17 +117,21 @@ Fix a declared class of eligible actors A.
 
 Let H be hidden session history.
 
-Then a dispatch is zero-context sufficient when the task contract reconstructed from the dispatch does not change with H.
+Zero-context sufficiency constrains the **authorized task contract**, not the worker's psychology.
 
-Formally,
+Write
 
-Interpret_A(D,H1)
+Contract_A(D,H)
+
+for the obligation, premises, permissions, source policy, stop conditions, and return requirements that the protocol authorizes when D is accompanied by hidden history H.
+
+Then require
+
+Contract_A(D,H1)
 =
-Interpret_A(D,H2)
+Contract_A(D,H2)
 
 for admissible hidden histories H1 and H2.
-
-The important word is contract.
 
 The exact obligation must be the same.
 
@@ -139,9 +143,9 @@ The return grammar must be the same.
 
 The stop conditions must be the same.
 
-A worker can bring background knowledge.
+A worker can bring background knowledge and can still misunderstand an instruction.
 
-What it cannot be required to bring is the missing half of the assignment.
+What it cannot be authorized to obtain from hidden history is the missing half of the assignment.
 
 ## 4. Hidden context and explicit prerequisites
 
@@ -839,9 +843,19 @@ Another proves a related statement for Omega_2.
 
 A controller cannot simply paste the prose together and declare a theorem on a larger domain.
 
-Synthesis has its own burden.
+For the special pointwise form
 
-Are the claims identical?
+for every x in Omega_i, q(x),
+
+two valid returns do justify q on Omega_1 union Omega_2.
+
+That simple rule does **not** generalize automatically.
+
+A global property, uniqueness statement, convergence mode, coupled hypothesis, or domain-dependent definition may require a new composition theorem.
+
+Synthesis therefore has its own burden.
+
+Are the proposition schemas identical?
 
 Are the definitions aligned?
 
@@ -851,7 +865,7 @@ Are the source versions compatible?
 
 Does one argument depend on an assumption excluded by the other?
 
-Is the correct domain the union, the intersection, or neither?
+What logical rule licenses the combined domain?
 
 The return objects make these questions visible.
 

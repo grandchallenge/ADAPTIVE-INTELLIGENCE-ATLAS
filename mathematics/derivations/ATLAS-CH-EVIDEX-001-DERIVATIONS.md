@@ -65,17 +65,19 @@ Fix a declared actor class A.
 
 Let H denote hidden conversational/session history not included in the dispatch.
 
-Define Interpret_A(D,H) as the task contract an eligible actor in A reconstructs from D given hidden history H.
+Let Contract_A(D,H) denote the **authorized task contract** for an eligible actor class A when D is accompanied by hidden session history H.
+
+The function is normative, not psychological: it records what premises, permissions, sources, success criteria, stop conditions, and return requirements the protocol authorizes.
 
 D is zero-context sufficient for A when
 
-Interpret_A(D,H1)
+Contract_A(D,H1)
 =
-Interpret_A(D,H2)
+Contract_A(D,H2)
 
 for every pair of admissible hidden histories H1,H2.
 
-The equality is contract-level:
+The equality requires:
 
 - same obligation Q;
 - same imported facts B;
@@ -85,9 +87,7 @@ The equality is contract-level:
 - same return grammar Gamma;
 - same return route rho.
 
-This definition does not require the actor to possess zero mathematical or technical background.
-
-It requires only that correctness-relevant task state is explicit or immutably referenced.
+An actor may still misunderstand D or bring background knowledge. Zero-context sufficiency says only that hidden history is not an authorized source of correctness-relevant task state.
 
 ## 5. Hidden context versus imported prerequisite
 
@@ -406,23 +406,27 @@ The Coordination chapter's delivery/effect distinction applies directly.
 
 ## 18. Synthesis
 
-Suppose two returns establish:
+Suppose two returns establish pointwise instances of the same proposition schema:
 
 R1:
-claim q on domain Omega1;
+for every x in Omega1, q(x);
 
 R2:
-claim q on domain Omega2.
+for every x in Omega2, q(x).
 
-Without new argument, the safe common synthesis is q on the supported union only when the proofs/arguments are individually valid on their stated domains and the claim means the same thing on both.
+Then, with no additional assumptions,
 
-For conjunction-style use, a downstream consumer may instead require the intersection
+for every x in Omega1 union Omega2, q(x)
 
-Omega1 intersect Omega2.
+follows directly.
+
+But there is **no generic union/intersection rule for arbitrary claims**. Global properties, coupled hypotheses, uniqueness statements, convergence modes, or claims whose meaning changes with the domain require a separate composition argument.
+
+A downstream consumer that needs two guarantees simultaneously at the same x may naturally restrict to Omega1 intersect Omega2, but that too must match the logical form of the claims.
 
 The key rule is:
 
-synthesis must state the domain operation explicitly.
+synthesis must state and justify the composition rule.
 
 It may not silently replace local support by an unrestricted global claim.
 
