@@ -214,9 +214,19 @@ if and only if
 
 `0<=h<=2`.
 
+Strict asymptotic decay requires
+
+`|1-h|<1`,
+
+which for real `h` is
+
+`0<h<2`.
+
+At `h=2`, the discrete factor is `-1`: non-growing but non-decaying.
+
 The exact continuous flow decays for every `h>0`.
 
-The discrete Euler flow does not.
+The discrete Euler flow therefore need not share that decay property.
 
 This is the cleanest demonstration that continuous stability and numerical stability are different claims.
 
