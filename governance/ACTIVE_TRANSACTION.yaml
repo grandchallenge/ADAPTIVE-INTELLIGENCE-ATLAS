@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
   issue_number: undefined
-  tranche_id: "EVIDEX-001"
+  tranche_id: "AUDIT-020"
   chapter_ids: ["ATLAS-CH-EVIDEX-001"]
   baseline_commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
-  branch: "work/evidex-001"
-  head_commit: "fd790d5ea78f246658b4ca90c75c2c5821b6ddd7"
-  pull_request: 93
-  state: "ci-green"
-  next_action: "Merge PR #93 at its validated head, then instantiate the bounded post-draft audit."
+  branch: "audit/evidex-001"
+  head_commit: "dceb03af6b0c253b66a1c04a00f2285acd899c73"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Execute AUDIT-020, repair every in-scope defect, write reviews/AUDIT-020.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-EVIDEX-001"
     downstream_architecture_count: 5
