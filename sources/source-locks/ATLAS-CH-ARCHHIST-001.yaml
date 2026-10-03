@@ -5,8 +5,8 @@ epistemic_class: "primary_architecture_history_plus_atlas_synthesis"
 claim_boundary: >
   The cited primary papers support specific architectural mechanisms and influential
   formulations: multilayer error back-propagation, convolutional/local weight sharing,
-  gated recurrent memory, sequence encoder-decoder learning, residual learning, and
-  continuous-depth Neural ODE models. The Atlas synthesis is the structural narrative
+  gated recurrent memory, sequence encoder-decoder learning, Highway transform/carry
+  gating, residual learning, and continuous-depth Neural ODE models. The Atlas synthesis is the structural narrative
   that these milestones progressively shift the useful object of analysis from static
   composition toward state evolution, interfaces, and residual transport. No blanket
   priority claim is made that any cited paper uniquely invented an entire architecture class.
