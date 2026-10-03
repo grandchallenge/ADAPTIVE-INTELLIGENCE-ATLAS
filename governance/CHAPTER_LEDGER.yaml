@@ -684,8 +684,13 @@
         "ATLAS-CH-DYN-001",
         "ATLAS-CH-INFO-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-RLBASE-001.md",
+      "manuscript_path": "manuscript/parts/11-decision-making/ATLAS-CH-RLBASE-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-RLBASE-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-RLBASE-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-RLBASE-001.md"
     },
     {
       "id": "ATLAS-CH-EXPLORE-001",

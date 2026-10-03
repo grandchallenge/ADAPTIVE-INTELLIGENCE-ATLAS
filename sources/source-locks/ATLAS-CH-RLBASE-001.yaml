@@ -1,0 +1,136 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-RLBASE-001"
+locked_on: "2026-10-02"
+epistemic_class: "established_rl_control_foundations_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support standard Markov decision-process, dynamic-programming,
+  temporal-difference/control, policy-gradient, model-based RL, and POMDP mechanisms.
+  They do not establish that scalar reward is identical to human value, that optimality
+  under a declared model is universal optimality, or that any one RL algorithm is
+  universally preferred. The Atlas synthesis is the explicit separation of environment,
+  policy, reward, value, uncertainty, planning, and approximation boundaries.
+sources:
+  - id: "RLBASE-BELLMAN-1957"
+    kind: "peer-reviewed-journal"
+    title: "A Markovian Decision Process"
+    author: "Richard Bellman"
+    journal: "Indiana University Mathematics Journal"
+    volume: 6
+    issue: 4
+    pages: "679-684"
+    year: 1957
+    doi: "10.1512/iumj.1957.6.56038"
+    authority: >
+      Primary early source for Markovian decision processes and dynamic-programming
+      recursion over sequential decisions.
+  - id: "RLBASE-SUTTON-BARTO-2018"
+    kind: "textbook"
+    title: "Reinforcement Learning: An Introduction"
+    edition: "2nd"
+    authors: "Richard S. Sutton; Andrew G. Barto"
+    publisher: "MIT Press"
+    year: 2018
+    isbn: "9780262039246"
+    authority: >
+      Authoritative modern reference for finite MDPs, returns, value functions,
+      Bellman equations, dynamic programming, Monte Carlo, temporal-difference
+      learning, control, and model-based reinforcement learning.
+  - id: "RLBASE-WATKINS-DAYAN-1992"
+    kind: "peer-reviewed-journal"
+    title: "Q-learning"
+    authors: "Christopher J. C. H. Watkins; Peter Dayan"
+    journal: "Machine Learning"
+    volume: 8
+    pages: "279-292"
+    year: 1992
+    doi: "10.1007/BF00992698"
+    authority: >
+      Primary source for Q-learning and its convergence theorem under the assumptions
+      stated in that paper.
+  - id: "RLBASE-WILLIAMS-1992"
+    kind: "peer-reviewed-journal"
+    title: "Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning"
+    author: "Ronald J. Williams"
+    journal: "Machine Learning"
+    volume: 8
+    pages: "229-256"
+    year: 1992
+    doi: "10.1007/BF00992696"
+    authority: >
+      Primary source for REINFORCE-style stochastic policy-gradient estimators.
+  - id: "RLBASE-DYNA-1990"
+    kind: "peer-reviewed-conference"
+    title: "Integrated Architectures for Learning, Planning, and Reacting Based on Approximating Dynamic Programming"
+    author: "Richard S. Sutton"
+    venue: "International Conference on Machine Learning"
+    pages: "216-224"
+    year: 1990
+    doi: "10.1016/B978-1-55860-141-3.50030-4"
+    authority: >
+      Primary source for Dyna architectures integrating direct experience, learned
+      models, and planning updates.
+  - id: "RLBASE-POMDP-1998"
+    kind: "peer-reviewed-journal"
+    title: "Planning and Acting in Partially Observable Stochastic Domains"
+    authors: "Leslie Pack Kaelbling; Michael L. Littman; Anthony R. Cassandra"
+    journal: "Artificial Intelligence"
+    volume: 101
+    issue: "1-2"
+    pages: "99-134"
+    year: 1998
+    doi: "10.1016/S0004-3702(98)00023-X"
+    authority: >
+      Primary source for POMDP formulation, belief-state reasoning, and planning
+      under partial observability.
+atlas_sources:
+  - id: "RLBASE-DYNAMICS"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "f4aa89075f221529401e56a152a6cdfca3dcc47d"
+    authority: "Audited dynamics substrate for state evolution, discrete updates, fixed points, and stability language."
+  - id: "RLBASE-DYNAMICS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "reviews/AUDIT-008A.md"
+    git_blob_sha1: "525254a67510636cf39b0758c300c77a479de9a5"
+    authority: "Current follow-up audit record for the consumed Dynamics manuscript."
+  - id: "RLBASE-INFORMATION"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md"
+    git_blob_sha1: "0fca10cbc7476c5b729ee15dfad0dec563665821"
+    authority: "Audited probability/information substrate for random variables, expectations, conditional structure, and statistical dependence."
+  - id: "RLBASE-FOUNDATION-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Audit record confirming the Information chapter's standard definitions and scope boundaries."
+  - id: "RLBASE-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract and direct downstream consumers."
+  - id: "RLBASE-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "RLBASE-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the exact finite computational witness."
+epistemic_rules:
+  - "Reward is a modeled scalar signal, not a synonym for human value."
+  - "Value is an expectation under a declared policy and environment model."
+  - "Optimality is always relative to the declared state, action, reward, transition, horizon/discount, and observability model."
+  - "A Bellman equation is an exact identity for its declared process; approximate function learning is a separate claim."
+  - "Model-free does not mean assumption-free."
+  - "Off-policy learning changes the relationship between behavior distribution and target policy; convergence claims retain their source assumptions."
+  - "Partial observability makes belief or memory state part of the control problem."
+  - "Planning with a learned model inherits model error."
