@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-NORMREP-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  Standard sphere/hypersphere geometry is externally established. Hyperspherical
+  representation-learning claims are limited to the cited literature. nGPT architecture
+  and training claims are limited to the cited nGPT research preprints. The public GCL
+  MODULUS object supports only the narrower claim that a public optimizer module was
+  authored for nGPT/MODULUS-style spherical training; it is not evidence of a public
+  GCL nGPT implementation.
+sources:
+  - id: "NORMREP-LEE-2018"
+    citation_key: "Lee2018Riemannian"
+    kind: "monograph"
+    title: "Introduction to Riemannian Manifolds"
+    authority: "Standard sphere, tangent-space, geodesic and Riemannian background."
+  - id: "NORMREP-ABSIL-2008"
+    citation_key: "AbsilMahonySepulchre2008"
+    kind: "monograph"
+    title: "Optimization Algorithms on Matrix Manifolds"
+    authority: "Retractions, tangent updates and optimization-oriented manifold geometry."
+  - id: "NORMREP-WANG-ISOLA-2020"
+    citation_key: "WangIsola2020Hypersphere"
+    kind: "peer-reviewed-conference"
+    title: "Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere"
+    venue: "ICML / PMLR 119"
+    year: 2020
+    authority: "Peer-reviewed evidence for normalized contrastive representations and alignment/uniformity on the hypersphere under the paper's setting."
+  - id: "NORMREP-NGPT-2024"
+    citation_key: "LoshchilovEtAl2024nGPT"
+    kind: "research-preprint"
+    title: "nGPT: Normalized Transformer with Representation Learning on the Hypersphere"
+    arxiv: "2410.01131"
+    year: 2024
+    authority: "Primary nGPT architecture and experiment source; not treated as peer-reviewed or universal evidence."
+  - id: "NORMREP-NGPT-TRAINING-2026"
+    citation_key: "LoshchilovGinsburg2026TrainingNGPT"
+    kind: "research-preprint"
+    title: "Training nGPT"
+    arxiv: "2608.01284"
+    year: 2026
+    authority: "Primary source for the later nGPT training recipe and scaling experiments; claims remain paper-scoped."
+gcl_public_sources:
+  - id: "NORMREP-GCL-MODULUS-HYPERBALL"
+    repository: "grandchallenge/MODULUS"
+    commit: "9fc42eb5f29d5fff396f13e1a6c972af8fe64b35"
+    path: "modulus/optim/hyperball.py"
+    git_blob_sha1: "88b5e2b4c9abe760b8670f7fd2691fee25587b17"
+    authority: >
+      Public implementation of tangent projection, angular/update scaling and
+      sphere/ball retraction machinery. Its module docstring explicitly describes
+      the component as designed for nGPT / MODULUS-style training.
+    limitation: >
+      This source does not establish that grandchallenge publishes or currently
+      maintains a separate nGPT implementation repository.
+epistemic_rules:
+  - "Normalization removes radial information by construction."
+  - "Cosine/angular geometry on unit vectors does not imply that norm was irrelevant before normalization."
+  - "nGPT empirical speed/training claims remain scoped to the cited papers."
+  - "Public MODULUS hyperball code is implementation-context evidence, not a substitute for the nGPT papers."
