@@ -1,0 +1,133 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-CONTINUAL-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_continual_learning_mechanisms_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support catastrophic interference under sequential learning,
+  elastic weight consolidation as a Fisher-weighted quadratic parameter penalty,
+  exemplar/rehearsal mechanisms in class-incremental learning, episodic-memory gradient
+  constraints, parameter isolation by iterative pruning, and the task/domain/class
+  incremental scenario distinction. They do not establish a universal best continual-
+  learning method, exact retention guarantees for the cited deep-learning mechanisms,
+  or that any one benchmark score captures all forgetting and transfer behavior.
+sources:
+  - id: "CONTINUAL-MCCLOSKEY-COHEN-1989"
+    citation_key: "McCloskeyCohen1989"
+    kind: "book-chapter"
+    title: "Catastrophic Interference in Connectionist Networks: The Sequential Learning Problem"
+    authors: "Michael McCloskey; Neal J. Cohen"
+    book: "Psychology of Learning and Motivation"
+    volume: 24
+    pages: "109-165"
+    year: 1989
+    publisher: "Academic Press"
+    doi: "10.1016/S0079-7421(08)60536-8"
+    authority: >
+      Foundational source for catastrophic interference in connectionist networks under
+      sequential learning. Used to motivate the phenomenon, not to define every modern
+      continual-learning benchmark.
+  - id: "CONTINUAL-KIRKPATRICK-ETAL-2017"
+    citation_key: "KirkpatrickEtAl2017EWC"
+    kind: "peer-reviewed-journal"
+    title: "Overcoming catastrophic forgetting in neural networks"
+    authors: "James Kirkpatrick et al."
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: 114
+    issue: 13
+    pages: "3521-3526"
+    year: 2017
+    doi: "10.1073/pnas.1611835114"
+    authority: >
+      Primary source for Elastic Weight Consolidation (EWC): a soft quadratic penalty
+      anchoring parameters to earlier solutions with parameter importance approximated
+      using the diagonal Fisher information. Used as an approximate consolidation
+      mechanism, not as an exact no-forgetting theorem.
+  - id: "CONTINUAL-REBUFFI-ETAL-2017"
+    citation_key: "RebuffiEtAl2017iCaRL"
+    kind: "peer-reviewed-conference"
+    title: "iCaRL: Incremental Classifier and Representation Learning"
+    authors: "Sylvestre-Alvise Rebuffi; Alexander Kolesnikov; Georg Sperl; Christoph H. Lampert"
+    venue: "IEEE Conference on Computer Vision and Pattern Recognition"
+    pages: "2001-2010"
+    year: 2017
+    doi: "10.1109/CVPR.2017.587"
+    authority: >
+      Primary class-incremental source using a bounded exemplar set together with
+      representation learning and classification machinery. Used as representative
+      rehearsal/exemplar evidence, not as proof that replay alone solves all continual learning.
+  - id: "CONTINUAL-LOPEZPAZ-RANZATO-2017"
+    citation_key: "LopezPazRanzato2017GEM"
+    kind: "peer-reviewed-conference"
+    title: "Gradient Episodic Memory for Continual Learning"
+    authors: "David Lopez-Paz; Marc'Aurelio Ranzato"
+    venue: "Advances in Neural Information Processing Systems 30"
+    year: 2017
+    arxiv_id: "1706.08840"
+    authority: >
+      Primary source for a continual-learning performance matrix/transfer metrics and
+      Gradient Episodic Memory, which uses episodic memory and constrained gradients
+      to limit interference with remembered tasks.
+  - id: "CONTINUAL-MALLYA-LAZEBNIK-2018"
+    citation_key: "MallyaLazebnik2018PackNet"
+    kind: "peer-reviewed-conference"
+    title: "PackNet: Adding Multiple Tasks to a Single Network by Iterative Pruning"
+    authors: "Arun Mallya; Svetlana Lazebnik"
+    venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition"
+    pages: "7765-7773"
+    year: 2018
+    doi: "10.1109/CVPR.2018.00810"
+    authority: >
+      Primary source for parameter-isolation via iterative pruning and reuse of freed
+      parameters across sequential tasks. Used to expose capacity/routing tradeoffs.
+  - id: "CONTINUAL-VANDEVEN-ETAL-2022"
+    citation_key: "VanDeVenTuytelaarsTolias2022"
+    kind: "peer-reviewed-journal"
+    title: "Three types of incremental learning"
+    authors: "Gido M. van de Ven; Tinne Tuytelaars; Andreas S. Tolias"
+    journal: "Nature Machine Intelligence"
+    volume: 4
+    pages: "1185-1197"
+    year: 2022
+    doi: "10.1038/s42256-022-00568-3"
+    authority: >
+      Source for the task-incremental, domain-incremental, and class-incremental
+      scenario distinction and the importance of context availability at evaluation.
+atlas_sources:
+  - id: "CONTINUAL-MEMTAX"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8a08c5db5322f027dd9214618f21ed88ce9255c0"
+    path: "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-MEMTAX-001.md"
+    git_blob_sha1: "de0cc5225e84748311f4a36e7a81f1978414aa6e"
+    authority: >
+      Audited hard prerequisite for parametric writes, episodic/replay roles,
+      semantic consolidation, external-memory locus, and the rule that memory roles
+      are overlapping rather than mutually exclusive storage devices.
+  - id: "CONTINUAL-MEMTAX-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8a08c5db5322f027dd9214618f21ed88ce9255c0"
+    path: "reviews/AUDIT-019.md"
+    git_blob_sha1: "68bb06442a7f1f6137b24bf6e7fc583977053ded"
+    authority: "Audit record for the Memory Taxonomy prerequisite."
+  - id: "CONTINUAL-OPTBASE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8a08c5db5322f027dd9214618f21ed88ce9255c0"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md"
+    git_blob_sha1: "42df47c50c2d6d26da65a58b230040e2663f901f"
+    authority: >
+      Audited hard prerequisite for first-order optimization, stochastic updates,
+      regularization distinctions, and optimizer-state discipline.
+  - id: "CONTINUAL-OPTBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8a08c5db5322f027dd9214618f21ed88ce9255c0"
+    path: "reviews/AUDIT-012.md"
+    git_blob_sha1: "28929ba6b4a16a3cef4a871fd9253d76e8a93634"
+    authority: "Audit record for the First-Order Optimization prerequisite."
+epistemic_rules:
+  - "Forgetting is a change in retained task performance under a declared sequential protocol; parameter movement alone is not forgetting."
+  - "Catastrophic forgetting is not every negative performance change; the evaluation protocol and magnitude must be stated."
+  - "Replay changes the learning objective through remembered or regenerated data; EWC changes it through a parameter-space penalty."
+  - "EWC uses an approximate local importance model and is not an exact retention guarantee."
+  - "Gradient constraints, replay, consolidation, and parameter isolation are distinct anti-interference mechanisms."
+  - "Parameter isolation can prevent direct overwrite on frozen parameters but consumes capacity and may require task/context routing."
+  - "Average forgetting and worst-task forgetting answer different questions."
+  - "Task-, domain-, and class-incremental settings must not be compared as if the evaluator exposes the same context information."

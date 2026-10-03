@@ -212,3 +212,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-NETNUM-001.yaml"
     authority: "Audited numerical-analysis and architecture prerequisites plus Haber–Ruthotto and Lu et al. bridge sources for residual networks as numerical schemes."
+
+  - id: "ATLAS-SRC-CONTINUAL-LOCK-001"
+    title: "Continual Learning and Forgetting source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-CONTINUAL-001.yaml"
+    authority: "Catastrophic interference, EWC/consolidation, exemplar replay, episodic gradient constraints, parameter isolation, incremental-learning scenario distinctions, and audited memory/optimization prerequisites."
