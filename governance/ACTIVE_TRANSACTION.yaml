@@ -3,15 +3,15 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: 72
-  tranche_id: "AGENTS-001"
+  issue_number: undefined
+  tranche_id: "AUDIT-015"
   chapter_ids: ["ATLAS-CH-AGENTS-001"]
   baseline_commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
-  branch: "work/agents-001"
-  pull_request: 73
-  state: "merged"
+  branch: "audit/agents-001"
+  pull_request: null
+  state: "audit-instantiated"
   head_commit: "84e888476a93a1661deb109ef9a760726a69cfda"
-  next_action: "Instantiate AUDIT-015 for ATLAS-CH-AGENTS-001 on merge 84e888476a93a1661deb109ef9a760726a69cfda and execute the bounded audit."
+  next_action: "Execute AUDIT-015, repair every in-scope defect, write reviews/AUDIT-015.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-AGENTS-001"
     downstream_architecture_count: 8
