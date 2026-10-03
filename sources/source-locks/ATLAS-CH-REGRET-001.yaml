@@ -101,7 +101,7 @@ atlas_sources:
     authority: "Exact source/authority boundaries inherited from EXPLORE-001."
 epistemic_rules:
   - "Every regret quantity is relative to a horizon, reward/loss convention, environment class, policy class, and comparator."
-  - "Pathwise realized regret, expected regret, and pseudo-regret are different random/deterministic objects and must not be silently interchanged."
+  - "Pathwise mean-benchmark regret is random; under the declared stationary stochastic-bandit convention its expectation equals the chapter expected/pseudo-regret quantity. Terminology varies across literatures and must be stated explicitly."
   - "Bayesian regret averages over a declared prior; minimax regret optimizes against the worst environment in a declared class."
   - "Sublinear cumulative regret means average regret tends to zero; it does not mean zero cumulative regret."
   - "Cumulative regret and simple/final-recommendation regret answer different questions."
