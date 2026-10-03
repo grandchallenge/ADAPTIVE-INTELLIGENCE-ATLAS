@@ -2,7 +2,7 @@
 
 ## Disposition
 
-**PASS AFTER ONE PROVENANCE / SELF-CONTAINMENT REPAIR**
+**PASS AFTER TWO REPAIRS**
 
 \`ATLAS-CH-DYN-001\` remains at \`draft-v0.1\`.
 
@@ -28,6 +28,16 @@ The repair:
   x(t)=e^{tA}x_0.
   \]
 
+A second audit repair was subsequently required:
+
+> the local spectral-stability statements and autonomous flow composition law did not state their regularity/domain assumptions explicitly.
+
+The manuscript, specification, and derivation packet now also state:
+
+- the initial-value problem must admit a unique local solution on the interval under discussion;
+- (Phi_{t+s}=Phi_tcircPhi_s) is asserted only where both sides are defined;
+- the spectral local-stability statements are made for a (C^1) vector field in a neighborhood of the equilibrium.
+
 No numerical-integration chapter has been started by this audit.
 
 ## Audited baseline
@@ -41,7 +51,7 @@ No numerical-integration chapter has been started by this audit.
 
 ## 1. Vector field / trajectory / flow distinction
 
-PASS.
+PASS AFTER REGULARITY REPAIR.
 
 The chapter distinguishes:
 
@@ -105,7 +115,7 @@ This construction is now chapter-local rather than incorrectly attributed to the
 
 ## 3. Equilibrium and linearization
 
-PASS.
+PASS AFTER REGULARITY REPAIR.
 
 For
 
@@ -137,9 +147,9 @@ The claim remains local.
 
 ## 4. Hyperbolic stability claims
 
-PASS.
+PASS AFTER REGULARITY REPAIR.
 
-Under the differentiability/local regularity assumed by the chapter:
+Under the now-explicit (C^1) local regularity assumption:
 
 - all Jacobian eigenvalues with strictly negative real part imply local exponential stability;
 - at least one eigenvalue with strictly positive real part implies instability;
@@ -488,7 +498,10 @@ Its hard prerequisite remains:
 
 ## 20. Final disposition
 
-AUDIT-008 passes after one provenance/self-containment repair.
+AUDIT-008 passes after two repairs:
+
+1. provenance/self-containment: matrix exponentials were moved into Dynamics rather than attributed to Linear Algebra;
+2. regularity/domain precision: local-flow composition and spectral stability statements now state the required local existence/uniqueness and (C^1) assumptions.
 
 The Dynamics chapter now supplies a clean audited substrate for:
 
