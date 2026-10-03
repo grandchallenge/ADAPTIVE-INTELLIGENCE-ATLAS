@@ -1,0 +1,124 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-EVIDEX-001"
+locked_on: "2026-10-03"
+epistemic_class: "provenance_standards_plus_atlas_exchange_synthesis_and_gcl_project_evidence"
+claim_boundary: >
+  W3C PROV supports a general provenance model involving entities, activities,
+  agents, derivations, and responsibility. FAIR supports persistent identifiers,
+  rich metadata, qualified references, provenance, and reuse-oriented description
+  for scholarly digital objects. The public GCL artifacts demonstrate one concrete
+  zero-context dispatch/result protocol. None of these sources proves that the Atlas
+  exchange tuple is a universal standard, that provenance establishes truth, or that
+  zero-context work guarantees independent reasoning or correct results.
+sources:
+  - id: "EVIDEX-W3C-PROV-DM-2013"
+    kind: "standard"
+    title: "PROV-DM: The PROV Data Model"
+    organization: "World Wide Web Consortium"
+    editors: "Luc Moreau; Paolo Missier"
+    status: "W3C Recommendation"
+    date: "2013-04-30"
+    authority: >
+      Normative provenance vocabulary and relations for entities, activities,
+      agents, derivation, generation, use, and responsibility. Used to support
+      the separation of payload identity from provenance history.
+  - id: "EVIDEX-FAIR-2016"
+    kind: "peer-reviewed-journal"
+    title: "The FAIR Guiding Principles for scientific data management and stewardship"
+    authors: "Mark D. Wilkinson et al."
+    journal: "Scientific Data"
+    volume: 3
+    article: "160018"
+    year: 2016
+    doi: "10.1038/sdata.2016.18"
+    authority: >
+      Peer-reviewed principles supporting persistent identifiers, rich metadata,
+      qualified references, detailed provenance, and reusable descriptions for
+      data, algorithms, tools, and workflows. Used as reusability guidance rather
+      than as a proof of scientific validity.
+atlas_sources:
+  - id: "EVIDEX-EVIDENCE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md"
+    git_blob_sha1: "17eaa9caf90ede47c74dccff052f93d9fb3d901e"
+    authority: >
+      Audited prerequisite supplying the claim-support packet
+      K=(q,tau,S,Omega,N,D), epistemic labels, source-authority boundaries,
+      and the rule that support is weaker than entailment.
+  - id: "EVIDEX-EVIDENCE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "reviews/AUDIT-014.md"
+    git_blob_sha1: "6af518de0687a9cd8fe5635e2fba8f6a6271c77c"
+    authority: "Audit record for the Evidence prerequisite."
+  - id: "EVIDEX-COORDINATION"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-COORD-001.md"
+    git_blob_sha1: "f9c5e9353e59525dce2e18c8b164ce85532be283"
+    authority: >
+      Audited prerequisite supplying actor/event identity, channel semantics,
+      causal ordering, retry/deduplication boundaries, and transaction scope.
+  - id: "EVIDEX-COORDINATION-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "reviews/AUDIT-016.md"
+    git_blob_sha1: "4e20978b900f7a075177f7fb189b11b0ce79d259"
+    authority: "Audit record for the Coordination prerequisite."
+  - id: "EVIDEX-MATHSOLVE-CEI-TEMPLATE"
+    repository: "grandchallenge/MATHSOLVE"
+    commit: "1273b75457f42da62a8af4c69493d44d293d4567"
+    path: "work_packages/openmath_2026/CEI_DISPATCH_TEMPLATE.md"
+    git_blob_sha1: "35d02c0b43b6c4e98e50b080ef48a92ddcfaf787"
+    authority: >
+      Exact public GCL project evidence for a zero-context dispatch template:
+      bounded target, definitions, imported facts, excluded assumptions,
+      falsification conditions, resource bounds, explicit return contract,
+      and authority boundary.
+  - id: "EVIDEX-MATHSOLVE-RESULT-GRAMMAR"
+    repository: "grandchallenge/MATHSOLVE"
+    commit: "1273b75457f42da62a8af4c69493d44d293d4567"
+    path: "handoffs/OPENMATH-2026/launch/OM26-H5-WP03.md"
+    git_blob_sha1: "937d55c8dea08ef57ed568d5a9c0f20086d09631"
+    authority: >
+      Exact public GCL project evidence for a durable RESULT/1 grammar carrying
+      dispatch identity, provenance declarations, strongest exact statement,
+      derivation, assumptions, verification/falsification hooks, claim boundary,
+      and next residual.
+  - id: "EVIDEX-MATHSOLVE-ZERO-CONTEXT-ADVERSARY"
+    repository: "grandchallenge/MATHSOLVE"
+    commit: "1273b75457f42da62a8af4c69493d44d293d4567"
+    path: "handoffs/YM-001/mrs-r002/YM-D003-MRS-R002-WP-C.md"
+    git_blob_sha1: "8f6c409d1fe25904d231ca5705181fdb7b4da06b"
+    authority: >
+      Exact public GCL example of an independent_blind ZERO_CONTEXT assignment
+      with protected facts, excluded sources, success criteria, one-result return
+      grammar, and explicit claim boundary.
+  - id: "EVIDEX-ATLAS-MAP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "governance/ATLAS_MAP.md"
+    git_blob_sha1: "03b9475696f3f3b75806b3ebe44dd84780f01439"
+    authority: "Canonical chapter contract."
+  - id: "EVIDEX-COMPOSITION-PROTOCOL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "governance/CHAPTER_COMPOSITION_PROTOCOL.md"
+    git_blob_sha1: "52f1d77e80e516cea179550f966383b0b06900af"
+    authority: "Canonical Atlas chapter grammar and claim-boundary discipline."
+  - id: "EVIDEX-WITNESS-STANDARD"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
+    path: "governance/COMPUTATIONAL_WITNESS_STANDARD.md"
+    git_blob_sha1: "1d9c71c5e720ebe421ebb4943f97541635a4bd76"
+    authority: "Canonical bounded semantics for the exact finite witness."
+epistemic_rules:
+  - "Provenance records how an object came to be; it does not establish that the object is true."
+  - "A durable identifier identifies an object or version; it does not establish authority."
+  - "Zero-context means no correctness-relevant dependency on hidden conversational state relative to the declared actor class, not zero prerequisite knowledge."
+  - "A return disposition is a contributor claim until independently reviewed or promoted."
+  - "Receipt is weaker than acceptance; acceptance is weaker than certification."
+  - "Independent_blind is a declared information-flow condition, not proof of statistical or institutional independence."
+  - "Replayability means the inputs, procedure, environment assumptions, and outputs are sufficiently identified for another actor to attempt reproduction; it does not guarantee identical execution on every platform."
+  - "Synthesis may combine compatible returned claims but must not silently strengthen their domains, hypotheses, or epistemic status."
