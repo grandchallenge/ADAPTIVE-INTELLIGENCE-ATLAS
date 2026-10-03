@@ -9,9 +9,9 @@ current:
   baseline_commit: "a3361157cd98647ab3450a2a9786242af9930291"
   branch: "work/evidence-001"
   pull_request: 69
-  state: "pr-open"
+  state: "ci-green"
   head_commit: "46dce4dd23ae94090f272928160e59942a9816d0"
-  next_action: "Inspect PR validation; repair every in-scope defect; merge only when repository validation is green."
+  next_action: "Merge PR #69 at its validated head, then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-EVIDENCE-001"
     downstream_architecture_count: 13
