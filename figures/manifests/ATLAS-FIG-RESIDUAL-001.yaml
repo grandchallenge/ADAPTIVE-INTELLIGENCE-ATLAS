@@ -1,0 +1,37 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-RESIDUAL-001"
+chapter_id: "ATLAS-CH-RESIDUAL-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-RESIDUAL-001.wl"
+  source_git_blob_sha1: "718ee3beed852f488c05e5cea08145c06fd2fe7a"
+  rendered: "figures/masters/ATLAS-FIG-RESIDUAL-001.png"
+  rendered_git_blob_sha1: "78083586f7b699db57e068a429efa1a7aed038fa"
+  rendered_bytes: 49297
+parameters:
+  state: "x=(s,n)"
+  nuisance_action: "g_a(s,n)=(s,n+a)"
+  capability: "B(s,n)=s"
+  residual: "R(s,n)=s"
+  numeric_state: "[2,5]"
+  nuisance_shift: -3
+  moved_state: "[2,2]"
+  recoding_matrix: "[[1,1],[1,-1]]"
+  recoded_state: "[7,-3]"
+  recovered_residual: 2
+literal_semantics: >
+  The left panel uses exact vertical nuisance orbits and the exact move from
+  (2,5) to (2,2), which preserves residual value s=2. The right panel uses the
+  exact invertible recoding T, exact recoded state (7,-3), and exact reconstruction
+  (z1+z2)/2=2.
+nonliteral_semantics: >
+  Orbit spacing, representative placement, arrows, box geometry, and visual layout
+  are pedagogical and do not encode a learned metric, probability distribution, or
+  empirical neural representation.
+claim_boundary: >
+  The figure illustrates one declared finite-dimensional Residual toy model.
+  It does not establish existence, uniqueness, finite dimensionality, or learnability
+  of a Residual for arbitrary adaptive systems.
