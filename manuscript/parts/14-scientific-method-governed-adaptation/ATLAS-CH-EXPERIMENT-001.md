@@ -64,7 +64,7 @@ EXPERIMENT-001 specializes that rule for empirical and computational comparisons
 
 We will write an experiment-argument object as
 
-`E = (q, theta, U, A, Z, Y, g, V, tau, Omega)`.
+`E = (q, theta, U, A, Z, Y, g, V, rho, Omega)`.
 
 The notation is deliberately compact.
 
@@ -78,7 +78,7 @@ It forces ten questions into view.
 - `Y`: What outcome is measured?
 - `g`: What estimator or comparison rule converts observations into a contrast?
 - `V`: What sources of variation or uncertainty are represented?
-- `tau`: What stopping, tuning, selection, and reporting rule generated the reported result?
+- `rho`: What stopping, tuning, selection, and reporting rule generated the reported result?
 - `Omega`: What scope is the conclusion allowed to inhabit?
 
 This tuple is an Atlas synthesis.
@@ -433,9 +433,9 @@ Selection is not forbidden.
 
 Hidden selection is the problem.
 
-The Atlas therefore places stopping, tuning, selection, and reporting inside the experiment object as `tau`.
+The Atlas therefore places stopping, tuning, selection, and reporting inside the experiment object as `rho`.
 
-If `tau` changes after observing outcomes, the experimental argument changes too.
+If `rho` changes after observing outcomes, the experimental argument changes too.
 
 ## 10. Effect size is not statistical significance
 
@@ -604,7 +604,7 @@ A practical way to force the argument into view is to write the experiment as a 
 | outcome `Y` | What is measured and why is it relevant? |
 | comparison `g` | How are observations converted into the target contrast? |
 | variation `V` | Which uncertainty sources are sampled or estimated? |
-| selection `tau` | How are stopping, tuning, and reporting determined? |
+| selection `rho` | How are stopping, tuning, and reporting determined? |
 | scope `Omega` | Where may the conclusion be applied? |
 
 This table is not a bureaucracy.
