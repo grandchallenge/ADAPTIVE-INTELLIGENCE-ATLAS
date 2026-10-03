@@ -11,7 +11,7 @@
 
 Define machine memory by engineering role rather than biological analogy.
 
-The chapter must distinguish parametric, working, episodic, semantic, associative, and external persistent memory while showing that these labels describe overlapping coordinates rather than six mutually exclusive devices.
+The chapter must distinguish parametric, working, episodic, semantic, associative, and external memory while showing that these labels describe overlapping coordinates rather than six mutually exclusive devices.
 
 ## Dependency contract
 
@@ -100,9 +100,9 @@ Memory retrieved by content/similarity/pattern rather than only by an exact expl
 
 Associative is primarily an access property and can coexist with episodic, semantic, parametric, or external storage.
 
-### External persistent memory
+### External memory
 
-Durable state outside the current model parameters and transient working state.
+State outside the current model parameters and transient working state. Its lifetime may be ephemeral or durable; persistence is specified separately by T.
 
 Examples include databases, files, journals, knowledge stores, vector indices, tuple spaces, or differentiable memory matrices.
 
