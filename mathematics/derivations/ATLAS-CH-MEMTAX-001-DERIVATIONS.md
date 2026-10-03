@@ -131,9 +131,9 @@ Associative access can target:
 
 Therefore associative memory is not required to have a distinct physical locus.
 
-## 7. External persistent memory
+## 7. External memory
 
-Let E be a state object outside current model parameters and transient working state.
+Let E be a state object outside current model parameters and transient working state. Externality is a locus property; the lifetime T may be short or durable.
 
 A read/write external memory exposes explicit operations such as
 
@@ -143,7 +143,7 @@ value = R_ext(E, query).
 
 Memory Networks, Neural Turing Machines, and the Differentiable Neural Computer provide representative learned systems with explicit memory components.
 
-External persistence does not imply:
+External location does not imply persistence, and external memory does not imply:
 - permanent retention;
 - shared access;
 - transactional consistency;
