@@ -146,7 +146,7 @@ epistemic_rules:
   - "The roles are not mutually exclusive physical stores."
   - "Working, episodic, and semantic terminology is borrowed cautiously from cognitive science; machine implementations are not asserted to be biologically homologous."
   - "Associative memory primarily describes an access relation, not necessarily a distinct storage locus."
-  - "External memory describes locus and persistence, not truth or authority."
+  - "External memory describes locus relative to the model/process boundary; persistence remains the independent T coordinate and does not imply truth or authority."
   - "A parameter update is a memory write only under an explicitly declared engineering convention; not every parameter change is interpretable as a stable fact insertion."
   - "Context residence is not durable persistence."
   - "Persistence does not imply retrievability, freshness, provenance, or correctness."
