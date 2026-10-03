@@ -383,8 +383,6 @@ A user may rely on:
 
 The final elaborated object is checked by the kernel against the formal environment.
 
-The current official Lean reference continues to describe the project in terms of a small trusted proof-checking core [@LeanReference2026].
-
 This is the key trust pattern:
 
 > automation may be large while the final logical checker remains small.
@@ -776,7 +774,6 @@ The downstream chapter must independently formalize:
 - Hoare, *An Axiomatic Basis for Computer Programming* [@Hoare1969].
 - Milner, *LCF: A Way of Doing Proofs with a Machine* [@Milner1979LCF].
 - de Moura et al., *The Lean Theorem Prover (System Description)* [@DeMouraEtAl2015Lean].
-- Lean Language Reference, version observed 2026-10-03 [@LeanReference2026].
 - Lamport, *Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers* [@Lamport2002SpecifyingSystems].
 
 Exact source identities and authority boundaries are recorded in:
