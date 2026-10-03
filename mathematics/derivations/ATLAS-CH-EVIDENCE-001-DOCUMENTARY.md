@@ -149,10 +149,10 @@ The same computed values may illustrate B, but they do not prove B.
 
 The chapter's direct consumers are recorded in the Atlas architecture:
 
-- Data Quality, Mixtures, and Contamination;
-- Mechanistic Diagnostics;
-- Evidence Extraction and Claim Discipline;
-- Experiments as Arguments.
+- ATLAS-CH-DATA-001 — Data Quality, Mixtures, and Contamination;
+- ATLAS-CH-MECHDIAG-001 — Mechanistic Diagnostics;
+- ATLAS-CH-EVIDEX-001 — Evidence Extraction and Claim Discipline;
+- ATLAS-CH-EXPERIMENT-001 — Experiments as Arguments.
 
 Those chapters may inherit:
 
