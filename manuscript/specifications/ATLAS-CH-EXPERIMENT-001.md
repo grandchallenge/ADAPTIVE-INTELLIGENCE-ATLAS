@@ -34,7 +34,7 @@ The chapter begins from the mismatch between **a run** and **an argument**.
 
 Represent a bounded experiment by
 
-`E = (q, theta, U, A, Z, Y, g, V, tau, Omega)`.
+`E = (q, theta, U, A, Z, Y, g, V, rho, Omega)`.
 
 Here:
 
@@ -46,7 +46,7 @@ Here:
 - `Y` is the outcome object;
 - `g` is the estimator or comparison rule;
 - `V` is the uncertainty/variation description;
-- `tau` is the stopping, selection, and reporting rule;
+- `rho` is the stopping, selection, and reporting rule;
 - `Omega` is the scope in which the result may be interpreted.
 
 The tuple is an Atlas synthesis, not a claim that experimental science has one universal canonical tuple.
