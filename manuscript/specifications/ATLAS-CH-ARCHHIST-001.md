@@ -23,9 +23,11 @@ Each admitted milestone must introduce a structural idea required later in the A
    persistent state and parameter sharing across computational time;
 4. **encoder–decoder systems**:
    an explicit representation interface between two computations;
-5. **residual systems**:
+5. **highway systems**:
+   learned transform/carry gating across depth;
+6. **residual systems**:
    identity transport plus learned increment;
-6. **continuous-depth formulations**:
+7. **continuous-depth formulations**:
    an explicit later model class in which the evolution law itself is parameterized continuously.
 
 ## Dependency contract
@@ -179,6 +181,24 @@ y_1\ne y_2,
 then no deterministic decoder using only \(z\) can reconstruct both correctly.
 
 This is an interface/bottleneck statement, not a criticism of encoder–decoder architectures.
+
+### Highway update
+
+For transform gate (T_k(x)) and carry gate (C_k(x)), write the structural form
+
+[
+x_{k+1}
+=
+T_k(x_k)odot H_k(x_k)
++
+C_k(x_k)odot x_k.
+]
+
+The original Highway Networks formulation couples the gates so that the carry path can remain close to identity when transformation is suppressed.
+
+Use this only to expose learned carry/transform routing across depth.
+
+Do not claim the gating mechanism is equivalent to a ResNet block.
 
 ### Residual update
 
