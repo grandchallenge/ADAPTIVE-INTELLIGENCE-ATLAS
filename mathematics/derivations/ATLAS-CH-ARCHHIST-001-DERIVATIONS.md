@@ -264,7 +264,123 @@ Thus a noninjective encoder can only discard distinctions safely relative to the
 
 This is an interface-sufficiency statement, not a claim that useful encoders must be injective.
 
-## D7. Residual update
+## D7. Highway transform/carry gating
+
+A highway layer has structural form
+
+\[
+y
+=
+T(x)\odot H(x)
++
+C(x)\odot x.
+\]
+
+A common tied-gate choice is
+
+\[
+C(x)=1-T(x).
+\]
+
+Then
+
+\[
+y
+=
+T(x)\odot H(x)
++
+(1-T(x))\odot x.
+\]
+
+If
+
+\[
+T(x)=0,
+\]
+
+then
+
+\[
+\boxed{
+y=x.
+}
+\]
+
+Thus the layer contains an exact carry/identity limit.
+
+If
+
+\[
+T(x)=1,
+\]
+
+then
+
+\[
+y=H(x).
+\]
+
+The gate interpolates coordinatewise between transformed and carried state in this tied formulation.
+
+This is not algebraically identical to a ResNet block.
+
+The highway architecture uses learned multiplicative gating of transform and carry paths.
+
+## D8. Exact highway witness
+
+Take scalar
+
+\[
+x=2,
+\qquad
+H(x)=5,
+\qquad
+T=\frac14,
+\qquad
+C=1-T=\frac34.
+\]
+
+Then
+
+\[
+y
+=
+\frac14\cdot5
++
+\frac34\cdot2
+=
+\frac{11}{4}.
+\]
+
+At the exact carry limit,
+
+\[
+T=0,
+\qquad
+C=1,
+\]
+
+we obtain
+
+\[
+y=x=2.
+\]
+
+At the exact transform limit,
+
+\[
+T=1,
+\qquad
+C=0,
+\]
+
+we obtain
+
+\[
+y=H(x)=5.
+\]
+
+## D9. Residual update
 
 A residual block has form
 
@@ -300,7 +416,7 @@ The identity contribution is exact.
 
 It does not by itself bound the product norm or condition number.
 
-## D8. Linear residual witness
+## D10. Linear residual witness
 
 Let
 
@@ -351,7 +467,7 @@ I+A=I.
 
 The block transports state exactly unchanged.
 
-## D9. Residual systems as discrete state evolution
+## D11. Residual systems as discrete state evolution
 
 Write
 
@@ -384,7 +500,7 @@ Therefore the legitimate statement is:
 
 The stronger ODE identity requires additional construction.
 
-## D10. Explicit continuous-depth architecture
+## D12. Explicit continuous-depth architecture
 
 A Neural ODE specifies evolution directly:
 
