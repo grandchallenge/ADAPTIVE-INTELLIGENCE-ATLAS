@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-FORMAL-001"
   baseline_commit: "ea4b586d2b2c4a2e664345613ec7300c5e18ffda"
   branch: "audit/formal-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-025 against implementation merge ea4b586d2b2c4a2e664345613ec7300c5e18ffda; repair every in-scope defect, write the audit record, validate, merge, then recompute the frontier and reset to idle-ready."
+  pull_request: 108
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #108 at exact head ceb74515bd20645b84cb93f20654eb4321ba6713; repair any in-scope validation defect, merge only when green, then recompute the dependency-legal frontier and reset to idle-ready."
 frontier:
   - id: "ATLAS-CH-FORMAL-001"
     downstream_architecture_count: 4
