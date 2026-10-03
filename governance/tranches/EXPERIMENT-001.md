@@ -31,7 +31,7 @@ No downstream Replay chapter content is used as prerequisite authority.
 
 The chapter introduces
 
-`E = (q, theta, U, A, Z, Y, g, V, tau, Omega)`
+`E = (q, theta, U, A, Z, Y, g, V, rho, Omega)`
 
 for claim, estimand, units/population, intervention/assignment, nuisance structure, outcome, comparison rule, uncertainty/variation, stopping/selection/reporting rule, and interpretation scope.
 
