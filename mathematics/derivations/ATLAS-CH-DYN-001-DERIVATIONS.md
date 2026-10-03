@@ -38,6 +38,49 @@ A sampled trajectory is not the same object as the flow law.
 
 A numerical update is not automatically the exact flow map.
 
+## D1a. Constant linear flow
+
+For
+
+\[
+\dot x=Ax
+\]
+
+with constant matrix \(A\), define
+
+\[
+e^{tA}
+=
+\sum_{k=0}^{\infty}
+\frac{(tA)^k}{k!}.
+\]
+
+Termwise differentiation gives
+
+\[
+\frac{d}{dt}e^{tA}
+=
+Ae^{tA},
+\]
+
+and
+
+\[
+e^{0A}=I.
+\]
+
+Hence
+
+\[
+x(t)
+=
+e^{tA}x_0
+\]
+
+satisfies the initial-value problem.
+
+This matrix-exponential construction is introduced here; it is not imported as a documented result from the upstream Linear Algebra manuscript.
+
 ## D2. Equilibrium and linearization
 
 An equilibrium \(x_\star\) satisfies
