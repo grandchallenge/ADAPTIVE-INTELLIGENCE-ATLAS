@@ -134,3 +134,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-ARCHHIST-001.yaml"
     authority: "Primary architecture papers and audited Dynamics context used to trace structural changes from layered composition to state evolution and residual transport."
+
+  - id: "ATLAS-SRC-TRANSFORMER-LOCK-001"
+    title: "Transformer baseline source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-TRANSFORMER-001.yaml"
+    authority: "Original Transformer architecture, LayerNorm, normalization placement analysis, representative encoder-only/decoder-only topologies, and audited Atlas architecture-history provenance."

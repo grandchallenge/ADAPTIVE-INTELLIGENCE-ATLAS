@@ -271,8 +271,16 @@
       "dependencies": [
         "ATLAS-CH-ARCHHIST-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-TRANSFORMER-001.md",
+      "manuscript_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSFORMER-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-TRANSFORMER-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-TRANSFORMER-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-TRANSFORMER-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-TRANSFORMER-001"
+      ]
     },
     {
       "id": "ATLAS-CH-DEPTH-001",
