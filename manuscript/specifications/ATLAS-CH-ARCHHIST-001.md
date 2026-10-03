@@ -184,7 +184,7 @@ This is an interface/bottleneck statement, not a criticism of encoder–decoder 
 
 ### Highway update
 
-For transform gate (T_k(x)) and carry gate (C_k(x)), write the structural form
+For coordinatewise transform gate (T_k(x)) and carry gate (C_k(x)), write the structural form
 
 [
 x_{k+1}
@@ -194,7 +194,7 @@ T_k(x_k)odot H_k(x_k)
 C_k(x_k)odot x_k.
 ]
 
-The original Highway Networks formulation couples the gates so that the carry path can remain close to identity when transformation is suppressed.
+For the tied-gate setting used in the chapter, take (0le T_k(x)le1) coordinatewise and (C_k(x)=1-T_k(x)), so the carry path becomes exact identity when transformation is fully suppressed.
 
 Use this only to expose learned carry/transform routing across depth.
 

@@ -320,7 +320,7 @@ then
 y=H(x).
 \]
 
-The gate interpolates coordinatewise between transformed and carried state in this tied formulation.
+Under the coordinatewise ([0,1]) gate constraint, the gate interpolates between transformed and carried state in this tied formulation.
 
 This is not algebraically identical to a ResNet block.
 
