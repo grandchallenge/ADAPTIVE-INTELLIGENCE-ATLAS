@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 101
+  issue_number: 102
   tranche_id: "EXPLORE-001"
   chapter_ids:
     - "ATLAS-CH-EXPLORE-001"
-  baseline_commit: "743df1ab6d3cb7ac8f7d35b248c988995170a3e0"
-  branch: "work/explore-001"
-  pull_request: 101
-  state: "implementation-pr-validation"
-  next_action: "Validate PR #101 at exact head 40466d1f147336626838695ab73f92be595e084e; repair in-scope defects, merge when green, then run the bounded post-draft audit."
+  baseline_commit: "2de8b7b6fd30f47e066eb475bbd282583926b681"
+  branch: "audit/explore-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Execute AUDIT-022 against implementation merge 2de8b7b6fd30f47e066eb475bbd282583926b681; repair every in-scope defect, write the audit record, validate, merge, then recompute the frontier and reset to idle-ready."
 frontier:
   - id: "ATLAS-CH-EXPLORE-001"
     downstream_architecture_count: 5
