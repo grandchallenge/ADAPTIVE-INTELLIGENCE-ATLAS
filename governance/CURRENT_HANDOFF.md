@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `743df1ab6d3cb7ac8f7d35b248c988995170a3e0`
+**Current main:** `58da49a2f2969de687cbfd247e488997e57b05d6`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,17 +69,17 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `743df1ab6d3cb7ac8f7d35b248c988995170a3e0`;
-- next target: `ATLAS-CH-EXPLORE-001`;
-- title: **Exploration and Information Value**;
-- reason: it ties for the largest unlocked downstream architecture cone at 5 nodes and is first under deterministic frontier ordering.
+- baseline/main: `58da49a2f2969de687cbfd247e488997e57b05d6`;
+- next target: `ATLAS-CH-NETNUM-001`;
+- title: **Networks as Numerical Schemes**;
+- reason: it has the largest unlocked downstream architecture cone at 5 nodes.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-021:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-022:
 
-1. `ATLAS-CH-EXPLORE-001` — downstream architecture count 5; direct consumer `ATLAS-CH-REGRET-001`.
-2. `ATLAS-CH-NETNUM-001` — count 5; direct consumers `ATLAS-CH-ADAPTDEPTH-001`, `ATLAS-CH-BOUNDARYPROBE-001`.
-3. `ATLAS-CH-CONTINUAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-4. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
+1. `ATLAS-CH-NETNUM-001` — downstream architecture count 5; direct consumers `ATLAS-CH-ADAPTDEPTH-001`, `ATLAS-CH-BOUNDARYPROBE-001`.
+2. `ATLAS-CH-CONTINUAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+3. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
+4. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
 5. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
 6. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
 7. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
@@ -88,6 +88,54 @@ Current frontier, recomputed from the live Chapter Ledger after AUDIT-021:
 10. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### EXPLORE-001 — Exploration and Information Value
+
+- implementation PR: #101;
+- implementation merge:
+  `2de8b7b6fd30f47e066eb475bbd282583926b681`;
+- audit:
+  `AUDIT-022`;
+- audit PR: #102;
+- audit merge / current main:
+  `58da49a2f2969de687cbfd247e488997e57b05d6`.
+
+Central Bayesian exploration structure:
+
+- latent parameter `Theta`;
+- belief `b_t(theta)`;
+- observation law `p(y|theta,a)`;
+- immediate reward `r(theta,a,y)`;
+- constrained action set `C_t(b)`;
+- finite-horizon Bayes value `V_t(b)`;
+- information gain `IG_b(a)=I_b(Theta;Y|a)`;
+- one-step value of information `VoI_b(a)`.
+
+Load-bearing doctrine:
+
+- exploration is purposeful information acquisition, not random action;
+- epistemic uncertainty is distinct from outcome stochasticity;
+- information gain is distinct from decision value;
+- an action can have lower immediate expected reward and higher total finite-horizon value;
+- UCB/optimism, posterior sampling, and information-directed sampling are distinct mechanisms;
+- bandit feedback is a strict simplification of general MDP exploration;
+- safe/constrained exploration requires an explicit constraint and guarantee semantics.
+
+Exact witness:
+
+a two-step Bayesian bandit with prior `P(theta=1)=2/5` gives:
+
+- known-first total value `1`;
+- informative-action-first total value `11/10`;
+- immediate exploration cost `1/10`;
+- future value of information `1/5`;
+- net advantage `1/10`.
+
+AUDIT-022 repairs:
+
+- made the one-step reward notation consistent by introducing expected payoff `bar r`;
+- repaired one malformed notation delimiter;
+- narrowed the Moldovan–Abbeel description to the source-supported ergodicity-based safety formulation.
 
 ### EXPERIMENT-001 — Experiments as Arguments
 
@@ -270,38 +318,43 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — EXPLORE-001
+## 7. Next tranche — NETNUM-001
 
 Stable ID:
 
-`ATLAS-CH-EXPLORE-001`
+`ATLAS-CH-NETNUM-001`
 
 Title:
 
-**Exploration and Information Value**
+**Networks as Numerical Schemes**
 
-Declared hard dependency in the Atlas Map/Ledger:
+Declared hard dependencies in the Atlas Map/Ledger:
 
-- `ATLAS-CH-RLBASE-001`.
+- `ATLAS-CH-NUMERICS-001`;
+- `ATLAS-CH-ARCHHIST-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Develop bandits, exploration–exploitation, information gain, value of information, and safe exploration.
+> Recast residual networks as discretizations and distinguish local error, global error, stability, and reversibility.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited RLBASE prerequisite may supply the MDP/control substrate. No later Regret or Optionality chapter may be used as hidden prerequisite authority unless the Chapter Ledger explicitly changes.
+The audited Numerics and Architecture History prerequisites may supply:
+
+- one-step methods, consistency, local truncation error, stability, convergence, stiffness, and structure-preserving numerical language;
+- layered, recurrent, gated, and residual-network architecture history with the existing boundary that a residual network is not automatically a literal ODE solver.
 
 A sound intellectual spine should distinguish at least:
 
-1. exploration as information acquisition from reward maximization under known dynamics;
-2. multi-armed-bandit regret from full MDP exploration;
-3. epistemic uncertainty from environment stochasticity;
-4. value of information from immediate expected reward;
-5. optimism, posterior sampling, and information-directed strategies as different mechanisms rather than synonyms;
-6. safe exploration as constrained information acquisition, with the exact safety notion stated rather than assumed.
+1. residual update as a one-step map versus a discretization of a specified continuous flow;
+2. local truncation error from global accumulated error;
+3. numerical stability from training stability and optimization stability;
+4. step size from learned residual scale;
+5. consistency/convergence statements from architecture analogy;
+6. reversible layer maps from numerically reversible integration and from exactly invertible computation;
+7. stiffness and implicitness as numerical properties requiring a specified dynamical problem.
 
-The tranche should use an exact finite witness where information has positive decision value despite a lower immediate expected reward, or another comparably small construction that makes exploration value mathematically visible.
+A useful exact witness should compare a simple linear flow `x'=lambda x` with an explicit residual/Euler step, derive the one-step error exactly, and show how repeated-step error/stability changes with `h lambda` without claiming that every residual network solves an ODE.
 
 ## 8. Durable restart instruction for a fresh chat
 
