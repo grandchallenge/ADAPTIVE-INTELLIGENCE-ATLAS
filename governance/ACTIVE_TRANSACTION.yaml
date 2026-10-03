@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-COORD-001"]
   baseline_commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
   branch: "work/coord-001"
-  pull_request: null
-  state: "draft-complete"
+  pull_request: 77
+  state: "pr-open"
   head_commit: "773df4e1419fc59c47e9d5e2f692904a409e2fa9"
-  next_action: "Open implementation PR, run repository validation, repair all in-scope defects, and merge only on green validation."
+  next_action: "Inspect implementation PR validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-COORD-001"
     downstream_architecture_count: 7
