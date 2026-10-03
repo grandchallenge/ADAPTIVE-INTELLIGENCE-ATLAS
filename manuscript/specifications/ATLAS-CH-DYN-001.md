@@ -69,13 +69,15 @@ Assuming a unique local solution exists on the time interval under discussion, d
 \Phi_t(x_0)=x(t;x_0).
 \]
 
-For an autonomous true flow:
+For an autonomous true flow, whenever both sides are defined:
 
 \[
 \Phi_{t+s}
 =
 \Phi_t\circ\Phi_s.
 \]
+
+Do not silently assume global completeness.
 
 ### Equilibrium
 
