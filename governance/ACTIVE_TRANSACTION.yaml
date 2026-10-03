@@ -10,8 +10,8 @@ current:
   branch: "work/evidex-001"
   head_commit: "fd790d5ea78f246658b4ca90c75c2c5821b6ddd7"
   pull_request: 93
-  state: "pr-open"
-  next_action: "Inspect PR #93 validation, repair all in-scope defects, and merge only on green validation."
+  state: "ci-green"
+  next_action: "Merge PR #93 at its validated head, then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-EVIDEX-001"
     downstream_architecture_count: 5
