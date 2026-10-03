@@ -73,6 +73,7 @@ atlas_sources:
       Project inventory naming numerical stability, consistency/convergence,
       structure-preserving integration, splitting, adaptive depth, and computation as transport.
 epistemic_rules:
+  - "The standard scalar absolute-stability set is the non-growth set |R(z)| <= 1; strict |R(z)| < 1 is used when claiming asymptotic decay."
   - "Consistency alone does not guarantee convergence without the required stability/regularity assumptions."
   - "Absolute-stability regions are properties of a numerical method on a declared test problem; they are not universal nonlinear guarantees."
   - "Stiffness is problem/method-relative and is not synonymous with large derivative magnitude."

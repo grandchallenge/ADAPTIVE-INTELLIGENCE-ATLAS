@@ -150,13 +150,25 @@ R_{\rm EE}(z)=1+z.
 }
 \]
 
-Asymptotic decay of this scalar discrete mode requires
+The standard absolute-stability set uses non-growth:
+
+\[
+|R(z)|\le1.
+\]
+
+For explicit Euler this is
+
+\[
+|1+z|\le1.
+\]
+
+Strict asymptotic decay requires
 
 \[
 |1+z|<1.
 \]
 
-The explicit-Euler absolute-stability region is the open disk centered at \(-1\) with radius \(1\).
+Thus the absolute-stability set is the closed disk centered at \(-1\) with radius \(1\), while its open interior gives strict decay.
 
 ### Implicit Euler
 
@@ -182,19 +194,21 @@ R_{\rm IE}(z)
 }
 \]
 
-The stability condition is
+The standard non-growth stability condition is
 
 \[
-\left|\frac{1}{1-z}\right|<1,
+\left|\frac{1}{1-z}\right|\le1,
 \]
 
 equivalently
 
 \[
-|1-z|>1.
+|1-z|\ge1.
 \]
 
-The entire open left half-plane satisfies this inequality.
+Every point in the closed left half-plane satisfies this condition.
+
+For \(\operatorname{Re}z<0\), the inequality is strict and the scalar mode decays asymptotically.
 
 Thus implicit Euler is A-stable.
 

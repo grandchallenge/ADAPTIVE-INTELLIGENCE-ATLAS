@@ -12,15 +12,16 @@ generator:
   rendered_git_blob_sha1: "7f23da82f51ac006cccf1be2e055b06ac8a2b715"
   rendered_bytes: 46057
 parameters:
-  explicit_euler_region: "|1+z|<1"
-  implicit_euler_region: "|1-z|>1"
+  explicit_euler_region: "|1+z|<=1; strict <1 for asymptotic decay"
+  implicit_euler_region: "|1-z|>=1; strict >1 for asymptotic decay"
   split_A: "[[0,1],[0,0]]"
   split_B: "[[0,0],[1,0]]"
   split_h_grid: "10^Range[-3,-0.25,0.2]"
   defect_norm: "Frobenius"
 literal_semantics: >
-  The left and middle panels plot exact absolute-stability regions for explicit and
-  implicit Euler on y'=lambda y. The right panel evaluates exact matrix exponentials
+  The left and middle panels plot the exact Euler stability boundaries and shaded
+  strict-decay interiors/exteriors for y'=lambda y; the corresponding standard
+  non-growth stability sets include their boundaries. The right panel evaluates exact matrix exponentials
   for the declared split matrices over the declared h-grid and plots Frobenius norms
   of Lie-Trotter and Strang local defects.
 nonliteral_semantics: >
