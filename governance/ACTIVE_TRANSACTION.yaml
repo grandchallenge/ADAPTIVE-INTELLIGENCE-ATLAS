@@ -9,9 +9,9 @@ current:
   baseline_commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
   branch: "work/coord-001"
   pull_request: 77
-  state: "ci-green"
-  head_commit: "773df4e1419fc59c47e9d5e2f692904a409e2fa9"
-  next_action: "Merge PR #77 at its validated head, then instantiate the bounded post-draft audit."
+  state: "merged"
+  head_commit: "7fe595987e57b4b1117b87ad0d786352c04cb4cf"
+  next_action: "Instantiate AUDIT-016 for ATLAS-CH-COORD-001 on merge 7fe595987e57b4b1117b87ad0d786352c04cb4cf and execute the bounded audit."
 frontier:
   - id: "ATLAS-CH-COORD-001"
     downstream_architecture_count: 7
