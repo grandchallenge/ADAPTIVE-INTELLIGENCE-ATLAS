@@ -72,7 +72,7 @@ Define the gap
 
 `Delta_theta(a)=mu_theta^*-mu_theta(a)`.
 
-A policy `pi` chooses actions
+Let `Pi` be the declared admissible policy class. A policy `pi in Pi` chooses actions
 
 `A_1,...,A_T`
 
@@ -292,9 +292,9 @@ A worst-case guarantee without the class is incomplete.
 
 Define
 
-`R_T^*(Theta)
+`R_T^*(Theta,Pi)
 =
-inf_pi
+inf_{pi in Pi}
 sup_{theta in Theta}
 bar R_T(pi,theta)`.
 
@@ -380,11 +380,11 @@ W_T(pi,Theta)`.
 
 An average over a set cannot exceed the set's supremum.
 
-Taking the best policy on each side gives
+Taking the best policy over the same declared class `Pi` on each side gives
 
-`inf_pi BR_T(pi,nu)
+`inf_{pi in Pi} BR_T(pi,nu)
 <=
-R_T^*(Theta)`.
+R_T^*(Theta,Pi)`.
 
 This inequality does not say that the optimizing policies coincide.
 
