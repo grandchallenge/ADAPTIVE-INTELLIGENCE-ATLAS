@@ -71,7 +71,7 @@ So continual learning should begin from the trajectory of performance, not only 
 
 ## 2. An Atlas forgetting summary
 
-For an earlier context `j<T`, define its best prior score
+For a sequence with `T>=2`, and for an earlier context `j<T`, define its best prior score
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`.
 
@@ -90,6 +90,8 @@ and
 These are Atlas summaries.
 
 They are intentionally modest.
+
+Cross-context aggregation is meaningful only when the context scores share a commensurate scale or a declared normalization. If different contexts use incomparable metrics or ranges, retain the per-context values instead of averaging or taking a cross-context maximum.
 
 They do not claim to be the one canonical continual-learning metric.
 
