@@ -1,0 +1,426 @@
+# ATLAS-CH-QUOTIENT-001 — Derivation Packet
+
+## D1. Equivalence relation
+
+A relation
+
+\[
+\sim
+\]
+
+on a set \(X\) is an equivalence relation when it is:
+
+- reflexive;
+- symmetric;
+- transitive.
+
+The equivalence class of \(x\in X\) is
+
+\[
+[x]
+=
+\{y\in X:y\sim x\}.
+\]
+
+The quotient set is
+
+\[
+X/{\sim}
+=
+\{[x]:x\in X\}.
+\]
+
+The quotient object forgets distinctions declared irrelevant by the equivalence relation.
+
+## D2. Group orbits
+
+If a group \(G\) acts on \(X\), the orbit of \(x\) is
+
+\[
+G\cdot x
+=
+\{g\cdot x:g\in G\}.
+\]
+
+Declaring
+
+\[
+x\sim y
+\iff
+y=g\cdot x
+\text{ for some }g\in G
+\]
+
+produces a quotient by group orbits.
+
+A quotient manifold requires additional regularity.
+
+A group action can have fixed points, changing stabilizers, singular orbit types, or fail the conditions required for a smooth global quotient.
+
+## D3. Grassmann as quotient
+
+An element
+
+\[
+X\in\operatorname{St}(n,p)
+\]
+
+is an ordered orthonormal \(p\)-frame.
+
+For any
+
+\[
+Q\in O(p),
+\]
+
+the frame
+
+\[
+XQ
+\]
+
+spans the same \(p\)-dimensional subspace.
+
+Thus the Grassmannian can be represented as
+
+\[
+\boxed{
+\operatorname{Gr}(n,p)
+\cong
+\operatorname{St}(n,p)/O(p).
+}
+\]
+
+The quotient removes basis choice while preserving the subspace.
+
+## D4. Hidden-unit permutation symmetry
+
+Consider a one-hidden-layer network
+
+\[
+f(x)
+=
+W_2\sigma(W_1x),
+\]
+
+where \(\sigma\) acts elementwise.
+
+Let \(P\) be a permutation matrix.
+
+Define
+
+\[
+W_1'
+=
+PW_1,
+\]
+
+and
+
+\[
+W_2'
+=
+W_2P^{-1}.
+\]
+
+Because elementwise activation commutes with permutation,
+
+\[
+\sigma(Pz)
+=
+P\sigma(z),
+\]
+
+we have
+
+\[
+\begin{aligned}
+f'(x)
+&=
+W_2'
+\sigma(W_1'x)\\
+&=
+W_2P^{-1}
+\sigma(PW_1x)\\
+&=
+W_2P^{-1}
+P\sigma(W_1x)\\
+&=
+W_2\sigma(W_1x)\\
+&=
+f(x).
+\end{aligned}
+\]
+
+Therefore hidden-unit relabeling changes parameters without changing the represented function.
+
+## D5. Positive-rescaling symmetry of ReLU
+
+Let
+
+\[
+\sigma(z)=\operatorname{ReLU}(z)
+\]
+
+elementwise.
+
+For every positive scalar \(c>0\),
+
+\[
+\sigma(cz)
+=
+c\sigma(z).
+\]
+
+Let \(D\) be a positive diagonal matrix.
+
+Then
+
+\[
+\sigma(Dz)
+=
+D\sigma(z).
+\]
+
+Define
+
+\[
+W_1'
+=
+DW_1,
+\]
+
+and
+
+\[
+W_2'
+=
+W_2D^{-1}.
+\]
+
+Then
+
+\[
+\begin{aligned}
+f'(x)
+&=
+W_2D^{-1}
+\sigma(DW_1x)\\
+&=
+W_2D^{-1}
+D\sigma(W_1x)\\
+&=
+f(x).
+\end{aligned}
+\]
+
+This symmetry depends on the positive homogeneity of ReLU and on the absence of architectural features that invalidate the transformation.
+
+## D6. Exact two-unit witness
+
+Choose scalar input and
+
+\[
+W_1=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix},
+\qquad
+W_2=
+\begin{pmatrix}
+3&4
+\end{pmatrix}.
+\]
+
+Then
+
+\[
+f(x)
+=
+3\operatorname{ReLU}(x)
++
+4\operatorname{ReLU}(2x).
+\]
+
+For
+
+\[
+x>0,
+\]
+
+\[
+f(x)=11x.
+\]
+
+For
+
+\[
+x\le0,
+\]
+
+\[
+f(x)=0.
+\]
+
+### Permutation representative
+
+Take
+
+\[
+P=
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix}.
+\]
+
+Then
+
+\[
+W_1'=
+\begin{pmatrix}
+2\\
+1
+\end{pmatrix},
+\qquad
+W_2'=
+\begin{pmatrix}
+4&3
+\end{pmatrix},
+\]
+
+and
+
+\[
+f'(x)=f(x)
+\]
+
+for every \(x\).
+
+### Positive-rescaling representative
+
+Take
+
+\[
+D=
+\operatorname{diag}(2,1/3).
+\]
+
+Then
+
+\[
+W_1''=
+\begin{pmatrix}
+2\\
+2/3
+\end{pmatrix},
+\]
+
+and
+
+\[
+W_2''=
+\begin{pmatrix}
+3/2&12
+\end{pmatrix}.
+\]
+
+Again,
+
+\[
+f''(x)=f(x)
+\]
+
+for every \(x\).
+
+The parameter vectors are different.
+
+The function is identical.
+
+## D7. Orbit directions and local redundancy
+
+Suppose a differentiable parameterized function
+
+\[
+F(\theta)
+\]
+
+is invariant along a smooth symmetry orbit
+
+\[
+\theta(s)
+\]
+
+so that
+
+\[
+F(\theta(s))
+=
+F(\theta(0)).
+\]
+
+Then
+
+\[
+\frac{d}{ds}
+F(\theta(s))
+\Big|_{s=0}
+=
+J_F(\theta)
+\dot\theta(0)
+=
+0.
+\]
+
+Thus the tangent to the symmetry orbit lies in the local null space of the function map.
+
+For a loss depending only on the represented function, the loss derivative also vanishes in that orbit direction.
+
+At a smooth critical point, exact continuous symmetries can induce Hessian degeneracy along symmetry directions, subject to the regularity assumptions of the chosen parameterization and loss.
+
+This local statement does not imply that all flat directions arise from symmetry.
+
+## D8. Quotienting does not imply convexity
+
+Let
+
+\[
+\pi:\Theta\to\Theta/G
+\]
+
+remove a declared symmetry.
+
+Even if the quotient removes exact redundant directions, the quotient objective can still contain:
+
+- multiple functionally distinct minima;
+- saddles;
+- barriers;
+- ill-conditioned directions;
+- singular strata.
+
+Therefore
+
+\[
+\boxed{
+\text{redundancy removed}
+\not\Rightarrow
+\text{globally simple optimization}.
+}
+\]
+
+## D9. Open benign-nonconvexity question
+
+The Atlas research question is narrower:
+
+> What portion of observed neural nonconvexity is benign redundancy induced by symmetries or representational equivalence, and what portion remains intrinsic after quotienting?
+
+That question motivates the later constructive benign-nonconvexity programme.
+
+It is not answered by this chapter.
+
+## Claim boundary
+
+This packet establishes exact permutation and positive-rescaling symmetries for the declared one-hidden-layer setting, the Grassmann quotient interpretation, and the local null-direction consequence of a smooth exact symmetry.
+
+It does not prove that generic neural parameter quotients are globally smooth or that quotient optimization is universally easier.
