@@ -75,7 +75,7 @@ Final numbering and physical order may change.
 
 ### Hard dependency
 
-If (A	o B) is a hard dependency, chapter (B) may use the declared content of (A) without rebuilding it from first principles.
+If (A\to B) is a hard dependency, chapter (B) may use the declared content of (A) without rebuilding it from first principles.
 
 ### Soft cross-link
 
