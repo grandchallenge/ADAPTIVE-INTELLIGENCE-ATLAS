@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
   issue_number: undefined
-  tranche_id: "RLBASE-001"
+  tranche_id: "AUDIT-017"
   chapter_ids: ["ATLAS-CH-RLBASE-001"]
   baseline_commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
-  branch: "work/rlbase-001"
+  branch: "audit/rlbase-001"
   head_commit: "39932c4067bd3d3f85a4d223586875cd2063e3b7"
-  pull_request: 81
-  state: "merged"
-  next_action: "Instantiate AUDIT-017 for ATLAS-CH-RLBASE-001 on merge 39932c4067bd3d3f85a4d223586875cd2063e3b7 and execute the bounded audit."
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Execute AUDIT-017, repair every in-scope defect, write reviews/AUDIT-017.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-RLBASE-001"
     downstream_architecture_count: 7
