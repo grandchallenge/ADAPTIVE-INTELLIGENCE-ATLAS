@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 103
+  tranche_id: "NETNUM-001"
+  chapter_ids:
+    - "ATLAS-CH-NETNUM-001"
   baseline_commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
-  branch: null
+  branch: "work/netnum-001"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-NETNUM-001; it has the largest unlocked downstream architecture cone (5 nodes)."
+  state: "implementation-active"
+  next_action: "Continue NETNUM-001 implementation from issue #103 and branch work/netnum-001; bind audited NUMERICS-001 and ARCHHIST-001, write the chapter packet, validate, merge, audit, and close the transaction."
 frontier:
   - id: "ATLAS-CH-NETNUM-001"
     downstream_architecture_count: 5
