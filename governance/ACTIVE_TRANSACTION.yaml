@@ -9,9 +9,9 @@ current:
   baseline_commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
   branch: "audit/rlbase-001"
   head_commit: "39932c4067bd3d3f85a4d223586875cd2063e3b7"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Execute AUDIT-017, repair every in-scope defect, write reviews/AUDIT-017.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
+  pull_request: 83
+  state: "audit-pr-open"
+  next_action: "Inspect AUDIT-017 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-RLBASE-001"
     downstream_architecture_count: 7
