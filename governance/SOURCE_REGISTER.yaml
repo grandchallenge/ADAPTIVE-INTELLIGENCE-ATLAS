@@ -224,3 +224,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-FORMAL-001.yaml"
     authority: "Hoare-style program logic, LCF trusted-kernel architecture, Lean theorem-prover architecture/reference, TLA+ specification/model checking, and audited Replayable Evidence Objects provenance discipline."
+
+  - id: "ATLAS-SRC-REGRET-LOCK-001"
+    title: "Regret source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-REGRET-001.yaml"
+    authority: "Stochastic/adversarial bandit regret, Bayesian and minimax criteria, asymptotic and finite-time regret analysis, comparator-relative regret, pure-exploration/simple-regret distinctions, and audited Exploration prerequisite."
