@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-OPTBASE-001"
+chapter_id: "ATLAS-CH-OPTBASE-001"
+status: "rendered-witness"
+representation_class: "exact"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-OPTBASE-001.wl"
+  source_git_blob_sha1: "61123040326f80ec73a170778ba1140ef3f8fcb9"
+  rendered: "figures/masters/ATLAS-FIG-OPTBASE-001.png"
+  rendered_git_blob_sha1: "7abd93008e812514667652200ec1d79ba89b5248"
+  rendered_bytes: 176645
+parameters:
+  quadratic_amplification: "|1-a| with a=eta*lambda, a in [0,3]"
+  clipping_gradient: "[3,4]"
+  clipping_threshold: 2
+  clipped_gradient: "[6/5,8/5]"
+  coupled_next_theta: "183/100"
+  decoupled_next_theta: "181/100"
+literal_semantics: >
+  The left panel plots the exact scalar quadratic gradient-descent amplification
+  |1-eta lambda| and marks the strict asymptotic-convergence interval
+  0<eta lambda<2. The middle panel uses the exact norm-clipping witness
+  g=(3,4), tau=2, g_clip=(6/5,8/5). The right panel displays the exact
+  coupled and decoupled adaptive-decay next iterates 183/100 and 181/100.
+nonliteral_semantics: >
+  Shading, line thickness, label placement, axis range, and panel layout are
+  pedagogical presentation choices.
+claim_boundary: >
+  The figure establishes exact toy geometry and update differences only.
+  It does not rank optimizers, prove nonconvex convergence, or claim that one
+  schedule, clipping threshold, or decay convention is universally preferable.
