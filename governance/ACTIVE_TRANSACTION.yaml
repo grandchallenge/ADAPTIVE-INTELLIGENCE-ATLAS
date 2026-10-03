@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 103
+  issue_number: 104
   tranche_id: "NETNUM-001"
   chapter_ids:
     - "ATLAS-CH-NETNUM-001"
-  baseline_commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
-  branch: "work/netnum-001"
-  pull_request: 103
-  state: "implementation-pr-validation"
-  next_action: "Validate PR #103 at exact head 79066802ba0fd0dcbe3cd0bcc866abf57037d510; repair all in-scope defects, merge when green, then run the bounded post-draft audit."
+  baseline_commit: "e7c0cda1a96f23e78120c02f66511488612a4035"
+  branch: "audit/netnum-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Execute AUDIT-023 against implementation merge e7c0cda1a96f23e78120c02f66511488612a4035; repair every in-scope defect, write the audit record, validate, merge, then recompute the frontier and reset to idle-ready."
 frontier:
   - id: "ATLAS-CH-NETNUM-001"
     downstream_architecture_count: 5
