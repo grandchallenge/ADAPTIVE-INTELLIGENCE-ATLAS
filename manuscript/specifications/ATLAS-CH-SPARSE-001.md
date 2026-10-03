@@ -95,17 +95,16 @@ The router has its own cost and failure modes.
 
 For input `x`, define realized resource vector
 
-`C(x)=(F(x),L(x),M(x),K(x),E(x))`
+`C(x)=(F(x),K(x),M(x),E(x))`
 
 for example:
 
 - FLOPs/arithmetic operations `F`;
-- sequential depth/latency proxy `L`;
 - memory traffic `M`;
 - kernel or dispatch count `K`;
 - energy `E`.
 
-Do not add unlike units without a declared scalarization.
+Do not add unlike units without a declared scalarization. Latency/throughput are hardware-dependent measured or modeled outputs of this lower-level resource state, not universal primitive coordinates.
 
 ## Average versus peak/tail
 
