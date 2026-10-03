@@ -31,7 +31,7 @@ The experiment must expose what was varied, what was compared, how observations 
 
 Define
 
-`E = (q, theta, U, A, Z, Y, g, V, tau, Omega)`.
+`E = (q, theta, U, A, Z, Y, g, V, rho, Omega)`.
 
 Interpretation:
 
@@ -43,7 +43,7 @@ Interpretation:
 - `Y`: measured outcome;
 - `g`: estimator, contrast, or comparison function;
 - `V`: declared variation/uncertainty sources and summary;
-- `tau`: stopping, selection, tuning, and reporting rule;
+- `rho`: stopping, selection, tuning, and reporting rule;
 - `Omega`: interpretation scope.
 
 The tuple is diagnostic.
@@ -226,7 +226,7 @@ then the reported statistic is
 
 not a prespecified single-run observation.
 
-The search rule is part of `tau`.
+The search rule is part of `rho`.
 
 This remains true whether the selection happens over:
 
