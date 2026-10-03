@@ -38,9 +38,9 @@ For action `a`, define information gain
 
 `IG_t(a)=I_b(theta;Y_{t+1}|a)`.
 
-For one remaining decision after the observation, define decision value of information
+For one remaining decision after the observation, define the expected one-step payoff `bar r(theta,a')=E_{Y'~p(.|theta,a')}[r(theta,a',Y')]` and then define decision value of information
 
-`VoI_b(a)=E_Y[max_{a'}E[r(theta,a')|Y,a]]-max_{a'}E[r(theta,a')]`.
+`VoI_b(a)=E_Y[max_{a'}E[bar r(theta,a')|Y,a]]-max_{a'}E[bar r(theta,a')]`.
 
 The two quantities must remain distinct: information gain is an uncertainty-reduction quantity; value of information is expressed in the declared decision objective.
 
