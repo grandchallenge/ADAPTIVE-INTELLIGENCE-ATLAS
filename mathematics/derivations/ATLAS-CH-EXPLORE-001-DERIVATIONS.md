@@ -100,13 +100,17 @@ It does not have reward units.
 
 Suppose exactly one decision remains after the observation.
 
+Define the expected one-step payoff
+
+`bar r(theta,a')=E_{Y'~p(.|theta,a')}[r(theta,a',Y')]`.
+
 Without new information, the best expected future reward is
 
-`J_0(b)=max_{a'} E_{theta~b}[r(theta,a')]`.
+`J_0(b)=max_{a'} E_{theta~b}[bar r(theta,a')]`.
 
 If action `a` is taken first, observation `Y` arrives, and the posterior becomes `b_Y`, the expected future reward is
 
-`J_1(b,a)=E_Y[max_{a'}E_{theta~b_Y}[r(theta,a')]]`.
+`J_1(b,a)=E_Y[max_{a'}E_{theta~b_Y}[bar r(theta,a')]]`.
 
 Define
 
@@ -223,7 +227,7 @@ Before choosing `U`,
 
 under base-2 entropy.
 
-After observing `U), posterior entropy is zero.
+After observing `U`, posterior entropy is zero.
 
 Thus
 
@@ -331,7 +335,7 @@ Different constraint semantics include:
 
 These are not interchangeable.
 
-Moldovan and Abbeel provide one concrete safe-exploration formulation for MDPs based on ergodicity/returnability structure and a restricted set of guaranteed-safe policies.
+Moldovan and Abbeel provide one concrete safe-exploration formulation for MDPs based on an ergodicity-based safety formulation and a restricted set of guaranteed-safe policies.
 
 The Atlas extracts only the general rule:
 
