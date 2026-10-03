@@ -129,6 +129,66 @@ grid=Range[-2,2,1/2];
  And@@Thread[(f/@grid)==(fd/@grid)]}
 \`\`\`
 
+## Hessian null-direction witness
+
+For the smooth scalar model
+
+\[
+f(a,b)=ab
+\]
+
+with loss
+
+\[
+L(a,b)=\frac12(ab-y)^2,
+\]
+
+the positive rescaling
+
+\[
+(a,b)\mapsto(a/c,cb)
+\]
+
+leaves the model output unchanged.
+
+On the critical manifold
+
+\[
+y=ab,
+\]
+
+the Hessian is
+
+\[
+H=
+\begin{pmatrix}
+b^2&ab\\
+ab&a^2
+\end{pmatrix}.
+\]
+
+The infinitesimal scaling-orbit tangent is
+
+\[
+v=(-a,b).
+\]
+
+Wolfram verifies
+
+\[
+Hv=(0,0).
+\]
+
+Replay:
+
+\`\`\`wolfram
+loss=(a b-y)^2/2;
+h=D[loss,{{a,b},2}];
+hc=FullSimplify[h/.y->a b];
+v={-a,b};
+{hc,v,FullSimplify[hc.v]}
+\`\`\`
+
 ## Claim boundary
 
 This witness reconstructs exact function-preserving permutation and positive-rescaling transformations for one declared ReLU architecture.
