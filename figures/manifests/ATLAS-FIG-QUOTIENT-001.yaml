@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-QUOTIENT-001"
+chapter_id: "ATLAS-CH-QUOTIENT-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-QUOTIENT-001.wl"
+  source_git_blob_sha1: "39d00b3e601cb4490e0c8c0755b5f4a8bcf63ef1"
+  rendered: "figures/masters/ATLAS-FIG-QUOTIENT-001.png"
+  rendered_git_blob_sha1: "0fd0154aca1a70a622c43f726fd31532a2092341"
+  rendered_bytes: 39297
+parameters:
+  original_W1: "[1,2]"
+  original_W2: "[3,4]"
+  permuted_W1: "[2,1]"
+  permuted_W2: "[4,3]"
+  rescaled_W1: "[2,2/3]"
+  rescaled_W2: "[3/2,12]"
+  common_function: "11*max(0,x)"
+literal_semantics: >
+  The three displayed parameter representatives are the exact original, hidden-unit
+  permutation, and positive-rescaling witnesses. The plotted function is exactly
+  f(x)=11 max(0,x), which all three representatives compute.
+nonliteral_semantics: >
+  Box positions, symmetry arrows, arrow lengths, spacing, and the geometric placement
+  of representatives do not encode a metric or topology on parameter space.
+claim_boundary: >
+  The figure establishes one exact functional-equivalence class for the declared
+  two-hidden-unit ReLU network. It does not assert that generic neural-network
+  quotients are smooth or globally easy to optimize.

@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-NORMREP-001"
+chapter_id: "ATLAS-CH-NORMREP-001"
+status: "rendered-witness"
+representation_class: "exact"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-NORMREP-001.wl"
+  source_git_blob_sha1: "e6d05741ce7918d2ceb64f37bae92b3586c3a27e"
+  rendered: "figures/masters/ATLAS-FIG-NORMREP-001.png"
+  rendered_git_blob_sha1: "691015fde4f682505dcb6afe6120638936118cc0"
+  rendered_bytes: 61355
+parameters:
+  normalization_input: "[3,4]"
+  normalized_state: "[3/5,4/5]"
+  tangent_direction: "[-4/5,3/5]"
+  spherical_pair: "a=[1,0], b=[1/2,sqrt(3)/2]"
+  angular_separation: "pi/3"
+  chord_length: 1
+  slerp_midpoint: "[sqrt(3)/2,1/2]"
+literal_semantics: >
+  The left panel uses the exact unit direction (3/5,4/5), its radial direction,
+  and an exact orthogonal tangent direction. The right panel uses two unit vectors
+  separated by pi/3, an exact unit chord length, and the exact SLERP midpoint.
+nonliteral_semantics: >
+  Arrow lengths for the displayed radial and tangent annotations, label placement,
+  grayscale, and panel layout are presentation choices.
+claim_boundary: >
+  The figure demonstrates radial/tangential geometry and one exact spherical
+  interpolation example. It does not claim that normalization improves learning
+  or that norm is irrelevant to every task.

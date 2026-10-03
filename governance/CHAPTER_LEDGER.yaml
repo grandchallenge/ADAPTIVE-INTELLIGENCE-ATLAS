@@ -168,8 +168,16 @@
         "ATLAS-CH-GEOM-001",
         "ATLAS-CH-REP-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-NORMREP-001.md",
+      "manuscript_path": "manuscript/parts/03-representation-learning/ATLAS-CH-NORMREP-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-NORMREP-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-NORMREP-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-NORMREP-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-NORMREP-001"
+      ]
     },
     {
       "id": "ATLAS-CH-QUOTIENT-001",
@@ -178,8 +186,16 @@
         "ATLAS-CH-GEOM-001",
         "ATLAS-CH-REP-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-QUOTIENT-001.md",
+      "manuscript_path": "manuscript/parts/03-representation-learning/ATLAS-CH-QUOTIENT-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-QUOTIENT-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-QUOTIENT-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-QUOTIENT-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-QUOTIENT-001"
+      ]
     },
     {
       "id": "ATLAS-CH-RESIDUAL-001",

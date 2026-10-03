@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-QUOTIENT-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  Standard quotient-space/manifold geometry and Grassmann quotient structure are
+  externally established. Neural-network permutation and positive-rescaling symmetries
+  are supported by the cited literature and independently rederived for simple feedforward
+  ReLU networks. The stronger proposition that quotienting generally simplifies learning
+  landscapes or improves optimization is presented only as an Atlas/GCL research question.
+sources:
+  - id: "QUOTIENT-LEE-2018"
+    citation_key: "Lee2018Riemannian"
+    kind: "monograph"
+    title: "Introduction to Riemannian Manifolds"
+    authority: "Standard manifold, group-action and quotient-manifold background."
+  - id: "QUOTIENT-ABSIL-2008"
+    citation_key: "AbsilMahonySepulchre2008"
+    kind: "monograph"
+    title: "Optimization Algorithms on Matrix Manifolds"
+    authority: "Optimization-oriented quotient-manifold and horizontal/vertical-space background."
+  - id: "QUOTIENT-EDELMAN-1998"
+    citation_key: "EdelmanAriasSmith1998"
+    kind: "peer-reviewed-article"
+    title: "The Geometry of Algorithms with Orthogonality Constraints"
+    authority: "Canonical Stiefel/Grassmann geometry and basis-redundancy example."
+  - id: "QUOTIENT-GRIGSBY-2023"
+    citation_key: "GrigsbyLindseyRolnick2023"
+    kind: "peer-reviewed-conference"
+    title: "Hidden Symmetries of ReLU Networks"
+    venue: "ICML / PMLR 202"
+    year: 2023
+    authority: "Peer-reviewed source on permutation, positive-scaling and additional hidden symmetries in ReLU networks."
+  - id: "QUOTIENT-ZIYIN-2024"
+    citation_key: "Ziyin2024Symmetry"
+    kind: "peer-reviewed-conference"
+    title: "Symmetry Induces Structure and Constraint of Learning"
+    venue: "ICML / PMLR 235"
+    year: 2024
+    authority: "Peer-reviewed source for consequences of parameter/loss symmetries in learning under the paper's assumptions."
+atlas_sources:
+  - id: "QUOTIENT-GEOMETRY-KEYSTONE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b2a59985122fbc701d2699473fe843f06320a56c"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md"
+    authority: "Audited Atlas source for Stiefel versus Grassmann and quotient interpretation."
+  - id: "QUOTIENT-REPRESENTATION"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b2a59985122fbc701d2699473fe843f06320a56c"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md"
+    authority: "Audited Atlas source for representation equivalence and invertible recoding."
+epistemic_rules:
+  - "Parameter equality is stronger than functional equality."
+  - "A quotient requires an explicit equivalence relation or group action."
+  - "Permutation and positive-rescaling symmetries are exact only under their stated architectural/activation assumptions."
+  - "Quotienting removes declared redundancy; it does not automatically make optimization convex, well-conditioned, or globally simple."
