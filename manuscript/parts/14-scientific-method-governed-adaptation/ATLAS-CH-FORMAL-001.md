@@ -25,33 +25,51 @@ The governing distinction of this chapter is:
 
 The semantic bridges around that object remain part of the scientific argument.
 
-## 1. The formal claim stack
+## 1. The formal support graph
 
-Use the Atlas stack
+Use the Atlas object set
 
-`R -> S -> M -> P -> K -> I -> W`.
+`F=(R,S,M,P,K,I,W)`.
 
 Here:
 
 - `R`: intended requirement;
-- `S`: formal specification;
+- `S`: formal specification/property;
 - `M`: formal model and semantics;
 - `P`: proof object, derivation, certificate, or model-checking result;
 - `K`: trusted checker/kernel and surrounding trust base;
 - `I`: implementation;
 - `W`: deployed world or environment.
 
-This stack prevents a common collapse.
+These objects should not be arranged as one untyped implication chain.
 
-A theorem checker may establish a relation among `S`, `M`, `P`, and `K`.
+Instead, use typed obligations:
 
-It does not automatically prove:
+`Formalizes(S,R)`
 
-- that `S` captures `R`;
-- that `I` refines `S`;
-- that `W` satisfies the assumptions in `M`.
+asks whether the formal statement captures the intended requirement.
 
-Those are separate obligations.
+`Interprets(M,S)`
+
+binds the statement to its formal semantics/model.
+
+`Checks(K,P,S,M)`
+
+records that checker `K` accepts support object `P` for the declared formal claim.
+
+`Conforms(I,M)`
+
+asks whether the implementation refines or conforms to the formal model strongly enough for the property being transferred.
+
+`AssumptionsHold(W,M)`
+
+asks whether the deployed world satisfies the environmental assumptions used by the model.
+
+This graph prevents a common collapse.
+
+A proof checker may establish `Checks`.
+
+It does not automatically establish `Formalizes`, `Conforms`, or `AssumptionsHold`.
 
 ## 2. Formal specification is not human intent
 
@@ -382,8 +400,6 @@ A user may rely on:
 - libraries.
 
 The final elaborated object is checked by the kernel against the formal environment.
-
-The current official Lean reference continues to describe the project in terms of a small trusted proof-checking core [@LeanReference2026].
 
 This is the key trust pattern:
 
@@ -776,7 +792,6 @@ The downstream chapter must independently formalize:
 - Hoare, *An Axiomatic Basis for Computer Programming* [@Hoare1969].
 - Milner, *LCF: A Way of Doing Proofs with a Machine* [@Milner1979LCF].
 - de Moura et al., *The Lean Theorem Prover (System Description)* [@DeMouraEtAl2015Lean].
-- Lean Language Reference, version observed 2026-10-03 [@LeanReference2026].
 - Lamport, *Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers* [@Lamport2002SpecifyingSystems].
 
 Exact source identities and authority boundaries are recorded in:

@@ -6,21 +6,23 @@ This packet separates the formal objects that are often collapsed into the sente
 
 > "the system is formally verified."
 
-The chapter uses the stack
+The chapter uses the object set
 
-`R -> S -> M -> P -> K -> I -> W`
+`F=(R,S,M,P,K,I,W)`
 
-where:
+for intended requirement, formal specification, formal model/semantics, support object, checker/kernel, implementation, and deployed world.
 
-- `R): intended requirement;
-- `S): formal specification;
-- `M): formal model and semantics;
-- `P): proof object, derivation, checked certificate, or model-checking result;
-- `K): checker/kernel and trusted computing base;
-- `I): implementation/deployed artifact;
-- `W): real environment or phenomenon.
+These objects do not form one linear implication chain.
 
-A machine-checked relation at one layer does not automatically prove every adjacent bridge.
+The load-bearing relations are typed:
+
+`Formalizes(S,R)`,
+`Interprets(M,S)`,
+`Checks(K,P,S,M)`,
+`Conforms(I,M)`,
+`AssumptionsHold(W,M)`.
+
+A proof/check can establish the formal relation represented by `Checks` without thereby establishing semantic adequacy, implementation conformance, or environmental assumption validity.
 
 ## 2. Requirement versus specification
 

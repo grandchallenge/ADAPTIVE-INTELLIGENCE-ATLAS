@@ -26,29 +26,33 @@ A proof assistant can reject a false derivation while still depending on the cor
 
 The chapter must therefore separate the objects being checked.
 
-## Formal claim stack
+## Formal support graph
 
-Use the following Atlas stack:
+Use the Atlas object set
 
-`R -> S -> M -> P -> K -> I -> W`
+`F=(R,S,M,P,K,I,W)`
 
 where:
 
 - `R`: natural-language requirement or intended claim;
-- `S`: formal specification;
+- `S`: formal specification/property;
 - `M`: formal model/semantics;
-- `P`: proof object, derivation, model-checking result, or certificate;
+- `P`: proof object, derivation, checked certificate, or model-checking result;
 - `K`: checker/kernel and trusted computing base;
 - `I`: implementation or deployed artifact;
 - `W`: real-world environment/phenomenon.
 
-The arrows are obligations, not automatic equivalences.
+Do not connect these objects by one untyped chain.
 
-A checked theorem at `S/M/P/K` does not by itself establish:
+Use typed support obligations instead, schematically:
 
-- that `S` captures `R`;
-- that `I` implements `S`;
-- that `W` satisfies the modeling assumptions.
+- `Formalizes(S,R)`: the formal statement adequately represents the intended requirement;
+- `Interprets(M,S)`: the model/semantics gives the formal statement its declared meaning;
+- `Checks(K,P,S,M)`: the checker validates the support object for the formal statement under the model/environment;
+- `Conforms(I,M)`: the implementation refines or conforms to the formal model strongly enough for the property being transferred;
+- `AssumptionsHold(W,M)`: the deployed world satisfies the environmental/model assumptions used by the formal claim.
+
+A checked proof can discharge the `Checks` relation while leaving `Formalizes`, `Conforms`, or `AssumptionsHold` open.
 
 ## Specification versus requirement
 
