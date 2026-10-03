@@ -23,7 +23,7 @@ Exact prerequisite binds:
 
 Retrieval contract:
 
-`R=(D,Q,F,s,pi,k,O)`
+`Retr=(D,Q,F,s,pi,k,O)`
 
 for record set, query space, filter/admissibility, score or match relation, ranking/selection, truncation budget, and returned projection.
 
