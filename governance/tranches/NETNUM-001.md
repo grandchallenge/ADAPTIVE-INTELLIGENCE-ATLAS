@@ -57,7 +57,7 @@ Euler/residual step:
 
 The witness records:
 
-- stability interval `0<=h<=2`;
+- non-growth interval `0<=h<=2` and strict-decay interval `0<h<2`;
 - unstable factor `-2` at `h=3`;
 - refinement values at `N=2,4,8`;
 - exact continuous value `e^{-1}`;
