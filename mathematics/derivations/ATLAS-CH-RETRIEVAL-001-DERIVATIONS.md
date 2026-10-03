@@ -6,7 +6,7 @@ Let the immutable record set be `D`.
 
 Define a retrieval contract
 
-`R=(D,Q,F,s,pi,k,O)`
+`Retr=(D,Q,F,s,pi,k,O)`
 
 with:
 
@@ -100,13 +100,17 @@ Let a total order under score be
 
 Then
 
-`TopK_k(D)={d_(1),...,d_(k)}`.
+`TopK_k(D)=(d_(1),...,d_(k))` as an ordered list.
+
+Its underlying selected set is
+
+`TopKSet_k(D)={d_(1),...,d_(k)}`.
 
 Records outside the set are omitted because of the budget/order.
 
 No logical conclusion
 
-`d not in TopK => irrelevant(d)`
+`d not in TopKSet_k(D) => irrelevant(d)`
 
 follows from truncation alone.
 
@@ -256,9 +260,9 @@ In general:
 
 `TopK(F(D))`
 
-need not equal
+need not equal the order-preserving filtered sequence
 
-`F(TopK(D))`.
+`Filter(TopK(D))`.
 
 Equality requires additional conditions, for example that the globally selected top-k records already satisfy the filter strongly enough to fill the requested result budget.
 

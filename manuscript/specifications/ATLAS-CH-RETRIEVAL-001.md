@@ -40,7 +40,7 @@ Different retrieval contracts can return different valid results from the same i
 
 Write a retrieval contract as
 
-`R=(D,Q,F,s,pi,k,O)`
+`Retr=(D,Q,F,s,pi,k,O)`
 
 where:
 
@@ -105,7 +105,7 @@ and
 
 For distance `delta`:
 
-`R_vec(q,k)=TopK_{d in D}[-delta(phi_Q(q),phi_D(d))]`.
+`Retr_vec(q,k)=TopK_{d in D}[-delta(phi_Q(q),phi_D(d))]`.
 
 Equivalent similarity formulations are allowed when declared.
 
