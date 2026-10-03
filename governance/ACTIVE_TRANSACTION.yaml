@@ -9,9 +9,9 @@ current:
   baseline_commit: "a3361157cd98647ab3450a2a9786242af9930291"
   branch: "audit/evidence-001"
   pull_request: 71
-  state: "audit-pr-open"
+  state: "audit-ci-green"
   head_commit: "95f71ecc4baafba19bad76fd8d67f7b5efbe4ebe"
-  next_action: "Inspect AUDIT-014 PR validation; repair any in-scope defect; merge only on green validation; close the audit issue; recompute the dependency-legal frontier."
+  next_action: "Merge AUDIT-014 PR #71 at its validated head, close the audit issue, then recompute the dependency-legal frontier from the new main."
 frontier:
   - id: "ATLAS-CH-EVIDENCE-001"
     downstream_architecture_count: 13
