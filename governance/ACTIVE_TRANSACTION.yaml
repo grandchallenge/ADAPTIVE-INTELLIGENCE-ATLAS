@@ -3,15 +3,15 @@ mode: "transaction"
 repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 current:
-  issue_number: 76
-  tranche_id: "COORD-001"
+  issue_number: undefined
+  tranche_id: "AUDIT-016"
   chapter_ids: ["ATLAS-CH-COORD-001"]
   baseline_commit: "79a066f9e4c22022f09a03fda7945264ef10619b"
-  branch: "work/coord-001"
-  pull_request: 77
-  state: "merged"
+  branch: "audit/coord-001"
+  pull_request: null
+  state: "audit-instantiated"
   head_commit: "7fe595987e57b4b1117b87ad0d786352c04cb4cf"
-  next_action: "Instantiate AUDIT-016 for ATLAS-CH-COORD-001 on merge 7fe595987e57b4b1117b87ad0d786352c04cb4cf and execute the bounded audit."
+  next_action: "Execute AUDIT-016, repair every in-scope defect, write reviews/AUDIT-016.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-COORD-001"
     downstream_architecture_count: 7
