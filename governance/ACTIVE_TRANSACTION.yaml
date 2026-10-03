@@ -8,9 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-EVIDEX-001"]
   baseline_commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
   branch: "work/evidex-001"
-  pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Lock exact Evidence/Coordination prerequisites and provenance/zero-context sources, compose specification/formal packet/manuscript/witness, promote ledger/register, validate, and open the implementation PR."
+  head_commit: "fd790d5ea78f246658b4ca90c75c2c5821b6ddd7"
+  pull_request: 93
+  state: "pr-open"
+  next_action: "Inspect PR #93 validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-EVIDEX-001"
     downstream_architecture_count: 5
