@@ -4,19 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 108
-  tranche_id: "FORMAL-001"
-  chapter_ids:
-    - "ATLAS-CH-FORMAL-001"
-  baseline_commit: "ea4b586d2b2c4a2e664345613ec7300c5e18ffda"
-  branch: "audit/formal-001"
-  pull_request: 108
-  state: "audit-pr-validation"
-  next_action: "Validate audit PR #108 at exact head ceb74515bd20645b84cb93f20654eb4321ba6713; repair any in-scope validation defect, merge only when green, then recompute the dependency-legal frontier and reset to idle-ready."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "f94a18010d969f80ddb96663bec02e449f4eb5eb"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-REGRET-001; it ties for the largest unlocked downstream architecture cone (4 nodes) and is first under deterministic frontier ordering."
 frontier:
-  - id: "ATLAS-CH-FORMAL-001"
-    downstream_architecture_count: 4
-    direct_consumers: ["ATLAS-CH-RESEARCHSM-001"]
   - id: "ATLAS-CH-REGRET-001"
     downstream_architecture_count: 4
     direct_consumers: ["ATLAS-CH-OPTIONALITY-001"]
@@ -35,6 +31,9 @@ frontier:
   - id: "ATLAS-CH-LOCALGLOBAL-001"
     downstream_architecture_count: 3
     direct_consumers: []
+  - id: "ATLAS-CH-RESEARCHSM-001"
+    downstream_architecture_count: 3
+    direct_consumers: ["ATLAS-CH-GOVADAPT-001"]
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
