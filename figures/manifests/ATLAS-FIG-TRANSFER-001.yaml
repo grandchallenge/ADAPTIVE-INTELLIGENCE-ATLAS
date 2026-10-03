@@ -1,0 +1,35 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-TRANSFER-001"
+chapter_id: "ATLAS-CH-TRANSFER-001"
+status: "rendered-witness"
+representation_class: "schematic"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-TRANSFER-001.wl"
+  source_git_blob_sha1: "6956781f49cf189383961b3be069028abfb1ac31"
+  rendered: "figures/masters/ATLAS-FIG-TRANSFER-001.png"
+  rendered_git_blob_sha1: "b24dade0ca0572b1a60a08a58a37115e82a2ffc3"
+  rendered_bytes: 35171
+parameters:
+  source_matrix: "[[1,1],[1,-1]]"
+  target_matrix: "[[2,0],[0,1/2]]"
+  residual: "[3,1]"
+  source_representation: "[4,2]"
+  target_representation: "[6,1/2]"
+  target_outputs: "[4,5]"
+  bottleneck_states: "r_A=[1,0], r_B=[1,1]"
+  bottleneck_value: 1
+  conflicting_task_outputs: "[2,1]"
+literal_semantics: >
+  The left panel displays the exact source representation, target representation,
+  common Residual, and target-task outputs from the declared linear witness.
+  The right panel displays the exact pair of states merged by the one-dimensional
+  bottleneck and their conflicting target-task outputs.
+nonliteral_semantics: >
+  Box positions, arrow lengths, spacing, and panel layout are pedagogical and do
+  not encode a learned geometry, probability distribution, or empirical effect size.
+claim_boundary: >
+  The figure illustrates one sufficient common-Residual transfer certificate and
+  one exact deterministic bottleneck failure. It does not establish empirical
+  transfer benefit, optimization success, or robustness to distribution shift.
