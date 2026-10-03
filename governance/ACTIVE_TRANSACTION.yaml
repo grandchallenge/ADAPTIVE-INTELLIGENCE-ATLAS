@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-AGENTS-001"]
   baseline_commit: "1ab13b87c02f90630dbd37be7e4a15ee83643c80"
   branch: "work/agents-001"
-  pull_request: null
-  state: "draft-complete"
+  pull_request: 73
+  state: "pr-open"
   head_commit: "a331f679a582abba683922686424b10da42747ab"
-  next_action: "Open implementation PR, run repository validation, repair all in-scope defects, and merge only on green validation."
+  next_action: "Inspect implementation PR validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-AGENTS-001"
     downstream_architecture_count: 8
