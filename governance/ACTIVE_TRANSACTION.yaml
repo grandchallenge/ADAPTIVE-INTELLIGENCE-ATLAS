@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-REGRET-001"
   baseline_commit: "915911dfd5b6b6daf7084edd75e2341d7a727d10"
   branch: "audit/regret-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-026 on REGRET-001 merge 915911dfd5b6b6daf7084edd75e2341d7a727d10, repair, validate, merge, and reset."
+  pull_request: 111
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #111 at exact head 4e6b8ffc215153699ae129b6fc76f0970d0d39cb, then merge and reset."
 frontier:
   - id: "ATLAS-CH-REGRET-001"
     downstream_architecture_count: 4
