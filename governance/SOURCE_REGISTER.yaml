@@ -152,3 +152,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-MAP-001.yaml"
     authority: "Project-internal canonical map, dependency, epistemic, composition, figure, and provenance objects used to explain Atlas reading semantics."
+
+  - id: "ATLAS-SRC-EVIDENCE-LOCK-001"
+    title: "Claims, Evidence, and Computational Witnesses source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-EVIDENCE-001.yaml"
+    authority: "Project-local evidence grammar binding canonical epistemic classes, computational-witness boundaries, source authority, and the audited MAP prerequisite."
