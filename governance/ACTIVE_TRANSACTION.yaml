@@ -9,9 +9,9 @@ current:
   baseline_commit: "ffca5ab3dbc75ef0b3ce0ff5afe13d86f32ae75e"
   branch: "audit/evidex-001"
   head_commit: "dceb03af6b0c253b66a1c04a00f2285acd899c73"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Execute AUDIT-020, repair every in-scope defect, write reviews/AUDIT-020.md, validate, merge, close the audit issue, and recompute the dependency-legal frontier."
+  pull_request: 95
+  state: "audit-pr-open"
+  next_action: "Inspect AUDIT-020 PR validation, repair all in-scope defects, merge only on green validation, close the audit issue, and recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-EVIDEX-001"
     downstream_architecture_count: 5
