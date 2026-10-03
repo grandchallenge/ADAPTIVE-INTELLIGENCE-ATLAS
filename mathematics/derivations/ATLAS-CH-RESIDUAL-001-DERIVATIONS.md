@@ -106,7 +106,13 @@ Interpretation:
 
 \(R_1\) contains no more distinctions than \(R_2\), because \(R_1\) can be recovered from \(R_2\).
 
-This is a preorder rather than necessarily a partial order because distinct codings can factor through one another.
+This is a preorder provided (mathfrak M) contains identity maps and is closed under composition.
+
+Distinct codings can factor through one another, so antisymmetry need not hold at the representation level.
+
+When (mathfrak M) contains all maps, this is a semantic information preorder.
+
+Restricting (mathfrak M) to efficiently computable or bounded-cost maps yields a stronger operational notion of recoverability.
 
 ## D5. Provisional Residual
 
@@ -176,7 +182,7 @@ The nontrivial Residual programme must therefore declare restrictions on \(\math
 - intervention-stable structure;
 - bounded reconstruction cost.
 
-The choice of admissible descriptor class is part of the problem statement.
+The choices of admissible descriptor class and admissible post-processing class are part of the problem statement.
 
 ## D6. Uniqueness up to realized-image recoding
 

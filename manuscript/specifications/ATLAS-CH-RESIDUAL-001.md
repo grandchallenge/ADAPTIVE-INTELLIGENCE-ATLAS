@@ -101,7 +101,7 @@ for every other invariant capability-sufficient descriptor \(S\),
 R\preceq S.
 \]
 
-The chapter must state that a least object need not exist without additional assumptions. When it does exist, different least representatives are considered equivalent when they factor through one another on their realized images.
+The chapter must distinguish semantic leastness ((mathfrak M) all maps) from operational leastness (for example efficiently computable or bounded-cost maps). A least object need not exist without additional assumptions. When it does exist, different least representatives are considered equivalent when they factor through one another on their realized images.
 
 It must also expose the **behavior-table trivialization**: if (mathfrak D) allows the complete behavior profile (xmapsto B_x) as an unconstrained descriptor, then that profile is already a canonical sufficient object. The nontrivial Residual programme therefore requires explicit portability, structural, computational, or complexity restrictions on (mathfrak D).
 

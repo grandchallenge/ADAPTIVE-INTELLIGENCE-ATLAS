@@ -272,7 +272,11 @@ Interpretation:
 
 \(R_1\) contains no more distinctions than \(R_2\), because everything in \(R_1\) can be recovered from \(R_2\).
 
-This is a preorder.
+This is a preorder when the declared post-processing class contains identities and is closed under composition.
+
+If (mathfrak M) is the class of all set-theoretic maps, the preorder is purely semantic.
+
+If (mathfrak M) is restricted to efficiently computable, bounded-cost, differentiable, or otherwise admissible maps, the preorder becomes operationally stronger.
 
 Two different codings can factor through one another.
 
