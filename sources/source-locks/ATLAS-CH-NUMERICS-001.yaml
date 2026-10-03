@@ -1,0 +1,82 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-NUMERICS-001"
+locked_on: "2026-10-02"
+epistemic_class: "established_numerical_analysis_plus_atlas_synthesis"
+claim_boundary: >
+  One-step ODE discretization, truncation error, absolute stability, stiffness,
+  implicit/explicit integration, and Lie-Strang splitting are established numerical
+  analysis in the cited sources. Atlas-specific interpretations of layers as steps,
+  computational depth as time allocation, and neural computation as numerical flow
+  are downstream synthesis and are not claimed as consequences of those references.
+sources:
+  - id: "NUMERICS-BUTCHER-2016"
+    citation_key: "Butcher2016"
+    kind: "monograph"
+    title: "Numerical Methods for Ordinary Differential Equations"
+    edition: 3
+    year: 2016
+    authority: >
+      Standard source for one-step ODE methods, order, local/global error,
+      Runge-Kutta structure, and absolute stability concepts.
+  - id: "NUMERICS-HAIRER-NORSETT-WANNER-1993"
+    citation_key: "HairerNorsettWanner1993"
+    kind: "monograph"
+    title: "Solving Ordinary Differential Equations I: Nonstiff Problems"
+    edition: 2
+    year: 1993
+    authority: >
+      Standard source for consistency, convergence, error propagation,
+      explicit/implicit one-step methods, and nonstiff ODE numerics.
+  - id: "NUMERICS-HAIRER-WANNER-1996"
+    citation_key: "HairerWanner1996"
+    kind: "monograph"
+    title: "Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems"
+    edition: 2
+    year: 1996
+    authority: >
+      Standard source for stiffness, A-stability, implicit methods, and
+      stiff-system numerical behavior.
+  - id: "NUMERICS-HAIRER-LUBICH-WANNER-2006"
+    citation_key: "HairerLubichWanner2006"
+    kind: "monograph"
+    title: "Geometric Numerical Integration"
+    edition: 2
+    year: 2006
+    authority: >
+      Standard source for structure-preserving integration and composition/splitting
+      viewpoints, including Lie-Trotter and Strang-type constructions.
+  - id: "NUMERICS-HIGHAM-2002"
+    citation_key: "Higham2002"
+    kind: "monograph"
+    title: "Accuracy and Stability of Numerical Algorithms"
+    edition: 2
+    year: 2002
+    authority: >
+      Numerical stability and conditioning terminology used to keep absolute
+      time-stepping stability distinct from broader algorithmic stability.
+atlas_sources:
+  - id: "NUMERICS-DYNAMICS-AUDITED"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3c5050b50663e16725620dcf236a6bad61841d82"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "a2a908264d119ef44c502f53f32798b83e16696d"
+    authority: >
+      Audited Atlas prerequisite for exact flows, continuous/discrete stability
+      distinctions, Hamiltonian dynamics, and symplectic-flow language.
+  - id: "NUMERICS-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3c5050b50663e16725620dcf236a6bad61841d82"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Project scope naming discretization error, consistency/stability/convergence,
+      explicit/implicit integration, stiffness, symplectic/reversible integration,
+      operator splitting, adaptive time stepping, and neural computation as numerical flow.
+epistemic_rules:
+  - "The exact flow Phi_h and a numerical update Psi_h are different maps unless proved equal."
+  - "Local truncation error, global error, and stability are distinct notions."
+  - "Absolute stability of a time-stepping method is not the same as Lyapunov stability of the underlying ODE."
+  - "Stiffness is problem-and-method relative; no single scalar definition is universally sufficient."
+  - "Implicit methods trade solve cost for larger stability regions; they are not automatically more accurate."
+  - "Lie-Trotter and Strang splitting require declared operator decompositions and regularity; noncommutativity controls leading composition error."
+  - "Symplecticity and exact energy conservation are distinct properties."
