@@ -29,7 +29,7 @@ sources:
     year: 2019
     openreview_id: "HyzdRiR9Y7"
     arxiv_id: "1807.03819"
-    doi: "10.48550/arXiv.1807.03819"
+    arxiv_doi: "10.48550/arXiv.1807.03819"
     authority: >
       Primary source for recurrent application of a shared transformation across
       depth in a Transformer-like architecture, together with dynamic per-position halting.
@@ -40,7 +40,7 @@ sources:
     venue: "NeurIPS"
     year: 2019
     arxiv_id: "1909.01377"
-    doi: "10.48550/arXiv.1909.01377"
+    arxiv_doi: "10.48550/arXiv.1909.01377"
     authority: >
       Primary source for replacing explicit unrolled depth by solving for an equilibrium
       of a weight-tied transformation and differentiating through that equilibrium.
