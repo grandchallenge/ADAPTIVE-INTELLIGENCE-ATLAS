@@ -932,7 +932,7 @@ Mixture-of-Experts will supply the system.
 - Wang et al., *SkipNet: Learning Dynamic Routing in Convolutional Networks* [@WangEtAl2018SkipNet].
 - Rao et al., *DynamicViT: Efficient Vision Transformers with Dynamic Token Sparsification* [@RaoEtAl2021DynamicViT].
 - Gale, Elsen, and Hooker, *The State of Sparsity in Deep Neural Networks* [@GaleElsenHooker2019].
-- Williams, Waterman, and Patterson, *Roofline: An Insightful Visual Performance Model for Floating-Point Programs and Multicore Architectures* [@WilliamsWatermanPatterson2009].
+- Williams, Waterman, and Patterson, *Roofline: An Insightful Visual Performance Model for Multicore Architectures* [@WilliamsWatermanPatterson2009].
 
 Exact source identities and claim boundaries are recorded in:
 
