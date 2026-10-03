@@ -492,11 +492,81 @@ J_F(\theta)
 
 The orbit tangent lies in the local null space of the function map.
 
-If a loss depends only on \(F(\theta)\), the loss is also constant along that exact symmetry orbit.
+If a loss depends only on \(F(\theta)\), its directional derivative also vanishes along the orbit.
 
-At a smooth critical point, continuous exact symmetries can therefore contribute Hessian-degenerate directions.
+An actual Hessian null vector requires a stronger statement than “one path has constant loss.”
 
-This does not mean every flat direction is a symmetry direction.
+Assume a smooth one-parameter group action \(g_s\) is an exact symmetry of the loss in a neighborhood:
+
+\[
+L(g_s\theta)=L(\theta).
+\]
+
+If \(\theta_\star\) is a smooth critical point, symmetry maps it to other critical points.
+
+For the orbit tangent
+
+\[
+v
+=
+\frac{d}{ds}g_s\theta_\star
+\Big|_{s=0},
+\]
+
+differentiating
+
+\[
+\nabla L(g_s\theta_\star)=0
+\]
+
+gives
+
+\[
+\boxed{
+H_L(\theta_\star)v=0.
+}
+\]
+
+A minimal exact example is
+
+\[
+L(a,b)=\frac12(ab-y)^2.
+\]
+
+Positive rescaling
+
+\[
+(a,b)\mapsto(a/c,cb)
+\]
+
+preserves the model product.
+
+On the critical manifold \(y=ab\),
+
+\[
+H
+=
+\begin{pmatrix}
+b^2&ab\\
+ab&a^2
+\end{pmatrix},
+\]
+
+and the scaling-orbit tangent
+
+\[
+v=(-a,b)
+\]
+
+satisfies
+
+\[
+Hv=0.
+\]
+
+This is a precise source of Hessian degeneracy.
+
+It does not mean every flat direction is a symmetry direction.
 
 ## 14. Hidden symmetries
 
