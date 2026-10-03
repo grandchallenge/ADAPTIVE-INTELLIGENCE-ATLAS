@@ -335,7 +335,7 @@ Different constraint semantics include:
 
 These are not interchangeable.
 
-Moldovan and Abbeel provide one concrete safe-exploration formulation for MDPs based on ergodicity/returnability structure and a restricted set of guaranteed-safe policies.
+Moldovan and Abbeel provide one concrete safe-exploration formulation for MDPs based on an ergodicity-based safety formulation and a restricted set of guaranteed-safe policies.
 
 The Atlas extracts only the general rule:
 
