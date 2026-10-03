@@ -93,7 +93,7 @@ semantic memory;
 
 associative memory;
 
-external persistent memory.
+external memory.
 
 They do not form a hierarchy.
 
@@ -381,9 +381,9 @@ Three access contracts.
 
 This is why a memory taxonomy that looks only at storage media is incomplete.
 
-## 11. External persistent memory
+## 11. External memory
 
-External memory places state outside the current model parameters and transient active state.
+External memory places state outside the current model parameters and transient active state. Externality is a locus property; persistence is a separate lifetime choice.
 
 That can include files, databases, journals, knowledge graphs, vector stores, tuple spaces, object stores, or differentiable memory matrices.
 
@@ -729,7 +729,7 @@ Semantic memory tells us that generalized content can survive without the full o
 
 Associative memory tells us that access can be content-driven.
 
-External persistent memory tells us that durable state can live outside the current model and active context.
+External memory tells us that state can live outside the current model and active context; whether it is durable is a separate retention decision.
 
 None of these labels is the whole memory system.
 
