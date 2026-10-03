@@ -19,6 +19,7 @@ sources:
     arxiv_id: "2210.03629"
     arxiv_version: "v3"
     doi: "10.48550/arXiv.2210.03629"
+    openreview_id: "WE_vluYUL-X"
     authority: >
       Primary representative source for interleaving model-generated reasoning traces
       with task-specific actions and observations from external environments.
@@ -41,7 +42,8 @@ sources:
     year: 2023
     arxiv_id: "2305.10601"
     arxiv_version: "v2"
-    doi: "10.48550/arXiv.2305.10601"
+    doi: "10.52202/075280-0517"
+    arxiv_doi: "10.48550/arXiv.2305.10601"
     authority: >
       Primary representative source for explicit search over intermediate reasoning
       states with branching, evaluation, lookahead, and backtracking.
