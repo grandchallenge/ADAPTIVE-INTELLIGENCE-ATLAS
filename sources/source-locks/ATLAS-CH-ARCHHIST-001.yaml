@@ -47,6 +47,14 @@ sources:
     authority: >
       Primary sequence-to-sequence encoder-decoder source; used here for the separation
       between an encoding process, interface state, and decoding process.
+  - id: "ARCHHIST-HIGHWAY-2015"
+    citation_key: "SrivastavaGreffSchmidhuber2015"
+    kind: "research-preprint"
+    title: "Highway Networks"
+    year: 2015
+    authority: >
+      Source for learned transform/carry gates that create an explicit information
+      highway across depth; used as a structural precursor to ungated additive residual transport.
   - id: "ARCHHIST-RESNET-2016"
     citation_key: "HeZhangRenSun2016"
     kind: "peer-reviewed-conference"
@@ -69,9 +77,9 @@ sources:
 atlas_sources:
   - id: "ARCHHIST-DYNAMICS-AUDITED"
     repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "c6c15ccc243b861339d2fbfb100075e7d9303fc2"
+    commit: "c18a5067c29e2c34cfbec770c5220eea51555249"
     path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
-    git_blob_sha1: "a2a908264d119ef44c502f53f32798b83e16696d"
+    git_blob_sha1: "f4aa89075f221529401e56a152a6cdfca3dcc47d"
     authority: >
       Audited Atlas source for state evolution, flow, discrete updates, stability,
       and the boundary between a flow-like interpretation and an exact ODE identity.
