@@ -45,7 +45,7 @@ for the score on context `j` after training through context `i`.
 
 Then the basic object is not one number.
 
-It is a lower-triangular performance-through-time matrix.
+For retention and forgetting, the mandatory record is a lower-triangular performance-through-time matrix over contexts already encountered.
 
 For three contexts it has the form
 
@@ -55,7 +55,9 @@ For three contexts it has the form
 
 `R_{3,1}, R_{3,2}, R_{3,3}`.
 
-This matrix can reveal things a final average hides.
+If a protocol also evaluates not-yet-trained contexts, those `j>i` entries can complete a full matrix for forward-transfer analysis. Forward transfer additionally needs a declared untrained or reference baseline for the future context; it cannot be inferred from the lower triangle above.
+
+The performance record can reveal things a final average hides.
 
 A later task may damage one earlier task and improve another.
 
@@ -71,7 +73,7 @@ So continual learning should begin from the trajectory of performance, not only 
 
 ## 2. An Atlas forgetting summary
 
-For an earlier context `j<T`, define its best prior score
+For a sequence with `T>=2`, and for an earlier context `j<T`, define its best prior score
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`.
 
@@ -90,6 +92,8 @@ and
 These are Atlas summaries.
 
 They are intentionally modest.
+
+Cross-context aggregation is meaningful only when the context scores share a commensurate scale or a declared normalization. If different contexts use incomparable metrics or ranges, retain the per-context values instead of averaging or taking a cross-context maximum.
 
 They do not claim to be the one canonical continual-learning metric.
 

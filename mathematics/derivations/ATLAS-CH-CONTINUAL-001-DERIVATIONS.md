@@ -17,17 +17,17 @@ Let contexts arrive in order
 
 `1,2,...,T`.
 
-After training through context `i`, evaluate on each encountered context `j<=i`.
+After training through context `i`, the mandatory retention evaluation covers each encountered context `j<=i`.
 
 Let
 
 `R_{i,j}`
 
-be the declared score.
+be the declared score. These encountered-context entries form the lower triangle used for forgetting. If the protocol also evaluates not-yet-trained contexts `j>i`, those entries may complete a full performance matrix for forward-transfer analysis. Such a forward-transfer claim also requires a declared untrained/reference baseline for the future context.
 
-The matrix contains more information than a single final average.
+The performance record contains more information than a single final average.
 
-For earlier context `j<T`, define
+For a sequence with `T>=2`, and for earlier context `j<T`, define
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`.
 
@@ -43,9 +43,9 @@ and
 
 `F_max=max_{j<T} F_j`.
 
-These are Atlas summaries over a declared score matrix.
+These are Atlas summaries over a declared score matrix. Cross-context aggregation is meaningful only when scores share a commensurate scale or a declared normalization; otherwise the per-context values should remain separate.
 
-They intentionally do not erase the signed history when positive backward transfer matters.
+They intentionally do not erase the signed history when positive backward transfer matters. Forward transfer is a separate quantity and cannot be reconstructed from the lower-triangular retention entries alone.
 
 ## 3. Performance change is not parameter change
 

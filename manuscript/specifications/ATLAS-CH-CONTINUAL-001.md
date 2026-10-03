@@ -16,9 +16,9 @@ Study replay, consolidation, EWC, parameter isolation, and forgetting under sequ
 
 ## Evaluation object
 
-For contexts `1,...,T`, let `R_{i,j}` be performance on context `j` after training through context `i`.
+For contexts `1,...,T`, let `R_{i,j}` be performance on context `j` after training through context `i`. Forgetting requires the encountered-context entries `j<=i`. If forward transfer is evaluated, the protocol must additionally define scores on not-yet-trained contexts `j>i` and an appropriate untrained/reference baseline; forward transfer cannot be inferred from the encountered-context triangle alone.
 
-For `j<T` define
+For a sequence with `T>=2`, and for `j<T`, define
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`
 
@@ -34,7 +34,7 @@ and
 
 `F_max=max_{j<T} F_j`.
 
-These are declared Atlas summaries, not universal metric definitions. Preserve positive backward transfer separately when relevant.
+These are declared Atlas summaries, not universal metric definitions. Aggregate across contexts only when scores are commensurate or a normalization is declared; otherwise retain the per-context values. Preserve positive backward transfer separately when relevant.
 
 ## Required distinctions
 
