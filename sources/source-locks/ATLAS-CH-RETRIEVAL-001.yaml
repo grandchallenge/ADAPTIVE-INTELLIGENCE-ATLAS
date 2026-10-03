@@ -1,0 +1,161 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-RETRIEVAL-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_information_retrieval_database_vector_search_key_value_plus_atlas_synthesis"
+claim_boundary: >
+  The external sources support vector-space retrieval, relational/symbolic data access,
+  approximate nearest-neighbor indexing, one inverted multi-index construction, exact
+  key-value store semantics, and retrieval-augmented access to explicit non-parametric
+  memory. They do not establish that similarity implies semantic correctness, that top-k
+  scores are calibrated relevance probabilities, that approximate search equals exact
+  nearest-neighbor search, or that one hybrid composition rule is universally optimal.
+sources:
+  - id: "RETRIEVAL-SALTON-WONG-YANG-1975"
+    citation_key: "SaltonWongYang1975"
+    kind: "peer-reviewed-journal"
+    title: "A Vector Space Model for Automatic Indexing"
+    authors: "Gerard Salton; Anita Wong; C. S. Yang"
+    journal: "Communications of the ACM"
+    volume: 18
+    issue: 11
+    pages: "613-620"
+    year: 1975
+    doi: "10.1145/361219.361220"
+    authority: >
+      Foundational source for representing retrieval objects and queries in a vector space
+      and comparing them by geometric/similarity structure. Used for vector retrieval
+      semantics, not as a claim that modern embedding similarity equals semantic truth.
+  - id: "RETRIEVAL-CODD-1970"
+    citation_key: "Codd1970"
+    kind: "peer-reviewed-journal"
+    title: "A Relational Model of Data for Large Shared Data Banks"
+    author: "E. F. Codd"
+    journal: "Communications of the ACM"
+    volume: 13
+    issue: 6
+    pages: "377-387"
+    year: 1970
+    doi: "10.1145/362384.362685"
+    authority: >
+      Foundational source for relation-based data representation and declarative operations.
+      Used to motivate symbolic predicate selection as a different access contract from
+      vector similarity search.
+  - id: "RETRIEVAL-ROBERTSON-ZARAGOZA-2009"
+    citation_key: "RobertsonZaragoza2009"
+    kind: "peer-reviewed-monograph"
+    title: "The Probabilistic Relevance Framework: BM25 and Beyond"
+    authors: "Stephen Robertson; Hugo Zaragoza"
+    journal: "Foundations and Trends in Information Retrieval"
+    volume: 4
+    issue: "1-2"
+    pages: "1-174"
+    year: 2009
+    doi: "10.1561/1500000019"
+    authority: >
+      Standard source for the probabilistic relevance framework and BM25-family sparse
+      text ranking. Used for lexical/sparse retrieval as a distinct scoring route, not
+      as a claim that BM25 scores are calibrated probabilities.
+
+  - id: "RETRIEVAL-MALKOV-YASHUNIN-2020"
+    citation_key: "MalkovYashunin2020"
+    kind: "peer-reviewed-journal"
+    title: "Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs"
+    authors: "Yu A. Malkov; D. A. Yashunin"
+    journal: "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+    volume: 42
+    issue: 4
+    pages: "824-836"
+    year: 2020
+    doi: "10.1109/TPAMI.2018.2889473"
+    authority: >
+      Primary HNSW source for graph-based approximate k-nearest-neighbor search.
+      Used to distinguish approximate search/index traversal from exact global nearest-neighbor semantics.
+  - id: "RETRIEVAL-BABENKO-LEMPITSKY-2012"
+    citation_key: "BabenkoLempitsky2012"
+    kind: "peer-reviewed-conference"
+    title: "The Inverted Multi-Index"
+    authors: "Artem Babenko; Victor Lempitsky"
+    venue: "2012 IEEE Conference on Computer Vision and Pattern Recognition"
+    pages: "3069-3076"
+    year: 2012
+    doi: "10.1109/CVPR.2012.6248038"
+    authority: >
+      Primary source for one concrete multi-index similarity-search construction based on
+      product quantization. Used as evidence that one record/vector collection can support
+      structured multi-part indexing, not as a universal definition of multi-index retrieval.
+  - id: "RETRIEVAL-DECANDIA-ETAL-2007"
+    citation_key: "DeCandiaEtAl2007"
+    kind: "peer-reviewed-conference"
+    title: "Dynamo: Amazon's Highly Available Key-value Store"
+    authors: "Giuseppe DeCandia; Deniz Hastorun; Madan Jampani; Gunavardhan Kakulapati; Avinash Lakshman; Alex Pilchin; Swaminathan Sivasubramanian; Peter Vosshall; Werner Vogels"
+    venue: "Proceedings of the 21st ACM Symposium on Operating Systems Principles"
+    pages: "205-220"
+    year: 2007
+    doi: "10.1145/1294261.1294281"
+    authority: >
+      Primary systems source for key-value storage/access at scale. Used only for exact-key/
+      key-value access as a distinct retrieval interface; distributed consistency details
+      remain outside this chapter unless explicitly discussed.
+  - id: "RETRIEVAL-LEWIS-ETAL-2020"
+    citation_key: "LewisEtAl2020RAG"
+    kind: "peer-reviewed-conference"
+    title: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    authors: "Patrick Lewis; Ethan Perez; Aleksandra Piktus; Fabio Petroni; Vladimir Karpukhin; Naman Goyal; Heinrich Küttler; Mike Lewis; Wen-tau Yih; Tim Rocktäschel; Sebastian Riedel; Douwe Kiela"
+    venue: "Advances in Neural Information Processing Systems 33"
+    year: 2020
+    authority: >
+      Primary source for a neural system combining parametric generation with retrieval from
+      a dense non-parametric memory index. Used to show downstream consumption of retrieval,
+      not to identify retrieval quality with generated-answer correctness.
+atlas_sources:
+  - id: "RETRIEVAL-MEMTAX"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-MEMTAX-001.md"
+    git_blob_sha1: "de0cc5225e84748311f4a36e7a81f1978414aa6e"
+    authority: >
+      Audited hard prerequisite supplying memory coordinates L,W,R,T,A,U,P,S; exact-key
+      versus associative addressing; storage-locus/lifetime separation; and provenance as
+      an independent coordinate.
+  - id: "RETRIEVAL-MEMTAX-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "reviews/AUDIT-019.md"
+    git_blob_sha1: "68bb06442a7f1f6137b24bf6e7fc583977053ded"
+    authority: "Audit record for the Memory Taxonomy prerequisite."
+  - id: "RETRIEVAL-MEMTAX-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "sources/source-locks/ATLAS-CH-MEMTAX-001.yaml"
+    git_blob_sha1: "c5db4c7bea2011a28c8ce54c70e8cade9b373405"
+    authority: "Exact source/authority boundary inherited from MEMTAX-001."
+  - id: "RETRIEVAL-ATTNOP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNOP-001.md"
+    git_blob_sha1: "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
+    authority: >
+      Audited hard prerequisite supplying query/key/value similarity weighting, normalized
+      mixing-operator language, and the boundary that coefficients are not causal explanations.
+  - id: "RETRIEVAL-ATTNOP-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "reviews/AUDIT-002.md"
+    git_blob_sha1: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+    authority: "Audit record covering Attention as an Operator."
+  - id: "RETRIEVAL-ATTNOP-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
+    path: "sources/source-locks/ATLAS-CH-ATTNOP-001.yaml"
+    git_blob_sha1: "4af4e53230776daaf0be825cffd1263957ed97c8"
+    authority: "Exact source/authority boundary inherited from ATTNOP-001."
+epistemic_rules:
+  - "Retrieval is a read/access operation over stored records; it does not by itself determine storage locus, lifetime, truth, or authority."
+  - "Exact-key lookup, symbolic predicate selection, and vector similarity search are distinct read contracts."
+  - "A similarity score orders candidates under a declared representation and metric; it is not automatically a calibrated relevance probability."
+  - "Top-k selection is a truncation operator over scores and does not prove that omitted records are irrelevant."
+  - "Approximate nearest-neighbor search is an algorithmic acceleration/approximation layer and must not be silently equated with exact nearest-neighbor semantics."
+  - "Hybrid retrieval requires an explicit composition rule such as filter-then-rank, rank-then-filter, score fusion, or staged retrieval."
+  - "Multiple indices over one underlying record set do not create multiple epistemic copies of the record; record identity and index identity remain separate."
+  - "Provenance belongs to the record/evidence object and must not be inferred solely from retrieval rank."
+  - "Downstream usefulness depends on the consumer and task; retrieval correctness and context usefulness are distinct."
