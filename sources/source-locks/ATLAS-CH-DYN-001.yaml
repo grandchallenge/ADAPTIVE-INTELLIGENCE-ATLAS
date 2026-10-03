@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-DYN-001"
+locked_on: "2026-10-02"
+claim_boundary: >
+  Continuous/discrete dynamical-systems definitions, local linearization criteria,
+  Lyapunov stability results, pitchfork bifurcation analysis, and Hamiltonian/symplectic
+  structure are established mathematics in the cited references under their stated
+  assumptions. The Atlas applications to neural computation, training, adaptive depth,
+  and computational time are interpretations and downstream research uses, not results
+  supplied by those references.
+sources:
+  - id: "DYN-STROGATZ-2015"
+    citation_key: "Strogatz2015"
+    kind: "monograph"
+    title: "Nonlinear Dynamics and Chaos"
+    edition: 2
+    year: 2015
+    authority: >
+      Standard source for autonomous flows, fixed points, local stability,
+      phase portraits, one-dimensional bifurcations, and qualitative dynamical reasoning.
+  - id: "DYN-KHALIL-2002"
+    citation_key: "Khalil2002"
+    kind: "monograph"
+    title: "Nonlinear Systems"
+    edition: 3
+    year: 2002
+    authority: >
+      Standard source for nonlinear stability, Lyapunov functions, local linearization,
+      and asymptotic-stability conditions.
+  - id: "DYN-HAIRER-LUBICH-WANNER-2006"
+    citation_key: "HairerLubichWanner2006"
+    kind: "monograph"
+    title: "Geometric Numerical Integration"
+    edition: 2
+    year: 2006
+    authority: >
+      Standard source for Hamiltonian systems, symplectic structure, symplectic flows,
+      and the geometric viewpoint needed before later numerical-integrator chapters.
+atlas_sources:
+  - id: "DYN-SOURCE-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "283a992504e685d1e53c210aee91f89d9d448f9f"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    authority: >
+      Project scope explicitly calls for ODEs, fixed points, bifurcations,
+      Lyapunov/linearized/numerical stability, and Hamiltonian/symplectic dynamics.
+  - id: "DYN-LINALG-PREREQUISITE"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "283a992504e685d1e53c210aee91f89d9d448f9f"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
+    authority: >
+      Audited Atlas prerequisite for eigenvalues, singular values, norms,
+      conditioning, and local linear-operator language.
+epistemic_rules:
+  - "Linearization conclusions are local and require hyperbolicity/nonzero stability margins for decisive first-order classification."
+  - "Zero or purely imaginary linearized eigenvalues are generally inconclusive for nonlinear stability."
+  - "A Lyapunov function proves only the stability property justified by its declared sign and regularity conditions."
+  - "Bifurcation examples are calibration systems, not universal models of neural training."
+  - "Hamiltonian/symplectic structure is not assumed for generic neural or optimizer dynamics."
+  - "Numerical integrator stability and splitting accuracy are deferred to later chapters."
