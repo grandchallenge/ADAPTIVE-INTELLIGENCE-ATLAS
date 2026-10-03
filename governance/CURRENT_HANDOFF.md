@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `58da49a2f2969de687cbfd247e488997e57b05d6`
+**Current main:** `8a08c5db5322f027dd9214618f21ed88ce9255c0`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,25 +69,61 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `58da49a2f2969de687cbfd247e488997e57b05d6`;
-- next target: `ATLAS-CH-NETNUM-001`;
-- title: **Networks as Numerical Schemes**;
-- reason: it has the largest unlocked downstream architecture cone at 5 nodes.
+- baseline/main: `8a08c5db5322f027dd9214618f21ed88ce9255c0`;
+- next target: `ATLAS-CH-CONTINUAL-001`;
+- title: **Continual Learning and Forgetting**;
+- reason: it ties for the largest unlocked downstream architecture cone at 4 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-022:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-023:
 
-1. `ATLAS-CH-NETNUM-001` — downstream architecture count 5; direct consumers `ATLAS-CH-ADAPTDEPTH-001`, `ATLAS-CH-BOUNDARYPROBE-001`.
-2. `ATLAS-CH-CONTINUAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-3. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
-4. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
-5. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-6. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+1. `ATLAS-CH-CONTINUAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+2. `ATLAS-CH-FORMAL-001` — count 4; direct consumer `ATLAS-CH-RESEARCHSM-001`.
+3. `ATLAS-CH-REGRET-001` — count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
+4. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+5. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+6. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
 7. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
 8. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
 9. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
 10. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### NETNUM-001 — Networks as Numerical Schemes
+
+- implementation PR: #103;
+- implementation merge:
+  `e7c0cda1a96f23e78120c02f66511488612a4035`;
+- audit:
+  `AUDIT-023`;
+- audit PR: #104;
+- audit merge / current main:
+  `8a08c5db5322f027dd9214618f21ed88ce9255c0`.
+
+Central numerical-network interface:
+
+- residual map `x_{k+1}=x_k+F_k(x_k)`;
+- declared continuous reference `dx/dt=f(t,x)`;
+- Euler bridge `F_k(x)=h_k f(t_k,x)`;
+- local defect relative to exact flow;
+- global error over a declared refinement family;
+- forward numerical stability separated from training/optimization stability;
+- residual scale separated from numerical step size;
+- invertibility separated from computational reconstruction and time reversibility.
+
+Exact witness:
+
+for `x'=-x`, explicit Euler gives `x_{k+1}=(1-h)x_k`.
+
+- non-growth interval: `0<=h<=2`;
+- strict-decay interval: `0<h<2`;
+- `h=3` gives unstable factor `-2`;
+- at `T=1`, `N=2,4,8` give exact rational values `1/4`, `81/256`, and `5764801/16777216`;
+- at `h=1/2`, the forward map is invertible but forward-plus-negative-step Euler returns only `3/4`, not the identity.
+
+AUDIT-023 repair:
+
+the scalar stability wording was tightened to preserve the NUMERICS-001 distinction between closed non-growth and strict asymptotic decay. No numerical result changed.
 
 ### EXPLORE-001 — Exploration and Information Value
 
@@ -318,43 +354,41 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — NETNUM-001
+## 7. Next tranche — CONTINUAL-001
 
 Stable ID:
 
-`ATLAS-CH-NETNUM-001`
+`ATLAS-CH-CONTINUAL-001`
 
 Title:
 
-**Networks as Numerical Schemes**
+**Continual Learning and Forgetting**
 
 Declared hard dependencies in the Atlas Map/Ledger:
 
-- `ATLAS-CH-NUMERICS-001`;
-- `ATLAS-CH-ARCHHIST-001`.
+- `ATLAS-CH-MEMTAX-001`;
+- `ATLAS-CH-OPTBASE-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Recast residual networks as discretizations and distinguish local error, global error, stability, and reversibility.
+> Study replay, consolidation, EWC, parameter isolation, and catastrophic forgetting.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Numerics and Architecture History prerequisites may supply:
-
-- one-step methods, consistency, local truncation error, stability, convergence, stiffness, and structure-preserving numerical language;
-- layered, recurrent, gated, and residual-network architecture history with the existing boundary that a residual network is not automatically a literal ODE solver.
+The audited Memory Taxonomy prerequisite may supply the distinction among parametric, working, episodic, semantic, associative, and external memory. The First-Order Optimization prerequisite may supply SGD/optimizer mechanics and regularization language.
 
 A sound intellectual spine should distinguish at least:
 
-1. residual update as a one-step map versus a discretization of a specified continuous flow;
-2. local truncation error from global accumulated error;
-3. numerical stability from training stability and optimization stability;
-4. step size from learned residual scale;
-5. consistency/convergence statements from architecture analogy;
-6. reversible layer maps from numerically reversible integration and from exactly invertible computation;
-7. stiffness and implicitness as numerical properties requiring a specified dynamical problem.
+1. task performance loss from representational change;
+2. interference from ordinary optimization noise;
+3. replay from parameter regularization;
+4. consolidation penalties from exact retention guarantees;
+5. parameter isolation from external memory;
+6. average retained performance from worst-task forgetting;
+7. task-incremental, domain-incremental, and class-incremental evaluation regimes where source support permits;
+8. empirical anti-forgetting mechanisms from theorem-grade guarantees.
 
-A useful exact witness should compare a simple linear flow `x'=lambda x` with an explicit residual/Euler step, derive the one-step error exactly, and show how repeated-step error/stability changes with `h lambda` without claiming that every residual network solves an ODE.
+The chapter should use a small exact sequential-learning witness where two objectives conflict in one parameter, making interference and the stabilizing effect of a retention term mathematically visible without claiming that the toy model establishes general continual-learning performance.
 
 ## 8. Durable restart instruction for a fresh chat
 
