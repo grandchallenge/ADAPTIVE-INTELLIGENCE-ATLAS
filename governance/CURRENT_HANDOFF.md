@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `f94a18010d969f80ddb96663bec02e449f4eb5eb`
+**Current main:** `e1709bc5744a260c0a1eec5234d5ac4cb261b3b7`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,24 +69,65 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `f94a18010d969f80ddb96663bec02e449f4eb5eb`;
-- next target: `ATLAS-CH-REGRET-001`;
-- title: **Regret**;
+- baseline/main: `e1709bc5744a260c0a1eec5234d5ac4cb261b3b7`;
+- next target: `ATLAS-CH-RETRIEVAL-001`;
+- title: **Retrieval and Associative Access**;
 - reason: it ties for the largest unlocked downstream architecture cone at 4 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-025:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-026:
 
-1. `ATLAS-CH-REGRET-001` — downstream architecture count 4; direct consumer `ATLAS-CH-OPTIONALITY-001`.
-2. `ATLAS-CH-RETRIEVAL-001` — count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
-3. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
-4. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
-5. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-6. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+1. `ATLAS-CH-RETRIEVAL-001` — downstream architecture count 4; direct consumer `ATLAS-CH-EXTMEM-001`.
+2. `ATLAS-CH-SPARSE-001` — count 4; direct consumer `ATLAS-CH-MOE-001`.
+3. `ATLAS-CH-BOUNDARYPROBE-001` — count 3; no architecture-status direct consumer.
+4. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+5. `ATLAS-CH-LOCALGLOBAL-001` — count 3; no architecture-status direct consumer.
+6. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 7. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
 8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
 9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### REGRET-001 — Regret
+
+- implementation PR: #110;
+- implementation merge:
+  `915911dfd5b6b6daf7084edd75e2341d7a727d10`;
+- audit:
+  `AUDIT-026`;
+- audit PR: #111;
+- audit merge / current main:
+  `e1709bc5744a260c0a1eec5234d5ac4cb261b3b7`.
+
+Central regret contract:
+
+- horizon `T`;
+- environment `theta` or class `Theta`;
+- admissible policy class `Pi`;
+- reward/loss convention;
+- comparator;
+- expectation/prior convention.
+
+Load-bearing distinctions:
+
+- pathwise mean-benchmark regret versus expected/pseudo-regret;
+- Bayesian regret versus worst-case/minimax regret;
+- fixed versus dynamic comparator classes;
+- cumulative regret versus simple/final recommendation regret;
+- sublinear cumulative regret versus zero/bounded regret;
+- regret guarantees versus safety, fairness, calibration, robustness, tail risk, recoverability, and optionality.
+
+Exact witnesses:
+
+- two-round Bernoulli example: pseudo-regret `1`, while pathwise regret takes `3/2`, `1/2`, or `-1/2` and has expectation `1`;
+- one-step two-environment example: minimax policy uses `q=1/2` with regret `1/2`, while prior `9/10,1/10` makes `q=1` Bayes-optimal with Bayes regret `1/10` and worst-case regret `1`;
+- one fixed learner trajectory has regret `0` against the best fixed action and `1` against an unrestricted dynamic comparator;
+- one exploration sequence has cumulative regret `1` and simple regret `0`.
+
+AUDIT-026 repairs:
+
+- bound Bayesian/minimax optimization to an explicit admissible policy class `Pi`;
+- replaced the general comparator-class `max` with `sup`, while preserving the finite witness maximum.
 
 ### FORMAL-001 — Formal Methods and Machine-Checkable Claims
 
@@ -449,46 +490,47 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — REGRET-001
+## 7. Next tranche — RETRIEVAL-001
 
 Stable ID:
 
-`ATLAS-CH-REGRET-001`
+`ATLAS-CH-RETRIEVAL-001`
 
 Title:
 
-**Regret**
+**Retrieval and Associative Access**
 
-Declared hard dependency in the Atlas Map/Ledger:
+Declared hard dependencies in the Atlas Map/Ledger:
 
-- `ATLAS-CH-EXPLORE-001`.
+- `ATLAS-CH-MEMTAX-001`;
+- `ATLAS-CH-ATTNOP-001`.
 
 The chapter contract in the Atlas Map is:
 
-> Develop Bayesian and minimax regret and clarify what regret controls do and do not imply.
+> Develop vector, symbolic, hybrid, multi-index, and key–value retrieval.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Exploration and Information Value prerequisite may supply:
+The audited Memory Taxonomy prerequisite may supply locus/write/read/lifetime/addressability/mutability/provenance/sharing coordinates and the overlapping associative/external/episodic/semantic roles.
 
-- stochastic-bandit notation;
-- exploration/exploitation distinction;
-- immediate versus continuation value;
-- representative optimism, posterior-sampling, and information-directed mechanisms;
-- the distinction between information gain and decision value.
+The audited Attention as an Operator prerequisite may supply query/key/value operator language, similarity weighting, normalization, and exact attention semantics within its source-locked scope.
 
 A sound intellectual spine should distinguish at least:
 
-1. realized regret from expected regret;
-2. pseudo-regret from pathwise/realized regret where source conventions require the distinction;
-3. Bayesian regret from minimax/frequentist regret;
-4. comparator class and horizon as part of every regret statement;
-5. cumulative regret from simple/final recommendation error;
-6. sublinear regret from zero regret or pointwise dominance;
-7. regret guarantees from safety, calibration, fairness, robustness, or option preservation;
-8. worst-case minimax guarantees from prior-weighted Bayesian performance.
+1. exact-key lookup from associative similarity search;
+2. vector retrieval score from semantic correctness;
+3. top-k selection from calibrated relevance;
+4. dense vector search from symbolic predicate filtering;
+5. hybrid retrieval from merely concatenating two unrelated result lists;
+6. key-value retrieval from content-addressed identity and from provenance;
+7. one index from multi-index access over the same underlying record set;
+8. retrieval correctness from downstream context usefulness;
+9. approximate-nearest-neighbor acceleration from exact nearest-neighbor semantics;
+10. read contract from memory locus and persistence.
 
-A useful exact witness should use a tiny finite bandit/decision family where the same policy has different realized regret on different outcome sequences while expected/pseudo-regret remains a separate quantity, and where changing the comparator changes the numerical regret. The witness must not import the downstream Optionality chapter as authority.
+A useful exact witness should use one immutable finite record store with at least two independent indices, such as exact key and vector similarity, and show that the same records can yield different valid result sets under different read contracts. A second bounded construction should expose a hybrid query whose symbolic admissibility filter changes the nearest-neighbor result, making the composition rule explicit rather than treating hybrid retrieval as a vague mixture.
+
+The downstream External-Memory chapter may consume retrieval semantics only after RETRIEVAL-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
