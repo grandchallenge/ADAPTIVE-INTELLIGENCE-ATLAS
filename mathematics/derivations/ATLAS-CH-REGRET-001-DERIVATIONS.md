@@ -200,7 +200,7 @@ For comparator class `C` of action sequences,
 
 `Reg_T(C)
 =
-max_{c in C}sum_t r_t(c_t)-G_T`.
+sup_{c in C}sum_t r_t(c_t)-G_T`.
 
 The comparator class is part of the definition.
 
