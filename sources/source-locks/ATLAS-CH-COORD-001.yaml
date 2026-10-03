@@ -18,6 +18,7 @@ sources:
     venue: "IJCAI"
     year: 1973
     proceedings: "Third International Joint Conference on Artificial Intelligence"
+    pages: "235-245"
     authority: >
       Primary early source for actor-based modular computation in which independent
       computational actors interact through message-like activation and behavior.
