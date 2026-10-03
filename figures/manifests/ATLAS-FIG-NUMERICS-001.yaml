@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-NUMERICS-001"
+chapter_id: "ATLAS-CH-NUMERICS-001"
+status: "rendered-witness"
+representation_class: "data-derived"
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  source: "figures/wolfram/ATLAS-FIG-NUMERICS-001.wl"
+  source_git_blob_sha1: "c7095b46e2ab622eba1e06cc2a19fa6d83e7fa84"
+  rendered: "figures/masters/ATLAS-FIG-NUMERICS-001.png"
+  rendered_git_blob_sha1: "7f23da82f51ac006cccf1be2e055b06ac8a2b715"
+  rendered_bytes: 46057
+parameters:
+  explicit_euler_region: "|1+z|<1"
+  implicit_euler_region: "|1-z|>1"
+  split_A: "[[0,1],[0,0]]"
+  split_B: "[[0,0],[1,0]]"
+  split_h_grid: "10^Range[-3,-0.25,0.2]"
+  defect_norm: "Frobenius"
+literal_semantics: >
+  The left and middle panels plot exact absolute-stability regions for explicit and
+  implicit Euler on y'=lambda y. The right panel evaluates exact matrix exponentials
+  for the declared split matrices over the declared h-grid and plots Frobenius norms
+  of Lie-Trotter and Strang local defects.
+nonliteral_semantics: >
+  Plot window, grayscale, marker shapes, legend placement, and annotation positions
+  are presentation choices.
+claim_boundary: >
+  The figure demonstrates scalar absolute-stability regions and asymptotic local-defect
+  scaling for one bounded-matrix splitting example. It does not establish nonlinear
+  stability, general stiff accuracy, or splitting order for unbounded operators.
