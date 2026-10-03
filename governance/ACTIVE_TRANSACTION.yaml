@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-NETNUM-001"
   baseline_commit: "58da49a2f2969de687cbfd247e488997e57b05d6"
   branch: "work/netnum-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Continue NETNUM-001 implementation from issue #103 and branch work/netnum-001; bind audited NUMERICS-001 and ARCHHIST-001, write the chapter packet, validate, merge, audit, and close the transaction."
+  pull_request: 103
+  state: "implementation-pr-validation"
+  next_action: "Validate PR #103 at exact head 79066802ba0fd0dcbe3cd0bcc866abf57037d510; repair all in-scope defects, merge when green, then run the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-NETNUM-001"
     downstream_architecture_count: 5
