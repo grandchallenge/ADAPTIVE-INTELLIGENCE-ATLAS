@@ -373,8 +373,16 @@
       "dependencies": [
         "ATLAS-CH-DYN-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-OPTBASE-001.md",
+      "manuscript_path": "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-OPTBASE-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-OPTBASE-001.md",
+      "figure_ids": [
+        "ATLAS-FIG-OPTBASE-001"
+      ]
     },
     {
       "id": "ATLAS-CH-SECOND-001",
