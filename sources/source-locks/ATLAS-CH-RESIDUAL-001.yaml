@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-RESIDUAL-001"
+locked_on: "2026-10-02"
+epistemic_class: "atlas_synthesis"
+claim_boundary: >
+  Statistical sufficiency, minimal sufficiency, information bottleneck ideas, and
+  task-relative minimal/invariant representations are established external concepts
+  in their cited settings. The Residual defined by this chapter is an Atlas/GCL
+  generalization: a proposed minimal transferable structure sufficient to reconstruct
+  a declared capability after admissible representation change. No theorem is claimed
+  that such a Residual exists, is unique, finite-dimensional, or efficiently computable
+  for arbitrary neural systems.
+sources:
+  - id: "RESIDUAL-LEHMANN-CASELLA-1998"
+    citation_key: "LehmannCasella1998"
+    kind: "monograph"
+    title: "Theory of Point Estimation"
+    authority: "Classical statistical sufficiency/minimal-sufficiency background and factorization-oriented minimality language."
+  - id: "RESIDUAL-ACHILLE-SOATTO-2018"
+    citation_key: "AchilleSoatto2018"
+    kind: "peer-reviewed-article"
+    title: "Emergence of Invariance and Disentanglement in Deep Representations"
+    journal: "Journal of Machine Learning Research"
+    year: 2018
+    authority: "Task-relative sufficient/minimal representation and nuisance-invariance framework under the paper's assumptions."
+  - id: "RESIDUAL-TISHBY-PEREIRA-BIALEK-2000"
+    citation_key: "TishbyPereiraBialek2000"
+    kind: "research-preprint"
+    title: "The Information Bottleneck Method"
+    year: 2000
+    authority: "Relevant-information bottleneck formulation: compress a signal while preserving information about a declared target."
+atlas_sources:
+  - id: "RESIDUAL-SEED-INVENTORY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "dcd65b0edcb954f66990aa36b33cda1c7ca2175d"
+    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
+    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
+    authority: >
+      Original project inventory explicitly naming semantic equivalence under
+      representational change, minimal transferable representations, and the Residual:
+      structure that survives representation change.
+  - id: "RESIDUAL-REPRESENTATION"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "dcd65b0edcb954f66990aa36b33cda1c7ca2175d"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md"
+    git_blob_sha1: "6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb"
+    authority: "Audited Atlas source for task-relative representation equivalence, invariance, and identifiability boundaries."
+  - id: "RESIDUAL-QUOTIENT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "dcd65b0edcb954f66990aa36b33cda1c7ca2175d"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-QUOTIENT-001.md"
+    git_blob_sha1: "3b372f76765996bf24dac39aec70aa39dc401553"
+    authority: "Audited Atlas source for quotient equivalence, symmetry reduction, and the distinction between representative and intrinsic object."
+epistemic_rules:
+  - "The Residual is task/capability-relative unless a stronger theorem proves otherwise."
+  - "Capability sufficiency is weaker than full-state reconstruction."
+  - "Minimality is defined relative to an explicit information/factorization preorder."
+  - "Existence, uniqueness, finite dimensionality, and efficient learnability are open unless proved in a declared setting."
+  - "An invariant that survives transformations but cannot reconstruct the target capability is not a sufficient Residual."
