@@ -154,15 +154,25 @@ Let h_k be a declared halting signal.
 
 Let epsilon be a threshold.
 
-Let B_k be a remaining compute budget.
+Let K_max be the largest permitted depth under the current compute budget.
 
-A generic stopping rule can be written
+Define
 
 tau
 =
-inf{k >= 0 : h_k <= epsilon or B_k=0}.
+min(
+{k in {0,...,K_max} : h_k <= epsilon}
+union
+{K_max}
+).
 
-The realized output is then x_tau.
+The realized output is x_tau.
+
+The termination status must also be retained:
+
+criterion_met if h_tau <= epsilon;
+
+budget_exhausted otherwise.
 
 This equation separates two ideas.
 
@@ -264,17 +274,23 @@ One may parallelize internal work.
 
 Another may be sequential.
 
-So define realized computational cost more carefully:
+So define realized computational cost more carefully.
+
+For one declared resource unit,
 
 C(x_0)
 =
 sum_{k=0}^{tau-1} c_k(x_k),
 
-where c_k records the declared cost of the executed transition.
+where c_k records the cost of the executed transition in that unit.
 
-This is bookkeeping, not a universal unit system.
+If several heterogeneous resources are tracked, use a vector such as
 
-Depending on the question, c_k might track FLOPs, accelerator time, memory traffic, energy, or another resource.
+C_vec
+=
+(C_FLOPs, C_memory, C_energy, C_latency-proxy)
+
+rather than adding unlike units without a declared scalarization.
 
 The integer tau tells us sequential depth.
 
@@ -509,13 +525,11 @@ It is not a quality score.
 
 ## 16. Budget exhaustion is a first-class outcome
 
-Suppose the stopping rule is
+Suppose execution terminates at the finite budget cap K_max before the declared criterion h_k <= epsilon is met.
 
-tau
-=
-inf{k : h_k <= epsilon or B_k=0}.
+The termination status is then budget_exhausted rather than criterion_met.
 
-If the budget reaches zero first, the system has not necessarily converged.
+If the budget limit is reached first, the system has not necessarily converged.
 
 It has terminated because resources ended.
 

@@ -40,13 +40,15 @@ It does not imply:
 
 ## 3. Computational time
 
-Let c_k(x_k) >= 0 be the realized cost of executed step k.
+Let c_k(x_k) >= 0 be the realized cost of executed step k in one declared resource unit.
 
 For a stopping depth tau, define
 
 C(x_0)
 =
 sum_{k=0}^{tau-1} c_k(x_k).
+
+If several heterogeneous resources are tracked simultaneously, use a resource vector rather than summing unlike units without a declared scalarization.
 
 Only when all c_k are the same normalized unit does tau itself equal total compute cost.
 
@@ -61,17 +63,27 @@ Thus the following should be separated:
 
 ## 4. Adaptive stopping
 
-Let h_k be a declared halting signal and epsilon a threshold.
+Let h_k be a declared halting signal, epsilon a threshold, and K_max a finite depth cap induced by the current budget.
 
-A budgeted stopping time can be written
+Define
 
 tau
 =
-inf{k >= 0 : h_k <= epsilon or B_k = 0}.
+min(
+{k in {0,...,K_max} : h_k <= epsilon}
+union
+{K_max}
+).
 
-The definition says when execution stops.
+Record the termination status separately:
 
-It does not say that h_k is a calibrated error estimator.
+criterion_met if h_tau <= epsilon;
+
+budget_exhausted otherwise.
+
+This makes termination total under the finite cap without pretending budget exhaustion satisfies the numerical/task criterion.
+
+The definition still does not say that h_k is a calibrated error estimator.
 
 That extra relation is deferred to ATLAS-CH-ADAPTDEPTH-001.
 
