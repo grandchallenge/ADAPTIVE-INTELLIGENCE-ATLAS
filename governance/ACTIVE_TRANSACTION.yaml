@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 112
+  tranche_id: "RETRIEVAL-001"
+  chapter_ids:
+    - "ATLAS-CH-RETRIEVAL-001"
   baseline_commit: "e1709bc5744a260c0a1eec5234d5ac4cb261b3b7"
-  branch: null
+  branch: "work/retrieval-001"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-RETRIEVAL-001; it ties for the largest unlocked downstream architecture cone (4 nodes) and is first under deterministic frontier ordering."
+  state: "implementation-active"
+  next_action: "Continue RETRIEVAL-001 implementation from issue #112 and branch work/retrieval-001; bind audited MEMTAX-001 and ATTNOP-001, lock retrieval sources, write the chapter packet, validate, merge, audit, and close the transaction."
 frontier:
   - id: "ATLAS-CH-RETRIEVAL-001"
     downstream_architecture_count: 4
