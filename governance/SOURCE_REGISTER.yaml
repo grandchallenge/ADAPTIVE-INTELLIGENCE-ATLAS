@@ -164,3 +164,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-AGENTS-001.yaml"
     authority: "Representative agent-mechanism literature plus audited Atlas system-boundary provenance for the formal agent loop, planning, reflection, tool use, and bounded delegation."
+
+  - id: "ATLAS-SRC-COORD-LOCK-001"
+    title: "Coordination Architectures source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-COORD-001.yaml"
+    authority: "Actor, CSP, Linda, blackboard, causality, transaction, audited agent-loop, and bounded public AETHER sources for coordination semantics."
