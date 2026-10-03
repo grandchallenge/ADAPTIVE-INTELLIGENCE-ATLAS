@@ -93,7 +93,7 @@ R_1=\phi\circ R_2.
 
 Thus \(R_1\) contains no more distinctions than \(R_2\).
 
-A provisional **Residual** is an invariant, capability-sufficient descriptor that is **least under the factorization preorder**:
+A provisional **Residual** is an invariant, capability-sufficient descriptor in (mathfrak D) that is **least under the factorization preorder within the declared admissible descriptor class**:
 
 for every other invariant capability-sufficient descriptor \(S\),
 
@@ -102,6 +102,8 @@ R\preceq S.
 \]
 
 The chapter must state that a least object need not exist without additional assumptions. When it does exist, different least representatives are considered equivalent when they factor through one another on their realized images.
+
+It must also expose the **behavior-table trivialization**: if (mathfrak D) allows the complete behavior profile (xmapsto B_x) as an unconstrained descriptor, then that profile is already a canonical sufficient object. The nontrivial Residual programme therefore requires explicit portability, structural, computational, or complexity restrictions on (mathfrak D).
 
 ## Principal pedagogical device
 
@@ -214,6 +216,7 @@ Include:
   if capability changes to \(B'(s,n)=(s,n)\), then \(R=s\) is no longer sufficient;
 - too-large transformation family that identifies capability-distinct states;
 - no finite-dimensional Residual guaranteed in general;
+- the complete behavior table is a trivial sufficient descriptor if the admissible class is unconstrained;
 - a least sufficient invariant descriptor may fail to exist; if one weakens the target to merely minimal elements, incomparable candidates can occur.
 
 ## Computational witness
@@ -260,7 +263,7 @@ The chapter should supply a precise object to later programmes on:
 
 The draft must:
 
-- define invariance, sufficiency, and minimality separately;
+- define invariance, sufficiency, descriptor admissibility, and leastness separately;
 - include the factorization preorder;
 - prove the toy Residual's minimality in the declared setting;
 - include one invertible recoding reconstruction;
