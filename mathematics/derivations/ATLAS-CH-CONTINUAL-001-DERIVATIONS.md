@@ -27,7 +27,7 @@ be the declared score.
 
 The matrix contains more information than a single final average.
 
-For earlier context `j<T`, define
+For a sequence with `T>=2`, and for earlier context `j<T`, define
 
 `B_j=max_{k=j,...,T-1} R_{k,j}`.
 
@@ -43,7 +43,7 @@ and
 
 `F_max=max_{j<T} F_j`.
 
-These are Atlas summaries over a declared score matrix.
+These are Atlas summaries over a declared score matrix. Cross-context aggregation is meaningful only when scores share a commensurate scale or a declared normalization; otherwise the per-context values should remain separate.
 
 They intentionally do not erase the signed history when positive backward transfer matters.
 
