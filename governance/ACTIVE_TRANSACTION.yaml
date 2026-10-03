@@ -8,10 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-EVIDENCE-001"]
   baseline_commit: "a3361157cd98647ab3450a2a9786242af9930291"
   branch: "audit/evidence-001"
-  pull_request: null
-  state: "audit-instantiated"
+  pull_request: 71
+  state: "audit-pr-open"
   head_commit: "95f71ecc4baafba19bad76fd8d67f7b5efbe4ebe"
-  next_action: "Execute AUDIT-014 checks, repair any in-scope defect, write reviews/AUDIT-014.md, validate, merge, and close the audit issue."
+  next_action: "Inspect AUDIT-014 PR validation; repair any in-scope defect; merge only on green validation; close the audit issue; recompute the dependency-legal frontier."
 frontier:
   - id: "ATLAS-CH-EVIDENCE-001"
     downstream_architecture_count: 13
