@@ -346,7 +346,7 @@ and
 
 R' <= R,
 
-unless a distinct external authority explicitly grants an enlargement.
+with the resource inequality interpreted componentwise when R is a resource vector, unless a distinct external authority explicitly grants an enlargement.
 
 This is not a complete security theorem.
 
@@ -468,9 +468,9 @@ It merely replaces an explicit stopping policy with whatever accidental limit th
 
 For recursive delegation, termination becomes structural.
 
-Acyclic task graphs terminate when every finite node terminates.
+A finite, fixed acyclic task graph terminates when each activated node terminates and execution does not create new nodes outside that graph.
 
-Cyclic delegation requires an additional argument: decreasing resource, decreasing measure, explicit depth bound, or some other well-founded condition.
+Cyclic or dynamically expanding delegation requires an additional argument: decreasing resource, decreasing measure, explicit depth bound, or some other well-founded condition.
 
 "Try again" is not a termination proof.
 
