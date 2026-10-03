@@ -8,9 +8,10 @@ current:
   chapter_ids: ["ATLAS-CH-RLBASE-001"]
   baseline_commit: "17e85ed4002bc6d176b4cd787fa46a0af73a73c5"
   branch: "work/rlbase-001"
-  pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Lock exact prerequisites and external RL/control sources, compose specification/formal packet/manuscript/witness, promote ledger/register, validate, and open the implementation PR."
+  head_commit: "3da486b634e577fbb2a15f43e2c6b65c4897cf6c"
+  pull_request: 81
+  state: "pr-open"
+  next_action: "Inspect PR #81 validation, repair all in-scope defects, and merge only on green validation."
 frontier:
   - id: "ATLAS-CH-RLBASE-001"
     downstream_architecture_count: 7
