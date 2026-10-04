@@ -1,0 +1,35 @@
+schema_version: "0.1.0"
+campaign: "GSD-001"
+tranche: "GSD-TRANCHE-A"
+issue: 152
+branch: "research/gsd-tranche-a"
+protected_plan: "governance/research-agenda/GSD-001_RESEARCH_PROGRAMME.md"
+scope: ["GSD-WP00", "GSD-WP01", "GSD-WP02", "GSD-WP03"]
+state: "IMPLEMENTATION_IN_PROGRESS"
+current_frontier: "WP00_GOLDEN_REPLAY_AND_HARNESS"
+next_action: "Complete pure-Python CI, then execute a GPU smoke run and >=20-checkpoint OLMo 2 1B sweep."
+completion_gates:
+  WP00:
+    - "exact external source identities recorded"
+    - "golden fixture replay green"
+    - "token-boundary audit tests green"
+  WP01:
+    - "at least 20 exact model revisions completed on accelerator"
+    - "model and dataset resolved commit SHAs captured"
+    - "per-item result traces preserved"
+  WP02:
+    - "soft-margin checkpoint summaries produced"
+    - "candidate transition catalogue produced"
+  WP03:
+    - "candidate transitions attacked under prompt/threshold/token-boundary variants"
+    - "surviving transitions receive CONFIRMED_TRANSITION or candidates are falsified"
+claim_firewall:
+  - "no transition claim from infrastructure-only tests"
+  - "no mechanism claim"
+  - "capacity allocation remains a hypothesis"
+  - "hard accuracy is secondary to soft margin"
+  - "no 7B/32B escalation before G1"
+stop_conditions:
+  - "accelerator execution surface unavailable after implementation/CI is complete"
+  - "external artifact cannot be resolved by exact identity"
+  - "validation failure requiring substantive redesign"
