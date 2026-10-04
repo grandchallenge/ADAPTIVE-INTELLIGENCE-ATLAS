@@ -1,12 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-import re
 from typing import Iterable
-
-_REVISION_RE = re.compile(
-    r"^stage1-step(?P<step>\\d+)(?:-tokens(?P<tokens>[0-9.]+)B)?$"
-)
 
 
 @dataclass(frozen=True, order=True)
@@ -17,14 +12,29 @@ class CheckpointRef:
 
 
 def parse_checkpoint_revision(name: str) -> CheckpointRef | None:
-    match = _REVISION_RE.match(name)
-    if not match:
+    prefix = "stage1-step"
+    if not name.startswith(prefix):
         return None
-    tokens = match.group("tokens")
+
+    tail = name[len(prefix):]
+    step_text, separator, token_text = tail.partition("-tokens")
+    if not step_text.isdigit():
+        return None
+
+    tokens_b = None
+    if separator:
+        if not token_text.endswith("B"):
+            return None
+        numeric = token_text[:-1]
+        try:
+            tokens_b = float(numeric)
+        except ValueError:
+            return None
+
     return CheckpointRef(
-        step=int(match.group("step")),
+        step=int(step_text),
         revision=name,
-        tokens_b=float(tokens) if tokens is not None else None,
+        tokens_b=tokens_b,
     )
 
 
