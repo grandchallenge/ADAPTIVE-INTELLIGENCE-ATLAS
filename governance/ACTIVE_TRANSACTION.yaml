@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 145
+  tranche_id: "CURRICULUM-001"
+  chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
   baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
-  branch: null
+  branch: "work/curriculum-001"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-CURRICULUM-001 (Curriculum Learning) from baseline c1122f3b6a6cb0170e77f5fe340a7bec402618ce. Its hard prerequisites ATLAS-CH-DATA-001 and ATLAS-CH-OPTBASE-001 are audited draft-v0.1. It is first in the deterministic five-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Bind exact audited DATA-001 and OPTBASE-001 artifact identities, verify the external curriculum-learning sources required by CURRICULUM-001, write the source lock, and checkpoint source-lock-complete."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
