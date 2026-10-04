@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-OPTIONALITY-001"]
   baseline_commit: "39f419abb72c941e041f92f2834229f9968da006"
   branch: "work/optionality-001"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Run repository validation for work/optionality-001, repair every in-scope defect until green, then open the implementation PR."
+  pull_request: 130
+  state: "pr-opened"
+  next_action: "Inspect PR #130 validation. Repair every in-scope failure on work/optionality-001 until green; then merge the implementation PR."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
