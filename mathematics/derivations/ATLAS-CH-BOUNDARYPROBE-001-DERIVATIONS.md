@@ -493,13 +493,11 @@ Here:
 - `E`: evidence/estimator metadata;
 - `tau`: acceptance policy or threshold.
 
-An example numerical obligation is:
+A monitoring condition can record:
 
-`estimated local gain <= tau`
+`estimated local gain <= tau`.
 
-under the declared probe.
-
-The estimator semantics must remain attached to the result.
+A finite power estimate can be smaller than the true norm, so this observation alone does not establish `||J||_2 <= tau`. The estimator semantics must remain attached to the result.
 
 ## 21. Numerical versus semantic interface conditions
 
