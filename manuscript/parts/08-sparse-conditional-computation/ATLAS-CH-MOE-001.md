@@ -418,19 +418,20 @@ They do not directly measure value.
 
 This distinction will appear exactly in the finite witness.
 
-## 23. Router collapse
+## 23. Preferred-router collapse versus accepted-load concentration
 
-Call **router collapse** a regime where traffic becomes highly concentrated on a small expert subset under a declared statistic and horizon.
+Call **preferred-router collapse** a regime where router probability mass or preferred routes concentrate on a small expert subset under a declared statistic and horizon.
 
-Possible symptoms include:
+Accepted dispatch is a different object. Capacity, rerouting, or dropping can make accepted loads look more balanced than the underlying preferences.
 
-- low accepted-load entropy;
-- persistent capacity overflow at a few experts;
-- many rarely used experts.
+Useful diagnostics therefore distinguish:
 
-The diagnosis should specify the metric.
+- probability-mass concentration;
+- preferred-route concentration;
+- accepted-load concentration;
+- persistent overflow at particular experts.
 
-"Collapse" without a statistic is too vague.
+"Collapse" without naming the object and statistic is too vague.
 
 ## 24. Expert underuse
 
@@ -464,7 +465,7 @@ It says something traffic counts cannot.
 
 
 
-## 26. Capacity collapse is different again
+## 26. Capacity overload is different again
 
 A routing system can repeatedly demand more slots than an expert is allowed to serve.
 
@@ -474,8 +475,9 @@ It may co-occur with router concentration.
 
 But the concepts differ:
 
-- router collapse concerns where preference/traffic concentrates;
-- capacity overload concerns demand relative to an execution limit.
+- preferred-router collapse concerns where router preferences concentrate;
+- accepted-load concentration concerns executed traffic after capacity handling;
+- capacity overload concerns preferred demand relative to an execution limit.
 
 Keeping them separate helps identify the correct repair.
 
@@ -918,7 +920,7 @@ Equal accepted loads are treated as proof of equal latency or communication.
 
 ### Collapse-as-one-word
 
-Traffic concentration, underuse, redundancy, and overflow are conflated.
+Preferred-router concentration, accepted-load concentration, underuse, redundancy, and capacity overload are conflated.
 
 ### Auxiliary-loss-equals-task-objective
 
@@ -954,7 +956,7 @@ No universal routing optimum is inferred.
 - logits/probabilities versus accepted dispatch;
 - capacity and overflow semantics;
 - count-load versus probability-mass diagnostics;
-- router collapse versus underuse versus redundancy;
+- preferred-router concentration versus accepted-load concentration versus underuse versus redundancy;
 - explicit evidence requirements for specialization.
 
 It must independently develop temporal churn, instability, commutators, spectral diagnostics, and route evolution.
