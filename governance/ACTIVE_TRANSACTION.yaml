@@ -10,8 +10,8 @@ current:
   baseline_commit: "4fb9bbd05c3f48e3b69a72eaee171487576b5c48"
   branch: "audit/a157"
   pull_request: 158
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #158 at exact head 4d2bda66c8d486fa813b2ebd47ce0a969c735af1; repair every in-scope failure, replay validation, and merge only when green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #158 only from exact green head 4d2bda66c8d486fa813b2ebd47ce0a969c735af1; read back protected main, verify issue closure, recompute the frontier, update the handoff, and reset the controller."
 frontier:
   - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
