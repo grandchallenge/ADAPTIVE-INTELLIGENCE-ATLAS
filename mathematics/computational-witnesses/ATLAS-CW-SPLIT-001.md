@@ -6,6 +6,8 @@ Reproduce the bounded matrix calculations used by `ATLAS-CH-SPLIT-001`.
 
 This witness establishes only the declared finite-dimensional identities and numeric comparisons.
 
+**Product-order convention:** states are column vectors. Thus \(L_{AB}=e^{hA}e^{hB}\) applies the \(B\) subflow first and then the \(A\) subflow. The subscripts record matrix-product order, not chronological execution wording.
+
 ## Exact objects
 
 \[
@@ -53,7 +55,7 @@ AB-BA
 \end{pmatrix}.
 \]
 
-Because (A^2=B^2=0),
+Because \(A^2=B^2=0\),
 
 \[
 e^{hA}=I+hA,
@@ -64,7 +66,7 @@ e^{hB}=I+hB.
 Therefore
 
 \[
-L_{AB}(h)=
+L_{AB}\(h\)=
 \begin{pmatrix}
 1+h^2&h\\
 h&1
@@ -72,7 +74,7 @@ h&1
 \]
 
 \[
-L_{BA}(h)=
+L_{BA}\(h\)=
 \begin{pmatrix}
 1&h\\
 h&1+h^2
@@ -82,7 +84,7 @@ h&1+h^2
 and
 
 \[
-L_{AB}(h)-L_{BA}(h)=h^2[A,B].
+L_{AB}\(h\)-L_{BA}\(h\)=h^2[A,B].
 \]
 
 ## Exact combined flow
@@ -94,7 +96,7 @@ Since
 \]
 
 \[
-E(h)=e^{h(A+B)}
+E\(h\)=e^{h(A+B)}
 =
 \begin{pmatrix}
 \cosh h&\sinh h\\
@@ -105,13 +107,13 @@ E(h)=e^{h(A+B)}
 Series comparison:
 
 \[
-L_{AB}(h)-E(h)
+L_{AB}\(h\)-E\(h\)
 =
 \frac{h^2}{2}[A,B]+O(h^3),
 \]
 
 \[
-L_{BA}(h)-E(h)
+L_{BA}\(h\)-E\(h\)
 =
 -\frac{h^2}{2}[A,B]+O(h^3).
 \]
@@ -119,7 +121,7 @@ L_{BA}(h)-E(h)
 ## Strang witness
 
 \[
-S_{ABA}(h)
+S_{ABA}\(h\)
 =
 e^{hA/2}e^{hB}e^{hA/2}
 =
@@ -132,7 +134,7 @@ h&1+h^2/2
 Compared with the exact series,
 
 \[
-S_{ABA}(h)-E(h)
+S_{ABA}\(h\)-E\(h\)
 =
 \begin{pmatrix}
 O(h^4)&h^3/12+O(h^5)\\
@@ -140,7 +142,7 @@ O(h^4)&h^3/12+O(h^5)\\
 \end{pmatrix}.
 \]
 
-Thus this witness has local defect (O(h^3)).
+Thus this witness has local defect \(O(h^3)\).
 
 ## Numerical checkpoint at h = 1/2
 
@@ -188,7 +190,7 @@ Using double-precision evaluation only for the reported norms:
 - `||L_BA-E||_F ≈ 0.1793148493970293`;
 - `||S_ABA-E||_F ≈ 0.02370487546729764`.
 
-The smaller Strang error at this one (h) is a witness value, not the proof of second-order convergence. The order statement comes from the series derivation under the declared matrix setting.
+The smaller Strang error at this one \(h\) is a witness value, not the proof of second-order convergence. The order statement comes from the series derivation under the declared matrix setting.
 
 ## Commuting control
 
@@ -221,10 +223,10 @@ A symbolic algebra system can reproduce the witness with the following operation
 1. define the two exact matrices;
 2. compute `A*A`, `B*B`, `A*B-B*A`;
 3. form `(I+h*A)(I+h*B)` and the reversed product;
-4. expand `exp(h*(A+B))` as a series through at least (h^4);
+4. expand `exp(h*(A+B))` as a series through at least \(h^4\);
 5. form `(I+h*A/2)(I+h*B)(I+h*A/2)`;
 6. compare coefficients;
-7. substitute (h=1/2) and evaluate Frobenius norms;
+7. substitute \(h=1/2\) and evaluate Frobenius norms;
 8. repeat the order check for diagonal commuting controls.
 
 ## Claim boundary
