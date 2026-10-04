@@ -221,7 +221,7 @@ A change in retained distribution should be measured, not inferred from the word
 
 ## 12. Raw corpus proportions
 
-Suppose domain `d` has `n_d` retained records.
+First declare the counting unit. In this simple discussion use retained records. Suppose domain `d` has `n_d` retained records.
 
 Raw corpus proportion is:
 
