@@ -95,11 +95,11 @@
       ],
       "status": "draft-v0.1",
       "keystone": false,
-      "spec_path": "governance/tranches/a155-spec.md",
-      "manuscript_path": "governance/tranches/a155-reader.md",
-      "derivation_path": "governance/tranches/a155-math.md",
+      "spec_path": "manuscript/specifications/ATLAS-CH-KRYLOV-001.md",
+      "manuscript_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-KRYLOV-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-KRYLOV-001-DERIVATIONS.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-KRYLOV-001.yaml",
-      "computational_witness_path": "governance/tranches/a155-z.md",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-KRYLOV-001.md",
       "figure_ids": []
     },
     {
