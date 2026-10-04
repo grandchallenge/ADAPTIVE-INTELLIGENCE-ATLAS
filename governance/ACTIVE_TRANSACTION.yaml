@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 149
-  tranche_id: "GOVADAPT-001"
+  issue_number: 151
+  tranche_id: "AUDIT-038"
   chapter_ids: ["ATLAS-CH-GOVADAPT-001"]
-  baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
-  branch: "work/atlas-149"
-  pull_request: 150
-  state: "ci-green"
-  next_action: "Merge PR #150 only from exact green head fc96a7d93994d8da10fb6ee3b7e45be11f75c968; read back protected main; then instantiate the bounded post-draft audit."
+  baseline_commit: "c0db4e60ba1fb9d3f2d7ac4469ca40bb5a761784"
+  branch: "audit/atlas-151"
+  pull_request: null
+  state: "audit-record-complete"
+  next_action: "Open the audit PR from the exact current audit branch head, run canonical validation, repair any in-scope failure, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
