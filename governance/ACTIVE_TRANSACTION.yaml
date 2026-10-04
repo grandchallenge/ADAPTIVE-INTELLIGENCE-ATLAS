@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-BOUNDARYPROBE-001"
   baseline_commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
   branch: "work/boundaryprobe-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Complete BOUNDARYPROBE-001 from issue #116 and branch work/boundaryprobe-001 through validation and audit."
+  pull_request: 116
+  state: "implementation-pr-validation"
+  next_action: "Validate PR #116 at exact head bdcd84ec19109ddbec8e52535cc08227f8933e46; repair in-scope defects, merge when green, then run the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-BOUNDARYPROBE-001"
     downstream_architecture_count: 3
