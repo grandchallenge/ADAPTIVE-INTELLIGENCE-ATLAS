@@ -4,19 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 126
-  tranche_id: "LOCALGLOBAL-001"
-  chapter_ids:
-    - "ATLAS-CH-LOCALGLOBAL-001"
-  baseline_commit: "ca04c7f4dc854c0d5176f2d66c422475ebc0907e"
-  branch: "audit/localglobal-001"
-  pull_request: 126
-  state: "audit-pr-validation"
-  next_action: "Validate audit PR #126 at exact head fb24107866b60b369eedc5b2e788ce6f67e87ae9; merge when green, close issue #126, recompute frontier, and reset."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "a15170c608c5b83048ce2310e68e527e041438cb"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-MOE-001; it ties for the largest unlocked downstream architecture cone (3 nodes) and is first under deterministic frontier ordering."
 frontier:
-  - id: "ATLAS-CH-LOCALGLOBAL-001"
-    downstream_architecture_count: 3
-    direct_consumers: []
   - id: "ATLAS-CH-MOE-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-ROUTERDYN-001", "ATLAS-CH-SYSTEMS-001"]
@@ -38,6 +34,9 @@ frontier:
   - id: "ATLAS-CH-POSGEOM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-RPO-001"]
+  - id: "ATLAS-CH-SECOND-001"
+    downstream_architecture_count: 2
+    direct_consumers: ["ATLAS-CH-MATRIXOPT-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
