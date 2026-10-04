@@ -10,8 +10,8 @@ current:
   baseline_commit: "26c51843b13a0ab58ba0f16cd0c2e365a60d1180"
   branch: "audit/posgeom-161"
   pull_request: 162
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #162 at exact head f993e1bf9c52c66d47ea2b06acd7a141000d523c; repair any in-scope failure, replay validation, and merge only when green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #162 only from exact green head f993e1bf9c52c66d47ea2b06acd7a141000d523c; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
