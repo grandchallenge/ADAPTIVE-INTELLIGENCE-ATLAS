@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 129
+  issue_number: 131
   tranche_id: "OPTIONALITY-001"
   chapter_ids: ["ATLAS-CH-OPTIONALITY-001"]
-  baseline_commit: "39f419abb72c941e041f92f2834229f9968da006"
-  branch: "work/optionality-001"
-  pull_request: 130
-  state: "ci-green"
-  next_action: "Merge implementation PR #130 at pinned head 868ae77446af16a2143aedf4155d3c02794cac7a, then instantiate the bounded post-draft audit."
+  baseline_commit: "7eb2d23b77b612ed86db7ba50df6177f58df7bdf"
+  branch: "audit/optionality-001"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit OPTIONALITY-001 on implementation merge 7eb2d23b77b612ed86db7ba50df6177f58df7bdf. Repair comparator/action-class discipline, ex-ante correction-capacity semantics, source identity, and any other in-scope defect; write AUDIT-034; validate and merge the audit PR."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
