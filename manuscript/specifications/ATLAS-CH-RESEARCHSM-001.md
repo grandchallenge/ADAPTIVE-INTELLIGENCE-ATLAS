@@ -100,3 +100,35 @@ and
 The conjunction is respectively `0` and `1`. A repeated application at `b'` must leave the canonical advancement effect unchanged.
 
 Also introduce a second result identity under the same dispatch and show that it is retained as a distinct evidence object rather than treated as the identical retry.
+
+## Counterexamples and invariants
+
+The manuscript must include these finite failures:
+
+1. a structurally valid return with a missing required check does not satisfy the five-factor advancement predicate;
+2. when the governing policy requires producer/reviewer separation, a same-actor review does not satisfy that declared predicate;
+3. a fail-closed machine can preserve every safety invariant while remaining blocked, so safety does not imply liveness.
+
+Required invariants:
+
+- receipt alone does not change claim status;
+- duplicate delivery does not duplicate the canonical advancement effect;
+- different immutable result identities are never silently replaced;
+- a transition with a false required guard is not taken;
+- certification remains a separate state change.
+
+## Failure and recovery
+
+A failed transition preserves the last protected canonical state unless an explicit transition authorizes replacement. Recovery distinguishes retry, new evidence, supersession, implementation repair, and policy change.
+
+## Public case-study boundary
+
+The pinned public GCL artifacts supply one concrete lifecycle example with durable returns, replay/adjudication, fail-closed advancement, and separate successor selection. They are examples rather than universal workflow laws.
+
+## Downstream handoff
+
+After audit, `ATLAS-CH-GOVADAPT-001` may inherit the bounded work-package object, typed research state, canonical/history separation, idempotent retry, duplicate/conflict distinction, guarded advancement/certification, failure/recovery discipline, and finite witness.
+
+## Completion
+
+Source lock, formal packet, exact witness, manuscript, ledger/register updates, tranche receipt, green validation, implementation merge, bounded audit, audit repair/merge, closure verification, frontier recomputation, and controller reset are required.
