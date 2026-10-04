@@ -10,8 +10,8 @@ current:
   baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
   branch: "work/atlas-149"
   pull_request: 150
-  state: "pr-open"
-  next_action: "Validate PR #150 at exact head fc96a7d93994d8da10fb6ee3b7e45be11f75c968. Repair any in-scope failure and merge only after fresh green exact-head validation."
+  state: "ci-green"
+  next_action: "Merge PR #150 only from exact green head fc96a7d93994d8da10fb6ee3b7e45be11f75c968; read back protected main; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
