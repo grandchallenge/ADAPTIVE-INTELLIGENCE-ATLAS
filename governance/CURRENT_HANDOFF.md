@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `574de4e65b42d4c090467b8a43fe2e534653b6e9`
+**Current main:** `df99382bf263423fea72bcf75d2d222c19112031`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,20 +69,66 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `574de4e65b42d4c090467b8a43fe2e534653b6e9`;
-- next target: `ATLAS-CH-KRYLOV-001`;
-- title: **Krylov Subspaces and Iterative Solves**;
-- reason: after GOVADAPT-001 audit closure, three dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects KRYLOV-001 first.
+- baseline/main: `df99382bf263423fea72bcf75d2d222c19112031`;
+- next target: `ATLAS-CH-POSGEOM-001`;
+- title: **The Geometry of Position**;
+- reason: after KRYLOV-001 audit closure, two dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects POSGEOM-001 first.
 
-Current frontier, recomputed from the live post-AUDIT-038 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-039 Chapter Ledger:
 
-1. `ATLAS-CH-KRYLOV-001` — downstream architecture count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-2. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-3. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-POSGEOM-001` — downstream architecture count 2; direct consumer `ATLAS-CH-RPO-001`.
+2. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
-GOVADAPT-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-FRONTIER-001` is newly dependency-legal and has downstream architecture count 1.
+KRYLOV-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-ATTNAPPROX-001` is newly dependency-legal; `ATLAS-CH-NEURALKRYLOV-001` remains additionally dependent on `ATLAS-CH-TRANSPORT-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### KRYLOV-001 — Krylov Subspaces and Iterative Solves
+
+- implementation issue: #155, closed completed;
+- implementation PR: #156;
+- implementation merge: `4fb9bbd05c3f48e3b69a72eaee171487576b5c48`;
+- audit: `AUDIT-039`;
+- audit issue: #157, closed completed;
+- audit PR: #158;
+- audit merge / current main: `df99382bf263423fea72bcf75d2d222c19112031`.
+
+Core classical objects:
+
+- `K_m(A,r_0)=span{r_0,Ar_0,...,A^(m-1)r_0}`;
+- Arnoldi relation `A V_m = V_(m+1) Hbar_m`;
+- symmetric/Hermitian Lanczos three-term specialization;
+- Galerkin residual orthogonality;
+- minimum-residual least-squares projection;
+- residual/error relation `A e_m=r_m`;
+- left/right preconditioning as changes of effective operator;
+- matrix-free operator-vector access;
+- finite-precision orthogonality/restart boundary.
+
+Exact witness:
+
+- `A=diag(1,2,4)`, `b=(1,1,1)^T`, `x_0=0`;
+- `V=[b,Ab]`;
+- reduced matrix `[[7,21],[21,73]]`;
+- reduced RHS `[3,7]^T`;
+- coefficients `[36/35,-1/5]^T`;
+- `x_2=[29/35,22/35,8/35]^T`;
+- `r_2=[6,-9,3]^T/35`;
+- `V^T r_2=0`;
+- `||r_2||_2^2=18/175`;
+- Lanczos replay gives `alpha_1=7/3`, `beta_1=sqrt(14)/3`, `alpha_2=59/21`, `beta_2=3sqrt(3)/7`.
+
+Conditioning control:
+
+- `A_c=diag(1,100,10000)`;
+- one-step SPD Galerkin/CG coefficient `1/3367`;
+- Euclidean residual norm squared increases from `3` to `19602/3367`;
+- energy-error norm squared decreases from `10101/10000` to `33980067/33670000`.
+
+AUDIT-039 found no mathematical reversal. It canonicalized the artifact placement after a recoverable connector-filter workaround, restored the canonical reader title and exact source-lock reference, removed temporary duplicate artifacts, added the transaction receipt, and restored implementation issue metadata.
+
+Load-bearing boundary: classical Krylov structure does not by itself establish rapid convergence for arbitrary operators, Euclidean error from residual alone, or convergence guarantees for learned nonlinear Neural Krylov Transport.
+
 
 ### GOVADAPT-001 — Governed Adaptation
 
@@ -1020,47 +1066,59 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — KRYLOV-001
+## 7. Next tranche — POSGEOM-001
 
 Stable ID:
 
-`ATLAS-CH-KRYLOV-001`
+`ATLAS-CH-POSGEOM-001`
 
 Title:
 
-**Krylov Subspaces and Iterative Solves**
+**The Geometry of Position**
 
-Declared hard dependency:
+Declared hard dependencies:
 
-- `ATLAS-CH-LINALG-001`.
+- `ATLAS-CH-ATTNOP-001`;
+- `ATLAS-CH-GEOM-001`.
 
 Atlas contract:
 
-> Develop Arnoldi, Lanczos, residual-driven subspaces, and the logic of solving large problems through informative directions.
+> Develop sinusoidal encodings, RoPE, block rotations, long-context extrapolation, and multidimensional position.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-KRYLOV-001 should source-lock its exact linear-algebra prerequisite before selecting external numerical-linear-algebra sources.
+The audited Attention-as-an-Operator prerequisite may supply:
+
+- query/key/value and attention-operator notation;
+- attention logits and kernel/operator viewpoint;
+- headwise/operator decomposition;
+- the distinction between attention mechanism and downstream approximation.
+
+The audited Geometry prerequisite may supply:
+
+- inner products, norms, tangent/metric language where applicable;
+- rotations and orthogonal transformations;
+- geometric invariance/equivariance discipline;
+- explicit separation between exact geometry and heuristic geometric analogy.
 
 A sound intellectual spine should distinguish at least:
 
-1. full-space direct solution from iterative subspace approximation;
-2. the Krylov space `K_m(A,b)=span{b,Ab,...,A^{m-1}b}` from an arbitrary learned or hand-chosen subspace;
-3. Arnoldi for general matrices from Lanczos for the symmetric/Hermitian case;
-4. basis construction from the projected small problem;
-5. residual minimization from error minimization;
-6. spectral clustering effects from worst-case convergence guarantees;
-7. exact arithmetic from finite-precision loss of orthogonality;
-8. matrix-vector access from explicit matrix formation;
-9. preconditioning from merely increasing iteration count;
-10. classical Krylov structure from the later Neural Krylov Transport chapter.
+1. absolute position labels from relative-position dependence;
+2. additive sinusoidal features from multiplicative/block-rotational position transforms;
+3. RoPE's exact relative phase identity from empirical long-context extrapolation behavior;
+4. rotation blocks from arbitrary learned positional mixing;
+5. frequency allocation from context-window scaling policy;
+6. one-dimensional sequence position from multidimensional positional geometry;
+7. exact algebraic translation/relative-position identities from finite-precision implementation;
+8. position encoding geometry from attention-content geometry;
+9. interpolation/extrapolation heuristics from source-established guarantees;
+10. classical RoPE/vector positional encodings from the later Relative-Position Operators chapter.
 
-The finite witness should be chosen only after source locking. It should expose an exact small matrix/vector pair where a low-dimensional Krylov space captures a nontrivial approximation with transparent residual arithmetic, plus a contrasting case that shows why dimension, conditioning, or non-normality matters.
+The finite witness should be selected only after source locking. It should expose the exact relative-position identity for a minimal rotation block and include a control showing what fails when the positional transform is not an orthogonal phase rotation.
 
-Direct consumers after audit:
+Direct consumer after audit:
 
-- `ATLAS-CH-ATTNAPPROX-001`;
-- `ATLAS-CH-NEURALKRYLOV-001`.
+- `ATLAS-CH-RPO-001`.
 
 ## 8. Durable restart instruction for a fresh chat
 
