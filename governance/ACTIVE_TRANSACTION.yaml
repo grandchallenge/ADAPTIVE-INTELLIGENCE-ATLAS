@@ -10,8 +10,8 @@ current:
   baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
   branch: "work/atlas-149"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Complete the declared chapter artifact set on work/atlas-149, integrate governance indexes, open the implementation PR, and run exact-head validation."
+  state: "draft-complete"
+  next_action: "Open the implementation PR from work/atlas-149, run canonical validation on the exact head, repair every in-scope defect, replay validation, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
