@@ -10,8 +10,8 @@ current:
   baseline_commit: "7eb2d23b77b612ed86db7ba50df6177f58df7bdf"
   branch: "audit/optionality-001"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit OPTIONALITY-001 on implementation merge 7eb2d23b77b612ed86db7ba50df6177f58df7bdf. Repair comparator/action-class discipline, ex-ante correction-capacity semantics, source identity, and any other in-scope defect; write AUDIT-034; validate and merge the audit PR."
+  state: "audit-repaired"
+  next_action: "Open the AUDIT-034 pull request from audit/optionality-001 to main, run repository validation, repair any in-scope failure until green, then merge."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
