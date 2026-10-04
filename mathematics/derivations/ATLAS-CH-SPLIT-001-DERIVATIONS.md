@@ -8,7 +8,9 @@ It does not prove that arbitrary learned neural blocks are exact flows or that c
 
 ## 1. Lie ordering and the first commutator
 
-Let (A,Bin\mathbb R^{d\times d}) be constant matrices.
+**Application convention.** States are column vectors, so a matrix product acts right-to-left. The label \(S_{AB}=e^{hA}e^{hB}\) records product order, not chronological wording: \(B\) acts first and \(A\) second. Chronological A-then-B is \(e^{hB}e^{hA}\).
+
+Let \(A,B\in\mathbb R^{d\times d}\) be constant matrices.
 
 Expand
 
@@ -121,7 +123,7 @@ B=
 \end{pmatrix}.
 \]
 
-Since (A^2=B^2=0),
+Since \(A^2=B^2=0\),
 
 \[
 e^{hA}=I+hA,
@@ -156,7 +158,7 @@ hence
 \end{pmatrix}.
 \]
 
-The A-then-B Lie composition is
+The product-labeled \(S_{AB}\) Lie composition is
 
 \[
 e^{hA}e^{hB}
@@ -169,7 +171,7 @@ h&1
 \end{pmatrix}.
 \]
 
-The reversed composition is
+The reversed product \(S_{BA}\) is
 
 \[
 e^{hB}e^{hA}
@@ -190,7 +192,7 @@ e^{hA}e^{hB}-e^{hB}e^{hA}
 h^2[A,B].
 \]
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 e^{hA}e^{hB}
@@ -234,7 +236,7 @@ Therefore
 \[
 e^{h(A+B)}
 =
-\cosh(h)I+\sinh(h)(A+B),
+\cosh\(h\)I+\sinh\(h\)(A+B),
 \]
 
 or
@@ -250,7 +252,7 @@ e^{h(A+B)}
 
 The leading Lie defect follows directly by comparing series.
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 \cosh(1/2)\approx1.127625965,
@@ -268,7 +270,7 @@ This numeric norm is only a bounded witness value, not an asymptotic theorem.
 
 ## 4. Symmetric Strang composition
 
-Because (A^2=B^2=0),
+Because \(A^2=B^2=0\),
 
 \[
 e^{hA/2}=I+\frac h2 A,
@@ -279,7 +281,7 @@ e^{hB}=I+hB.
 Multiply exactly:
 
 \[
-S_{ABA}(h)
+S_{ABA}\(h\)
 =
 e^{hA/2}e^{hB}e^{hA/2}
 =
@@ -305,17 +307,17 @@ h+h^3/6+O(h^5)&
 Hence
 
 \[
-S_{ABA}(h)-e^{h(A+B)}
+S_{ABA}\(h\)-e^{h(A+B)}
 =
 \begin{pmatrix}
-O(h^4)&h^3/12+O(h^5)\\
--h^3/6+O(h^5)&O(h^4)
+O\(h^4\)&h^3/12+O(h^5)\\
+-h^3/6+O(h^5)&O\(h^4\)
 \end{pmatrix}.
 \]
 
-The local defect is therefore (O(h^3)) in this exact finite-dimensional witness.
+The local defect is therefore \(O(h^3)\) in this exact finite-dimensional witness.
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 S_{ABA}(1/2)
@@ -371,9 +373,9 @@ Thus the witness cleanly separates the noncommuting and commuting cases.
 Let
 
 \[
-F_A(x)=hAx,
+F_A\(x\)=hAx,
 \qquad
-F_B(x)=hBx.
+F_B\(x\)=hBx.
 \]
 
 An additive residual update is
@@ -381,7 +383,7 @@ An additive residual update is
 \[
 x^+
 =
-x+F_A(x)+F_B(x)
+x+F_A\(x\)+F_B\(x\)
 =
 \left(I+h(A+B)\right)x.
 \]
@@ -406,7 +408,7 @@ x^+
 \left(I+h(A+B)+h^2BA\right)x.
 \]
 
-If B is applied first, the cross term becomes (h^2AB).
+If B is applied first, the cross term becomes \(h^2AB\).
 
 So sequential residual composition is not merely an additive sum unless the cross term vanishes or is deliberately neglected under a declared approximation.
 
@@ -415,11 +417,11 @@ So sequential residual composition is not merely an additive sum unless the cros
 For a neural residual block define the actual maps, for example,
 
 \[
-\Psi_A(H)=H+F_A(N_A(H)),
+\Psi_A\(H\)=H+F_A(N_A\(H\)),
 \]
 
 \[
-\Psi_B(H)=H+F_B(N_B(H)).
+\Psi_B\(H\)=H+F_B(N_B\(H\)).
 \]
 
 The block
@@ -430,15 +432,59 @@ The block
 
 is an ordinary composition of learned maps.
 
-Unless one separately proves that (Psi_A) and (Psi_B) are exact time-(h) flows of declared vector fields, it is incorrect to replace them by (e^{hA}) and (e^{hB}) as an identity.
+Unless one separately proves that \(\Psi_A\) and \(\Psi_B\) are exact time-\(h\) flows of declared vector fields, it is incorrect to replace them by \(e^{hA}\) and (e^{hB}) as an identity.
 
 The splitting viewpoint still has architectural value: it asks which transformations are isolated, which order they occur in, which state each sees, and how noncommutation affects composition. The numerical-order theorem remains conditional on the stronger exact-flow/regularity assumptions.
 
-## 8. Shared versus layer-varying operators
+## 8. Neural half-step and nonlinear noncommutation boundaries
 
-If every layer uses the same pair (A,B), an autonomous reference problem is at least syntactically available.
+A Strang-style neural expression requires more than one learned map named \(\Psi_A\). One must declare a step-parameterized family
 
-If layer (k) uses (A_k,B_k), then the appropriate reference is nonautonomous or stage-dependent.
+\[
+\Psi_A\(h\),\qquad \Psi_B\(h\),
+\]
+
+with a meaningful half-stage \(\Psi_A(h/2)\). Only then is the palindromic composition
+
+\[
+\Psi_A(h/2)\circ\Psi_B\(h\)\circ\Psi_A(h/2)
+\]
+
+well-defined as a neural analogue of the classical sequence. Duplicating a block, halving a residual coefficient, or writing the symbol \(A/2\) does not by itself establish Strang semantics.
+
+For nonlinear maps define the direct composition defect
+
+\[
+C_\Psi\(x\)
+=
+\Psi_B(\Psi_A\(x\))
+-
+\Psi_A(\Psi_B\(x\)).
+\]
+
+Its derivative, when defined, is
+
+\[
+DC_\Psi\(x\)
+=
+J_B(\Psi_A\(x\))J_A\(x\)
+-
+J_A(\Psi_B\(x\))J_B\(x\).
+\]
+
+This is generally not the same as the same-state algebraic Jacobian commutator
+
+\[
+J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\).
+\]
+
+The latter can be a useful local diagnostic, but it is not automatically the derivative of the nonlinear composition defect.
+
+## 9. Shared versus layer-varying operators
+
+If every layer uses the same pair \(A,B\), an autonomous reference problem is at least syntactically available.
+
+If layer \(k\) uses \(A_k,B_k\), then the appropriate reference is nonautonomous or stage-dependent.
 
 A local commutator
 
@@ -448,7 +494,7 @@ A local commutator
 
 describes only that stage's finite-dimensional ordering defect. One may not silently reuse a single autonomous formula across all layers.
 
-## 9. Error taxonomy
+## 10. Error taxonomy
 
 For a neural split-operator interpretation, keep separate:
 
