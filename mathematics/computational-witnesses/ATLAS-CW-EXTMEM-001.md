@@ -72,11 +72,13 @@ Initial current records:
 
 `B -> (0,s_B1,v1)`.
 
-Update only A:
+Update only A by changing version state explicitly:
 
-`A -> (4,s_A2,v2,supersedes=v1)`.
+`A,v1 -> (2,s_A1,v1,status=superseded)`
 
-Keep B unchanged.
+`A,v2 -> (4,s_A2,v2,status=current,supersedes=v1)`.
+
+Keep B unchanged and current.
 
 Latest-version reads now give:
 

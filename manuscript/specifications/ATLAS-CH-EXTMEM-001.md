@@ -32,7 +32,7 @@ The expected architecture is usually hybrid.
 
 For a knowledge item or class `k`, use:
 
-`Place(k)=(V,P,S,D,R,L,A,G)`
+`Place(k)=(V,P,S,D,R,L,H,A,G)`
 
 where:
 
@@ -41,11 +41,12 @@ where:
 - `S`: sharing/synchronization scope;
 - `D`: deletion/supersession requirement;
 - `R`: addressability/retrievability;
-- `L`: latency/availability constraint;
+- `L`: latency constraint;
+- `H`: availability/failure-tolerance requirement;
 - `A`: access-control/privacy constraint;
 - `G`: value of compression/generalization into parameters.
 
-No universal scalar score over these coordinates is assumed.
+No universal scalar score over these coordinates is assumed. External locus and persistence are also distinct: this chapter focuses on persistent external records when that lifetime is deliberately chosen; it does not define all external memory as persistent.
 
 ## External-memory-favoring pressures
 
@@ -138,7 +139,9 @@ Use a versioned exact-key store:
 
 Update A by appending/superseding:
 
-`M_2[A]=(4,source=s_A2,version=2,supersedes=1)`.
+`M_2[A,v1]=(2,source=s_A1,version=1,status=superseded)`.
+
+`M_2[A,v2]=(4,source=s_A2,version=2,status=current,supersedes=1)`.
 
 B remains:
 

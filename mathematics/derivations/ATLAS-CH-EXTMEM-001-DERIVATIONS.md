@@ -16,7 +16,7 @@ The chapter does not assume a total binary partition because the same informatio
 
 For item `k`, use:
 
-`Place(k)=(V,P,S,D,R,L,A,G)`.
+`Place(k)=(V,P,S,D,R,L,H,A,G)`.
 
 Coordinates represent:
 
@@ -25,11 +25,12 @@ Coordinates represent:
 - sharing scope `S`;
 - deletion/supersession need `D`;
 - explicit retrievability/addressability `R`;
-- latency/availability constraints `L`;
+- latency constraint `L`;
+- availability/failure-tolerance requirement `H`;
 - access-control/privacy requirements `A`;
 - value of parametric compression/generalization `G`.
 
-No canonical addition or scalarization is defined.
+No canonical addition or scalarization is defined. External locus and persistence remain distinct coordinates: the present thesis concerns persistent external records when that lifetime is chosen, not every external memory object.
 
 Any policy that reduces these coordinates to one score must declare its weighting and operating assumptions.
 
@@ -213,9 +214,11 @@ Initial records:
 
 Update A by adding:
 
+`r_A1=(key=A,value=2,source=s_A1,version=1,status=superseded)`;
+
 `r_A2=(key=A,value=4,source=s_A2,version=2,status=current,supersedes=1)`.
 
-Mark old A record superseded or select the highest admissible version under the read policy.
+Thus the updated state contains one explicitly current A version under this witness policy.
 
 B remains unchanged.
 
