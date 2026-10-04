@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `df99382bf263423fea72bcf75d2d222c19112031`
+**Current main:** `8fbae32144f94e497203b311cc0a824f8cd8a486`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,19 +69,65 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `df99382bf263423fea72bcf75d2d222c19112031`;
-- next target: `ATLAS-CH-POSGEOM-001`;
-- title: **The Geometry of Position**;
-- reason: after KRYLOV-001 audit closure, two dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects POSGEOM-001 first.
+- baseline/main: `8fbae32144f94e497203b311cc0a824f8cd8a486`;
+- next target: `ATLAS-CH-SECOND-001`;
+- title: **Curvature and Second-Order Structure**;
+- reason: after POSGEOM-001 audit closure, SECOND-001 is the unique dependency-legal architecture chapter with downstream architecture count 2.
 
-Current frontier, recomputed from the live post-AUDIT-039 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-040 Chapter Ledger:
 
-1. `ATLAS-CH-POSGEOM-001` — downstream architecture count 2; direct consumer `ATLAS-CH-RPO-001`.
-2. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-SECOND-001` — downstream architecture count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+2. The next tier has downstream architecture count 1 and includes `ATLAS-CH-COMPRESS-001`, `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-HARDWARE-001`, `ATLAS-CH-MANOPT-001`, `ATLAS-CH-MECHDIAG-001`, `ATLAS-CH-POLITY-001`, `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-RPO-001`, `ATLAS-CH-TOKEN-001`, `ATLAS-CH-TRANSPORT-001`, and `ATLAS-CH-UNCERTAINTY-001`.
 
-KRYLOV-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-ATTNAPPROX-001` is newly dependency-legal; `ATLAS-CH-NEURALKRYLOV-001` remains additionally dependent on `ATLAS-CH-TRANSPORT-001`.
+POSGEOM-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-RPO-001` is newly dependency-legal with downstream architecture count 1.
 
 ## 5. Immediately preceding completed tranches
+
+### POSGEOM-001 — The Geometry of Position
+
+- implementation issue: #159, closed completed;
+- implementation PR: #160;
+- implementation merge: `26c51843b13a0ab58ba0f16cd0c2e365a60d1180`;
+- audit: `AUDIT-040`;
+- audit issue: #161, closed completed;
+- audit PR: #162;
+- audit merge / current main: `8fbae32144f94e497203b311cc0a824f8cd8a486`.
+
+Core exact objects:
+
+- 2D rotation block `R(phi)`;
+- position-indexed family `R_m(omega)=R(m omega)`;
+- exact identity `R_m^T R_n=R((n-m)omega)`;
+- transformed score identity `(R_m q)^T(R_n k)=q^T R((n-m)omega)k`;
+- block-diagonal multi-frequency extension;
+- coordinate-wise direct-product multidimensional extension;
+- explicit separation between positional algebra and model-level long-context behavior.
+
+Exact witness:
+
+- `theta=pi/6`, `q=k=(1,0)^T`;
+- same-offset pairs `(0,2)` and `(3,5)` both score `1/2`;
+- different-offset pair `(1,4)` scores `0`;
+- generic-vector replay with `q=(1,2)^T`, `k=(3,-1)^T`, `m=2`, `n=5` gives `7` in both direct and relative forms.
+
+Non-orthogonal control:
+
+- `S_m=diag(2^m,1)`;
+- same-offset pair `(0,2)` scores `4`;
+- same-offset pair `(3,5)` scores `256`;
+- therefore equal relative displacement alone does not determine the transformed inner product without the required transform-family structure.
+
+Long-context boundary:
+
+- Position Interpolation and YaRN are treated as paper-scoped context-extension methods;
+- exact continuation of the positional formula is not promoted into a universal theorem of retrieval quality, calibration, optimization stability, or arbitrary-length generalization.
+
+Implementation CI initially caught a serialization defect: LaTeX backslash escapes in the manuscript had produced control characters. The manuscript was rewritten through raw-string serialization, all POSGEOM artifacts were rescanned byte-clean, and exact repaired head `ddea383a6c1ffa1a89ed8892d3c900e28940d804` passed canonical validation.
+
+AUDIT-040 found no further mathematical, source-scope, prose, or repository repair.
+
+Load-bearing boundary: `formula extrapolates` does not imply `trained model generalizes`.
+
 
 ### KRYLOV-001 — Krylov Subspaces and Iterative Solves
 
@@ -1066,59 +1112,57 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — POSGEOM-001
+## 7. Next tranche — SECOND-001
 
 Stable ID:
 
-`ATLAS-CH-POSGEOM-001`
+`ATLAS-CH-SECOND-001`
 
 Title:
 
-**The Geometry of Position**
+**Curvature and Second-Order Structure**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-ATTNOP-001`;
+- `ATLAS-CH-OPTBASE-001`;
 - `ATLAS-CH-GEOM-001`.
 
 Atlas contract:
 
-> Develop sinusoidal encodings, RoPE, block rotations, long-context extrapolation, and multidimensional position.
+> Develop Hessians, Fisher information, natural gradient, quasi-Newton methods, trust regions, and proximal ideas.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Attention-as-an-Operator prerequisite may supply:
+The audited First-Order Optimization prerequisite may supply:
 
-- query/key/value and attention-operator notation;
-- attention logits and kernel/operator viewpoint;
-- headwise/operator decomposition;
-- the distinction between attention mechanism and downstream approximation.
+- gradient-based update notation;
+- SGD/momentum/Adam-family baseline machinery;
+- schedules, clipping, weight decay, and first-order stability boundaries.
 
 The audited Geometry prerequisite may supply:
 
-- inner products, norms, tangent/metric language where applicable;
-- rotations and orthogonal transformations;
-- geometric invariance/equivariance discipline;
-- explicit separation between exact geometry and heuristic geometric analogy.
+- tangent and metric language;
+- orthogonal/geometric structure;
+- exact-versus-heuristic geometry discipline.
 
 A sound intellectual spine should distinguish at least:
 
-1. absolute position labels from relative-position dependence;
-2. additive sinusoidal features from multiplicative/block-rotational position transforms;
-3. RoPE's exact relative phase identity from empirical long-context extrapolation behavior;
-4. rotation blocks from arbitrary learned positional mixing;
-5. frequency allocation from context-window scaling policy;
-6. one-dimensional sequence position from multidimensional positional geometry;
-7. exact algebraic translation/relative-position identities from finite-precision implementation;
-8. position encoding geometry from attention-content geometry;
-9. interpolation/extrapolation heuristics from source-established guarantees;
-10. classical RoPE/vector positional encodings from the later Relative-Position Operators chapter.
+1. Hessian curvature from gradient magnitude;
+2. positive-definite, indefinite, and singular curvature regimes;
+3. Hessian from Fisher information;
+4. Euclidean gradient from natural gradient;
+5. exact Newton steps from damped/regularized approximations;
+6. quasi-Newton secant updates from exact Hessian inversion;
+7. trust-region models from unconstrained quadratic minimization;
+8. proximal operators from generic regularization penalties;
+9. matrix-free Hessian-vector products from explicit Hessian formation;
+10. local second-order structure from global optimization guarantees.
 
-The finite witness should be selected only after source locking. It should expose the exact relative-position identity for a minimal rotation block and include a control showing what fails when the positional transform is not an orthogonal phase rotation.
+The finite witness should be selected only after source locking. A useful exact witness would compare one quadratic with well-conditioned positive curvature against an indefinite or badly conditioned control, making the Newton/natural-gradient/trust-region distinctions transparent.
 
 Direct consumer after audit:
 
-- `ATLAS-CH-RPO-001`.
+- `ATLAS-CH-MATRIXOPT-001`.
 
 ## 8. Durable restart instruction for a fresh chat
 
