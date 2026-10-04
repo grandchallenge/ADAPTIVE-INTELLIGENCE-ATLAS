@@ -4,16 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 155
+  tranche_id: "KRYLOV-001"
+  chapter_ids: ["ATLAS-CH-\u004bRYLOV-001"]
   baseline_commit: "574de4e65b42d4c090467b8a43fe2e534653b6e9"
-  branch: null
+  branch: "work/a155"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-KRYLOV-001 (Krylov Subspaces and Iterative Solves) from baseline 574de4e65b42d4c090467b8a43fe2e534653b6e9. Its hard prerequisite ATLAS-CH-LINALG-001 is draft-v0.1. It is first in the deterministic three-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Bind the exact audited prerequisite and source set, then complete the declared chapter artifact set before exact-head validation."
 frontier:
-  - id: "ATLAS-CH-KRYLOV-001"
+  - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
   - id: "ATLAS-CH-POSGEOM-001"
