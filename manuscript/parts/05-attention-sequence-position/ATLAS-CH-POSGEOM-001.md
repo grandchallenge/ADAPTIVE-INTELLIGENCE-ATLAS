@@ -2,8 +2,8 @@
 <!-- ATLAS-CH-POSGEOM-001 -->
 
 **Epistemic status:** mathematical exposition built from audited Attention and Geometry prerequisites, primary positional-encoding sources, and Atlas-owned exact witnesses.  
-**Derivation packet:** `mathematics/derivations/ATLAS-CH-POSGEOM-001-DERIVATIONS.md`  
-**Computational witness:** `mathematics/computational-witnesses/ATLAS-CW-POSGEOM-001.md`
+**Derivation packet:** \`mathematics/derivations/ATLAS-CH-POSGEOM-001-DERIVATIONS.md\`  
+**Computational witness:** \`mathematics/computational-witnesses/ATLAS-CW-POSGEOM-001.md\`
 
 ## 1. Position is not content
 
@@ -15,14 +15,13 @@ Sequence order therefore has to enter somewhere.
 
 The first conceptual separation is:
 
-[
-oxed{
-	ext{content geometry}
-
-eq
-	ext{position geometry}.
+\[
+\boxed{
+\text{content geometry}
+\neq
+\text{position geometry}.
 }
-]
+\]
 
 Content determines what a token represents.
 
@@ -36,26 +35,26 @@ This chapter develops position as an explicit transformation acting on attention
 
 The original Transformer adds a fixed sinusoidal vector to the token embedding [@VaswaniEtAl2017].
 
-For one angular frequency (omega), consider the two-dimensional component
+For one angular frequency \(\omega\), consider the two-dimensional component
 
-[
-p_m(omega)
+\[
+p_m(\omega)
 =
-egin{pmatrix}
-sin(momega)\
-cos(momega)
-end{pmatrix}.
-]
+\begin{pmatrix}
+\sin(m\omega)\\
+\cos(m\omega)
+\end{pmatrix}.
+\]
 
-A fixed offset (delta) acts linearly:
+A fixed offset \(\delta\) acts linearly:
 
-[
-p_{m+delta}
+\[
+p_{m+\delta}
 =
-A_delta p_m,
-]
+A_\delta p_m,
+\]
 
-where (A_delta) is a rotation matrix determined by (deltaomega).
+where \(A_\delta\) is a rotation matrix determined by \(\delta\omega\).
 
 That fact explains the original motivation: relative displacement can be represented through a position-independent linear transform of the sinusoidal features.
 
@@ -71,48 +70,48 @@ Instead of adding a positional vector, it rotates query and key coordinates as a
 
 For one 2D block define
 
-[
-R(phi)
+\[
+R(\phi)
 =
-egin{pmatrix}
-cosphi&-sinphi\
-sinphi&cosphi
-end{pmatrix}.
-]
+\begin{pmatrix}
+\cos\phi&-\sin\phi\\
+\sin\phi&\cos\phi
+\end{pmatrix}.
+\]
 
-At position (m), use
+At position \(m\), use
 
-[
-R_m(omega)=R(momega).
-]
+\[
+R_m(\omega)=R(m\omega).
+\]
 
 Apply that rotation to the corresponding query and key block.
 
 The crucial algebra is
 
-[
-R(phi)^	op
+\[
+R(\phi)^\top
 =
-R(-phi),
-]
+R(-\phi),
+\]
 
 so
 
-[
-R_m(omega)^	op R_n(omega)
+\[
+R_m(\omega)^\top R_n(\omega)
 =
-R((n-m)omega).
-]
+R((n-m)\omega).
+\]
 
 Therefore
 
-[
-(R_m q)^	op(R_n k)
+\[
+(R_m q)^\top(R_n k)
 =
-q^	op R((n-m)omega)k.
-]
+q^\top R((n-m)\omega)k.
+\]
 
-The absolute positions (m) and (n) disappear from this pairwise expression except through their difference.
+The absolute positions \(m\) and \(n\) disappear from this pairwise expression except through their difference.
 
 This is the core relative-position identity.
 
@@ -125,7 +124,7 @@ It says that the contribution of one rotary block to the query-key inner product
 - the unrotated query block;
 - the unrotated key block;
 - the frequency;
-- the relative displacement (n-m).
+- the relative displacement \(n-m\).
 
 It does not say that the whole model depends only on relative position.
 
@@ -145,37 +144,37 @@ The exact statement belongs to the transformed query-key score contribution.
 
 Choose
 
-[
-	heta=pi/6,
-qquad
+\[
+\theta=\pi/6,
+\qquad
 q=k=
-egin{pmatrix}
-1\
+\begin{pmatrix}
+1\\
 0
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
-Compare positions ((0,2)).
+Compare positions \((0,2)\).
 
-The relative offset is (2), so
+The relative offset is \(2\), so
 
-[
-(R_0q)^	op(R_2k)
+\[
+(R_0q)^\top(R_2k)
 =
-cos(2	heta)
+\cos(2\theta)
 =
-rac12.
-]
+\frac12.
+\]
 
-Now compare positions ((3,5)).
+Now compare positions \((3,5)\).
 
-The relative offset is still (2), and
+The relative offset is still \(2\), and
 
-[
-(R_3q)^	op(R_5k)
+\[
+(R_3q)^\top(R_5k)
 =
-rac12.
-]
+\frac12.
+\]
 
 The absolute coordinates moved.
 
@@ -189,31 +188,31 @@ The result is not true for arbitrary position-dependent transforms.
 
 Define instead
 
-[
+\[
 S_m
 =
-operatorname{diag}(2^m,1).
-]
+\operatorname{diag}(2^m,1).
+\]
 
-Using the same (q=k=(1,0)^	op),
+Using the same \(q=k=(1,0)^\top\),
 
-[
-(S_m q)^	op(S_n k)
+\[
+(S_m q)^\top(S_n k)
 =
 2^{m+n}.
-]
+\]
 
-For the same-offset pair ((0,2)),
+For the same-offset pair \((0,2)\),
 
-[
-	ext{score}=4.
-]
+\[
+\text{score}=4.
+\]
 
-For the same-offset pair ((3,5)),
+For the same-offset pair \((3,5)\),
 
-[
-	ext{score}=256.
-]
+\[
+\text{score}=256.
+\]
 
 The relative displacement is identical.
 
@@ -221,11 +220,11 @@ The score is not.
 
 What changed?
 
-The family (S_m) does not satisfy the rotary group relation
+The family \(S_m\) does not satisfy the rotary group relation
 
-[
-T_m^	op T_n=T_{n-m}.
-]
+\[
+T_m^\top T_n=T_{n-m}.
+\]
 
 The exact relative-position identity depends on the structure of the transform family.
 
@@ -233,31 +232,31 @@ The exact relative-position identity depends on the structure of the transform f
 
 Real rotary encodings use many 2D blocks.
 
-For even dimension (d=2h),
+For even dimension \(d=2h\),
 
-[
+\[
 R_m
 =
-operatorname{diag}
-left(
-R(momega_1),
-ldots,
-R(momega_h)
-ight).
-]
+\operatorname{diag}
+\left(
+R(m\omega_1),
+\ldots,
+R(m\omega_h)
+\right).
+\]
 
 Then
 
-[
-R_m^	op R_n
+\[
+R_m^\top R_n
 =
-operatorname{diag}
-left(
-R((n-m)omega_1),
-ldots,
-R((n-m)omega_h)
-ight).
-]
+\operatorname{diag}
+\left(
+R((n-m)\omega_1),
+\ldots,
+R((n-m)\omega_h)
+\right).
+\]
 
 Each block sees the same displacement through a different phase rate.
 
@@ -275,21 +274,21 @@ The phase viewpoint is more useful than thinking of RoPE as "just another embedd
 
 For one frequency,
 
-[
+\[
 m
-longmapsto
-momega
-longmapsto
-R(momega).
-]
+\longmapsto
+m\omega
+\longmapsto
+R(m\omega).
+\]
 
 Position becomes a group parameter.
 
-The representation at position (m) is related to position (n) by the phase difference
+The representation at position \(m\) is related to position \(n\) by the phase difference
 
-[
-(n-m)omega.
-]
+\[
+(n-m)\omega.
+\]
 
 This makes several properties transparent:
 
@@ -301,21 +300,21 @@ This makes several properties transparent:
 
 ## 9. Common translation
 
-Shift every position by the same amount (c).
+Shift every position by the same amount \(c\).
 
 Then
 
-[
+\[
 (n+c)-(m+c)=n-m.
-]
+\]
 
 So
 
-[
-R_{m+c}^	op R_{n+c}
+\[
+R_{m+c}^\top R_{n+c}
 =
 R_{n-m}.
-]
+\]
 
 The rotary query-key contribution is invariant under a common shift of both position indices.
 
@@ -331,39 +330,39 @@ Images, grids, fields, and other structured domains may need several.
 
 Let a 2D position be
 
-[
+\[
 p=(u,v).
-]
+\]
 
 Use two independent rotary blocks:
 
-[
+\[
 R_p
 =
-operatorname{diag}
-left(
-R(uomega_x),
-R(vomega_y)
-ight).
-]
+\operatorname{diag}
+\left(
+R(u\omega_x),
+R(v\omega_y)
+\right).
+\]
 
 For another position
 
-[
+\[
 q=(u',v'),
-]
+\]
 
 we obtain
 
-[
-R_p^	op R_q
+\[
+R_p^\top R_q
 =
-operatorname{diag}
-left(
-R((u'-u)omega_x),
-R((v'-v)omega_y)
-ight).
-]
+\operatorname{diag}
+\left(
+R((u'-u)\omega_x),
+R((v'-v)\omega_y)
+\right).
+\]
 
 The pairwise operator depends on the coordinate-wise displacement.
 
@@ -391,9 +390,9 @@ This distinction keeps support geometry separate from score geometry.
 
 The identity
 
-[
-R_m^	op R_n=R_{n-m}
-]
+\[
+R_m^\top R_n=R_{n-m}
+\]
 
 continues to make algebraic sense far beyond any finite training context.
 
@@ -418,11 +417,11 @@ The simplest long-context strategy is to evaluate the same positional rule at la
 
 For rotary position, that means evaluating phases
 
-[
-momega
-]
+\[
+m\omega
+\]
 
-for (m) beyond the range used in training.
+for \(m\) beyond the range used in training.
 
 The formula is valid.
 
@@ -430,19 +429,19 @@ The behavior need not be.
 
 This is the distinction between:
 
-[
-oxed{
-	ext{formula extrapolates}
+\[
+\boxed{
+\text{formula extrapolates}
 }
-]
+\]
 
 and
 
-[
-oxed{
-	ext{trained model generalizes}.
+\[
+\boxed{
+\text{trained model generalizes}.
 }
-]
+\]
 
 They are not equivalent.
 
@@ -450,25 +449,25 @@ They are not equivalent.
 
 Position Interpolation changes the coordinate presented to the positional mechanism [@ChenEtAl2023PositionInterpolation].
 
-Suppose the original context scale is (L) and the desired scale is (L'>L).
+Suppose the original context scale is \(L\) and the desired scale is \(L'>L\).
 
 A simple interpolation map is
 
-[
+\[
 m
-longmapsto
-	ilde m
+\longmapsto
+\tilde m
 =
-mrac{L}{L'}.
-]
+m\frac{L}{L'}.
+\]
 
 The phase becomes
 
-[
-	ilde momega
-]
+\[
+\tilde m\omega
+\]
 
-instead of (momega).
+instead of \(m\omega\).
 
 The paper reports that this can extend RoPE-based pretrained models with relatively limited fine-tuning and gives a theoretical comparison between interpolation and direct extrapolation under its stated analysis.
 
@@ -496,14 +495,14 @@ What changes is which phases the model encounters and how well its learned compu
 
 Consider a phase
 
-[
-momega.
-]
+\[
+m\omega.
+\]
 
 One can change it by:
 
-- replacing (m) with (alpha m);
-- replacing (omega) with (alphaomega);
+- replacing \(m\) with \(\alpha m\);
+- replacing \(\omega\) with \(\alpha\omega\);
 - changing both nonuniformly across frequencies;
 - fine-tuning after the change.
 
@@ -610,4 +609,4 @@ Those are the next chapter's obligations.
 
 Exact provenance and claim boundaries are locked in:
 
-`sources/source-locks/ATLAS-CH-POSGEOM-001.yaml`
+\`sources/source-locks/ATLAS-CH-POSGEOM-001.yaml\`
