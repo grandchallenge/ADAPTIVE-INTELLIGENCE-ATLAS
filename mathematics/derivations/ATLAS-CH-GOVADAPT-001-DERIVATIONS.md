@@ -190,7 +190,15 @@ Let
 b(N)=b(D)=1/2.
 \]
 
-Two candidate revisions satisfy:
+Let \(x_0\) be the common protected reference state. Candidate \(A\) leads to \(x_A\), and candidate \(B\) leads to \(x_B\).
+
+Define the immediate utility increment by
+
+\[
+\Delta U(q)=U(x_q)-U(x_0).
+\]
+
+For the two candidates,
 
 \[
 \Delta U(A)=\Delta U(B)=1.
