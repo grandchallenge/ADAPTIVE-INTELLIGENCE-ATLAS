@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 122
+  issue_number: 123
   tranche_id: "EXTMEM-001"
   chapter_ids:
     - "ATLAS-CH-EXTMEM-001"
-  baseline_commit: "7604f00fe257ade14adf01718bda0b8f9aa8feb9"
-  branch: "work/extmem-001"
-  pull_request: 122
-  state: "implementation-pr-validation"
-  next_action: "Validate EXTMEM-001 PR #122 at exact head 54427c50caa2da25df2f3601e9449547693a5df8; repair in-scope defects, merge when green, then audit."
+  baseline_commit: "c775a398062736c372f13f65dd2bb7349c2796c7"
+  branch: "audit/extmem-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Complete AUDIT-031 from issue #123 and branch audit/extmem-001."
 frontier:
   - id: "ATLAS-CH-EXTMEM-001"
     downstream_architecture_count: 3
