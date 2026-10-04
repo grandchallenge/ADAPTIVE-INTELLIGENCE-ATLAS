@@ -4,19 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 123
-  tranche_id: "EXTMEM-001"
-  chapter_ids:
-    - "ATLAS-CH-EXTMEM-001"
-  baseline_commit: "c775a398062736c372f13f65dd2bb7349c2796c7"
-  branch: "audit/extmem-001"
-  pull_request: 124
-  state: "audit-pr-validation"
-  next_action: "Validate audit PR #124 at exact head e5f613b5b75ebbd24acd30ae0d1968cd3d6276d3; merge when green, close issue #123, recompute frontier, and reset."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "ed3f07a2531c520e0fad43f072340f8099448098"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-LOCALGLOBAL-001; it ties for the largest unlocked downstream architecture cone (3 nodes) and is first under deterministic frontier ordering."
 frontier:
-  - id: "ATLAS-CH-EXTMEM-001"
-    downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-CONTEXTCOMP-001", "ATLAS-CH-POLITY-001"]
   - id: "ATLAS-CH-LOCALGLOBAL-001"
     downstream_architecture_count: 3
     direct_consumers: []
@@ -38,6 +34,9 @@ frontier:
   - id: "ATLAS-CH-KRYLOV-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
+  - id: "ATLAS-CH-POSGEOM-001"
+    downstream_architecture_count: 2
+    direct_consumers: ["ATLAS-CH-RPO-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
