@@ -59,7 +59,7 @@ override must be replayed under BF16 before promotion.
       --max-eval 256 \
       --output-dir runs/olmo2-1b-early
 
-WP01 does not close until at least 20 exact revisions complete.
+With the published 38-checkpoint early-training series, stride 2 includes every other checkpoint plus the final checkpoint, yielding 20 exact revisions. WP01 does not close until all 20 complete. This first pass uses the cheapest paired-answer family; broader families are added only if needed for transition discovery.
 
 Each revision emits:
 
@@ -77,7 +77,7 @@ Run one family at a time:
       --family successive_answer \
       --output runs/olmo2-1b-early/successive-transitions.json
 
-A catalogue entry is only CANDIDATE_TRANSITION.
+A confident state reversal is first labelled STATE_REVERSAL_REQUIRES_CONTROL_VALIDATION. It becomes CANDIDATE_TRANSITION only when both endpoint revisions have explicit stable-control evidence supplied with --control-json.
 
 ## WP03 promotion rule
 
