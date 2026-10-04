@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-GOVADAPT-001"]
   baseline_commit: "c0db4e60ba1fb9d3f2d7ac4469ca40bb5a761784"
   branch: "audit/atlas-151"
-  pull_request: null
-  state: "audit-record-complete"
-  next_action: "Open the audit PR from the exact current audit branch head, run canonical validation, repair any in-scope failure, and merge only from a fresh green exact head."
+  pull_request: 153
+  state: "audit-pr-open"
+  next_action: "Read canonical CI for PR #153 at exact head d879470091a8c9da7e0d38b436923711d78efd46; repair any in-scope failure and merge only when validation is green."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
