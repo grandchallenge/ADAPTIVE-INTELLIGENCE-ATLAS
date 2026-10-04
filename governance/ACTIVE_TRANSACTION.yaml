@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-MOE-001"
   baseline_commit: "a15170c608c5b83048ce2310e68e527e041438cb"
   branch: "work/moe-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Complete MOE-001 from issue #127 and branch work/moe-001 through validation and audit."
+  pull_request: 127
+  state: "implementation-pr-validation"
+  next_action: "Validate MOE-001 PR #127 at exact head 58cf397f42d288c369a6b22c74ba6d7ae2442d5b; repair in-scope defects, merge when green, then audit."
 frontier:
   - id: "ATLAS-CH-MOE-001"
     downstream_architecture_count: 3
