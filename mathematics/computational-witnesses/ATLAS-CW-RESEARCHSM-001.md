@@ -11,3 +11,5 @@ Receiving the same identity again gives `E_2=E_1 union {r_A}=E_1`, so `|E_2|=1`.
 ## Distinct result
 
 Let `r_B=(17,B)` with `B!=A`. This is not an exact duplicate of `r_A`. Preserving both gives `E_3={r_A,r_B}`, so `|E_3|=2`.
+
+## Claim boundary
