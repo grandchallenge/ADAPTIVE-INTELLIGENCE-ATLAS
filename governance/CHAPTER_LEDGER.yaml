@@ -995,7 +995,8 @@
       ],
       "status": "draft-v0.1",
       "keystone": false,
-      "spec_path": "manuscript/specifications/ATLAS-CH-RESEARCHSM-001.md"
+      "spec_path": "manuscript/specifications/ATLAS-CH-RESEARCHSM-001.md",
+      "manuscript_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md"
     },
     {
       "id": "ATLAS-CH-GOVADAPT-001",
