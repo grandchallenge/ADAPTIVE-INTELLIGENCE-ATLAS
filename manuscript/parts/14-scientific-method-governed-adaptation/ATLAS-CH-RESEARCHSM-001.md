@@ -195,3 +195,5 @@ has cardinality
 `2`.
 
 The witness therefore separates retry from genuinely distinct evidence using only stable identity and finite set arithmetic.
+
+## References used in this chapter
