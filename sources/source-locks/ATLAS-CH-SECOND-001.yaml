@@ -1,0 +1,135 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SECOND-001"
+locked_on: "2026-10-04"
+epistemic_class: "audited_first_order_and_geometry_prerequisites_plus_classical_second_order_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited First-Order Optimization prerequisite supplies Euclidean-gradient update
+  semantics, optimizer-state discipline, and quadratic stability language. The audited
+  Geometry prerequisite supplies metric and geometric language. Nocedal and Wright (2006)
+  support Newton, quasi-Newton, trust-region, and related smooth optimization machinery.
+  Amari (1998) supports natural gradient under an information-geometric metric and the use
+  of Fisher information in the cited learning setting. Pearlmutter (1994) supports exact
+  Hessian-vector products without explicitly forming the full Hessian in the cited neural
+  computation setting. Parikh and Boyd (2014) support proximal operators and proximal
+  algorithms for nonsmooth/composite optimization. Atlas-owned material includes the
+  finite quadratic witnesses, explicit comparison tables, and downstream synthesis.
+  No source here establishes that exact Newton steps are globally convergent on arbitrary
+  nonconvex objectives, that Fisher information equals the Hessian in general, that a
+  quasi-Newton approximation is exact curvature, or that natural gradient is universally
+  superior.
+
+sources:
+  - id: "SECOND-NOCEDAL-WRIGHT-2006"
+    citation_key: "NocedalWright2006"
+    kind: "textbook"
+    title: "Numerical Optimization"
+    authors: "Jorge Nocedal; Stephen J. Wright"
+    edition: 2
+    publisher: "Springer"
+    year: 2006
+    doi: "10.1007/978-0-387-40065-5"
+    authority: >
+      Standard source for Newton methods, line search, trust regions, conjugate-gradient
+      methods, quasi-Newton methods, large-scale unconstrained optimization, and derivative
+      calculations.
+
+  - id: "SECOND-AMARI-1998"
+    citation_key: "Amari1998NaturalGradient"
+    kind: "peer-reviewed-journal"
+    title: "Natural Gradient Works Efficiently in Learning"
+    authors: "Shun-ichi Amari"
+    journal: "Neural Computation"
+    volume: 10
+    issue: 2
+    pages: "251-276"
+    year: 1998
+    doi: "10.1162/089976698300017746"
+    authority: >
+      Primary source for natural gradient in an information-geometric parameter space.
+      Fisher-efficiency and performance claims remain scoped to the paper's assumptions
+      and studied learning settings.
+
+  - id: "SECOND-PEARLMUTTER-1994"
+    citation_key: "Pearlmutter1994Hessian"
+    kind: "peer-reviewed-journal"
+    title: "Fast Exact Multiplication by the Hessian"
+    authors: "Barak A. Pearlmutter"
+    journal: "Neural Computation"
+    volume: 6
+    issue: 1
+    pages: "147-160"
+    year: 1994
+    doi: "10.1162/neco.1994.6.1.147"
+    authority: >
+      Primary source for exact Hessian-vector multiplication without explicitly storing
+      the full Hessian, with cost comparable to a gradient evaluation in the paper's
+      automatic-differentiation/backpropagation setting.
+
+  - id: "SECOND-PARIKH-BOYD-2014"
+    citation_key: "ParikhBoyd2014Proximal"
+    kind: "monograph"
+    title: "Proximal Algorithms"
+    authors: "Neal Parikh; Stephen Boyd"
+    venue: "Foundations and Trends in Optimization"
+    volume: 1
+    issue: 3
+    year: 2014
+    url: "https://web.stanford.edu/~boyd/papers/prox_algs.html"
+    authority: >
+      Standard source for proximal operators and proximal algorithms for nonsmooth,
+      constrained, large-scale, and composite optimization.
+
+atlas_sources:
+  - id: "SECOND-OPTBASE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md"
+    git_blob_sha1: "42df47c50c2d6d26da65a58b230040e2663f901f"
+    authority: "Audited prerequisite supplying first-order optimization semantics."
+
+  - id: "SECOND-OPTBASE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml"
+    git_blob_sha1: "fa610d3d763cc1a7e76ee4b83e85ce2c965c2825"
+    authority: "Exact source and claim boundary for the audited OPTBASE prerequisite."
+
+  - id: "SECOND-OPTBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "reviews/AUDIT-012.md"
+    git_blob_sha1: "28929ba6b4a16a3cef4a871fd9253d76e8a93634"
+    authority: "Audit record governing the OPTBASE prerequisite."
+
+  - id: "SECOND-GEOM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md"
+    git_blob_sha1: "f8e406f24a01bd852996e11118e04427ff549f35"
+    authority: "Audited prerequisite supplying metric and geometric language."
+
+  - id: "SECOND-GEOM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "sources/source-locks/ATLAS-CH-GEOM-001.yaml"
+    git_blob_sha1: "d75e8bcf5a5920eca6b09cb8bb181182c7827b5c"
+    authority: "Exact source and claim boundary for the audited Geometry prerequisite."
+
+  - id: "SECOND-GEOM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+    path: "reviews/AUDIT-001.md"
+    git_blob_sha1: "f13b7ac01f7b10dfadd64da6f31c45832344c082"
+    authority: "Audit record governing the Geometry prerequisite."
+
+epistemic_rules:
+  - "Gradient magnitude and curvature are different local objects."
+  - "For twice-differentiable objectives, the Hessian is local second-derivative structure; its sign pattern matters."
+  - "A positive-definite Hessian supports a locally convex quadratic model; an indefinite Hessian can make the raw Newton direction non-descent."
+  - "The Fisher information matrix is not identified with the Hessian in general."
+  - "Natural gradient is metric-dependent steepest descent under the declared information-geometric metric, not generic Hessian inversion."
+  - "Quasi-Newton matrices approximate curvature information through secant conditions; they are not exact Hessians by definition."
+  - "Trust-region methods constrain the step within a local model-validity region; they are not equivalent to unconstrained Newton."
+  - "Hessian-vector products can expose curvature action without materializing the dense Hessian."
+  - "A proximal operator is an implicit optimization primitive for a declared function; it is not merely gradient clipping or weight decay."
+  - "Local second-order structure does not imply a global optimum or global convergence on arbitrary nonconvex objectives."
