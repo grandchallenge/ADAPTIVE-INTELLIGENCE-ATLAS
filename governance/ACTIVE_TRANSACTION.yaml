@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-SPLIT-001"]
   baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
   branch: "audit/split-001"
-  pull_request: null
-  state: "audit-record-complete"
-  next_action: "Open the AUDIT-036 PR from exact audit head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da, run canonical CI, repair any in-scope failure, and merge only from a fresh green exact head."
+  pull_request: 144
+  state: "audit-pr-open"
+  next_action: "Read canonical CI for PR #144 at exact head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
