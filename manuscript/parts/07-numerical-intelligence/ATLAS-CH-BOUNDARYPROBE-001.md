@@ -383,3 +383,434 @@ Its eigenvalues are:
 The exact dominant singular target is therefore:
 
 `sqrt(9)=3`.
+
+
+## 21. A mixed start converges
+
+Start with:
+
+`z_0=(1,0)`.
+
+One multiplication gives:
+
+`u_1=(5,4)`.
+
+The next gives:
+
+`u_2=(41,40)`.
+
+The corresponding Rayleigh quotients are:
+
+`rho_1=365/41`
+
+and
+
+`rho_2=29525/3281`.
+
+Both approach the exact dominant eigenvalue `9` from below.
+
+Their square roots approach the true singular norm `3`.
+
+## 22. The convergence has a closed form
+
+Because:
+
+`z_0=(q_1+q_2)/sqrt(2)`,
+
+the unnormalized kth iterate is:
+
+`A^k z_0
+=
+((9^k+1)/2,
+ (9^k-1)/2)`.
+
+Its Rayleigh quotient is:
+
+`rho_k
+=
+(9*81^k+1)/(81^k+1)`.
+
+Hence:
+
+`rho_k -> 9`.
+
+This exact sequence makes the estimator dynamics visible without numerical ambiguity.
+
+## 23. A different start misses the dominant direction
+
+Now choose:
+
+`z_bad=(1,-1)`.
+
+Then:
+
+`A z_bad=z_bad`.
+
+Every iterate remains in the weak eigenspace.
+
+The Rayleigh quotient is always:
+
+`1`.
+
+The inferred singular value is always:
+
+`1`.
+
+The true operator norm remains:
+
+`3`.
+
+Nothing about the component changed.
+
+Only the probe initialization changed.
+
+## 24. One run is not a certificate
+
+Suppose a policy accepts an interface if the reported local gain is below `2`.
+
+The weak-eigenspace run reports `1`.
+
+The true local norm is `3`.
+
+So an unqualified single-run estimate can support a false acceptance decision.
+
+The lesson is not that power iteration is unusable.
+
+The lesson is that estimator metadata and limitations belong to the result.
+
+## 25. Restarts and subspace methods
+
+Random starts reduce the risk of exact orthogonality under ordinary continuous sampling assumptions.
+
+Multiple restarts improve directional coverage.
+
+Subspace iteration can track several modes.
+
+These are useful engineering choices.
+
+They do not turn a local finite estimate into a global nonlinear theorem.
+
+## 26. Probe metadata
+
+A reproducible spectral or sensitivity probe should record at least:
+
+- exact component identity;
+- operating point or sampled region;
+- input/output norm convention;
+- tangent or cotangent initialization;
+- random seed;
+- iteration count;
+- restart count;
+- normalization rule;
+- stopping criterion;
+- Rayleigh or residual trace;
+- numerical precision;
+- runtime/software environment.
+
+A scalar estimate without this context is weak evidence.
+
+## 27. Boundary-probe contract
+
+Use:
+
+`B=(F,X,Y,O,U,N_X,N_Y,P,E,tau)`.
+
+Here:
+
+- `F` is the component map;
+- `X,Y` are typed input/output spaces;
+- `O` is the operating point or region;
+- `U` is the perturbation or tangent class;
+- `N_X,N_Y` are norm or inner-product conventions;
+- `P` is the probe procedure;
+- `E` is estimator evidence and metadata;
+- `tau` is an acceptance threshold or policy.
+
+This is the numerical-probe portion of a later full boundary contract.
+
+## 28. The perturbation class matters
+
+A full Euclidean operator norm ranges over every Euclidean direction.
+
+A real interface may allow only structured perturbations.
+
+Examples include:
+
+- tangent directions on a constrained manifold;
+- physically admissible perturbations;
+- data-supported directions;
+- parameter-induced variations;
+- a full norm ball.
+
+A sensitivity statement should name which class is being probed.
+
+## 29. Norm choice matters
+
+A gain measured in Euclidean norm need not have the same value in another norm.
+
+Interfaces may care about:
+
+- Euclidean energy;
+- maximum coordinate error;
+- weighted physical units;
+- probability geometry;
+- task-specific seminorms.
+
+The geometry belongs to the contract.
+
+## 30. Units precede numerical norms
+
+If different coordinates represent incompatible physical units, a raw Euclidean norm can be meaningless.
+
+Unit conversion or scaling conventions must be established before the numerical gain is interpreted.
+
+This is not something the Jacobian probe can infer.
+
+It is a semantic interface obligation.
+
+## 31. Relation to NETNUM sensitivity
+
+NETNUM-001 established that residual-step Jacobians propagate first-order perturbations locally.
+
+For:
+
+`Psi(x)=x+F(x)`,
+
+the exact local Jacobian is:
+
+`J_Psi=I+J_F`.
+
+Boundary probes turn that local derivative into an inspectable interface diagnostic.
+
+The NETNUM boundary remains active:
+
+> local perturbation propagation is not a complete global stability theorem.
+
+## 32. Composite interfaces
+
+For two local Jacobians `J_1` and `J_2`:
+
+`J_composite=J_2 J_1`.
+
+The submultiplicative norm bound gives:
+
+`||J_2 J_1||_2
+<=
+||J_2||_2 ||J_1||_2`.
+
+This can expose possible amplification chains.
+
+The bound can be loose.
+
+The product of individual worst-case gains need not equal the actual composite gain.
+
+## 33. Small sensitivity is not semantic adequacy
+
+Consider a component that maps every input to zero.
+
+Its Jacobian norm is zero.
+
+Numerically it is insensitive.
+
+Semantically it may destroy all information needed downstream.
+
+Therefore:
+
+> low sensitivity is not automatically good composition.
+
+Numerical compatibility and semantic adequacy are separate axes.
+
+## 34. Large sensitivity is not automatically failure
+
+A component may intentionally amplify a weak signal.
+
+If the downstream consumer expects that scale, a large singular value can be acceptable.
+
+The singular value is a diagnostic quantity.
+
+Whether it violates a contract depends on:
+
+- perturbation class;
+- units;
+- downstream tolerance;
+- application policy.
+
+The threshold is not produced by the Jacobian itself.
+
+## 35. VJP magnitude is not causal attribution
+
+A large coordinate in:
+
+`J^T w`
+
+means the chosen scalarized output is locally sensitive to that input coordinate under the derivative model.
+
+It does not by itself establish causal influence under interventions.
+
+Sensitivity and causal explanation are different objects.
+
+## 36. Probe ensembles
+
+A richer boundary profile may contain:
+
+- several JVP directions;
+- several VJP objectives;
+- one or more singular-value estimates;
+- directional gains;
+- local invariant directions;
+- estimator residuals.
+
+This can be more informative than a single scalar.
+
+Each statistic still needs an explicit interpretation.
+
+## 37. Probe freshness
+
+Learned components change.
+
+Fine-tuning, quantization, pruning, compilation, or kernel changes can alter boundary behavior.
+
+A probe result should therefore bind to the exact component artifact and execution configuration.
+
+API compatibility does not make an old probe current evidence for a changed component.
+
+## 38. Operating-region coverage
+
+A derivative can be exactly computed at every sampled point while the sampled region fails to represent later inputs.
+
+This separates two questions:
+
+- derivative/probe estimation;
+- operating-region coverage.
+
+Power iteration addresses only the first, and only locally.
+
+## 39. Acceptance thresholds are policy
+
+Suppose the measured gain is `1.8` and the threshold is `2`.
+
+The mathematics can establish the measurement and its procedure.
+
+It cannot determine whether `2` is acceptable for the application.
+
+Threshold selection depends on downstream tolerance, uncertainty margins, model role, and governance.
+
+## 40. Numerical versus semantic conditions
+
+A numerical boundary probe can answer questions such as:
+
+- which tangent directions amplify?
+- which input directions affect a chosen output objective?
+- what local singular gain is observed?
+- how stable is the spectral estimate across restarts?
+
+It cannot by itself answer:
+
+- do physical units agree?
+- does the output mean what the consumer assumes?
+- is provenance acceptable?
+- are business, legal, or scientific invariants preserved?
+- is the full nonlinear composition globally safe?
+
+Those are separate contract dimensions.
+
+## 41. Failure modes
+
+### Local-to-global promotion
+
+A Jacobian norm at one point is presented as global stability.
+
+### Estimate-to-certificate promotion
+
+A finite power estimate is presented as a proved upper bound.
+
+### Initialization erasure
+
+A spectral estimate is reported without its start or restart procedure.
+
+### Norm erasure
+
+A gain is reported without the geometry in which it was measured.
+
+### Semantic laundering
+
+Low numerical sensitivity is treated as proof of interface meaning.
+
+### VJP-as-causality
+
+A derivative pullback is presented as causal explanation.
+
+### Stale evidence
+
+A probe from an earlier component version is reused after the component changes.
+
+## 42. Practical probe ledger
+
+| Field | Question |
+|---|---|
+| component | Which exact artifact/version? |
+| boundary | Which input and output spaces? |
+| operating region | At which point(s) or data region? |
+| perturbations | Which directions are admissible? |
+| norms | Which input/output geometry? |
+| JVP | Which tangent directions were pushed forward? |
+| VJP | Which output covectors were pulled back? |
+| spectral probe | Which power/subspace procedure? |
+| initialization | Which seeds/vectors/restarts? |
+| iterations | How many and with what stop rule? |
+| estimate | Which Rayleigh/singular values were observed? |
+| limitation | What estimator or coverage uncertainty remains? |
+| threshold | Which policy determines acceptance? |
+| semantic contract | Which non-numerical obligations remain separate? |
+
+This ledger converts **stable interface** into an inspectable claim.
+
+## 43. What the witness establishes
+
+The companion witness proves:
+
+- exact Jacobian `[[2,1],[1,2]]`;
+- exact singular values `3,1`;
+- JVP `(3,3)` for `v=(1,1)`;
+- VJP `(4,5)` for `w=(1,2)`;
+- exact JVP/VJP pairing value `9`;
+- nonlinear remainder `(epsilon^2,0)` along the chosen tangent;
+- mixed-start Rayleigh values `365/41` and `29525/3281` approaching `9`;
+- weak-eigenspace initialization returning Rayleigh value `1` forever despite true singular norm `3`.
+
+No global nonlinear theorem is inferred from these finite facts.
+
+## 44. Downstream handoff
+
+**Boundary Contracts — ATLAS-CH-BCONTRACT-001** may now assume:
+
+- JVP semantics;
+- VJP semantics;
+- local Jacobian composition;
+- Euclidean singular-gain interpretation;
+- power-iteration estimator behavior and initialization failure;
+- probe metadata requirements;
+- numerical-versus-semantic separation.
+
+The downstream chapter must independently define:
+
+- semantic interface conditions;
+- low-order separator variables;
+- admissibility obligations;
+- cross-component contract composition;
+- governance and evidence rules.
+
+A boundary probe measures.
+
+A boundary contract says what must hold.
+
+## References used in this chapter
+
+- Griewank and Walther, *Evaluating Derivatives: Principles and Techniques of Algorithmic Differentiation* [@GriewankWalther2008].
+- Baydin et al., *Automatic Differentiation in Machine Learning: a Survey* [@BaydinEtAl2018].
+- Trefethen and Bau, *Numerical Linear Algebra* [@TrefethenBau1997].
+- Golub and Van Loan, *Matrix Computations* [@GolubVanLoan2013].
+
+Exact source identities and authority boundaries are recorded in:
+
+sources/source-locks/ATLAS-CH-BOUNDARYPROBE-001.yaml
