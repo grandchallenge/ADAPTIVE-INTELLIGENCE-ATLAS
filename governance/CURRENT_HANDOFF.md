@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `39f419abb72c941e041f92f2834229f9968da006`
+**Current main:** `889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,54 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `b625a34280567345fb2829c6aff184561bd11757`;
+- baseline/main: `889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf`;
 - next target: `ATLAS-CH-RESEARCHSM-001`;
 - title: **Research as a State Machine**;
-- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering (descending downstream architecture count, then stable chapter ID).
+- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current high-leverage frontier, recomputed from the live Chapter Ledger after AUDIT-034:
+Current frontier, recomputed after AGENDA-GSD-001:
 
 1. `ATLAS-CH-RESEARCHSM-001` — downstream architecture count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-2. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+2. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-TRANSPORT-001`, `ATLAS-CH-COMPOSE-001`.
 3. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
 4. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 5. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
 6. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
-Lower-reach dependency-legal architecture nodes remain in the ledger and are not erased by this high-leverage view.
+AGENDA-GSD-001 is now protected on main. Future CPS, Curriculum, ProgressSearch, MinCurr, Mechanistic Intervention, and Spectral Diagnostics tranches must consume its evidence distinctions without treating the motivating paper's capacity-allocation hypothesis as established fact.
 
 ## 5. Immediately preceding completed tranches
+
+### AGENDA-GSD-001 — Generalization-State Dynamics
+
+- governing issue: #133;
+- implementation PR: #134;
+- protected merge / current main: `889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf`;
+- motivating source: arXiv:2609.33150v1;
+- durable agenda artifact: `governance/research-agenda/AGENDA-GSD-001.md`.
+
+Durable rule:
+
+**Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks. Treat checkpoints as potentially distinct computational states, and separate acquisition, persistence, accessibility, and behavioural expression.**
+
+The integration sharpened future architecture contracts for CPS, Curriculum, Learning Progress as Search, Minimal Curricula/Reasoning Bases, Mechanistic Intervention, and Spectral/Operator Diagnostics. It did not change the 80-chapter dependency graph.
+
+Claim firewall:
+
+- capacity allocation remains a hypothesis;
+- behavioural change does not by itself prove mechanism change;
+- no scalar diagnostic is presumed universal;
+- recovery evidence is conditional on a declared intervention class.
+
+### OPTIONALITY-001 — Optionality and Correction Capacity
+
+- implementation merge: `7eb2d23b77b612ed86db7ba50df6177f58df7bdf`;
+- audit: `AUDIT-034`;
+- audit PR: #132;
+- audit merge: `b625a34280567345fb2829c6aff184561bd11757`.
+
+The audited chapter distinguishes present value, future feasible-action sets, recoverability, and ex-ante correction capacity, with explicit conditional viable sets and comparator semantics.
+
 
 ### OPTIONALITY-001 — Optionality and Correction Capacity
 
@@ -814,37 +845,16 @@ Title:
 
 Declared hard dependencies:
 
-- `ATLAS-CH-REPLAY-001` — Replayable Evidence Objects;
-- `ATLAS-CH-FORMAL-001` — Formal Methods and Machine-Checkable Claims.
+- `ATLAS-CH-REPLAY-001`;
+- `ATLAS-CH-FORMAL-001`.
 
 Atlas contract:
 
 > Develop Forge → Solve → Cert, bounded work packages, independent actors, idempotence, and promotion gates.
 
+This is the deterministic next frontier winner after AGENDA-GSD-001. The new Generalization-State agenda decision does not create a hard dependency for RESEARCHSM-001 and should not be imported as hidden prerequisite authority.
+
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
-
-The audited Replayable Evidence prerequisite may supply source locking, environment pinning, replayable artifacts, provenance, and the boundary that replayability does not itself establish truth or authority.
-
-The audited Formal Methods prerequisite may supply explicit specifications, invariants, checker/proof boundaries, machine-checkable claims, and the rule that formal validity remains conditional on the modeled assumptions and interpretation.
-
-A sound intellectual spine should distinguish at least:
-
-1. research state from prose status labels;
-2. evidence production from evidence promotion;
-3. Forge construction from Solve execution from Cert adjudication;
-4. bounded work-package scope from open-ended delegation;
-5. actor independence from mere duplicate execution;
-6. idempotent retry from accidental duplicate mutation;
-7. transition guards from informal approval language;
-8. artifact identity/provenance from semantic acceptance;
-9. local task success from programme-level promotion;
-10. recoverable failure states from irreversible canonical mutation.
-
-A bounded exact witness should use a small typed state machine with at least one retry/duplicate-return path. It should show that an idempotent intake key prevents duplicate promotion while preserving the original evidence object, and that a transition into a certified/canonical state requires an explicit guard rather than merely successful execution.
-
-The chapter should include a counterexample where a nominally successful Solve result is not sufficient for Cert promotion because provenance, actor separation, or a declared invariant fails.
-
-`ATLAS-CH-GOVADAPT-001` may consume the resulting research-state-machine semantics only after RESEARCHSM-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
