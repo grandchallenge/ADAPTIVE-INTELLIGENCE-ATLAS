@@ -1,2 +1,19 @@
 schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-DATA-001"
+locked_on: "2026-10-03"
+claim_boundary: >
+  This chapter develops explicit dataset lineage, overlap predicates, mixture accounting,
+  and scoped empirical claims. It does not assume one universal scalar definition of data quality.
+atlas_sources:
+  - id: "DATA-EVIDENCE"
+    commit: "53583191c96a9657bbb247d683c25ee9f7bedacf"
+    path: "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md"
+    git_blob_sha1: "17eaa9caf90ede47c74dccff052f93d9fb3d901e"
+  - id: "DATA-EVIDENCE-AUDIT"
+    commit: "53583191c96a9657bbb247d683c25ee9f7bedacf"
+    path: "reviews/AUDIT-014.md"
+    git_blob_sha1: "6af518de0687a9cd8fe5635e2fba8f6a6271c77c"
+  - id: "DATA-EVIDENCE-SOURCE-LOCK"
+    commit: "53583191c96a9657bbb247d683c25ee9f7bedacf"
+    path: "sources/source-locks/ATLAS-CH-EVIDENCE-001.yaml"
+    git_blob_sha1: "432aa650c0c2e7679af8602b6d4c3af6a1c691ed"
