@@ -10,7 +10,7 @@ current:
   baseline_commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
   branch: "work/researchsm-001"
   pull_request: null
-  state: "source-locked"
+  state: "draft-complete-partial"
   next_action: "Continue RESEARCHSM-001 on work/researchsm-001. GitHub issue creation is currently blocked by the mutation guard; retry before PR/merge. Bind exact REPLAY-001 and FORMAL-001 identities plus current public GCL lifecycle/gate evidence, then draft and validate."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
