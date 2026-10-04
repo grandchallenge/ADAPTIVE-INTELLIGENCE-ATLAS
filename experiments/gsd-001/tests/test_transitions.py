@@ -3,6 +3,7 @@ from gsd.transitions import (
     CheckpointSummary,
     adversarial_disposition,
     detect_candidate_transitions,
+    detect_state_reversals,
 )
 
 
@@ -52,3 +53,14 @@ def test_adversarial_disposition():
         soft_margin_resolved=True,
         control_ok=True,
     ) == "PROMPT_SENSITIVE_UNCONFIRMED"
+
+
+def test_reversal_without_control_is_not_candidate():
+    rows = [
+        _summary(1000, STATE_GENERALIZING, 0.8, control_ok=False),
+        _summary(2000, STATE_PATTERN, -0.7, control_ok=False),
+    ]
+    reversals = detect_state_reversals(rows)
+    assert len(reversals) == 1
+    assert reversals[0]["status"] == "STATE_REVERSAL_REQUIRES_CONTROL_VALIDATION"
+    assert detect_candidate_transitions(rows) == []
