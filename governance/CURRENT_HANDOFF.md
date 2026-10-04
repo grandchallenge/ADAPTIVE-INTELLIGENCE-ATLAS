@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `a15170c608c5b83048ce2310e68e527e041438cb`
+**Current main:** `39f419abb72c941e041f92f2834229f9968da006`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,68 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `a15170c608c5b83048ce2310e68e527e041438cb`;
-- next target: `ATLAS-CH-MOE-001`;
-- title: **Mixture-of-Experts Systems**;
+- baseline/main: `39f419abb72c941e041f92f2834229f9968da006`;
+- next target: `ATLAS-CH-OPTIONALITY-001`;
+- title: **Optionality and Correction Capacity**;
 - reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-032:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-033:
 
-1. `ATLAS-CH-MOE-001` — downstream architecture count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
-2. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-3. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-4. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-5. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-6. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-7. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-8. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-OPTIONALITY-001` — downstream architecture count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+2. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+3. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+4. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+5. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+6. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+7. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### MOE-001 — Mixture-of-Experts Systems
+
+- implementation PR: #127;
+- implementation merge: `5090ed112ee086450387a8465772ec9a2358c410`;
+- audit: `AUDIT-033`;
+- audit issue/PR: #128;
+- audit merge / current main: `39f419abb72c941e041f92f2834229f9968da006`.
+
+Core routing objects:
+
+- router probabilities `p_{i,e}`;
+- preferred top-k route `P_i`;
+- accepted dispatch `a_{i,e}`;
+- expert token load `n_e`;
+- router probability mass `m_e`;
+- expert capacity `C`;
+- overflow policy;
+- expert/device placement.
+
+Exact witness:
+
+- six tokens, three experts, top-1, capacity 2;
+- naive preferred loads `(3,2,1)`;
+- rerouting t3 from overloaded E1 to available E3 yields accepted loads `(2,2,2)`;
+- router probability mass remains `(47/20,2,33/20)`, normalized to `(47/120,1/3,11/40)`;
+- count imbalance is `0`, probability-mass imbalance is `49/7200`;
+- toy utility totals remain unequal at `(8,4,2)`;
+- drop-overflow instead gives loads `(2,2,1)`, drop rate `1/6`, and expert arithmetic `5c` instead of `6c`.
+
+Load-bearing distinctions:
+
+- router probability versus preferred route versus accepted dispatch;
+- capacity/overflow semantics versus router preference;
+- accepted-count balance versus probability-mass balance;
+- traffic balance versus expert usefulness/specialization;
+- preferred-router concentration versus accepted-load concentration;
+- expert underuse versus functional redundancy versus capacity overload;
+- auxiliary balance objective versus task objective;
+- expert arithmetic versus communication/system cost.
+
+AUDIT-033 repairs:
+
+- made top-k explicitly a preferred route before capacity/overflow;
+- separated preferred-router concentration from accepted-load concentration because capacity can mask collapsed preferences;
+- replaced ambiguous `capacity collapse` language with `capacity overload`.
 
 ### LOCALGLOBAL-001 — Local-to-Global Mathematics
 
@@ -717,47 +762,46 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — MOE-001
+## 7. Next tranche — OPTIONALITY-001
 
 Stable ID:
 
-`ATLAS-CH-MOE-001`
+`ATLAS-CH-OPTIONALITY-001`
 
 Title:
 
-**Mixture-of-Experts Systems**
+**Optionality and Correction Capacity**
 
-Declared hard dependencies:
+Declared hard dependency:
 
-- `ATLAS-CH-SPARSE-001`;
-- `ATLAS-CH-TRANSFORMER-001`.
+- `ATLAS-CH-REGRET-001`.
 
 Atlas contract:
 
-> Develop routing, capacity, load balancing, specialization, collapse, and expert parallelism.
+> Formalize the value of preserving future viable actions and recoverability under uncertainty.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Conditional Computation prerequisite may supply sparse execution semantics, router overhead, active-versus-total capacity, average-versus-peak resource accounting, and the distinction between soft gating and work that is actually skipped.
-
-The audited Transformer prerequisite may supply the token/residual-stream/MLP block setting into which experts are inserted.
+The audited Regret prerequisite may supply explicit horizon/environment/policy/comparator semantics, Bayesian versus worst-case/minimax distinctions, and the boundary that low regret does not automatically imply safety, recoverability, or optionality.
 
 A sound intellectual spine should distinguish at least:
 
-1. expert capacity from active per-token compute;
-2. router scores/probabilities from actual dispatch decisions;
-3. top-k routing from soft mixtures;
-4. token capacity constraints and overflow/drop/reroute policy;
-5. load balance in tokens, probability mass, and realized compute;
-6. expert specialization from mere traffic imbalance;
-7. router collapse, expert collapse, and expert redundancy;
-8. auxiliary balancing objectives from the task objective;
-9. local routing quality from system-level communication/parallelism cost;
-10. training-time routing from inference-time dispatch and serving constraints.
+1. current expected value from future feasible-action set;
+2. option preservation from generic uncertainty aversion;
+3. reversibility/recoverability from merely delaying commitment;
+4. viable-action count from weighted value of those actions;
+5. correction capacity after new evidence from information gain itself;
+6. state/action irreversibility from stochastic bad outcomes;
+7. regret against a comparator from damage to future opportunity;
+8. policy optionality from environment optionality;
+9. hard feasibility loss from soft increases in recovery cost;
+10. optionality preservation as a control objective from a universal injunction to avoid commitment.
 
-A bounded exact witness should use a tiny token-by-expert score table with explicit top-k routing and finite expert capacities. It should show at least one case where naive top-1 routing overloads an expert, one repaired dispatch under a declared capacity/overflow policy, and a distinction between balanced token counts and equal expert usefulness. The witness should not claim that the toy balancing rule is universally optimal.
+A bounded exact witness should use a two-stage uncertain decision where two first-stage actions have equal or near-equal immediate value but leave different second-stage feasible sets. After uncertainty resolves, one branch should permit correction to either environment while the committed branch cannot. The witness should compute expected return, regret, viable-action sets, and a declared correction-capacity quantity exactly, showing that optionality can distinguish policies that immediate value or a simple Q-gap does not.
 
-The downstream Router Dynamics and Systems chapters may consume these routing/capacity semantics only after MOE-001 itself is audited.
+The chapter should explicitly include counterexamples showing that preserving more options is not always better when options have costs, risks, or no downstream value.
+
+`ATLAS-CH-GOVADAPT-001` may consume optionality/correction-capacity semantics only after OPTIONALITY-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
