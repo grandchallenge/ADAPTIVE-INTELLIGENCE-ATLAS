@@ -10,8 +10,8 @@ current:
   baseline_commit: "574de4e65b42d4c090467b8a43fe2e534653b6e9"
   branch: "work/a155"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind the exact audited prerequisite and source set, then complete the declared chapter artifact set before exact-head validation."
+  state: "source-lock-complete"
+  next_action: "Complete the declared chapter artifact set, integrate the canonical indexes, then open the implementation PR and validate the exact head."
 frontier:
   - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
