@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `c1122f3b6a6cb0170e77f5fe340a7bec402618ce`
+**Current main:** `ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -66,25 +66,65 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 
 ## 4. Current state
 
-The controller is currently completing the SPLIT-001 transaction and will be reset to:
+The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `c1122f3b6a6cb0170e77f5fe340a7bec402618ce`;
-- next target: `ATLAS-CH-CURRICULUM-001`;
-- title: **Curriculum Learning**;
-- reason: after SPLIT-001 audit closure, five dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; the recorded deterministic frontier ordering selects CURRICULUM-001 first.
+- baseline/main: `ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11`;
+- next target: `ATLAS-CH-GOVADAPT-001`;
+- title: **Governed Adaptation**;
+- reason: after CURRICULUM-001 audit closure, four dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects GOVADAPT-001 first.
 
-Current frontier, recomputed from the live post-AUDIT-036 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-037 Chapter Ledger:
 
-1. `ATLAS-CH-CURRICULUM-001` — downstream architecture count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-2. `ATLAS-CH-GOVADAPT-001` — count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
-3. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-4. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-5. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-GOVADAPT-001` — downstream architecture count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
+2. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+3. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+4. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
-SPLIT-001 is no longer on the architecture frontier because it is now audited `draft-v0.1`. Its direct consumers `ATLAS-CH-COMPOSE-001` and `ATLAS-CH-TRANSPORT-001` are now dependency-legal, with downstream architecture counts 0 and 1 respectively.
+CURRICULUM-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-PROGRESSSEARCH-001` is newly dependency-legal and has downstream architecture count 1.
 
 ## 5. Immediately preceding completed tranches
+
+### CURRICULUM-001 — Curriculum Learning
+
+- implementation issue: #145, closed completed;
+- implementation PR: #146;
+- implementation merge: `4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f`;
+- audit: `AUDIT-037`;
+- audit issue: #147, closed completed;
+- audit PR: #148;
+- audit merge / current main: `ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11`.
+
+Core curriculum objects:
+
+- model state `theta_t`, optimizer state `u_t`, curriculum state `c_t`;
+- controller observation `z_t`;
+- open-loop schedule versus closed-loop state-aware policy;
+- declared difficulty score and competence threshold;
+- oriented finite-difference learning-progress signal;
+- sample selection versus mixture reweighting;
+- explicit post-update controller feedback;
+- curriculum-effect separation from compute, exposure, and optimizer confounds.
+
+Exact witness:
+
+- state `s=(e,h) in {0,1,2}^2`;
+- repeatable experience types `E` and `H`;
+- static ranking `d(E)=1<2=d(H)`;
+- toy controller has full state observation `z=s`;
+- at `(0,0)`, rewards are `R(E)=1, R(H)=0`;
+- at `(2,0)`, rewards are `R(E)=0, R(H)=1`;
+- therefore no state-independent deterministic first action is one-step progress-optimal for both states;
+- from `(2,0)`, fixed `E,H` gives cumulative toy progress 1, while state-aware `H,H` gives 2 under an equal two-transition budget.
+
+AUDIT-037 repaired three precision defects:
+
+1. defined the controller-visible post-update feedback symbol;
+2. made progress orientation explicit for higher- versus lower-is-better metrics;
+3. declared full toy-state observability and repeatable action semantics.
+
+Load-bearing boundary: learning-progress signals can control a curriculum without proving acquisition, persistence, accessibility, internal mechanism identity, or long-horizon curriculum optimality.
+
 
 ### SPLIT-001 — Split-Operator Networks
 
@@ -941,49 +981,65 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — CURRICULUM-001
+## 7. Next tranche — GOVADAPT-001
 
 Stable ID:
 
-`ATLAS-CH-CURRICULUM-001`
+`ATLAS-CH-GOVADAPT-001`
 
 Title:
 
-**Curriculum Learning**
+**Governed Adaptation**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-DATA-001`;
-- `ATLAS-CH-OPTBASE-001`.
+- `ATLAS-CH-OPTIONALITY-001`;
+- `ATLAS-CH-RESEARCHSM-001`.
 
 Atlas contract:
 
-> Study ordering, difficulty, competence, automatic curriculum construction, and state-aware data selection without assuming monotone training progress.
+> Ask how systems can change themselves while preserving correction capacity, provenance, and bounded authority.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited DATA prerequisite may supply corpus lineage, filtering/deduplication semantics, mixture weights, contamination boundaries, sampling measures, and explicit evaluation boundaries.
+The audited OPTIONALITY prerequisite may supply:
 
-The audited OPTBASE prerequisite may supply first-order optimization, stochastic gradients, adaptive methods, clipping, weight decay, initialization, and optimization-versus-architecture distinctions.
+- viable continuation sets;
+- consequence-quotiented functional options;
+- conditional correction feasibility;
+- ex-ante correction capacity;
+- horizon-relative recoverability;
+- the boundary between optionality and reward/regret.
 
-The current GSD programme also names CURRICULUM-001 as a research-agenda consumer. If that project-local evidence is used, it must be bound explicitly rather than treated as an undeclared hard prerequisite. In particular, preserve the durable GSD rule:
+The audited RESEARCHSM prerequisite may supply:
 
-**Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks.**
+- bounded work packages;
+- typed research/product state;
+- canonical/history separation;
+- exact-identity idempotence;
+- duplicate/conflict distinction;
+- guarded promotion;
+- separate certification;
+- actor-separation predicates;
+- fail-closed safety versus liveness;
+- typed recovery and exact-target evidence binding.
+
+GOVADAPT-001 must independently define self-modification/adaptation authority and what it means to preserve correction capacity across a state change.
 
 A sound intellectual spine should distinguish at least:
 
-1. fixed example ordering from state-dependent curriculum policies;
-2. heuristic difficulty scores from empirically observed learning progress;
-3. competence schedules from guarantees of generalization;
-4. sample selection from data-mixture reweighting;
-5. curriculum state from optimizer state and model state;
-6. immediate loss decrease from durable acquisition, persistence, accessibility, and behavioural expression;
-7. curriculum benefit from mere extra compute or repeated exposure;
-8. learning-progress signals from mechanism-level evidence;
-9. closed-loop curriculum control from open-loop schedules;
-10. curriculum optimization from the later Learning Progress as a Search Operator chapter.
+1. ordinary parameter/state update from governance-authorized self-modification;
+2. capability improvement from preserved ability to correct or reverse course;
+3. proposal authority from execution authority;
+4. adaptation from promotion/certification;
+5. exact-target evidence from stale evidence inherited across a changed revision;
+6. safety invariants from liveness/progress;
+7. preserved option count from preserved functional correction paths;
+8. local rollback from true recovery of prior capability;
+9. bounded authority from unrestricted recursive self-improvement;
+10. successful adaptation from governance conformance alone.
 
-The finite witness should be chosen only after source locking. It should expose at least one case where a plausible monotone difficulty schedule is not equivalent to a state-aware policy, and it must keep any empirical learning-progress interpretation bounded to the declared toy or experimental setting.
+The finite witness should be selected only after source locking. It should expose a small state machine in which two candidate improvements have equal immediate utility but differ in preserved correction capacity or authorized recovery paths.
 
 ## 8. Durable restart instruction for a fresh chat
 
