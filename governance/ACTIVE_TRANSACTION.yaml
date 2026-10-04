@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 143
-  tranche_id: "AUDIT-036"
-  chapter_ids: ["ATLAS-CH-SPLIT-001"]
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
   baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
   branch: null
-  pull_request: 144
-  state: "audit-merged"
-  next_action: "Both SPLIT-001 issues are closed. Persist the recomputed post-audit frontier and next target ATLAS-CH-CURRICULUM-001 in CURRENT_HANDOFF.md, then reset ACTIVE_TRANSACTION.yaml to idle-ready at baseline c1122f3b6a6cb0170e77f5fe340a7bec402618ce."
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-CURRICULUM-001 (Curriculum Learning) from baseline c1122f3b6a6cb0170e77f5fe340a7bec402618ce. Its hard prerequisites ATLAS-CH-DATA-001 and ATLAS-CH-OPTBASE-001 are audited draft-v0.1. It is first in the deterministic five-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
