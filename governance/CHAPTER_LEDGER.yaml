@@ -993,7 +993,7 @@
         "ATLAS-CH-REPLAY-001",
         "ATLAS-CH-FORMAL-001"
       ],
-      "status": "architecture",
+      "status": "draft-v0.1",
       "keystone": false
     },
     {
