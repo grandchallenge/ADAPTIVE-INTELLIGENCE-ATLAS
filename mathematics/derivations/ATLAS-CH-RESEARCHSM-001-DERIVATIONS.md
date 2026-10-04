@@ -123,3 +123,35 @@ Every factor is necessary in this declared witness model.
 Certification is modeled by `C`, not by overloading `P`.
 
 A certification event has its own target-identity and policy predicates. Where the governing policy requires actor separation, that requirement is an explicit predicate rather than an inference from different labels.
+
+## 9. Exact witness setup
+
+Take one dispatch `d=17` and first immutable result identity `h=A`.
+
+Let the initial canonical evidence set be empty:
+
+`E_0=empty`.
+
+History begins with a launch record.
+
+## 10. First return
+
+The first return identity is `r_A=(17,A)`.
+
+Canonical capture is set insertion:
+
+`E_1=E_0 union {r_A}={r_A}`.
+
+Hence `|E_1|=1`.
+
+## 11. Exact retry
+
+Apply the identical return again.
+
+Because set insertion is idempotent,
+
+`E_2=E_1 union {r_A}=E_1`.
+
+Thus `|E_2|=1`.
+
+The attempt history may contain two arrival events while canonical evidence count remains one.
