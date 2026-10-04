@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 141
-  tranche_id: "SPLIT-001"
+  issue_number: 143
+  tranche_id: "AUDIT-036"
   chapter_ids: ["ATLAS-CH-SPLIT-001"]
   baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
-  branch: null
+  branch: "audit/split-001"
   pull_request: null
-  state: "implementation-merged"
-  next_action: "Instantiate bounded post-draft audit AUDIT-036 for SPLIT-001 from protected main 2776a2d77fff39e90bd58a866b0275d946909fa9; bind exact artifact identities, repair every in-scope defect, validate, and merge the audit."
+  state: "audit-instantiated"
+  next_action: "Audit SPLIT-001 against exact merged artifacts at 2776a2d77fff39e90bd58a866b0275d946909fa9; repair every in-scope defect on audit/split-001, write reviews/AUDIT-036.md, validate, then open the audit PR."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
