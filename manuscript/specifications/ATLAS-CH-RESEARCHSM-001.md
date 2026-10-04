@@ -54,3 +54,27 @@ Each event `e` has a typed target, actor, guard `g_e(x)`, and partial transition
 The transition is legal only when `g_e(x)=1`.
 
 A successful computation does not bypass a missing guard.
+
+## Canonical state versus history
+
+Let `Canon(x)` omit retry-log multiplicity. A retry keyed by stable identity `k` is canonically idempotent when
+
+`Canon(F_k(F_k(x)))=Canon(F_k(x))`.
+
+The append-only history may still record both attempts. Idempotence therefore constrains the canonical effect, not the existence of an audit trail.
+
+## Duplicate versus conflict
+
+A duplicate return has the same dispatch identity and immutable result identity. It must not create a second canonical evidence effect.
+
+A return with the same dispatch identity but a different immutable result identity is additional or conflicting evidence, not a duplicate, and must not silently replace the first object.
+
+## Advancement guard
+
+For evidence `e`, use the finite witness guard
+
+`G_adv(e)=I(e) and S(e) and R(e) and A(e) and D(e)`
+
+for valid identity/provenance, structural validity, required replay/check, supporting adjudication, and explicit programme disposition.
+
+A contributor-supplied next residual does not itself set `D=1`.
