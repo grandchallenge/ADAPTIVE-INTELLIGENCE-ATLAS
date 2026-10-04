@@ -1,5 +1,7 @@
 # Split-Operator Networks
 
+**Epistemic status:** established operator-splitting theory + Atlas architectural synthesis.
+
 A neural block can contain the same named ingredients and still compute a different map when their order changes.
 
 That sounds obvious when stated in ordinary language. It becomes more consequential when the block is described as if attention, an MLP, normalization, gating, transport, or another update were merely ingredients in a bag. They are not. They are transformations applied to state. A later transformation sees the state produced by the earlier one.
@@ -824,3 +826,14 @@ That boundary is deliberate.
 The value of the split-operator lens is not that it turns a neural network into a numerical theorem.
 
 It is that it forces us to say what the transformations are, what order they act in, what state each sees, and which mathematical claims survive the translation.
+
+
+## References used in this chapter
+
+- [@McLachlanQuispel2002] for Lie-Trotter/Strang splitting, commutators, composition, and order conditions.
+- [@HairerLubichWanner2006] for geometric/composition-method boundaries and structure-preserving semantics.
+- [@VaswaniEtAl2017] for baseline Transformer attention/FFN residual-block anatomy.
+
+Exact provenance and authority boundaries are locked in:
+
+`sources/source-locks/ATLAS-CH-SPLIT-001.yaml`.
