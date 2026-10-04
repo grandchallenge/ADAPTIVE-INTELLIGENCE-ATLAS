@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 125
+  issue_number: 126
   tranche_id: "LOCALGLOBAL-001"
   chapter_ids:
     - "ATLAS-CH-LOCALGLOBAL-001"
-  baseline_commit: "ed3f07a2531c520e0fad43f072340f8099448098"
-  branch: "work/localglobal-001"
-  pull_request: 125
-  state: "implementation-pr-validation"
-  next_action: "Validate LOCALGLOBAL-001 PR #125 at exact head e757addeeecfda791bc0e66afaee75ab8917cbeb; repair in-scope defects, merge when green, then audit."
+  baseline_commit: "ca04c7f4dc854c0d5176f2d66c422475ebc0907e"
+  branch: "audit/localglobal-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Complete AUDIT-032 from issue #126 and branch audit/localglobal-001."
 frontier:
   - id: "ATLAS-CH-LOCALGLOBAL-001"
     downstream_architecture_count: 3
