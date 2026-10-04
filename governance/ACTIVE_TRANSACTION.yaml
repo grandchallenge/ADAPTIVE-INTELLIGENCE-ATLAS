@@ -10,8 +10,8 @@ current:
   baseline_commit: "7eb2d23b77b612ed86db7ba50df6177f58df7bdf"
   branch: "audit/optionality-001"
   pull_request: 132
-  state: "audit-pr-opened"
-  next_action: "Inspect PR #132 validation; repair any in-scope failure on audit/optionality-001 until green; then merge the audit PR at its pinned head."
+  state: "audit-ci-green"
+  next_action: "Merge audit PR #132 at pinned head 8de550880d3d263ee13606db88f05a88fb99b49b; then verify closure, recompute the dependency-legal frontier from the live Chapter Ledger, and reset the controller to idle-ready."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
