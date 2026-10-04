@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 159
-  tranche_id: "POSGEOM-001"
+  issue_number: 161
+  tranche_id: "AUDIT-040"
   chapter_ids: ["ATLAS-CH-POSGEOM-001"]
   baseline_commit: "26c51843b13a0ab58ba0f16cd0c2e365a60d1180"
-  branch: null
-  pull_request: 160
-  state: "implementation-merged"
-  next_action: "Instantiate AUDIT-040 from protected main 26c51843b13a0ab58ba0f16cd0c2e365a60d1180, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
+  branch: "audit/posgeom-161"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit the exact POSGEOM-001 merge at 26c51843b13a0ab58ba0f16cd0c2e365a60d1180; repair every in-scope mathematical, source, prose, and repository defect; write AUDIT-040; validate and merge only from a fresh green exact head."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
