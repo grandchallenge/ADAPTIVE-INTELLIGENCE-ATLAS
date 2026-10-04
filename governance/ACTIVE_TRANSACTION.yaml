@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 149
+  tranche_id: "GOVADAPT-001"
+  chapter_ids: ["ATLAS-CH-GOVADAPT-001"]
   baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
-  branch: null
+  branch: "work/atlas-149"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-GOVADAPT-001 (Governed Adaptation) from baseline ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11. Its hard prerequisites ATLAS-CH-OPTIONALITY-001 and ATLAS-CH-RESEARCHSM-001 are audited draft-v0.1. It is first in the deterministic four-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Bind exact audited OPTIONALITY-001 and RESEARCHSM-001 artifact identities; verify the external governed-adaptation/corrigibility sources required by GOVADAPT-001; write the source lock; checkpoint source-lock-complete."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
