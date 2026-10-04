@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-OPTIONALITY-001"]
   baseline_commit: "7eb2d23b77b612ed86db7ba50df6177f58df7bdf"
   branch: "audit/optionality-001"
-  pull_request: null
-  state: "audit-repaired"
-  next_action: "Open the AUDIT-034 pull request from audit/optionality-001 to main, run repository validation, repair any in-scope failure until green, then merge."
+  pull_request: 132
+  state: "audit-pr-opened"
+  next_action: "Inspect PR #132 validation; repair any in-scope failure on audit/optionality-001 until green; then merge the audit PR at its pinned head."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
