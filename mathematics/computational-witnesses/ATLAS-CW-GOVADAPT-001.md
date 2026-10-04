@@ -27,7 +27,15 @@ Two candidates:
 A,\quad B.
 \]
 
-Immediate utility increments:
+Let \(x_0\) be the common protected reference state. Candidate \(A\) leads to \(x_A\), and candidate \(B\) leads to \(x_B\).
+
+Define
+
+\[
+\Delta U(q)=U(x_q)-U(x_0).
+\]
+
+Then
 
 \[
 \Delta U(A)=1,
@@ -62,7 +70,7 @@ The witness differs only in future correction structure.
 Therefore:
 
 \[
-CC_{h,0}(A;b)
+CC_{h,0}(x_A;b)
 =
 \frac12+\frac12
 =
@@ -79,7 +87,7 @@ CC_{h,0}(A;b)
 Therefore:
 
 \[
-CC_{h,0}(B;b)
+CC_{h,0}(x_B;b)
 =
 \frac12.
 \]
@@ -116,7 +124,7 @@ Define
 G_C(q)
 =
 G_U(q)
-\mathbf 1\{CC_{h,0}(q;b)\ge\kappa\}.
+\mathbf 1\{CC_{h,0}(x_q;b)\ge\kappa\}.
 \]
 
 Then:
