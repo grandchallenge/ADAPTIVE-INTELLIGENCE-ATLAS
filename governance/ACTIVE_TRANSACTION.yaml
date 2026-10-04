@@ -8,10 +8,10 @@ current:
   tranche_id: "SECOND-001"
   chapter_ids: ["ATLAS-CH-SECOND-001"]
   baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
-  branch: null
+  branch: "work/atlas-163"
   pull_request: null
-  state: "instantiated"
-  next_action: "Create the SECOND-001 work branch from the protected baseline, bind exact audited prerequisites, lock second-order optimization sources, then checkpoint source-lock-complete."
+  state: "draft-complete"
+  next_action: "Open the SECOND-001 implementation PR from work/atlas-163, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
