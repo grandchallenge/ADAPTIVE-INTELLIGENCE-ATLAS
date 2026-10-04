@@ -109,11 +109,11 @@ Finite differences depend on a chosen step and carry truncation and roundoff eff
 
 ## 6. VJP
 
-For output covector
+Under the declared Euclidean coordinate convention, represent the output covector by
 
-`w in R^m`,
+`w in R^m`.
 
-use the column-vector convention:
+Use:
 
 `VJP_F(x;w)
 =
@@ -466,13 +466,11 @@ Only the probe initialization changed.
 
 ## 24. One run is not a certificate
 
-Suppose a policy accepts an interface if the reported local gain is below `2`.
+Suppose a monitoring rule records whether the reported local gain is below `2`.
 
-The weak-eigenspace run reports `1`.
+The weak-eigenspace run reports `1`, while the true local norm is `3`.
 
-The true local norm is `3`.
-
-So an unqualified single-run estimate can support a false acceptance decision.
+Therefore that finite estimate alone cannot establish the stronger condition `||J||_2 <= 2`.
 
 The lesson is not that power iteration is unusable.
 
