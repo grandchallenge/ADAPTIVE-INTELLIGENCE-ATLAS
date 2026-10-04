@@ -19,7 +19,7 @@ sources:
     citation_key: "SoaresEtAl2015Corrigibility"
     kind: "workshop-paper"
     title: "Corrigibility"
-    authors: "Nate Soares; Benja Fallenstein; Stuart Armstrong; Eliezer Yudkowsky"
+    authors: "Nate Soares; Benja Fallenstein; Eliezer Yudkowsky; Stuart Armstrong"
     venue: "AAAI Workshop on Artificial Intelligence and Ethics"
     year: 2015
     url: "https://intelligence.org/files/Corrigibility.pdf"
@@ -108,4 +108,4 @@ epistemic_rules:
   - "Governance conformance is evidence about process and authority conditions, not substantive proof that an adaptation is beneficial or correct."
   - "Corrigibility, interruptibility, and intervention-channel preservation are related but not definitionally interchangeable."
   - "A revision remains bounded by the current authority contract; it does not inherit authority to alter that contract unless a separate governed transition permits it."
-  - "The finite Atlas witness proves only that equal immediate utility can coexist with unequal preserved authorized correction paths."
+  - "The finite Atlas witness compares two post-revision states relative to one common baseline and proves only that equal immediate utility can coexist with unequal preserved authorized correction paths."

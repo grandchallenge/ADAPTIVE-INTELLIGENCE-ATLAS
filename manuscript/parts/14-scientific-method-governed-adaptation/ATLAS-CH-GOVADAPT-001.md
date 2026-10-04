@@ -258,7 +258,15 @@ Use symmetric prior:
 b(N)=b(D)=1/2.
 \]
 
-Two candidates satisfy:
+Let \(x_0\) be the common protected reference state. Candidate \(A\) leads to \(x_A\), and candidate \(B\) leads to \(x_B\).
+
+Define
+
+\[
+\Delta U(q)=U(x_q)-U(x_0).
+\]
+
+For the two candidates,
 
 \[
 \Delta U(A)=\Delta U(B)=1.
@@ -277,15 +285,15 @@ If \(D\) occurs, an authorized recovery path returns to the accepted target.
 Therefore:
 
 \[
-C_{h,0}(A,N)=1,
+C_{h,0}(x_A,N)=1,
 \qquad
-C_{h,0}(A,D)=1.
+C_{h,0}(x_A,D)=1.
 \]
 
 Hence:
 
 \[
-CC_{h,0}(A;b)=1.
+CC_{h,0}(x_A;b)=1.
 \]
 
 ### Candidate B
@@ -297,15 +305,15 @@ If \(D\) occurs, the declared correction target is unreachable within the author
 Therefore:
 
 \[
-C_{h,0}(B,N)=1,
+C_{h,0}(x_B,N)=1,
 \qquad
-C_{h,0}(B,D)=0.
+C_{h,0}(x_B,D)=0.
 \]
 
 Hence:
 
 \[
-CC_{h,0}(B;b)=1/2.
+CC_{h,0}(x_B;b)=1/2.
 \]
 
 Immediate value ties.
@@ -338,7 +346,7 @@ and define:
 G_C(q)
 =
 G_U(q)
-\mathbf 1\{CC_{h,0}(q;b)\ge1\}.
+\mathbf 1\{CC_{h,0}(x_q;b)\ge1\}.
 \]
 
 Then:

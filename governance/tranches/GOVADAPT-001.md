@@ -56,9 +56,9 @@ Delta U(A)=Delta U(B)=1.
 Correction capacities:
 
 [
-CC_{h,0}(A;b)=1,
+CC_{h,0}(x_A;b)=1,
 qquad
-CC_{h,0}(B;b)=1/2.
+CC_{h,0}(x_B;b)=1/2.
 ]
 
 An immediate-utility threshold admits both.
