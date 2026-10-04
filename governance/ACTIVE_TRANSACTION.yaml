@@ -7,15 +7,12 @@ current:
   issue_number: 143
   tranche_id: "AUDIT-036"
   chapter_ids: ["ATLAS-CH-SPLIT-001"]
-  baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
-  branch: "audit/split-001"
+  baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+  branch: null
   pull_request: 144
-  state: "audit-ci-green"
-  next_action: "Merge PR #144 only from exact green head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da; read back protected main, verify issue closure, recompute the dependency-legal frontier, update CURRENT_HANDOFF.md, and reset the controller to idle-ready."
+  state: "audit-merged"
+  next_action: "Both SPLIT-001 issues are closed. Persist the recomputed post-audit frontier and next target ATLAS-CH-CURRICULUM-001 in CURRENT_HANDOFF.md, then reset ACTIVE_TRANSACTION.yaml to idle-ready at baseline c1122f3b6a6cb0170e77f5fe340a7bec402618ce."
 frontier:
-  - id: "ATLAS-CH-SPLIT-001"
-    downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
