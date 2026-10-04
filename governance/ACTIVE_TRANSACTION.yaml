@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-LOCALGLOBAL-001"
   baseline_commit: "ed3f07a2531c520e0fad43f072340f8099448098"
   branch: "work/localglobal-001"
-  pull_request: null
-  state: "implementation-active"
-  next_action: "Complete LOCALGLOBAL-001 from issue #125 and branch work/localglobal-001 through validation and audit."
+  pull_request: 125
+  state: "implementation-pr-validation"
+  next_action: "Validate LOCALGLOBAL-001 PR #125 at exact head e757addeeecfda791bc0e66afaee75ab8917cbeb; repair in-scope defects, merge when green, then audit."
 frontier:
   - id: "ATLAS-CH-LOCALGLOBAL-001"
     downstream_architecture_count: 3
