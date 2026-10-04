@@ -10,8 +10,8 @@ current:
   baseline_commit: "4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f"
   branch: "audit/curriculum-001"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit the exact merged CURRICULUM-001 artifacts at 4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f; repair every in-scope defect on audit/curriculum-001, write reviews/AUDIT-037.md, validate, then open and merge the audit PR only from a fresh green exact head."
+  state: "audit-record-complete"
+  next_action: "Open the AUDIT-037 PR from exact audit head 908bfed94a2f49afbb7e771e0309f624ce208a82, run canonical CI, repair any in-scope failure, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
