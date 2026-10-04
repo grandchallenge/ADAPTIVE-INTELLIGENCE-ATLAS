@@ -115,10 +115,16 @@ Let hidden future condition be
 b(N)=b(D)=1/2.
 \]
 
-Two candidates \(A\) and \(B\) have equal immediate utility increment:
+Two candidates \(A\) and \(B\) produce post-revision operative states \(x_A\) and \(x_B\) from the same protected baseline \(x_0\).
+
+Their immediate utility increments are explicitly baseline-relative:
 
 \[
-\Delta U(A)=\Delta U(B)=1.
+U(x_A)-U(x_0)
+=
+U(x_B)-U(x_0)
+=
+1.
 \]
 
 Candidate A preserves an authorized recovery path if a defect is later discovered.
@@ -128,9 +134,9 @@ Candidate B does not.
 Thus:
 
 \[
-CC_{h,0}(A;b)=1,
+CC_{h,0}(x_A;b)=1,
 \qquad
-CC_{h,0}(B;b)=1/2.
+CC_{h,0}(x_B;b)=1/2.
 \]
 
 A utility-only threshold ties them.
