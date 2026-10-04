@@ -167,3 +167,7 @@ For a singleton `S={m}`, set union satisfies `S union S = S`. The finite witness
 ## 14. Distinct result identity
 
 For `r_A=(17,A)` and `r_B=(17,B)` with `A!=B`, the duplicate relation is false. Both identities therefore remain present in the evidence set `{r_A,r_B}`.
+
+## 15. Missing-condition counterexample
+
+For the same Boolean product, `(1,1,0,1,1)` gives `G=0`. A positive claim in the returned prose cannot change that arithmetic: a declared required condition that is false keeps the transition closed.
