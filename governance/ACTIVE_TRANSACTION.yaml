@@ -10,8 +10,8 @@ current:
   baseline_commit: "c0db4e60ba1fb9d3f2d7ac4469ca40bb5a761784"
   branch: "audit/atlas-151"
   pull_request: 153
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #153 at exact head d879470091a8c9da7e0d38b436923711d78efd46; repair any in-scope failure and merge only when validation is green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #153 only from exact green head d879470091a8c9da7e0d38b436923711d78efd46; read back protected main, verify issue closure, recompute the dependency-legal frontier, update the handoff, and reset the controller."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
