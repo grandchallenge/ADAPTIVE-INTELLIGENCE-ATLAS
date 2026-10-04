@@ -4,19 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 120
-  tranche_id: "DATA-001"
-  chapter_ids:
-    - "ATLAS-CH-DATA-001"
-  baseline_commit: "703e763cac01d224eec87aeeca43d5f1acf9c58c"
-  branch: "audit/data-001"
-  pull_request: 121
-  state: "audit-pr-validation"
-  next_action: "Validate audit PR #121 at exact head ff409989ee799f134565fa2bbbd300a64eb3b498; merge when green, close issue #120, recompute frontier, and reset."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "7604f00fe257ade14adf01718bda0b8f9aa8feb9"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-EXTMEM-001; it ties for the largest unlocked downstream architecture cone (3 nodes) and is first under deterministic frontier ordering."
 frontier:
-  - id: "ATLAS-CH-DATA-001"
-    downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-CURRICULUM-001"]
   - id: "ATLAS-CH-EXTMEM-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-CONTEXTCOMP-001", "ATLAS-CH-POLITY-001"]
@@ -35,6 +31,9 @@ frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
+  - id: "ATLAS-CH-CURRICULUM-001"
+    downstream_architecture_count: 2
+    direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
   - id: "ATLAS-CH-KRYLOV-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
