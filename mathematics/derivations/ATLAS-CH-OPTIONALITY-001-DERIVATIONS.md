@@ -91,14 +91,14 @@ For each `theta`, define a target set of acceptable continuation outcomes
 
 `B_theta`.
 
-Let `c_corr(pi,theta)>=0` be a correction cost when `pi` reaches `B_theta`.
+Let `V_h(s;theta)` denote the viable continuation set after the relevant environment has been resolved to `theta`. Let `c_corr(pi,theta)>=0` be a correction cost when `pi` reaches `B_theta`.
 
 Define
 
 `k_h(s,theta)
 =
 inf { c_corr(pi,theta):
-       pi in V_h(s),
+       pi in V_h(s;theta),
        outcome(s,pi,theta) in B_theta }`.
 
 If the feasible set is empty:
@@ -107,21 +107,34 @@ If the feasible set is empty:
 
 This extended-real convention makes the hard/soft distinction explicit.
 
-## 6. Tolerance-indexed correction capacity
+## 6. Conditional correction and ex-ante correction capacity
 
-For finite `Theta` and tolerance `epsilon>=0`:
+After `theta` is resolved, define
+
+`C_{h,epsilon}(s,theta)
+=
+1{k_h(s,theta)<=epsilon}`.
+
+Before evidence resolves `theta`, for finite `Theta` and tolerance `epsilon>=0`, define the ex-ante belief-weighted summary
 
 `CC_{h,epsilon}(s;b)
 =
-sum_theta b(theta) 1{k_h(s,theta)<=epsilon}`.
+sum_theta b(theta) C_{h,epsilon}(s,theta)`.
+
+Equivalently,
+
+`CC_{h,epsilon}(s;b)
+=
+E_{theta~b}[C_{h,epsilon}(s,theta)]`.
 
 Properties:
 
-1. `0<=CC<=1`;
-2. `CC` is nondecreasing in `epsilon`;
-3. hard infeasibility contributes zero for every finite `epsilon`;
-4. finite but costly correction can appear only after `epsilon` crosses the required cost;
-5. `CC` depends on `b`, targets, cost semantics, and horizon.
+1. `C_{h,epsilon}(s,theta)` is the post-evidence conditional feasibility statement;
+2. `0<=CC<=1`;
+3. `CC` is nondecreasing in `epsilon`;
+4. hard infeasibility contributes zero for every finite `epsilon`;
+5. finite but costly correction can appear only after `epsilon` crosses the required cost;
+6. `CC` depends on `b`, targets, cost semantics, and horizon.
 
 Proof of monotonicity:
 
@@ -206,7 +219,7 @@ Let
 `Theta={L,R}`,
 `b(L)=b(R)=1/2`.
 
-At stage 0 the learner chooses between `P` and `C_L`.
+At stage 0 the admissible action set is `{P,C_L,C_R}`. The learner-policy comparison below is between `P` and `C_L`.
 
 Action `P`:
 
@@ -219,6 +232,12 @@ Action `C_L`:
 - immediate reward `0`;
 - next state `s_L`;
 - terminal feasible actions `A(s_L)={L}`.
+
+Action `C_R`:
+
+- immediate reward `0`;
+- next state `s_R`;
+- terminal feasible actions `A(s_R)={R}`.
 
 At stage 1, `theta` is observed perfectly in either state.
 
@@ -256,7 +275,7 @@ Hence the prior action-value gap is exactly zero.
 
 ## 12. Exact regret calculation
 
-Let an environment-informed comparator choose the matching commitment `C_theta` at stage 0 and obtain value
+Let the comparator be explicitly clairvoyant: it observes `theta` before stage 0 and chooses the declared matching commitment `C_theta`. Its value is
 
 `V_theta^*=1`
 
