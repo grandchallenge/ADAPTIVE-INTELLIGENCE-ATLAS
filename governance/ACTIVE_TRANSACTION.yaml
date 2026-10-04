@@ -4,28 +4,21 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 133
-  tranche_id: "AGENDA-GSD-001"
-  chapter_ids:
-    - "ATLAS-CH-RESIDUAL-001"
-    - "ATLAS-CH-CPS-001"
-    - "ATLAS-CH-CURRICULUM-001"
-    - "ATLAS-CH-PROGRESSSEARCH-001"
-    - "ATLAS-CH-MINCURR-001"
-    - "ATLAS-CH-MECHDIAG-001"
-    - "ATLAS-CH-SPECTRALDIAG-001"
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
   baseline_commit: "b625a34280567345fb2829c6aff184561bd11757"
-  branch: "agenda/generalization-state-dynamics-001"
+  branch: null
   pull_request: null
-  state: "agenda-integration-active"
-  next_action: "Write the bounded AGENDA-GSD-001 decision artifact; minimally revise affected Atlas contracts without changing the 80-chapter dependency graph; validate; open and merge the PR if green; then return the controller to idle-ready with recomputed frontier."
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-RESEARCHSM-001 — Research as a State Machine — from baseline b625a34280567345fb2829c6aff184561bd11757. It ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering. Bind the exact audited REPLAY-001 and FORMAL-001 prerequisite identities before drafting."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-GOVADAPT-001"]
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-TRANSPORT-001", "ATLAS-CH-COMPOSE-001"]
+    direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
