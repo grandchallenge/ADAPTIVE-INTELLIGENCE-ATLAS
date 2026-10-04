@@ -148,12 +148,12 @@ The learner updates through
 \mathcal T_{\rm train}(\theta_t,u_t,x_t).
 \]
 
-The controller may update separately:
+The controller may update separately. Let \(f_t\) denote the declared post-update feedback visible to the controller, such as a loss or evaluation score. Then
 
 \[
 c_{t+1}
 =
-\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,\ell_t).
+\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,f_t).
 \]
 
 This decomposition matters because a curriculum is not the optimizer.
@@ -281,15 +281,15 @@ The curriculum is no longer merely an ordered list.
 
 It becomes a controller that receives a reward-like signal and reallocates training attention.
 
-A generic finite-difference progress signal for region \(r\) is
+A generic finite-difference progress signal for region \(r\) must also state which metric direction counts as improvement. Let \(\eta_r\in\{+1,-1\}\). Define
 
 \[
 LP_t(r)
 =
-m_t(r)-m_{t-w}(r),
+\eta_r\left[m_t(r)-m_{t-w}(r)\right],
 \]
 
-where \(m_t(r)\) is a declared metric and \(w\) is a declared lag.
+where \(m_t(r)\) is a declared metric, \(w\) is a declared lag, \(\eta_r=+1\) for higher-is-better metrics, and \(\eta_r=-1\) for lower-is-better metrics.
 
 This signal has a measurement contract.
 
@@ -382,6 +382,14 @@ s=(e,h)\in\{0,1,2\}^2.
 \]
 
 Interpret the coordinates only as toy learning levels.
+
+For this exact witness, the curriculum controller observes the entire toy state:
+
+\[
+z=s.
+\]
+
+This full-observability assumption is deliberately stronger than the partial measurements available in most real training systems. The actions \(E\) and \(H\) denote repeatable experience types, so the same type may be selected on successive updates.
 
 There are two actions:
 
@@ -568,7 +576,7 @@ The comparison is intentionally bounded.
 
 Both execute two learner updates.
 
-The witness does not account for controller computation, evaluation overhead, or measurement latency.
+The witness does not account for controller computation, evaluation overhead, measurement latency, or partial-state estimation. Its repeated \(H,H\) action is legal only because the witness explicitly defines \(H\) as a repeatable experience type.
 
 ## 13. Why immediate progress is not enough
 

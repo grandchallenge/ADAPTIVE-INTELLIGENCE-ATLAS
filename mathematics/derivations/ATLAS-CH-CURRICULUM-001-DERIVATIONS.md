@@ -53,7 +53,12 @@ The controller state updates through
 \[
 c_{t+1}
 =
-\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,\ell_t).
+\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,f_t),
+\]
+
+where \(f_t\) is explicitly the post-update feedback available to the curriculum controller, for example a declared loss or evaluation score.
+
+\[
 \]
 
 This decomposition prevents three different objects from being collapsed:
@@ -134,15 +139,17 @@ Any claim that \(q_t\) equals actual learner competence needs separate evidence.
 
 ## 6. Learning-progress signal
 
-For a region \(r\), evaluation metric \(m_t(r)\), and lag \(w\),
+For a region \(r\), evaluation metric \(m_t(r)\), lag \(w\), and orientation \(\eta_r\in\{+1,-1\}\),
 
 \[
 LP_t(r)
 =
-m_t(r)-m_{t-w}(r).
+\eta_r\left[m_t(r)-m_{t-w}(r)\right].
 \]
 
-This is a finite-difference observation.
+Use \(\eta_r=+1\) when higher metric values are better and \(\eta_r=-1\) when lower values are better.
+
+This is an oriented finite-difference observation.
 
 Changing \(w\) changes the signal.
 
@@ -204,6 +211,14 @@ Actions:
 \[
 \mathcal A=\{E,H\}.
 \]
+
+For the witness, the controller observes the exact toy state:
+
+\[
+z=s.
+\]
+
+Each action selects a repeatable experience type. The two-step path \(H,H\) therefore means two draws/uses of the hard-type training action, not reuse of one unique record under a without-replacement constraint.
 
 Static difficulty:
 
