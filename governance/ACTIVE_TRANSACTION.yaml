@@ -10,8 +10,8 @@ current:
   baseline_commit: "62e341cc87130dc1b937da4f126bdc0b9eb9d17a"
   branch: "audit/second-165"
   pull_request: 166
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #166 at exact head f1ce6794af3d8c5de4121485488657ec454ca165; repair any in-scope failure, replay validation, and merge only when green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #166 only from exact green head f1ce6794af3d8c5de4121485488657ec454ca165; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
