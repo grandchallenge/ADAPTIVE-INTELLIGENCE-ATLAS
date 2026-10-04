@@ -463,7 +463,7 @@ Let \(H\) be the current residual-stream state. A simplified pre-normalized pair
 \Psi_B\(H\)=H+F_B(N_B\(H\)).
 \]
 
-Here (F_A) might stand for attention-like computation and (F_B) for an FFN-like computation.
+Here \(F_A\) might stand for attention-like computation and \(F_B\) for an FFN-like computation.
 
 The ordered block is then
 
