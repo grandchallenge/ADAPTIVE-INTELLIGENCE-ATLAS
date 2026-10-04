@@ -1021,8 +1021,14 @@
         "ATLAS-CH-OPTIONALITY-001",
         "ATLAS-CH-RESEARCHSM-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-GOVADAPT-001.md",
+      "manuscript_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-GOVADAPT-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-GOVADAPT-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-GOVADAPT-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-GOVADAPT-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-FRONTIER-001",
