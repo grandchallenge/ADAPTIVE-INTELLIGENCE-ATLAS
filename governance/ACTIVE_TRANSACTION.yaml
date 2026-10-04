@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 145
-  tranche_id: "CURRICULUM-001"
+  issue_number: 147
+  tranche_id: "AUDIT-037"
   chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
   baseline_commit: "4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f"
-  branch: null
-  pull_request: 146
-  state: "implementation-merged"
-  next_action: "Instantiate bounded post-draft audit AUDIT-037 for CURRICULUM-001 from protected main 4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f; bind exact merged artifact identities, repair every in-scope defect, validate, and merge the audit."
+  branch: "audit/curriculum-001"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit the exact merged CURRICULUM-001 artifacts at 4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f; repair every in-scope defect on audit/curriculum-001, write reviews/AUDIT-037.md, validate, then open and merge the audit PR only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
