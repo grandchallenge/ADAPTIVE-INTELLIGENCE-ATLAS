@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-SPLIT-001"]
   baseline_commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
   branch: "work/split-001"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Run repository validation against work/split-001. Repair every in-scope defect until green, then open the implementation PR and checkpoint it."
+  pull_request: 142
+  state: "pr-open"
+  next_action: "Read canonical CI for PR #142 at exact head 8a4c8c9163c444821c632fc254c47f8e64057c6a; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
