@@ -7,11 +7,11 @@ current:
   issue_number: 159
   tranche_id: "POSGEOM-001"
   chapter_ids: ["ATLAS-CH-POSGEOM-001"]
-  baseline_commit: "df99382bf263423fea72bcf75d2d222c19112031"
+  baseline_commit: "26c51843b13a0ab58ba0f16cd0c2e365a60d1180"
   branch: null
   pull_request: 160
-  state: "ci-green"
-  next_action: "Merge PR #160 only from exact green head ddea383a6c1ffa1a89ed8892d3c900e28940d804; read back protected main; then instantiate the bounded post-draft audit."
+  state: "implementation-merged"
+  next_action: "Instantiate AUDIT-040 from protected main 26c51843b13a0ab58ba0f16cd0c2e365a60d1180, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
