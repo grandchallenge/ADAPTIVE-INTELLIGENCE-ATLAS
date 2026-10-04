@@ -155,3 +155,7 @@ Because set insertion is idempotent,
 Thus `|E_2|=1`.
 
 The attempt history may contain two arrival events while canonical evidence count remains one.
+
+## 12. Boolean gate
+
+For `G=b1*b2*b3*b4*b5`, the input `(1,1,1,1,0)` gives `G=0`, while `(1,1,1,1,1)` gives `G=1`.
