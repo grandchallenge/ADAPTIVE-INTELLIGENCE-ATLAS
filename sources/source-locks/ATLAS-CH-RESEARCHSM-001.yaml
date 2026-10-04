@@ -1,0 +1,97 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-RESEARCHSM-001"
+locked_on: "2026-10-03"
+epistemic_class: "audited_replay_and_formal_prerequisites_plus_public_gcl_lifecycle_case_study_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Atlas prerequisites support replayable evidence/authority separation,
+  transition-system semantics, invariants, safety/liveness distinctions, trust-base
+  accounting, and the separation of theorem checking from institutional authority.
+  The pinned public GCL artifacts document one concrete research workflow with bounded
+  returns, protected lifecycle states, fail-closed promotion, separate frontier
+  advancement, and controlled independent-intelligence intake. The Atlas research
+  state-machine object, idempotent intake operator, typed promotion guards, and finite
+  witness are chapter-owned constructions. This chapter does not claim that GCL's
+  workflow is uniquely correct, that separate actor labels prove independence, or that
+  workflow conformance establishes mathematical truth.
+atlas_sources:
+  - id: "RESEARCHSM-REPLAY"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-REPLAY-001.md"
+    git_blob_sha1: "4d95568d12ec0b27bcace910d8573f4a22e8b161"
+    authority: >
+      Audited hard prerequisite supplying replayable evidence objects, source identity,
+      evidence/interpretation/review/certification edge separation, Forge-Solve-Cert
+      role separation, and the rule that replayability is not truth or certification.
+  - id: "RESEARCHSM-REPLAY-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "reviews/AUDIT-003.md"
+    git_blob_sha1: "9723fcb3dfa0111829b98f1c9bb416a13dbd714e"
+    authority: "Joint keystone audit certifying the Replayable Evidence Objects interface."
+  - id: "RESEARCHSM-REPLAY-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "sources/source-locks/ATLAS-CH-REPLAY-001.yaml"
+    git_blob_sha1: "b373efe80e4ced13c7e060e5036d0012d2e17686"
+    authority: "Exact documentary/public-project claim boundaries inherited from REPLAY-001."
+  - id: "RESEARCHSM-FORMAL"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FORMAL-001.md"
+    git_blob_sha1: "c3e8933a773e0f34a6d38ab23a056fd84408ccbf"
+    authority: >
+      Audited hard prerequisite supplying transition systems, inductive invariants,
+      safety/liveness separation, typed support relations, model/implementation bridge
+      discipline, trust-base accounting, and authority separation.
+  - id: "RESEARCHSM-FORMAL-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "reviews/AUDIT-025.md"
+    git_blob_sha1: "3250d8411cfeeec470e4124d8022303f30aaf1f5"
+    authority: "Audit record certifying the Formal Methods downstream interface."
+  - id: "RESEARCHSM-FORMAL-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
+    path: "sources/source-locks/ATLAS-CH-FORMAL-001.yaml"
+    git_blob_sha1: "74d3bf0420152d5a9e4a3545974ee2f448cb5481"
+    authority: "Exact external/formal-method source boundaries inherited from FORMAL-001."
+public_project_sources:
+  - id: "RESEARCHSM-GCL-LIFECYCLE-CONTROLLER"
+    repository: "grandchallenge/MATH-PROGRAMME"
+    commit: "fdd7a3fe3df7b2d699753347080c1cbc2127e02d"
+    path: "governance/openmath_unattended_lifecycle_controller.json"
+    git_blob_sha1: "91dca167b4b9c2dd15be41fb1996211752120f27"
+    authority: >
+      Concrete public workflow example documenting READY->LAUNCHED->RETURNED->CAPTURED->
+      REPLAYED->ADJUDICATED->ADVANCED, durable GitHub evidence, a Forge-Solve-Cert
+      authority boundary, allowed/prohibited actions, and fail-closed promotion on
+      identity/provenance mismatches.
+  - id: "RESEARCHSM-GCL-FRONTIER-GATE"
+    repository: "grandchallenge/MATH-PROGRAMME"
+    commit: "fdd7a3fe3df7b2d699753347080c1cbc2127e02d"
+    path: "docs/governance/FRONTIER_ADVANCEMENT_GATE.md"
+    git_blob_sha1: "4145981b5ba85527c49b83a3440b0632db9924ca"
+    authority: >
+      Concrete public rule that a completed RESULT/1 and contributor-supplied next
+      residual do not themselves authorize a successor; protected disposition owns
+      frontier advancement.
+  - id: "RESEARCHSM-GCL-CONTROLLED-EPISTEMIC-INTERFACE"
+    repository: "grandchallenge/MATH-PROGRAMME"
+    commit: "fdd7a3fe3df7b2d699753347080c1cbc2127e02d"
+    path: "docs/governance/GCL_CONTROLLED_EPISTEMIC_INTERFACE.md"
+    git_blob_sha1: "33164987c3f5484863ab31606034060e72b7148a"
+    authority: >
+      Concrete public independent-intelligence intake example: one bounded dispatch,
+      one preserved return, non-authoritative receipt, separate adjudication, and the
+      explicit boundary between provenance, correctness, promotion, and certification.
+epistemic_rules:
+  - "Research state is a typed machine state, not an informal phrase such as done, verified, or approved."
+  - "Receipt, structural acceptance, replay, adjudication, promotion, successor authorization, and certification are distinct transitions unless a governing instrument explicitly composes them."
+  - "Idempotence applies to a declared mutation keyed by stable identity; it does not mean every repeated computation or review must return the same scientific judgment."
+  - "A duplicate delivery of the same immutable evidence object must not create a second canonical promotion effect."
+  - "Conflicting evidence with the same dispatch identity but a different immutable result identity is not a duplicate and must not be silently overwritten."
+  - "Actor independence is a governed relation among actor, artifact, information flow, and claim; distinct labels alone do not prove independence."
+  - "Promotion guards may include provenance, replay, adjudication, authority, and separation-of-duty predicates; successful execution alone is insufficient."
+  - "A contributor's next-residual suggestion is evidence, not programme scheduling authority."
+  - "Failure states should preserve the last protected evidence state unless the governing transition explicitly authorizes mutation."
