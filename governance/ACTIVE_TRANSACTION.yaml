@@ -10,8 +10,8 @@ current:
   baseline_commit: "df99382bf263423fea72bcf75d2d222c19112031"
   branch: null
   pull_request: 160
-  state: "pr-open"
-  next_action: "Read canonical CI for PR #160 at exact head f90591f9db14d488cd13671942fe7c15d44691ec; repair every in-scope failure, replay on the new exact head, and merge only when green."
+  state: "ci-green"
+  next_action: "Merge PR #160 only from exact green head ddea383a6c1ffa1a89ed8892d3c900e28940d804; read back protected main; then instantiate the bounded post-draft audit."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
