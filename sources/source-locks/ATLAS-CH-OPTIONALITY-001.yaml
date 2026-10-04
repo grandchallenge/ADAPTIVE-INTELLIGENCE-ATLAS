@@ -33,9 +33,9 @@ sources:
     kind: "book"
     title: "Viability Theory"
     authors: "Jean-Pierre Aubin"
-    publisher: "Birkhauser"
+    publisher: "Birkhäuser Boston"
     year: 1991
-    isbn: "978-1-4612-0451-8"
+    isbn: "9780817635718"
     authority: >
       Standard mathematical source for viability under state constraints and controlled
       dynamics. Used as conceptual precedent for separating feasible/viable continuation
@@ -81,7 +81,8 @@ atlas_sources:
 epistemic_rules:
   - "Optionality is relative to a declared future horizon, feasibility/viability constraints, consequence equivalence, and future objective uncertainty."
   - "Raw action count is representation-sensitive; duplicate action aliases do not create new functional options."
-  - "Correction capacity is defined against declared post-evidence targets or value tolerances and must expose hard infeasibility separately from soft recovery cost."
+  - "Post-evidence correction is represented conditionally by k_h(s,theta) and C_{h,epsilon}(s,theta); CC_{h,epsilon}(s;b) is their ex-ante belief-weighted correction-capacity summary before theta is known."
+  - "Correction semantics must expose hard infeasibility separately from finite but larger recovery cost."
   - "Information gain and correction capacity are distinct: learning which world obtains is not sufficient if the required corrective action has already become infeasible."
   - "Empowerment is an information-theoretic influence quantity, not identical to viable-action count, target-specific correction capacity, regret, or safety."
   - "Preserving more options is not universally better; maintenance costs, risks, dominated actions, and irrelevant aliases can make larger option sets valueless or harmful."
