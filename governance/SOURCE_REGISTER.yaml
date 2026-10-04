@@ -260,3 +260,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-EXTMEM-001.yaml"
     authority: "Audited Retrieval/Continual prerequisites plus retrieval-augmented and model-editing primary examples for hybrid knowledge placement, update locality, provenance, freshness, and shared-memory boundaries."
+
+  - id: "ATLAS-SRC-LOCALGLOBAL-LOCK-001"
+    title: "Local-to-Global Mathematics source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-LOCALGLOBAL-001.yaml"
+    authority: "Audited Objects prerequisite plus standard sheaf/cellular-sheaf sources for restrictions, matching families, unique gluing, finite compatibility obstructions, and applied consistency boundaries."
