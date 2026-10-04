@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 116
+  issue_number: 117
   tranche_id: "BOUNDARYPROBE-001"
   chapter_ids:
     - "ATLAS-CH-BOUNDARYPROBE-001"
-  baseline_commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
-  branch: "work/boundaryprobe-001"
-  pull_request: 116
-  state: "implementation-pr-validation"
-  next_action: "Validate PR #116 at exact head bdcd84ec19109ddbec8e52535cc08227f8933e46; repair in-scope defects, merge when green, then run the bounded post-draft audit."
+  baseline_commit: "a6ef32bbd43347907833b0812cb776162ade01c6"
+  branch: "audit/boundaryprobe-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Execute AUDIT-029 on BOUNDARYPROBE-001 merge a6ef32bbd43347907833b0812cb776162ade01c6; repair, validate, merge, and reset."
 frontier:
   - id: "ATLAS-CH-BOUNDARYPROBE-001"
     downstream_architecture_count: 3
