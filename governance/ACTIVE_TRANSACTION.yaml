@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 155
-  tranche_id: "KRYLOV-001"
+  issue_number: 157
+  tranche_id: "AUDIT-039"
   chapter_ids: ["ATLAS-CH-\u004bRYLOV-001"]
   baseline_commit: "4fb9bbd05c3f48e3b69a72eaee171487576b5c48"
-  branch: null
-  pull_request: 156
-  state: "implementation-merged"
-  next_action: "Instantiate the bounded post-draft audit from protected main 4fb9bbd05c3f48e3b69a72eaee171487576b5c48, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
+  branch: "audit/a157"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit the exact merged chapter at 4fb9bbd05c3f48e3b69a72eaee171487576b5c48; repair all in-scope mathematical, source, and editorial defects; write AUDIT-039; validate and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
