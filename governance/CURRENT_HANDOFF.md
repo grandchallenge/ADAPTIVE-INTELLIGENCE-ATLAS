@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `7604f00fe257ade14adf01718bda0b8f9aa8feb9`
+**Current main:** `ed3f07a2531c520e0fad43f072340f8099448098`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,63 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `7604f00fe257ade14adf01718bda0b8f9aa8feb9`;
-- next target: `ATLAS-CH-EXTMEM-001`;
-- title: **The External-Memory Thesis**;
+- baseline/main: `ed3f07a2531c520e0fad43f072340f8099448098`;
+- next target: `ATLAS-CH-LOCALGLOBAL-001`;
+- title: **Local-to-Global Mathematics**;
 - reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-030:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-031:
 
-1. `ATLAS-CH-EXTMEM-001` — downstream architecture count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
-2. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
-3. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
-4. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-5. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-6. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-7. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-8. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+1. `ATLAS-CH-LOCALGLOBAL-001` — downstream architecture count 3.
+2. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
+3. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+4. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+5. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+6. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+7. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+8. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### EXTMEM-001 — The External-Memory Thesis
+
+- implementation PR: #122;
+- implementation merge: `c775a398062736c372f13f65dd2bb7349c2796c7`;
+- audit: `AUDIT-031`;
+- audit issue: #123;
+- audit PR: #124;
+- audit merge / current main: `ed3f07a2531c520e0fad43f072340f8099448098`.
+
+Central placement descriptor:
+
+`Place(k)=(V,P,S,D,R,L,H,A,G)`
+
+for volatility, provenance/audit need, sharing scope, deletion/supersession need, retrievability, latency, availability/failure tolerance, access control/privacy, and value of parametric generalization/compression.
+
+Load-bearing distinctions:
+
+- parametric knowledge versus explicit external records;
+- external locus versus persistent lifetime;
+- storage correctness versus retrieval/use correctness;
+- record-local update versus systems cost;
+- provenance visibility versus factual correctness;
+- authoritative update versus consumer freshness;
+- shared store versus synchronized effective memory;
+- externalization versus later consolidation into parameters.
+
+Exact witness:
+
+- initial parametric state `theta=(1,1)` represents `A=2,B=0`;
+- updating only A to 4 while preserving B requires `theta'=(2,2)`;
+- naive one-coordinate edit `(2,1)` yields `A=3,B=1`;
+- versioned external memory marks A/v1 superseded and A/v2 current while B is unchanged;
+- latest read returns A=4, while a stale snapshot still returns A=2.
+
+AUDIT-031 repairs:
+
+- split latency and availability/failure tolerance into separate placement coordinates;
+- preserved the inherited distinction between external locus and persistent lifetime;
+- made the witness's supersession state explicit so only one A version is current.
 
 ### DATA-001 — Data Quality, Mixtures, and Contamination
 
@@ -639,47 +679,44 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — EXTMEM-001
+## 7. Next tranche — LOCALGLOBAL-001
 
 Stable ID:
 
-`ATLAS-CH-EXTMEM-001`
+`ATLAS-CH-LOCALGLOBAL-001`
 
 Title:
 
-**The External-Memory Thesis**
+**Local-to-Global Mathematics**
 
-Declared hard dependencies:
+Declared hard dependency:
 
-- `ATLAS-CH-RETRIEVAL-001`;
-- `ATLAS-CH-CONTINUAL-001`.
+- `ATLAS-CH-OBJECTS-001`.
 
 Atlas contract:
 
-> Argue and test which knowledge should leave parameters and enter persistent shared memory.
+> Introduce graphs, sheaves, compatibility, gluing, and compositional viewpoints only to the degree needed later.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Retrieval prerequisite may supply exact-key, symbolic, vector, hybrid, and multi-index read semantics; record/index identity separation; provenance preservation; and retrieval-correctness versus relevance/usefulness boundaries.
-
-The audited Continual Learning prerequisite may supply replay, consolidation/EWC, parameter isolation, forgetting metrics, and the distinction between avoiding parameter overwrite and preserving task performance.
+The audited Objects prerequisite may supply the Atlas distinction among states, operators, flows, and interfaces. LOCALGLOBAL-001 should not import later sheaf/composition chapters as hidden authority.
 
 A sound intellectual spine should distinguish at least:
 
-1. parametric knowledge from externally addressable records;
-2. persistent memory from transient working context;
-3. memory storage from retrieval and from context compilation;
-4. mutable facts from slowly changing general structure;
-5. provenance-critical knowledge from opaque parameter absorption;
-6. shared organizational memory from per-agent private state;
-7. external updates from continual-learning parameter updates;
-8. memory freshness, versioning, deletion, and supersession;
-9. retrieval failure from memory-write failure;
-10. external-memory benefits from costs such as latency, stale records, poisoning, synchronization, privacy, and access control.
+1. a graph/incidence structure from data assigned to its vertices/edges;
+2. local observations/sections from restriction maps;
+3. pairwise/local compatibility from existence of one global assignment;
+4. gluing existence from gluing uniqueness;
+5. exact compatibility from approximate/inconsistent data;
+6. local interface contracts from global system consistency;
+7. sheaf language as a precise local-to-global tool rather than decorative abstraction;
+8. graph topology/combinatorics from the algebra carried over it;
+9. compositional reuse from naive aggregation;
+10. obstruction certificates from successful global reconstruction.
 
-A bounded witness should use a tiny component with one mutable fact represented in two ways: a parameter-bound version and an external keyed record. Change the fact once and show exactly which state must mutate, which provenance survives, and how a stale read can still fail. The witness should establish update/locality and provenance differences only, not universal superiority of external memory.
+A bounded exact witness should use a tiny finite cover or graph with explicit local values and restriction maps. It should include one compatible family that glues uniquely and one locally plausible family with an explicit compatibility obstruction. The witness should prove only the finite gluing/obstruction statements and avoid implying that every distributed-learning or data-fusion problem is naturally a sheaf.
 
-The downstream Context Compilation and Polity chapters may consume the external-memory thesis only after EXTMEM-001 itself is audited.
+The chapter should remain elementary enough to support later composition, boundary-contract, and data-fusion arguments without turning Part 2 into a full sheaf-theory text.
 
 ## 8. Durable restart instruction for a fresh chat
 
