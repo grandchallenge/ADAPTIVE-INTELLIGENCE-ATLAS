@@ -75,7 +75,7 @@ The map records purpose and hard dependency, not final chapter numbering. Stable
 | `ATLAS-CH-MANOPT-001` | Optimization on Manifolds | Develop tangent gradients, retractions, constrained motion, and sphere/Stiefel optimization. | `ATLAS-CH-GEOM-001`, `ATLAS-CH-OPTBASE-001` |
 | `ATLAS-CH-SPECTRALSHAPE-001` | Spectral Shaping | Distinguish normalization, flattening, conditioning, and intentional spectral shaping of updates. | `ATLAS-CH-MATRIXOPT-001`, `ATLAS-CH-NONNORMAL-001` |
 | `ATLAS-CH-OPTDYN-001` | Optimizer-State Dynamics | Analyze the coupled model–optimizer state, non-normal transients, learning-rate boundaries, and state Jacobians. | `ATLAS-CH-NONNORMAL-001`, `ATLAS-CH-OPTBASE-001` |
-| `ATLAS-CH-CPS-001` | Coupling-Phase Spectroscopy | Develop optimizer-state Jacobian probes and dynamical signatures of phase changes in training. | `ATLAS-CH-OPTDYN-001` |
+| `ATLAS-CH-CPS-001` | Coupling-Phase Spectroscopy | Develop optimizer-state Jacobian probes and dynamical signatures of phase and generalization-state transitions, including transition-local prediction tests. | `ATLAS-CH-OPTDYN-001` |
 | `ATLAS-CH-VARIOPT-001` | Variational and Divergence-Derived Optimization | Develop divergences as geometry, discrete Lagrangians, symplectic updates, and MODULUS-style derivation of update rules. | `ATLAS-CH-NUMERICS-001`, `ATLAS-CH-MANOPT-001` |
 
 ## Part 7 — Numerical Intelligence and Composition
@@ -119,9 +119,9 @@ The map records purpose and hard dependency, not final chapter numbering. Stable
 | `ATLAS-CH-TOKEN-001` | Tokenization and Representation Boundaries | Develop bytes, characters, subwords, BPE, unigram methods, morphology, fertility, and multilingual effects. | `ATLAS-CH-INFO-001`, `ATLAS-CH-REP-001` |
 | `ATLAS-CH-TOKENCOMP-001` | Tokenization as Compression and Interface | Connect vocabulary design to description length, compute, interoperability, and tokenizer lingua francas. | `ATLAS-CH-TOKEN-001` |
 | `ATLAS-CH-DATA-001` | Data Quality, Mixtures, and Contamination | Develop deduplication, quality, synthetic data, mixture weighting, contamination, and benchmark pathology. | `ATLAS-CH-EVIDENCE-001` |
-| `ATLAS-CH-CURRICULUM-001` | Curriculum Learning | Study ordering, difficulty, competence, and automatic curriculum construction. | `ATLAS-CH-DATA-001`, `ATLAS-CH-OPTBASE-001` |
-| `ATLAS-CH-PROGRESSSEARCH-001` | Learning Progress as a Search Operator | Treat progress itself as a signal for choosing the next experience and searching experience space. | `ATLAS-CH-CURRICULUM-001` |
-| `ATLAS-CH-MINCURR-001` | Minimal Curricula and Reasoning Bases | Ask for the smallest early mechanisms and reasoning operations from which broad later capability can be reconstructed. | `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-RESIDUAL-001` |
+| `ATLAS-CH-CURRICULUM-001` | Curriculum Learning | Study ordering, difficulty, competence, automatic curriculum construction, and state-aware data selection without assuming monotone training progress. | `ATLAS-CH-DATA-001`, `ATLAS-CH-OPTBASE-001` |
+| `ATLAS-CH-PROGRESSSEARCH-001` | Learning Progress as a Search Operator | Treat learning progress and declared generalization-state evidence as feedback for choosing the next experience and searching experience space. | `ATLAS-CH-CURRICULUM-001` |
+| `ATLAS-CH-MINCURR-001` | Minimal Curricula and Reasoning Bases | Ask for the smallest early mechanisms and reasoning operations from which broad later capability can be reconstructed, distinguishing acquisition, persistence, accessibility, and behavioural expression. | `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-RESIDUAL-001` |
 
 ## Part 11 — Decision Making Under Uncertainty
 `ATLAS-PART-DECISION`
@@ -141,8 +141,8 @@ The map records purpose and hard dependency, not final chapter numbering. Stable
 |---|---|---|---|
 | `ATLAS-CH-UNCERTAINTY-001` | Uncertainty and Calibration | Develop aleatoric/epistemic uncertainty, ensembles, Bayesian approximations, conformal prediction, calibration, and abstention. | `ATLAS-CH-INFO-001` |
 | `ATLAS-CH-SHIFT-001` | Distribution Shift and Robustness | Develop covariate shift, concept drift, adversarial robustness, robust optimization, and structural sensitivity. | `ATLAS-CH-UNCERTAINTY-001` |
-| `ATLAS-CH-MECHDIAG-001` | Mechanistic Intervention | Develop probes, ablations, activation patching, causal interventions, circuits, and counterfactual substitution. | `ATLAS-CH-EVIDENCE-001`, `ATLAS-CH-TRANSFORMER-001` |
-| `ATLAS-CH-SPECTRALDIAG-001` | Spectral and Operator Diagnostics | Develop singular spectra, Jacobian/Hessian spectra, pseudospectra, Koopman views, relative-position diagnostics, and spectral drift. | `ATLAS-CH-NONNORMAL-001`, `ATLAS-CH-MECHDIAG-001` |
+| `ATLAS-CH-MECHDIAG-001` | Mechanistic Intervention | Develop probes, ablations, activation patching, causal interventions, circuits, counterfactual substitution, and recovery tests that distinguish lost mechanisms from suppressed or inaccessible ones. | `ATLAS-CH-EVIDENCE-001`, `ATLAS-CH-TRANSFORMER-001` |
+| `ATLAS-CH-SPECTRALDIAG-001` | Spectral and Operator Diagnostics | Develop singular spectra, Jacobian/Hessian spectra, pseudospectra, Koopman views, relative-position diagnostics, spectral drift, and transition-local signatures without assuming a universal scalar diagnostic. | `ATLAS-CH-NONNORMAL-001`, `ATLAS-CH-MECHDIAG-001` |
 | `ATLAS-CH-COMPRESS-001` | Compression and Description Length | Develop MDL, pruning, quantization, distillation, low rank, weight sharing, and structured transforms. | `ATLAS-CH-INFO-001`, `ATLAS-CH-REP-001` |
 | `ATLAS-CH-COMPINTEL-001` | Compression as Discovery and Intelligence Probe | Examine compression as discovery of reusable computation and as an empirical probe of predictive structure. | `ATLAS-CH-COMPRESS-001`, `ATLAS-CH-RESIDUAL-001` |
 
