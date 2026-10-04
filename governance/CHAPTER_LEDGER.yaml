@@ -725,8 +725,14 @@
         "ATLAS-CH-DATA-001",
         "ATLAS-CH-OPTBASE-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-CURRICULUM-001.md",
+      "manuscript_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-CURRICULUM-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-CURRICULUM-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-CURRICULUM-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-CURRICULUM-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-PROGRESSSEARCH-001",
