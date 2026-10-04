@@ -10,8 +10,8 @@ current:
   baseline_commit: "4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f"
   branch: "audit/curriculum-001"
   pull_request: 148
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #148 at exact head 908bfed94a2f49afbb7e771e0309f624ce208a82; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #148 only from exact green head 908bfed94a2f49afbb7e771e0309f624ce208a82; read back protected main, verify issue closure, recompute the dependency-legal frontier, update CURRENT_HANDOFF.md, and reset the controller to idle-ready."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
