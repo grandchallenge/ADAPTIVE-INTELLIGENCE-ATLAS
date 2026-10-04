@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `ed3f07a2531c520e0fad43f072340f8099448098`
+**Current main:** `a15170c608c5b83048ce2310e68e527e041438cb`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,61 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `ed3f07a2531c520e0fad43f072340f8099448098`;
-- next target: `ATLAS-CH-LOCALGLOBAL-001`;
-- title: **Local-to-Global Mathematics**;
+- baseline/main: `a15170c608c5b83048ce2310e68e527e041438cb`;
+- next target: `ATLAS-CH-MOE-001`;
+- title: **Mixture-of-Experts Systems**;
 - reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-031:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-032:
 
-1. `ATLAS-CH-LOCALGLOBAL-001` — downstream architecture count 3.
-2. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
-3. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-4. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-5. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-6. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-7. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-8. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+1. `ATLAS-CH-MOE-001` — downstream architecture count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
+2. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+3. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+4. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+5. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+6. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+7. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+8. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### LOCALGLOBAL-001 — Local-to-Global Mathematics
+
+- implementation PR: #125;
+- implementation merge: `ca04c7f4dc854c0d5176f2d66c422475ebc0907e`;
+- audit: `AUDIT-032`;
+- audit issue/PR: #126;
+- audit merge / current main: `a15170c608c5b83048ce2310e68e527e041438cb`.
+
+Central local-to-global structure:
+
+- section spaces `F(U)`;
+- restriction maps `rho^U_V:F(U)->F(V)`;
+- matching families on overlaps;
+- gluing existence and uniqueness;
+- finite discrepancy/obstruction maps.
+
+Exact witness:
+
+- `X={a,b,c}`, `U={a,b}`, `V={b,c}`;
+- global-to-local map `R(x,y,z)=(x,y,y,z)`;
+- overlap discrepancy `Delta(u_a,u_b,v_b,v_c)=u_b-v_b`;
+- `R` injective and `im(R)=ker(Delta)`;
+- local sections `(1,2)` and `(2,4)` glue uniquely to `(1,2,4)`;
+- local sections `(1,2)` and `(3,4)` have discrepancy `-1` and cannot glue.
+
+Load-bearing distinctions:
+
+- graph/cover incidence versus data and maps carried over it;
+- presheaf restriction structure versus sheaf unique gluing;
+- gluing existence versus uniqueness;
+- exact compatibility versus approximate fusion;
+- global consistency versus factual truth or semantic adequacy.
+
+AUDIT-032 repairs:
+
+- changed the general discrepancy target to one component per pair `i<j`, removing redundant ordered/diagonal overlap terms;
+- replaced the witness's `xor` placeholder with direct-sum terminology.
 
 ### EXTMEM-001 — The External-Memory Thesis
 
@@ -679,44 +717,47 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — LOCALGLOBAL-001
+## 7. Next tranche — MOE-001
 
 Stable ID:
 
-`ATLAS-CH-LOCALGLOBAL-001`
+`ATLAS-CH-MOE-001`
 
 Title:
 
-**Local-to-Global Mathematics**
+**Mixture-of-Experts Systems**
 
-Declared hard dependency:
+Declared hard dependencies:
 
-- `ATLAS-CH-OBJECTS-001`.
+- `ATLAS-CH-SPARSE-001`;
+- `ATLAS-CH-TRANSFORMER-001`.
 
 Atlas contract:
 
-> Introduce graphs, sheaves, compatibility, gluing, and compositional viewpoints only to the degree needed later.
+> Develop routing, capacity, load balancing, specialization, collapse, and expert parallelism.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Objects prerequisite may supply the Atlas distinction among states, operators, flows, and interfaces. LOCALGLOBAL-001 should not import later sheaf/composition chapters as hidden authority.
+The audited Conditional Computation prerequisite may supply sparse execution semantics, router overhead, active-versus-total capacity, average-versus-peak resource accounting, and the distinction between soft gating and work that is actually skipped.
+
+The audited Transformer prerequisite may supply the token/residual-stream/MLP block setting into which experts are inserted.
 
 A sound intellectual spine should distinguish at least:
 
-1. a graph/incidence structure from data assigned to its vertices/edges;
-2. local observations/sections from restriction maps;
-3. pairwise/local compatibility from existence of one global assignment;
-4. gluing existence from gluing uniqueness;
-5. exact compatibility from approximate/inconsistent data;
-6. local interface contracts from global system consistency;
-7. sheaf language as a precise local-to-global tool rather than decorative abstraction;
-8. graph topology/combinatorics from the algebra carried over it;
-9. compositional reuse from naive aggregation;
-10. obstruction certificates from successful global reconstruction.
+1. expert capacity from active per-token compute;
+2. router scores/probabilities from actual dispatch decisions;
+3. top-k routing from soft mixtures;
+4. token capacity constraints and overflow/drop/reroute policy;
+5. load balance in tokens, probability mass, and realized compute;
+6. expert specialization from mere traffic imbalance;
+7. router collapse, expert collapse, and expert redundancy;
+8. auxiliary balancing objectives from the task objective;
+9. local routing quality from system-level communication/parallelism cost;
+10. training-time routing from inference-time dispatch and serving constraints.
 
-A bounded exact witness should use a tiny finite cover or graph with explicit local values and restriction maps. It should include one compatible family that glues uniquely and one locally plausible family with an explicit compatibility obstruction. The witness should prove only the finite gluing/obstruction statements and avoid implying that every distributed-learning or data-fusion problem is naturally a sheaf.
+A bounded exact witness should use a tiny token-by-expert score table with explicit top-k routing and finite expert capacities. It should show at least one case where naive top-1 routing overloads an expert, one repaired dispatch under a declared capacity/overflow policy, and a distinction between balanced token counts and equal expert usefulness. The witness should not claim that the toy balancing rule is universally optimal.
 
-The chapter should remain elementary enough to support later composition, boundary-contract, and data-fusion arguments without turning Part 2 into a full sheaf-theory text.
+The downstream Router Dynamics and Systems chapters may consume these routing/capacity semantics only after MOE-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
