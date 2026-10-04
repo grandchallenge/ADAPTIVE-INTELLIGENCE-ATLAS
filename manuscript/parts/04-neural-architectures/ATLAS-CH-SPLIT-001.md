@@ -33,13 +33,13 @@ One is an additive update:
 \[
 x^+
 =
-x+F_A\(x\)+F_B\(x\).
+x+F_A(x\)+F_B(x\).
 \]
 
 Another is sequential composition:
 
 \[
-x_1=\Psi_A\(x\),
+x_1=\Psi_A(x\),
 \qquad
 x^+=\Psi_B(x_1).
 \]
@@ -47,7 +47,7 @@ x^+=\Psi_B(x_1).
 A third is the reversed sequence:
 
 \[
-\tilde x_1=\Psi_B\(x\),
+\tilde x_1=\Psi_B(x\),
 \qquad
 \tilde x^+=\Psi_A(\tilde x_1).
 \]
@@ -59,9 +59,9 @@ Even when the two transformations are small residual increments, the sequential 
 Take the linear residual increments
 
 \[
-F_A\(x\)=hAx,
+F_A(x\)=hAx,
 \qquad
-F_B\(x\)=hBx.
+F_B(x\)=hBx.
 \]
 
 The additive update is
@@ -456,11 +456,11 @@ Return to the Transformer residual stream.
 Let \(H\) be the current residual-stream state. A simplified pre-normalized pair of learned submaps might be written as
 
 \[
-\Psi_A\(H\)=H+F_A(N_A\(H\)),
+\Psi_A(H\)=H+F_A(N_A(H\)),
 \]
 
 \[
-\Psi_B\(H\)=H+F_B(N_B\(H\)).
+\Psi_B(H\)=H+F_B(N_B(H\)).
 \]
 
 Here \(F_A\) might stand for attention-like computation and \(F_B\) for an FFN-like computation.
@@ -556,11 +556,11 @@ For exact flows, this time-symmetric composition has important numerical consequ
 
 To even write a neural analogue of that sequence, one must first define a step-parameterized family of learned maps
 \[
-\Psi_A\(h\),\qquad \Psi_B\(h\),
+\Psi_A(h\),\qquad \Psi_B(h\),
 \]
 with a meaningful half-stage \(\Psi_A(h/2)\). Only then can one form
 \[
-\Psi_A(h/2)\circ\Psi_B\(h\)\circ\Psi_A(h/2).
+\Psi_A(h/2)\circ\Psi_B(h\)\circ\Psi_A(h/2).
 \]
 
 For a generic learned block \(\Psi_A\) with no declared step parameter, the symbol "half of A" is not defined by the architecture. Halving a residual coefficient or duplicating a block is a new design choice, not automatically the classical half-flow.
@@ -716,31 +716,31 @@ For nonlinear maps, several related objects are possible.
 One can compare compositions directly:
 
 \[
-\Psi_B(\Psi_A\(x\))
+\Psi_B(\Psi_A(x\))
 -
-\Psi_A(\Psi_B\(x\)).
+\Psi_A(\Psi_B(x\)).
 \]
 
 One can also differentiate the nonlinear composition defect. If
 \[
 C_\Psi\(x\)
 =
-\Psi_B(\Psi_A\(x\))
+\Psi_B(\Psi_A(x\))
 -
-\Psi_A(\Psi_B\(x\)),
+\Psi_A(\Psi_B(x\)),
 \]
 then, when the maps are differentiable,
 \[
 DC_\Psi\(x\)
 =
-J_B(\Psi_A\(x\))J_A\(x\)
+J_B(\Psi_A(x\))J_A(x\)
 -
-J_A(\Psi_B\(x\))J_B\(x\).
+J_A(\Psi_B(x\))J_B(x\).
 \]
 
 A same-state algebraic Jacobian commutator
 \[
-J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\)
+J_B(x\)J_A(x\)-J_A(x\)J_B(x\)
 \]
 can still be used as a local diagnostic, but it is generally not the derivative of \(C_\Psi\). Intermediate-state evaluation matters.
 
