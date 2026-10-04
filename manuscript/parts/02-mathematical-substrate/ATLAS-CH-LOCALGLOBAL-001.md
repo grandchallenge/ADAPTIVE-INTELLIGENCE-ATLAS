@@ -477,3 +477,392 @@ For this chapter, a nonzero overlap discrepancy already provides an exact finite
 
 The more advanced machinery would distract from the foundational idea.
 
+
+
+## 27. Pairwise compatibility needs the sheaf context
+
+A common slogan says:
+
+> pairwise agreement does not imply global agreement.
+
+That slogan is too crude here.
+
+For an actual sheaf over an open cover, agreement on every pairwise overlap is precisely the matching-family condition, and the sheaf axiom supplies a unique global glue.
+
+The correct warning is different:
+
+> pairwise plausibility in an arbitrary constraint system is not enough unless the restriction structure and gluing property are specified.
+
+## 28. Local-to-global claims are model-relative
+
+A global section is global relative to the chosen sheaf.
+
+Change:
+
+- the regions;
+- the data spaces;
+- the restriction maps;
+- the overlap semantics;
+
+and the set of global sections can change.
+
+Therefore a successful glue is evidence about one declared local-to-global model.
+
+It is not universal coherence.
+
+## 29. Exact consistency is brittle by design
+
+If one local sensor reports 2.000 and another reports 2.001, exact equality fails.
+
+That is not a defect in the sheaf condition.
+
+It means the mathematical claim being tested is exact.
+
+If the application tolerates small discrepancies, it needs a different object:
+
+- a metric;
+- a tolerance;
+- a likelihood;
+- a loss;
+- an optimization problem.
+
+## 30. Approximate consistency is a second layer
+
+Robinson's sensor-integration work makes this distinction operational.
+
+Local measurements can be compared through a sheaf model even when they are not exactly consistent.
+
+One can then define an approximate-section or fusion problem.
+
+The Atlas keeps the layers separate:
+
+1. exact structural compatibility;
+2. approximate repair/fusion.
+
+## 31. An approximate glue is not a sheaf-theoretic equality
+
+Suppose the overlap values are:
+
+`2`
+
+and:
+
+`2.1`.
+
+A least-squares procedure might replace both with:
+
+`2.05`.
+
+That can be sensible.
+
+But it changes the data.
+
+The original family still did not satisfy exact compatibility.
+
+The optimization result and the sheaf-gluing result are different claims.
+
+## 32. Local truth is not required
+
+A section can be mathematically valid while factually wrong.
+
+Suppose two sensors both report 100 when the true value is 0.
+
+Their data can glue perfectly.
+
+The sheaf has checked consistency, not truth.
+
+This distinction will matter whenever sheaf language is used for evidence fusion.
+
+## 33. Global consistency is not semantic adequacy
+
+A software system can satisfy all declared interface equalities and still implement the wrong specification.
+
+A scientific model can integrate all measurements consistently while omitting a latent variable.
+
+A local-to-global formalism checks the contracts it was given.
+
+It does not prove the contracts are complete.
+
+## 34. Local-to-global structure can expose hidden assumptions
+
+The advantage is not only successful reconstruction.
+
+Writing explicit overlaps forces questions such as:
+
+- what must two modules agree on?
+- which values are shared?
+- which transformations compare them?
+- where can inconsistency appear?
+
+That makes assumptions inspectable.
+
+## 35. Graphs provide the skeleton
+
+A graph or hypergraph can organize:
+
+- subsystems;
+- agents;
+- sensors;
+- patches;
+- data sources;
+- interfaces.
+
+It gives the combinatorial skeleton.
+
+A sheaf-like structure then says what algebra or information moves across that skeleton.
+
+Keeping those layers distinct makes models easier to audit.
+
+## 36. Covers provide another skeleton
+
+Sometimes the natural structure is spatial or semantic rather than graph-first.
+
+A collection:
+
+`{U_i}`
+
+covers a larger domain.
+
+Overlaps:
+
+`U_i intersect U_j`
+
+become the places where local descriptions must agree.
+
+This view is natural for:
+
+- coordinate charts;
+- distributed observations;
+- overlapping datasets;
+- decomposed physical domains.
+
+## 37. Interface data can be lower-dimensional
+
+Two large subsystems may share only a small boundary.
+
+They need not expose all internal state.
+
+Restriction maps formalize this compression:
+
+`F(U_i)->F(U_i intersect U_j)`.
+
+The local-to-global problem can therefore be much smaller than comparing whole subsystem states.
+
+This anticipates later boundary-contract and separator ideas without importing them as prerequisites.
+
+## 38. Compatibility can be transformed rather than literal identity
+
+In the function witness, both sides restrict to the same scalar and equality is literal.
+
+More general sheaves can use maps that translate local coordinates into a common comparison space.
+
+Thus the real principle is not:
+
+> local arrays must be numerically equal.
+
+It is:
+
+> their induced boundary data must agree after the declared restriction maps.
+
+## 39. Coordinate changes fit naturally
+
+Two charts can describe the same underlying object with different coordinates.
+
+The overlap maps translate each local representation before comparison.
+
+This is one reason local-to-global mathematics appears throughout geometry.
+
+The Atlas will use the same structural idea later in more computational settings.
+
+## 40. Composition requires more than adjacency
+
+Connecting modules with arrows is not enough.
+
+A meaningful composition needs:
+
+- compatible types;
+- compatible boundary semantics;
+- agreement on shared quantities;
+- a rule for assembling the composite.
+
+Sheaf gluing provides one mathematically clean archetype for such assembly.
+
+It is not the only possible compositional formalism.
+
+## 41. Obstruction certificates are valuable outputs
+
+When gluing fails, the answer need not be only:
+
+> no.
+
+A useful system should expose:
+
+- which overlap failed;
+- by how much;
+- under which restriction maps;
+- which local sections were involved.
+
+In the witness, the certificate is:
+
+`Delta=-1`
+
+at b.
+
+That is already actionable.
+
+## 42. A larger graph produces a discrepancy vector
+
+For many overlaps, collect all boundary disagreements into:
+
+`Delta(s)`.
+
+Then:
+
+`Delta(s)=0`
+
+means exact compatibility.
+
+Nonzero coordinates localize violated interfaces.
+
+This is a finite linear-algebra pattern that later chapters can reuse.
+
+## 43. Zero discrepancy can have several meanings
+
+A zero discrepancy might arise because:
+
+- the data are genuinely consistent;
+- the restrictions are too weak to detect a conflict;
+- the comparison space has discarded important information;
+- two wrong local models happen to agree.
+
+Therefore the quality of the restriction maps matters.
+
+An easy compatibility test can be weak evidence.
+
+## 44. Richer interfaces detect more and cost more
+
+A boundary representation that exposes more information can detect more incompatibilities.
+
+It can also increase:
+
+- communication;
+- storage;
+- computation;
+- coupling.
+
+This creates a general design tradeoff:
+
+> expose enough boundary structure to protect composition, but not so much that modularity disappears.
+
+The chapter does not solve this tradeoff.
+
+It only makes it visible.
+
+## 45. Sheaf language should earn its keep
+
+The word **sheaf** is useful when the problem genuinely has:
+
+- local data;
+- overlaps/incidences;
+- restriction maps;
+- a local-to-global question.
+
+If those objects are absent, sheaf language can become decorative.
+
+The Atlas therefore applies a discipline:
+
+> name the section spaces and restriction maps before claiming a sheaf viewpoint.
+
+## 46. A practical local-to-global ledger
+
+Before accepting a gluing claim, record:
+
+| Field | Question |
+|---|---|
+| domain | What is the global object/space? |
+| local regions | Which pieces cover or compose it? |
+| incidence | Which pieces overlap or meet? |
+| local data | What is `F(U_i)`? |
+| overlap data | What is `F(U_i intersect U_j)`? |
+| restrictions | How is local data mapped to the overlap? |
+| compatibility | Which equalities must hold? |
+| existence | Does every matching family considered have a glue? |
+| uniqueness | Can two global objects have the same local restrictions? |
+| obstruction | What records a failure to match? |
+| approximation | If disagreement is tolerated, which metric/loss? |
+| interpretation | What does a global section mean in the application? |
+| boundary | What does consistency not prove? |
+
+This ledger prevents local-to-global language from becoming metaphor.
+
+## 47. Failure modes
+
+### Graph-equals-sheaf
+
+Incidence structure is confused with the data and maps carried over it.
+
+### Local-equals-global
+
+Locally valid pieces are assumed to assemble without overlap checks.
+
+### Pairwise-plausible-equals-matching
+
+Informal compatibility substitutes for exact restriction equations.
+
+### Matching-equals-truth
+
+A global section is treated as factual correctness.
+
+### Approximate-equals-exact
+
+A low-loss fusion is described as exact gluing.
+
+### Zero-obstruction-equals-complete-model
+
+The declared restrictions agree, so omitted constraints are assumed not to exist.
+
+### Sheaf-as-decoration
+
+The terminology is used without explicit section spaces or restriction maps.
+
+## 48. What the exact witness establishes
+
+The companion witness proves:
+
+- the global-to-local map `R:R^3->R^4` is injective;
+- the overlap discrepancy is `Delta(u_a,u_b,v_b,v_c)=u_b-v_b`;
+- `im(R)=ker(Delta)`;
+- `(1,2)` on U and `(2,4)` on V glue uniquely to `(1,2,4)`;
+- `(1,2)` on U and `(3,4)` on V have discrepancy `-1` and cannot glue;
+- the obstruction is localized to the shared coordinate b.
+
+Nothing about noisy fusion, semantic truth, or global system stability is inferred.
+
+## 49. Downstream handoff
+
+Later chapters may now assume the following local-to-global vocabulary:
+
+- graph/cover incidence;
+- local section;
+- restriction map;
+- matching family;
+- gluing existence;
+- gluing uniqueness;
+- discrepancy/obstruction;
+- exact versus approximate compatibility.
+
+They must independently define their domain-specific section spaces, restriction maps, and interpretation.
+
+The local-to-global lesson is simple:
+
+> make the interfaces explicit, compare what each local piece says there, and do not call the whole coherent until the gluing condition is actually satisfied.
+
+## References used in this chapter
+
+- Justin Michael Curry, *Sheaves, Cosheaves and Applications*, University of Pennsylvania doctoral thesis, 2014, arXiv:1303.3255.
+- Michael Robinson, *Sheaves are the canonical data structure for sensor integration*, Information Fusion 36 (2017), 208–224, DOI 10.1016/j.inffus.2016.12.002.
+- Jakob Hansen and Robert Ghrist, *Toward a spectral theory of cellular sheaves*, Journal of Applied and Computational Topology 3 (2019), 315–358, DOI 10.1007/s41468-019-00038-7.
+
+Exact source identities and authority boundaries are recorded in:
+
+sources/source-locks/ATLAS-CH-LOCALGLOBAL-001.yaml
