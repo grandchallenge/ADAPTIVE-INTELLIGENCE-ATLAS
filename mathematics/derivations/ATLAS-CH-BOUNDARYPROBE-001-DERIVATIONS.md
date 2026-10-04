@@ -44,7 +44,7 @@ Forward-mode algorithmic differentiation can compute this product through the co
 
 ## 3. VJP
 
-For output covector `w in R^m`:
+Under the declared Euclidean coordinate convention, represent an output covector by `w in R^m` and define:
 
 `VJP_F(x;w)=J^T w`.
 
