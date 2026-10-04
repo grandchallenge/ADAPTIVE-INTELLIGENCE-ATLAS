@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
   baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
   branch: "work/curriculum-001"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the implementation PR from work/curriculum-001, run canonical repository validation on the exact PR head, repair every in-scope defect, replay validation, and merge only from a fresh green exact head."
+  pull_request: 146
+  state: "pr-open"
+  next_action: "Read canonical CI for PR #146 at exact head f1e840f972d76198a53b79afd4249a13b6700af5; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
