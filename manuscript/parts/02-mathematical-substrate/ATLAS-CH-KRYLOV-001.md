@@ -1,4 +1,4 @@
-# Operator-Generated Subspaces and Iterative Solves
+# Krylov Subspaces and Iterative Solves
 
 **Epistemic status:** established numerical linear algebra + audited Atlas substrate + Atlas synthesis.
 
@@ -357,4 +357,4 @@ It must independently justify any learned, nonlinear, adaptive, or representatio
 
 Exact source identities and claim boundaries are recorded in:
 
-sources/source-locks/
+sources/source-locks/ATLAS-CH-KRYLOV-001.yaml
