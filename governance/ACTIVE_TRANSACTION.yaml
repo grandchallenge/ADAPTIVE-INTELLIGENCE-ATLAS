@@ -7,18 +7,18 @@ current:
   issue_number: null
   tranche_id: null
   chapter_ids: []
-  baseline_commit: "b625a34280567345fb2829c6aff184561bd11757"
+  baseline_commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
   branch: null
   pull_request: null
   state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-RESEARCHSM-001 — Research as a State Machine — from baseline b625a34280567345fb2829c6aff184561bd11757. It ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering. Bind the exact audited REPLAY-001 and FORMAL-001 prerequisite identities before drafting."
+  next_action: "Instantiate ATLAS-CH-RESEARCHSM-001 from protected main 889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf, unless main has advanced; if advanced, recompute the dependency-legal frontier first."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
     downstream_architecture_count: 3
     direct_consumers: ["ATLAS-CH-GOVADAPT-001"]
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
+    direct_consumers: ["ATLAS-CH-TRANSPORT-001", "ATLAS-CH-COMPOSE-001"]
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
