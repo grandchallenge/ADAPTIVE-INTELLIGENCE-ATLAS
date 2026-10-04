@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 163
+  tranche_id: "SECOND-001"
+  chapter_ids: ["ATLAS-CH-SECOND-001"]
   baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
   branch: null
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-SECOND-001 (Curvature and Second-Order Structure) from baseline 8fbae32144f94e497203b311cc0a824f8cd8a486. Its hard prerequisites ATLAS-CH-OPTBASE-001 and ATLAS-CH-GEOM-001 are audited draft-v0.1. It is the unique dependency-legal frontier leader at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Create the SECOND-001 work branch from the protected baseline, bind exact audited prerequisites, lock second-order optimization sources, then checkpoint source-lock-complete."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
