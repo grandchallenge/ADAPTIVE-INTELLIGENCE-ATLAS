@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `53583191c96a9657bbb247d683c25ee9f7bedacf`
+**Current main:** `7604f00fe257ade14adf01718bda0b8f9aa8feb9`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,64 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `53583191c96a9657bbb247d683c25ee9f7bedacf`;
-- next target: `ATLAS-CH-DATA-001`;
-- title: **Data Quality, Mixtures, and Contamination**;
+- baseline/main: `7604f00fe257ade14adf01718bda0b8f9aa8feb9`;
+- next target: `ATLAS-CH-EXTMEM-001`;
+- title: **The External-Memory Thesis**;
 - reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-029:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-030:
 
-1. `ATLAS-CH-DATA-001` — downstream architecture count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-2. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
-3. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
-4. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
-5. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-6. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-7. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+1. `ATLAS-CH-EXTMEM-001` — downstream architecture count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
+2. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
+3. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
+4. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+5. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+6. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+7. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
 8. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### DATA-001 — Data Quality, Mixtures, and Contamination
+
+- implementation PR: #119;
+- implementation merge: `703e763cac01d224eec87aeeca43d5f1acf9c58c`;
+- audit: `AUDIT-030`;
+- audit issue: #120;
+- audit PR: #121;
+- audit merge / current main: `7604f00fe257ade14adf01718bda0b8f9aa8feb9`.
+
+Central data object:
+
+`D=(R,S,P,Phi,Delta,mu,E)`
+
+for records, sources/domains, provenance/lineage, processing pipeline, duplicate/overlap predicates, sampling measure, and evaluation boundary.
+
+Load-bearing distinctions:
+
+- exact duplication versus near duplication versus semantic redundancy;
+- raw corpus proportions versus post-filter/dedup proportions versus training sampling weights;
+- synthetic provenance versus quality judgment;
+- detected overlap versus memorization versus causal benchmark-score effects;
+- unweighted item contamination rate versus weighted evaluation measures;
+- publication date versus actual pre-cutoff content availability.
+
+Exact witness:
+
+- exact overlap rate `1/3`;
+- near-overlap rate `2/3` at token-Jaccard threshold `3/4`;
+- raw training count `5`;
+- exact-dedup representatives `4`;
+- near-duplicate graph clusters `3`;
+- raw domain proportions `(2/5,1/5,1/5,1/5)`;
+- exact-dedup proportions `(1/4,1/4,1/4,1/4)`;
+- declared training weights `(1/2,1/4,1/8,1/8)`.
+
+AUDIT-030 repairs:
+
+- named the chapter's contamination-rate formula as the unweighted item rate and required explicit weights for weighted evaluation;
+- required a declared counting unit before corpus/mixture proportions are interpreted;
+- repaired the temporal boundary so post-cutoff benchmark publication alone is not treated as proof that the content did not exist earlier.
 
 ### BOUNDARYPROBE-001 — Boundary Probes
 
@@ -592,48 +633,53 @@ The following are already at `draft-v0.1` and audited where applicable:
 - `ATLAS-CH-REPLAY-001` — Replayable Evidence Objects;
 - `ATLAS-CH-RLBASE-001`;
 - `ATLAS-CH-DEPTH-001`;
-- `ATLAS-CH-MEMTAX-001`.
+- `ATLAS-CH-MEMTAX-001`;
+- `ATLAS-CH-RETRIEVAL-001`;
+- `ATLAS-CH-CONTINUAL-001`.
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — DATA-001
+## 7. Next tranche — EXTMEM-001
 
 Stable ID:
 
-`ATLAS-CH-DATA-001`
+`ATLAS-CH-EXTMEM-001`
 
 Title:
 
-**Data Quality, Mixtures, and Contamination**
+**The External-Memory Thesis**
 
-Declared hard dependency:
+Declared hard dependencies:
 
-- `ATLAS-CH-EVIDENCE-001`.
+- `ATLAS-CH-RETRIEVAL-001`;
+- `ATLAS-CH-CONTINUAL-001`.
 
 Atlas contract:
 
-> Develop deduplication, quality, synthetic data, mixture weighting, contamination, and benchmark pathology.
+> Argue and test which knowledge should leave parameters and enter persistent shared memory.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Evidence prerequisite may supply the separation of observation, record, claim, support relation, provenance, and authority.
+The audited Retrieval prerequisite may supply exact-key, symbolic, vector, hybrid, and multi-index read semantics; record/index identity separation; provenance preservation; and retrieval-correctness versus relevance/usefulness boundaries.
+
+The audited Continual Learning prerequisite may supply replay, consolidation/EWC, parameter isolation, forgetting metrics, and the distinction between avoiding parameter overwrite and preserving task performance.
 
 A sound intellectual spine should distinguish at least:
 
-1. exact duplication from near-duplication and semantic redundancy;
-2. data quality from model performance;
-3. sampling/mixture weights from observed corpus proportions;
-4. synthetic-data provenance from synthetic-data correctness;
-5. train/test contamination from legitimate domain overlap;
-6. benchmark leakage from broad memorization claims;
-7. contamination detection from proof of causal performance inflation;
-8. source-level, document-level, span-level, and semantic overlap;
-9. deduplication recall/precision from downstream utility;
-10. dataset lineage and mixture accounting from simple file counts.
+1. parametric knowledge from externally addressable records;
+2. persistent memory from transient working context;
+3. memory storage from retrieval and from context compilation;
+4. mutable facts from slowly changing general structure;
+5. provenance-critical knowledge from opaque parameter absorption;
+6. shared organizational memory from per-agent private state;
+7. external updates from continual-learning parameter updates;
+8. memory freshness, versioning, deletion, and supersession;
+9. retrieval failure from memory-write failure;
+10. external-memory benefits from costs such as latency, stale records, poisoning, synchronization, privacy, and access control.
 
-A bounded witness should use a small exact corpus with source IDs, duplicate/near-duplicate relations, train/evaluation partitions, and mixture weights. It should show that changing the deduplication or contamination predicate changes the measured overlap without changing the underlying records, and that weighted sampling proportions can differ from raw corpus proportions.
+A bounded witness should use a tiny component with one mutable fact represented in two ways: a parameter-bound version and an external keyed record. Change the fact once and show exactly which state must mutate, which provenance survives, and how a stale read can still fail. The witness should establish update/locality and provenance differences only, not universal superiority of external memory.
 
-The downstream Curriculum Learning chapter may consume these data-quality and mixture semantics only after DATA-001 is audited.
+The downstream Context Compilation and Polity chapters may consume the external-memory thesis only after EXTMEM-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
