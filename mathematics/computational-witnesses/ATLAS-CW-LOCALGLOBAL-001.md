@@ -30,7 +30,7 @@ Identify:
 
 `F(X)=R^3`;
 
-`F(U) xor F(V)=R^4`.
+`F(U) direct-sum F(V)=R^4`.
 
 Define:
 
