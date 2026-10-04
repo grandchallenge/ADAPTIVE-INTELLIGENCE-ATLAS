@@ -171,3 +171,14 @@ For `r_A=(17,A)` and `r_B=(17,B)` with `A!=B`, the duplicate relation is false. 
 ## 15. Missing-condition counterexample
 
 For the same Boolean product, `(1,1,0,1,1)` gives `G=0`. A positive claim in the returned prose cannot change that arithmetic: a declared required condition that is false keeps the transition closed.
+
+## 16. Safety invariants
+
+The finite construction supports four invariants:
+
+1. exact retry does not increase canonical evidence cardinality;
+2. exact repeated canonical incorporation does not increase the incorporated-key cardinality;
+3. a false required Boolean condition blocks the associated transition;
+4. distinct immutable result identities remain distinct evidence objects.
+
+These are safety properties: they rule out declared bad state changes.
