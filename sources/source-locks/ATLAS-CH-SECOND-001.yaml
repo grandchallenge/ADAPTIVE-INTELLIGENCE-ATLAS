@@ -74,7 +74,8 @@ sources:
     volume: 1
     issue: 3
     year: 2014
-    url: "https://web.stanford.edu/~boyd/papers/prox_algs.html"
+    doi: "10.1561/2400000003"
+    url: "https://www.nowpublishers.com/article/Details/OPT-003"
     authority: >
       Standard source for proximal operators and proximal algorithms for nonsmooth,
       constrained, large-scale, and composite optimization.
