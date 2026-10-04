@@ -30,3 +30,22 @@ sources:
     year: 2021
     doi: "10.18653/v1/2021.emnlp-main.98"
     authority: "Corpus provenance, filtering effects, machine-generated text, and benchmark examples observed in C4."
+  - id: "DATA-XIE-2023"
+    citation_key: "XieEtAl2023DoReMi"
+    title: "DoReMi: Optimizing Data Mixtures Speeds Up Language Model Pretraining"
+    year: 2023
+    doi: "10.52202/075280-3059"
+    authority: "Domain mixture weights as an explicit training variable in the reported pretraining experiments."
+  - id: "DATA-SHUMAILOV-2024"
+    citation_key: "ShumailovEtAl2024ModelCollapse"
+    title: "AI models collapse when trained on recursively generated data"
+    year: 2024
+    doi: "10.1038/s41586-024-07566-y"
+    authority: "Recursive generated-data degradation in the studied settings; not a universal verdict on all synthetic data."
+epistemic_rules:
+  - "Exact duplication, near-duplication, and semantic redundancy are distinct."
+  - "Contamination rates require a declared train set, evaluation set, representation, overlap predicate, and threshold."
+  - "Detected overlap does not by itself prove memorization or causal score inflation."
+  - "Raw corpus proportions, post-filter proportions, and training sampling weights are distinct distributions."
+  - "Synthetic provenance is a lineage property, not a universal quality verdict."
+  - "Data quality is application-relative and multidimensional."
