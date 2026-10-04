@@ -58,13 +58,13 @@ iff:
 
 `exists t in T: delta(t,e)=1`.
 
-Measured contamination rate:
+Unweighted item contamination rate:
 
 `CR_delta(T,V)
 =
 (1/|V|) sum_{e in V} C_delta(e;T)`.
 
-This is a property of the two partitions plus the declared predicate.
+If evaluation items carry unequal weights, a weighted measure must declare them explicitly. The unweighted rate is a property of the partitions plus the declared predicate.
 
 ## 6. Exposure versus causal inflation
 
