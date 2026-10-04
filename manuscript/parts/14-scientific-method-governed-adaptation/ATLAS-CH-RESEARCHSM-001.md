@@ -153,3 +153,45 @@ If the dispatch is the same but the result identity differs, the programme has t
 It may later decide that one supersedes, refutes, strengthens, or merely differs from the other.
 
 But that semantic decision must not be smuggled into transport by treating every second return as "the same thing."
+
+## 9. Exact finite retry witness
+
+Take dispatch
+
+`d=17`
+
+and result identity
+
+`r_A=(17,A)`.
+
+The first capture creates the singleton evidence set
+
+`E_1={r_A}`.
+
+Receive the identical result again.
+
+Set union gives
+
+`E_2=E_1 union {r_A}=E_1`.
+
+Therefore canonical evidence count remains
+
+`1`.
+
+Now introduce
+
+`r_B=(17,B)`
+
+with
+
+`B!=A`.
+
+Then
+
+`E_3={r_A,r_B}`
+
+has cardinality
+
+`2`.
+
+The witness therefore separates retry from genuinely distinct evidence using only stable identity and finite set arithmetic.
