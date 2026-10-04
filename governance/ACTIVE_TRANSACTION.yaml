@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 147
-  tranche_id: "AUDIT-037"
-  chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
   baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
   branch: null
-  pull_request: 148
-  state: "audit-merged"
-  next_action: "Both CURRICULUM-001 issues are closed. Persist the recomputed post-audit frontier and next target ATLAS-CH-GOVADAPT-001 in CURRENT_HANDOFF.md, then reset ACTIVE_TRANSACTION.yaml to idle-ready at baseline ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11."
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-GOVADAPT-001 (Governed Adaptation) from baseline ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11. Its hard prerequisites ATLAS-CH-OPTIONALITY-001 and ATLAS-CH-RESEARCHSM-001 are audited draft-v0.1. It is first in the deterministic four-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
