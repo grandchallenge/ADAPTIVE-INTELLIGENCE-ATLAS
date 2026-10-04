@@ -37,3 +37,17 @@ Pinned at `grandchallenge/MATH-PROGRAMME@fdd7a3fe3df7b2d699753347080c1cbc2127e02
 - controlled epistemic interface blob `33164987c3f5484863ab31606034060e72b7148a`.
 
 No new external bibliography key is required.
+
+## AUDIT-035 repair surface
+
+The implementation baseline had the correct source lock/specification but an incomplete manuscript/formal witness.
+
+The audit repair makes durable:
+
+- five-factor advancement vectors `(1,1,1,1,0)->0`, `(1,1,1,1,1)->1`, and missing-check `(1,1,0,1,1)->0`;
+- canonically idempotent advancement under exact evidence identity;
+- same-actor separation failure `Sep(A,A)=0` for policies that require distinct producer/reviewer identities;
+- certification as a separate exact-target authority transition;
+- a finite safety-without-liveness execution;
+- typed retry/new-evidence/supersession/implementation-repair/policy-change recovery classes;
+- explicit mapping to the pinned GCL lifecycle, Frontier Advancement Gate, and Controlled Epistemic Interface.
