@@ -1,0 +1,82 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-LOCALGLOBAL-001"
+locked_on: "2026-10-03"
+epistemic_class: "standard_sheaf_and_cellular_sheaf_foundations_plus_atlas_synthesis"
+claim_boundary: >
+  This chapter introduces only the local-to-global structure needed later: incidence/cover
+  structure, local sections, restriction maps, matching/compatibility, unique gluing,
+  explicit incompatibility, and a minimal graph/cellular-sheaf viewpoint. It does not
+  develop derived functors, full cohomology theory, descent beyond ordinary sheaves, or
+  claim that every distributed-learning, compositional, or data-fusion problem is naturally
+  a sheaf problem.
+atlas_sources:
+  - id: "LOCALGLOBAL-OBJECTS"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ed3f07a2531c520e0fad43f072340f8099448098"
+    path: "manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md"
+    git_blob_sha1: "6e8bd13b7d7ec7337e14135f8e9cf0a7fc415054"
+    authority: >
+      Audited hard prerequisite supplying the Atlas distinction among states, operators,
+      flows/dynamics, and interfaces/contracts, plus the rule that mathematical role is
+      not determined by storage representation.
+  - id: "LOCALGLOBAL-OBJECTS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ed3f07a2531c520e0fad43f072340f8099448098"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Foundation audit record covering OBJECTS-001."
+  - id: "LOCALGLOBAL-OBJECTS-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ed3f07a2531c520e0fad43f072340f8099448098"
+    path: "sources/source-locks/ATLAS-CH-OBJECTS-001.yaml"
+    git_blob_sha1: "805b06978f08c7efa7add3f36fca0301dca7047b"
+    authority: "Exact source/authority boundary inherited from OBJECTS-001."
+sources:
+  - id: "LOCALGLOBAL-CURRY-2014"
+    kind: "doctoral-thesis"
+    title: "Sheaves, Cosheaves and Applications"
+    author: "Justin Michael Curry"
+    institution: "University of Pennsylvania"
+    year: 2014
+    arxiv_id: "1303.3255"
+    authority: >
+      Primary dissertation source for sheaf/cosheaf foundations and the computable cellular
+      viewpoint: finite families of spaces and restriction-type maps organized by cell complexes.
+      Used for local sections, restrictions, gluing language, and cellular-sheaf motivation.
+  - id: "LOCALGLOBAL-ROBINSON-2017"
+    kind: "peer-reviewed-journal"
+    title: "Sheaves are the canonical data structure for sensor integration"
+    author: "Michael Robinson"
+    journal: "Information Fusion"
+    volume: 36
+    pages: "208-224"
+    year: 2017
+    doi: "10.1016/j.inffus.2016.12.002"
+    arxiv_id: "1603.01446"
+    authority: >
+      Applied primary source for sheaf-based integration of heterogeneous local data,
+      consistency, and approximate/global section viewpoints. Used as an application example,
+      not as authority that every data-fusion problem must use sheaves.
+  - id: "LOCALGLOBAL-HANSEN-GHRIST-2019"
+    kind: "peer-reviewed-journal"
+    title: "Toward a spectral theory of cellular sheaves"
+    authors: "Jakob Hansen; Robert Ghrist"
+    journal: "Journal of Applied and Computational Topology"
+    volume: 3
+    pages: "315-358"
+    year: 2019
+    doi: "10.1007/s41468-019-00038-7"
+    arxiv_id: "1808.01513"
+    authority: >
+      Primary source for cellular sheaves on cell complexes/graphs and their relation to
+      graph-like local-to-global structure. Used only for the elementary cellular viewpoint;
+      spectral/Hodge machinery is outside this chapter's required scope.
+epistemic_rules:
+  - "A graph or cover is incidence/topological structure; a sheaf also specifies data/stalks and restriction maps over that structure."
+  - "A local section is data on one region/cell-context, not automatically a global assignment."
+  - "Compatibility is tested after restriction to overlaps/common faces."
+  - "For a sheaf, a compatible family over a cover has a unique global glue; existence and uniqueness are both load-bearing parts of the sheaf condition."
+  - "An arbitrary presheaf or local constraint system need not admit a global glue for every locally compatible-looking family."
+  - "An explicit nonzero overlap discrepancy is an obstruction to gluing in the finite function witness."
+  - "Approximate consistency is distinct from exact sheaf compatibility and requires an explicit metric/optimization criterion."
+  - "Sheaf language is used as a precise local-to-global tool, not as decorative terminology or a universal ontology."
