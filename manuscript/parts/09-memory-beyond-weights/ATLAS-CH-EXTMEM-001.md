@@ -411,3 +411,506 @@ A latest-version exact-key read now returns:
 `B=0`.
 
 Only logical key A changed.
+
+
+## 23. Record-locality is not compute optimality
+
+The external witness changes one logical key.
+
+That is a statement about state mutation locality.
+
+It does not prove that the external update uses fewer machine operations than a model edit.
+
+The database may replicate records, rebuild indexes, invalidate caches, or synchronize across regions.
+
+Representation-locality and systems cost are different claims.
+
+## 24. Provenance is explicit in the store
+
+The external records retain:
+
+`s_A1`
+
+for version 1 and:
+
+`s_A2`
+
+for version 2.
+
+The supersession edge preserves the update history.
+
+The bare parameter vector:
+
+`theta=(1,1)`
+
+does not itself expose which source supported fact A.
+
+Again, the correct conclusion is not:
+
+> parameters cannot have provenance.
+
+The correct conclusion is:
+
+> provenance is not encoded as an explicit per-fact record in the bare parameter representation.
+
+## 25. The stale-read counterexample
+
+External memory creates a new failure mode.
+
+Suppose one consumer still reads snapshot `M_1` after the authoritative store advances to `M_2`.
+
+The authoritative latest value is:
+
+`A=4`.
+
+The stale consumer still observes:
+
+`A=2`.
+
+Externalization has made updating the authoritative record easy.
+
+It has not made every read fresh.
+
+## 26. Freshness needs a contract
+
+Let:
+
+`v_star(k)`
+
+be the authoritative current version for key `k`.
+
+Let:
+
+`v_C(k)`
+
+be the version observed by consumer `C`.
+
+A strict freshness rule might require:
+
+`v_C(k)=v_star(k)`.
+
+A bounded-staleness policy might permit some lag.
+
+The point is architectural:
+
+> freshness must be specified.
+
+It is not implied by the word **memory**.
+
+## 27. Caching creates local memory again
+
+A system may externalize knowledge into a shared store and then cache retrieved results near each model instance.
+
+That is often sensible for latency.
+
+It also means the system now has several memory loci:
+
+- authoritative store;
+- retrieval index;
+- cache;
+- working context;
+- parameters.
+
+The memory taxonomy has returned.
+
+Externalization does not make the architecture simple.
+
+It makes some state explicit.
+
+## 28. Write correctness and read correctness differ
+
+A memory update can be correct while a later answer is wrong.
+
+Possible causes include:
+
+- stale cache;
+- stale index;
+- wrong query;
+- wrong filter;
+- wrong rank;
+- context omission;
+- downstream reasoning error.
+
+This separation matters operationally.
+
+It lets the system ask:
+
+> did we store the right fact?
+
+before asking:
+
+> did the model use it correctly?
+
+## 29. Retrieval failure is not memory-write failure
+
+Suppose version 2 of A is present and current.
+
+A vector retriever fails to return it.
+
+That is a read-path failure.
+
+Rewriting the memory record will not necessarily fix it.
+
+The correct repair may be in:
+
+- indexing;
+- query formulation;
+- ranking;
+- filters;
+- context compilation.
+
+Typed failure boundaries prevent useless updates.
+
+## 30. Poisoning is a memory-layer risk
+
+Explicit memory can be modified.
+
+That is an advantage for legitimate updates.
+
+It is also an attack surface.
+
+A malicious or low-quality record can be:
+
+- inserted;
+- ranked highly;
+- given false metadata;
+- propagated to many consumers.
+
+External memory therefore needs evidence and authority controls, not only retrieval quality.
+
+## 31. Access control becomes first-class
+
+A shared store may contain facts that not every agent may read.
+
+Let:
+
+`allow(agent,key,operation)`
+
+be an authorization predicate.
+
+A successful lookup should not bypass this predicate merely because the record is relevant.
+
+This creates another separation:
+
+> retrievable does not mean authorized.
+
+The downstream Polity chapter will need this distinction.
+
+## 32. Sharing is not global visibility
+
+A memory can be shared among:
+
+- one team;
+- one model family;
+- one tenant;
+- one organization;
+- one scientific programme.
+
+Shared does not mean public.
+
+Scope is part of the memory contract.
+
+This is especially important when memory contains private, licensed, embargoed, or role-restricted information.
+
+## 33. Deletion is not trivial even externally
+
+An explicit record can be marked deleted or revoked.
+
+But copies may remain in:
+
+- caches;
+- replicas;
+- logs;
+- backups;
+- derived indexes;
+- compiled contexts.
+
+Therefore external memory gives deletion a clear target but not necessarily immediate total erasure.
+
+A serious system must define deletion propagation.
+
+## 34. Parametric erasure is a different problem
+
+If information has been learned into parameters, deleting the original training record does not imply the behavior disappears.
+
+The two operations target different objects.
+
+This distinction is especially important for systems with both:
+
+- learned parametric state;
+- retained external records.
+
+Deletion policy should say which loci are in scope.
+
+## 35. Consolidation moves in the other direction
+
+The external-memory thesis is not a one-way migration out of parameters.
+
+Sometimes repeated external evidence becomes stable enough that learning it into parameters is useful.
+
+Call this **consolidation**.
+
+Examples might include:
+
+- repeated tool-use patterns;
+- stable schema structure;
+- durable domain regularities;
+- procedural skills.
+
+Consolidation is a parameter-learning operation.
+
+It is distinct from memory write.
+
+## 36. Externalization can precede consolidation
+
+A system can first store new evidence externally because it is:
+
+- recent;
+- uncertain;
+- volatile;
+- provenance-sensitive.
+
+Later, after enough evidence accumulates, some stable regularity can be learned parametrically.
+
+This creates a useful architecture:
+
+> explicit first, consolidate later.
+
+The chapter presents this as a design pattern, not a theorem of optimal learning.
+
+## 37. Parameter isolation and external memory solve different problems
+
+CONTINUAL-001 showed that parameter isolation can avoid direct overwrite by adding capacity or routing.
+
+External memory avoids some parameter updates by moving selected state elsewhere.
+
+Those are not the same strategy.
+
+Parameter isolation still places knowledge in learned capacity.
+
+Externalization places it in explicit records.
+
+The costs differ.
+
+## 38. Replay uses external evidence without making it the final answer source
+
+Replay stores examples or exemplars externally.
+
+During learning, those records return to the optimizer.
+
+This is different from runtime retrieval of a fact for direct use.
+
+So even within one system, external records can have multiple roles:
+
+- training evidence;
+- episodic replay;
+- semantic knowledge;
+- runtime retrieval;
+- audit/provenance archive.
+
+Role should not be inferred from locus alone.
+
+## 39. A record is not automatically knowledge
+
+An external store can contain:
+
+- false statements;
+- conflicting statements;
+- stale statements;
+- unsupported statements;
+- low-authority sources.
+
+The system still needs:
+
+- provenance;
+- ranking;
+- authority;
+- reconciliation;
+- uncertainty handling.
+
+External memory makes records inspectable.
+
+It does not make them true.
+
+## 40. Multiple records can legitimately conflict
+
+Suppose two sources disagree.
+
+Parameter-only consolidation may blur the conflict into one behavior.
+
+An external store can preserve both records explicitly.
+
+That can be useful when the disagreement itself matters.
+
+But then the reader must decide:
+
+- which source is authoritative;
+- whether both are shown;
+- whether uncertainty is retained.
+
+Preserving conflict is not the same as resolving it.
+
+## 41. Update frequency is only one axis
+
+A highly volatile fact often favors external memory.
+
+But a rarely changing fact can also be external if:
+
+- provenance is critical;
+- deletion must be possible;
+- sharing is required;
+- access policy is complex.
+
+Conversely, some moderately changing information may still be parameterized if retrieval is too costly.
+
+Placement is multi-dimensional.
+
+## 42. The "world in weights" failure mode
+
+A system that tries to carry every changing fact in parameters inherits several burdens:
+
+- weight updates for factual changes;
+- unclear per-fact provenance;
+- difficult selective deletion;
+- duplicated updates across model copies;
+- interference risk;
+- stale deployed checkpoints.
+
+This is the core motivation for the external-memory thesis.
+
+But the remedy must not become a slogan.
+
+## 43. The "database as intelligence" failure mode
+
+The opposite mistake is to externalize everything.
+
+A datastore does not replace:
+
+- abstraction;
+- reasoning;
+- representation learning;
+- compression;
+- procedure learning;
+- transfer.
+
+If every answer requires finding a memorized record, the system may fail whenever exact evidence is absent.
+
+External memory should complement learned capability.
+
+## 44. The hybrid architecture
+
+A mature system may use four layers:
+
+1. **parameters** for compressed reusable structure;
+2. **persistent external memory** for explicit versioned records;
+3. **retrieval** for selecting candidate evidence;
+4. **working context** for the task-specific subset currently active.
+
+The next chapter, Context Compilation, will develop layer 4.
+
+This chapter stops before that step.
+
+## 45. A practical placement ledger
+
+Before moving a knowledge class into or out of parameters, record:
+
+| Field | Question |
+|---|---|
+| item/class | What knowledge is being placed? |
+| volatility | How often does it change? |
+| provenance | Must source/version be visible per item? |
+| sharing | Which agents/models need one common state? |
+| supersession | Must updates, revocation, or deletion be explicit? |
+| retrievability | Is there a meaningful key/query/index? |
+| latency | Can retrieval cost be tolerated? |
+| availability | What happens if the store is unavailable? |
+| access control | Who may read/write it? |
+| privacy | Does explicit storage create new exposure? |
+| generalization | Is compression into reusable behavior valuable? |
+| consolidation | Should stable evidence later move into parameters? |
+| freshness | Which version guarantees are required? |
+| fallback | What should happen on retrieval failure? |
+
+This ledger turns "put it in memory" into an auditable design decision.
+
+## 46. Failure modes
+
+### External-equals-fresh
+
+The record is updated but consumers use stale snapshots.
+
+### External-equals-correct
+
+A stored record is treated as true merely because it is explicit.
+
+### Retrieved-equals-authorized
+
+A relevant record bypasses access policy.
+
+### Parameter-change-equals-forgetting
+
+Any weight movement is called forgetting without behavioral evaluation.
+
+### External-equals-cheap
+
+Record-local updates are assumed to imply lower wall-clock cost.
+
+### Parametric-equals-uneditable
+
+Direct model editing is ignored despite evidence that some factual associations can be changed parametrically.
+
+### Shared-equals-consistent
+
+Multiple agents point to one store, so consistency is assumed without version/synchronization semantics.
+
+### Externalize-everything
+
+Explicit memory is treated as a replacement for learning compressed structure.
+
+## 47. What the exact witness establishes
+
+The companion witness proves only that, for the chosen two-fact representations:
+
+- initial parameter state is `(1,1)`;
+- updated parameter state is `(2,2)`;
+- both parameter coordinates change under the exact preserving update;
+- the naive one-coordinate edit produces `A=3,B=1`;
+- the external latest-version update changes only logical key A;
+- external provenance retains old/new source/version information;
+- a stale snapshot still returns A=2 after authoritative A becomes 4.
+
+It does not prove universal systems superiority.
+
+## 48. Downstream handoff: Context Compilation
+
+**ATLAS-CH-CONTEXTCOMP-001** may now assume:
+
+- hybrid parametric/external placement;
+- versioned external records;
+- freshness as an explicit policy;
+- retrieval success as distinct from storage correctness;
+- provenance-preserving record semantics.
+
+It must independently define how retrieved records become the bounded working context of a model invocation.
+
+## 49. Downstream handoff: Polity
+
+**ATLAS-CH-POLITY-001** may now assume:
+
+- shared memory is an explicit architectural locus;
+- shared visibility requires synchronization/version semantics;
+- access control is distinct from relevance;
+- common memory can coexist with private parametric and working state.
+
+It must independently define multi-agent governance, coordination, authority, and shared-state policy.
+
+## References used in this chapter
+
+- Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* [@LewisEtAl2020RAG].
+- Khandelwal et al., *Generalization through Memorization: Nearest Neighbor Language Models*.
+- Borgeaud et al., *Improving language models by retrieving from trillions of tokens*.
+- Meng et al., *Locating and Editing Factual Associations in GPT*.
+
+Exact source identities and authority boundaries are recorded in:
+
+sources/source-locks/ATLAS-CH-EXTMEM-001.yaml
