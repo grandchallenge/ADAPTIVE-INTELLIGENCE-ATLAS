@@ -5,9 +5,9 @@ issue: 152
 branch: "research/gsd-tranche-a"
 protected_plan: "governance/research-agenda/GSD-001_RESEARCH_PROGRAMME.md"
 scope: ["GSD-WP00", "GSD-WP01", "GSD-WP02", "GSD-WP03"]
-state: "IMPLEMENTATION_IN_PROGRESS"
-current_frontier: "WP00_GOLDEN_REPLAY_AND_HARNESS"
-next_action: "Complete pure-Python CI, then execute a GPU smoke run and >=20-checkpoint OLMo 2 1B sweep."
+state: "WP00_CLOSED"
+current_frontier: "WP01_ACCELERATOR_SWEEP"
+next_action: "Execute the one-checkpoint smoke run on CUDA, then complete the deterministic 20-checkpoint OLMo 2 1B sweep."
 completion_gates:
   WP00:
     - "exact external source identities recorded"
