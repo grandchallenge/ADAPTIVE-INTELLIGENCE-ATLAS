@@ -10,8 +10,8 @@ current:
   baseline_commit: "574de4e65b42d4c090467b8a43fe2e534653b6e9"
   branch: "work/a155"
   pull_request: 156
-  state: "pr-open"
-  next_action: "Read canonical CI for PR #156 at exact head 91b9781b933ad255f1d6fcc50e02da8e9e466758; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
+  state: "ci-green"
+  next_action: "Merge PR #156 only from exact green head 91b9781b933ad255f1d6fcc50e02da8e9e466758; read back protected main; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
