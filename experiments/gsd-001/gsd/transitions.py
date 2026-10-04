@@ -15,7 +15,7 @@ class CheckpointSummary:
     ci_low: float
     ci_high: float
     n: int
-    control_ok: bool = True
+    control_ok: bool = False
 
 
 def summarize_checkpoint(
@@ -23,7 +23,7 @@ def summarize_checkpoint(
     step: int,
     margins: Iterable[float],
     *,
-    control_ok: bool = True,
+    control_ok: bool = False,
     n_boot: int = 4000,
     seed: int = 0,
 ) -> CheckpointSummary:
@@ -40,9 +40,10 @@ def summarize_checkpoint(
     )
 
 
-def detect_candidate_transitions(
+def detect_state_reversals(
     summaries: Iterable[CheckpointSummary],
 ) -> list[dict[str, Any]]:
+    """Find adjacent confident sign/state reversals before control validation."""
     ordered = sorted(summaries, key=lambda s: s.step)
     out: list[dict[str, Any]] = []
     confident = {STATE_GENERALIZING, STATE_PATTERN}
@@ -50,8 +51,6 @@ def detect_candidate_transitions(
         if left.state not in confident or right.state not in confident:
             continue
         if left.state == right.state:
-            continue
-        if not (left.control_ok and right.control_ok):
             continue
         out.append(
             {
@@ -62,9 +61,24 @@ def detect_candidate_transitions(
                 "from_state": left.state,
                 "to_state": right.state,
                 "step_gap": right.step - left.step,
-                "status": "CANDIDATE_TRANSITION",
+                "control_validated": bool(left.control_ok and right.control_ok),
+                "status": "STATE_REVERSAL_REQUIRES_CONTROL_VALIDATION",
             }
         )
+    return out
+
+
+def detect_candidate_transitions(
+    summaries: Iterable[CheckpointSummary],
+) -> list[dict[str, Any]]:
+    """Promote only reversals whose two endpoints have stable-control evidence."""
+    out: list[dict[str, Any]] = []
+    for reversal in detect_state_reversals(summaries):
+        if not reversal["control_validated"]:
+            continue
+        promoted = dict(reversal)
+        promoted["status"] = "CANDIDATE_TRANSITION"
+        out.append(promoted)
     return out
 
 
