@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-SECOND-001"]
   baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
   branch: "work/atlas-163"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the SECOND-001 implementation PR from work/atlas-163, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
+  pull_request: 164
+  state: "pr-open"
+  next_action: "Read canonical CI for PR #164 at exact head c1f888569f12855e5ba416d1d1b3783b2a9db365; repair every in-scope failure, replay on the repaired exact head, and merge only when green."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
