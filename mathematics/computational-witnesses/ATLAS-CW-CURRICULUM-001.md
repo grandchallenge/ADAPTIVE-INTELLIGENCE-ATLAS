@@ -20,6 +20,16 @@ Actions:
 \mathcal A=\{E,H\}.
 \]
 
+Witness observation contract:
+
+\[
+z=s.
+\]
+
+The controller therefore has full access to the declared toy state. This is stronger than the partial-observation contract of many real training systems.
+
+Action semantics: \(E\) and \(H\) are repeatable experience types. Repeating \(H\) in the two-step witness is permitted by construction and does not mean sampling one finite record twice without declaration.
+
 Nominal difficulty:
 
 \[
@@ -195,7 +205,7 @@ Verify the table, the two unique-maximizer checkpoints, and the two-step traject
 
 ## Claim boundary
 
-This witness proves only a finite control separation:
+This witness proves only a finite control separation under full toy-state observability and repeatable action types:
 
 > a fixed static difficulty ranking does not determine a one-step progress-optimal action uniformly across the declared learner states.
 
