@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-DATA-001"
   baseline_commit: "703e763cac01d224eec87aeeca43d5f1acf9c58c"
   branch: "audit/data-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Complete AUDIT-030 from issue #120 and branch audit/data-001."
+  pull_request: 121
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #121 at exact head ff409989ee799f134565fa2bbbd300a64eb3b498; merge when green, close issue #120, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-DATA-001"
     downstream_architecture_count: 3
