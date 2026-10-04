@@ -40,7 +40,7 @@ May assume from Transformer:
 Must not assume:
 
 - that learned residual updates are exact exponentials;
-- that an arbitrary learned submap has a meaningful half-step; a Strang-style neural analogue requires an explicitly declared step-parameterized family \(\Psi_A\(h\),\Psi_B\(h\)\) with a defined \(h/2\) stage;
+- that an arbitrary learned submap has a meaningful half-step; a Strang-style neural analogue requires an explicitly declared step-parameterized family \(\Psi_A(h\),\Psi_B(h\)\) with a defined \(h/2\) stage;
 - that classical splitting order transfers to arbitrary nonlinear learned maps;
 - that a symmetric block is exactly reversible;
 - that attention and FFN commute;
@@ -116,11 +116,11 @@ The symmetric composition has local defect \(O(h^3)\).
 For a residual-stream state \(H\), define two learned submaps explicitly:
 
 \[
-\Psi_A\(H\)=H+F_A(N_A\(H\)),
+\Psi_A(H\)=H+F_A(N_A(H\)),
 \]
 
 \[
-\Psi_B\(H\)=H+F_B(N_B\(H\)).
+\Psi_B(H\)=H+F_B(N_B(H\)).
 \]
 
 Then the ordered block
@@ -141,7 +141,7 @@ Use exact-flow notation \(e^{hA}\) only for the linear witness and other setting
 
 ## Additive versus sequential witness
 
-For linear residual increments \(F_A\(x\)=hAx\), \(F_B\(x\)=hBx\):
+For linear residual increments \(F_A(x\)=hAx\), \(F_B(x\)=hBx\):
 
 additive update:
 
@@ -286,7 +286,7 @@ Include:
 - layer-varying operators require a nonautonomous reading;
 - splitting error is distinct from model, data, estimation, optimization, finite-precision, and implementation error;
 - small commutator in one local linearization is not a global theorem;
-- the same-state Jacobian commutator \(J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\)\) is a local diagnostic, not the derivative of the nonlinear composition defect in general.
+- the same-state Jacobian commutator \(J_B(x\)J_A(x\)-J_A(x\)J_B(x\)\) is a local diagnostic, not the derivative of the nonlinear composition defect in general.
 
 ## Downstream obligations
 
