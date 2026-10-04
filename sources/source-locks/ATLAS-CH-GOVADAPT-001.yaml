@@ -1,0 +1,111 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-GOVADAPT-001"
+locked_on: "2026-10-04"
+epistemic_class: "audited_optionality_and_research_state_machine_prerequisites_plus_bounded_intervention_precedents_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Atlas prerequisites support correction-capacity and viability
+  semantics, typed governed state, guarded transitions, authority separation,
+  recovery classes, and exact-target evidence binding. The external sources
+  provide bounded precedents for cooperation with corrective intervention,
+  preserving interruptibility during learning, and modeling incentives around
+  a human intervention channel. The Atlas governed-adaptation object, authority
+  separation, exact-revision gate, correction-capacity preservation rule, and
+  finite equal-utility witness are chapter-owned constructions. No claim is made
+  that interruption, shutdown, corrigibility, rollback, or process conformance
+  alone establishes alignment, safety, truth, beneficial adaptation, or universal
+  recoverability.
+sources:
+  - id: "GOVADAPT-CORRIGIBILITY-2015"
+    citation_key: "SoaresEtAl2015Corrigibility"
+    kind: "workshop-paper"
+    title: "Corrigibility"
+    authors: "Nate Soares; Benja Fallenstein; Stuart Armstrong; Eliezer Yudkowsky"
+    venue: "AAAI Workshop on Artificial Intelligence and Ethics"
+    year: 2015
+    url: "https://intelligence.org/files/Corrigibility.pdf"
+    authority: >
+      Precedent for cooperation with corrective intervention despite incentives
+      that may resist shutdown or preference change. The paper leaves important
+      desiderata unresolved and is not authority for the Atlas governance design.
+  - id: "GOVADAPT-INTERRUPTIBLE-2016"
+    citation_key: "OrseauArmstrong2016"
+    kind: "peer-reviewed-conference"
+    title: "Safely Interruptible Agents"
+    authors: "Laurent Orseau; Stuart Armstrong"
+    venue: "UAI 2016"
+    pages: "557-566"
+    year: 2016
+    isbn: "978-0-9966431-1-5"
+    url: "https://www.auai.org/uai2016/proceedings/papers/68.pdf"
+    authority: >
+      Formal precedent for separating a learning task from intervention-induced
+      incentives and for safe interruptibility in the paper's reinforcement-
+      learning setting. It is not a general governance theorem for arbitrary
+      adaptive systems.
+  - id: "GOVADAPT-OFFSWITCH-2017"
+    citation_key: "HadfieldMenellEtAl2017OffSwitch"
+    kind: "peer-reviewed-conference"
+    title: "The Off-Switch Game"
+    authors: "Dylan Hadfield-Menell; Anca Dragan; Pieter Abbeel; Stuart Russell"
+    venue: "IJCAI 2017"
+    pages: "220-227"
+    year: 2017
+    doi: "10.24963/ijcai.2017/32"
+    authority: >
+      Game-theoretic precedent showing that incentives to preserve a human
+      intervention channel depend on objective uncertainty and interpretation
+      of human actions. Used only as motivation for correction-channel preservation.
+atlas_sources:
+  - id: "GOVADAPT-OPTIONALITY-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "manuscript/parts/11-decision-making/ATLAS-CH-OPTIONALITY-001.md"
+    git_blob_sha1: "a202d82ad9f2242fd17117cf6faa6eaa30227369"
+    authority: >
+      Audited hard prerequisite supplying viable continuation sets, functional
+      option classes, conditional correction feasibility, ex-ante correction
+      capacity, and horizon-relative recoverability.
+  - id: "GOVADAPT-OPTIONALITY-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "reviews/AUDIT-034.md"
+    git_blob_sha1: "43abd668155904debaf7687a05e93a0ea7d60fa5"
+    authority: "Audit record governing the OPTIONALITY prerequisite."
+  - id: "GOVADAPT-OPTIONALITY-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "sources/source-locks/ATLAS-CH-OPTIONALITY-001.yaml"
+    git_blob_sha1: "631afbcc9bfa1a2382ef109d701d523cafbbf0d1"
+    authority: "Exact source and claim boundary for OPTIONALITY-001."
+  - id: "GOVADAPT-RESEARCHSM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md"
+    git_blob_sha1: "fca394ca7fe69561730ea5b13076974f22fe73e9"
+    authority: >
+      Audited hard prerequisite supplying bounded work packages, typed governed
+      state, idempotence, guarded advancement, separate certification,
+      actor-separation predicates, typed recovery, and exact-target evidence.
+  - id: "GOVADAPT-RESEARCHSM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "reviews/AUDIT-035.md"
+    git_blob_sha1: "8251b54ffb5644a41d7404d0e33e717f384d5c12"
+    authority: "Audit record governing the RESEARCHSM prerequisite."
+  - id: "GOVADAPT-RESEARCHSM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+    path: "sources/source-locks/ATLAS-CH-RESEARCHSM-001.yaml"
+    git_blob_sha1: "c507c236fb8993b1e5e4df400c92ce490ff42dde"
+    authority: "Exact source and claim boundary for RESEARCHSM-001."
+epistemic_rules:
+  - "An executable revision is not governance-authorized merely because an actor can apply it."
+  - "Proposal, execution, promotion, rollback, and certification authority remain distinct unless an explicit policy composes them."
+  - "Evidence supporting revision r does not automatically support a materially different revision r-prime; target identity must be rebound after change."
+  - "Rollback availability is not identical to recoverability: restoration may be blocked, lossy, unauthorised, or unable to restore external state."
+  - "Preserved raw action count is not preserved correction capacity; correction paths are target-, horizon-, feasibility-, and authority-relative."
+  - "A safety invariant can hold while progress halts; fail-closed governance does not imply liveness."
+  - "Governance conformance is evidence about process and authority conditions, not substantive proof that an adaptation is beneficial or correct."
+  - "Corrigibility, interruptibility, and intervention-channel preservation are related but not definitionally interchangeable."
+  - "A revision remains bounded by the current authority contract; it does not inherit authority to alter that contract unless a separate governed transition permits it."
+  - "The finite Atlas witness proves only that equal immediate utility can coexist with unequal preserved authorized correction paths."
