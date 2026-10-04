@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11`
+**Current main:** `574de4e65b42d4c090467b8a43fe2e534653b6e9`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,21 +69,60 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11`;
-- next target: `ATLAS-CH-GOVADAPT-001`;
-- title: **Governed Adaptation**;
-- reason: after CURRICULUM-001 audit closure, four dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects GOVADAPT-001 first.
+- baseline/main: `574de4e65b42d4c090467b8a43fe2e534653b6e9`;
+- next target: `ATLAS-CH-KRYLOV-001`;
+- title: **Krylov Subspaces and Iterative Solves**;
+- reason: after GOVADAPT-001 audit closure, three dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; deterministic frontier ordering selects KRYLOV-001 first.
 
-Current frontier, recomputed from the live post-AUDIT-037 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-038 Chapter Ledger:
 
-1. `ATLAS-CH-GOVADAPT-001` — downstream architecture count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
-2. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-3. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-4. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-KRYLOV-001` — downstream architecture count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+2. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+3. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
-CURRICULUM-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-PROGRESSSEARCH-001` is newly dependency-legal and has downstream architecture count 1.
+GOVADAPT-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-FRONTIER-001` is newly dependency-legal and has downstream architecture count 1.
 
 ## 5. Immediately preceding completed tranches
+
+### GOVADAPT-001 — Governed Adaptation
+
+- implementation issue: #149, closed completed;
+- implementation PR: #150;
+- implementation merge: `c0db4e60ba1fb9d3f2d7ac4469ca40bb5a761784`;
+- audit: `AUDIT-038`;
+- audit issue: #151, closed completed;
+- audit PR: #153;
+- audit merge / current main: `574de4e65b42d4c090467b8a43fe2e534653b6e9`.
+
+Core governed-adaptation objects:
+
+- protected state `g=(r,x,E,A,P,C,L)`;
+- candidate revision bound to an exact parent and exact candidate identity;
+- separate proposal, execution, promotion, recovery, and certification authority;
+- exact-target evidence binding and fresh replay after identity-changing repair;
+- authorized recovery-path semantics distinct from stored rollback artifacts;
+- inherited correction-capacity semantics from OPTIONALITY;
+- fail-closed safety versus liveness.
+
+Exact witness:
+
+- one common protected baseline state `x_0`;
+- two candidate post-revision states `x_A` and `x_B`;
+- equal immediate utility increments from the same baseline;
+- `CC_{h,0}(x_A;b)=1`;
+- `CC_{h,0}(x_B;b)=1/2`;
+- an immediate-utility-only gate cannot distinguish the candidates;
+- a declared correction-capacity floor can distinguish them;
+- equal raw command counts do not imply equal governed recoverability.
+
+AUDIT-038 repaired three precision defects:
+
+1. corrected the Corrigibility bibliography/source-lock author order;
+2. restored the inherited correction-capacity type by applying it to post-revision states rather than candidate labels;
+3. made equal immediate utility explicitly relative to one common protected reference state.
+
+Load-bearing boundary: governance conformance establishes satisfaction of a declared authority/evidence process; it does not by itself establish substantive truth, universal safety, complete corrigibility, or universally optimal adaptation.
+
 
 ### CURRICULUM-001 — Curriculum Learning
 
@@ -981,65 +1020,47 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — GOVADAPT-001
+## 7. Next tranche — KRYLOV-001
 
 Stable ID:
 
-`ATLAS-CH-GOVADAPT-001`
+`ATLAS-CH-KRYLOV-001`
 
 Title:
 
-**Governed Adaptation**
+**Krylov Subspaces and Iterative Solves**
 
-Declared hard dependencies:
+Declared hard dependency:
 
-- `ATLAS-CH-OPTIONALITY-001`;
-- `ATLAS-CH-RESEARCHSM-001`.
+- `ATLAS-CH-LINALG-001`.
 
 Atlas contract:
 
-> Ask how systems can change themselves while preserving correction capacity, provenance, and bounded authority.
+> Develop Arnoldi, Lanczos, residual-driven subspaces, and the logic of solving large problems through informative directions.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited OPTIONALITY prerequisite may supply:
-
-- viable continuation sets;
-- consequence-quotiented functional options;
-- conditional correction feasibility;
-- ex-ante correction capacity;
-- horizon-relative recoverability;
-- the boundary between optionality and reward/regret.
-
-The audited RESEARCHSM prerequisite may supply:
-
-- bounded work packages;
-- typed research/product state;
-- canonical/history separation;
-- exact-identity idempotence;
-- duplicate/conflict distinction;
-- guarded promotion;
-- separate certification;
-- actor-separation predicates;
-- fail-closed safety versus liveness;
-- typed recovery and exact-target evidence binding.
-
-GOVADAPT-001 must independently define self-modification/adaptation authority and what it means to preserve correction capacity across a state change.
+KRYLOV-001 should source-lock its exact linear-algebra prerequisite before selecting external numerical-linear-algebra sources.
 
 A sound intellectual spine should distinguish at least:
 
-1. ordinary parameter/state update from governance-authorized self-modification;
-2. capability improvement from preserved ability to correct or reverse course;
-3. proposal authority from execution authority;
-4. adaptation from promotion/certification;
-5. exact-target evidence from stale evidence inherited across a changed revision;
-6. safety invariants from liveness/progress;
-7. preserved option count from preserved functional correction paths;
-8. local rollback from true recovery of prior capability;
-9. bounded authority from unrestricted recursive self-improvement;
-10. successful adaptation from governance conformance alone.
+1. full-space direct solution from iterative subspace approximation;
+2. the Krylov space `K_m(A,b)=span{b,Ab,...,A^{m-1}b}` from an arbitrary learned or hand-chosen subspace;
+3. Arnoldi for general matrices from Lanczos for the symmetric/Hermitian case;
+4. basis construction from the projected small problem;
+5. residual minimization from error minimization;
+6. spectral clustering effects from worst-case convergence guarantees;
+7. exact arithmetic from finite-precision loss of orthogonality;
+8. matrix-vector access from explicit matrix formation;
+9. preconditioning from merely increasing iteration count;
+10. classical Krylov structure from the later Neural Krylov Transport chapter.
 
-The finite witness should be selected only after source locking. It should expose a small state machine in which two candidate improvements have equal immediate utility but differ in preserved correction capacity or authorized recovery paths.
+The finite witness should be chosen only after source locking. It should expose an exact small matrix/vector pair where a low-dimensional Krylov space captures a nontrivial approximation with transparent residual arithmetic, plus a contrasting case that shows why dimension, conditioning, or non-normality matters.
+
+Direct consumers after audit:
+
+- `ATLAS-CH-ATTNAPPROX-001`;
+- `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 8. Durable restart instruction for a fresh chat
 
