@@ -96,3 +96,6 @@ epistemic_rules:
   - "Splitting/discretization error is distinct from approximation, estimation, optimization, and implementation error."
   - "Layer-varying learned suboperators require a nonautonomous interpretation; autonomous shared-operator formulas may not be silently reused."
   - "Commuting controls show disappearance of order dependence in the bounded exact witness; they do not imply neural sublayers commute in practice."
+  - "For column-vector states, product labels such as S_AB=exp(hA)exp(hB) act right-to-left; product-order notation must not be described ambiguously as chronological A-then-B."
+  - "A neural Strang analogue requires an explicitly declared step-parameterized family with a meaningful half-step; a palindromic layout alone does not inherit Strang order."
+  - "For nonlinear maps, the derivative of the composition defect uses Jacobians at intermediate states; the same-state Jacobian commutator is only a local diagnostic unless an additional approximation is justified."
