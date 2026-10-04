@@ -4,30 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 161
-  tranche_id: "AUDIT-040"
-  chapter_ids: ["ATLAS-CH-POSGEOM-001"]
-  baseline_commit: "26c51843b13a0ab58ba0f16cd0c2e365a60d1180"
-  branch: "audit/posgeom-161"
-  pull_request: 162
-  state: "audit-ci-green"
-  next_action: "Merge PR #162 only from exact green head f993e1bf9c52c66d47ea2b06acd7a141000d523c; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
-  prepared_source_spine:
-    - "Vaswani et al. 2017 — sinusoidal positional encoding"
-    - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
-    - "Chen et al. 2023 — Position Interpolation for context extension"
-    - "Peng et al. 2023/2024 — YaRN as empirical context-extension method"
-  prerequisite_binds:
-    attention_manuscript_blob: "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
-    attention_source_lock_blob: "4af4e53230776daaf0be825cffd1263957ed97c8"
-    attention_audit_blob: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
-    geometry_manuscript_blob: "f8e406f24a01bd852996e11118e04427ff549f35"
-    geometry_source_lock_blob: "d75e8bcf5a5920eca6b09cb8bb181182c7827b5c"
-    geometry_audit_blob: "f13b7ac01f7b10dfadd64da6f31c45832344c082"
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-SECOND-001 (Curvature and Second-Order Structure) from baseline 8fbae32144f94e497203b311cc0a824f8cd8a486. Its hard prerequisites ATLAS-CH-OPTBASE-001 and ATLAS-CH-GEOM-001 are audited draft-v0.1. It is the unique dependency-legal frontier leader at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-POSGEOM-001"
-    downstream_architecture_count: 2
-    direct_consumers: ["ATLAS-CH-RPO-001"]
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-MATRIXOPT-001"]
@@ -35,4 +20,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is blocked-authentication, resolve the named authentication boundary without changing protected main; then resume the recorded next_action. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
