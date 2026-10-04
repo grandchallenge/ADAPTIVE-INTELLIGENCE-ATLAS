@@ -10,8 +10,8 @@ current:
   baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
   branch: "audit/split-001"
   pull_request: 144
-  state: "audit-pr-open"
-  next_action: "Read canonical CI for PR #144 at exact head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da; repair every in-scope failure, replay on the new exact head, and merge only when validation is green."
+  state: "audit-ci-green"
+  next_action: "Merge PR #144 only from exact green head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da; read back protected main, verify issue closure, recompute the dependency-legal frontier, update CURRENT_HANDOFF.md, and reset the controller to idle-ready."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
