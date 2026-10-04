@@ -135,3 +135,21 @@ If the entire history had to be identical after retry, the system would have to 
 If canonical state were allowed to multiply with every retry, the same evidence could acquire multiple effects merely because transport repeated.
 
 Neither behavior is desirable.
+
+## 8. Duplicate is an identity relation
+
+A return is not a duplicate merely because it belongs to the same work package.
+
+Use the exact return identity
+
+`r=(d,h)`
+
+for dispatch identity `d` and immutable result identity `h`.
+
+Two returns are exact duplicates only when both coordinates agree.
+
+If the dispatch is the same but the result identity differs, the programme has two evidence objects.
+
+It may later decide that one supersedes, refutes, strengthens, or merely differs from the other.
+
+But that semantic decision must not be smuggled into transport by treating every second return as "the same thing."
