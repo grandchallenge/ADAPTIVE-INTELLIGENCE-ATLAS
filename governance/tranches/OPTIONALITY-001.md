@@ -22,7 +22,8 @@ Exact prerequisite binds:
 - functional option quotient `O_h(s)`;
 - optional finite count `N_h(s)=|O_h(s)|`;
 - extended-real correction cost `k_h(s,theta)`;
-- tolerance-indexed correction capacity `CC_{h,epsilon}(s;b)`;
+- post-evidence conditional correction indicator `C_{h,epsilon}(s,theta)`;
+- ex-ante tolerance-indexed correction capacity `CC_{h,epsilon}(s;b)`;
 - horizon-relative recoverability `Rec_h(s;B)`.
 
 ## Exact witness
@@ -33,6 +34,8 @@ Two environments:
 
 with symmetric prior.
 
+The declared stage-0 action set is `{P,C_L,C_R}`. The learner comparison is preserve versus commit-left; the symmetric `C_R` action exists so the clairvoyant environment-informed comparator `C_theta` is well typed.
+
 Preserve policy:
 
 - immediate cost `1/2`;
@@ -40,7 +43,7 @@ Preserve policy:
 - return `1/2` in both environments;
 - Bayes regret `1/2`;
 - functional option count `2`;
-- zero-tolerance correction capacity `1`;
+- zero-tolerance ex-ante correction capacity `1`;
 - information gain `1 bit`.
 
 Commit-left policy:
@@ -50,7 +53,7 @@ Commit-left policy:
 - returns `1` in L and `0` in R;
 - Bayes regret `1/2`;
 - functional option count `1`;
-- zero-tolerance correction capacity `1/2`;
+- zero-tolerance ex-ante correction capacity `1/2`;
 - information gain `1 bit`.
 
 Thus prior value, Bayes regret, and information gain tie while correction capacity differs.
@@ -68,7 +71,7 @@ Worst-case regret is `1/2` versus `1`; the tranche does not claim optionality is
 External precedents:
 
 - Arrow–Fisher (1974): uncertainty, irreversibility, and preservation value;
-- Aubin (1991): viability/state constraints;
+- Aubin (1991), original Birkhäuser Boston print identity: viability/state constraints;
 - Klyubin–Polani–Nehaniv (2008): empowerment and the options-open interpretation.
 
 Atlas-owned:

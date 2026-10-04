@@ -78,11 +78,11 @@ The chapter may report `|O_h(s)|` only when the consequence signature and horizo
 
 ## Correction cost
 
-After evidence identifies or updates the relevant environment, define
+After evidence identifies or updates the relevant environment, let `V_h(s;theta)` denote the viable continuation set under that resolved environment and define
 
 `k_h(s,theta)
 =
-inf_{pi in V_h(s)} c_corr(pi,theta)`
+inf_{pi in V_h(s;theta)} c_corr(pi,theta)`
 
 subject to satisfying the declared target for `theta`.
 
@@ -95,18 +95,24 @@ This separates:
 - hard loss of recoverability: `k=+infinity`;
 - soft degradation: finite but larger `k`.
 
-## Tolerance-indexed correction capacity
+## Conditional correction and ex-ante correction capacity
 
-For tolerance `epsilon>=0` and belief `b`, define
+After `theta` is resolved, define the conditional correction indicator
+
+`C_{h,epsilon}(s,theta)
+=
+1{k_h(s,theta)<=epsilon}`.
+
+Before that evidence arrives, for tolerance `epsilon>=0` and belief `b`, define the **ex-ante tolerance-indexed correction capacity**
 
 `CC_{h,epsilon}(s;b)
 =
 sum_{theta in Theta}
-b(theta) 1{k_h(s,theta)<=epsilon}`
+b(theta) C_{h,epsilon}(s,theta)`
 
 for finite `Theta`.
 
-This is the belief mass of environments for which correction remains possible within the declared tolerance.
+Thus `C` is the post-evidence conditional feasibility statement, while `CC` is its pre-evidence belief-weighted summary.
 
 For continuous environment classes, the sum may be replaced by the corresponding probability measure.
 
@@ -163,10 +169,13 @@ with prior
 
 `b(L)=b(R)=1/2`.
 
-At stage 0 compare:
+At stage 0 the admissible action set is `{P,C_L,C_R}`, where:
 
 - `P`: preserve flexibility, pay immediate cost `1/2`, then retain both terminal actions `{L,R}`;
-- `C_L`: commit left, pay no immediate cost, then retain only `{L}`.
+- `C_L`: commit left, pay no immediate cost, then retain only `{L}`;
+- `C_R`: commit right, pay no immediate cost, then retain only `{R}`.
+
+The learner-policy comparison is between `P` and `C_L`; `C_R` is declared so the environment-informed comparator below is a well-typed member of the same stage-0 action set.
 
 At stage 1 the environment is revealed perfectly.
 
@@ -189,7 +198,7 @@ Therefore both have prior value
 
 `1/2`.
 
-Against an environment-informed comparator with value `1` in each environment:
+Against a clairvoyant environment-informed comparator that knows `theta` at stage 0 and chooses `C_theta`, with value `1` in each environment:
 
 - `Reg(pi_P,L)=Reg(pi_P,R)=1/2`;
 - `Reg(pi_L,L)=0`;
@@ -251,7 +260,8 @@ Atlas-owned constructions:
 
 - functional option quotient `O_h(s)`;
 - correction cost `k_h(s,theta)`;
-- tolerance-indexed correction capacity `CC_{h,epsilon}`;
+- conditional correction indicator `C_{h,epsilon}(s,theta)`;
+- ex-ante tolerance-indexed correction capacity `CC_{h,epsilon}(s;b)`;
 - exact witness and counterexamples.
 
 ## Required distinctions
