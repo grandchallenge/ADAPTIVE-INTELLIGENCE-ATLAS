@@ -67,3 +67,19 @@ def resolve_hf_dataset_sha(repo_id: str, revision: str = "main") -> str:
     if not info.sha:
         raise RuntimeError(f"Hugging Face returned no SHA for dataset {repo_id}@{revision}")
     return str(info.sha)
+
+
+def stride_refs(
+    refs: list[CheckpointRef],
+    stride: int,
+    *,
+    include_final: bool = True,
+) -> list[CheckpointRef]:
+    if stride < 1:
+        raise ValueError("stride must be >= 1")
+    if not refs:
+        return []
+    selected = refs[::stride]
+    if include_final and selected[-1] != refs[-1]:
+        selected = [*selected, refs[-1]]
+    return selected
