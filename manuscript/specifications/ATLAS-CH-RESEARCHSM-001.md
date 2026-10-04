@@ -84,3 +84,19 @@ A contributor-supplied next residual does not itself set `D=1`.
 Certification is represented as a distinct state coordinate and transition. Its guard binds the exact target revision, the required support state, and the authority predicate defined by the governing policy.
 
 Where a policy requires actor separation, that requirement is represented as an explicit predicate. Different actor labels alone are not sufficient evidence of independence.
+
+## Finite witness requirements
+
+Use one dispatch with one immutable result identity. The first arrival adds one canonical evidence object; an identical retry leaves the canonical evidence set unchanged while adding a history record.
+
+Evaluate the five-factor advancement predicate on
+
+`b=(1,1,1,1,0)`
+
+and
+
+`b'=(1,1,1,1,1)`.
+
+The conjunction is respectively `0` and `1`. A repeated application at `b'` must leave the canonical advancement effect unchanged.
+
+Also introduce a second result identity under the same dispatch and show that it is retained as a distinct evidence object rather than treated as the identical retry.
