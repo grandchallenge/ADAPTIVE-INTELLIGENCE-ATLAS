@@ -30,7 +30,7 @@ For tangent `v`:
 
 `JVP_F(x;v)=Jv=d/d epsilon F(x+epsilon v)|_{epsilon=0}`.
 
-For output covector `w`:
+Under the declared Euclidean coordinate convention, represent an output covector by `w` and define:
 
 `VJP_F(x;w)=J^T w`.
 
