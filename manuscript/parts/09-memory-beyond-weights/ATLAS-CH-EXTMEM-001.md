@@ -116,7 +116,7 @@ The external-memory thesis asks when some of those obligations can be avoided by
 
 For knowledge item or class `k`, use:
 
-`Place(k)=(V,P,S,D,R,L,A,G)`.
+`Place(k)=(V,P,S,D,R,L,H,A,G)`.
 
 The coordinates are:
 
@@ -125,11 +125,12 @@ The coordinates are:
 - sharing scope `S`;
 - deletion/supersession need `D`;
 - retrievability/addressability `R`;
-- latency/availability constraint `L`;
+- latency constraint `L`;
+- availability/failure-tolerance requirement `H`;
 - access-control/privacy requirement `A`;
 - value of parametric generalization/compression `G`.
 
-The chapter defines no universal scalar score over these dimensions.
+The chapter defines no universal scalar score over these dimensions. External locus and persistence also remain distinct: this thesis focuses on persistent external records when that lifetime is deliberately chosen; it does not redefine every external memory object as persistent.
 
 ## 7. Why no scalar placement score?
 
@@ -398,11 +399,13 @@ Initial state:
 
 `B -> (0,s_B1,v1)`.
 
-Update A by adding:
+Update A by making the version transition explicit:
 
-`A -> (4,s_A2,v2,supersedes=v1)`.
+`A,v1 -> (2,s_A1,v1,status=superseded)`
 
-B is unchanged.
+`A,v2 -> (4,s_A2,v2,status=current,supersedes=v1)`.
+
+B is unchanged and current.
 
 A latest-version exact-key read now returns:
 
