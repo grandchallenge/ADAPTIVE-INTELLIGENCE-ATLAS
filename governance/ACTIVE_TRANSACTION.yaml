@@ -10,8 +10,8 @@ current:
   baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
   branch: "work/curriculum-001"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Write the CURRICULUM-001 specification, derivation packet, bounded state-aware curriculum witness, manuscript, ledger/source-register integration, bibliography closure, and tranche receipt; then validate the exact branch."
+  state: "draft-complete"
+  next_action: "Open the implementation PR from work/curriculum-001, run canonical repository validation on the exact PR head, repair every in-scope defect, replay validation, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
@@ -32,4 +32,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute frontier first. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
