@@ -10,8 +10,8 @@ current:
   baseline_commit: "39f419abb72c941e041f92f2834229f9968da006"
   branch: "work/optionality-001"
   pull_request: null
-  state: "instantiated"
-  next_action: "Lock the exact audited REGRET prerequisite identities and bounded external sources for OPTIONALITY-001, then write the chapter specification and formal/witness packet on work/optionality-001."
+  state: "source-locked"
+  next_action: "Write OPTIONALITY-001 specification, derivation packet, exact witness, full manuscript, ledger/source-register/bibliography updates, and tranche receipt on work/optionality-001; then validate."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
