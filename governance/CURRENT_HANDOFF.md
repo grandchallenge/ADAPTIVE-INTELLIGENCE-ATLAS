@@ -1,10 +1,10 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
-**Handoff date:** 2026-10-03  
+**Handoff date:** 2026-10-04  
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf`
+**Current main:** `8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,23 +69,69 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf`;
-- next target: `ATLAS-CH-RESEARCHSM-001`;
-- title: **Research as a State Machine**;
-- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
+- baseline/main: `8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39`;
+- next target: `ATLAS-CH-SPLIT-001`;
+- title: **Split-Operator Networks**;
+- reason: it has the largest unlocked downstream architecture cone at 3 nodes.
 
-Current frontier, recomputed after AGENDA-GSD-001:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-035:
 
-1. `ATLAS-CH-RESEARCHSM-001` — downstream architecture count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-2. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-TRANSPORT-001`, `ATLAS-CH-COMPOSE-001`.
-3. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+1. `ATLAS-CH-SPLIT-001` — downstream architecture count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+2. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+3. `ATLAS-CH-GOVADAPT-001` — count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
 4. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 5. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
 6. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
-AGENDA-GSD-001 is now protected on main. Future CPS, Curriculum, ProgressSearch, MinCurr, Mechanistic Intervention, and Spectral Diagnostics tranches must consume its evidence distinctions without treating the motivating paper's capacity-allocation hypothesis as established fact.
-
 ## 5. Immediately preceding completed tranches
+
+### RESEARCHSM-001 — Research as a State Machine
+
+- implementation issue: #136;
+- implementation PR: #137;
+- implementation merge: `a796eb3ae822c3bf998b27de94db7213646d2c59`;
+- audit: `AUDIT-035`;
+- audit issue/PR: #138;
+- audit merge / current main: `8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39`.
+
+Core research-state objects:
+
+- bounded work package `W=(id,Q,B,S,D,R,A,Z)`;
+- product research state `x=(q,E,U,J,P,C,L)`;
+- typed guarded transitions;
+- canonical-state/history separation;
+- exact-identity duplicate relation;
+- canonically idempotent retry and advancement;
+- separate programme-disposition and certification coordinates;
+- explicit actor-separation predicates;
+- typed failure/recovery classes.
+
+Exact witness:
+
+- first capture of `(17,A)` creates one canonical evidence identity;
+- exact retry leaves the canonical evidence count at one;
+- distinct result `(17,B)` raises the preserved count to two;
+- advancement vector `(1,1,1,1,0)` evaluates to `0`;
+- advancement vector `(1,1,1,1,1)` evaluates to `1`;
+- missing-check vector `(1,1,0,1,1)` evaluates to `0`;
+- exact repeated advancement has one canonical set-insertion effect;
+- same-actor separation predicate gives `Sep(A,A)=0`;
+- a fail-closed execution can preserve every declared safety invariant while never reaching advancement.
+
+Pinned public GCL evidence:
+
+- lifecycle controller blob `91dca167b4b9c2dd15be41fb1996211752120f27`;
+- Frontier Advancement Gate blob `4145981b5ba85527c49b83a3440b0632db9924ca`;
+- Controlled Epistemic Interface blob `33164987c3f5484863ab31606034060e72b7148a`;
+- all pinned at `grandchallenge/MATH-PROGRAMME@fdd7a3fe3df7b2d699753347080c1cbc2127e02d`.
+
+AUDIT-035 repaired a substantive implementation incompleteness:
+
+1. completed the manuscript beyond the retry witness with advancement, actor separation, certification, safety/liveness, recovery, public-case-study, failure-mode, and GOVADAPT sections;
+2. completed the computational witness with the required Boolean gate, idempotent advancement, same-actor separation failure, and safety-without-liveness execution;
+3. completed the formal packet with explicit advancement/certification state, recovery classes, and public GCL lifecycle mapping.
+
+Load-bearing boundary: workflow conformance does not establish mathematical truth, actor-label difference does not prove epistemic independence, and fail-closed safety does not imply eventual progress.
 
 ### AGENDA-GSD-001 — Generalization-State Dynamics
 
@@ -833,28 +879,47 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — RESEARCHSM-001
+## 7. Next tranche — SPLIT-001
 
 Stable ID:
 
-`ATLAS-CH-RESEARCHSM-001`
+`ATLAS-CH-SPLIT-001`
 
 Title:
 
-**Research as a State Machine**
+**Split-Operator Networks**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-REPLAY-001`;
-- `ATLAS-CH-FORMAL-001`.
+- `ATLAS-CH-NUMERICS-001`;
+- `ATLAS-CH-TRANSFORMER-001`.
 
 Atlas contract:
 
-> Develop Forge → Solve → Cert, bounded work packages, independent actors, idempotence, and promotion gates.
-
-This is the deterministic next frontier winner after AGENDA-GSD-001. The new Generalization-State agenda decision does not create a hard dependency for RESEARCHSM-001 and should not be imported as hidden prerequisite authority.
+> Apply operator splitting to neural computation and analyze ordering, commutators, and splitting error.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
+
+The audited Numerics prerequisite may supply one-step maps, Lie/Strang splitting, local/global error, stability, stiffness, and structure-preserving semantics.
+
+The audited Transformer prerequisite may supply residual-stream state, attention and feed-forward sublayers, normalization, masking, residual paths, and topology.
+
+A sound intellectual spine should distinguish at least:
+
+1. a neural residual block from a declared continuous/operator reference problem;
+2. additive composition from sequential operator composition;
+3. Lie ordering `exp(hA)exp(hB)` versus reversed ordering;
+4. first commutator `[A,B]=AB-BA` as the leading noncommutation object;
+5. first-order Lie splitting versus symmetric/second-order Strang splitting under appropriate regularity;
+6. exact matrix/operator identities versus neural approximation claims;
+7. splitting error from optimization/training error;
+8. shared versus layer-varying operators;
+9. reversible/symmetric composition from exact invertibility of every learned component;
+10. operator ordering as an architectural degree of freedom rather than decorative notation.
+
+A bounded exact witness should use two small noncommuting matrices A and B. Compute `AB-BA` exactly, compare one Lie step in both orders, and compare against either the exact exponential of `A+B` or a controlled series expansion. Include a commuting control case where order dependence disappears. If a Strang witness is used, keep the claimed order tied to the exact finite/series setting rather than extrapolating to arbitrary learned nonlinear blocks.
+
+The downstream Transport and Composition chapters may consume these split-operator semantics only after SPLIT-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
