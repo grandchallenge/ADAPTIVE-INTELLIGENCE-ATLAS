@@ -99,3 +99,15 @@ At the level needed here:
 - Cert performs a separate certification function.
 
 The names are project-specific. The structural lesson is that evidence production, adjudication, and later certification need not be one operation.
+
+## 6. Receipt is not incorporation
+
+Suppose a durable return reaches its declared route.
+
+That establishes receipt.
+
+It does not automatically establish structural validity, replay success, scientific correctness, programme incorporation, successor selection, or certification.
+
+The earlier evidence chapters stated this boundary conceptually.
+
+The state-machine view makes it operational: each distinction occupies a different coordinate or transition.
