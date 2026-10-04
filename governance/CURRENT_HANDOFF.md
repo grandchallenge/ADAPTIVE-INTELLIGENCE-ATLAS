@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `c82f61da1ca457b9670273669c04fe3fd5459652`
+**Current main:** `53583191c96a9657bbb247d683c25ee9f7bedacf`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,24 +69,56 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `c82f61da1ca457b9670273669c04fe3fd5459652`;
-- next target: `ATLAS-CH-BOUNDARYPROBE-001`;
-- title: **Boundary Probes**;
+- baseline/main: `53583191c96a9657bbb247d683c25ee9f7bedacf`;
+- next target: `ATLAS-CH-DATA-001`;
+- title: **Data Quality, Mixtures, and Contamination**;
 - reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-028:
+Current frontier, recomputed from the live Chapter Ledger after AUDIT-029:
 
-1. `ATLAS-CH-BOUNDARYPROBE-001` — downstream architecture count 3.
-2. `ATLAS-CH-DATA-001` — count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
-3. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
-4. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
-5. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
-6. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-7. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-8. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-9. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+1. `ATLAS-CH-DATA-001` — downstream architecture count 3; direct consumer `ATLAS-CH-CURRICULUM-001`.
+2. `ATLAS-CH-EXTMEM-001` — count 3; direct consumers `ATLAS-CH-CONTEXTCOMP-001`, `ATLAS-CH-POLITY-001`.
+3. `ATLAS-CH-LOCALGLOBAL-001` — count 3.
+4. `ATLAS-CH-MOE-001` — count 3; direct consumers `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-SYSTEMS-001`.
+5. `ATLAS-CH-OPTIONALITY-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+6. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+7. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+8. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### BOUNDARYPROBE-001 — Boundary Probes
+
+- implementation PR: #116;
+- implementation merge: `a6ef32bbd43347907833b0812cb776162ade01c6`;
+- audit: `AUDIT-029`;
+- audit issue: #117;
+- audit PR: #118;
+- audit merge / current main: `53583191c96a9657bbb247d683c25ee9f7bedacf`.
+
+Central probe objects:
+
+- JVP: `J_F(x)v`;
+- VJP under the declared Euclidean coordinate convention: `J_F(x)^T w`;
+- local Euclidean gain: `sigma_max(J_F(x))`;
+- power iteration on `J^T J`;
+- boundary-probe contract `B=(F,X,Y,O,U,N_X,N_Y,P,E,tau)`.
+
+Exact witness:
+
+- nonlinear map `F(x1,x2)=(x1^2+x2,x1+2x2)` at `x0=(1,1)`;
+- exact Jacobian `[[2,1],[1,2]]`;
+- singular values `3,1`;
+- JVP `(3,3)`, VJP `(4,5)`, exact pairing value `9`;
+- exact nonlinear remainder `(epsilon^2,0)`;
+- mixed-start Rayleigh values `365/41`, `29525/3281` approach `9`;
+- weak-eigenspace initialization remains at Rayleigh value `1` despite true singular norm `3`.
+
+AUDIT-029 repairs:
+
+- made the Euclidean coordinate/inner-product convention explicit for `J^T w`;
+- separated a finite monitoring estimate `hat sigma <= tau` from the stronger true-norm claim `||J||_2 <= tau`;
+- aligned the Griewank–Walther bibliography record with the locked second-edition SIAM source identity.
 
 ### SPARSE-001 — Conditional Computation
 
@@ -564,36 +596,44 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — BOUNDARYPROBE-001
+## 7. Next tranche — DATA-001
 
 Stable ID:
 
-`ATLAS-CH-BOUNDARYPROBE-001`
+`ATLAS-CH-DATA-001`
 
 Title:
 
-**Boundary Probes**
+**Data Quality, Mixtures, and Contamination**
 
-Declared hard dependencies:
+Declared hard dependency:
 
-- `ATLAS-CH-LINALG-001`;
-- `ATLAS-CH-NETNUM-001`.
+- `ATLAS-CH-EVIDENCE-001`.
 
 Atlas contract:
 
-> Develop JVPs, VJPs, power iteration, sensitivity, and interface conditions for learned components.
+> Develop deduplication, quality, synthetic data, mixture weighting, contamination, and benchmark pathology.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Linear Algebra prerequisite may supply Jacobians, adjoints/transposes, singular values, operator norms, and power-iteration language.
+The audited Evidence prerequisite may supply the separation of observation, record, claim, support relation, provenance, and authority.
 
-The audited Networks as Numerical Schemes prerequisite may supply local/global numerical error, stability, discretization lenses, and exact boundaries between residual maps and continuous-time interpretations.
+A sound intellectual spine should distinguish at least:
 
-A sound intellectual spine should distinguish forward-mode JVPs from reverse-mode VJPs; local Jacobian sensitivity from global behavior; spectral/operator norm estimates from componentwise effects; exact power iteration from finite-iteration estimates; and interface sensitivity from semantic adequacy.
+1. exact duplication from near-duplication and semantic redundancy;
+2. data quality from model performance;
+3. sampling/mixture weights from observed corpus proportions;
+4. synthetic-data provenance from synthetic-data correctness;
+5. train/test contamination from legitimate domain overlap;
+6. benchmark leakage from broad memorization claims;
+7. contamination detection from proof of causal performance inflation;
+8. source-level, document-level, span-level, and semantic overlap;
+9. deduplication recall/precision from downstream utility;
+10. dataset lineage and mixture accounting from simple file counts.
 
-A bounded witness should use a small explicit nonlinear map with an exact Jacobian, compute JVP and VJP products, compare finite power iteration with the exact dominant singular value, and state precisely what the local probe does and does not certify.
+A bounded witness should use a small exact corpus with source IDs, duplicate/near-duplicate relations, train/evaluation partitions, and mixture weights. It should show that changing the deduplication or contamination predicate changes the measured overlap without changing the underlying records, and that weighted sampling proportions can differ from raw corpus proportions.
 
-The downstream Boundary Contracts chapter may consume these probe semantics only after BOUNDARYPROBE-001 is audited.
+The downstream Curriculum Learning chapter may consume these data-quality and mixture semantics only after DATA-001 is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
