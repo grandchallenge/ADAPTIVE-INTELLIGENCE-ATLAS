@@ -334,14 +334,14 @@ For overlap predicate `delta`, define:
 
 when some training record overlaps evaluation item `e` under `delta`.
 
-Measured contamination rate is:
+Unweighted item contamination rate is:
 
 `CR_delta(T,V)
 =
 (1/|V|)
 sum_(e in V) C_delta(e;T)`.
 
-This is not one universal number.
+If evaluation items or tasks carry unequal weights, those weights define a different measure and must be stated. This is not one universal number.
 
 It is relative to the predicate and partitions.
 
