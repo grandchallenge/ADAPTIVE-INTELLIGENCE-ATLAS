@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `b87bad6229896174e6c872994d6a0f4878e2e1d5`
+**Current main:** `c1122f3b6a6cb0170e77f5fe340a7bec402618ce`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -66,24 +66,68 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 
 ## 4. Current state
 
-The controller is currently:
+The controller is currently completing the SPLIT-001 transaction and will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `b87bad6229896174e6c872994d6a0f4878e2e1d5`;
-- next target: `ATLAS-CH-SPLIT-001`;
-- title: **Split-Operator Networks**;
-- reason: it has the largest unlocked downstream architecture cone at 3 nodes.
+- baseline/main: `c1122f3b6a6cb0170e77f5fe340a7bec402618ce`;
+- next target: `ATLAS-CH-CURRICULUM-001`;
+- title: **Curriculum Learning**;
+- reason: after SPLIT-001 audit closure, five dependency-legal architecture chapters tie for the largest unlocked downstream architecture cone at 2 nodes; the recorded deterministic frontier ordering selects CURRICULUM-001 first.
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-035:
+Current frontier, recomputed from the live post-AUDIT-036 Chapter Ledger:
 
-1. `ATLAS-CH-SPLIT-001` — downstream architecture count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-2. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-3. `ATLAS-CH-GOVADAPT-001` — count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
-4. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-5. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-6. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-CURRICULUM-001` — downstream architecture count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+2. `ATLAS-CH-GOVADAPT-001` — count 2; direct consumer `ATLAS-CH-FRONTIER-001`.
+3. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+4. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+5. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+
+SPLIT-001 is no longer on the architecture frontier because it is now audited `draft-v0.1`. Its direct consumers `ATLAS-CH-COMPOSE-001` and `ATLAS-CH-TRANSPORT-001` are now dependency-legal, with downstream architecture counts 0 and 1 respectively.
 
 ## 5. Immediately preceding completed tranches
+
+### SPLIT-001 — Split-Operator Networks
+
+- implementation issue: #141, closed completed;
+- implementation PR: #142;
+- implementation merge: `2776a2d77fff39e90bd58a866b0275d946909fa9`;
+- audit: `AUDIT-036`;
+- audit issue: #143, closed completed;
+- audit PR: #144;
+- audit merge / current main: `c1122f3b6a6cb0170e77f5fe340a7bec402618ce`.
+
+Core exact reference objects:
+
+- product-labeled Lie compositions `S_AB(h)=exp(hA)exp(hB)` and `S_BA(h)=exp(hB)exp(hA)`;
+- explicit column-vector rule that products act right-to-left;
+- commutator `[A,B]=AB-BA`;
+- Strang composition `exp(hA/2)exp(hB)exp(hA/2)`;
+- learned submaps `Psi_A(H)=H+F_A(N_A(H))` and `Psi_B(H)=H+F_B(N_B(H))`;
+- additive versus sequential residual composition;
+- shared/autonomous versus layer-varying/nonautonomous semantics;
+- explicit splitting-versus-learning error taxonomy.
+
+Exact witness:
+
+- `A=[[0,1],[0,0]]`, `B=[[0,0],[1,0]]`;
+- `A^2=B^2=0`;
+- `[A,B]=diag(1,-1)`;
+- `S_AB-S_BA=h^2[A,B]` exactly;
+- `S_AB-exp(h(A+B))=(h^2/2)[A,B]+O(h^3)`;
+- reversing product order flips the leading commutator sign;
+- the declared Strang witness has local defect `O(h^3)`;
+- the diagonal commuting control has exact order independence;
+- at `h=1/2`, Lie Frobenius error is approximately `0.1793148493970293`, while the Strang witness error is approximately `0.02370487546729764`.
+
+AUDIT-036 repaired four precision defects:
+
+1. separated matrix-product labels from chronological execution order;
+2. required an explicit step-parameterized learned-map family before neural half-step/Strang language is meaningful;
+3. distinguished the derivative of the nonlinear composition defect from a same-state Jacobian commutator diagnostic;
+4. repaired malformed inline TeX introduced during the implementation write.
+
+Load-bearing boundary: arbitrary learned neural blocks do not inherit exact-flow, Strang-order, reversibility, symplecticity, or convergence claims merely from a split-operator analogy.
+
 
 ### GSD-001 — Executable Generalization-State Dynamics Programme
 
@@ -897,47 +941,49 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — SPLIT-001
+## 7. Next tranche — CURRICULUM-001
 
 Stable ID:
 
-`ATLAS-CH-SPLIT-001`
+`ATLAS-CH-CURRICULUM-001`
 
 Title:
 
-**Split-Operator Networks**
+**Curriculum Learning**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-NUMERICS-001`;
-- `ATLAS-CH-TRANSFORMER-001`.
+- `ATLAS-CH-DATA-001`;
+- `ATLAS-CH-OPTBASE-001`.
 
 Atlas contract:
 
-> Apply operator splitting to neural computation and analyze ordering, commutators, and splitting error.
+> Study ordering, difficulty, competence, automatic curriculum construction, and state-aware data selection without assuming monotone training progress.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Numerics prerequisite may supply one-step maps, Lie/Strang splitting, local/global error, stability, stiffness, and structure-preserving semantics.
+The audited DATA prerequisite may supply corpus lineage, filtering/deduplication semantics, mixture weights, contamination boundaries, sampling measures, and explicit evaluation boundaries.
 
-The audited Transformer prerequisite may supply residual-stream state, attention and feed-forward sublayers, normalization, masking, residual paths, and topology.
+The audited OPTBASE prerequisite may supply first-order optimization, stochastic gradients, adaptive methods, clipping, weight decay, initialization, and optimization-versus-architecture distinctions.
+
+The current GSD programme also names CURRICULUM-001 as a research-agenda consumer. If that project-local evidence is used, it must be bound explicitly rather than treated as an undeclared hard prerequisite. In particular, preserve the durable GSD rule:
+
+**Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks.**
 
 A sound intellectual spine should distinguish at least:
 
-1. a neural residual block from a declared continuous/operator reference problem;
-2. additive composition from sequential operator composition;
-3. Lie ordering `exp(hA)exp(hB)` versus reversed ordering;
-4. first commutator `[A,B]=AB-BA` as the leading noncommutation object;
-5. first-order Lie splitting versus symmetric/second-order Strang splitting under appropriate regularity;
-6. exact matrix/operator identities versus neural approximation claims;
-7. splitting error from optimization/training error;
-8. shared versus layer-varying operators;
-9. reversible/symmetric composition from exact invertibility of every learned component;
-10. operator ordering as an architectural degree of freedom rather than decorative notation.
+1. fixed example ordering from state-dependent curriculum policies;
+2. heuristic difficulty scores from empirically observed learning progress;
+3. competence schedules from guarantees of generalization;
+4. sample selection from data-mixture reweighting;
+5. curriculum state from optimizer state and model state;
+6. immediate loss decrease from durable acquisition, persistence, accessibility, and behavioural expression;
+7. curriculum benefit from mere extra compute or repeated exposure;
+8. learning-progress signals from mechanism-level evidence;
+9. closed-loop curriculum control from open-loop schedules;
+10. curriculum optimization from the later Learning Progress as a Search Operator chapter.
 
-A bounded exact witness should use two small noncommuting matrices A and B. Compute `AB-BA` exactly, compare one Lie step in both orders, and compare against either the exact exponential of `A+B` or a controlled series expansion. Include a commuting control case where order dependence disappears. If a Strang witness is used, keep the claimed order tied to the exact finite/series setting rather than extrapolating to arbitrary learned nonlinear blocks.
-
-The downstream Transport and Composition chapters may consume these split-operator semantics only after SPLIT-001 itself is audited.
+The finite witness should be chosen only after source locking. It should expose at least one case where a plausible monotone difficulty schedule is not equivalent to a state-aware policy, and it must keep any empirical learning-progress interpretation bounded to the declared toy or experimental setting.
 
 ## 8. Durable restart instruction for a fresh chat
 
