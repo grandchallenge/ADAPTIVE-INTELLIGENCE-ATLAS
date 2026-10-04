@@ -4,18 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 151
-  tranche_id: "AUDIT-038"
-  chapter_ids: ["ATLAS-CH-GOVADAPT-001"]
-  baseline_commit: "c0db4e60ba1fb9d3f2d7ac4469ca40bb5a761784"
-  branch: "audit/atlas-151"
-  pull_request: 153
-  state: "audit-ci-green"
-  next_action: "Merge PR #153 only from exact green head d879470091a8c9da7e0d38b436923711d78efd46; read back protected main, verify issue closure, recompute the dependency-legal frontier, update the handoff, and reset the controller."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "574de4e65b42d4c090467b8a43fe2e534653b6e9"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-KRYLOV-001 (Krylov Subspaces and Iterative Solves) from baseline 574de4e65b42d4c090467b8a43fe2e534653b6e9. Its hard prerequisite ATLAS-CH-LINALG-001 is draft-v0.1. It is first in the deterministic three-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-GOVADAPT-001"
-    downstream_architecture_count: 2
-    direct_consumers: ["ATLAS-CH-FRONTIER-001"]
   - id: "ATLAS-CH-KRYLOV-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
