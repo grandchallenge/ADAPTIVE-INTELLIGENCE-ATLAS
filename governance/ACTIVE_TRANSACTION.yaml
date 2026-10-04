@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-LOCALGLOBAL-001"
   baseline_commit: "ca04c7f4dc854c0d5176f2d66c422475ebc0907e"
   branch: "audit/localglobal-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Complete AUDIT-032 from issue #126 and branch audit/localglobal-001."
+  pull_request: 126
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #126 at exact head fb24107866b60b369eedc5b2e788ce6f67e87ae9; merge when green, close issue #126, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-LOCALGLOBAL-001"
     downstream_architecture_count: 3
