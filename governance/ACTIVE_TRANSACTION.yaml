@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-MOE-001"
   baseline_commit: "5090ed112ee086450387a8465772ec9a2358c410"
   branch: "audit/moe-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Complete AUDIT-033 from issue #128 and branch audit/moe-001."
+  pull_request: 128
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #128 at exact head 0d75c6d17264520493fd0ab052d1bc246c607b57; merge when green, close audit issue #128, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-MOE-001"
     downstream_architecture_count: 3
