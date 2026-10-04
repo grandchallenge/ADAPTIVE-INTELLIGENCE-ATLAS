@@ -159,3 +159,7 @@ The attempt history may contain two arrival events while canonical evidence coun
 ## 12. Boolean gate
 
 For `G=b1*b2*b3*b4*b5`, the input `(1,1,1,1,0)` gives `G=0`, while `(1,1,1,1,1)` gives `G=1`.
+
+## 13. Idempotent union
+
+For a singleton `S={m}`, set union satisfies `S union S = S`. The finite witness uses this identity to ensure that an exact retry has one canonical effect.
