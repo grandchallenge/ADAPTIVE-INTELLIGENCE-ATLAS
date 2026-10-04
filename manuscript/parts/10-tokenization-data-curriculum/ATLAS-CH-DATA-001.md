@@ -109,7 +109,7 @@ At threshold `tau`:
 
 The result depends on both representation and threshold.
 
-Lee et al. demonstrate why exact and near-duplicate structure both matter in language-model corpora [@LeeEtAl2022Dedup].
+Lee et al. demonstrate why exact and near-duplicate structure both matter in language-model corpora.
 
 ## 5. Semantic redundancy is different again
 
@@ -179,7 +179,7 @@ Dataset pipelines often use words such as:
 
 These words can hide several separate criteria.
 
-Dodge et al.'s analysis of C4 is important because it shows that web-corpus filtering choices change both content and population composition, and that large corpora can contain unexpected material and benchmark examples [@DodgeEtAl2021C4].
+Dodge et al.'s analysis of C4 is important because it shows that web-corpus filtering choices change both content and population composition, and that large corpora can contain unexpected material and benchmark examples.
 
 The Atlas therefore treats "clean" as a pipeline label, not a theorem.
 
@@ -250,7 +250,7 @@ A two-stage sampler may:
 
 Then record probability depends on both the domain weight and the number of retained records in that domain.
 
-DoReMi makes mixture proportions an explicit optimizable training variable in its reported experiments [@XieEtAl2023DoReMi].
+DoReMi makes mixture proportions an explicit optimizable training variable in its reported experiments.
 
 ## 14. Corpus composition and training composition differ
 
@@ -300,7 +300,7 @@ Synthetic data should not be collapsed into a scalar quality judgment.
 
 ## 17. Recursive generated-data failure mode
 
-Shumailov et al. study recursive training on generated data and report model-collapse behavior in the investigated settings [@ShumailovEtAl2024ModelCollapse].
+Shumailov et al. study recursive training on generated data and report model-collapse behavior in the investigated settings.
 
 The bounded lesson is:
 
@@ -370,9 +370,9 @@ So a near-contamination rate should always travel with the detector definition.
 
 ## 22. Benchmark examples in web corpora
 
-Dodge et al. found examples from evaluation datasets inside C4 [@DodgeEtAl2021C4].
+Dodge et al. found examples from evaluation datasets inside C4.
 
-Lee et al. also measured train-test overlap and showed that deduplication can reduce such overlap in the studied datasets [@LeeEtAl2022Dedup].
+Lee et al. also measured train-test overlap and showed that deduplication can reduce such overlap in the studied datasets.
 
 These findings justify treating benchmark overlap as an empirical threat worth measuring.
 
@@ -866,10 +866,10 @@ CURRICULUM-001 will define how sampling changes over learning time.
 
 ## References used in this chapter
 
-- Lee et al., *Deduplicating Training Data Makes Language Models Better* [@LeeEtAl2022Dedup].
-- Dodge et al., *Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus* [@DodgeEtAl2021C4].
-- Xie et al., *DoReMi: Optimizing Data Mixtures Speeds Up Language Model Pretraining* [@XieEtAl2023DoReMi].
-- Shumailov et al., *AI models collapse when trained on recursively generated data* [@ShumailovEtAl2024ModelCollapse].
+- Lee et al., *Deduplicating Training Data Makes Language Models Better*.
+- Dodge et al., *Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus*.
+- Xie et al., *DoReMi: Optimizing Data Mixtures Speeds Up Language Model Pretraining*.
+- Shumailov et al., *AI models collapse when trained on recursively generated data*.
 
 Exact source identities and authority boundaries are recorded in:
 
