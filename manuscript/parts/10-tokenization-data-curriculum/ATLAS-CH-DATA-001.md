@@ -668,7 +668,7 @@ The unit should match the evaluation threat model.
 
 If an evaluation set was published before the training crawl, exposure may be possible.
 
-If it was published after the final training cutoff, exact exposure through that crawl is impossible.
+A publication date after the final training cutoff does not by itself prove non-exposure: the same item or its source may have existed earlier. Ruling out exposure requires evidence that the relevant item/content was unavailable to the training pipeline before the cutoff.
 
 Therefore useful lineage includes:
 
