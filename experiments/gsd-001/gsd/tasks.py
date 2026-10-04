@@ -13,4 +13,7 @@ class TaskSpec:
     n_seeds: int = 4
 
 
-TASKS: tuple[TaskSpec, ...] = ()
+TASKS: tuple[TaskSpec, ...] = (
+    TaskSpec("flipped_answer", "sst2", "balanced", 64, "\n\n"),
+    TaskSpec("flipped_answer", "imdb", "balanced", 24, "\n\n"),
+)
