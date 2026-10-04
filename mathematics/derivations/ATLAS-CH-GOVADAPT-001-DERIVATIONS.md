@@ -203,15 +203,15 @@ Only the future correction structure differs.
 For candidate A:
 
 \[
-C_{h,0}(A,N)=1,
+C_{h,0}(x_A,N)=1,
 \qquad
-C_{h,0}(A,D)=1.
+C_{h,0}(x_A,D)=1.
 \]
 
 Hence
 
 \[
-CC_{h,0}(A;b)
+CC_{h,0}(x_A;b)
 =
 \frac12(1)+\frac12(1)
 =
@@ -221,15 +221,15 @@ CC_{h,0}(A;b)
 For candidate B:
 
 \[
-C_{h,0}(B,N)=1,
+C_{h,0}(x_B,N)=1,
 \qquad
-C_{h,0}(B,D)=0.
+C_{h,0}(x_B,D)=0.
 \]
 
 Hence
 
 \[
-CC_{h,0}(B;b)
+CC_{h,0}(x_B;b)
 =
 \frac12(1)+\frac12(0)
 =
@@ -265,7 +265,7 @@ G_C(q)
 =
 G_U(q)
 \cdot
-\mathbf 1\{CC_{h,0}(q;b)\ge1\}.
+\mathbf 1\{CC_{h,0}(x_q;b)\ge1\}.
 \]
 
 Then
