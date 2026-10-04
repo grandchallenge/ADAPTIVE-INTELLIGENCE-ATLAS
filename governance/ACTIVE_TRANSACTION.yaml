@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-EXTMEM-001"
   baseline_commit: "c775a398062736c372f13f65dd2bb7349c2796c7"
   branch: "audit/extmem-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Complete AUDIT-031 from issue #123 and branch audit/extmem-001."
+  pull_request: 124
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #124 at exact head e5f613b5b75ebbd24acd30ae0d1968cd3d6276d3; merge when green, close issue #123, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-EXTMEM-001"
     downstream_architecture_count: 3
