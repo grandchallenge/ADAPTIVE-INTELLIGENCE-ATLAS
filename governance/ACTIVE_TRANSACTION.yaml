@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-BOUNDARYPROBE-001"
   baseline_commit: "a6ef32bbd43347907833b0812cb776162ade01c6"
   branch: "audit/boundaryprobe-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Execute AUDIT-029 on BOUNDARYPROBE-001 merge a6ef32bbd43347907833b0812cb776162ade01c6; repair, validate, merge, and reset."
+  pull_request: 118
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #118 at exact head 5f61368153e52e55a89a30c633127b6531f3f617; merge when green, close audit issue #117, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-BOUNDARYPROBE-001"
     downstream_architecture_count: 3
