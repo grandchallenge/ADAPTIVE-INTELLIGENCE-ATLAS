@@ -132,11 +132,11 @@ Use
 
 for component map, typed spaces, operating point/region, perturbation class, norms, probe procedure, estimator evidence, and threshold.
 
-A numerical probe condition such as
+A monitoring condition may record
 
-`hat sigma <= tau`
+`hat sigma <= tau`.
 
-is distinct from semantic compatibility.
+Because plain finite power iteration can underestimate `||J||_2`, that observation alone does not certify the stronger requirement `||J||_2 <= tau`. A true norm-threshold certificate requires an independently justified upper bound/enclosure or another certified procedure. Numerical sensitivity remains distinct from semantic compatibility.
 
 ## Semantic boundary
 
