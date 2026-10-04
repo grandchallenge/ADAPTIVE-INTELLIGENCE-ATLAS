@@ -10,8 +10,8 @@ current:
   baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
   branch: "audit/split-001"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit SPLIT-001 against exact merged artifacts at 2776a2d77fff39e90bd58a866b0275d946909fa9; repair every in-scope defect on audit/split-001, write reviews/AUDIT-036.md, validate, then open the audit PR."
+  state: "audit-record-complete"
+  next_action: "Open the AUDIT-036 PR from exact audit head 8f3752b6f80f10daf2ad0fe2b207d1cc47b515da, run canonical CI, repair any in-scope failure, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
