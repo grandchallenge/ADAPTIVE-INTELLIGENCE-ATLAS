@@ -137,8 +137,8 @@ Compared with the exact series,
 S_{ABA}\(h\)-E\(h\)
 =
 \begin{pmatrix}
-O\(h^4\)&h^3/12+O(h^5)\\
--h^3/6+O(h^5)&O\(h^4\)
+O(h^4)&h^3/12+O(h^5)\\
+-h^3/6+O(h^5)&O(h^4)
 \end{pmatrix}.
 \]
 
