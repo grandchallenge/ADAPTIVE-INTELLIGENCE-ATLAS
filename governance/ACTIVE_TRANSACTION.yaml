@@ -10,8 +10,8 @@ current:
   baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
   branch: "work/atlas-163"
   pull_request: 164
-  state: "pr-open"
-  next_action: "Read canonical CI for PR #164 at exact head c1f888569f12855e5ba416d1d1b3783b2a9db365; repair every in-scope failure, replay on the repaired exact head, and merge only when green."
+  state: "ci-green"
+  next_action: "Merge PR #164 only from exact green head c1f888569f12855e5ba416d1d1b3783b2a9db365; read back protected main; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
