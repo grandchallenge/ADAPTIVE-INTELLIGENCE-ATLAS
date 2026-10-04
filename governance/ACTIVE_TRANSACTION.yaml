@@ -10,8 +10,8 @@ current:
   baseline_commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
   branch: "work/split-001"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Write SPLIT-001 specification, derivation packet, bounded exact witness, full manuscript, Chapter Ledger and Source Register updates, and tranche receipt on work/split-001; then validate the branch."
+  state: "draft-complete"
+  next_action: "Run repository validation against work/split-001. Repair every in-scope defect until green, then open the implementation PR and checkpoint it."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
