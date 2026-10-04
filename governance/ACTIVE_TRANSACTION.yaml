@@ -7,11 +7,11 @@ current:
   issue_number: 163
   tranche_id: "SECOND-001"
   chapter_ids: ["ATLAS-CH-SECOND-001"]
-  baseline_commit: "8fbae32144f94e497203b311cc0a824f8cd8a486"
-  branch: "work/atlas-163"
+  baseline_commit: "62e341cc87130dc1b937da4f126bdc0b9eb9d17a"
+  branch: null
   pull_request: 164
-  state: "ci-green"
-  next_action: "Merge PR #164 only from exact green head c1f888569f12855e5ba416d1d1b3783b2a9db365; read back protected main; then instantiate the bounded post-draft audit."
+  state: "implementation-merged"
+  next_action: "Instantiate the bounded post-draft audit from protected main 62e341cc87130dc1b937da4f126bdc0b9eb9d17a, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
 frontier:
   - id: "ATLAS-CH-SECOND-001"
     downstream_architecture_count: 2
