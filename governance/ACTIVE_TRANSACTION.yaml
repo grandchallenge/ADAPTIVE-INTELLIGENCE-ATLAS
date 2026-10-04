@@ -4,18 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 157
-  tranche_id: "AUDIT-039"
-  chapter_ids: ["ATLAS-CH-\u004bRYLOV-001"]
-  baseline_commit: "4fb9bbd05c3f48e3b69a72eaee171487576b5c48"
-  branch: "audit/a157"
-  pull_request: 158
-  state: "audit-ci-green"
-  next_action: "Merge PR #158 only from exact green head 4d2bda66c8d486fa813b2ebd47ce0a969c735af1; read back protected main, verify issue closure, recompute the frontier, update the handoff, and reset the controller."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "df99382bf263423fea72bcf75d2d222c19112031"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-POSGEOM-001 (The Geometry of Position) from baseline df99382bf263423fea72bcf75d2d222c19112031. Its hard prerequisites ATLAS-CH-ATTNOP-001 and ATLAS-CH-GEOM-001 are audited draft-v0.1. It is first in the deterministic two-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-\u004bRYLOV-001"
-    downstream_architecture_count: 2
-    direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
   - id: "ATLAS-CH-POSGEOM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-RPO-001"]
