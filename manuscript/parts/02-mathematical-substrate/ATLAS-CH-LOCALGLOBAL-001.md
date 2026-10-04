@@ -236,7 +236,7 @@ For a finite cover, gather all local restrictions into a map:
 
 Gather all overlap discrepancies into a map:
 
-`Delta:prod_i F(U_i)->prod_{i,j}F(U_i intersect U_j)`.
+`Delta:prod_i F(U_i)->prod_{i<j}F(U_i intersect U_j)`.
 
 Matching families satisfy:
 
