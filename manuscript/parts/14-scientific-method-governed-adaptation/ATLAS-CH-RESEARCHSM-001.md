@@ -111,3 +111,27 @@ It does not automatically establish structural validity, replay success, scienti
 The earlier evidence chapters stated this boundary conceptually.
 
 The state-machine view makes it operational: each distinction occupies a different coordinate or transition.
+
+## 7. Idempotence belongs to canonical effect
+
+A retryable research system needs two views of state.
+
+The first is canonical state: which evidence objects and dispositions currently count.
+
+The second is history: what attempts, retries, failures, and recoveries occurred.
+
+Let `Canon(x)` omit retry-log multiplicity.
+
+For a stable event key `k`, canonical idempotence means
+
+`Canon(F_k(F_k(x)))=Canon(F_k(x))`.
+
+The history may still record both attempts.
+
+This distinction matters.
+
+If the entire history had to be identical after retry, the system would have to hide the fact that a retry occurred.
+
+If canonical state were allowed to multiply with every retry, the same evidence could acquire multiple effects merely because transport repeated.
+
+Neither behavior is desirable.
