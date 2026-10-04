@@ -69,22 +69,62 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `39f419abb72c941e041f92f2834229f9968da006`;
-- next target: `ATLAS-CH-OPTIONALITY-001`;
-- title: **Optionality and Correction Capacity**;
-- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering.
+- baseline/main: `b625a34280567345fb2829c6aff184561bd11757`;
+- next target: `ATLAS-CH-RESEARCHSM-001`;
+- title: **Research as a State Machine**;
+- reason: it ties for the largest unlocked downstream architecture cone at 3 nodes and is first under deterministic frontier ordering (descending downstream architecture count, then stable chapter ID).
 
-Current frontier, recomputed from the live Chapter Ledger after AUDIT-033:
+Current high-leverage frontier, recomputed from the live Chapter Ledger after AUDIT-034:
 
-1. `ATLAS-CH-OPTIONALITY-001` — downstream architecture count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-2. `ATLAS-CH-RESEARCHSM-001` — count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
-3. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
-4. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
-5. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
-6. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
-7. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+1. `ATLAS-CH-RESEARCHSM-001` — downstream architecture count 3; direct consumer `ATLAS-CH-GOVADAPT-001`.
+2. `ATLAS-CH-SPLIT-001` — count 3; direct consumers `ATLAS-CH-COMPOSE-001`, `ATLAS-CH-TRANSPORT-001`.
+3. `ATLAS-CH-CURRICULUM-001` — count 2; direct consumer `ATLAS-CH-PROGRESSSEARCH-001`.
+4. `ATLAS-CH-KRYLOV-001` — count 2; direct consumers `ATLAS-CH-ATTNAPPROX-001`, `ATLAS-CH-NEURALKRYLOV-001`.
+5. `ATLAS-CH-POSGEOM-001` — count 2; direct consumer `ATLAS-CH-RPO-001`.
+6. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
+
+Lower-reach dependency-legal architecture nodes remain in the ledger and are not erased by this high-leverage view.
 
 ## 5. Immediately preceding completed tranches
+
+### OPTIONALITY-001 — Optionality and Correction Capacity
+
+- implementation issue: #129;
+- implementation PR: #130;
+- implementation merge: `7eb2d23b77b612ed86db7ba50df6177f58df7bdf`;
+- audit: `AUDIT-034`;
+- audit issue: #131;
+- audit PR: #132;
+- audit merge / current main: `b625a34280567345fb2829c6aff184561bd11757`.
+
+Durable optionality objects:
+
+- viable continuation set `V_h(s)`;
+- consequence quotient `O_h(s)=V_h(s)/~_s`;
+- conditional post-evidence viable set `V_h(s;theta)`;
+- extended-real correction cost `k_h(s,theta)`;
+- conditional correction indicator `C_{h,epsilon}(s,theta)`;
+- ex-ante correction capacity `CC_{h,epsilon}(s;b)=E_b[C_{h,epsilon}(s,theta)]`;
+- horizon-relative recoverability.
+
+Exact witness:
+
+- environment `Theta={L,R}`, symmetric prior;
+- declared stage-0 action set `{P,C_L,C_R}`;
+- preserve and commit-left both have prior expected return `1/2`;
+- both have Bayesian regret `1/2` against the explicitly clairvoyant `C_theta` comparator;
+- worst-case regret is `1/2` versus `1`;
+- functional option count is `2` versus `1`;
+- zero-tolerance ex-ante correction capacity is `1` versus `1/2`;
+- both branches acquire exactly one bit of information.
+
+AUDIT-034 repaired three precision defects without changing the arithmetic:
+
+1. `C_R` and the clairvoyant comparator action class are now explicitly declared;
+2. post-evidence conditional correction feasibility is distinct from the pre-evidence belief-weighted `CC`;
+3. the Aubin source lock now binds the original 1991 Birkhäuser Boston print identity, ISBN `9780817635718`.
+
+Load-bearing boundary: optionality is an explicit objective, constraint, or diagnostic; it is not a universal injunction against commitment and does not imply safety, robustness, or low regret.
 
 ### MOE-001 — Mixture-of-Experts Systems
 
@@ -762,46 +802,49 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — OPTIONALITY-001
+## 7. Next tranche — RESEARCHSM-001
 
 Stable ID:
 
-`ATLAS-CH-OPTIONALITY-001`
+`ATLAS-CH-RESEARCHSM-001`
 
 Title:
 
-**Optionality and Correction Capacity**
+**Research as a State Machine**
 
-Declared hard dependency:
+Declared hard dependencies:
 
-- `ATLAS-CH-REGRET-001`.
+- `ATLAS-CH-REPLAY-001` — Replayable Evidence Objects;
+- `ATLAS-CH-FORMAL-001` — Formal Methods and Machine-Checkable Claims.
 
 Atlas contract:
 
-> Formalize the value of preserving future viable actions and recoverability under uncertainty.
+> Develop Forge → Solve → Cert, bounded work packages, independent actors, idempotence, and promotion gates.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited Regret prerequisite may supply explicit horizon/environment/policy/comparator semantics, Bayesian versus worst-case/minimax distinctions, and the boundary that low regret does not automatically imply safety, recoverability, or optionality.
+The audited Replayable Evidence prerequisite may supply source locking, environment pinning, replayable artifacts, provenance, and the boundary that replayability does not itself establish truth or authority.
+
+The audited Formal Methods prerequisite may supply explicit specifications, invariants, checker/proof boundaries, machine-checkable claims, and the rule that formal validity remains conditional on the modeled assumptions and interpretation.
 
 A sound intellectual spine should distinguish at least:
 
-1. current expected value from future feasible-action set;
-2. option preservation from generic uncertainty aversion;
-3. reversibility/recoverability from merely delaying commitment;
-4. viable-action count from weighted value of those actions;
-5. correction capacity after new evidence from information gain itself;
-6. state/action irreversibility from stochastic bad outcomes;
-7. regret against a comparator from damage to future opportunity;
-8. policy optionality from environment optionality;
-9. hard feasibility loss from soft increases in recovery cost;
-10. optionality preservation as a control objective from a universal injunction to avoid commitment.
+1. research state from prose status labels;
+2. evidence production from evidence promotion;
+3. Forge construction from Solve execution from Cert adjudication;
+4. bounded work-package scope from open-ended delegation;
+5. actor independence from mere duplicate execution;
+6. idempotent retry from accidental duplicate mutation;
+7. transition guards from informal approval language;
+8. artifact identity/provenance from semantic acceptance;
+9. local task success from programme-level promotion;
+10. recoverable failure states from irreversible canonical mutation.
 
-A bounded exact witness should use a two-stage uncertain decision where two first-stage actions have equal or near-equal immediate value but leave different second-stage feasible sets. After uncertainty resolves, one branch should permit correction to either environment while the committed branch cannot. The witness should compute expected return, regret, viable-action sets, and a declared correction-capacity quantity exactly, showing that optionality can distinguish policies that immediate value or a simple Q-gap does not.
+A bounded exact witness should use a small typed state machine with at least one retry/duplicate-return path. It should show that an idempotent intake key prevents duplicate promotion while preserving the original evidence object, and that a transition into a certified/canonical state requires an explicit guard rather than merely successful execution.
 
-The chapter should explicitly include counterexamples showing that preserving more options is not always better when options have costs, risks, or no downstream value.
+The chapter should include a counterexample where a nominally successful Solve result is not sufficient for Cert promotion because provenance, actor separation, or a declared invariant fails.
 
-`ATLAS-CH-GOVADAPT-001` may consume optionality/correction-capacity semantics only after OPTIONALITY-001 itself is audited.
+`ATLAS-CH-GOVADAPT-001` may consume the resulting research-state-machine semantics only after RESEARCHSM-001 itself is audited.
 
 ## 8. Durable restart instruction for a fresh chat
 
