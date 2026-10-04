@@ -10,7 +10,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from gsd.checkpoints import list_hf_checkpoint_refs, resolve_hf_dataset_sha, resolve_hf_model_sha
+from gsd.checkpoints import list_hf_checkpoint_refs, resolve_hf_dataset_sha, resolve_hf_model_sha, stride_refs
 from gsd.ingest import ingest_checkpoint
 
 EXPECTED_BLOBS = {
@@ -92,6 +92,7 @@ def main() -> None:
     parser.add_argument("--dataset", default="jiaxin-wen/generalization-dynamics-evals")
     parser.add_argument("--revision", action="append", default=[])
     parser.add_argument("--auto-revisions", action="store_true")
+    parser.add_argument("--revision-stride", type=int, default=1)
     parser.add_argument("--families", nargs="+", default=None)
     parser.add_argument("--n-seeds", type=int, default=2)
     parser.add_argument("--max-eval", type=int, default=256)
@@ -110,7 +111,9 @@ def main() -> None:
 
     revisions = list(args.revision)
     if args.auto_revisions:
-        revisions.extend(r.revision for r in list_hf_checkpoint_refs(args.model))
+        refs = list_hf_checkpoint_refs(args.model)
+        refs = stride_refs(refs, args.revision_stride)
+        revisions.extend(r.revision for r in refs)
     revisions = list(dict.fromkeys(revisions))
     if not revisions:
         parser.error("provide --revision or --auto-revisions")
@@ -153,6 +156,7 @@ def main() -> None:
             "n_seeds": args.n_seeds,
             "max_eval": args.max_eval,
             "families": args.families,
+            "revision_stride": args.revision_stride,
             "environment": environment_receipt(),
             "claim_boundary": "candidate behavioural evidence only; WP03 validation required",
         })
