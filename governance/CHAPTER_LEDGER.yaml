@@ -579,8 +579,14 @@
         "ATLAS-CH-SPARSE-001",
         "ATLAS-CH-TRANSFORMER-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-MOE-001.md",
+      "manuscript_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-MOE-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-MOE-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-MOE-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-MOE-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-ROUTERDYN-001",
