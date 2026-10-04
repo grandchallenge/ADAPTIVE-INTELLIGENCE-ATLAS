@@ -10,8 +10,8 @@ current:
   baseline_commit: "df99382bf263423fea72bcf75d2d222c19112031"
   branch: null
   pull_request: null
-  state: "instantiated"
-  next_action: "Create work/atlas-159 from the protected baseline, bind the exact audited prerequisites, lock the positional-geometry sources, and checkpoint source-lock-complete."
+  state: "source-lock-complete"
+  next_action: "Write the POSGEOM-001 specification, derivation packet, exact witness, manuscript, ledger/source-register integration, and tranche receipt; then open the implementation PR and validate the exact branch head."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
