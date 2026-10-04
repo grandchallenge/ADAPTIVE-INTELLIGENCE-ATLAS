@@ -189,6 +189,15 @@ This agenda decision informs, but does not replace:
 
 No new hard dependency is introduced. The Atlas remains an 80-chapter architecture.
 
+## 9. Executable programme
+
+The implementation plan for this agenda is:
+
+- `governance/research-agenda/GSD-001_RESEARCH_PROGRAMME.md`
+- `governance/research-agenda/GSD-001_WORK_PACKAGE_INDEX.yaml`
+
+The programme uses gated escalation: evaluator fidelity and cheap checkpoint sweeps first; transition validation and recovery/mechanistic tests second; curriculum control third; optimizer/architecture comparisons fourth; OLMo3-32B and post-training confirmation only after held-out predictive value is established.
+
 ## 9. Durable rule
 
 > **Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks. Treat checkpoints as potentially distinct computational states, and separate acquisition, persistence, accessibility, and expression.**
