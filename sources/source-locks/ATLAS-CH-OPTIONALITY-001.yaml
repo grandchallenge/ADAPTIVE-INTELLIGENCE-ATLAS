@@ -1,0 +1,88 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-OPTIONALITY-001"
+locked_on: "2026-10-03"
+epistemic_class: "audited_regret_prerequisite_plus_established_irreversibility_viability_and_empowerment_precedents_plus_atlas_synthesis"
+claim_boundary: >
+  The locked sources support (i) the decision-theoretic importance of uncertainty
+  combined with irreversible commitments, (ii) viability/state-constraint language,
+  and (iii) empowerment as an information-theoretic measure of potential sensorimotor
+  influence. The Atlas definitions of viable continuation classes, correction cost,
+  tolerance-indexed correction capacity, and the finite witness are chapter-owned
+  constructions. The sources do not establish that maximizing action count,
+  empowerment, or delayed commitment is universally optimal, nor that these quantities
+  are equivalent to regret, safety, robustness, or recoverability.
+sources:
+  - id: "OPTIONALITY-ARROW-FISHER-1974"
+    citation_key: "ArrowFisher1974"
+    kind: "peer-reviewed-journal"
+    title: "Environmental Preservation, Uncertainty, and Irreversibility"
+    authors: "Kenneth J. Arrow; Anthony C. Fisher"
+    journal: "The Quarterly Journal of Economics"
+    volume: 88
+    issue: 2
+    pages: "312-319"
+    year: 1974
+    doi: "10.2307/1883074"
+    authority: >
+      Classical decision-under-uncertainty precedent showing why irreversible action
+      and the prospect of later information can create value for preservation. Used
+      only for that structural principle, not as a general theorem about adaptive
+      intelligence.
+  - id: "OPTIONALITY-AUBIN-1991"
+    citation_key: "Aubin1991Viability"
+    kind: "book"
+    title: "Viability Theory"
+    authors: "Jean-Pierre Aubin"
+    publisher: "Birkhauser"
+    year: 1991
+    isbn: "978-1-4612-0451-8"
+    authority: >
+      Standard mathematical source for viability under state constraints and controlled
+      dynamics. Used as conceptual precedent for separating feasible/viable continuation
+      sets from reward value. The finite Atlas definitions are stated independently.
+  - id: "OPTIONALITY-KLYUBIN-POLANI-NEHANIV-2008"
+    citation_key: "KlyubinPolaniNehaniv2008"
+    kind: "peer-reviewed-journal"
+    title: "Keep Your Options Open: An Information-Based Driving Principle for Sensorimotor Systems"
+    authors: "Alexander S. Klyubin; Daniel Polani; Chrystopher L. Nehaniv"
+    journal: "PLoS ONE"
+    volume: 3
+    issue: 12
+    pages: "e4018"
+    year: 2008
+    doi: "10.1371/journal.pone.0004018"
+    authority: >
+      Primary source for empowerment as channel capacity over action-to-future-sensor
+      influence and for the explicit options-open interpretation. Used to contrast
+      information-theoretic influence with the chapter's target- and feasibility-based
+      correction capacity.
+atlas_sources:
+  - id: "OPTIONALITY-REGRET"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "39f419abb72c941e041f92f2834229f9968da006"
+    path: "manuscript/parts/11-decision-making/ATLAS-CH-REGRET-001.md"
+    git_blob_sha1: "56d6039348cbb13814325a4cfb3256177ab39a56"
+    authority: >
+      Audited hard prerequisite supplying explicit horizon/environment/policy/comparator
+      semantics, Bayesian versus minimax distinctions, and the negative result that low
+      reward regret does not imply recoverability or preserved optionality.
+  - id: "OPTIONALITY-REGRET-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "39f419abb72c941e041f92f2834229f9968da006"
+    path: "reviews/AUDIT-026.md"
+    git_blob_sha1: "6af3c12f71f0731f0e3f3d0fef2389d6a9bc0d95"
+    authority: "Audit record certifying the inherited Regret interface and its two precision repairs."
+  - id: "OPTIONALITY-REGRET-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "39f419abb72c941e041f92f2834229f9968da006"
+    path: "sources/source-locks/ATLAS-CH-REGRET-001.yaml"
+    git_blob_sha1: "52d85475fd6796ce5397b3255774bed2040e5a47"
+    authority: "Exact external-source and claim boundaries inherited from REGRET-001."
+epistemic_rules:
+  - "Optionality is relative to a declared future horizon, feasibility/viability constraints, consequence equivalence, and future objective uncertainty."
+  - "Raw action count is representation-sensitive; duplicate action aliases do not create new functional options."
+  - "Correction capacity is defined against declared post-evidence targets or value tolerances and must expose hard infeasibility separately from soft recovery cost."
+  - "Information gain and correction capacity are distinct: learning which world obtains is not sufficient if the required corrective action has already become infeasible."
+  - "Empowerment is an information-theoretic influence quantity, not identical to viable-action count, target-specific correction capacity, regret, or safety."
+  - "Preserving more options is not universally better; maintenance costs, risks, dominated actions, and irrelevant aliases can make larger option sets valueless or harmful."
+  - "Irreversible action is distinct from a stochastic bad outcome: irreversibility concerns loss of reachable continuations or recovery paths."
