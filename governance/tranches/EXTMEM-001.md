@@ -21,11 +21,11 @@ Exact prerequisite binds:
 
 ## Placement descriptor
 
-`Place(k)=(V,P,S,D,R,L,A,G)`
+`Place(k)=(V,P,S,D,R,L,H,A,G)`
 
-for volatility, provenance need, sharing scope, deletion/supersession need, retrievability, latency/availability, access control/privacy, and value of parametric generalization/compression.
+for volatility, provenance need, sharing scope, deletion/supersession need, retrievability, latency, availability/failure tolerance, access control/privacy, and value of parametric generalization/compression.
 
-No universal scalar placement score is assumed.
+No universal scalar placement score is assumed. External locus and persistent lifetime remain distinct.
 
 ## Exact witness
 
