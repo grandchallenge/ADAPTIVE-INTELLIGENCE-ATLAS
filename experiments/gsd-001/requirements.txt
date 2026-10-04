@@ -1,0 +1,5 @@
+numpy>=1.26,<3
+torch>=2.4
+transformers>=4.53.2
+huggingface_hub>=0.25
+wandb>=0.18
