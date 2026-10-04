@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 136
+  issue_number: 138
   tranche_id: "RESEARCHSM-001"
   chapter_ids: ["ATLAS-CH-RESEARCHSM-001"]
-  baseline_commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
-  branch: "work/researchsm-001"
-  pull_request: 137
-  state: "implementation-pr-validation"
-  next_action: "Validate RESEARCHSM-001 PR #137 at exact head 434d434246085f3dc46d7c551a5f1a03bf936748; repair in-scope defects, merge when green, then run bounded audit."
+  baseline_commit: "a796eb3ae822c3bf998b27de94db7213646d2c59"
+  branch: "audit/researchsm-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Complete AUDIT-035 from issue #138 and branch audit/researchsm-001."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
     downstream_architecture_count: 3
