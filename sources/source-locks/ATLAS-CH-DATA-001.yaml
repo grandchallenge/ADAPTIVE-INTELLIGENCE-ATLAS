@@ -19,25 +19,21 @@ atlas_sources:
     git_blob_sha1: "432aa650c0c2e7679af8602b6d4c3af6a1c691ed"
 sources:
   - id: "DATA-LEE-2022"
-    citation_key: "LeeEtAl2022Dedup"
     title: "Deduplicating Training Data Makes Language Models Better"
     year: 2022
     doi: "10.18653/v1/2022.acl-long.577"
     authority: "Exact/near deduplication, memorization, and measured train-test overlap in the reported experiments."
   - id: "DATA-DODGE-2021"
-    citation_key: "DodgeEtAl2021C4"
     title: "Documenting Large Webtext Corpora: A Case Study on the Colossal Clean Crawled Corpus"
     year: 2021
     doi: "10.18653/v1/2021.emnlp-main.98"
     authority: "Corpus provenance, filtering effects, machine-generated text, and benchmark examples observed in C4."
   - id: "DATA-XIE-2023"
-    citation_key: "XieEtAl2023DoReMi"
     title: "DoReMi: Optimizing Data Mixtures Speeds Up Language Model Pretraining"
     year: 2023
     doi: "10.52202/075280-3059"
     authority: "Domain mixture weights as an explicit training variable in the reported pretraining experiments."
   - id: "DATA-SHUMAILOV-2024"
-    citation_key: "ShumailovEtAl2024ModelCollapse"
     title: "AI models collapse when trained on recursively generated data"
     year: 2024
     doi: "10.1038/s41586-024-07566-y"
