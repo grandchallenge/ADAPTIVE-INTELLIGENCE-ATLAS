@@ -228,12 +228,13 @@ Traffic imbalance alone is not specialization.
 
 Keep distinct:
 
-- router collapse: traffic concentrates on few experts;
+- preferred-router collapse: router probability mass or preferred routes concentrate on few experts under a declared statistic/horizon;
+- accepted-load concentration: executed assignments remain concentrated after capacity handling;
 - expert underuse: some experts receive too little training signal;
 - expert redundancy: different experts learn nearly identical functions;
-- capacity collapse/overflow: routing demand repeatedly exceeds expert capacity.
+- capacity overload: routing demand repeatedly exceeds expert capacity.
 
-These can co-occur but are not synonyms.
+These can co-occur but are not synonyms. Capacity handling can make accepted loads look balanced while preferred routing remains concentrated.
 
 ## Load-balancing objective boundary
 

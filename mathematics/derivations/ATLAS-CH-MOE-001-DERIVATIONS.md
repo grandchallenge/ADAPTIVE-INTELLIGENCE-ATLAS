@@ -284,19 +284,21 @@ Nor do they prove experts implement different functions.
 
 Specialization is a functional/conditional-performance claim.
 
-## 16. Router collapse
+## 16. Preferred-route concentration versus accepted-load concentration
 
-Define one router-concentration diagnostic:
+Let preferred top-k demand fractions be:
 
-`H_load=-sum_e f_e log f_e`
+`g_e=d_e/sum_j d_j`.
 
-over accepted loads.
+A preferred-route entropy is:
 
-Very low entropy can indicate traffic concentration.
+`H_pref=-sum_e g_e log g_e`.
 
-But low entropy is only a routing statistic.
+Accepted-load entropy is separately:
 
-It does not by itself show why concentration occurred or whether it is harmful.
+`H_accept=-sum_e f_e log f_e`.
+
+Capacity, rerouting, or dropping can make these diagnostics disagree. In particular, accepted loads can look balanced even when preferred routing is concentrated. A router-collapse claim should therefore state whether it concerns logits/probability mass, preferred routes, or accepted dispatch, together with its horizon and threshold.
 
 ## 17. Expert underuse
 
