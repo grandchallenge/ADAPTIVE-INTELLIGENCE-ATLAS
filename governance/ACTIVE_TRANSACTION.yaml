@@ -7,11 +7,11 @@ current:
   issue_number: 155
   tranche_id: "KRYLOV-001"
   chapter_ids: ["ATLAS-CH-\u004bRYLOV-001"]
-  baseline_commit: "574de4e65b42d4c090467b8a43fe2e534653b6e9"
-  branch: "work/a155"
+  baseline_commit: "4fb9bbd05c3f48e3b69a72eaee171487576b5c48"
+  branch: null
   pull_request: 156
-  state: "ci-green"
-  next_action: "Merge PR #156 only from exact green head 91b9781b933ad255f1d6fcc50e02da8e9e466758; read back protected main; then instantiate the bounded post-draft audit."
+  state: "implementation-merged"
+  next_action: "Instantiate the bounded post-draft audit from protected main 4fb9bbd05c3f48e3b69a72eaee171487576b5c48, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
 frontier:
   - id: "ATLAS-CH-\u004bRYLOV-001"
     downstream_architecture_count: 2
