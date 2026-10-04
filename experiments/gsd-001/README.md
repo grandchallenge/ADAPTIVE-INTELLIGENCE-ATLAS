@@ -52,14 +52,9 @@ override must be replayed under BF16 before promotion.
 
 ## WP01 checkpoint sweep
 
-    python experiments/gsd-001/run_sweep.py \
-      --upstream-dir ./GDsuite \
-      --auto-revisions \
-      --n-seeds 2 \
-      --max-eval 256 \
-      --output-dir runs/olmo2-1b-early
+    bash experiments/gsd-001/colab/run_wp01_colab.sh
 
-With the published 38-checkpoint early-training series, stride 2 includes every other checkpoint plus the final checkpoint, yielding 20 exact revisions. WP01 does not close until all 20 complete. This first pass uses the cheapest paired-answer family; broader families are added only if needed for transition discovery.
+The live public early-training series contains 37 checkpoints from step 0 through step 36000 at 1000-step cadence. The frozen first tranche uses every 2000-step checkpoint plus step 35000 as a terminal flank, yielding exactly 20 revisions. The exact list is stored in `colab/jobs/wp01_olmo2_1b_crt_coarse20_t4.json`. WP01 does not close until all 20 complete.
 
 Each revision emits:
 
@@ -70,12 +65,12 @@ Each revision emits:
 
 ## WP02 transition catalogue
 
-Run one family at a time:
+Run the task-level catalogue first:
 
     python experiments/gsd-001/analyze_transitions.py \
       runs/olmo2-1b-early \
-      --family successive_answer \
-      --output runs/olmo2-1b-early/successive-transitions.json
+      --task intuitive_answer/crt \
+      --output runs/olmo2-1b-early/intuitive-crt-transitions.json
 
 A confident state reversal is first labelled STATE_REVERSAL_REQUIRES_CONTROL_VALIDATION. It becomes CANDIDATE_TRANSITION only when both endpoint revisions have explicit stable-control evidence supplied with --control-json.
 
