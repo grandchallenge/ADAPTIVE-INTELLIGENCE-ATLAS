@@ -996,7 +996,8 @@
       "status": "draft-v0.1",
       "keystone": false,
       "spec_path": "manuscript/specifications/ATLAS-CH-RESEARCHSM-001.md",
-      "manuscript_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md"
+      "manuscript_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-RESEARCHSM-001-DERIVATIONS.md"
     },
     {
       "id": "ATLAS-CH-GOVADAPT-001",
