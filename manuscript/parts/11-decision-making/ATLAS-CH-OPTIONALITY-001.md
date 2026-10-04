@@ -251,11 +251,11 @@ It is:
 
 For environment `theta`, let `B_theta` be an acceptable target set.
 
-Define:
+After evidence resolves the environment to `theta`, let `V_h(s;theta)` be the viable continuation set under that resolved environment. Define:
 
 `k_h(s,theta)`
 
-as the least declared correction cost among viable continuations that reach `B_theta`.
+as the least declared correction cost among continuations in `V_h(s;theta)` that reach `B_theta`.
 
 If no such continuation exists:
 
