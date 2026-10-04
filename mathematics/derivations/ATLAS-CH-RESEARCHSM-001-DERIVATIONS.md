@@ -1,0 +1,125 @@
+# ATLAS-CH-RESEARCHSM-001 — Formal and Derivation Packet
+
+## 1. Bounded work package
+
+Let
+
+`W=(id,Q,B,S,D,R,A,Z)`.
+
+The coordinates are stable identity, bounded question, bootstrap facts, allowed sources, required deliverables, durable return route, granted authority, and stop/non-authority conditions.
+
+A work package is operationally bounded when those coordinates are sufficient to decide whether a candidate return is in scope.
+
+## 2. Product research state
+
+Define
+
+`x=(q,E,U,J,P,C,L)`.
+
+Here:
+
+- `q` is the execution/transport phase;
+- `E` is a finite map or set of immutable evidence identities;
+- `U` is replay/check state;
+- `J` is adjudication state;
+- `P` is programme disposition;
+- `C` is certification state;
+- `L` is append-only history.
+
+Representative execution phases are
+
+`READY,LAUNCHED,RETURNED,CAPTURED,REPLAYED,ADJUDICATED`.
+
+The product representation matters because programme disposition and certification need not occur as one total chain.
+
+## 3. Typed events and guards
+
+Let an event be
+
+`e=(k,t,o,a,p)`
+
+for stable event key, event type, target object identity, actor identity, and payload identity.
+
+For each event type `t`, define a guard
+
+`g_t(x,e) in {0,1}`
+
+and partial transition
+
+`delta_t(x,e)`.
+
+The transition is admitted only if
+
+`g_t(x,e)=1`.
+
+## 4. Canonical projection
+
+Let
+
+`Canon(x)=(q,E,U,J,P,C)`
+
+and retain `L` as append-only attempt history.
+
+This separation permits a retry to be visible in history without multiplying its canonical effect.
+
+## 5. Canonical idempotence
+
+For an event with stable key `k`, let `F_k` be its guarded mutator.
+
+Define canonical idempotence by
+
+`Canon(F_k(F_k(x)))=Canon(F_k(x))`.
+
+This is weaker than requiring the entire state including append-only history to be identical.
+
+If the second attempt appends a history record, then generally
+
+`L(F_k(F_k(x))) != L(F_k(x))`
+
+while the canonical research state remains unchanged.
+
+## 6. Duplicate return relation
+
+Let a preserved return identity be
+
+`r=(d,h)`
+
+for dispatch/work-package identity `d` and immutable result digest `h`.
+
+Define exact duplicate relation
+
+`(d,h) ~dup (d',h')`
+
+iff
+
+`d=d'`
+and
+`h=h'`.
+
+If `d=d'` but `h!=h'`, the returns are not duplicates.
+
+A correct intake therefore behaves as a set insertion on exact identities rather than replacement by dispatch key alone.
+
+## 7. Finite advancement predicate
+
+For a candidate evidence object `e`, define Boolean predicates:
+
+- `I(e)`: identity and provenance valid;
+- `S(e)`: structural contract valid;
+- `R(e)`: required replay/check condition satisfied;
+- `A(e)`: adjudication supports the bounded claim;
+- `D(e)`: programme disposition permits advancement.
+
+Define
+
+`G_adv(e)=I(e) S(e) R(e) A(e) D(e)`
+
+with Boolean multiplication.
+
+Every factor is necessary in this declared witness model.
+
+## 8. Separate certification coordinate
+
+Certification is modeled by `C`, not by overloading `P`.
+
+A certification event has its own target-identity and policy predicates. Where the governing policy requires actor separation, that requirement is an explicit predicate rather than an inference from different labels.
