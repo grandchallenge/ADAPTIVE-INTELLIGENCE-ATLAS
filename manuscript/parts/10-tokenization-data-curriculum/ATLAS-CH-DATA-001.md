@@ -221,7 +221,7 @@ A change in retained distribution should be measured, not inferred from the word
 
 ## 12. Raw corpus proportions
 
-Suppose domain `d` has `n_d` retained records.
+First declare the counting unit. In this simple discussion use retained records. Suppose domain `d` has `n_d` retained records.
 
 Raw corpus proportion is:
 
@@ -334,14 +334,14 @@ For overlap predicate `delta`, define:
 
 when some training record overlaps evaluation item `e` under `delta`.
 
-Measured contamination rate is:
+Unweighted item contamination rate is:
 
 `CR_delta(T,V)
 =
 (1/|V|)
 sum_(e in V) C_delta(e;T)`.
 
-This is not one universal number.
+If evaluation items or tasks carry unequal weights, those weights define a different measure and must be stated. This is not one universal number.
 
 It is relative to the predicate and partitions.
 
@@ -668,7 +668,7 @@ The unit should match the evaluation threat model.
 
 If an evaluation set was published before the training crawl, exposure may be possible.
 
-If it was published after the final training cutoff, exact exposure through that crawl is impossible.
+A publication date after the final training cutoff does not by itself prove non-exposure: the same item or its source may have existed earlier. Ruling out exposure requires evidence that the relevant item/content was unavailable to the training pipeline before the cutoff.
 
 Therefore useful lineage includes:
 

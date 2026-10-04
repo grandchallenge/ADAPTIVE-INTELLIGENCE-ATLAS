@@ -58,19 +58,19 @@ For training set `T`, evaluation set `V`, and declared overlap predicate `delta`
 
 iff there exists `t in T` with `delta(t,e)=1`.
 
-Measured contamination rate:
+Unweighted item contamination rate:
 
 `CR_delta(T,V)=|{e in V:C_delta(e;T)=1}|/|V|`.
 
-This quantity is predicate-relative.
+If evaluation items/tasks carry unequal weights, a weighted measure must be declared separately. This quantity is predicate-relative.
 
 Detected overlap proves exposure opportunity under the declared predicate. It does not by itself prove memorization or causal benchmark inflation.
 
 ## Mixture accounting
 
-For domains `d=1,...,k`, distinguish:
+For domains `d=1,...,k`, first declare the counting unit (for example records, tokens, or bytes), then distinguish:
 
-- raw corpus proportion `p_d=n_d/sum_j n_j`;
+- raw corpus proportion `p_d=n_d/sum_j n_j` under that unit;
 - post-filter proportion `p'_d`;
 - training sampling weight `w_d`, with `sum_d w_d=1`.
 
@@ -122,7 +122,7 @@ Evaluation records:
 
 ## Exact contamination witness
 
-Exact-string predicate:
+Exact token-sequence predicate under the declared canonicalization:
 
 - `e1` overlaps;
 - `e2,e3` do not.
