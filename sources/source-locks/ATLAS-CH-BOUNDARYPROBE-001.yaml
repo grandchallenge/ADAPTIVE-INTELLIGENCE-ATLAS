@@ -1,0 +1,94 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-BOUNDARYPROBE-001"
+locked_on: "2026-10-03"
+epistemic_class: "established_linear_algebra_algorithmic_differentiation_and_local_sensitivity_plus_atlas_synthesis"
+claim_boundary: >
+  The audited prerequisites support Jacobians, singular values, operator norms, conditioning,
+  local linearization, residual-map Jacobians, and local perturbation propagation. The external
+  sources support forward- and reverse-mode algorithmic differentiation terminology and
+  Jacobian-vector / transposed-Jacobian-vector products. The Atlas synthesis develops a
+  learned-component boundary-probe interface. A local Jacobian or finite power-iteration
+  estimate does not certify global nonlinear stability, semantic adequacy, or end-to-end
+  correctness.
+sources:
+  - id: "BOUNDARYPROBE-GRIEWANK-WALTHER-2008"
+    citation_key: "GriewankWalther2008"
+    kind: "book"
+    title: "Evaluating Derivatives: Principles and Techniques of Algorithmic Differentiation"
+    edition: "2"
+    authors: "Andreas Griewank; Andrea Walther"
+    publisher: "Society for Industrial and Applied Mathematics"
+    year: 2008
+    isbn: "978-0-89871-659-7"
+    doi: "10.1137/1.9780898717761"
+    authority: >
+      Standard algorithmic-differentiation source for computational graphs, chain-rule
+      propagation, tangent/forward mode, adjoint/reverse mode, and derivative products
+      without requiring explicit materialization of the full Jacobian.
+  - id: "BOUNDARYPROBE-BAYDIN-ETAL-2018"
+    citation_key: "BaydinEtAl2018"
+    kind: "peer-reviewed-journal"
+    title: "Automatic Differentiation in Machine Learning: a Survey"
+    authors: "Atilim Gunes Baydin; Barak A. Pearlmutter; Alexey Andreyevich Radul; Jeffrey Mark Siskind"
+    journal: "Journal of Machine Learning Research"
+    volume: 18
+    issue: 153
+    pages: "1-43"
+    year: 2018
+    url: "https://www.jmlr.org/papers/v18/17-468.html"
+    authority: >
+      Peer-reviewed machine-learning survey defining automatic differentiation and
+      forward/reverse implementation modes. Used for terminology and computational
+      interpretation, not as a global sensitivity theorem.
+atlas_sources:
+  - id: "BOUNDARYPROBE-LINALG"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
+    git_blob_sha1: "e7fcf56322f26d232d3a3043038d9850792b4bde"
+    authority: >
+      Audited hard prerequisite supplying local linearization, Jacobians as local linear
+      operators, SVD, singular values, Euclidean operator norms, conditioning, and the
+      boundary that a Jacobian at one point does not characterize a global nonlinear map.
+  - id: "BOUNDARYPROBE-LINALG-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Foundation audit record covering the Linear Maps and Decompositions chapter."
+  - id: "BOUNDARYPROBE-LINALG-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "sources/source-locks/ATLAS-CH-LINALG-001.yaml"
+    git_blob_sha1: "f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e"
+    authority: "Exact linear-algebra source/authority boundary inherited from LINALG-001."
+  - id: "BOUNDARYPROBE-NETNUM"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NETNUM-001.md"
+    git_blob_sha1: "cbaf0b96c996c821df50f985075f64028459c587"
+    authority: >
+      Audited hard prerequisite supplying one-step maps, residual Jacobians, local perturbation
+      propagation, and the distinction between local first-order sensitivity and global
+      error/stability behavior.
+  - id: "BOUNDARYPROBE-NETNUM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "reviews/AUDIT-023.md"
+    git_blob_sha1: "746e0c297e4ddf29122d4735108becc33e599030"
+    authority: "Audit record for Networks as Numerical Schemes."
+  - id: "BOUNDARYPROBE-NETNUM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c82f61da1ca457b9670273669c04fe3fd5459652"
+    path: "sources/source-locks/ATLAS-CH-NETNUM-001.yaml"
+    git_blob_sha1: "02bbe77d19da4a6a123e430f8aae058d666c4e35"
+    authority: "Exact numerical-network source/authority boundary inherited from NETNUM-001."
+epistemic_rules:
+  - "A JVP J_F(x)v is a directional first-order response at a declared operating point; it is not a global perturbation guarantee."
+  - "A VJP J_F(x)^T w is a pullback/adjoint product under the declared inner products and coordinate convention; it is not a causal attribution."
+  - "The Euclidean local gain is sigma_max(J_F(x)) = ||J_F(x)||_2, inherited from LINALG-001."
+  - "Power iteration on J^T J estimates sigma_max(J)^2 only when its initialization has a nonzero component in the dominant eigenspace and sufficient iterations are used."
+  - "A finite power-iteration estimate is not automatically a certified upper bound on ||J||_2."
+  - "Random restarts or richer subspace methods can reduce initialization risk but do not convert a local Jacobian estimate into a global nonlinear theorem."
+  - "Interface conditions must name operating region, norms, perturbation class, quantity probed, estimator procedure, and acceptance threshold."
+  - "A numerical sensitivity obligation and a semantic interface obligation are distinct."
