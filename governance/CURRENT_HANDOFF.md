@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39`
+**Current main:** `b87bad6229896174e6c872994d6a0f4878e2e1d5`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,7 +69,7 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller is currently:
 
 - state: `idle-ready`;
-- baseline/main: `8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39`;
+- baseline/main: `b87bad6229896174e6c872994d6a0f4878e2e1d5`;
 - next target: `ATLAS-CH-SPLIT-001`;
 - title: **Split-Operator Networks**;
 - reason: it has the largest unlocked downstream architecture cone at 3 nodes.
@@ -84,6 +84,24 @@ Current frontier, recomputed from the live Chapter Ledger after AUDIT-035:
 6. `ATLAS-CH-SECOND-001` — count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
 
 ## 5. Immediately preceding completed tranches
+
+### GSD-001 — Executable Generalization-State Dynamics Programme
+
+- planning issue: #139;
+- programme PR: #140;
+- protected merge / current main: `b87bad6229896174e6c872994d6a0f4878e2e1d5`;
+- human plan: `governance/research-agenda/GSD-001_RESEARCH_PROGRAMME.md`;
+- machine-readable WP index: `governance/research-agenda/GSD-001_WORK_PACKAGE_INDEX.yaml`.
+
+Execution is gated. The immediate research tranche is only `GSD-WP00` through `GSD-WP03`: evaluator fidelity, 1B checkpoint harness, transition catalogue, and adversarial transition validation.
+
+Later work is conditional:
+- recovery/Residual, K-DIAGNOSTICS, and CPS require a confirmed soft-margin transition;
+- curriculum control requires a supported data-window attribution;
+- Muon/MODULUS and nGPT/RUNT comparisons require a controlled state regime;
+- OLMo3-32B and post-training confirmation require held-out predictive value at smaller scale.
+
+The programme keeps capacity allocation as a hypothesis and treats negative gates as compute-saving scientific results.
 
 ### RESEARCHSM-001 — Research as a State Machine
 
