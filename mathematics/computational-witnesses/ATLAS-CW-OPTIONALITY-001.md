@@ -2,7 +2,7 @@
 
 **Chapter:** ATLAS-CH-OPTIONALITY-001  
 **Witness class:** exact finite rational decision calculation  
-**Purpose:** show that prior expected return and Bayesian regret can tie while functional optionality and post-evidence correction capacity differ.
+**Purpose:** show that prior expected return and Bayesian regret can tie while functional optionality, conditional correction feasibility, and ex-ante correction capacity differ.
 
 ## Setup
 
@@ -20,6 +20,7 @@ Stage-0 actions:
 |---|---:|---|---|
 | preserve `P` | `-1/2` | `s_P` | `{L,R}` |
 | commit-left `C_L` | `0` | `s_L` | `{L}` |
+| commit-right `C_R` | `0` | `s_R` | `{R}` |
 
 At stage 1 the environment label is revealed perfectly.
 
@@ -27,10 +28,12 @@ Terminal reward:
 
 `u_theta(a)=1` when `a=theta`, otherwise `0`.
 
-Policies:
+Learner policies compared:
 
 - `pi_P`: preserve, then choose the revealed matching terminal action;
 - `pi_L`: commit left, then choose L.
+
+The symmetric action `C_R` is declared so the comparator below is well typed; it is not a third learner policy in the pairwise comparison.
 
 ## Exact returns
 
@@ -60,7 +63,7 @@ Therefore the prior action-value gap is exactly:
 
 ## Exact regret
 
-Use an environment-informed comparator that commits correctly at stage 0:
+Use a clairvoyant environment-informed comparator that observes `theta` before stage 0 and chooses the declared matching commitment `C_theta`:
 
 `V_L^*=V_R^*=1`.
 
@@ -105,7 +108,7 @@ so
 so
 `|O_1(s_L)|=1`.
 
-## Correction capacity
+## Conditional correction and ex-ante capacity
 
 Target under environment `theta`:
 
@@ -118,11 +121,15 @@ Correction cost:
 
 Therefore:
 
-`k(s_P,L)=k(s_P,R)=0`.
+`k(s_P,L)=k(s_P,R)=0`,
 
-So:
+so the post-evidence conditional indicators are
 
-`CC_{1,0}(s_P)=1`.
+`C_{1,0}(s_P,L)=C_{1,0}(s_P,R)=1`.
+
+The ex-ante capacity is
+
+`CC_{1,0}(s_P;b)=1`.
 
 For the committed state:
 
@@ -130,9 +137,15 @@ For the committed state:
 
 `k(s_L,R)=+infinity`.
 
-So:
+Thus
 
-`CC_{1,0}(s_L)=1/2`.
+`C_{1,0}(s_L,L)=1`;
+
+`C_{1,0}(s_L,R)=0`;
+
+and the ex-ante capacity is
+
+`CC_{1,0}(s_L;b)=1/2`.
 
 ## Information gain
 
@@ -196,7 +209,7 @@ Therefore raw action labels are not a sound optionality metric.
 | Bayesian regret | `1/2` | `1/2` |
 | worst-case regret | `1/2` | `1` |
 | functional option count | `2` | `1` |
-| zero-tolerance correction capacity | `1` | `1/2` |
+| zero-tolerance ex-ante correction capacity | `1` | `1/2` |
 | information gain | `1 bit` | `1 bit` |
 
 ## Claim boundary
