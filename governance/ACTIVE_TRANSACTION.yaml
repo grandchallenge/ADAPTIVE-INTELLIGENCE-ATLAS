@@ -5,13 +5,28 @@ controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
   issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  tranche_id: "POSGEOM-001"
+  chapter_ids: ["ATLAS-CH-POSGEOM-001"]
   baseline_commit: "df99382bf263423fea72bcf75d2d222c19112031"
   branch: null
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-POSGEOM-001 (The Geometry of Position) from baseline df99382bf263423fea72bcf75d2d222c19112031. Its hard prerequisites ATLAS-CH-ATTNOP-001 and ATLAS-CH-GEOM-001 are audited draft-v0.1. It is first in the deterministic two-way frontier tie at downstream architecture count 2. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "blocked-authentication"
+  next_action: "Create the required POSGEOM-001 implementation issue from protected baseline df99382bf263423fea72bcf75d2d222c19112031 once an authorized GitHub issue-creation mutation is available. Then create the work branch and continue source locking. Do not skip or fabricate the issue identity."
+  blocked_on:
+    boundary: "AUTHENTICATED_GITHUB_ISSUE_CREATION_UNAVAILABLE"
+    detail: "The connected GitHub create-issue mutation is unavailable for this request, and the alternate authenticated GitHub CLI issue-creation path requires user approval that was not granted. The governing transaction protocol requires issue creation before branch creation."
+  prepared_source_spine:
+    - "Vaswani et al. 2017 — sinusoidal positional encoding"
+    - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
+    - "Chen et al. 2023 — Position Interpolation for context extension"
+    - "Peng et al. 2023/2024 — YaRN as empirical context-extension method"
+  prerequisite_binds:
+    attention_manuscript_blob: "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
+    attention_source_lock_blob: "4af4e53230776daaf0be825cffd1263957ed97c8"
+    attention_audit_blob: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+    geometry_manuscript_blob: "f8e406f24a01bd852996e11118e04427ff549f35"
+    geometry_source_lock_blob: "d75e8bcf5a5920eca6b09cb8bb181182c7827b5c"
+    geometry_audit_blob: "f13b7ac01f7b10dfadd64da6f31c45832344c082"
 frontier:
   - id: "ATLAS-CH-POSGEOM-001"
     downstream_architecture_count: 2
@@ -23,4 +38,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is blocked-authentication, resolve the named authentication boundary without changing protected main; then resume the recorded next_action. Repository state overrides chat history."
