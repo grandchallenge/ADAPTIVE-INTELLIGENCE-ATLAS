@@ -10,8 +10,8 @@ current:
   baseline_commit: "39f419abb72c941e041f92f2834229f9968da006"
   branch: "work/optionality-001"
   pull_request: null
-  state: "source-locked"
-  next_action: "Write OPTIONALITY-001 specification, derivation packet, exact witness, full manuscript, ledger/source-register/bibliography updates, and tranche receipt on work/optionality-001; then validate."
+  state: "draft-complete"
+  next_action: "Run repository validation for work/optionality-001, repair every in-scope defect until green, then open the implementation PR."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
