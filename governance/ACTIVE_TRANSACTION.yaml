@@ -7,11 +7,11 @@ current:
   issue_number: 141
   tranche_id: "SPLIT-001"
   chapter_ids: ["ATLAS-CH-SPLIT-001"]
-  baseline_commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
-  branch: "work/split-001"
-  pull_request: 142
-  state: "ci-green"
-  next_action: "Merge PR #142 only from exact green head 85109981be969c2f2cdb7a143c6f80234f49f3ad; read back protected main, then instantiate the bounded post-draft audit."
+  baseline_commit: "2776a2d77fff39e90bd58a866b0275d946909fa9"
+  branch: null
+  pull_request: null
+  state: "implementation-merged"
+  next_action: "Instantiate bounded post-draft audit AUDIT-036 for SPLIT-001 from protected main 2776a2d77fff39e90bd58a866b0275d946909fa9; bind exact artifact identities, repair every in-scope defect, validate, and merge the audit."
 frontier:
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
