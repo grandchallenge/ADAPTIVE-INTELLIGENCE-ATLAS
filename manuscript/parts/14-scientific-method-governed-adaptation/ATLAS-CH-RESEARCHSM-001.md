@@ -77,3 +77,13 @@ That path is useful.
 It is not the whole machine.
 
 Programme disposition and certification are separate coordinates because neither is merely another name for successful transport.
+
+## 4. State change requires a declared condition
+
+For each event type, define a condition `g_e(x)` and a partial state update `delta_e(x)`.
+
+The update is applied only when the declared condition holds.
+
+A return can arrive without satisfying its schema. A schema-valid return can fail replay. A replayed result can fail adjudication. A positively adjudicated result can still await a separate programme decision.
+
+The state machine keeps these cases separate.
