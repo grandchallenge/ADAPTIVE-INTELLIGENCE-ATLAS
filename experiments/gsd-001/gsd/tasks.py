@@ -3,8 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True);
-
+@dataclass(frozen=True)
 class TaskSpec:
     family: str
     name: str
@@ -16,7 +15,8 @@ class TaskSpec:
 
 TASKS: tuple[TaskSpec, ...] = (
     TaskSpec("flipped_answer", "sst2", "balanced", 64, "\n\n"),
-    TaskSpec("flipped_answer", "imdb", "balanced", 24, "\n\n"),    TaskSpec("flipped_answer", "rotten_tomatoes", "balanced", 64, "\n\n"),
+    TaskSpec("flipped_answer", "imdb", "balanced", 24, "\n\n"),
+    TaskSpec("flipped_answer", "rotten_tomatoes", "balanced", 64, "\n\n"),
     TaskSpec("flipped_answer", "poem_sentiment", "balanced", 64, "\n\n"),
     TaskSpec("flipped_answer", "yahoo_health_computers", "balanced", 64, "\n\n"),
     TaskSpec("flipped_answer", "yahoo_business_science", "balanced", 64, "\n\n"),
@@ -33,4 +33,7 @@ TASKS: tuple[TaskSpec, ...] = (
     TaskSpec("successive_answer", "letters", "ordered", 10),
     TaskSpec("successive_answer", "arithmetic", "ordered", 32),
     TaskSpec("successive_answer", "even", "ordered", 32),
+    TaskSpec("truthy_answer", "surprising_truth", "random", 8),
+    TaskSpec("truthy_answer", "common_misconception", "random", 100),
+    TaskSpec("intuitive_answer", "crt", "none", 0, "\n", 1),
 )
