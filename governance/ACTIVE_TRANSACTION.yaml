@@ -10,8 +10,8 @@ current:
   baseline_commit: "39f419abb72c941e041f92f2834229f9968da006"
   branch: "work/optionality-001"
   pull_request: 130
-  state: "pr-opened"
-  next_action: "Inspect PR #130 validation. Repair every in-scope failure on work/optionality-001 until green; then merge the implementation PR."
+  state: "ci-green"
+  next_action: "Merge implementation PR #130 at pinned head 868ae77446af16a2143aedf4155d3c02794cac7a, then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-OPTIONALITY-001"
     downstream_architecture_count: 3
