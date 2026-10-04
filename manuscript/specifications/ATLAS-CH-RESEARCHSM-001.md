@@ -78,3 +78,9 @@ For evidence `e`, use the finite witness guard
 for valid identity/provenance, structural validity, required replay/check, supporting adjudication, and explicit programme disposition.
 
 A contributor-supplied next residual does not itself set `D=1`.
+
+## Separate certification transition
+
+Certification is represented as a distinct state coordinate and transition. Its guard binds the exact target revision, the required support state, and the authority predicate defined by the governing policy.
+
+Where a policy requires actor separation, that requirement is represented as an explicit predicate. Different actor labels alone are not sufficient evidence of independence.
