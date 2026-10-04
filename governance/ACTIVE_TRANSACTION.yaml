@@ -10,8 +10,8 @@ current:
   baseline_commit: "26c51843b13a0ab58ba0f16cd0c2e365a60d1180"
   branch: "audit/posgeom-161"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit the exact POSGEOM-001 merge at 26c51843b13a0ab58ba0f16cd0c2e365a60d1180; repair every in-scope mathematical, source, prose, and repository defect; write AUDIT-040; validate and merge only from a fresh green exact head."
+  state: "audit-record-complete"
+  next_action: "Open the AUDIT-040 PR from audit/posgeom-161, run canonical exact-head validation, repair any in-scope failure, and merge only from a fresh green exact head."
   prepared_source_spine:
     - "Vaswani et al. 2017 — sinusoidal positional encoding"
     - "Su et al. 2021 — rotary position embedding and exact relative-position rotation identity"
