@@ -254,3 +254,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-DATA-001.yaml"
     authority: "Deduplication, corpus documentation, mixture weighting, synthetic-data lineage, contamination semantics, and audited Evidence prerequisite."
+
+  - id: "ATLAS-SRC-EXTMEM-LOCK-001"
+    title: "The External-Memory Thesis source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-EXTMEM-001.yaml"
+    authority: "Audited Retrieval/Continual prerequisites plus retrieval-augmented and model-editing primary examples for hybrid knowledge placement, update locality, provenance, freshness, and shared-memory boundaries."
