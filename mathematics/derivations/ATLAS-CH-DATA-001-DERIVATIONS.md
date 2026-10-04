@@ -83,7 +83,7 @@ Those require additional evidence or interventions.
 
 ## 7. Raw and effective corpus proportions
 
-For domain counts `n_d`:
+Choose a counting unit first, for example records, tokens, or bytes. For domain counts `n_d` under that unit:
 
 `p_d=n_d/N`
 
