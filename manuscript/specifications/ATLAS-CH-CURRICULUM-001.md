@@ -76,7 +76,8 @@ At training step \(t\), keep separate:
   z_t=\Omega(\theta_t,u_t,c_t,H_t);
   \]
 - curriculum action \(a_t\), such as choosing an example, domain, bucket, eligibility set, or sampling distribution;
-- selected training experience \(x_t\sim Q(\cdot\mid a_t)\).
+- selected training experience \(x_t\sim Q(\cdot\mid a_t)\);
+- declared post-update feedback \(f_t\), such as a loss, score, or other controller-visible measurement.
 
 A curriculum policy is
 
@@ -97,7 +98,7 @@ The curriculum-state update is separately
 \[
 c_{t+1}
 =
-\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,\ell_t).
+\mathcal T_{\rm curr}(c_t,z_t,a_t,x_t,f_t).
 \]
 
 The policy, learner transition, and controller-state transition are distinct objects.
@@ -158,15 +159,17 @@ The chapter must not infer from the name “competence” that the learner has b
 
 ## Learning progress
 
-For a declared evaluation region \(r\), metric \(m_t(r)\), and lag/window \(w\), a simple progress signal is
+For a declared evaluation region \(r\), metric \(m_t(r)\), lag/window \(w\), and orientation \(\eta_r\in\{+1,-1\}\), define
 
 \[
 LP_t(r)
 =
-m_t(r)-m_{t-w}(r).
+\eta_r\left[m_t(r)-m_{t-w}(r)\right],
 \]
 
-Alternative signals are permitted, but their metric, window, sign convention, noise handling, and observation scope must be declared.
+where \(\eta_r=+1\) for a higher-is-better metric and \(\eta_r=-1\) for a lower-is-better metric.
+
+Alternative signals are permitted, but their metric, window, orientation, noise handling, and observation scope must be declared.
 
 The chapter must state:
 
@@ -206,6 +209,14 @@ Learner state is
 \[
 s=(e,h)\in\{0,1,2\}^2.
 \]
+
+For this finite witness only, the controller observation is full state:
+
+\[
+z=s.
+\]
+
+Actions \(E\) and \(H\) select repeatable experience types rather than unique without-replacement records. These are explicit witness assumptions, not claims about real training systems.
 
 Define total toy score
 
