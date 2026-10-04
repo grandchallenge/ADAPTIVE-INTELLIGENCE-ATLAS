@@ -4,24 +4,24 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 138
-  tranche_id: "RESEARCHSM-001"
-  chapter_ids: ["ATLAS-CH-RESEARCHSM-001"]
-  baseline_commit: "a796eb3ae822c3bf998b27de94db7213646d2c59"
-  branch: "audit/researchsm-001"
-  pull_request: 138
-  state: "audit-pr-validation"
-  next_action: "Validate audit PR #138 at exact head ec7edce081f905912a8dc0d23ac6d967604555db; merge when green, verify closure, recompute frontier, and reset."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "8fa6a51dfdb7a51c5d5975ea0f2e84c252cbdd39"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal tranche for ATLAS-CH-SPLIT-001; it has the largest unlocked downstream architecture cone (3 nodes)."
 frontier:
-  - id: "ATLAS-CH-RESEARCHSM-001"
-    downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-GOVADAPT-001"]
   - id: "ATLAS-CH-SPLIT-001"
     downstream_architecture_count: 3
-    direct_consumers: ["ATLAS-CH-TRANSPORT-001", "ATLAS-CH-COMPOSE-001"]
+    direct_consumers: ["ATLAS-CH-COMPOSE-001", "ATLAS-CH-TRANSPORT-001"]
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
+  - id: "ATLAS-CH-GOVADAPT-001"
+    downstream_architecture_count: 2
+    direct_consumers: ["ATLAS-CH-FRONTIER-001"]
   - id: "ATLAS-CH-KRYLOV-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-ATTNAPPROX-001", "ATLAS-CH-NEURALKRYLOV-001"]
@@ -35,4 +35,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute frontier first. Repository state overrides chat history."
