@@ -4,18 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 165
-  tranche_id: "AUDIT-041"
-  chapter_ids: ["ATLAS-CH-SECOND-001"]
-  baseline_commit: "62e341cc87130dc1b937da4f126bdc0b9eb9d17a"
-  branch: "audit/second-165"
-  pull_request: 166
-  state: "audit-ci-green"
-  next_action: "Merge PR #166 only from exact green head f1ce6794af3d8c5de4121485488657ec454ca165; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "356273124481084c6c4d7f9a0d5fae59fe4405cb"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-COMPRESS-001 (Compression and Description Length) from baseline 356273124481084c6c4d7f9a0d5fae59fe4405cb. Its hard prerequisites ATLAS-CH-INFO-001 and ATLAS-CH-REP-001 are audited draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-SECOND-001"
-    downstream_architecture_count: 2
-    direct_consumers: ["ATLAS-CH-MATRIXOPT-001"]
+  - id: "ATLAS-CH-COMPRESS-001"
+    downstream_architecture_count: 1
+    direct_consumers: ["ATLAS-CH-COMPINTEL-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
