@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 127
+  issue_number: 128
   tranche_id: "MOE-001"
   chapter_ids:
     - "ATLAS-CH-MOE-001"
-  baseline_commit: "a15170c608c5b83048ce2310e68e527e041438cb"
-  branch: "work/moe-001"
-  pull_request: 127
-  state: "implementation-pr-validation"
-  next_action: "Validate MOE-001 PR #127 at exact head 58cf397f42d288c369a6b22c74ba6d7ae2442d5b; repair in-scope defects, merge when green, then audit."
+  baseline_commit: "5090ed112ee086450387a8465772ec9a2358c410"
+  branch: "audit/moe-001"
+  pull_request: null
+  state: "audit-active"
+  next_action: "Complete AUDIT-033 from issue #128 and branch audit/moe-001."
 frontier:
   - id: "ATLAS-CH-MOE-001"
     downstream_architecture_count: 3
