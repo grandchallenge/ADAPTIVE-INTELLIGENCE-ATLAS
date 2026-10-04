@@ -87,3 +87,15 @@ The update is applied only when the declared condition holds.
 A return can arrive without satisfying its schema. A schema-valid return can fail replay. A replayed result can fail adjudication. A positively adjudicated result can still await a separate programme decision.
 
 The state machine keeps these cases separate.
+
+## 5. Forge, Solve, and Cert are roles
+
+The public GCL workflow uses Forge, Solve, and Cert as a separation of work.
+
+At the level needed here:
+
+- Forge fixes problem and source identity;
+- Solve performs bounded mathematical or computational work and adjudication;
+- Cert performs a separate certification function.
+
+The names are project-specific. The structural lesson is that evidence production, adjudication, and later certification need not be one operation.
