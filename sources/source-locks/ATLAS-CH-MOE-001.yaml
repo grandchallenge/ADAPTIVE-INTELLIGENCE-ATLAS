@@ -75,11 +75,11 @@ sources:
     authority: "Primary source for stability, transfer, routing design, and expert-specialization analyses in sparse expert models."
 epistemic_rules:
   - "Router scores/probabilities, discrete dispatch, accepted capacity, and executed expert work are distinct objects."
-  - "Top-k is a dispatch rule only after tie-breaking, capacity, overflow, and weighting semantics are declared."
+  - "Top-k defines a preferred route; it becomes executed dispatch only after tie-breaking, capacity, overflow, and weighting semantics are declared."
   - "Capacity is a systems constraint on accepted assignments; overflow may be dropped, rerouted, buffered, or handled by another declared policy."
   - "Token-count balance, router-probability balance, realized expert compute, communication cost, and semantic usefulness are distinct quantities."
   - "Balanced traffic does not prove expert specialization."
-  - "Traffic collapse, expert underuse, and expert functional redundancy are distinct failure modes."
+  - "Preferred-router concentration, accepted-load concentration, expert underuse, expert functional redundancy, and capacity overload are distinct failure modes; capacity can mask preferred-route concentration in accepted loads."
   - "Auxiliary load-balancing losses optimize proxies and can trade off against the task objective."
   - "Expert parallelism moves tokens/activations as well as computation; sparse arithmetic does not imply cheap communication."
   - "Capacity and routing policies used during training need not equal serving-time policies."
