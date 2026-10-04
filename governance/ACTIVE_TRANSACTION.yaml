@@ -5,13 +5,13 @@ controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
   issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  tranche_id: "RESEARCHSM-001"
+  chapter_ids: ["ATLAS-CH-RESEARCHSM-001"]
   baseline_commit: "889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf"
-  branch: null
+  branch: "work/researchsm-001"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-RESEARCHSM-001 from protected main 889193744d0ae1bdd6ae6bd0d6328becbc5b3eaf, unless main has advanced; if advanced, recompute the dependency-legal frontier first."
+  state: "instantiated-partial"
+  next_action: "Continue RESEARCHSM-001 on work/researchsm-001. GitHub issue creation is currently blocked by the mutation guard; retry before PR/merge. Bind exact REPLAY-001 and FORMAL-001 identities plus current public GCL lifecycle/gate evidence, then draft and validate."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
     downstream_architecture_count: 3
@@ -35,4 +35,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute frontier first. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
