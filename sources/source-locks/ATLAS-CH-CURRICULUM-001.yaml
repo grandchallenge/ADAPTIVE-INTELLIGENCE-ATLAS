@@ -1,0 +1,117 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-CURRICULUM-001"
+locked_on: "2026-10-04"
+epistemic_class: "established_curriculum_learning_literature_plus_atlas_state_aware_synthesis"
+claim_boundary: >
+  The cited external sources establish representative curriculum-learning,
+  automatic syllabus-selection, and competence-based scheduling mechanisms in
+  their stated experimental settings. The audited DATA and OPTBASE prerequisites
+  establish data-mixture/evaluation semantics and optimizer/training-state
+  boundaries. The Atlas-owned contribution is the explicit state-aware
+  curriculum contract and the finite separation witness showing that nominal
+  difficulty order alone need not determine the useful next sample. No universal
+  claim is made that easy-to-hard ordering, learning-progress maximization,
+  competence schedules, or any particular curriculum improves arbitrary models,
+  datasets, objectives, or generalization regimes.
+sources:
+  - id: "CURRICULUM-BENGIO-2009"
+    citation_key: "BengioEtAl2009Curriculum"
+    kind: "peer-reviewed-conference"
+    title: "Curriculum Learning"
+    venue: "ICML"
+    year: 2009
+    pages: "41-48"
+    doi: "10.1145/1553374.1553380"
+    authority: >
+      Foundational source for organizing training examples into a curriculum and
+      for the continuation-method interpretation. Used as historical/formal
+      precedent, not as a universal guarantee that easy-to-hard order improves
+      optimization or generalization.
+  - id: "CURRICULUM-GRAVES-2017"
+    citation_key: "GravesEtAl2017Curriculum"
+    kind: "peer-reviewed-conference"
+    title: "Automated Curriculum Learning for Neural Networks"
+    venue: "ICML"
+    year: 2017
+    pages: "1311-1320"
+    url: "https://proceedings.mlr.press/v70/graves17a.html"
+    authority: >
+      Source for automated stochastic syllabus selection using learning-progress
+      reward signals and a nonstationary bandit controller in the paper's
+      experimental settings. It does not establish learning progress as a
+      mechanism-level observable or universal curriculum objective.
+  - id: "CURRICULUM-PLATANIOS-2019"
+    citation_key: "PlataniosEtAl2019Curriculum"
+    kind: "peer-reviewed-conference"
+    title: "Competence-based Curriculum Learning for Neural Machine Translation"
+    venue: "NAACL-HLT"
+    year: 2019
+    pages: "1162-1172"
+    doi: "10.18653/v1/N19-1119"
+    url: "https://aclanthology.org/N19-1119/"
+    authority: >
+      Source for scheduling examples using estimated example difficulty and a
+      model-competence schedule in neural machine translation. Its performance
+      and training-time findings remain scoped to the reported experiments.
+atlas_sources:
+  - id: "CURRICULUM-DATA-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-DATA-001.md"
+    git_blob_sha1: "e4cb245419ad3601aa82ac33129660673ab1622c"
+    authority: >
+      Audited prerequisite for data lineage, overlap predicates, raw/effective
+      distributions, mixture weights, synthetic provenance, and evaluation
+      boundaries.
+  - id: "CURRICULUM-DATA-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "reviews/AUDIT-030.md"
+    git_blob_sha1: "740b1340ac969bd330a995b9dca2129f4317a541"
+    authority: "Audit record governing the DATA prerequisite."
+  - id: "CURRICULUM-DATA-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "sources/source-locks/ATLAS-CH-DATA-001.yaml"
+    git_blob_sha1: "701f5504e77342fad29fb4c54eb2926a0c4c90b9"
+    authority: "Source and claim boundary for the audited DATA prerequisite."
+  - id: "CURRICULUM-OPTBASE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md"
+    git_blob_sha1: "42df47c50c2d6d26da65a58b230040e2663f901f"
+    authority: >
+      Audited prerequisite for optimization state, stochastic-gradient semantics,
+      clipping, adaptive updates, schedules, initialization, and the separation
+      between training recipe and theorem.
+  - id: "CURRICULUM-OPTBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "reviews/AUDIT-012.md"
+    git_blob_sha1: "28929ba6b4a16a3cef4a871fd9253d76e8a93634"
+    authority: "Audit record governing the OPTBASE prerequisite."
+  - id: "CURRICULUM-OPTBASE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml"
+    git_blob_sha1: "fa610d3d763cc1a7e76ee4b83e85ce2c965c2825"
+    authority: "Source and claim boundary for the audited OPTBASE prerequisite."
+  - id: "CURRICULUM-GSD-AGENDA"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
+    path: "governance/research-agenda/AGENDA-GSD-001.md"
+    git_blob_sha1: "0f31202a928d8e2cb5e3290d84b32344033c2f19"
+    authority: >
+      Project-local research-agenda context requiring curriculum work not to
+      infer monotone mechanism improvement from smooth loss, additional training,
+      or endpoint benchmarks. This is not a hard prerequisite or external
+      empirical authority.
+epistemic_rules:
+  - "Nominal sample difficulty is a declared scoring rule, not an intrinsic universal property of an example."
+  - "A fixed curriculum is an open-loop schedule; a state-aware curriculum is a policy that may condition on declared learner observations."
+  - "Observed loss decrease or accuracy increase is a behavioral/training signal, not by itself a mechanism-level proof of acquisition, persistence, accessibility, or internal representation change."
+  - "Learning-progress rewards inherit the measurement window, metric, noise, and nonstationarity of the progress estimator."
+  - "A competence schedule controls eligibility or sampling; it does not guarantee competence, generalization, or monotone learning."
+  - "Curriculum effects must be separated from changed example counts, repeated exposure, total compute, optimizer schedule, and mixture weights."
+  - "Sample selection and mixture reweighting are distinct interventions even when they induce related effective sampling distributions."
+  - "The finite Atlas witness proves only a separation between state-independent nominal ordering and a declared state-aware one-step progress policy."
