@@ -7,15 +7,12 @@ current:
   issue_number: 147
   tranche_id: "AUDIT-037"
   chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
-  baseline_commit: "4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f"
-  branch: "audit/curriculum-001"
+  baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
+  branch: null
   pull_request: 148
-  state: "audit-ci-green"
-  next_action: "Merge PR #148 only from exact green head 908bfed94a2f49afbb7e771e0309f624ce208a82; read back protected main, verify issue closure, recompute the dependency-legal frontier, update CURRENT_HANDOFF.md, and reset the controller to idle-ready."
+  state: "audit-merged"
+  next_action: "Both CURRICULUM-001 issues are closed. Persist the recomputed post-audit frontier and next target ATLAS-CH-GOVADAPT-001 in CURRENT_HANDOFF.md, then reset ACTIVE_TRANSACTION.yaml to idle-ready at baseline ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11."
 frontier:
-  - id: "ATLAS-CH-CURRICULUM-001"
-    downstream_architecture_count: 2
-    direct_consumers: ["ATLAS-CH-PROGRESSSEARCH-001"]
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
     direct_consumers: ["ATLAS-CH-FRONTIER-001"]
