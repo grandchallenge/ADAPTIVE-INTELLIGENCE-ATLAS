@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-RESEARCHSM-001"]
   baseline_commit: "a796eb3ae822c3bf998b27de94db7213646d2c59"
   branch: "audit/researchsm-001"
-  pull_request: null
-  state: "audit-active"
-  next_action: "Complete AUDIT-035 from issue #138 and branch audit/researchsm-001."
+  pull_request: 138
+  state: "audit-pr-validation"
+  next_action: "Validate audit PR #138 at exact head ec7edce081f905912a8dc0d23ac6d967604555db; merge when green, verify closure, recompute frontier, and reset."
 frontier:
   - id: "ATLAS-CH-RESEARCHSM-001"
     downstream_architecture_count: 3
