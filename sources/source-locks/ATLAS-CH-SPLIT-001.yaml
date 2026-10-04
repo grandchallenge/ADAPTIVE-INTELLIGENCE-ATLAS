@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SPLIT-001"
+locked_on: "2026-10-04"
+epistemic_class: "established_operator_splitting_plus_atlas_neural_architecture_synthesis"
+claim_boundary: >
+  Lie-Trotter and Strang splitting, commutator-controlled local error, and
+  structure-preserving composition are established numerical-analysis ideas in
+  the cited splitting references. Transformer residual-stream anatomy and
+  attention/FFN block structure are established by the audited Transformer
+  prerequisite. The Atlas-owned contribution here is the bounded synthesis:
+  treating ordered neural sublayer composition as a split-operator design
+  degree of freedom. No claim is made that arbitrary learned nonlinear blocks
+  inherit classical splitting order, exact flows, reversibility, symplecticity,
+  or convergence without separately established assumptions.
+sources:
+  - id: "SPLIT-MCLACHLAN-QUISPEL-2002"
+    citation_key: "McLachlanQuispel2002"
+    kind: "peer-reviewed-article"
+    title: "Splitting methods"
+    journal: "Acta Numerica"
+    volume: 11
+    pages: "341-434"
+    year: 2002
+    doi: "10.1017/S0962492902000053"
+    authority: >
+      Standard survey for operator/vector-field splitting, Lie-Trotter and
+      symmetric composition, commutators, order, and geometric applications.
+  - id: "SPLIT-HAIRER-LUBICH-WANNER-2006"
+    citation_key: "HairerLubichWanner2006"
+    kind: "monograph"
+    title: "Geometric Numerical Integration: Structure-Preserving Algorithms for Ordinary Differential Equations"
+    edition: "2"
+    publisher: "Springer"
+    year: 2006
+    doi: "10.1007/3-540-30666-8"
+    authority: >
+      Standard reference for composition and splitting methods and for the rule
+      that structure-preservation claims must name the preserved structure and
+      the assumptions under which preservation holds.
+  - id: "SPLIT-VASWANI-2017"
+    citation_key: "VaswaniEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Attention Is All You Need"
+    venue: "NeurIPS"
+    year: 2017
+    authority: >
+      Primary architecture source for attention and feed-forward sublayers,
+      residual connections, normalization, and their ordered composition in the
+      original Transformer.
+atlas_sources:
+  - id: "SPLIT-NUMERICS-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md"
+    git_blob_sha1: "a719a16e86d1feb76679e1f1cda2d9d3393d2e42"
+    authority: >
+      Audited prerequisite for exact flows, Lie/Strang splitting, local/global
+      error, stability, stiffness, and bounded structure-preserving semantics.
+  - id: "SPLIT-NUMERICS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "reviews/AUDIT-009.md"
+    git_blob_sha1: "2bbb1b7687d6c4b8c0bfeed5206de836dac92dca"
+    authority: "Audit record governing the Numerics prerequisite."
+  - id: "SPLIT-NUMERICS-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "sources/source-locks/ATLAS-CH-NUMERICS-001.yaml"
+    git_blob_sha1: "7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d"
+    authority: "Source and claim boundary for the audited Numerics prerequisite."
+  - id: "SPLIT-TRANSFORMER-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSFORMER-001.md"
+    git_blob_sha1: "197b74ffd40fe54b79ca15ab731b73538aada494"
+    authority: >
+      Audited prerequisite for residual-stream state, attention and FFN
+      sublayers, normalization placement, masking, and Transformer topology.
+  - id: "SPLIT-TRANSFORMER-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "reviews/AUDIT-011.md"
+    git_blob_sha1: "e8bfa9b062b4b80bd0cccd49f168f99c40843f71"
+    authority: "Audit record governing the Transformer prerequisite."
+  - id: "SPLIT-TRANSFORMER-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b87bad6229896174e6c872994d6a0f4878e2e1d5"
+    path: "sources/source-locks/ATLAS-CH-TRANSFORMER-001.yaml"
+    git_blob_sha1: "dec885c68a9afb439aed9af5ca35b998519722bc"
+    authority: "Source and claim boundary for the audited Transformer prerequisite."
+epistemic_rules:
+  - "A neural residual block is not automatically the exact flow of a differential operator."
+  - "For noncommuting operators, order matters; the first commutator is the leading Lie-order asymmetry in the declared smooth finite-dimensional setting."
+  - "First-order Lie-Trotter and second-order Strang claims apply only under the regularity/domain assumptions required by classical splitting theory."
+  - "A symmetric composition is not thereby exactly invertible when its learned submaps are not exact invertible flows."
+  - "Splitting/discretization error is distinct from approximation, estimation, optimization, and implementation error."
+  - "Layer-varying learned suboperators require a nonautonomous interpretation; autonomous shared-operator formulas may not be silently reused."
+  - "Commuting controls show disappearance of order dependence in the bounded exact witness; they do not imply neural sublayers commute in practice."
