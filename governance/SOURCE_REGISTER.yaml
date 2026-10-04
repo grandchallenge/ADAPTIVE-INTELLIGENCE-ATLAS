@@ -308,3 +308,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-KRYLOV-001.yaml"
     authority: "Audited linear-algebra prerequisite plus classical Arnoldi, Lanczos, and sparse iterative-solver sources, with Atlas-owned synthesis and finite witness."
+
+  - id: "ATLAS-SRC-POSGEOM-LOCK-001"
+    title: "The Geometry of Position source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-POSGEOM-001.yaml"
+    authority: "Audited Attention/Geometry prerequisites plus primary sinusoidal, rotary-position, Position Interpolation, and YaRN sources, with Atlas-owned exact relative-position and control witnesses."
