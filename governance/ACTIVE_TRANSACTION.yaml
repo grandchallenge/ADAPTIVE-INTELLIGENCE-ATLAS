@@ -7,11 +7,11 @@ current:
   issue_number: 145
   tranche_id: "CURRICULUM-001"
   chapter_ids: ["ATLAS-CH-CURRICULUM-001"]
-  baseline_commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
-  branch: "work/curriculum-001"
+  baseline_commit: "4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f"
+  branch: null
   pull_request: 146
-  state: "ci-green"
-  next_action: "Merge PR #146 only from exact green head f1e840f972d76198a53b79afd4249a13b6700af5; read back protected main; then instantiate a bounded post-draft audit against the merged artifact."
+  state: "implementation-merged"
+  next_action: "Instantiate bounded post-draft audit AUDIT-037 for CURRICULUM-001 from protected main 4c28148b2e9d09bf5f5ea3241e49141aeaa33d7f; bind exact merged artifact identities, repair every in-scope defect, validate, and merge the audit."
 frontier:
   - id: "ATLAS-CH-CURRICULUM-001"
     downstream_architecture_count: 2
