@@ -236,7 +236,7 @@ Therefore
 \[
 e^{h(A+B)}
 =
-\cosh\(h\)I+\sinh\(h\)(A+B),
+\cosh(h\)I+\sinh(h\)(A+B),
 \]
 
 or
@@ -310,8 +310,8 @@ Hence
 S_{ABA}\(h\)-e^{h(A+B)}
 =
 \begin{pmatrix}
-O\(h^4\)&h^3/12+O(h^5)\\
--h^3/6+O(h^5)&O\(h^4\)
+O(h^4\)&h^3/12+O(h^5)\\
+-h^3/6+O(h^5)&O(h^4\)
 \end{pmatrix}.
 \]
 
@@ -373,9 +373,9 @@ Thus the witness cleanly separates the noncommuting and commuting cases.
 Let
 
 \[
-F_A\(x\)=hAx,
+F_A(x\)=hAx,
 \qquad
-F_B\(x\)=hBx.
+F_B(x\)=hBx.
 \]
 
 An additive residual update is
@@ -383,7 +383,7 @@ An additive residual update is
 \[
 x^+
 =
-x+F_A\(x\)+F_B\(x\)
+x+F_A(x\)+F_B(x\)
 =
 \left(I+h(A+B)\right)x.
 \]
@@ -417,11 +417,11 @@ So sequential residual composition is not merely an additive sum unless the cros
 For a neural residual block define the actual maps, for example,
 
 \[
-\Psi_A\(H\)=H+F_A(N_A\(H\)),
+\Psi_A(H\)=H+F_A(N_A(H\)),
 \]
 
 \[
-\Psi_B\(H\)=H+F_B(N_B\(H\)).
+\Psi_B(H\)=H+F_B(N_B(H\)).
 \]
 
 The block
@@ -441,13 +441,13 @@ The splitting viewpoint still has architectural value: it asks which transformat
 A Strang-style neural expression requires more than one learned map named \(\Psi_A\). One must declare a step-parameterized family
 
 \[
-\Psi_A\(h\),\qquad \Psi_B\(h\),
+\Psi_A(h\),\qquad \Psi_B(h\),
 \]
 
 with a meaningful half-stage \(\Psi_A(h/2)\). Only then is the palindromic composition
 
 \[
-\Psi_A(h/2)\circ\Psi_B\(h\)\circ\Psi_A(h/2)
+\Psi_A(h/2)\circ\Psi_B(h\)\circ\Psi_A(h/2)
 \]
 
 well-defined as a neural analogue of the classical sequence. Duplicating a block, halving a residual coefficient, or writing the symbol \(A/2\) does not by itself establish Strang semantics.
@@ -457,9 +457,9 @@ For nonlinear maps define the direct composition defect
 \[
 C_\Psi\(x\)
 =
-\Psi_B(\Psi_A\(x\))
+\Psi_B(\Psi_A(x\))
 -
-\Psi_A(\Psi_B\(x\)).
+\Psi_A(\Psi_B(x\)).
 \]
 
 Its derivative, when defined, is
@@ -467,15 +467,15 @@ Its derivative, when defined, is
 \[
 DC_\Psi\(x\)
 =
-J_B(\Psi_A\(x\))J_A\(x\)
+J_B(\Psi_A(x\))J_A(x\)
 -
-J_A(\Psi_B\(x\))J_B\(x\).
+J_A(\Psi_B(x\))J_B(x\).
 \]
 
 This is generally not the same as the same-state algebraic Jacobian commutator
 
 \[
-J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\).
+J_B(x\)J_A(x\)-J_A(x\)J_B(x\).
 \]
 
 The latter can be a useful local diagnostic, but it is not automatically the derivative of the nonlinear composition defect.
