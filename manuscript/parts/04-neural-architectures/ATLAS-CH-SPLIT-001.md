@@ -22,9 +22,9 @@ The numerical substrate comes from the audited Numerics chapter and standard spl
 
 ## 1. The smallest place order can matter
 
-Suppose a state (x) is acted on by two transformations.
+Suppose a state \(x\) is acted on by two transformations.
 
-Call them (A) and (B).
+Call them \(A\) and \(B\).
 
 There are at least three different things one might mean by "use both."
 
@@ -33,13 +33,13 @@ One is an additive update:
 \[
 x^+
 =
-x+F_A(x)+F_B(x).
+x+F_A\(x\)+F_B\(x\).
 \]
 
 Another is sequential composition:
 
 \[
-x_1=\Psi_A(x),
+x_1=\Psi_A\(x\),
 \qquad
 x^+=\Psi_B(x_1).
 \]
@@ -47,7 +47,7 @@ x^+=\Psi_B(x_1).
 A third is the reversed sequence:
 
 \[
-\tilde x_1=\Psi_B(x),
+\tilde x_1=\Psi_B\(x\),
 \qquad
 \tilde x^+=\Psi_A(\tilde x_1).
 \]
@@ -59,9 +59,9 @@ Even when the two transformations are small residual increments, the sequential 
 Take the linear residual increments
 
 \[
-F_A(x)=hAx,
+F_A\(x\)=hAx,
 \qquad
-F_B(x)=hBx.
+F_B\(x\)=hBx.
 \]
 
 The additive update is
@@ -72,7 +72,7 @@ x^+
 \left(I+h(A+B)\right)x.
 \]
 
-If (A) acts first and (B) acts on the resulting state,
+If \(A\) acts first and \(B\) acts on the resulting state,
 
 \[
 x^+
@@ -88,9 +88,9 @@ x^+
 \left(I+h(A+B)+h^2BA\right)x.
 \]
 
-The (h^2BA) term is not decoration. It records that (B) saw a state already changed by (A).
+The \(h^2BA\) term is not decoration. It records that \(B\) saw a state already changed by \(A\).
 
-Reverse the order and the cross term becomes (h^2AB).
+Reverse the order and the cross term becomes \(h^2AB\).
 
 This is the first split-operator fact worth carrying into neural architecture design:
 
@@ -121,9 +121,9 @@ Start with the declared linear system
 \dot x=(A+B)x,
 \]
 
-where (A) and (B) are constant matrices.
+where \(A\) and \(B\) are constant matrices.
 
-The exact combined flow over a step (h) is
+The exact combined flow over a step \(h\) is
 
 \[
 e^{h(A+B)}.
@@ -132,16 +132,16 @@ e^{h(A+B)}.
 If we can solve the two parts separately, we can form the Lie-Trotter compositions
 
 \[
-S_{AB}(h)=e^{hA}e^{hB},
+S_{AB}\(h\)=e^{hA}e^{hB},
 \]
 
 and
 
 \[
-S_{BA}(h)=e^{hB}e^{hA}.
+S_{BA}\(h\)=e^{hB}e^{hA}.
 \]
 
-The first means one exact (B)-subflow and one exact (A)-subflow in the composition order encoded by the matrix product. The second reverses them.
+The first means one exact \(B\)-subflow and one exact \(A\)-subflow in the composition order encoded by the matrix product. The second reverses them.
 
 Expanding both exponentials gives
 
@@ -257,7 +257,7 @@ so
 The two Lie steps are exactly
 
 \[
-S_{AB}(h)
+S_{AB}\(h\)
 =
 \begin{pmatrix}
 1+h^2&h\\
@@ -268,7 +268,7 @@ h&1
 and
 
 \[
-S_{BA}(h)
+S_{BA}\(h\)
 =
 \begin{pmatrix}
 1&h\\
@@ -279,12 +279,12 @@ h&1+h^2
 Subtract:
 
 \[
-S_{AB}(h)-S_{BA}(h)
+S_{AB}\(h\)-S_{BA}\(h\)
 =
 h^2[A,B].
 \]
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 S_{AB}
@@ -340,7 +340,7 @@ e^{h(A+B)}
 \end{pmatrix}.
 \]
 
-At (h=1/2), neither Lie ordering equals this exact combined flow.
+At \(h=1/2\), neither Lie ordering equals this exact combined flow.
 
 Their Frobenius errors are equal in this symmetric witness, approximately
 
@@ -357,19 +357,19 @@ This distinction matters when translating the picture into neural networks. The 
 A standard symmetric composition is Strang splitting:
 
 \[
-S_{ABA}(h)
+S_{ABA}\(h\)
 =
 e^{hA/2}e^{hB}e^{hA/2}.
 \]
 
-For sufficiently regular problems, Strang splitting has a local defect of order (O(h^3)), corresponding to second-order global accuracy under the usual numerical-analysis assumptions [@McLachlanQuispel2002; @HairerLubichWanner2006].
+For sufficiently regular problems, Strang splitting has a local defect of order \(O(h^3)\), corresponding to second-order global accuracy under the usual numerical-analysis assumptions [@McLachlanQuispel2002; @HairerLubichWanner2006].
 
 Our witness shows the cancellation directly.
 
-Because (A^2=B^2=0),
+Because \(A^2=B^2=0\),
 
 \[
-S_{ABA}(h)
+S_{ABA}\(h\)
 =
 \begin{pmatrix}
 1+h^2/2&h+h^3/4\\
@@ -392,7 +392,7 @@ h+h^3/6+O(h^5)&
 
 The quadratic mismatch has disappeared.
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 S_{ABA}
@@ -437,7 +437,7 @@ e^{hB_c}e^{hA_c}
 e^{h(A_c+B_c)}
 \]
 
-for every (h).
+for every \(h\).
 
 This control is important.
 
@@ -453,14 +453,14 @@ That later empirical question is not answered by this chapter.
 
 Return to the Transformer residual stream.
 
-Let (H) be the current residual-stream state. A simplified pre-normalized pair of learned submaps might be written as
+Let \(H\) be the current residual-stream state. A simplified pre-normalized pair of learned submaps might be written as
 
 \[
-\Psi_A(H)=H+F_A(N_A(H)),
+\Psi_A\(H\)=H+F_A(N_A\(H\)),
 \]
 
 \[
-\Psi_B(H)=H+F_B(N_B(H)).
+\Psi_B\(H\)=H+F_B(N_B\(H\)).
 \]
 
 Here (F_A) might stand for attention-like computation and (F_B) for an FFN-like computation.
@@ -470,7 +470,7 @@ The ordered block is then
 \[
 H'
 =
-(\Psi_B\circ\Psi_A)(H).
+(\Psi_B\circ\Psi_A)\(H\).
 \]
 
 The reversed block is
@@ -478,7 +478,7 @@ The reversed block is
 \[
 \tilde H'
 =
-(\Psi_A\circ\Psi_B)(H).
+(\Psi_A\circ\Psi_B)\(H\).
 \]
 
 In general,
@@ -503,7 +503,7 @@ Those two levels must not be collapsed.
 
 ## 9. Normalization belongs inside the submap
 
-A common source of false simplification is to write "attention operator (A)" and "MLP operator (B)" while quietly omitting normalization.
+A common source of false simplification is to write "attention operator \(A\)" and "MLP operator \(B\)" while quietly omitting normalization.
 
 In a pre-LN block, the actual maps look more like
 
@@ -511,7 +511,7 @@ In a pre-LN block, the actual maps look more like
 H_1
 =
 H+
-\operatorname{Attn}(\operatorname{LN}(H)),
+\operatorname{Attn}(\operatorname{LN}\(H\)),
 \]
 
 \[
@@ -521,7 +521,7 @@ H_1+
 \operatorname{FFN}(\operatorname{LN}(H_1)).
 \]
 
-If we call these two stages (Psi_A) and (Psi_B), then LayerNorm is part of the maps.
+If we call these two stages \(\Psi_A\) and \(\Psi_B\), then LayerNorm is part of the maps.
 
 It affects the state dependence.
 
@@ -554,15 +554,20 @@ A/2.
 
 For exact flows, this time-symmetric composition has important numerical consequences.
 
-But a learned neural block of the form
-
+To even write a neural analogue of that sequence, one must first define a step-parameterized family of learned maps
 \[
-\Psi_{A/2}\circ\Psi_B\circ\Psi_{A/2}
+\Psi_A\(h\),\qquad \Psi_B\(h\),
+\]
+with a meaningful half-stage \(\Psi_A(h/2)\). Only then can one form
+\[
+\Psi_A(h/2)\circ\Psi_B\(h\)\circ\Psi_A(h/2).
 \]
 
-is not automatically invertible.
+For a generic learned block \(\Psi_A\) with no declared step parameter, the symbol "half of A" is not defined by the architecture. Halving a residual coefficient or duplicating a block is a new design choice, not automatically the classical half-flow.
 
-If (Psi_A) or (Psi_B) loses information, clips state, normalizes non-injectively, uses non-invertible activation, drops tokens, or otherwise fails to be bijective on the relevant domain, the palindromic ordering does not repair that.
+Even when a valid step-parameterized family is declared, the resulting neural palindromic block is not automatically invertible.
+
+If \(\Psi_A\) or \(\Psi_B\) loses information, clips state, normalizes non-injectively, uses non-invertible activation, drops tokens, or otherwise fails to be bijective on the relevant domain, the palindromic ordering does not repair that.
 
 So we must distinguish:
 
@@ -576,11 +581,11 @@ These are related ideas, not synonyms.
 
 ## 11. Shared operators and changing operators
 
-Classical notation often suggests one fixed pair (A,B).
+Classical notation often suggests one fixed pair \(A,B\).
 
 Neural networks often do not behave that way.
 
-Layer (k) may use
+Layer \(k\) may use
 
 \[
 A_k,
@@ -668,7 +673,7 @@ In a pre-LN form,
 H_1
 =
 H+
-\operatorname{Attn}(\operatorname{LN}(H)),
+\operatorname{Attn}(\operatorname{LN}\(H\)),
 \]
 
 \[
@@ -689,7 +694,7 @@ That question exposes several architecture variants immediately:
 - attention then FFN;
 - FFN then attention;
 - additive parallel updates from the same input state;
-- symmetric attention-half / FFN / attention-half analogues;
+- explicitly step-parameterized palindromic attention-like / FFN-like compositions, when a meaningful half-step family is actually defined;
 - shared repeated submaps;
 - depth-varying submaps;
 - submaps with measured or constrained local interaction.
@@ -711,18 +716,33 @@ For nonlinear maps, several related objects are possible.
 One can compare compositions directly:
 
 \[
-\Psi_B(\Psi_A(x))
+\Psi_B(\Psi_A\(x\))
 -
-\Psi_A(\Psi_B(x)).
+\Psi_A(\Psi_B\(x\)).
 \]
 
-One can compare local Jacobians:
-
+One can also differentiate the nonlinear composition defect. If
 \[
-J_B(x)J_A(x)-J_A(x)J_B(x),
+C_\Psi\(x\)
+=
+\Psi_B(\Psi_A\(x\))
+-
+\Psi_A(\Psi_B\(x\)),
+\]
+then, when the maps are differentiable,
+\[
+DC_\Psi\(x\)
+=
+J_B(\Psi_A\(x\))J_A\(x\)
+-
+J_A(\Psi_B\(x\))J_B\(x\).
 \]
 
-with care because each Jacobian may naturally be evaluated at a different intermediate state.
+A same-state algebraic Jacobian commutator
+\[
+J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\)
+\]
+can still be used as a local diagnostic, but it is generally not the derivative of \(C_\Psi\). Intermediate-state evaluation matters.
 
 One can work with vector-field Lie brackets when actual differentiable vector fields have been declared.
 
@@ -750,7 +770,7 @@ Without a declared reference vector field, step-size semantics, and refinement f
 
 A palindromic block can be aesthetically attractive.
 
-The (O(h^3)) local defect belongs to the classical splitting setting under the required assumptions. It does not automatically apply to arbitrary learned nonlinear sublayers.
+The \(O(h^3)\) local defect belongs to the classical splitting setting under the required assumptions. It does not automatically apply to arbitrary learned nonlinear sublayers. A neural half-step must itself be defined by a declared step-parameterized family before Strang language has mathematical content.
 
 ### 16.3 Ignoring normalization
 
@@ -770,7 +790,7 @@ Optimization failure is not a discretization defect.
 
 ### 16.7 Assuming shared-operator formulas for layer-varying networks
 
-A different (A_k,B_k) at every layer is a different mathematical object from repeated application of fixed (A,B).
+A different \(A_k,B_k\) at every layer is a different mathematical object from repeated application of fixed \(A,B\).
 
 ## 17. What later chapters may now assume
 
@@ -810,7 +830,7 @@ Computational witness:
 - exact matrix products;
 - exact commutator;
 - exact Lie and Strang formulas;
-- bounded (h=1/2) error values;
+- bounded \(h=1/2\) error values;
 - commuting control.
 
 Not established here:
