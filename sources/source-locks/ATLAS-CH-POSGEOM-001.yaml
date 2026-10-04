@@ -1,0 +1,138 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-POSGEOM-001"
+locked_on: "2026-10-04"
+epistemic_class: "audited_attention_and_geometry_prerequisites_plus_primary_position_encoding_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Attention-as-an-Operator prerequisite supplies the score/operator/value
+  decomposition and the absence-of-position permutation-equivariance boundary. The
+  audited Geometry prerequisite supplies rotations, orthogonality, and exact geometric
+  language. Vaswani et al. (2017) supports the original additive sinusoidal positional
+  encoding construction and its relative-offset linear-transform motivation. Su et al.
+  (2021) supports rotary position embedding as position-dependent rotations and the
+  relative-position dependence induced in query-key inner products. Chen et al. (2023)
+  supports Position Interpolation as a context-extension method for RoPE-based LLMs,
+  including its reported empirical results and its interpolation-versus-extrapolation
+  stability analysis. Peng et al. (2023) supports YaRN as an empirical context-extension
+  method. The Atlas block-rotation witness, non-orthogonal control, multidimensional
+  composition, and chapter organization are Atlas-owned derivations. No source here
+  establishes a universal theorem that RoPE extrapolates reliably to arbitrary lengths,
+  that any context-scaling heuristic preserves model quality, or that positional geometry
+  alone determines long-context capability.
+
+sources:
+  - id: "POSGEOM-VASWANI-2017"
+    citation_key: "VaswaniEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Attention Is All You Need"
+    authors: "Ashish Vaswani; Noam Shazeer; Niki Parmar; Jakob Uszkoreit; Llion Jones; Aidan N. Gomez; Lukasz Kaiser; Illia Polosukhin"
+    venue: "NeurIPS 2017"
+    year: 2017
+    url: "https://arxiv.org/abs/1706.03762"
+    authority: >
+      Primary source for additive fixed sinusoidal positional encodings in the original
+      Transformer, including the stated motivation that a fixed offset can be represented
+      by a linear transform of the sinusoidal encoding. The paper's statement that such
+      encodings may extrapolate beyond training length is a motivation/hypothesis, not a
+      universal guarantee.
+
+  - id: "POSGEOM-SU-ROFORMER-2021"
+    citation_key: "SuEtAl2021RoFormer"
+    kind: "preprint"
+    title: "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+    authors: "Jianlin Su; Yu Lu; Shengfeng Pan; Ahmed Murtadha; Bo Wen; Yunfeng Liu"
+    year: 2021
+    arxiv: "2104.09864"
+    doi: "10.48550/arXiv.2104.09864"
+    url: "https://arxiv.org/abs/2104.09864"
+    authority: >
+      Primary RoPE source: position is encoded through rotations, and the resulting
+      query-key inner product can be expressed through relative position. Claims about
+      long-context performance remain scoped to the paper's construction and experiments.
+
+  - id: "POSGEOM-CHEN-PI-2023"
+    citation_key: "ChenEtAl2023PositionInterpolation"
+    kind: "preprint"
+    title: "Extending Context Window of Large Language Models via Positional Interpolation"
+    authors: "Shouyuan Chen; Sherman Wong; Liangjian Chen; Yuandong Tian"
+    year: 2023
+    arxiv: "2306.15595"
+    doi: "10.48550/arXiv.2306.15595"
+    url: "https://arxiv.org/abs/2306.15595"
+    authority: >
+      Primary source for Position Interpolation on RoPE-based LLMs: linearly rescaling
+      position indices into the pretrained range, reported context extension to 32768
+      tokens with limited fine-tuning, and the paper's theoretical comparison of
+      interpolation and extrapolation bounds. The results are not universal guarantees
+      for arbitrary models or lengths.
+
+  - id: "POSGEOM-PENG-YARN-2023"
+    citation_key: "PengEtAl2023YaRN"
+    kind: "preprint"
+    title: "YaRN: Efficient Context Window Extension of Large Language Models"
+    authors: "Bowen Peng; Jeffrey Quesnelle; Honglu Fan; Enrico Shippole"
+    year: 2023
+    arxiv: "2309.00071"
+    doi: "10.48550/arXiv.2309.00071"
+    url: "https://arxiv.org/abs/2309.00071"
+    authority: >
+      Primary source for YaRN as an empirical RoPE context-extension method, including
+      reported token/training-step efficiency and long-context evaluations. It is used
+      as evidence for a method family, not as a theorem that all extrapolation is safe.
+
+atlas_sources:
+  - id: "POSGEOM-ATTNOP-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNOP-001.md"
+    git_blob_sha1: "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
+    authority: >
+      Audited prerequisite supplying the score/operator/value/full-map distinction and
+      the exact permutation-equivariance statement in the absence of positional asymmetry.
+
+  - id: "POSGEOM-ATTNOP-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "reviews/AUDIT-002.md"
+    git_blob_sha1: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+    authority: "Audit record governing the Attention-as-an-Operator prerequisite."
+
+  - id: "POSGEOM-ATTNOP-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "sources/source-locks/ATLAS-CH-ATTNOP-001.yaml"
+    git_blob_sha1: "4af4e53230776daaf0be825cffd1263957ed97c8"
+    authority: "Exact source and claim boundary for the audited attention prerequisite."
+
+  - id: "POSGEOM-GEOM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md"
+    git_blob_sha1: "f8e406f24a01bd852996e11118e04427ff549f35"
+    authority: >
+      Audited prerequisite supplying orthogonal rotations, geometric invariance discipline,
+      tangent/metric language where applicable, and exact-versus-heuristic geometry boundaries.
+
+  - id: "POSGEOM-GEOM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "reviews/AUDIT-001.md"
+    git_blob_sha1: "f13b7ac01f7b10dfadd64da6f31c45832344c082"
+    authority: "Audit record governing the Geometry prerequisite."
+
+  - id: "POSGEOM-GEOM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "df99382bf263423fea72bcf75d2d222c19112031"
+    path: "sources/source-locks/ATLAS-CH-GEOM-001.yaml"
+    git_blob_sha1: "d75e8bcf5a5920eca6b09cb8bb181182c7827b5c"
+    authority: "Exact source and claim boundary for the audited Geometry prerequisite."
+
+epistemic_rules:
+  - "Additive sinusoidal positional encodings and rotary positional transforms are different mechanisms and must not be conflated."
+  - "For a 2D rotation block R(phi), orthogonality gives R(phi)^T R(psi)=R(psi-phi); this exact relative-position identity is algebraic."
+  - "RoPE's relative-position inner-product identity does not imply universal long-context extrapolation quality."
+  - "A same-offset pair can lose relative-only dependence under a non-orthogonal position transform; orthogonality/group structure is load-bearing in the exact witness."
+  - "Position Interpolation and YaRN are context-extension methods with paper-scoped theoretical/empirical evidence, not universal guarantees."
+  - "Frequency scaling, index interpolation, fine-tuning, and architecture changes are distinct interventions."
+  - "Absolute position labels, relative offsets, and attention-content geometry are distinct objects."
+  - "One-dimensional and multidimensional position require explicit coordinate/group structure; a 2D positional scheme is not justified merely by duplicating a 1D label."
+  - "The downstream Relative-Position Operators chapter must independently justify operator decomposition, frequency-mode, DC-component, and head-specialization claims."
