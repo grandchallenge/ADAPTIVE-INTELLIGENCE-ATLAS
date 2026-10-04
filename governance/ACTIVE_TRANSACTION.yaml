@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-GOVADAPT-001"]
   baseline_commit: "ae2ce726fa4f24fc52289a1f2e6bbbaff9232d11"
   branch: "work/atlas-149"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the implementation PR from work/atlas-149, run canonical validation on the exact head, repair every in-scope defect, replay validation, and merge only from a fresh green exact head."
+  pull_request: 150
+  state: "pr-open"
+  next_action: "Validate PR #150 at exact head fc96a7d93994d8da10fb6ee3b7e45be11f75c968. Repair any in-scope failure and merge only after fresh green exact-head validation."
 frontier:
   - id: "ATLAS-CH-GOVADAPT-001"
     downstream_architecture_count: 2
