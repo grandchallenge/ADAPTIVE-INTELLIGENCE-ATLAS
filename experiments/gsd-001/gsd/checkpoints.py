@@ -83,3 +83,26 @@ def stride_refs(
     if include_final and selected[-1] != refs[-1]:
         selected = [*selected, refs[-1]]
     return selected
+
+
+def first_tranche_20(refs: list[CheckpointRef]) -> list[CheckpointRef]:
+    """Frozen 20-point OLMo-2 1B discovery design.
+
+    The current public early-training series contains 37 checkpoints at
+    1000-step cadence from step 0 through step 36000. Select every
+    2000-step checkpoint (19 points) and add step 35000 as a terminal flank.
+    Fail closed if the expected public series shape changes.
+    """
+    by_step = {r.step: r for r in refs}
+    expected = set(range(0, 36001, 1000))
+    if set(by_step) != expected:
+        missing = sorted(expected - set(by_step))
+        extra = sorted(set(by_step) - expected)
+        raise ValueError(
+            f"unexpected OLMo-2 early-training revision set; missing={missing} extra={extra}"
+        )
+    steps = list(range(0, 36001, 2000)) + [35000]
+    selected = [by_step[step] for step in steps]
+    if len(selected) != 20:
+        raise AssertionError(f"expected 20 revisions, got {len(selected)}")
+    return sorted(selected)
