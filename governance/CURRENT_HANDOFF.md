@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `8fbae32144f94e497203b311cc0a824f8cd8a486`
+**Current main:** `356273124481084c6c4d7f9a0d5fae59fe4405cb`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,19 +69,54 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `8fbae32144f94e497203b311cc0a824f8cd8a486`;
-- next target: `ATLAS-CH-SECOND-001`;
-- title: **Curvature and Second-Order Structure**;
-- reason: after POSGEOM-001 audit closure, SECOND-001 is the unique dependency-legal architecture chapter with downstream architecture count 2.
+- baseline/main: `356273124481084c6c4d7f9a0d5fae59fe4405cb`;
+- next target: `ATLAS-CH-COMPRESS-001`;
+- title: **Compression and Description Length**;
+- reason: after SECOND-001 audit closure, the dependency-legal frontier has no count-2 leader. The top tier is a count-1 tie, and deterministic ordering selects COMPRESS-001 first.
 
-Current frontier, recomputed from the live post-AUDIT-040 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-041 Chapter Ledger:
 
-1. `ATLAS-CH-SECOND-001` — downstream architecture count 2; direct consumer `ATLAS-CH-MATRIXOPT-001`.
-2. The next tier has downstream architecture count 1 and includes `ATLAS-CH-COMPRESS-001`, `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-HARDWARE-001`, `ATLAS-CH-MANOPT-001`, `ATLAS-CH-MECHDIAG-001`, `ATLAS-CH-POLITY-001`, `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-RPO-001`, `ATLAS-CH-TOKEN-001`, `ATLAS-CH-TRANSPORT-001`, and `ATLAS-CH-UNCERTAINTY-001`.
+1. `ATLAS-CH-COMPRESS-001` — downstream architecture count 1; direct consumer `ATLAS-CH-COMPINTEL-001`.
+2. Other count-1 entries include `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-HARDWARE-001`, `ATLAS-CH-MANOPT-001`, `ATLAS-CH-MATRIXOPT-001`, `ATLAS-CH-MECHDIAG-001`, `ATLAS-CH-POLITY-001`, `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-RPO-001`, `ATLAS-CH-TOKEN-001`, `ATLAS-CH-TRANSPORT-001`, and `ATLAS-CH-UNCERTAINTY-001`.
 
-POSGEOM-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-RPO-001` is newly dependency-legal with downstream architecture count 1.
+SECOND-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-MATRIXOPT-001` is newly dependency-legal.
 
 ## 5. Immediately preceding completed tranches
+
+### SECOND-001 — Curvature and Second-Order Structure
+
+- implementation issue: #163, closed completed;
+- implementation PR: #164;
+- implementation merge: `62e341cc87130dc1b937da4f126bdc0b9eb9d17a`;
+- audit: `AUDIT-041`;
+- audit issue: #165, closed completed;
+- audit PR: #166;
+- audit merge / current main: `356273124481084c6c4d7f9a0d5fae59fe4405cb`.
+
+Core exact objects:
+
+- local quadratic model `f(x)+g^T p + 1/2 p^T H p`;
+- Newton equation `Hp=-g`;
+- positive-definite descent identity `g^T p_N=-g^T H^{-1}g<0`;
+- explicit indefinite-curvature counterexample where raw Newton is ascent;
+- trust-region model with radius `Delta`;
+- Hessian-vector products without explicit Hessian formation;
+- Fisher metric and natural-gradient distinction;
+- quasi-Newton secant relation `B s=y`;
+- proximal operator and soft-threshold witness.
+
+Exact witnesses:
+
+- SPD quadratic: `H=diag(1,4)`, `b=(1,1)^T`, Newton step `(1,1/4)^T`, objective `0 -> -5/8`;
+- indefinite control: `f(x,y)=1/2(x^2-y^2)` at `(0,1)`, raw Newton direction has `g^T p_N=1>0` and raises the objective to `0`;
+- trust-region radius `1` selects `p=(0,1)^T` and lowers the objective to `-2`;
+- metric witness: `G=diag(1,4)`, Euclidean direction `(-1,-1)^T`, metric direction `(-1,-1/4)^T`;
+- proximal threshold `1`: `3->2`, `-3->-2`, `1/2->0`.
+
+AUDIT-041 found no mathematical or prose reversal. It repaired one source-metadata omission by adding the canonical Parikh–Boyd DOI `10.1561/2400000003` and publisher locator.
+
+Load-bearing boundary: local second-order structure does not by itself establish global convexity, global optimality, or universal optimizer superiority.
+
 
 ### POSGEOM-001 — The Geometry of Position
 
@@ -1112,57 +1147,45 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — SECOND-001
+## 7. Next tranche — COMPRESS-001
 
 Stable ID:
 
-`ATLAS-CH-SECOND-001`
+`ATLAS-CH-COMPRESS-001`
 
 Title:
 
-**Curvature and Second-Order Structure**
+**Compression and Description Length**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-OPTBASE-001`;
-- `ATLAS-CH-GEOM-001`.
+- `ATLAS-CH-INFO-001`;
+- `ATLAS-CH-REP-001`.
 
 Atlas contract:
 
-> Develop Hessians, Fisher information, natural gradient, quasi-Newton methods, trust regions, and proximal ideas.
+> Develop MDL, pruning, quantization, distillation, low rank, weight sharing, and structured transforms.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
-The audited First-Order Optimization prerequisite may supply:
-
-- gradient-based update notation;
-- SGD/momentum/Adam-family baseline machinery;
-- schedules, clipping, weight decay, and first-order stability boundaries.
-
-The audited Geometry prerequisite may supply:
-
-- tangent and metric language;
-- orthogonal/geometric structure;
-- exact-versus-heuristic geometry discipline.
-
 A sound intellectual spine should distinguish at least:
 
-1. Hessian curvature from gradient magnitude;
-2. positive-definite, indefinite, and singular curvature regimes;
-3. Hessian from Fisher information;
-4. Euclidean gradient from natural gradient;
-5. exact Newton steps from damped/regularized approximations;
-6. quasi-Newton secant updates from exact Hessian inversion;
-7. trust-region models from unconstrained quadratic minimization;
-8. proximal operators from generic regularization penalties;
-9. matrix-free Hessian-vector products from explicit Hessian formation;
-10. local second-order structure from global optimization guarantees.
+1. coding length from parameter count;
+2. lossless from lossy compression;
+3. model compression from data compression;
+4. pruning from quantization;
+5. low-rank factorization from unstructured sparsity;
+6. weight sharing from parameter deletion;
+7. knowledge distillation from literal parameter compression;
+8. MDL/model selection from ad hoc size minimization;
+9. compression ratio from retained task quality;
+10. descriptive compactness from mechanistic or semantic understanding.
 
-The finite witness should be selected only after source locking. A useful exact witness would compare one quadratic with well-conditioned positive curvature against an indefinite or badly conditioned control, making the Newton/natural-gradient/trust-region distinctions transparent.
+The finite witness should be selected only after source locking. It should include an exact toy coding/parameter example where two representations have equal predictive behavior but different description lengths, plus a control showing that aggressive compression can destroy the relevant function.
 
-Direct consumer after audit:
+Direct consumer:
 
-- `ATLAS-CH-MATRIXOPT-001`.
+- `ATLAS-CH-COMPINTEL-001`.
 
 ## 8. Durable restart instruction for a fresh chat
 
