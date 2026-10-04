@@ -40,6 +40,7 @@ May assume from Transformer:
 Must not assume:
 
 - that learned residual updates are exact exponentials;
+- that an arbitrary learned submap has a meaningful half-step; a Strang-style neural analogue requires an explicitly declared step-parameterized family \(\Psi_A\(h\),\Psi_B\(h\)\) with a defined \(h/2\) stage;
 - that classical splitting order transfers to arbitrary nonlinear learned maps;
 - that a symmetric block is exactly reversible;
 - that attention and FFN commute;
@@ -68,26 +69,28 @@ For a declared reference problem
 \dot x=(A+B)x,
 \]
 
-with constant matrices (A,B), define exact subflows
+with constant matrices \(A,B\), define exact subflows
 
 \[
-\Phi_A(h)=e^{hA},
+\Phi_A\(h\)=e^{hA},
 \qquad
-\Phi_B(h)=e^{hB}.
+\Phi_B\(h\)=e^{hB}.
 \]
 
-Lie compositions:
+Lie product labels:
 
 \[
-S_{AB}(h)=e^{hA}e^{hB},
+S_{AB}\(h\)=e^{hA}e^{hB},
 \qquad
-S_{BA}(h)=e^{hB}e^{hA}.
+S_{BA}\(h\)=e^{hB}e^{hA}.
 \]
+
+For column vectors, matrix products act right-to-left. Thus \(S_{AB}\) is a product-order label: it applies the \(B\) subflow first and then the \(A\) subflow. Chronological "A then B" is \(S_{BA}\). The chapter must not use product subscripts as ambiguous execution-order prose.
 
 Symmetric Strang composition:
 
 \[
-S_{ABA}(h)=e^{hA/2}e^{hB}e^{hA/2}.
+S_{ABA}\(h\)=e^{hA/2}e^{hB}e^{hA/2}.
 \]
 
 Commutator:
@@ -99,46 +102,46 @@ Commutator:
 In the declared finite-dimensional analytic setting,
 
 \[
-S_{AB}(h)-e^{h(A+B)}
+S_{AB}\(h\)-e^{h(A+B)}
 =
 \frac{h^2}{2}[A,B]+O(h^3),
 \]
 
 and reversing the order reverses the sign of the leading commutator term.
 
-The symmetric composition has local defect (O(h^3)).
+The symmetric composition has local defect \(O(h^3)\).
 
 ## Neural translation
 
-For a residual-stream state (H), define two learned submaps explicitly:
+For a residual-stream state \(H\), define two learned submaps explicitly:
 
 \[
-\Psi_A(H)=H+F_A(N_A(H)),
+\Psi_A\(H\)=H+F_A(N_A\(H\)),
 \]
 
 \[
-\Psi_B(H)=H+F_B(N_B(H)).
+\Psi_B\(H\)=H+F_B(N_B\(H\)).
 \]
 
 Then the ordered block
 
 \[
-H'=(\Psi_B\circ\Psi_A)(H)
+H'=(\Psi_B\circ\Psi_A)\(H\)
 \]
 
 is not equivalent in general to
 
 \[
-(\Psi_A\circ\Psi_B)(H).
+(\Psi_A\circ\Psi_B)\(H\).
 \]
 
 Normalization, masking, residual wrapping, parameter sharing, and any stochasticity are part of the submap definition and cannot be removed from the mathematical object without argument.
 
-Use exact-flow notation (e^{hA}) only for the linear witness and other settings where an exact flow has actually been declared.
+Use exact-flow notation \(e^{hA}\) only for the linear witness and other settings where an exact flow has actually been declared.
 
 ## Additive versus sequential witness
 
-For linear residual increments (F_A(x)=hAx), (F_B(x)=hBx):
+For linear residual increments \(F_A\(x\)=hAx\), \(F_B\(x\)=hBx\):
 
 additive update:
 
@@ -176,7 +179,7 @@ B=
 \end{pmatrix}.
 \]
 
-Then (A^2=B^2=0) and
+Then \(A^2=B^2=0\) and
 
 \[
 [A,B]
@@ -187,7 +190,7 @@ Then (A^2=B^2=0) and
 \end{pmatrix}.
 \]
 
-At (h=1/2),
+At \(h=1/2\),
 
 \[
 e^{hA}e^{hB}
@@ -249,7 +252,7 @@ A_c=\operatorname{diag}(1,2),
 B_c=\operatorname{diag}(3,4).
 \]
 
-Since ([A_c,B_c]=0),
+Since \([A_c,B_c]=0\),
 
 \[
 e^{hA_c}e^{hB_c}
@@ -259,7 +262,7 @@ e^{hB_c}e^{hA_c}
 e^{h(A_c+B_c)}
 \]
 
-exactly for every (h).
+exactly for every \(h\).
 
 ## Principal pedagogical device
 
@@ -282,7 +285,8 @@ Include:
 - Strang order does not automatically survive arbitrary state dependence, normalization, discontinuous routing, stochasticity, or learned approximation;
 - layer-varying operators require a nonautonomous reading;
 - splitting error is distinct from model, data, estimation, optimization, finite-precision, and implementation error;
-- small commutator in one local linearization is not a global theorem.
+- small commutator in one local linearization is not a global theorem;
+- the same-state Jacobian commutator \(J_B\(x\)J_A\(x\)-J_A\(x\)J_B\(x\)\) is a local diagnostic, not the derivative of the nonlinear composition defect in general.
 
 ## Downstream obligations
 
@@ -307,8 +311,8 @@ Source lock:
 
 The draft must:
 
-- derive both Lie orderings and the commutator sign;
-- include a bounded Strang derivation;
+- derive both Lie product orderings and the commutator sign with an explicit right-to-left application convention;
+- include a bounded Strang derivation and require a declared step-parameterized family before using neural half-step notation;
 - include the exact noncommuting witness and commuting control;
 - distinguish exact-flow mathematics from neural architectural synthesis;
 - model normalization/residual wrapping as part of the submaps;
