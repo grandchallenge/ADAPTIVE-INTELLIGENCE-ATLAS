@@ -274,19 +274,27 @@ Hard feasibility loss:
 
 The latter is the sharp form of lost correction capacity.
 
-## 10. Tolerance-indexed correction capacity
+## 10. Conditional correction and ex-ante correction capacity
 
-Given tolerance `epsilon>=0` and finite belief `b`, define:
+After evidence resolves the environment to `theta`, define the conditional correction indicator:
+
+`C_{h,epsilon}(s,theta)
+=
+1{k_h(s,theta)<=epsilon}`.
+
+This is the post-evidence statement: in this environment, can the declared correction still be executed within tolerance?
+
+Before the evidence arrives, define the ex-ante belief-weighted summary:
 
 `CC_{h,epsilon}(s;b)
 =
-sum_theta b(theta) 1{k_h(s,theta)<=epsilon}`.
+sum_theta b(theta) C_{h,epsilon}(s,theta)`.
 
 Interpretation:
 
 `CC`
 
-is the probability mass of environments for which a satisfactory correction remains reachable within the declared tolerance.
+is the pre-evidence probability mass of environments for which a satisfactory correction will remain reachable within the declared tolerance.
 
 The quantity lies in `[0,1]`.
 
@@ -310,7 +318,7 @@ with prior:
 
 `P(L)=P(R)=1/2`.
 
-At stage 0 compare two actions.
+At stage 0 the admissible action set is `{P,C_L,C_R}`.
 
 Preserve `P`:
 
@@ -323,6 +331,14 @@ Commit-left `C_L`:
 - pay immediate reward `0`;
 - move to state `s_L`;
 - retain only terminal action `{L}`.
+
+Commit-right `C_R` is the symmetric admissible commitment:
+
+- pay immediate reward `0`;
+- move to state `s_R`;
+- retain only terminal action `{R}`.
+
+The learner-policy comparison remains `P` versus `C_L`. Declaring `C_R` makes the environment-informed comparator below a member of the declared stage-0 action set.
 
 At stage 1, observe `theta` perfectly.
 
@@ -364,7 +380,7 @@ A scalar expected-value comparison is silent.
 
 ## 13. Bayesian regret can also tie
 
-Use an environment-informed comparator that knows the environment at stage 0 and makes the matching commitment.
+Use a clairvoyant environment-informed comparator that knows `theta` before stage 0 and chooses the declared matching commitment `C_theta`.
 
 Its value is:
 
@@ -434,9 +450,13 @@ Then in the preserved state:
 
 `k(s_P,R)=0`.
 
-Therefore:
+Therefore the post-evidence indicators satisfy:
 
-`CC_{1,0}(s_P)=1`.
+`C_{1,0}(s_P,L)=C_{1,0}(s_P,R)=1`,
+
+and the ex-ante capacity is:
+
+`CC_{1,0}(s_P;b)=1`.
 
 In the committed-left state:
 
@@ -446,7 +466,13 @@ In the committed-left state:
 
 Therefore:
 
-`CC_{1,0}(s_L)=1/2`.
+`C_{1,0}(s_L,L)=1`;
+
+`C_{1,0}(s_L,R)=0`;
+
+and the ex-ante capacity is:
+
+`CC_{1,0}(s_L;b)=1/2`.
 
 The prior value tie hid a real asymmetry in the ability to act on future evidence.
 
@@ -735,7 +761,8 @@ Its role is to expose a missing state variable in some adaptive decisions.
 - functional option quotients `O_h(s)`;
 - horizon-relative recoverability;
 - extended-real correction cost `k_h(s,theta)`;
-- tolerance-indexed correction capacity `CC_{h,epsilon}(s;b)`;
+- conditional correction indicator `C_{h,epsilon}(s,theta)`;
+- ex-ante tolerance-indexed correction capacity `CC_{h,epsilon}(s;b)`;
 - the distinction between information acquisition and ability to exploit information;
 - the exact equal-value/equal-Bayes-regret separation witness;
 - the counterexample showing that preserving options can be too costly.
