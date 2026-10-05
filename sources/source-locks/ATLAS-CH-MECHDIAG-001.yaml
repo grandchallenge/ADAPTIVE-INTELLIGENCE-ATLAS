@@ -21,3 +21,4 @@ atlas_sources:
     git_blob_sha1: "dec885c68a9afb439aed9af5ca35b998519722bc"
   - path: "reviews/AUDIT-011.md"
     git_blob_sha1: "e8bfa9b062b4b80bd0cccd49f168f99c40843f71"
+claim_boundary: "Finite chapter scope only."
