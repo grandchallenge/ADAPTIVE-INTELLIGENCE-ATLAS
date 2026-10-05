@@ -4,20 +4,20 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 182
-  tranche_id: "AUDIT-045"
-  chapter_ids: ["ATLAS-CH-MANOPT-001"]
-  baseline_commit: "b47e9d42557428bb2c985b2ba916bbcdf6489a8f"
-  branch: "audit/manopt-182"
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+  branch: null
   pull_request: null
-  state: "audit-ci-green"
-  next_action: "Merge PR #183 only from exact green head e7b1bb5b7cd2bc20b7b1f7a58ca40579bab6cfc4; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-MATRIXOPT-001 (Matrix-Aware Optimization) from baseline b75d840b51268d2ac43041af7a02fade2a660ba3. Its hard prerequisites ATLAS-CH-LINALG-001 and ATLAS-CH-SECOND-001 are draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-MANOPT-001"
+  - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-VARIOPT-001"]
+    direct_consumers: ["ATLAS-CH-SPECTRALSHAPE-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
