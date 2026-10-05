@@ -5,9 +5,9 @@ issue: 152
 branch: "research/gsd-tranche-a"
 protected_plan: "governance/research-agenda/GSD-001_RESEARCH_PROGRAMME.md"
 scope: ["GSD-WP00", "GSD-WP01", "GSD-WP02", "GSD-WP03"]
-state: "WP00_CLOSED"
-current_frontier: "WP01_ACCELERATOR_SWEEP"
-next_action: "Execute the one-checkpoint smoke run on CUDA, then complete the deterministic 20-checkpoint OLMo 2 1B sweep."
+state: "WP01_CLOSED__WP02_ACTIVE"
+current_frontier: "WP02_PAPER_PROBE_EXPANSION"
+next_action: "Run the frozen L4 paper-probe expansion in compute order: truthy_answer, successive_answer, repetitive_answer, flipped_answer; catalogue task-level reversals after each family."
 completion_gates:
   WP00:
     - "exact external source identities recorded"
@@ -48,3 +48,25 @@ colab_execution:
   cli_compatibility_note: "Lifecycle primitives new/upload/exec/download/log/stop remain available; version drift must be receipted."
   launch_state: "READY_NOT_STARTED"
   launch_blocker: "Remote Desktop Commander currently blocks starting a new host shell process; no direct Colab connector or GitHub dispatch surface is available."
+
+wp01_closure:
+  receipt: "experiments/gsd-001/receipts/WP01_L4_RECEIPT.md"
+  experiment_id: "GSD-WP01-OLMO2-1B-CRT-COARSE20-L4-001"
+  source_commit: "db4abac3bc6bdeeafdd0698ab72098ff5902baa8"
+  status: "GREEN_ENGINEERING"
+  hardware: "NVIDIA L4"
+  checkpoint_count: 20
+  summary_count: 20
+  crt_state_reversals: 0
+  crt_candidate_transitions: 0
+
+wp02_expansion:
+  execution_order:
+    - "truthy_answer"
+    - "successive_answer"
+    - "repetitive_answer"
+    - "flipped_answer"
+  rationale: "Compute-ordered by number of underlying paired-answer tasks; task-level summaries remain primary."
+  primary_accelerator: "L4"
+  fallback_accelerator: "A100"
+  stop_rule: "After each family, catalogue exact task-level state reversals. A reversal still requires stable-control evidence before candidate promotion."
