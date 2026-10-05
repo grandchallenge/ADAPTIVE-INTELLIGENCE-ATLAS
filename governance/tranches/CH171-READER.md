@@ -168,3 +168,16 @@ So the open question is:
 > Under which assumptions do local interface obligations compose into a useful system-level guarantee?
 
 Local compatibility alone is not a global guarantee.
+
+
+## 12. Source boundaries
+
+Research vocabulary and source evidence are different objects.
+
+When project terminology is stronger than the exact source-locked artifact, the Atlas keeps the stronger wording at programme status and binds factual implementation claims to the inspected source.
+
+This rule applies across the programme:
+
+\[
+\boxed{\text{programme vocabulary}\neq\text{source evidence}.}
+\]
