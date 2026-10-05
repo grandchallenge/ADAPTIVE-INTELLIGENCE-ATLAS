@@ -33,3 +33,18 @@ stop_conditions:
   - "accelerator execution surface unavailable after implementation/CI is complete"
   - "external artifact cannot be resolved by exact identity"
   - "validation failure requiring substantive redesign"
+
+colab_execution:
+  architecture: "GCL host-orchestrated Colab lifecycle reused from QUANTUM-TECHNOLOGIES"
+  adapter: "experiments/gsd-001/colab/gsd_remote_job.py"
+  payload_builder: "experiments/gsd-001/colab/build_payload.py"
+  host_launcher: "experiments/gsd-001/colab/run_wp01_colab.sh"
+  frozen_job: "experiments/gsd-001/colab/jobs/wp01_olmo2_1b_crt_coarse20_t4.json"
+  requested_accelerator: "T4"
+  checkpoint_count: 20
+  checkpoint_design: "steps 0,2000,...,36000 plus terminal flank 35000"
+  host_cli_observed: "google-colab-cli 0.7.4"
+  qtr_documented_cli: "google-colab-cli 0.6.0"
+  cli_compatibility_note: "Lifecycle primitives new/upload/exec/download/log/stop remain available; version drift must be receipted."
+  launch_state: "READY_NOT_STARTED"
+  launch_blocker: "Remote Desktop Commander currently blocks starting a new host shell process; no direct Colab connector or GitHub dispatch surface is available."
