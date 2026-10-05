@@ -5,7 +5,9 @@ Status authority: governance/CHAPTER_LEDGER.yaml at blob aae56946850eb16bc4a2788
 
 ## Evidence grammar
 
-AUDITED_SUBSTRATE means a local Atlas chapter is at draft-v0.1 after its bounded audit.
+AUDIT_BOUND_SUBSTRATE means this chapter's source lock binds an exact post-draft audit record for the consumed prerequisite.
+
+DRAFT_SUBSTRATE means the protected Chapter Ledger records draft-v0.1; that status alone is not used here as proof of post-draft audit completion.
 
 ARCHITECTURE_STAGE means a chapter contract and dependency location exist, but the chapter has not yet crossed its draft/audit boundary.
 
@@ -19,7 +21,7 @@ CONJECTURAL_CONNECTION means an attractive cross-programme relation that is not 
 
 ### 1. Geometry-derived optimization
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - SECOND-001: draft-v0.1.
 
 Current architecture-stage programmes:
@@ -40,7 +42,7 @@ Naming a method "geometric" or observing one successful run does not establish g
 
 ### 2. Operator-valued position
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - POSGEOM-001: draft-v0.1.
 
 Current architecture-stage programme:
@@ -57,7 +59,7 @@ Ordinary RoPE relative-phase algebra is not itself an RPO theorem.
 
 ### 3. Adaptive depth as error control
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - DEPTH-001: draft-v0.1.
 - NETNUM-001: draft-v0.1.
 
@@ -75,7 +77,7 @@ Variable depth alone is not evidence of numerical error control.
 
 ### 4. Persistent and shared memory
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - EXTMEM-001: draft-v0.1.
 
 Canonical contract:
@@ -89,7 +91,7 @@ The external-memory thesis does not imply that all useful knowledge should leave
 
 ### 5. Learning progress as search
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - CURRICULUM-001: draft-v0.1.
 
 Current architecture-stage programme:
@@ -123,7 +125,7 @@ A short curriculum or small example set is not automatically a minimal reasoning
 
 ### 7. The Residual
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - RESIDUAL-001: draft-v0.1.
 
 Established inside the Atlas formalization:
@@ -161,7 +163,7 @@ A smooth-looking slice or a converged training run is not a theorem of benign no
 
 ### 9. Boundary contracts
 
-Current audited substrate:
+Current draft substrate at the protected snapshot:
 - BCONTRACT-001: draft-v0.1.
 
 Established inside the bounded chapter:

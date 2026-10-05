@@ -34,7 +34,7 @@ These chapters constrain how the programme is stated. They do not solve the prog
 
 ## 3. Geometry-derived optimization
 
-The audited second-order chapter provides curvature, Hessian, Fisher, natural-gradient, trust-region, quasi-Newton, and proximal distinctions.
+The second-order chapter is draft-v0.1 at the protected ledger snapshot and provides curvature, Hessian, Fisher, natural-gradient, trust-region, quasi-Newton, and proximal distinctions.
 
 The live architecture-stage programmes are Matrix-Aware Optimization, Optimization on Manifolds, and Variational and Divergence-Derived Optimization.
 
