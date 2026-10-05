@@ -32,9 +32,13 @@ def main() -> int:
         lines += [
             f"- revisions: `{result.get('revision_count')}`",
             f"- summaries: `{result.get('summary_count')}`",
-            f"- manifests: `{result.get('manifest_count')}`",
-            f"- families: `{result.get('families')}`",
         ]
+        if result.get("manifest_count") is not None:
+            lines.append(f"- manifests: `{result.get('manifest_count')}`")
+        if result.get("families") is not None:
+            lines.append(f"- families: `{result.get('families')}`")
+    if s.get("message"):
+        lines.append(f"- verification: {s.get('message')}")
     if receipt.get("fatal_error"):
         lines.append(f"- fatal error: `{receipt.get('fatal_error')}`")
     lines += [
