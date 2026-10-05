@@ -90,3 +90,21 @@ Only then may it receive CONFIRMED_TRANSITION.
 
 This tranche cannot establish a mechanism, capacity-allocation explanation, optimizer
 effect, architecture effect, or post-training consequence. Negative results are retained.
+
+
+## Hosted-run completion reporting
+
+Hosted Colab runs are self-reporting. Every run directory contains an atomic
+`RUN_STATUS.json` with the state machine:
+
+`QUEUED -> ALLOCATING -> RUNNING -> VERIFYING -> GREEN/RED`.
+
+`GREEN` is emitted only after the receipt, payload/job/result digests, exact
+revision count, summary count, manifest count, and Colab session cleanup all
+verify. Terminal GREEN/RED status is posted automatically to Atlas issue #152
+using the host's authenticated GitHub CLI. The marker
+`.github-terminal-notified` prevents duplicate terminal comments.
+
+Runs launched before this contract can be adopted with
+`colab/watch_hosted_run.py`, which verifies retained artifacts and emits the
+same terminal status/notification.
