@@ -159,14 +159,19 @@ def main() -> int:
             raise RuntimeError(f"GSD sweep exited with code {returncode}")
 
         summaries = sorted(run_root.glob("*/summary.json"))
+        manifests = sorted(run_root.glob("*/manifest.json"))
         if len(summaries) != len(revisions):
             raise RuntimeError(f"summary count mismatch: {len(summaries)} != {len(revisions)}")
+        if len(manifests) != len(revisions):
+            raise RuntimeError(f"manifest count mismatch: {len(manifests)} != {len(revisions)}")
 
         RESULT_PATH.write_text(json.dumps({
-            "status": "GREEN_ENGINEERING_GSD_WP01",
+            "status": "GREEN_ENGINEERING_GSD_HOSTED_SWEEP",
             "experiment_id": job["experiment_id"],
             "revision_count": len(revisions),
             "summary_count": len(summaries),
+            "manifest_count": len(manifests),
+            "families": families,
             "runtime": runtime,
         }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         status = "GREEN_ENGINEERING"
