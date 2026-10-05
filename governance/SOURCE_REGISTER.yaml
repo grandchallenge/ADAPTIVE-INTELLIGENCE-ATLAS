@@ -351,3 +351,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-MATRIXOPT-001.yaml"
     authority: "Audited Linear Algebra/Second-Order prerequisites plus primary Shampoo, polar-decomposition, norm-steepest-descent, and Muon design sources, with Atlas-owned exact rectangular synthesis."
+
+
+  - id: "ATLAS-SRC-POLITY-LOCK-001"
+    title: "The Computational Polity source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-POLITY-001.yaml"
+    authority: "Audited Coordination/External-Memory prerequisites plus primary agent, distributed-cognition, and joint human-agent sources, with Atlas-owned polity object and exact composition witness."
