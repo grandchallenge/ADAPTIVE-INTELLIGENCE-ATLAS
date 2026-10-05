@@ -54,11 +54,22 @@ def invoke_upstream(checkout: Path, argv: list[str]) -> None:
         sys.argv = old_argv
 
 
+def cuda_bf16_capable(torch_mod) -> bool:
+    """Use the architectural BF16 boundary required by vLLM.
+
+    vLLM requires CUDA compute capability >= 8.0 for BF16. Some PyTorch/CUDA
+    combinations may report torch.cuda.is_bf16_supported() true on older GPUs,
+    so the device capability is the fail-closed authority here.
+    """
+    major, minor = torch_mod.cuda.get_device_capability(0)
+    return (major, minor) >= (8, 0)
+
+
 def derived_config(checkout: Path, run_root: Path) -> tuple[Path, str]:
     import torch
     import yaml
 
-    if torch.cuda.is_bf16_supported():
+    if cuda_bf16_capable(torch):
         return checkout / "config.yaml", "upstream_bfloat16"
 
     cfg = yaml.safe_load((checkout / "config.yaml").read_text(encoding="utf-8"))
@@ -81,7 +92,9 @@ def environment_receipt() -> dict:
         "vllm": vllm.__version__,
         "cuda_version": torch.version.cuda,
         "gpu": torch.cuda.get_device_name(0),
-        "bf16_supported": torch.cuda.is_bf16_supported(),
+        "bf16_supported_torch_predicate": torch.cuda.is_bf16_supported(),
+        "cuda_compute_capability": list(torch.cuda.get_device_capability(0)),
+        "bf16_supported_for_vllm": cuda_bf16_capable(torch),
     }
 
 
