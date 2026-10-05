@@ -24,8 +24,6 @@ The audited Data chapter supplies the data-distribution and evidence semantics.
 
 The audited First-Order Optimization chapter supplies the optimizer-state and training-recipe boundary.
 
-A project-local Generalization-State Dynamics agenda adds one constraint on interpretation: smooth loss or longer training must not be silently promoted into monotone mechanism improvement.
-
 ## 1. The question is not merely “easy or hard?”
 
 Suppose a dataset contains two kinds of examples.
@@ -318,10 +316,6 @@ It does not by itself prove:
 - whether it is accessible under distribution shift;
 - whether the model used the intended mechanism;
 - whether later training will erase or mask it.
-
-The Atlas Generalization-State Dynamics agenda makes this boundary explicit:
-
-> Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks.
 
 For curriculum design, the practical consequence is simple.
 
@@ -816,7 +810,7 @@ Atlas-owned synthesis:
 - curriculum as an explicit control object over the effective training distribution;
 - the separation among model, optimizer, curriculum state, and curriculum observation;
 - the exact finite state-dependent next-action witness;
-- the GSD-compatible claim firewall between progress signals and mechanism claims.
+- the claim firewall between progress signals and mechanism claims.
 
 Computational witness:
 

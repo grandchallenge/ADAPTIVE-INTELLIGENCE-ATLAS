@@ -96,16 +96,6 @@ atlas_sources:
     path: "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml"
     git_blob_sha1: "fa610d3d763cc1a7e76ee4b83e85ce2c965c2825"
     authority: "Source and claim boundary for the audited OPTBASE prerequisite."
-  - id: "CURRICULUM-GSD-AGENDA"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "c1122f3b6a6cb0170e77f5fe340a7bec402618ce"
-    path: "governance/research-agenda/AGENDA-GSD-001.md"
-    git_blob_sha1: "0f31202a928d8e2cb5e3290d84b32344033c2f19"
-    authority: >
-      Project-local research-agenda context requiring curriculum work not to
-      infer monotone mechanism improvement from smooth loss, additional training,
-      or endpoint benchmarks. This is not a hard prerequisite or external
-      empirical authority.
 epistemic_rules:
   - "Nominal sample difficulty is a declared scoring rule, not an intrinsic universal property of an example."
   - "A fixed curriculum is an open-loop schedule; a state-aware curriculum is a policy that may condition on declared learner observations."
