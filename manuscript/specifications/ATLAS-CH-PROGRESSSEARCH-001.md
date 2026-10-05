@@ -36,3 +36,35 @@ A search operator is
 \[
 r_t\sim\mathcal S_t(\cdot\mid\mathfrak S_t).
 \]
+
+## Generalization-state evidence
+
+Record the evidence interface as
+
+[
+g_t(r)=left(g_t^{acq}(r),g_t^{pers}(r),g_t^{access}(r),g_t^{expr}(r)ight).
+]
+
+These coordinates stand for declared evidence about acquisition, persistence, accessibility, and behavioral expression. They need not share units and must not be silently summed.
+
+## Objective and exploration
+
+A declared search functional may depend on progress, coverage or uncertainty, generalization evidence, cost, remaining budget, and horizon. Heterogeneous terms require an explicit ordering or scalarization rule.
+
+A pure exploit policy may choose the currently largest estimated progress among observed regions. A search policy must also state how unobserved or uncertain regions can be sampled. Coverage, random exploration, optimism, posterior sampling, or another declared rule may be used; none is universal.
+
+## Exact exploration witness
+
+Use two regions A and B.
+
+Initially A has been observed with progress 1. B is unobserved. The declared toy reward on sampling is
+
+[
+R(A)=1,qquad R(B)=3.
+]
+
+A pure exploit-only policy restricted to observed regions selects A for two rounds and obtains total reward 2.
+
+A coverage-first policy selects unobserved B first, observes reward 3, then selects B again and obtains total reward 6.
+
+The witness proves only that exploitation over already observed regions can fail to discover a higher-progress unobserved region.
