@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
+**Current main:** `d9f9fe56c27d6adab923fb5057c10cef9e4591d3`
 
 ## Mandatory restart
 
@@ -18,50 +18,79 @@
 ## Current state
 
 - state: `idle-ready`
-- baseline/main: `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
-- next target: `ATLAS-CH-POLITY-001`
-- title: **The Computational Polity**
-- hard prerequisites:
-  - `ATLAS-CH-COORD-001`
-  - `ATLAS-CH-EXTMEM-001`
+- baseline/main: `d9f9fe56c27d6adab923fb5057c10cef9e4591d3`
+- next target: `ATLAS-CH-PROGRESSSEARCH-001`
+- title: **Learning Progress as a Search Operator**
+- hard prerequisite:
+  - `ATLAS-CH-CURRICULUM-001`
+- prerequisite audit:
+  - `AUDIT-037`
 - direct consumer:
-  - `ATLAS-CH-SYNTHESIS-001`
+  - `ATLAS-CH-MINCURR-001`
 - downstream architecture count: 1
 
 Atlas contract:
 
-> Develop intelligence as a coordinated system of models, memory, tools, humans, validators, and governance.
+> Treat learning progress and declared generalization-state evidence as feedback for choosing the next experience and searching experience space.
 
-The Coordination prerequisite supplies the coordination object, shared-state and communication families, ordering, retry/deduplication semantics, and transaction boundaries. The External Memory prerequisite supplies shared-memory scope, synchronization/access-control requirements, and provenance-preserving record semantics.
+The Curriculum prerequisite supplies the curriculum-controller object, open-loop/closed-loop distinction, difficulty/competence claim firewall, selection-versus-reweighting distinction, and generalization-state evidence boundary. PROGRESSSEARCH must add the search-operator interpretation rather than rebuild curriculum learning.
 
 ## Immediately completed tranche
 
-Stable ID: `ATLAS-CH-MECHDIAG-001`
+Stable ID: `ATLAS-CH-POLITY-001`
 
-- implementation PR: #189
-- exact green implementation head: `69614ab7d93d99d7e807ee08c0314afbc1b2ca74`
-- implementation merge: `a88e2e85c3c18f123d6476e0d53c8a302cdb4b5f`
-- post-draft audit: `AUDIT-047`
-- audit PR: #190
-- exact green audit head: `a5a100fe00da96070e9cefe2f9b12339756bd748`
-- audit merge/current main: `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
-- audit disposition: **PASS WITH TWO DOCUMENTARY REPAIRS**
+- implementation issue: #191
+- implementation PR: #192
+- exact green implementation head: `d9c226dea3a446eb40be4d4cd43724f637940770`
+- implementation merge: `3c2fd507c4c355922db8eb65fef528a8afb51e41`
+- post-draft audit: `AUDIT-048`
+- audit issue: #193
+- audit PR: #194
+- exact green audit head: `af9d53ebb97a2cbbfb6fbc3099218b7334e56e4b`
+- audit merge/current main: `d9f9fe56c27d6adab923fb5057c10cef9e4591d3`
+- audit disposition: **PASS — NO REPAIR**
 - final canonical validation on current main: green
-- mature reader companion: `manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-DIAGREAD-001.md`
-- source-scope companion: `reviews/AUDIT-047-SOURCES.yaml`
 
-Durable MECHDIAG boundary:
+Durable POLITY substrate:
 
-- readability does not imply functional use;
-- a null single-component result can coexist with redundancy;
-- component-level claims bind target behavior, selected components, transformation family, metric, and reference rule;
-- downstream spectral signatures require independent functional evidence.
+- polity object:
+  [
+  Pi=(A,M,U,H,V,C,Gamma,Q)
+  ]
+  for model/agent roles, shared external memory, tools/services, human roles, validator roles, inherited coordination semantics, governance/authority rules, and task contract;
+- capability is distinct from authority;
+- candidate production, evidence recording, validation, authorization, and commit are separate stages;
+- shared memory is not shared belief, truth, freshness, or universal visibility;
+- human and validator roles remain bounded system roles rather than implicit oracles;
+- governance constrains admissible transitions without manufacturing correctness;
+- heterogeneous polity costs remain vector-valued unless a scalarization is declared;
+- exact two-specialist witness:
+  - each specialist accuracy = 0.5;
+  - correctly routed polity accuracy = 1.0;
+  - same components with broken routing accuracy = 0.5.
+
+Load-bearing boundary:
+
+[
+	ext{system capability}
+
+eq
+	ext{single-component capability},
+]
+
+while
+
+[
+	ext{component count}
+
+eq
+	ext{composition quality}.
+]
 
 ## Recomputed dependency-legal frontier
 
 Count-1 candidates:
 
-- `ATLAS-CH-POLITY-001`
 - `ATLAS-CH-PROGRESSSEARCH-001`
 - `ATLAS-CH-ROUTERDYN-001`
 - `ATLAS-CH-RPO-001`
@@ -69,9 +98,22 @@ Count-1 candidates:
 - `ATLAS-CH-TRANSPORT-001`
 - `ATLAS-CH-UNCERTAINTY-001`
 
-Deterministic ID ordering selects `ATLAS-CH-POLITY-001`.
+Deterministic ID ordering selects `ATLAS-CH-PROGRESSSEARCH-001`.
 
-`ATLAS-CH-SPECTRALDIAG-001` is now dependency-legal but has downstream architecture count 0, so it does not outrank the count-1 frontier.
+Now also dependency-legal at count 0:
+
+- `ATLAS-CH-SYNTHESIS-001`
+- `ATLAS-CH-SPECTRALDIAG-001`
+- `ATLAS-CH-SPECTRALSHAPE-001`
+- `ATLAS-CH-ADAPTDEPTH-001`
+- `ATLAS-CH-ATTNAPPROX-001`
+- `ATLAS-CH-COMPINTEL-001`
+- `ATLAS-CH-COMPOSE-001`
+- `ATLAS-CH-CONTEXTCOMP-001`
+- `ATLAS-CH-CPS-001`
+- `ATLAS-CH-JOINTUNC-001`
+- `ATLAS-CH-SYSTEMS-001`
+- `ATLAS-CH-VARIOPT-001`
 
 ## Legitimate stop conditions
 
