@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 184
+  tranche_id: "MATRIXOPT-001"
+  chapter_ids: ["ATLAS-CH-MATRIXOPT-001"]
   baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
-  branch: null
+  branch: "work/ch184a"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-MATRIXOPT-001 (Matrix-Aware Optimization) from baseline b75d840b51268d2ac43041af7a02fade2a660ba3. Its hard prerequisites ATLAS-CH-LINALG-001 and ATLAS-CH-SECOND-001 are draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Source-lock primary/authoritative Shampoo, polar-decomposition, and Muon-like sources; bind audited ATLAS-CH-LINALG-001 and ATLAS-CH-SECOND-001 prerequisite artifacts at baseline b75d840b51268d2ac43041af7a02fade2a660ba3; then draft the specification, derivations, exact rectangular witness, manuscript, and governance/register updates on work/ch184a."
 frontier:
   - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
@@ -20,4 +20,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Verify branch/head and continue next_action. Repository state overrides chat history."
