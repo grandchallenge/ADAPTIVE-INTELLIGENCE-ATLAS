@@ -4,13 +4,13 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 195
+  issue_number: 197
   tranche_id: "PROGRESSSEARCH-001"
   chapter_ids: ["ATLAS-CH-PROGRESSSEARCH-001"]
   baseline_commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
-  branch: "work/progresssearch-195"
+  branch: "audit/progresssearch-197"
   pull_request: 198
-  state: "implementation-validation"
+  state: "audit-validation"
   next_action: "Validate repaired exact implementation head 1e78bc7ff7015e0af426cd18a9f8aa5c1cf230d2 on PR #196. Ignore stale CI for prior heads. If green, merge with exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-PROGRESSSEARCH-001"
