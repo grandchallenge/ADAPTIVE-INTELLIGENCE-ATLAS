@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-MATRIXOPT-001"]
   baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
   branch: "work/ch184a"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Exact implementation head ae75df4c1b1016b873b48b3367bede2b01e507af is locally replayed and canonical Linux validation is green. Open the implementation PR against unchanged protected baseline b75d840b51268d2ac43041af7a02fade2a660ba3, bind CI to that exact head, repair any failures without weakening checks, and merge only after exact-head green validation."
+  pull_request: 185
+  state: "pr-open"
+  next_action: "Bind PR #185 to exact head ae75df4c1b1016b873b48b3367bede2b01e507af. Wait for or diagnose repository CI on that exact head, repair any failures without weakening validation, re-run fresh exact-head checks after any head change, and merge only if the PR remains clean against main and all required validation is green."
 frontier:
   - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
