@@ -22,7 +22,7 @@ dataset:
 model_series:
   repository: "allenai/OLMo-2-0425-1B-early-training"
   license: "apache-2.0"
-  expected_checkpoint_cadence: "every 1000 steps from step0 through step37000"
+  expected_checkpoint_cadence: "every 1000 steps from step0 through step36000 (37 public revisions observed 2026-10-04)"
   exact_revision_rule: "enumerate HfApi.list_repo_refs and resolve each model_info SHA"
 claim_boundary: >
   These sources define external behavioural probes and public checkpoint/data
