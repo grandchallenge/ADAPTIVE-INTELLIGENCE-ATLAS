@@ -320,3 +320,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SECOND-001.yaml"
     authority: "Audited prerequisites plus classical second-order optimization references."
+
+  - id: "ATLAS-SRC-COMPRESS-LOCK-001"
+    title: "Compression and Description Length source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-COMPRESS-001.yaml"
+    authority: "Audited Information/Representation prerequisites plus classical MDL, low-rank approximation, neural compression, and distillation sources."
