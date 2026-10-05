@@ -49,8 +49,6 @@ May assume from OPTBASE:
 - clipping/adaptive updates;
 - the distinction between optimization mechanics and architecture claims.
 
-May use the project-local AGENDA-GSD-001 only as explicitly source-locked research context.
-
 Must not assume:
 
 - that lower nominal difficulty is always the best next sample;
@@ -331,16 +329,6 @@ Use:
 
 Do not generalize their empirical outcomes beyond the reported settings.
 
-## Generalization-state boundary
-
-The project-local GSD agenda supplies one durable warning:
-
-> Do not infer monotone mechanism improvement from smooth loss, more training, or endpoint benchmarks.
-
-CURRICULUM-001 may use that warning to constrain interpretation.
-
-It must not claim that a change in loss or accuracy identifies a hidden mechanism transition.
-
 ## Controlled-comparison obligations
 
 A curriculum experiment should declare or control, as applicable:
@@ -414,5 +402,4 @@ The draft must:
 - distinguish selection from mixture reweighting;
 - derive the finite two-state separation witness exactly;
 - keep source-specific empirical claims scoped;
-- preserve the GSD non-monotonicity/mechanism boundary;
 - include source lock, derivation packet, bounded computational witness, bibliography closure, ledger/register updates, tranche receipt, and post-draft audit.
