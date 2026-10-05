@@ -72,9 +72,20 @@ def verify(run_dir: Path) -> tuple[bool, str]:
         return False, "job digest mismatch"
     if receipt.get("result_sha256") != sha256(result_path):
         return False, "result digest mismatch"
-    for key in ("revision_count", "summary_count", "manifest_count"):
-        if int(result.get(key, -1)) != expected:
-            return False, f"{key} mismatch: {result.get(key)} != {expected}"
+    if int(result.get("revision_count", -1)) != expected:
+        return False, f"revision_count mismatch: {result.get('revision_count')} != {expected}"
+    if int(result.get("summary_count", -1)) != expected:
+        return False, f"summary_count mismatch: {result.get('summary_count')} != {expected}"
+
+    manifest_count = result.get("manifest_count")
+    if manifest_count is None:
+        with tarfile.open(bundle_path, "r:gz") as tf:
+            manifest_count = sum(
+                1 for m in tf.getmembers()
+                if m.isfile() and m.name.endswith("/manifest.json") and m.name.startswith("runs/")
+            )
+    if int(manifest_count) != expected:
+        return False, f"manifest_count mismatch: {manifest_count} != {expected}"
     return True, "receipt, digests, summaries, and manifests verified"
 
 
