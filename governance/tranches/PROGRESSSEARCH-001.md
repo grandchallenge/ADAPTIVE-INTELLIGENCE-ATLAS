@@ -15,7 +15,7 @@ Curriculum:
 
 ## Implementation artifact identities
 
-- specification: 15b0b047f44617b556d52688733eda5eb53b8037
+- specification: ff340951d1d91efe4129d9446bbf5512d13536bb
 - manuscript: 30e988200933dbba8ad53f069acacf131b0944ee
 - derivation: 46f2a5aecaa3d9bf502b27ad7415bba3d622acca
 - witness: 01648f83544bd859c6b8797c14dc8176366b8f51
