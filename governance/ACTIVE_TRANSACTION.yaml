@@ -10,8 +10,8 @@ current:
   baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
   branch: "work/ch184a"
   pull_request: null
-  state: "source-locked"
-  next_action: "Continue from exact work head 7753510f68307aff23b3285fc750aae185897af6. Draft the MATRIXOPT specification, derivation packet, exact 3x2 rectangular computational witness, reader manuscript, Chapter Ledger and Source Register promotion, and CH184 transaction receipt. Then run canonical Linux validation, repair all in-scope defects, commit, push, and open the implementation PR."
+  state: "draft-complete"
+  next_action: "Exact implementation head ae75df4c1b1016b873b48b3367bede2b01e507af is locally replayed and canonical Linux validation is green. Open the implementation PR against unchanged protected baseline b75d840b51268d2ac43041af7a02fade2a660ba3, bind CI to that exact head, repair any failures without weakening checks, and merge only after exact-head green validation."
 frontier:
   - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
