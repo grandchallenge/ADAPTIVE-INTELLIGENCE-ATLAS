@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-COMPRESS-001"]
   baseline_commit: "356273124481084c6c4d7f9a0d5fae59fe4405cb"
   branch: "work/atlas-167"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the COMPRESS-001 implementation PR from work/atlas-167, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
+  pull_request: 168
+  state: "pr-open"
+  next_action: "Read canonical CI for PR #168 at exact head 139338a6857b3488272b4fcceeb7d53a4c11ca24; repair every in-scope failure, replay on the repaired exact head, and merge only when green."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
