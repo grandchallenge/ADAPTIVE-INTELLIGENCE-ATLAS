@@ -10,8 +10,8 @@ current:
   baseline_commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
   branch: "work/ch180a"
   pull_request: 181
-  state: "pr-open"
-  next_action: "Read canonical CI for PR #181 at exact head 64a57189692ca0c7e68e245117840db51dd48a63; repair every in-scope failure, replay validation, and merge only when green."
+  state: "ci-green"
+  next_action: "Merge PR #181 only from exact green head 64a57189692ca0c7e68e245117840db51dd48a63; read back protected main; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-MANOPT-001"
     downstream_architecture_count: 1
