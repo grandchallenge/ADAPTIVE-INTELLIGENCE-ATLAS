@@ -7,11 +7,11 @@ current:
   issue_number: 167
   tranche_id: "COMPRESS-001"
   chapter_ids: ["ATLAS-CH-COMPRESS-001"]
-  baseline_commit: "356273124481084c6c4d7f9a0d5fae59fe4405cb"
-  branch: "work/atlas-167"
+  baseline_commit: "ac631f8162e32f520c5678034ec5d9e18f366e7c"
+  branch: null
   pull_request: 168
-  state: "ci-green"
-  next_action: "Merge PR #168 only from exact green head 139338a6857b3488272b4fcceeb7d53a4c11ca24; read back protected main; then instantiate the bounded post-draft audit."
+  state: "implementation-merged"
+  next_action: "Instantiate the bounded post-draft audit from protected main ac631f8162e32f520c5678034ec5d9e18f366e7c, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
