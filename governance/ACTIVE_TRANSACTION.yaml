@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-POLITY-001"]
   baseline_commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
   branch: "work/polity-191"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited COORD-001 and EXTMEM-001 prerequisite identities at exact baseline ecd120cc06da1a9671a2ceb01b6ece74d0914ed7, source-lock primary agent/distributed-cognition/joint-activity references, then draft the exact polity witness and chapter artifacts."
+  pull_request: 192
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head d9c226dea3a446eb40be4d4cd43724f637940770 on PR #192. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-POLITY-001"
     downstream_architecture_count: 1
