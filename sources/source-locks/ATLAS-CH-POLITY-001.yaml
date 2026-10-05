@@ -1,0 +1,96 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-POLITY-001"
+locked_on: "2026-10-05"
+epistemic_class: "audited_coordination_and_external_memory_prerequisites_plus_primary_agent_distributed_cognition_and_joint_activity_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Coordination prerequisite supplies the coordination object, communication/shared-state
+  families, causal ordering, retry/deduplication, transaction boundaries, failure surfaces, and
+  coordination-cost bookkeeping. The audited External Memory prerequisite supplies shared-memory
+  scope, synchronization/version semantics, access control, provenance, and the distinction between
+  common external memory and private model state. Wooldridge and Jennings (1995) are used for the
+  agent-theory/architecture distinction and representative intelligent-agent framing. Hutchins (1995)
+  is used for the precedent that cognitive/computational properties may be analyzed at a system level
+  larger than an individual participant. Klein et al. (2004) are used for joint human-agent activity
+  and the requirement that automated components function as team participants rather than isolated
+  tools. Atlas-owned material defines the Computational Polity object, separates capability from
+  authority, and supplies an exact two-specialist composition witness. No source establishes that
+  larger systems are automatically more intelligent, that coordination guarantees correctness, or
+  that validators, humans, shared memory, or governance are infallible.
+
+sources:
+  - id: "POLITY-WOOLDRIDGE-JENNINGS-1995"
+    citation_key: "WooldridgeJennings1995Agents"
+    kind: "peer-reviewed-journal"
+    title: "Intelligent agents: theory and practice"
+    authors: "Michael Wooldridge; Nicholas R. Jennings"
+    journal: "The Knowledge Engineering Review"
+    volume: 10
+    issue: 2
+    pages: "115-152"
+    year: 1995
+    doi: "10.1017/S0269888900008122"
+    authority: >
+      Primary scholarly source for the theory/architecture/language framing of intelligent agents
+      and representative issues in constructing agent systems. It is not used as a universal
+      definition of intelligence.
+
+  - id: "POLITY-HUTCHINS-1995"
+    citation_key: "Hutchins1995CognitionWild"
+    kind: "scholarly-monograph"
+    title: "Cognition in the Wild"
+    authors: "Edwin Hutchins"
+    publisher: "MIT Press"
+    year: 1995
+    isbn: "9780262082310"
+    authority: >
+      Scholarly precedent for analyzing cognition and computation at the level of an organized
+      activity system whose properties are not exhausted by one individual participant.
+
+  - id: "POLITY-KLEIN-2004"
+    citation_key: "KleinEtAl2004TeamPlayer"
+    kind: "peer-reviewed-journal"
+    title: "Ten challenges for making automation a team player in joint human-agent activity"
+    authors: "Gary Klein; David D. Woods; Jeffrey M. Bradshaw; Robert R. Hoffman; Paul J. Feltovich"
+    journal: "IEEE Intelligent Systems"
+    volume: 19
+    issue: 6
+    pages: "91-95"
+    year: 2004
+    doi: "10.1109/MIS.2004.74"
+    authority: >
+      Primary source for requirements and failure modes in joint human-agent activity. Used to
+      motivate explicit team roles and coordination obligations, not as a theorem of optimal design.
+
+atlas_sources:
+  - id: "POLITY-COORD-MANUSCRIPT"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-COORD-001.md"
+    git_blob_sha1: "f9c5e9353e59525dce2e18c8b164ce85532be283"
+  - id: "POLITY-COORD-SOURCE-LOCK"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "sources/source-locks/ATLAS-CH-COORD-001.yaml"
+    git_blob_sha1: "076d0cb1c13d6f43db5d67ec01c7bef2fcff35e9"
+  - id: "POLITY-COORD-AUDIT"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "reviews/AUDIT-016.md"
+    git_blob_sha1: "4e20978b900f7a075177f7fb189b11b0ce79d259"
+  - id: "POLITY-EXTMEM-MANUSCRIPT"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-EXTMEM-001.md"
+    git_blob_sha1: "181685ceda93defb7a7051e0865898c7c4e3fb1d"
+  - id: "POLITY-EXTMEM-SOURCE-LOCK"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "sources/source-locks/ATLAS-CH-EXTMEM-001.yaml"
+    git_blob_sha1: "6ac2940c5a9432588ace9a82b15c73e7e00d874f"
+  - id: "POLITY-EXTMEM-AUDIT"
+    commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
+    path: "reviews/AUDIT-031.md"
+    git_blob_sha1: "a33ee84f0bfc69f8dc00e165506c55cabd68fec4"
+
+epistemic_rules:
+  - "System capability is not the sum of component capabilities and must be demonstrated under declared composition rules."
+  - "Communication and shared memory do not imply agreement, truth, freshness, or authority."
+  - "Capability and authority are distinct: a component may generate a candidate result without having authority to commit it."
+  - "A validator may reduce one error class without becoming an infallible oracle."
+  - "Human participation does not remove the need for explicit interfaces, provenance, or bounded authority."
+  - "Governance constrains admissible transitions; it is not itself evidence that a transition is correct."
