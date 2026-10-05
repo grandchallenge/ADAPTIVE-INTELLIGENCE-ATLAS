@@ -7,15 +7,15 @@ current:
   issue_number: null
   tranche_id: null
   chapter_ids: []
-  baseline_commit: "41ac479e8ed5318cd63434d594cc3ab48f607191"
+  baseline_commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
   branch: null
   pull_request: null
   state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-MECHDIAG-001 from exact baseline 41ac479e8ed5318cd63434d594cc3ab48f607191. First source-lock primary mechanistic-intervention references and bind audited ATLAS-CH-EVIDENCE-001 and ATLAS-CH-TRANSFORMER-001 prerequisites. Do not reuse stale chat state."
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-POLITY-001 from exact baseline ecd120cc06da1a9671a2ceb01b6ece74d0914ed7. Bind audited ATLAS-CH-COORD-001 and ATLAS-CH-EXTMEM-001 prerequisites before drafting. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-MECHDIAG-001"
+  - id: "ATLAS-CH-POLITY-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-SPECTRALDIAG-001"]
+    direct_consumers: ["ATLAS-CH-SYNTHESIS-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
