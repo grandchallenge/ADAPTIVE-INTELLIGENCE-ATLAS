@@ -68,3 +68,74 @@ A pure exploit-only policy restricted to observed regions selects A for two roun
 A coverage-first policy selects unobserved B first, observes reward 3, then selects B again and obtains total reward 6.
 
 The witness proves only that exploitation over already observed regions can fail to discover a higher-progress unobserved region.
+
+## Exact horizon witness
+
+Use state (s_0) and horizon 2.
+
+At (s_0):
+
+- action G gives immediate progress 2 and transitions to (s_G), where every second-step reward is 0;
+- action I gives immediate progress 0 and transitions to (s_I), where action X gives second-step progress 5.
+
+One-step greedy progress chooses G and total return is 2.
+
+The horizon-aware path I,X returns 5.
+
+Therefore
+
+[
+	ext{max immediate progress}
+otRightarrow	ext{max finite-horizon return}.
+]
+
+## Credit assignment
+
+For a chosen experience at time t, a declared H-step return may be
+
+[
+G_t^{(H)}=sum_{k=0}^{H-1}gamma^k r_{t+k},
+]
+
+with declared discount, reward/progress definition, and attribution rule.
+
+Delayed improvement is not automatically attributable to the most recent sample when multiple updates or interventions occurred.
+
+## Absolute progress boundary
+
+If
+
+[
+|LP_t(r)|
+]
+
+is used, large magnitude can represent either improvement or deterioration. Absolute progress is not synonymous with beneficial learning.
+
+## Failure boundaries
+
+- progress signal != mechanism state;
+- current high progress != high long-horizon value;
+- unobserved != low value;
+- exploration != guaranteed benefit;
+- coverage != optimal search;
+- delayed gain != uniquely attributable to the last sample;
+- generalization-state evidence != ground-truth mechanism state;
+- search overhead must be counted;
+- search can alter the effective training distribution;
+- discovered high-progress regions are not automatically a minimal curriculum basis.
+
+## Downstream handoff
+
+Direct consumer: ATLAS-CH-MINCURR-001.
+
+MINCURR may inherit the progress-search object, experience-space search semantics, exploration/coverage state, delayed-credit and finite-horizon distinctions, the generalization-state evidence interface, and the exact exploration/horizon counterexamples.
+
+It must independently define minimality, reconstructability, transferable basis, and the criterion for a minimal curriculum or reasoning basis.
+
+## Sources
+
+- [@OudeyerKaplanHafner2007IntrinsicMotivation]
+- [@BaranesOudeyer2013GoalExploration]
+- [@PortelasEtAl2020TeacherAlgorithms]
+
+Exact source authority and claim boundaries are locked in `sources/source-locks/ATLAS-CH-PROGRESSSEARCH-001.yaml`.
