@@ -41,6 +41,7 @@ sources:
     title: "CUDA Programming Guide"
     organization: "NVIDIA"
     retrieved: "2026-10-04"
+    last_updated: "2026-09-10"
     url: "https://docs.nvidia.com/cuda/cuda-programming-guide/"
     authority: >
       Current authoritative CUDA programming-model documentation for thread
@@ -54,6 +55,7 @@ sources:
     title: "CUDA C++ Best Practices Guide"
     organization: "NVIDIA"
     retrieved: "2026-10-04"
+    documentation_version: "13.4"
     url: "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/"
     authority: >
       Current authoritative CUDA guidance for bandwidth, memory access,
