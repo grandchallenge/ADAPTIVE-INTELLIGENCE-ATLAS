@@ -1,0 +1,108 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-MANOPT-001"
+locked_on: "2026-10-04"
+epistemic_class: "audited_geometry_and_first_order_optimization_prerequisites_plus_standard_matrix_manifold_optimization_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Geometry prerequisite supplies tangent spaces, sphere/Stiefel constraints,
+  geodesic/exponential-map language, normalized sphere retraction, and quotient distinctions.
+  The audited First-Order Optimization prerequisite supplies Euclidean gradient/steepest
+  descent, step-size, stochastic, and optimizer-state distinctions. Absil, Mahony, and
+  Sepulchre (2008) support standard matrix-manifold optimization definitions including
+  tangent vectors, retractions, Riemannian gradients, and optimization algorithms on
+  embedded/matrix manifolds. Edelman, Arias, and Smith (1998) support the geometry and
+  algorithmic treatment of Stiefel/Grassmann orthogonality constraints. Atlas-owned
+  material includes the exact finite sphere and O(2)/Stiefel witnesses and the explicit
+  separation between constraint preservation, retraction accuracy, stationarity, and
+  global optimality. No source here establishes that manifold optimization is universally
+  superior to unconstrained parameterization or that preserving orthogonality alone
+  guarantees good optimization.
+
+sources:
+  - id: "MANOPT-ABSIL-MAHONY-SEPULCHRE-2008"
+    citation_key: "AbsilMahonySepulchre2008"
+    kind: "monograph"
+    title: "Optimization Algorithms on Matrix Manifolds"
+    authors: "P.-A. Absil; R. Mahony; R. Sepulchre"
+    publisher: "Princeton University Press"
+    year: 2008
+    isbn: "978-0-691-13298-3"
+    doi: "10.1515/9781400830244"
+    authority: >
+      Canonical source for optimization on matrix manifolds, including tangent-space
+      gradients, retractions, vector transport, and first-/second-order algorithms.
+      Used only for standard manifold-optimization structure, not a universal
+      superiority claim.
+
+  - id: "MANOPT-EDELMAN-ARIAS-SMITH-1998"
+    citation_key: "EdelmanAriasSmith1998"
+    kind: "peer-reviewed-journal"
+    title: "The Geometry of Algorithms with Orthogonality Constraints"
+    authors: "Alan Edelman; Tomás A. Arias; Steven T. Smith"
+    journal: "SIAM Journal on Matrix Analysis and Applications"
+    volume: 20
+    issue: 2
+    pages: "303-353"
+    year: 1998
+    doi: "10.1137/S0895479895290954"
+    authority: >
+      Primary source for Stiefel and Grassmann geometry in algorithms with orthogonality
+      constraints, including tangent geometry and constrained numerical methods.
+
+atlas_sources:
+  - id: "MANOPT-GEOM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md"
+    git_blob_sha1: "f8e406f24a01bd852996e11118e04427ff549f35"
+    authority: >
+      Audited Atlas geometry substrate for tangent spaces, sphere/Stiefel constraints,
+      retractions, exponential maps, and constrained finite motion.
+
+  - id: "MANOPT-GEOM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "sources/source-locks/ATLAS-CH-GEOM-001.yaml"
+    git_blob_sha1: "d75e8bcf5a5920eca6b09cb8bb181182c7827b5c"
+    authority: "Exact source and claim boundary for the Geometry prerequisite."
+
+  - id: "MANOPT-GEOM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "reviews/AUDIT-001.md"
+    git_blob_sha1: "f13b7ac01f7b10dfadd64da6f31c45832344c082"
+    authority: "Post-draft audit record explicitly covering ATLAS-CH-GEOM-001."
+
+  - id: "MANOPT-OPTBASE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md"
+    git_blob_sha1: "42df47c50c2d6d26da65a58b230040e2663f901f"
+    authority: >
+      Audited Atlas first-order optimization substrate for Euclidean gradients,
+      updates, step sizes, stochasticity, and optimizer-state distinctions.
+
+  - id: "MANOPT-OPTBASE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "sources/source-locks/ATLAS-CH-OPTBASE-001.yaml"
+    git_blob_sha1: "fa610d3d763cc1a7e76ee4b83e85ce2c965c2825"
+    authority: "Exact source and claim boundary for the First-Order Optimization prerequisite."
+
+  - id: "MANOPT-OPTBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+    path: "reviews/AUDIT-012.md"
+    git_blob_sha1: "28929ba6b4a16a3cef4a871fd9253d76e8a93634"
+    authority: "Post-draft audit record for ATLAS-CH-OPTBASE-001."
+
+epistemic_rules:
+  - "The Euclidean gradient and Riemannian gradient are metric-dependent objects."
+  - "For an embedded manifold with induced Euclidean metric, the Riemannian gradient is the tangent projection of the ambient Euclidean gradient."
+  - "A tangent direction is only a local legal velocity; x + xi need not lie on the manifold."
+  - "A retraction returns tangent data to the manifold and agrees with the identity to first order at the origin; it need not equal the exponential map."
+  - "Constraint preservation does not imply descent, convergence, or global optimality."
+  - "A stationary point on a manifold need not be globally optimal."
+  - "Sphere and Stiefel manifolds have different tangent constraints; Stiefel columns satisfy X^T X = I."
+  - "Orthogonality preservation alone does not establish optimizer quality."
+  - "Vector transport between tangent spaces is distinct from simply reusing ambient coordinates."
+  - "Generic manifold optimization is not identical to any GCL-specific normalized, Stiefel, Muon, or MODULUS optimizer programme."
