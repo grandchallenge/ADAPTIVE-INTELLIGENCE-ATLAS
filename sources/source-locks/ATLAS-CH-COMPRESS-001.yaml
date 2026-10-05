@@ -55,7 +55,7 @@ sources:
     kind: "conference-paper"
     title: "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding"
     authors: "Song Han; Huizi Mao; William J. Dally"
-    venue: "International Conference on Learning Representations"
+    venue: "4th International Conference on Learning Representations (ICLR 2016)"
     year: 2016
     arxiv: "1510.00149"
     url: "https://arxiv.org/abs/1510.00149"
@@ -69,7 +69,9 @@ sources:
     kind: "workshop-preprint"
     title: "Distilling the Knowledge in a Neural Network"
     authors: "Geoffrey Hinton; Oriol Vinyals; Jeff Dean"
-    year: 2015
+    venue: "NIPS 2014 Deep Learning Workshop"
+    venue_year: 2014
+    arxiv_year: 2015
     arxiv: "1503.02531"
     url: "https://arxiv.org/abs/1503.02531"
     authority: >
