@@ -151,3 +151,20 @@ That property might concern reachability, absence of bad attractors, quotient si
 A converged training run is not sufficient.
 
 The conjectural connection is that optimizer geometry and landscape structure may have to be analyzed together.
+
+
+## 11. Boundary contracts
+
+Boundary Contracts are already audited substrate.
+
+The next frontier is to determine which exposed boundary variables are actually sufficient for composition.
+
+A useful contract might expose semantics, invariants, local sensitivities, error budgets, and low-order separator state.
+
+The audited chapter also shows that a low-dimensional separator can forget state that matters downstream.
+
+So the open question is:
+
+> Under which assumptions do local interface obligations compose into a useful system-level guarantee?
+
+Local compatibility alone is not a global guarantee.
