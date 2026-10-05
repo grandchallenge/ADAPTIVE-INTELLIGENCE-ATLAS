@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 191
+  tranche_id: "POLITY-001"
+  chapter_ids: ["ATLAS-CH-POLITY-001"]
   baseline_commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
-  branch: null
+  branch: "work/polity-191"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-POLITY-001 from exact baseline ecd120cc06da1a9671a2ceb01b6ece74d0914ed7. Bind audited ATLAS-CH-COORD-001 and ATLAS-CH-EXTMEM-001 prerequisites before drafting. Do not reuse stale chat state."
+  state: "source-locking"
+  next_action: "Bind audited COORD-001 and EXTMEM-001 prerequisite identities at exact baseline ecd120cc06da1a9671a2ceb01b6ece74d0914ed7, source-lock primary agent/distributed-cognition/joint-activity references, then draft the exact polity witness and chapter artifacts."
 frontier:
   - id: "ATLAS-CH-POLITY-001"
     downstream_architecture_count: 1
