@@ -770,7 +770,7 @@
       "dependencies": [
         "ATLAS-CH-CURRICULUM-001"
       ],
-      "status": "architecture",
+      "status": "draft-v0.1",
       "keystone": false
     },
     {
