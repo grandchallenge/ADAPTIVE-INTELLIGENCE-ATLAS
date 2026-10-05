@@ -109,7 +109,7 @@ atlas_sources:
 epistemic_rules:
   - "A frontier question is not a result."
   - "Architecture status is not empirical confirmation."
-  - "draft-v0.1 means the local chapter has passed its bounded audit; it does not certify downstream hypotheses."
+  - "draft-v0.1 is the ledger draft status. Audit completion is claimed only when an exact audit record is separately bound."
   - "Bounded evidence must remain bound to its exact object, setting, and target identity."
   - "The Residual is capability-, transformation-, descriptor-, and recovery-class-relative unless a stronger theorem proves otherwise."
   - "Boundary-contract language does not imply global safety or current public implementation of every remembered GCL extension."
