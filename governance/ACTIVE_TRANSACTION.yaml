@@ -4,20 +4,20 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 176
-  tranche_id: "HARDWARE-001"
-  chapter_ids: ["ATLAS-CH-HARDWARE-001"]
-  baseline_commit: "e421edcc222922526fd4e1de853b168df1d6b847"
-  branch: "work/ch176"
-  pull_request: 177
-  state: "ci-green"
-  next_action: "Merge PR #177 only from exact green head a8e1fe2e5474a61019614c4500d2cf92c2336335; read back protected main; then instantiate the bounded post-draft audit."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-MANOPT-001 (Optimization on Manifolds) from baseline d972128b8b3e15893a273d22d9665c3bbfdbca20. Its hard prerequisites ATLAS-CH-GEOM-001 and ATLAS-CH-OPTBASE-001 are draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-HARDWARE-001"
+  - id: "ATLAS-CH-MANOPT-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-SYSTEMS-001"]
+    direct_consumers: ["ATLAS-CH-VARIOPT-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
