@@ -4,22 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 184
-  audit_issue_number: 187
-  tranche_id: "MATRIXOPT-001"
-  chapter_ids: ["ATLAS-CH-MATRIXOPT-001"]
-  baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
-  implementation_head: "ae75df4c1b1016b873b48b3367bede2b01e507af"
-  implementation_merge: "bd9863891fb8edfb48f14414e7aceee50a798a54"
-  audit_head: "9813a17431a941ca54f178827106d3b84a241e97"
-  branch: "audit/matrixopt-187"
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "41ac479e8ed5318cd63434d594cc3ab48f607191"
+  branch: null
   pull_request: null
-  state: "audit-recorded"
-  next_action: "Open the AUDIT-046 PR from exact audit head 9813a17431a941ca54f178827106d3b84a241e97 against implementation merge bd9863891fb8edfb48f14414e7aceee50a798a54. Bind CI to that exact head and merge only if validation is green and the PR remains clean. Then recompute the dependency-legal frontier from the resulting main, update CURRENT_HANDOFF.md, and reset ACTIVE_TRANSACTION.yaml to idle-ready."
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-MECHDIAG-001 from exact baseline 41ac479e8ed5318cd63434d594cc3ab48f607191. First source-lock primary mechanistic-intervention references and bind audited ATLAS-CH-EVIDENCE-001 and ATLAS-CH-TRANSFORMER-001 prerequisites. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-MATRIXOPT-001"
+  - id: "ATLAS-CH-MECHDIAG-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-SPECTRALSHAPE-001"]
+    direct_consumers: ["ATLAS-CH-SPECTRALDIAG-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
