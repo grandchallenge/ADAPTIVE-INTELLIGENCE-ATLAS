@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-PROGRESSSEARCH-001"]
   baseline_commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
   branch: "work/progresssearch-195"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited CURRICULUM-001 / AUDIT-037 identities at exact baseline d9f9fe56c27d6adab923fb5057c10cef9e4591d3; source-lock primary learning-progress and active experience-search references; then draft the search object, long-horizon/exploration boundaries, and exact finite witness."
+  pull_request: 196
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 1f1339d112c2c8b6ff4c1f7d8c68c39bd7934dc7 on PR #196. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-PROGRESSSEARCH-001"
     downstream_architecture_count: 1
