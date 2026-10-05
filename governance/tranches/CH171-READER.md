@@ -211,3 +211,30 @@ Governed Adaptation supplies the discipline:
 - separate execution from promotion.
 
 This prevents one bounded result from silently becoming a stronger general claim.
+
+
+## 15. Negative results are progress
+
+A research programme should become smaller when it learns.
+
+A counterexample can remove a conjecture. A failed replication can shrink a regime. A lower bound can eliminate an approach. A source audit can weaken an unsupported claim. A proof can reduce a broad question to one missing estimate.
+
+Progress is not only accumulation. It is reduction of uncertainty in the programme graph.
+
+## 16. Preferred research pattern
+
+The Atlas prefers:
+
+broad question -> bounded mechanism -> smallest named proof or experiment -> exact evidence -> revised programme.
+
+A frontier chapter should expose handles, not merely aspirations.
+
+## 17. What this chapter does not claim
+
+This chapter does not claim that the architecture-stage programmes recorded in the evidence matrix are already solved.
+
+It does not promote bounded examples into universal results.
+
+It does not convert programme vocabulary into public implementation evidence.
+
+The exact open boundaries remain those recorded in the documentary matrix and source lock.
