@@ -10,8 +10,8 @@ current:
   baseline_commit: "356273124481084c6c4d7f9a0d5fae59fe4405cb"
   branch: "work/atlas-167"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Write the COMPRESS-001 specification, derivation packet, exact witness, manuscript, ledger/source-register integration, and tranche receipt; then open the implementation PR and validate the exact branch head."
+  state: "draft-complete"
+  next_action: "Open the COMPRESS-001 implementation PR from work/atlas-167, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
