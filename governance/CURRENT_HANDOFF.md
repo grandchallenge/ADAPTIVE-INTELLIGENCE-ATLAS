@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `41ac479e8ed5318cd63434d594cc3ab48f607191`
+**Current main:** `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
 
 ## Mandatory restart
 
@@ -18,21 +18,49 @@
 ## Current state
 
 - state: `idle-ready`
-- baseline/main: `41ac479e8ed5318cd63434d594cc3ab48f607191`
-- next target: `ATLAS-CH-MECHDIAG-001`
-- title: **Mechanistic Intervention**
+- baseline/main: `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
+- next target: `ATLAS-CH-POLITY-001`
+- title: **The Computational Polity**
 - hard prerequisites:
-  - `ATLAS-CH-EVIDENCE-001`
-  - `ATLAS-CH-TRANSFORMER-001`
+  - `ATLAS-CH-COORD-001`
+  - `ATLAS-CH-EXTMEM-001`
 - direct consumer:
-  - `ATLAS-CH-SPECTRALDIAG-001`
+  - `ATLAS-CH-SYNTHESIS-001`
 - downstream architecture count: 1
 
-Reason: after MATRIXOPT-001 / AUDIT-046 closure, the dependency-legal frontier has eight count-1 candidates. Deterministic ID ordering selects `ATLAS-CH-MECHDIAG-001` first.
+Atlas contract:
 
-Count-1 frontier at this baseline:
+> Develop intelligence as a coordinated system of models, memory, tools, humans, validators, and governance.
 
-- `ATLAS-CH-MECHDIAG-001`
+The Coordination prerequisite supplies the coordination object, shared-state and communication families, ordering, retry/deduplication semantics, and transaction boundaries. The External Memory prerequisite supplies shared-memory scope, synchronization/access-control requirements, and provenance-preserving record semantics.
+
+## Immediately completed tranche
+
+Stable ID: `ATLAS-CH-MECHDIAG-001`
+
+- implementation PR: #189
+- exact green implementation head: `69614ab7d93d99d7e807ee08c0314afbc1b2ca74`
+- implementation merge: `a88e2e85c3c18f123d6476e0d53c8a302cdb4b5f`
+- post-draft audit: `AUDIT-047`
+- audit PR: #190
+- exact green audit head: `a5a100fe00da96070e9cefe2f9b12339756bd748`
+- audit merge/current main: `ecd120cc06da1a9671a2ceb01b6ece74d0914ed7`
+- audit disposition: **PASS WITH TWO DOCUMENTARY REPAIRS**
+- final canonical validation on current main: green
+- mature reader companion: `manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-DIAGREAD-001.md`
+- source-scope companion: `reviews/AUDIT-047-SOURCES.yaml`
+
+Durable MECHDIAG boundary:
+
+- readability does not imply functional use;
+- a null single-component result can coexist with redundancy;
+- component-level claims bind target behavior, selected components, transformation family, metric, and reference rule;
+- downstream spectral signatures require independent functional evidence.
+
+## Recomputed dependency-legal frontier
+
+Count-1 candidates:
+
 - `ATLAS-CH-POLITY-001`
 - `ATLAS-CH-PROGRESSSEARCH-001`
 - `ATLAS-CH-ROUTERDYN-001`
@@ -41,107 +69,9 @@ Count-1 frontier at this baseline:
 - `ATLAS-CH-TRANSPORT-001`
 - `ATLAS-CH-UNCERTAINTY-001`
 
-## Immediately completed tranche
+Deterministic ID ordering selects `ATLAS-CH-POLITY-001`.
 
-Stable ID: `ATLAS-CH-MATRIXOPT-001`
-
-- implementation issue #184: closed completed
-- implementation PR #185
-- source-lock checkpoint: `7753510f68307aff23b3285fc750aae185897af6`
-- exact implementation green head: `ae75df4c1b1016b873b48b3367bede2b01e507af`
-- implementation merge: `bd9863891fb8edfb48f14414e7aceee50a798a54`
-- post-draft audit: `AUDIT-046`
-- audit issue #187: closed completed
-- audit PR #188
-- exact audit green head: `9813a17431a941ca54f178827106d3b84a241e97`
-- audit merge/current main: `41ac479e8ed5318cd63434d594cc3ab48f607191`
-- audit record blob: `5f87902c5e30d45149df70d6c0b86a320c9c142a`
-- audit disposition: **PASS — NO REPAIR**
-- final canonical validation: green
-
-Durable MATRIXOPT substrate:
-
-- elementwise scaling is distinguished from matrix preconditioning;
-- left/right matrix geometry is explicit for rectangular parameter blocks;
-- accumulated Shampoo factors are not promoted to a full Hessian;
-- tall/wide one-step Gram rank deficiency is explicit;
-- rectangular polar factors are treated as semi-orthogonal;
-- polar orthogonalization is identified as nonzero singular-value flattening;
-- Frobenius- and spectral-norm steepest directions are derived under distinct norm balls;
-- the one-step two-sided inverse-fourth-root identity is support-restricted and does not collapse stateful Shampoo into an instantaneous polar transform;
-- Muon momentum and finite Newton-Schulz realization are separated from exact SVD/polar orthogonalization;
-- orthogonalized updates are separated from manifold-constrained parameters;
-- flattening is separated from arbitrary intentional spectral shaping.
-
-Exact witness:
-
-[
-G=
-egin{pmatrix}
-2&0\
-0&1\
-1&0
-end{pmatrix},
-qquad
-sigma(G)={sqrt5,1}.
-]
-
-It establishes:
-
-- (operatorname{rank}(GG^	op)=2<3);
-- (Q^	op Q=I_2) for the tall polar factor;
-- (QQ^	op) is the rank-two projector onto (operatorname{range}(G)), not (I_3);
-- (|G|_2=sqrt5), (|G|_F=sqrt6), (|G|_*=sqrt5+1);
-- the diagonal control has singular values ({sqrt5/2,1});
-- the support-restricted two-sided inverse-fourth-root identity reproduces the polar factor.
-
-Load-bearing boundary:
-
-[
-	ext{matrix-aware update geometry}
-
-eq
-	ext{full curvature}
-
-eq
-	ext{parameter-manifold constraint},
-]
-
-and
-
-[
-	ext{polar flattening}
-
-eq
-	ext{arbitrary spectral shaping}.
-]
-
-## Next tranche — MECHDIAG-001
-
-Stable ID:
-
-`ATLAS-CH-MECHDIAG-001`
-
-Title:
-
-**Mechanistic Intervention**
-
-Atlas contract:
-
-> Develop probes, ablations, activation patching, causal interventions, circuits, counterfactual substitution, and recovery tests that distinguish lost mechanisms from suppressed or inaccessible ones.
-
-Hard prerequisites:
-
-- `ATLAS-CH-EVIDENCE-001`
-- `ATLAS-CH-TRANSFORMER-001`
-
-Direct consumer:
-
-- `ATLAS-CH-SPECTRALDIAG-001`
-
-The Evidence prerequisite supplies the Observation/Interpretation distinction and requires stronger intervention before correlation is promoted to mechanism. The Transformer prerequisite supplies the architectural objects on which interventions operate.
-
-A sound next tranche should source-lock primary mechanistic-interpretability/intervention references before selecting a witness, distinguish observational probes from causal interventions, and include at least one finite counterexample showing that a predictive probe need not identify a causally necessary mechanism.
+`ATLAS-CH-SPECTRALDIAG-001` is now dependency-legal but has downstream architecture count 0, so it does not outrank the count-1 frontier.
 
 ## Legitimate stop conditions
 
