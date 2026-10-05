@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
 **Controller branch:** `state/atlas-controller`
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`
-**Current main:** `9a43d7ccc839294f2508a80c547b48c65968f4b9`
+**Current main:** `d972128b8b3e15893a273d22d9665c3bbfdbca20`
 
 ## Mandatory restart
 
@@ -18,55 +18,96 @@
 ## Current state
 
 - state: `idle-ready`
-- baseline/main: `9a43d7ccc839294f2508a80c547b48c65968f4b9`
-- next target: `ATLAS-CH-HARDWARE-001`
-- title: **The Machine Under the Mathematics**
-- hard dependency: `ATLAS-CH-LINALG-001`
-- direct consumer: `ATLAS-CH-SYSTEMS-001`
+- baseline/main: `d972128b8b3e15893a273d22d9665c3bbfdbca20`
+- next target: `ATLAS-CH-MANOPT-001`
+- title: **Optimization on Manifolds**
+- hard prerequisites:
+  - `ATLAS-CH-GEOM-001`
+  - `ATLAS-CH-OPTBASE-001`
+- direct consumer: `ATLAS-CH-VARIOPT-001`
 
-Reason: the post-review frontier is a count-1 tie; deterministic ordering selects HARDWARE-001 first.
+Reason: after HARDWARE-001 / AUDIT-044 closure, the dependency-legal frontier remains a count-1 tie; deterministic ordering selects MANOPT-001 first.
 
 ## Immediately completed tranche
 
-Stable ID: `ATLAS-CH-FRONTIER-001`
+Stable ID: `ATLAS-CH-HARDWARE-001`
 
-- implementation issue #171: closed completed
-- implementation PR #172
-- implementation green head: `9d698d9980a3a7f21027cdca3d0846ec001d631e`
-- implementation merge: `ccc949cc3da6753e91fe69b8b68bb7dc274d395c`
-- post-draft audit: `AUDIT-043`
-- review issue #173: closed completed
-- audit PR #174
-- audit green head: `2cc38cc05cbd56678c7a3582776c0995e0469e5d`
-- audit merge/current main: `9a43d7ccc839294f2508a80c547b48c65968f4b9`
+- implementation issue #176: closed completed
+- implementation PR #177
+- implementation exact green head: `a8e1fe2e5474a61019614c4500d2cf92c2336335`
+- implementation merge: `2960157b277b32b0f4a4b25df7009bc6db238136`
+- post-draft audit: `AUDIT-044`
+- audit issue #178: closed completed
+- audit PR #179
+- audit exact green head: `85d2a4bb48ac20a9d9ea8f41ead1c364955292e4`
+- audit merge/current main: `d972128b8b3e15893a273d22d9665c3bbfdbca20`
 
-Durable result: a governed research-programme map separating audit-bound substrate, ledger draft status, architecture-stage programmes, bounded evidence, open proof/experiment obligations, and conjectural connections.
+Core durable result:
 
-Audit repairs:
-1. `draft-v0.1` alone is not proof of post-draft audit completion; exact audit records govern audit claims.
-2. the neutral registry alias is an explicit pointer to the repaired canonical source lock.
+- FLOP count is separated from runtime;
+- throughput is separated from latency;
+- arithmetic intensity is defined relative to an explicit memory boundary;
+- Roofline is used as an upper-bound diagnostic rather than a runtime oracle;
+- memory hierarchy, reuse, occupancy, matrix/tensor hardware, precision, fusion, and benchmark methodology are distinguished;
+- CUDA facts remain vendor/programming-model scoped;
+- distributed and serving behavior remains downstream in SYSTEMS-001.
 
-Load-bearing boundary: programme != theorem; this chapter != final Atlas synthesis.
+Exact witness:
 
-## Next tranche — HARDWARE-001
+- same exact 2x2 matrix product;
+- same declared 12 FLOPs;
+- no-reuse traffic: 80 bytes, 0.15 FLOP/byte;
+- perfect-input-reuse traffic: 48 bytes, 0.25 FLOP/byte;
+- hypothetical one-level Roofline bounds: 0.15 vs 0.25 TFLOP/s for 10 TFLOP/s compute and 1 TB/s bandwidth.
+
+AUDIT-044 required one documentary repair only:
+
+- CUDA Programming Guide now pins last-updated date 2026-09-10;
+- CUDA C++ Best Practices Guide now pins documentation version 13.4.
+
+No mathematical, witness, reader-prose, dependency, or downstream-boundary reversal was required.
+
+Load-bearing boundary: **mathematical work != physical execution cost; HARDWARE-001 != SYSTEMS-001**.
+
+## Next tranche — MANOPT-001
+
+Stable ID:
+
+`ATLAS-CH-MANOPT-001`
+
+Title:
+
+**Optimization on Manifolds**
 
 Atlas contract:
 
-> Develop GPUs, memory hierarchy, tensor cores, arithmetic intensity, precision, kernels, and bandwidth.
+> Develop tangent gradients, retractions, constrained motion, and sphere/Stiefel optimization.
 
-Intellectual spine:
-- FLOPs versus wall-clock time;
-- compute-bound versus bandwidth-bound work;
-- memory hierarchy;
-- matrix/tensor hardware versus abstract GEMM;
-- arithmetic intensity and roofline reasoning;
-- precision versus numerical error;
-- kernel fusion versus operator semantics;
-- occupancy/parallelism versus dependency structure;
-- bandwidth and communication bottlenecks;
-- benchmark methodology and hardware-specific scope.
+Hard prerequisites:
 
-Source-lock authoritative hardware documentation and classical roofline literature before choosing a witness. A useful witness should compare equal nominal FLOP counts with different bytes moved, or show how reuse changes arithmetic intensity without changing the mathematical matrix product.
+- `ATLAS-CH-GEOM-001`
+- `ATLAS-CH-OPTBASE-001`
+
+A sound intellectual spine should distinguish:
+
+1. Euclidean gradient from Riemannian/tangent gradient;
+2. tangent projection from a complete constrained update;
+3. exponential map from practical retractions;
+4. first-order retraction accuracy from exact geodesic motion;
+5. sphere versus Stiefel constraints;
+6. tangent-space update from transport between tangent spaces;
+7. intrinsic geometry from extrinsic coordinate parameterization;
+8. orthogonality preservation from optimizer quality;
+9. stationarity on a manifold from global optimality;
+10. generic manifold optimization from later GCL-specific normalized/orthogonal optimizer programmes.
+
+Source-lock standard manifold-optimization references and exact audited Geometry/First-Order Optimization prerequisites before selecting the witness.
+
+A useful finite witness should compare an unconstrained Euclidean step with tangent projection plus a declared retraction on a sphere or small Stiefel manifold, verifying constraint preservation exactly while keeping optimality claims local.
+
+Direct consumer:
+
+- `ATLAS-CH-VARIOPT-001`.
 
 ## Legitimate stop conditions
 
