@@ -85,8 +85,8 @@ The horizon-aware path I,X returns 5.
 Therefore
 
 [
-	ext{max immediate progress}
-otRightarrow	ext{max finite-horizon return}.
+\text{max immediate progress}
+otRightarrow\text{max finite-horizon return}.
 ]
 
 ## Credit assignment
