@@ -1,10 +1,10 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
-**Handoff date:** 2026-10-04
-**Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
-**Controller branch:** `state/atlas-controller`
-**Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`
-**Current main:** `b75d840b51268d2ac43041af7a02fade2a660ba3`
+**Handoff date:** 2026-10-05  
+**Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
+**Controller branch:** `state/atlas-controller`  
+**Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
+**Current main:** `41ac479e8ed5318cd63434d594cc3ab48f607191`
 
 ## Mandatory restart
 
@@ -18,99 +18,130 @@
 ## Current state
 
 - state: `idle-ready`
-- baseline/main: `b75d840b51268d2ac43041af7a02fade2a660ba3`
-- next target: `ATLAS-CH-MATRIXOPT-001`
-- title: **Matrix-Aware Optimization**
+- baseline/main: `41ac479e8ed5318cd63434d594cc3ab48f607191`
+- next target: `ATLAS-CH-MECHDIAG-001`
+- title: **Mechanistic Intervention**
 - hard prerequisites:
-  - `ATLAS-CH-LINALG-001`
-  - `ATLAS-CH-SECOND-001`
-- direct consumer: `ATLAS-CH-SPECTRALSHAPE-001`
+  - `ATLAS-CH-EVIDENCE-001`
+  - `ATLAS-CH-TRANSFORMER-001`
+- direct consumer:
+  - `ATLAS-CH-SPECTRALDIAG-001`
+- downstream architecture count: 1
 
-Reason: after MANOPT-001 / AUDIT-045 closure, the dependency-legal frontier remains a count-1 tie; deterministic ordering selects MATRIXOPT-001 first.
+Reason: after MATRIXOPT-001 / AUDIT-046 closure, the dependency-legal frontier has eight count-1 candidates. Deterministic ID ordering selects `ATLAS-CH-MECHDIAG-001` first.
+
+Count-1 frontier at this baseline:
+
+- `ATLAS-CH-MECHDIAG-001`
+- `ATLAS-CH-POLITY-001`
+- `ATLAS-CH-PROGRESSSEARCH-001`
+- `ATLAS-CH-ROUTERDYN-001`
+- `ATLAS-CH-RPO-001`
+- `ATLAS-CH-TOKEN-001`
+- `ATLAS-CH-TRANSPORT-001`
+- `ATLAS-CH-UNCERTAINTY-001`
 
 ## Immediately completed tranche
 
-Stable ID: `ATLAS-CH-MANOPT-001`
+Stable ID: `ATLAS-CH-MATRIXOPT-001`
 
-- implementation issue #180: closed completed
-- implementation PR #181
-- implementation exact green head: `64a57189692ca0c7e68e245117840db51dd48a63`
-- implementation merge: `b47e9d42557428bb2c985b2ba916bbcdf6489a8f`
-- post-draft audit: `AUDIT-045`
-- audit issue #182: closed completed
-- audit PR #183
-- audit exact green head: `e7b1bb5b7cd2bc20b7b1f7a58ca40579bab6cfc4`
-- audit merge/current main: `b75d840b51268d2ac43041af7a02fade2a660ba3`
+- implementation issue #184: closed completed
+- implementation PR #185
+- source-lock checkpoint: `7753510f68307aff23b3285fc750aae185897af6`
+- exact implementation green head: `ae75df4c1b1016b873b48b3367bede2b01e507af`
+- implementation merge: `bd9863891fb8edfb48f14414e7aceee50a798a54`
+- post-draft audit: `AUDIT-046`
+- audit issue #187: closed completed
+- audit PR #188
+- exact audit green head: `9813a17431a941ca54f178827106d3b84a241e97`
+- audit merge/current main: `41ac479e8ed5318cd63434d594cc3ab48f607191`
+- audit record blob: `5f87902c5e30d45149df70d6c0b86a320c9c142a`
+- audit disposition: **PASS — NO REPAIR**
+- final canonical validation: green
 
-Durable substrate:
+Durable MATRIXOPT substrate:
 
-- induced-metric Riemannian gradients as tangent projections in the declared embedded setting;
-- exact sphere tangent projection and normalized retraction;
-- exact Stiefel tangent condition and polar retraction;
-- explicit retraction-versus-exponential distinction;
-- explicit retraction-versus-vector-transport distinction;
-- constraint preservation separated from convergence and global optimality.
+- elementwise scaling is distinguished from matrix preconditioning;
+- left/right matrix geometry is explicit for rectangular parameter blocks;
+- accumulated Shampoo factors are not promoted to a full Hessian;
+- tall/wide one-step Gram rank deficiency is explicit;
+- rectangular polar factors are treated as semi-orthogonal;
+- polar orthogonalization is identified as nonzero singular-value flattening;
+- Frobenius- and spectral-norm steepest directions are derived under distinct norm balls;
+- the one-step two-sided inverse-fourth-root identity is support-restricted and does not collapse stateful Shampoo into an instantaneous polar transform;
+- Muon momentum and finite Newton-Schulz realization are separated from exact SVD/polar orthogonalization;
+- orthogonalized updates are separated from manifold-constrained parameters;
+- flattening is separated from arbitrary intentional spectral shaping.
 
-Exact sphere witness:
+Exact witness:
 
-- ambient step squared norm: `5/4`;
-- raw tangent-step squared norm: `2`;
-- normalized-retraction squared norm: `1`;
-- exponential and normalized-retraction endpoints are both feasible and different.
+[
+G=
+egin{pmatrix}
+2&0\
+0&1\
+1&0
+end{pmatrix},
+qquad
+sigma(G)={sqrt5,1}.
+]
 
-Exact orthogonality witness:
+It establishes:
 
-- tangent-condition residual: `0`;
-- raw-step Gram: `2I`;
-- polar-retracted Gram: `I`;
-- polar retraction angle: `pi/4`;
-- exponential angle: `1` radian.
+- (operatorname{rank}(GG^	op)=2<3);
+- (Q^	op Q=I_2) for the tall polar factor;
+- (QQ^	op) is the rank-two projector onto (operatorname{range}(G)), not (I_3);
+- (|G|_2=sqrt5), (|G|_F=sqrt6), (|G|_*=sqrt5+1);
+- the diagonal control has singular values ({sqrt5/2,1});
+- the support-restricted two-sided inverse-fourth-root identity reproduces the polar factor.
 
-AUDIT-045 passed with no mathematical repair.
+Load-bearing boundary:
 
-A connector filter required a byte-identical neutral source-lock alias for Source Register integration and a successor work branch. The Chapter Ledger retained the canonical source-lock path. No source, claim, validation, or governance requirement was weakened.
+[
+	ext{matrix-aware update geometry}
 
-Load-bearing boundary: **legal constrained motion != optimizer quality; MANOPT-001 != VARIOPT-001**.
+eq
+	ext{full curvature}
 
-## Next tranche — MATRIXOPT-001
+eq
+	ext{parameter-manifold constraint},
+]
+
+and
+
+[
+	ext{polar flattening}
+
+eq
+	ext{arbitrary spectral shaping}.
+]
+
+## Next tranche — MECHDIAG-001
 
 Stable ID:
 
-`ATLAS-CH-MATRIXOPT-001`
+`ATLAS-CH-MECHDIAG-001`
 
 Title:
 
-**Matrix-Aware Optimization**
+**Mechanistic Intervention**
 
 Atlas contract:
 
-> Study Shampoo, polar factors, orthogonalized updates, Muon-like methods, and square versus rectangular geometry.
+> Develop probes, ablations, activation patching, causal interventions, circuits, counterfactual substitution, and recovery tests that distinguish lost mechanisms from suppressed or inaccessible ones.
 
 Hard prerequisites:
 
-- `ATLAS-CH-LINALG-001`
-- `ATLAS-CH-SECOND-001`
-
-A sound intellectual spine should distinguish:
-
-1. scalar/elementwise adaptive scaling from matrix preconditioning;
-2. left and right matrix geometry for rectangular parameter blocks;
-3. Kronecker-factored second-moment structure from a full matrix curvature model;
-4. inverse square root preconditioning from polar/orthogonalized update construction;
-5. singular-value flattening from intentional spectral shaping;
-6. Frobenius, spectral, and other matrix-norm steepest directions;
-7. square-matrix intuition from genuinely rectangular behavior;
-8. exact SVD/polar objects from Newton-Schulz or other approximate numerical realizations;
-9. instantaneous matrix transformation from optimizer-state dynamics;
-10. matrix-aware optimization from hard manifold constraints.
-
-Source-lock primary/authoritative Shampoo, polar-decomposition, and Muon-like sources before choosing a witness. Keep empirical performance claims source-scoped.
-
-A useful finite witness should use a small rectangular gradient matrix whose Euclidean, diagonal-scaled, and polar/orthogonalized directions can be computed exactly, exposing how singular values and aspect ratio change under each transformation without claiming universal superiority.
+- `ATLAS-CH-EVIDENCE-001`
+- `ATLAS-CH-TRANSFORMER-001`
 
 Direct consumer:
 
-- `ATLAS-CH-SPECTRALSHAPE-001`.
+- `ATLAS-CH-SPECTRALDIAG-001`
+
+The Evidence prerequisite supplies the Observation/Interpretation distinction and requires stronger intervention before correlation is promoted to mechanism. The Transformer prerequisite supplies the architectural objects on which interventions operate.
+
+A sound next tranche should source-lock primary mechanistic-interpretability/intervention references before selecting a witness, distinguish observational probes from causal interventions, and include at least one finite counterexample showing that a predictive probe need not identify a causally necessary mechanism.
 
 ## Legitimate stop conditions
 
