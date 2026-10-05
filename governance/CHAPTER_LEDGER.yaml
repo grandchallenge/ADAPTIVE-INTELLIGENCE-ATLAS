@@ -1062,8 +1062,13 @@
         "ATLAS-CH-RESIDUAL-001",
         "ATLAS-CH-BCONTRACT-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "governance/tranches/CH171-SPEC.md",
+      "manuscript_path": "governance/tranches/CH171-READER.md",
+      "derivation_path": "governance/tranches/CH171-EVIDENCE-MATRIX.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-FRONTIER-001.yaml",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-SYNTHESIS-001",
