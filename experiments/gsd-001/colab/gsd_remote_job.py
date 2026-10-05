@@ -139,12 +139,16 @@ def main() -> int:
         if not revisions:
             raise RuntimeError("job must provide exact revisions")
 
+        families = list(job.get("families", ["intuitive_answer"]))
+        if not families:
+            raise RuntimeError("job must provide at least one evaluation family")
+
         argv = [
             sys.executable, str(source / "run_sweep.py"),
             "--upstream-dir", str(upstream),
             "--output-dir", str(run_root),
-            "--families", "intuitive_answer",
-            "--n-seeds", "1",
+            "--families", *families,
+            "--n-seeds", str(int(job.get("n_seeds", 1))),
             "--max-eval", str(int(job.get("max_eval", 128))),
         ]
         for revision in revisions:
