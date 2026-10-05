@@ -10,8 +10,8 @@ current:
   baseline_commit: "ac631f8162e32f520c5678034ec5d9e18f366e7c"
   branch: "audit/compress-169"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit the exact COMPRESS-001 merge, repair all in-scope source, mathematical, prose, and repository defects, write AUDIT-042, validate, and merge only from a fresh green exact head."
+  state: "audit-record-complete"
+  next_action: "Open the AUDIT-042 PR from audit/compress-169, run canonical exact-head validation, repair any in-scope failure, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
