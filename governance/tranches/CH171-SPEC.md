@@ -16,14 +16,15 @@ Hard prerequisites:
 ## Claim classes
 
 Every programme statement must be classified as one of:
-- AUDITED_SUBSTRATE
+- AUDIT_BOUND_SUBSTRATE
+- DRAFT_SUBSTRATE
 - BOUNDED_EVIDENCE
 - ARCHITECTURE_STAGE
 - OPEN_PROOF_OBLIGATION
 - OPEN_EXPERIMENT_OBLIGATION
 - CONJECTURAL_CONNECTION
 
-Architecture status is not empirical confirmation.
+Architecture status is not empirical confirmation. Ledger draft status alone is not proof that a post-draft audit completed; audit completion is claimed only from an exact bound audit record.
 A bounded result stays bound to its declared object and setting.
 This chapter does not write ATLAS-CH-SYNTHESIS-001 in advance.
 
@@ -41,16 +42,18 @@ This chapter does not write ATLAS-CH-SYNTHESIS-001 in advance.
 
 ## Snapshot status
 
-AUDITED_SUBSTRATE:
+AUDIT_BOUND_SUBSTRATE:
+- GOVADAPT-001
+- RESIDUAL-001
+- BCONTRACT-001
+
+DRAFT_SUBSTRATE at the protected ledger snapshot:
 - SECOND-001
 - POSGEOM-001
 - DEPTH-001
 - NETNUM-001
 - EXTMEM-001
 - CURRICULUM-001
-- RESIDUAL-001
-- BCONTRACT-001
-- GOVADAPT-001
 
 ARCHITECTURE_STAGE:
 - MATRIXOPT-001
