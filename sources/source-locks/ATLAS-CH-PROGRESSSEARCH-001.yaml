@@ -1,0 +1,90 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-PROGRESSSEARCH-001"
+locked_on: "2026-10-05"
+epistemic_class: "audited_curriculum_prerequisite_plus_primary_learning_progress_and_active_experience_search_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Curriculum prerequisite supplies the controller state/action/observation interface,
+  open-loop versus closed-loop semantics, an oriented learning-progress signal, the finite
+  state-dependent action witness, and the boundary that metric change does not identify an internal
+  mechanism transition. Oudeyer, Kaplan, and Hafner (2007) are used as a primary precedent for
+  progress-sensitive intrinsic-motivation systems that direct autonomous exploration toward regions
+  with changing prediction/learning outcomes. Baranes and Oudeyer (2013) are used as a primary
+  precedent for competence-progress-driven active goal exploration over a parameterized task space.
+  Portelas et al. (2020) are used as a primary precedent for turning curriculum generation over a
+  continuously parameterized environment space into a surrogate bandit/search problem driven by
+  absolute learning progress. Atlas-owned material defines the Progress Search object, separates
+  exploitation from deliberate coverage/exploration, introduces explicit credit and horizon fields,
+  and supplies a finite witness where pure exploitation fails to discover a higher-progress region
+  while one forced exploratory query does. No cited result licenses a universal claim that learning
+  progress is the optimal search objective, that absolute progress implies durable generalization,
+  or that progress signals identify learned mechanisms.
+
+sources:
+  - id: "PROGRESSSEARCH-OUDEYER-KAPLAN-HAFNER-2007"
+    citation_key: "OudeyerKaplanHafner2007IntrinsicMotivation"
+    kind: "peer-reviewed-journal"
+    title: "Intrinsic Motivation Systems for Autonomous Mental Development"
+    authors: "Pierre-Yves Oudeyer; Frederic Kaplan; Verena V. Hafner"
+    journal: "IEEE Transactions on Evolutionary Computation"
+    volume: 11
+    issue: 2
+    pages: "265-286"
+    year: 2007
+    doi: "10.1109/TEVC.2006.890271"
+    authority: >
+      Primary source for progress-sensitive intrinsic-motivation mechanisms used to direct autonomous
+      exploration. Used as a historical/mechanistic precedent, not as a universal optimality theorem.
+
+  - id: "PROGRESSSEARCH-BARANES-OUDEYER-2013"
+    citation_key: "BaranesOudeyer2013GoalExploration"
+    kind: "peer-reviewed-journal"
+    title: "Active learning of inverse models with intrinsically motivated goal exploration in robots"
+    authors: "Adrien Baranes; Pierre-Yves Oudeyer"
+    journal: "Robotics and Autonomous Systems"
+    volume: 61
+    issue: 1
+    pages: "49-73"
+    year: 2013
+    doi: "10.1016/j.robot.2012.05.008"
+    authority: >
+      Primary source for active sampling of parameterized tasks/goals using a competence-progress
+      signal in the reported robotic setting.
+
+  - id: "PROGRESSSEARCH-PORTELAS-2020"
+    citation_key: "PortelasEtAl2020TeacherAlgorithms"
+    kind: "peer-reviewed-conference"
+    title: "Teacher algorithms for curriculum learning of Deep RL in continuously parameterized environments"
+    authors: "Remy Portelas; Cedric Colas; Katja Hofmann; Pierre-Yves Oudeyer"
+    venue: "Proceedings of the Conference on Robot Learning"
+    series: "Proceedings of Machine Learning Research"
+    volume: 100
+    pages: "835-853"
+    year: 2020
+    url: "https://proceedings.mlr.press/v100/portelas20a.html"
+    eprint: "1910.07224"
+    archive: "arXiv"
+    authority: >
+      Primary source for casting teacher-driven environment sampling as a surrogate continuous-bandit
+      problem using absolute learning progress in the paper's Deep-RL experiments.
+
+atlas_sources:
+  - id: "PROGRESSSEARCH-CURRICULUM-MANUSCRIPT"
+    commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
+    path: "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-CURRICULUM-001.md"
+    git_blob_sha1: "b65f88c07ad5e523cff5d0ca3bd8a28c9bed41cc"
+  - id: "PROGRESSSEARCH-CURRICULUM-SOURCE-LOCK"
+    commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
+    path: "sources/source-locks/ATLAS-CH-CURRICULUM-001.yaml"
+    git_blob_sha1: "97d8862c4704ae48510444bdb4e72088ddcfa2f9"
+  - id: "PROGRESSSEARCH-CURRICULUM-AUDIT"
+    commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
+    path: "reviews/AUDIT-037.md"
+    git_blob_sha1: "786888f26138cbba7e131bc4a7dcd61c47d44d02"
+
+epistemic_rules:
+  - "Learning progress remains a declared controller signal, not a direct observation of mechanism acquisition."
+  - "Absolute learning progress may value both improvement and deterioration; its interpretation must be declared."
+  - "Experience-space search requires an explicit exploration rule; greedily maximizing current progress is not search-complete."
+  - "Search value depends on horizon and credit assignment; immediate progress need not maximize terminal capability."
+  - "Generalization-state evidence is partial evidence about declared acquisition/persistence/accessibility/expression surfaces, not a mechanism oracle."
+  - "The search operator may change the effective training distribution and must preserve the inherited dose/recipe comparison boundary."
