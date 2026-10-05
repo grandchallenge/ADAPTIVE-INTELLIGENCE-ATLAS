@@ -4,7 +4,7 @@
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
 **Controller branch:** `state/atlas-controller`  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml`  
-**Current main:** `356273124481084c6c4d7f9a0d5fae59fe4405cb`
+**Current main:** `1f1aec7e7734f28b7b44db380357634085960aa0`
 
 This file exists so a fresh session can resume the Atlas composition programme without reconstructing state from chat history.
 
@@ -69,19 +69,58 @@ Avoid progress-only handbacks. A user message such as `next`, `resume`, `continu
 The controller will be reset to:
 
 - state: `idle-ready`;
-- baseline/main: `356273124481084c6c4d7f9a0d5fae59fe4405cb`;
-- next target: `ATLAS-CH-COMPRESS-001`;
-- title: **Compression and Description Length**;
-- reason: after SECOND-001 audit closure, the dependency-legal frontier has no count-2 leader. The top tier is a count-1 tie, and deterministic ordering selects COMPRESS-001 first.
+- baseline/main: `1f1aec7e7734f28b7b44db380357634085960aa0`;
+- next target: `ATLAS-CH-FRONTIER-001`;
+- title: **Frontier Questions of Adaptive Intelligence**;
+- reason: after COMPRESS-001 audit closure, the dependency-legal frontier remains a count-1 tie, and deterministic ordering selects FRONTIER-001 first.
 
-Current frontier, recomputed from the live post-AUDIT-041 Chapter Ledger:
+Current frontier, recomputed from the live post-AUDIT-042 Chapter Ledger:
 
-1. `ATLAS-CH-COMPRESS-001` — downstream architecture count 1; direct consumer `ATLAS-CH-COMPINTEL-001`.
-2. Other count-1 entries include `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-HARDWARE-001`, `ATLAS-CH-MANOPT-001`, `ATLAS-CH-MATRIXOPT-001`, `ATLAS-CH-MECHDIAG-001`, `ATLAS-CH-POLITY-001`, `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-RPO-001`, `ATLAS-CH-TOKEN-001`, `ATLAS-CH-TRANSPORT-001`, and `ATLAS-CH-UNCERTAINTY-001`.
+1. `ATLAS-CH-FRONTIER-001` — downstream architecture count 1; direct consumer `ATLAS-CH-SYNTHESIS-001`.
+2. Other count-1 entries are `ATLAS-CH-HARDWARE-001`, `ATLAS-CH-MANOPT-001`, `ATLAS-CH-MATRIXOPT-001`, `ATLAS-CH-MECHDIAG-001`, `ATLAS-CH-POLITY-001`, `ATLAS-CH-PROGRESSSEARCH-001`, `ATLAS-CH-ROUTERDYN-001`, `ATLAS-CH-RPO-001`, `ATLAS-CH-TOKEN-001`, `ATLAS-CH-TRANSPORT-001`, and `ATLAS-CH-UNCERTAINTY-001`.
 
-SECOND-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-MATRIXOPT-001` is newly dependency-legal.
+COMPRESS-001 is now audited `draft-v0.1`. Its direct consumer `ATLAS-CH-COMPINTEL-001` is newly dependency-legal at downstream architecture count 0.
 
 ## 5. Immediately preceding completed tranches
+
+### COMPRESS-001 — Compression and Description Length
+
+- implementation issue: #167, closed completed;
+- implementation PR: #168;
+- implementation merge: `ac631f8162e32f520c5678034ec5d9e18f366e7c`;
+- audit: `AUDIT-042`;
+- audit issue: #169, closed completed;
+- audit PR: #170;
+- audit merge / current main: `1f1aec7e7734f28b7b44db380357634085960aa0`.
+
+Core durable distinctions:
+
+- parameter count versus declared description length;
+- lossless versus lossy compression;
+- pruning versus quantization versus weight sharing;
+- low rank versus sparsity;
+- behavioral distillation versus literal source coding;
+- compression ratio versus retained task behavior/distortion;
+- compressibility versus interpretability or intelligence.
+
+Exact witness set:
+
+- `4x4` all-ones map represented exactly by dense binary payload or rank-one factors;
+- declared code lengths: dense `17` bits versus exact rank-one `9` bits;
+- diagonal low-rank control `diag(4,3,1)`: best rank-1 squared Frobenius error `10`, rank-2 error `1`;
+- pruning control: `w=(1,1/8)`, `x=(0,8)`, output `1 -> 0` after thresholding the second weight;
+- fixed-grid quantization: `32 -> 8` payload bits with zero parameter distortion;
+- learned two-centroid sharing: `32 -> 20` payload bits;
+- two-part description example: `8` bits versus `12` bits.
+
+AUDIT-042 found no mathematical, witness, or reader-prose reversal. It repaired source provenance by canonicalizing Deep Compression as ICLR 2016 and distinguishing the NIPS 2014 distillation workshop venue from its 2015 arXiv posting.
+
+The chapter also created the canonical Part 12 manuscript directory:
+
+`manuscript/parts/12-diagnostics-robustness-compression/`.
+
+Load-bearing boundary: successful compression demonstrates a shorter acceptable representation under a declared code/equivalence/tolerance; it does not by itself reveal mechanism, interpretation, or intelligence.
+
 
 ### SECOND-001 — Curvature and Second-Order Structure
 
@@ -1147,45 +1186,58 @@ The following are already at `draft-v0.1` and audited where applicable:
 
 Do not treat already-drafted downstream chapters as hidden prerequisite authority unless the Chapter Ledger explicitly declares them as dependencies.
 
-## 7. Next tranche — COMPRESS-001
+## 7. Next tranche — FRONTIER-001
 
 Stable ID:
 
-`ATLAS-CH-COMPRESS-001`
+`ATLAS-CH-FRONTIER-001`
 
 Title:
 
-**Compression and Description Length**
+**Frontier Questions of Adaptive Intelligence**
 
 Declared hard dependencies:
 
-- `ATLAS-CH-INFO-001`;
-- `ATLAS-CH-REP-001`.
+- `ATLAS-CH-GOVADAPT-001`;
+- `ATLAS-CH-RESIDUAL-001`;
+- `ATLAS-CH-BCONTRACT-001`.
 
 Atlas contract:
 
-> Develop MDL, pruning, quantization, distillation, low rank, weight sharing, and structured transforms.
+> Collect the Atlas research programme: geometry-derived optimization, operator-valued position, adaptive depth, shared memory, minimal curricula, residual structure, benign nonconvexity, and boundary contracts.
 
 The next session should instantiate this tranche from current main only if the controller remains `idle-ready` and main still equals the recorded baseline.
 
+This chapter is a frontier programme, not a final synthesis chapter. It should preserve the boundary between:
+
+- established Atlas substrate;
+- active GCL research hypotheses;
+- bounded evidence already obtained;
+- open proof/experiment obligations;
+- conjectural cross-connections.
+
 A sound intellectual spine should distinguish at least:
 
-1. coding length from parameter count;
-2. lossless from lossy compression;
-3. model compression from data compression;
-4. pruning from quantization;
-5. low-rank factorization from unstructured sparsity;
-6. weight sharing from parameter deletion;
-7. knowledge distillation from literal parameter compression;
-8. MDL/model selection from ad hoc size minimization;
-9. compression ratio from retained task quality;
-10. descriptive compactness from mechanistic or semantic understanding.
+1. theorem or audited substrate from research question;
+2. empirical signal from mechanism claim;
+3. programme hypothesis from certified result;
+4. local project result from general scientific claim;
+5. architecture proposal from evidence-backed design rule;
+6. reconstruction/residual hypotheses from ordinary compression;
+7. boundary contracts from generic modularity language;
+8. adaptive depth from merely deeper fixed computation;
+9. shared external memory from weight-carried knowledge;
+10. geometry-derived optimization from heuristic optimizer analogy;
+11. operator-valued position from ordinary vector positional encoding;
+12. minimum curriculum/reasoning basis from informal curriculum design.
 
-The finite witness should be selected only after source locking. It should include an exact toy coding/parameter example where two representations have equal predictive behavior but different description lengths, plus a control showing that aggressive compression can destroy the relevant function.
+The source lock should preferentially bind mature Atlas chapters and durable public GCL artefacts rather than introducing a broad new external literature survey. Any live research status must be labeled as such.
 
 Direct consumer:
 
-- `ATLAS-CH-COMPINTEL-001`.
+- `ATLAS-CH-SYNTHESIS-001`.
+
+FRONTIER-001 must not prematurely write the final `Beyond the Monolithic Model` synthesis. Its job is to expose the live research programme and the smallest falsifiable/open obligations that remain.
 
 ## 8. Durable restart instruction for a fresh chat
 
