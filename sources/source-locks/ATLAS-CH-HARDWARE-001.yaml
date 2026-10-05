@@ -1,0 +1,98 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-HARDWARE-001"
+locked_on: "2026-10-04"
+epistemic_class: "audited_linear_algebra_prerequisite_plus_classical_roofline_model_plus_current_authoritative_cuda_documentation_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Linear Algebra prerequisite supplies matrix multiplication, operator
+  and norm language, and the distinction between an abstract linear map and one
+  coordinate implementation. Williams, Waterman, and Patterson support the classical
+  Roofline relation among floating-point throughput, memory bandwidth, arithmetic
+  intensity, and attainable performance bounds. Current NVIDIA CUDA programming and
+  best-practices documentation is used as an authoritative vendor source for CUDA's
+  execution model, memory spaces, shared/register/global-memory distinctions,
+  warp-level matrix operations, bandwidth-oriented optimization, occupancy/resource
+  constraints, and floating-point precision cautions. Vendor documentation is not
+  treated as a universal GPU architecture theorem. Device limits and throughput
+  figures are generation-specific unless separately locked. The finite traffic
+  witness in this chapter uses an explicitly declared idealized accounting model and
+  is not a benchmark.
+
+sources:
+  - id: "HARDWARE-ROOFLINE-2009"
+    citation_key: "WilliamsWatermanPatterson2009"
+    kind: "peer-reviewed-journal"
+    title: "Roofline: An Insightful Visual Performance Model for Multicore Architectures"
+    authors: "Samuel Williams; Andrew Waterman; David Patterson"
+    journal: "Communications of the ACM"
+    volume: 52
+    number: 4
+    pages: "65-76"
+    year: 2009
+    doi: "10.1145/1498765.1498785"
+    authority: >
+      Classical performance model relating arithmetic intensity, peak memory
+      bandwidth, peak floating-point throughput, and attainable performance.
+      Used as a bound/diagnostic model, not as a prediction that every workload
+      attains the roof.
+
+  - id: "HARDWARE-CUDA-PROGRAMMING-GUIDE-2026"
+    citation_key: "NVIDIACUDAProgrammingGuide2026"
+    kind: "vendor-authoritative-documentation"
+    title: "CUDA Programming Guide"
+    organization: "NVIDIA"
+    retrieved: "2026-10-04"
+    url: "https://docs.nvidia.com/cuda/cuda-programming-guide/"
+    authority: >
+      Current authoritative CUDA programming-model documentation for thread
+      hierarchy, warps/SIMT, GPU memory spaces, register/shared/global memory,
+      caches, and warp-level matrix multiply-accumulate facilities. All such
+      claims are CUDA-scoped and version/current-documentation scoped.
+
+  - id: "HARDWARE-CUDA-BEST-PRACTICES-2026"
+    citation_key: "NVIDIACUDABestPractices2026"
+    kind: "vendor-authoritative-documentation"
+    title: "CUDA C++ Best Practices Guide"
+    organization: "NVIDIA"
+    retrieved: "2026-10-04"
+    url: "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/"
+    authority: >
+      Current authoritative CUDA guidance for bandwidth, memory access,
+      shared-memory reuse, occupancy/resource tradeoffs, and numerical accuracy
+      and precision. Performance examples remain workload/device-specific.
+
+atlas_sources:
+  - id: "HARDWARE-LINALG-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e421edcc222922526fd4e1de853b168df1d6b847"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
+    git_blob_sha1: "e7fcf56322f26d232d3a3043038d9850792b4bde"
+    authority: >
+      Audited mathematical substrate for matrix multiplication, linear maps,
+      decomposition, norms, conditioning, and coordinate-versus-operator identity.
+
+  - id: "HARDWARE-LINALG-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e421edcc222922526fd4e1de853b168df1d6b847"
+    path: "sources/source-locks/ATLAS-CH-LINALG-001.yaml"
+    git_blob_sha1: "f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e"
+    authority: "Exact source and claim boundary for the Linear Algebra prerequisite."
+
+  - id: "HARDWARE-LINALG-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e421edcc222922526fd4e1de853b168df1d6b847"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: >
+      Foundation post-draft audit record explicitly covering ATLAS-CH-LINALG-001.
+
+epistemic_rules:
+  - "FLOP count is a mathematical-operation accounting convention, not a runtime prediction."
+  - "Arithmetic intensity requires a declared data-movement boundary and byte-count convention."
+  - "The Roofline expression is an upper-bound model; observed performance can lie below the roof for many reasons."
+  - "Equal mathematical work or equal FLOP count does not imply equal memory traffic or latency."
+  - "A memory-space hierarchy is architecture/programming-model specific; CUDA terminology is not silently universalized."
+  - "Tensor/matrix acceleration applies only to supported shapes, data types, layouts, and execution conditions."
+  - "Occupancy or active-warp count is not itself application performance."
+  - "Reduced precision changes representation and rounding behavior; smaller formats do not guarantee acceptable numerical error."
+  - "Kernel fusion may reduce intermediate traffic, but semantic equivalence must be checked independently."
+  - "Distributed communication, serving, KV-cache systems behavior, and multi-device scaling belong downstream in SYSTEMS-001."

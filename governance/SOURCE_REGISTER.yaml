@@ -332,3 +332,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-171.yaml"
     authority: "Audited prerequisites plus exact Atlas programme, rollout, and ledger sources."
+
+  - id: "ATLAS-SRC-HARDWARE-LOCK-001"
+    title: "The Machine Under the Mathematics source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-HARDWARE-001.yaml"
+    authority: "Audited Linear Algebra prerequisite plus classical Roofline performance modeling and current authoritative CUDA programming/best-practices documentation."
