@@ -41,6 +41,7 @@ def main() -> int:
     p.add_argument("--exit-code", type=int)
     p.add_argument("--message")
     p.add_argument("--receipt", type=Path)
+    p.add_argument("--result", type=Path)
     args = p.parse_args()
 
     current = read_json(args.status_file)
@@ -82,6 +83,17 @@ def main() -> int:
             "source_payload_sha256": receipt.get("source_payload_sha256"),
             "job_sha256": receipt.get("job_sha256"),
             "result_sha256": receipt.get("result_sha256"),
+        }
+
+    if args.result and args.result.exists():
+        result = read_json(args.result)
+        out["result"] = {
+            "status": result.get("status"),
+            "revision_count": result.get("revision_count"),
+            "summary_count": result.get("summary_count"),
+            "manifest_count": result.get("manifest_count"),
+            "families": result.get("families"),
+            "runtime": result.get("runtime"),
         }
 
     write_atomic(args.status_file, out)
