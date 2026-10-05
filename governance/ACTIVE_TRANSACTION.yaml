@@ -8,10 +8,10 @@ current:
   tranche_id: "MANOPT-001"
   chapter_ids: ["ATLAS-CH-MANOPT-001"]
   baseline_commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
-  branch: "work/ch180"
+  branch: "work/ch180a"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind exact audited GEOM and OPTBASE prerequisites plus standard manifold-optimization sources, then complete the exact sphere/Stiefel witness and chapter artifacts."
+  state: "draft-complete"
+  next_action: "Open the MANOPT-001 implementation PR from work/ch180a, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-MANOPT-001"
     downstream_architecture_count: 1
