@@ -11,7 +11,7 @@ current:
   branch: "audit/progresssearch-197"
   pull_request: 198
   state: "audit-validation"
-  next_action: "Validate repaired exact implementation head 1e78bc7ff7015e0af426cd18a9f8aa5c1cf230d2 on PR #196. Ignore stale CI for prior heads. If green, merge with exact-head lease and start the mandatory post-draft audit."
+  next_action: "Validate exact AUDIT-049 head 841fc86ca9093426ead5ea62ba7eb6cced4128e2 on PR #198. If green, merge with exact-head lease; then run final validation on merged main, close issues #195/#197, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-PROGRESSSEARCH-001"
     downstream_architecture_count: 1
