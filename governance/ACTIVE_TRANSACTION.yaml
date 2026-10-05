@@ -10,8 +10,8 @@ current:
   baseline_commit: "e421edcc222922526fd4e1de853b168df1d6b847"
   branch: "work/ch176"
   pull_request: 177
-  state: "pr-open"
-  next_action: "Read canonical CI for PR #177 at exact head a8e1fe2e5474a61019614c4500d2cf92c2336335; repair every in-scope failure, replay validation, and merge only when green."
+  state: "ci-green"
+  next_action: "Merge PR #177 only from exact green head a8e1fe2e5474a61019614c4500d2cf92c2336335; read back protected main; then instantiate the bounded post-draft audit."
 frontier:
   - id: "ATLAS-CH-HARDWARE-001"
     downstream_architecture_count: 1
