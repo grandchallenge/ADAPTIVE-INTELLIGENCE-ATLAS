@@ -4,20 +4,20 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 169
-  tranche_id: "AUDIT-042"
-  chapter_ids: ["ATLAS-CH-COMPRESS-001"]
-  baseline_commit: "ac631f8162e32f520c5678034ec5d9e18f366e7c"
-  branch: "audit/compress-169"
-  pull_request: 170
-  state: "audit-ci-green"
-  next_action: "Merge PR #170 only from exact green head 63ef2ca2e1ce331725ba1671123a798e296fbfcc; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-FRONTIER-001 (Frontier Questions of Adaptive Intelligence) from baseline 1f1aec7e7734f28b7b44db380357634085960aa0. Its hard prerequisites ATLAS-CH-GOVADAPT-001, ATLAS-CH-RESIDUAL-001, and ATLAS-CH-BCONTRACT-001 are audited draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
 frontier:
-  - id: "ATLAS-CH-COMPRESS-001"
+  - id: "ATLAS-CH-FRONTIER-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-COMPINTEL-001"]
+    direct_consumers: ["ATLAS-CH-SYNTHESIS-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
