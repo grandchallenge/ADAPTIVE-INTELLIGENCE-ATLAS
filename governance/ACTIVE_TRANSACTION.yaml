@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-POLITY-001"]
   baseline_commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
   branch: "work/polity-191"
-  pull_request: 192
-  state: "implementation-validation"
-  next_action: "Validate exact implementation head d9c226dea3a446eb40be4d4cd43724f637940770 on PR #192. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
+  pull_request: null
+  state: "post-draft-audit"
+  next_action: "Audit ATLAS-CH-POLITY-001 on branch audit/polity-193 from exact implementation merge 3c2fd507c4c355922db8eb65fef528a8afb51e41. Recheck exact prerequisite/source/provenance identities, replay the finite specialization witness, inspect reader maturity and SYNTHESIS handoff, then create and validate AUDIT-048."
 frontier:
   - id: "ATLAS-CH-POLITY-001"
     downstream_architecture_count: 1
