@@ -4,18 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 191
-  tranche_id: "POLITY-001"
-  chapter_ids: ["ATLAS-CH-POLITY-001"]
-  baseline_commit: "ecd120cc06da1a9671a2ceb01b6ece74d0914ed7"
-  branch: "work/polity-191"
-  pull_request: 194
-  state: "audit-validation"
-  next_action: "Validate exact AUDIT-048 head af9d53ebb97a2cbbfb6fbc3099218b7334e56e4b on PR #194. If green, merge with exact-head lease; then close issues #191/#193, run final validation on merged main, recompute the dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-PROGRESSSEARCH-001 from exact baseline d9f9fe56c27d6adab923fb5057c10cef9e4591d3. Bind audited ATLAS-CH-CURRICULUM-001 / AUDIT-037 before drafting. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-POLITY-001"
+  - id: "ATLAS-CH-PROGRESSSEARCH-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-SYNTHESIS-001"]
+    direct_consumers: ["ATLAS-CH-MINCURR-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
