@@ -1,0 +1,128 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-MATRIXOPT-001"
+locked_on: "2026-10-05"
+epistemic_class: "audited_linear_algebra_and_second_order_prerequisites_plus_primary_matrix_preconditioning_polar_and_muon_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Linear Algebra prerequisite supplies SVD, singular values, operator/Frobenius norms,
+  conditioning, low-rank structure, and rectangular-matrix language. The audited Curvature and
+  Second-Order Structure prerequisite supplies preconditioning, metric dependence, exact-versus-
+  approximate curvature distinctions, and optimizer-state discipline. Gupta, Koren, and Singer
+  (2018) support Shampoo's tensor-structured accumulated preconditioners and its stochastic-convex
+  convergence claims only in the paper's stated setting. Higham (1986) supports full-rank polar
+  decomposition, the nearest-unitary/semi-orthogonal interpretation, and Newton-type numerical
+  computation of the polar factor. Bernstein and Newhouse (2024) support the first-order norm/
+  steepest-descent interpretation of accumulation-free Shampoo-like updates. Jordan et al. (2024)
+  are the primary design source for Muon as momentum followed by a finite Newton-Schulz
+  orthogonalization transform on two-dimensional hidden-layer parameters. Atlas-owned material
+  includes the exact 3x2 rectangular witness, the rank-deficiency observation for one-step left/right
+  Shampoo statistics, and the explicit separations among diagonal scaling, accumulated matrix
+  preconditioning, exact polar factors, finite iterative orthogonalization, and hard manifold
+  constraints. No source here establishes universal optimizer superiority, universal deep-network
+  convergence, equivalence to a full Hessian method, or that exact singular-value flattening is always
+  desirable.
+
+sources:
+  - id: "MATRIXOPT-SHAMPOO-2018"
+    citation_key: "GuptaKorenSinger2018Shampoo"
+    kind: "peer-reviewed-conference"
+    title: "Shampoo: Preconditioned Stochastic Tensor Optimization"
+    authors: "Vineet Gupta; Tomer Koren; Yoram Singer"
+    venue: "Proceedings of the 35th International Conference on Machine Learning"
+    series: "Proceedings of Machine Learning Research"
+    volume: 80
+    pages: "1842-1850"
+    year: 2018
+    url: "https://proceedings.mlr.press/v80/gupta18a.html"
+    authority: >
+      Primary source for Shampoo's tensor-aware preconditioner construction and paper-scoped
+      convergence/empirical claims. It does not make Shampoo a full-Hessian method.
+
+  - id: "MATRIXOPT-HIGHAM-POLAR-1986"
+    citation_key: "Higham1986Polar"
+    kind: "peer-reviewed-journal"
+    title: "Computing the Polar Decomposition—with Applications"
+    authors: "Nicholas J. Higham"
+    journal: "SIAM Journal on Scientific and Statistical Computing"
+    volume: 7
+    issue: 4
+    pages: "1160-1174"
+    year: 1986
+    doi: "10.1137/0907079"
+    authority: >
+      Primary numerical-analysis source for full-rank polar decomposition, best-approximation
+      properties of the polar factor, and Newton-type computation.
+
+  - id: "MATRIXOPT-BERNSTEIN-NEWHOUSE-2024"
+    citation_key: "BernsteinNewhouse2024OldOptimizer"
+    kind: "preprint-workshop"
+    title: "Old Optimizer, New Norm: An Anthology"
+    authors: "Jeremy Bernstein; Laker Newhouse"
+    year: 2024
+    eprint: "2409.20325"
+    archive: "arXiv"
+    url: "https://arxiv.org/abs/2409.20325"
+    authority: >
+      Source for the norm-dependent steepest-descent interpretation of Adam-, Shampoo-, and
+      related updates after disabling moving-average accumulation. Used as an interpretation,
+      not as a universal performance theorem.
+
+  - id: "MATRIXOPT-JORDAN-MUON-2024"
+    citation_key: "JordanEtAl2024Muon"
+    kind: "primary-design-note"
+    title: "Muon: An optimizer for hidden layers in neural networks"
+    authors: "Keller Jordan; Yuchen Jin; Vlado Boza; Jiacheng You; Franz Cesista; Laker Newhouse; Jeremy Bernstein"
+    year: 2024
+    url: "https://kellerjordan.github.io/posts/muon/"
+    authority: >
+      Primary design account for Muon: momentum on 2D hidden-layer updates followed by a finite
+      Newton-Schulz singular-value transform intended to approximate orthogonalization. Empirical
+      claims remain scoped to the experiments and implementations cited there.
+
+atlas_sources:
+  - id: "MATRIXOPT-LINALG-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
+    git_blob_sha1: "e7fcf56322f26d232d3a3043038d9850792b4bde"
+    authority: "Audited linear-algebra substrate for SVD, singular values, norms, conditioning, and rectangular maps."
+  - id: "MATRIXOPT-LINALG-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "sources/source-locks/ATLAS-CH-LINALG-001.yaml"
+    git_blob_sha1: "f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e"
+    authority: "Exact source and claim boundary for the LINALG prerequisite."
+  - id: "MATRIXOPT-LINALG-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Foundation audit record explicitly covering ATLAS-CH-LINALG-001."
+
+  - id: "MATRIXOPT-SECOND-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-SECOND-001.md"
+    git_blob_sha1: "10ee7db734df519e886e335301bf107d01d27f5c"
+    authority: "Audited second-order/preconditioning substrate consumed by this chapter."
+  - id: "MATRIXOPT-SECOND-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "sources/source-locks/ATLAS-CH-SECOND-001.yaml"
+    git_blob_sha1: "bc74588fd65df1a88a524b5241ca08ff498e0231"
+    authority: "Exact source and claim boundary for the SECOND prerequisite."
+  - id: "MATRIXOPT-SECOND-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
+    path: "reviews/AUDIT-041.md"
+    git_blob_sha1: "32d55baa0f8c3d5967f704c699fed81772ae2fd8"
+    authority: "Post-draft audit record for ATLAS-CH-SECOND-001."
+
+epistemic_rules:
+  - "Matrix preconditioning is not identical to full-Hessian curvature."
+  - "Accumulated Shampoo statistics are optimizer state; an instantaneous matrix transform is not the full optimizer."
+  - "For a rectangular full-rank matrix, the polar factor is semi-orthogonal: only one of Q^T Q or QQ^T can be identity unless the matrix is square."
+  - "Exact polar orthogonalization sets the nonzero singular values of the polar factor to one; finite Newton-Schulz implementations only approximate a chosen singular-value map."
+  - "A one-step Gram statistic GG^T is singular whenever G is m x n with m>n; G^T G is singular whenever n>m. Regularization or accumulated history matters."
+  - "Different norm balls define different steepest directions; objective decrease values across different balls are not directly comparable as optimizer quality."
+  - "Diagonal scaling, matrix preconditioning, polar orthogonalization, spectral shaping, and manifold constraints are distinct operations."
+  - "No empirical superiority claim is promoted beyond the setting of its cited source."
