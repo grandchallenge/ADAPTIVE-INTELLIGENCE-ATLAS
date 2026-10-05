@@ -10,8 +10,8 @@ current:
   baseline_commit: "b47e9d42557428bb2c985b2ba916bbcdf6489a8f"
   branch: "audit/manopt-182"
   pull_request: null
-  state: "audit-record-complete"
-  next_action: "Open the AUDIT-045 PR from audit/manopt-182, run canonical exact-head validation, merge only from green CI, then verify closure and recompute the dependency frontier."
+  state: "audit-ci-green"
+  next_action: "Merge PR #183 only from exact green head e7b1bb5b7cd2bc20b7b1f7a58ca40579bab6cfc4; read back protected main, verify issues closed, recompute the frontier, update the handoff, and reset the controller."
 frontier:
   - id: "ATLAS-CH-MANOPT-001"
     downstream_architecture_count: 1
