@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 195
+  tranche_id: "PROGRESSSEARCH-001"
+  chapter_ids: ["ATLAS-CH-PROGRESSSEARCH-001"]
   baseline_commit: "d9f9fe56c27d6adab923fb5057c10cef9e4591d3"
-  branch: null
+  branch: "work/progresssearch-195"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-PROGRESSSEARCH-001 from exact baseline d9f9fe56c27d6adab923fb5057c10cef9e4591d3. Bind audited ATLAS-CH-CURRICULUM-001 / AUDIT-037 before drafting. Do not reuse stale chat state."
+  state: "source-locking"
+  next_action: "Bind audited CURRICULUM-001 / AUDIT-037 identities at exact baseline d9f9fe56c27d6adab923fb5057c10cef9e4591d3; source-lock primary learning-progress and active experience-search references; then draft the search object, long-horizon/exploration boundaries, and exact finite witness."
 frontier:
   - id: "ATLAS-CH-PROGRESSSEARCH-001"
     downstream_architecture_count: 1
