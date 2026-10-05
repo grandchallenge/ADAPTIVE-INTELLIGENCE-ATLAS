@@ -14,4 +14,6 @@ for x in (-1, 1):
 print("MECHDIAG witness: PASS")
 ```
 
+## Claim boundary
+
 This finite example proves that perfect decodability can coexist with zero functional dependence on the decoded coordinate. It does not establish uniqueness of any global explanation.
