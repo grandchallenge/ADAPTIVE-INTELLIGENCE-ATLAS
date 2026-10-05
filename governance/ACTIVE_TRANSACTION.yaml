@@ -11,10 +11,11 @@ current:
   baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
   implementation_head: "ae75df4c1b1016b873b48b3367bede2b01e507af"
   implementation_merge: "bd9863891fb8edfb48f14414e7aceee50a798a54"
+  audit_head: "9813a17431a941ca54f178827106d3b84a241e97"
   branch: "audit/matrixopt-187"
   pull_request: null
-  state: "audit-open"
-  next_action: "Audit ATLAS-CH-MATRIXOPT-001 independently at exact implementation merge bd9863891fb8edfb48f14414e7aceee50a798a54. Replay prerequisite identities, source scope, exact 3x2 rectangular witness, polar/semi-orthogonal algebra, norm-duality derivations, Shampoo support identity, Muon exact-versus-approximate boundary, governance/register consistency, and downstream SPECTRALSHAPE separation. Record AUDIT-046, repair only genuine in-scope defects, run fresh exact-head canonical validation, open/merge the audit PR if green, then recompute the dependency-legal frontier and reset handoff/controller."
+  state: "audit-recorded"
+  next_action: "Open the AUDIT-046 PR from exact audit head 9813a17431a941ca54f178827106d3b84a241e97 against implementation merge bd9863891fb8edfb48f14414e7aceee50a798a54. Bind CI to that exact head and merge only if validation is green and the PR remains clean. Then recompute the dependency-legal frontier from the resulting main, update CURRENT_HANDOFF.md, and reset ACTIVE_TRANSACTION.yaml to idle-ready."
 frontier:
   - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
