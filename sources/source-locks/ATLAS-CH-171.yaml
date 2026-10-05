@@ -1,121 +1,13 @@
 schema_version: "1.0.0"
 chapter_id: "ATLAS-CH-FRONTIER-001"
 locked_on: "2026-10-04"
-epistemic_class: "audited_governed_adaptation_residual_boundary_contract_prerequisites_plus_atlas_programme_inventory_and_status_snapshot"
 claim_boundary: >
-  This chapter is an Atlas-owned research-programme map. It inherits only the exact
-  audited substrate of Governed Adaptation, the Residual, and Boundary Contracts,
-  plus the project-local Atlas Map, source inventory, rollout plan, and Chapter Ledger
-  snapshot at protected baseline 1f1aec7e7734f28b7b44db380357634085960aa0.
-  Architecture-stage programme entries are research questions, not established results.
-  A draft-v0.1 chapter may supply audited substrate for a frontier question without
-  proving the frontier hypothesis itself. Live GCL names are used only where already
-  represented in source-locked Atlas material or the project inventory. No claim is made
-  that the named programmes are complete theories, that current evidence generalizes
-  beyond its declared setting, or that the final Atlas synthesis has already been earned.
-
-atlas_sources:
-  - id: "FRONTIER-GOVADAPT-MANUSCRIPT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-GOVADAPT-001.md"
-    git_blob_sha1: "5d7d87a1918edebc2487359a5dfea15cfa157b47"
-    authority: "Audited substrate for typed authority, exact-target evidence, governed recovery, correction capacity, and promotion boundaries."
-
-  - id: "FRONTIER-GOVADAPT-SOURCE-LOCK"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "sources/source-locks/ATLAS-CH-GOVADAPT-001.yaml"
-    git_blob_sha1: "a94b5addea0b2615df1bc7546d561c42d4734dff"
-    authority: "Exact claim boundary for governed adaptation."
-
-  - id: "FRONTIER-GOVADAPT-AUDIT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "reviews/AUDIT-038.md"
-    git_blob_sha1: "0629dd8df63967b18959076d8e6a6bdc3c5c2c98"
-    authority: "Audit record governing the consumed Governed Adaptation chapter."
-
-  - id: "FRONTIER-RESIDUAL-MANUSCRIPT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md"
-    git_blob_sha1: "02b0886a87e1e17c749e15349e14f43674c3d1ff"
-    authority: "Audited substrate for invariant capability-sufficient transferable structure and reconstruction-relative minimality."
-
-  - id: "FRONTIER-RESIDUAL-SOURCE-LOCK"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "sources/source-locks/ATLAS-CH-RESIDUAL-001.yaml"
-    git_blob_sha1: "6e6a25c4b4e01475e68a6c616eefb6ba7b039341"
-    authority: "Exact claim boundary for the Residual programme."
-
-  - id: "FRONTIER-RESIDUAL-AUDIT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "reviews/AUDIT-006.md"
-    git_blob_sha1: "b24ef782bedfe76a4c52d832562a0dd29d2a64a9"
-    authority: "Audit record governing the consumed Residual formalization."
-
-  - id: "FRONTIER-BCONTRACT-MANUSCRIPT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-BCONTRACT-001.md"
-    git_blob_sha1: "a270c38cda7ff280e517bd1a09ed196bb48dc759"
-    authority: "Audited substrate for semantic/numerical interface contracts, sensitivity obligations, and separator sufficiency boundaries."
-
-  - id: "FRONTIER-BCONTRACT-SOURCE-LOCK"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "sources/source-locks/ATLAS-CH-BCONTRACT-001.yaml"
-    git_blob_sha1: "80463b18216747650d3ff8e99d6da933173d4486"
-    authority: "Exact source boundary including the current public MODULUS implementation gap."
-
-  - id: "FRONTIER-BCONTRACT-AUDIT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "reviews/AUDIT-003.md"
-    git_blob_sha1: "9723fcb3dfa0111829b98f1c9bb416a13dbd714e"
-    authority: "Audit record governing the Boundary Contracts keystone."
-
-  - id: "FRONTIER-ATLAS-MAP"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "governance/ATLAS_MAP.md"
-    git_blob_sha1: "ea8891b4103be8192cc8e10aeecbcec91b495b40"
-    authority: "Canonical stable IDs, chapter contracts, and declared dependency structure."
-
-  - id: "FRONTIER-SOURCE-INVENTORY"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "sources/bootstrap/ATLAS_SOURCE_INVENTORY_2026-10-02.md"
-    git_blob_sha1: "ee83f2cadfcf725930b2076ba4c52ae1190647f8"
-    authority: "Programme inventory naming the research directions collected by this chapter."
-
-  - id: "FRONTIER-ROLLOUT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "governance/CHAPTER_FAMILY_ROLLOUT.md"
-    git_blob_sha1: "1e11c1f2acc3648b92f4027a51415c9a5e159b8c"
-    authority: "Project-local rule that frontier/global synthesis waits until preceding dependency cones mature."
-
-  - id: "FRONTIER-LEDGER-SNAPSHOT"
-    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
-    commit: "1f1aec7e7734f28b7b44db380357634085960aa0"
-    path: "governance/CHAPTER_LEDGER.yaml"
-    git_blob_sha1: "aae56946850eb16bc4a278844d36f50745da1e72"
-    authority: "Exact status snapshot distinguishing draft-v0.1 substrate from architecture-stage frontier programmes."
-
+  Registry alias only. The canonical full source lock is
+  sources/source-locks/ATLAS-CH-FRONTIER-001.yaml at Git blob
+  84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63 on the AUDIT-043 repair head.
+  This alias makes no independent scientific claim.
+canonical_source_lock: "sources/source-locks/ATLAS-CH-FRONTIER-001.yaml"
+canonical_git_blob_sha1: "84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63"
 epistemic_rules:
-  - "A frontier question is not a result."
-  - "Architecture status is not empirical confirmation."
-  - "draft-v0.1 means the local chapter has passed its bounded audit; it does not certify downstream hypotheses."
-  - "Bounded evidence must remain bound to its exact object, setting, and target identity."
-  - "The Residual is capability-, transformation-, descriptor-, and recovery-class-relative unless a stronger theorem proves otherwise."
-  - "Boundary-contract language does not imply global safety or current public implementation of every remembered GCL extension."
-  - "Shared memory is not equivalent to storing all knowledge outside weights."
-  - "Learning progress as a search signal is not proof of long-horizon curriculum optimality."
-  - "Adaptive depth is not merely a deeper fixed computation."
-  - "Operator-valued position is not established merely by ordinary RoPE algebra."
-  - "Benign nonconvexity is a research programme unless explicit landscape conditions and optimizer behavior are proved in a declared setting."
-  - "This chapter must not pre-empt ATLAS-CH-SYNTHESIS-001."
+  - "Ledger draft status alone does not establish audit completion."
+  - "Use the canonical full source lock for all substantive source roles and claim boundaries."
