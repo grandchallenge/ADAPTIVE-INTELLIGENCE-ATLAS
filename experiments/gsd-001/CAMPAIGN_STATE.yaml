@@ -70,3 +70,26 @@ wp02_expansion:
   primary_accelerator: "L4"
   fallback_accelerator: "A100"
   stop_rule: "After each family, catalogue exact task-level state reversals. A reversal still requires stable-control evidence before candidate promotion."
+
+completion_reporting:
+  status_file: "RUN_STATUS.json"
+  state_machine: ["QUEUED", "ALLOCATING", "RUNNING", "VERIFYING", "GREEN", "RED"]
+  green_gate:
+    - "receipt status GREEN_ENGINEERING"
+    - "source payload digest matches"
+    - "job digest matches"
+    - "result digest matches"
+    - "revision count matches frozen job"
+    - "summary count matches frozen job"
+    - "manifest count matches frozen job"
+    - "Colab session cleanup succeeds"
+  terminal_notification:
+    target: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS#152"
+    mechanism: "authenticated gh issue comment from host"
+    idempotence_marker: ".github-terminal-notified"
+    retries: 3
+  recovery_watcher: "experiments/gsd-001/colab/watch_hosted_run.py"
+  current_adopted_run:
+    experiment_id: "GSD-WP02-OLMO2-1B-TRUTHY-COARSE20-L4-001"
+    session: "gcl-gsd-wp01-26885-239"
+    status: "RUNNING"
