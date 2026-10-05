@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
-  baseline_commit: "9a43d7ccc839294f2508a80c547b48c65968f4b9"
-  branch: null
+  issue_number: 176
+  tranche_id: "HARDWARE-001"
+  chapter_ids: ["ATLAS-CH-HARDWARE-001"]
+  baseline_commit: "e421edcc222922526fd4e1de853b168df1d6b847"
+  branch: "work/ch176"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-HARDWARE-001 (The Machine Under the Mathematics) from baseline 9a43d7ccc839294f2508a80c547b48c65968f4b9. Its hard prerequisite ATLAS-CH-LINALG-001 is draft-v0.1. It is first in the deterministic count-1 frontier tie. If current main has advanced before instantiation, recompute the dependency-legal frontier first."
+  state: "instantiated"
+  next_action: "Bind exact audited LINALG prerequisite and authoritative Roofline/CUDA sources, then write the HARDWARE-001 source lock and exact finite arithmetic-intensity witness."
 frontier:
   - id: "ATLAS-CH-HARDWARE-001"
     downstream_architecture_count: 1
@@ -20,4 +20,4 @@ stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
-recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. If state is idle-ready, instantiate next_action from the recorded baseline unless GitHub main has advanced; if main advanced, recompute the dependency-legal frontier first. Repository state overrides chat history."
+recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Repository state overrides chat history."
