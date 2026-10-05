@@ -181,3 +181,33 @@ This rule applies across the programme:
 \[
 \boxed{\text{programme vocabulary}\neq\text{source evidence}.}
 \]
+
+
+## 13. Cross-programme questions
+
+Several connections are worth testing but are not inherited results.
+
+The evidence matrix records them explicitly:
+
+- Residual structure may be relevant to reconstructive curriculum questions.
+- Boundary contracts may carry compact state needed by downstream composition.
+- Learning-progress feedback may help select experiences that expose reusable computation.
+- Adaptive depth may become an error-control mechanism when a valid error signal exists.
+- Shared memory may hold reconstructive state that need not be duplicated in every model.
+
+Each remains conjectural until a declared proof or experiment supports the stronger relation.
+
+## 14. How a programme item advances
+
+A programme item advances when new evidence supports a more specific claim.
+
+Governed Adaptation supplies the discipline:
+
+- bind evidence to the exact target;
+- state the claim class;
+- preserve provenance;
+- use the relevant comparison or proof obligation;
+- replay evidence after identity-changing repair;
+- separate execution from promotion.
+
+This prevents one bounded result from silently becoming a stronger general claim.
