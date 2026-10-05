@@ -5,13 +5,16 @@ controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
   issue_number: 184
+  audit_issue_number: undefined
   tranche_id: "MATRIXOPT-001"
   chapter_ids: ["ATLAS-CH-MATRIXOPT-001"]
   baseline_commit: "b75d840b51268d2ac43041af7a02fade2a660ba3"
-  branch: "work/ch184a"
-  pull_request: 185
-  state: "pr-open"
-  next_action: "Bind PR #185 to exact head ae75df4c1b1016b873b48b3367bede2b01e507af. Wait for or diagnose repository CI on that exact head, repair any failures without weakening validation, re-run fresh exact-head checks after any head change, and merge only if the PR remains clean against main and all required validation is green."
+  implementation_head: "ae75df4c1b1016b873b48b3367bede2b01e507af"
+  implementation_merge: "bd9863891fb8edfb48f14414e7aceee50a798a54"
+  branch: "audit/matrixopt-undefined"
+  pull_request: null
+  state: "audit-open"
+  next_action: "Audit ATLAS-CH-MATRIXOPT-001 independently at exact implementation merge bd9863891fb8edfb48f14414e7aceee50a798a54. Replay prerequisite identities, source scope, exact 3x2 rectangular witness, polar/semi-orthogonal algebra, norm-duality derivations, Shampoo support identity, Muon exact-versus-approximate boundary, governance/register consistency, and downstream SPECTRALSHAPE separation. Record AUDIT-046, repair only genuine in-scope defects, run fresh exact-head canonical validation, open/merge the audit PR if green, then recompute the dependency-legal frontier and reset handoff/controller."
 frontier:
   - id: "ATLAS-CH-MATRIXOPT-001"
     downstream_architecture_count: 1
