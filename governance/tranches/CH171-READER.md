@@ -238,3 +238,49 @@ It does not promote bounded examples into universal results.
 It does not convert programme vocabulary into public implementation evidence.
 
 The exact open boundaries remain those recorded in the documentary matrix and source lock.
+
+
+## 18. Why collect the programme now?
+
+The substrate has matured enough to make the questions less vague.
+
+Optimization can now be decomposed into curvature, matrix structure, manifolds, and variational derivation.
+
+Position can now be separated from exact rotary algebra and tested as an operator hypothesis.
+
+Adaptive compute can now be asked as an error-control question.
+
+Minimal knowledge can now be stated in reconstructive terms.
+
+The frontier becomes sharper as the substrate becomes less ambiguous.
+
+## 19. Downstream handoff
+
+ATLAS-CH-SYNTHESIS-001 may inherit:
+
+- the programme taxonomy;
+- the audited/open distinction;
+- the named proof and experiment obligations;
+- governed advancement rules.
+
+It may not treat unresolved programme items as completed pillars merely because they appear here.
+
+The final synthesis must still distinguish what is known, engineered, measured, hypothesized, and open.
+
+## References used in this chapter
+
+This chapter introduces no new broad external literature survey.
+
+Its authority is project-local and source-locked:
+
+- audited Governed Adaptation;
+- audited Residual formalization;
+- audited Boundary Contracts;
+- the Atlas Map;
+- the Atlas source inventory;
+- the Chapter-Family Rollout;
+- the exact Chapter Ledger status snapshot.
+
+Exact provenance and claim boundaries are locked in:
+
+\`sources/source-locks/ATLAS-CH-FRONTIER-001.yaml\`
