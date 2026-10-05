@@ -1,0 +1,11 @@
+audit_id: "AUDIT-047"
+implementation_pr: 189
+implementation_head: "69614ab7d93d99d7e807ee08c0314afbc1b2ca74"
+implementation_merge: "a88e2e85c3c18f123d6476e0d53c8a302cdb4b5f"
+artifacts:
+  a: "c7ab867e0ddff9c747954c290532d46f4acc81d6"
+  b: "4682d5b4abc77c40aa27fd5144d6909250add86f"
+  c: "166af4905356ca8262c9a1c423b6eb02fa9dcf07"
+  d: "c51c2b206e0f78ef466ef3e6765c4d7a64658d44"
+  e: "94362bbe21c5f7f29123e461cc749e617bc117c7"
+  f: "4167b5cde1a7bfd586c5701c20567bfc0a1d70a2"
