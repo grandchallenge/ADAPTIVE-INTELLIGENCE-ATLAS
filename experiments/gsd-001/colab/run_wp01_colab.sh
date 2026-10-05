@@ -8,12 +8,12 @@ RUNNER_ROOT="${GCL_COLAB_RUNNER_ROOT:-/mnt/f/_codex/MATH/QUANTUM-TECHNOLOGIES}"
 GDSUITE_DIR="${GDSUITE_DIR:-/home/jim/GDsuite}"
 JOB="${1:-$ROOT/experiments/gsd-001/colab/jobs/wp01_olmo2_1b_crt_coarse20_t4.json}"
 
-VENV_PY="$RUNNER_ROOT/.venv/bin/python"
-COLAB_BIN="$RUNNER_ROOT/.venv/bin/colab"
+VENV_PY="${GCL_COLAB_PY:-/usr/bin/python3}"
+COLAB_BIN="${GCL_COLAB_BIN:-$HOME/.local/bin/colab}"
 COLAB_AUTH="${COLAB_AUTH:-oauth2}"
 
-[[ -x "$VENV_PY" ]] || { echo "missing existing runner python: $VENV_PY" >&2; exit 2; }
-[[ -x "$COLAB_BIN" ]] || { echo "missing existing runner colab CLI: $COLAB_BIN" >&2; exit 2; }
+[[ -x "$VENV_PY" ]] || { echo "missing host python: $VENV_PY" >&2; exit 2; }
+[[ -x "$COLAB_BIN" ]] || { echo "missing existing Colab CLI: $COLAB_BIN" >&2; exit 2; }
 [[ -f "$JOB" ]] || { echo "missing job: $JOB" >&2; exit 2; }
 [[ -d "$GDSUITE_DIR" ]] || { echo "missing locked GDsuite checkout: $GDSUITE_DIR" >&2; exit 2; }
 
