@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 167
-  tranche_id: "COMPRESS-001"
+  issue_number: 169
+  tranche_id: "AUDIT-042"
   chapter_ids: ["ATLAS-CH-COMPRESS-001"]
   baseline_commit: "ac631f8162e32f520c5678034ec5d9e18f366e7c"
-  branch: null
-  pull_request: 168
-  state: "implementation-merged"
-  next_action: "Instantiate the bounded post-draft audit from protected main ac631f8162e32f520c5678034ec5d9e18f366e7c, bind exact merged artifacts, repair every in-scope defect, validate, and merge the audit."
+  branch: "audit/compress-169"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit the exact COMPRESS-001 merge, repair all in-scope source, mathematical, prose, and repository defects, write AUDIT-042, validate, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
