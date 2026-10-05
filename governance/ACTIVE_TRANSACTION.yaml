@@ -10,8 +10,8 @@ current:
   baseline_commit: "356273124481084c6c4d7f9a0d5fae59fe4405cb"
   branch: "work/atlas-167"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind the exact audited INFO and REP prerequisites, lock the external source set, and complete the chapter artifact set before exact-head validation."
+  state: "source-lock-complete"
+  next_action: "Write the COMPRESS-001 specification, derivation packet, exact witness, manuscript, ledger/source-register integration, and tranche receipt; then open the implementation PR and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-COMPRESS-001"
     downstream_architecture_count: 1
