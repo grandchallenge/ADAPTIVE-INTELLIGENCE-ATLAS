@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 180
-  tranche_id: "MANOPT-001"
+  issue_number: 182
+  tranche_id: "AUDIT-045"
   chapter_ids: ["ATLAS-CH-MANOPT-001"]
-  baseline_commit: "d972128b8b3e15893a273d22d9665c3bbfdbca20"
-  branch: "work/ch180a"
-  pull_request: 181
-  state: "ci-green"
-  next_action: "Merge PR #181 only from exact green head 64a57189692ca0c7e68e245117840db51dd48a63; read back protected main; then instantiate the bounded post-draft audit."
+  baseline_commit: "b47e9d42557428bb2c985b2ba916bbcdf6489a8f"
+  branch: "audit/manopt-182"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Record the exact post-draft audit, validate the audit branch head, merge only from fresh green CI, then verify issue closure and recompute the frontier."
 frontier:
   - id: "ATLAS-CH-MANOPT-001"
     downstream_architecture_count: 1
