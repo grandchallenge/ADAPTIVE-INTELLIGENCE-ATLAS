@@ -10,8 +10,8 @@ current:
   baseline_commit: "e421edcc222922526fd4e1de853b168df1d6b847"
   branch: "work/ch176"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind exact audited LINALG prerequisite and authoritative Roofline/CUDA sources, then write the HARDWARE-001 source lock and exact finite arithmetic-intensity witness."
+  state: "draft-complete"
+  next_action: "Open the HARDWARE-001 implementation PR from work/ch176, run canonical validation on the exact head, repair every in-scope defect, replay, and merge only from a fresh green exact head."
 frontier:
   - id: "ATLAS-CH-HARDWARE-001"
     downstream_architecture_count: 1
