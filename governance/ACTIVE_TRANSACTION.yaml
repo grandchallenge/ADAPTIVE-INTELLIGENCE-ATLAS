@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 215
+  tranche_id: "UNCERTAINTY-001"
+  chapter_ids: ["ATLAS-CH-UNCERTAINTY-001"]
   baseline_commit: "1fa80bdae8e5219cc7e90b481914b66e3af8c3aa"
-  branch: null
+  branch: "work/uncertainty-215"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-UNCERTAINTY-001 from exact baseline 1fa80bdae8e5219cc7e90b481914b66e3af8c3aa. Bind audited ATLAS-CH-INFO-001 / AUDIT-004 before drafting. Source-lock primary calibration, Bayesian/ensemble uncertainty, conformal prediction, and selective-prediction references; keep each uncertainty object and guarantee distinct. Do not reuse stale chat state."
+  state: "source-locking"
+  next_action: "Bind audited INFO-001/AUDIT-004 at exact baseline 1fa80bdae8e5219cc7e90b481914b66e3af8c3aa. Source-lock primary references for calibration, Bayesian/ensemble uncertainty, conformal prediction, and selective prediction; define distinct uncertainty objects and guarantees before drafting."
 frontier:
   - id: "ATLAS-CH-UNCERTAINTY-001"
     downstream_architecture_count: 1
