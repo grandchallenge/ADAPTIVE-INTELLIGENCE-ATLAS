@@ -747,8 +747,14 @@
       "dependencies": [
         "ATLAS-CH-EXTMEM-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-CONTEXTCOMP-001.md",
+      "manuscript_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-CONTEXTCOMP-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-CONTEXTCOMP-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-CONTEXTCOMP-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-CONTEXTCOMP-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-TOKEN-001",
