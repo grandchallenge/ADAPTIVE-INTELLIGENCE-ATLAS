@@ -283,7 +283,7 @@ The local \(1/10\) budgets are individually acceptable, but the derived composit
     assert E == F(1,4)
     assert E > F(1,5)
 
-## W9. Claim boundary
+## Claim boundary
 
 This witness establishes only:
 
