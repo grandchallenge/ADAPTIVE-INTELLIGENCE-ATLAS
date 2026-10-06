@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-ATTNAPPROX-001"
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Validate exact work head 35844412e9189172fb8d7262c644ea34aecdee08 with canonical Linux validation and independent exact witness replay. Repair every in-scope defect and replay from the fresh exact head until green. Then open the implementation PR against protected main, require exact-head GitHub Actions validation, merge only from the validated exact head, and instantiate the mandatory post-draft audit."
+  pull_request: 224
+  state: "pr-open"
+  next_action: "Require exact-head GitHub Actions validation on implementation head 35844412e9189172fb8d7262c644ea34aecdee08. Inspect and repair any failed check, replay canonical Linux validation after every head change, and merge PR #224 only from the fresh validated exact head with protected main still compatible. Then read back protected main and instantiate the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
