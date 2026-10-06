@@ -2,37 +2,37 @@
 
 ## Identity
 
-- chapter: \`ATLAS-CH-TRANSPORT-001\`
+- chapter: `ATLAS-CH-TRANSPORT-001`
 - title: **Representation as Transport**
 - implementation issue: #211
-- branch: \`work/transport-211\`
-- protected baseline: \`db2b19c4730a938babe9a2734eb40f898ee9913e\`
-- controller branch: \`state/atlas-controller\`
+- branch: `work/transport-211`
+- protected baseline: `db2b19c4730a938babe9a2734eb40f898ee9913e`
+- controller branch: `state/atlas-controller`
 
 ## Hard prerequisite bindings
 
 ### NORMREP-001
 
-- manuscript: \`1500987b384fb931bbd01879756c08b42ebcff28\`
-- source lock: \`58b8331e56f5c9859e72be5c58f283706b5c436e\`
-- AUDIT-005: \`11f45d9edf309cf55d9c4b0582ca88cd25c02c4d\`
+- manuscript: `1500987b384fb931bbd01879756c08b42ebcff28`
+- source lock: `58b8331e56f5c9859e72be5c58f283706b5c436e`
+- AUDIT-005: `11f45d9edf309cf55d9c4b0582ca88cd25c02c4d`
 
 ### SPLIT-001
 
-- manuscript: \`bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0\`
-- source lock: \`afb84e2f3ebb941f320c52693b088b0eb078b8ce\`
-- AUDIT-036: \`5e093460550c15fe491ba3214b2f52d48076dc0a\`
+- manuscript: `bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0`
+- source lock: `afb84e2f3ebb941f320c52693b088b0eb078b8ce`
+- AUDIT-036: `5e093460550c15fe491ba3214b2f52d48076dc0a`
 
 ## Implementation artifact blobs
 
-- specification: \`3498ea034cef08ff659cd5bf6a93059d66e12464\`
-- derivation packet: \`26ba43d43d911c4c689ce60d01443e84d48bea01\`
-- computational witness: \`764660bef0b4b9ecf61b23f50839e36d74416737\`
-- reader manuscript: \`2346ec5fcde35e899db31fc91e5ef34a3e1b24e5\`
-- source lock: \`55fcd80bc3d94e3b270ddcf28873242ba21f823f\`
-- Chapter Ledger: \`f8b94379c507776e031dced47a7fc602f95ab5b7\`
-- Source Register: \`eeaceee0b1a70b972987d66d68b1dd4bc63b12e0\`
-- bibliography (unchanged): \`d162e7ba05c510a6d1580bbfec714141d9325f62\`
+- specification: `3498ea034cef08ff659cd5bf6a93059d66e12464`
+- derivation packet: `26ba43d43d911c4c689ce60d01443e84d48bea01`
+- computational witness: `09759b3d0d324507f1478c06cd04ff6078b37380`
+- reader manuscript: `2346ec5fcde35e899db31fc91e5ef34a3e1b24e5`
+- source lock: `55fcd80bc3d94e3b270ddcf28873242ba21f823f`
+- Chapter Ledger: `f8b94379c507776e031dced47a7fc602f95ab5b7`
+- Source Register: `eeaceee0b1a70b972987d66d68b1dd4bc63b12e0`
+- bibliography (unchanged): `d162e7ba05c510a6d1580bbfec714141d9325f62`
 
 ## Durable mathematical substrate
 
@@ -137,7 +137,7 @@ This transaction does **not** establish that:
 
 Direct consumer:
 
-- \`ATLAS-CH-NEURALKRYLOV-001\`.
+- `ATLAS-CH-NEURALKRYLOV-001`.
 
 The downstream chapter may inherit the declared transport-map interface and local linearization objects, but must independently establish every Krylov, projection, residual, preconditioning, and convergence claim.
 
@@ -151,5 +151,5 @@ Implementation remains unmerged until:
 4. a fresh post-draft audit runs from the implementation merge;
 5. repaired audit head, if any, receives fresh exact-head validation;
 6. audit merges;
-7. final merged \`main\` validation passes;
+7. final merged `main` validation passes;
 8. frontier is recomputed and controller/handoff are reset.
