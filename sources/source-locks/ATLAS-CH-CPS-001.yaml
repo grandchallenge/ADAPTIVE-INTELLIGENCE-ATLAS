@@ -1,0 +1,173 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-CPS-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_optimizer_state_dynamics_plus_current_public_gsd_transition_and_artifact_boundary_plus_atlas_exact_probe_protocol"
+claim_boundary: >
+  This chapter inherits the audited Optimizer-State Dynamics mathematics for augmented optimizer
+  state, local Jacobians, non-normal transient amplification, and time-varying Jacobian products.
+  The current public GCL refresh adds one confirmed behavioural transition from GSD-001 and a
+  separate exact WP04 receipt showing that the relevant public transition checkpoints expose no
+  optimizer state, trainer state, scheduler state, gradient artifact, or update-direction artifact.
+  Therefore the GSD CPS lane is presently blocked by missing external artifacts. This is not a
+  negative CPS result. The new Atlas material consists of exact finite toy Jacobian spectroscopy
+  and a preregistered transition-local prediction/falsification protocol. No project-specific
+  optimizer mechanism, predictive signal, causal explanation, or generalization-state theorem is
+  claimed from the current blocked GSD lane.
+
+hard_prerequisites:
+  - id: "CPS-OPTDYN-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
+    path: "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-OPTDYN-001.md"
+    git_blob_sha1: "59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c"
+    authority: "Audited augmented optimizer-state, local-Jacobian, transient-growth, and time-varying-product substrate."
+  - id: "CPS-OPTDYN-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
+    path: "sources/source-locks/ATLAS-CH-OPTDYN-001.yaml"
+    git_blob_sha1: "0b0cb1dd109a7708bd2a5238116bd225c69fb185"
+    authority: "Exact external-source and CPS-boundary manifest for OPTDYN."
+  - id: "CPS-OPTDYN-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
+    path: "reviews/AUDIT-002.md"
+    git_blob_sha1: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+    authority: "Post-draft audit governing OPTDYN claim scope."
+
+current_public_gcl_refresh:
+  searched_on: "2026-10-06"
+  organization: "grandchallenge"
+  search_terms:
+    - "Coupling-Phase Spectroscopy"
+    - "optimizer-state Jacobian"
+    - "optimizer state Jacobian"
+    - "CPS optimizer"
+    - "GSD-WP04"
+    - "CPS transition-local dynamics"
+  finding: >
+    Public GCL state now contains a GSD-001 CPS work package and exact transition/artifact receipts.
+    The October 2 OPTDYN statement that no separate public CPS project source was found is therefore
+    superseded as a current-state search result. The public CPS work package exists, but its optimizer-state
+    analysis has not produced a signal disposition because the required transition-local optimizer artifacts
+    are absent from the exact public checkpoint revisions inspected.
+  project_commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+
+project_sources:
+  - id: "CPS-GSD-PROGRAMME"
+    repository: "grandchallenge/GSD"
+    commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+    path: "governance/GSD-001_RESEARCH_PROGRAMME.md"
+    git_blob_sha1: "6a898efbdbe23eb6e947cd1c12f4a4b8fcee631f"
+    authority: >
+      Defines GSD-WP04, its predictive question, transition-local optimizer-state quantities,
+      candidate CPS diagnostics, held-out prediction requirement, and PREDICTIVE_SIGNAL /
+      DESCRIPTIVE_ONLY / NO_SIGNAL exit dispositions.
+  - id: "CPS-GSD-WP-INDEX"
+    repository: "grandchallenge/GSD"
+    commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+    path: "governance/GSD-001_WORK_PACKAGE_INDEX.yaml"
+    git_blob_sha1: "c7af5b65f6496ff4a3c8533f4bb6ee8721467385"
+    authority: "Durable GSD-WP04 identity, dependency on WP03, compute class, and exit contract."
+  - id: "CPS-GSD-CAMPAIGN-STATE"
+    repository: "grandchallenge/GSD"
+    commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+    path: "experiments/gsd-001/CAMPAIGN_STATE.yaml"
+    git_blob_sha1: "bc5ef87989fbeb094b0ffe5b348d06fe409397dc"
+    authority: >
+      Current durable campaign state recording the confirmed transition, unlocked WP04,
+      exact revisions checked, optimizer_state_available=false, and BLOCKED_EXTERNAL_ARTIFACT_ABSENT.
+  - id: "CPS-GSD-WP03R-TRANSITION"
+    repository: "grandchallenge/GSD"
+    commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+    path: "experiments/gsd-001/receipts/WP03R_TRUTHY_EXACT_BOUNDARY_L4_RECEIPT.md"
+    git_blob_sha1: "01acb64e536f13bd689d20a74608a7170900d0e3"
+    authority: >
+      Establishes one robust OLMo2-1B behavioural transition under the frozen GSD protocol,
+      localized between steps 2000 and 3000, with explicit firewall against mechanism,
+      optimizer-cause, persistence, capacity-allocation, or architecture conclusions.
+  - id: "CPS-GSD-WP04-ARTIFACT-BLOCK"
+    repository: "grandchallenge/GSD"
+    commit: "ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c"
+    path: "experiments/gsd-001/receipts/WP04_OPTIMIZER_ARTIFACT_AVAILABILITY.md"
+    git_blob_sha1: "9e999395fd14d1e8ac1b0ea5a209a1da66abab06"
+    authority: >
+      Exact evidence that the public step-2000, step-3000, and step-4000 revisions expose model
+      artifacts but no optimizer/trainer/scheduler/gradient/update-direction artifacts; hence
+      GSD-WP04 cannot execute from those sources. Explicitly states that this is an external-artifact
+      block, not a negative CPS result.
+
+new_external_academic_sources: []
+
+inherited_academic_authority:
+  - inherited_via: "ATLAS-CH-OPTDYN-001"
+    scope: >
+      Polyak/momentum, Adam optimizer state, and control-theoretic optimization references already
+      audited in OPTDYN remain sufficient for the local augmented-state mathematics used here.
+      CPS does not enlarge their empirical authority.
+
+exact_witness_contract:
+  optimizer_family: >
+    Scalar quadratic momentum with eta=1/10, beta=9/10 and local curvature h:
+    J(h)=[[1-h/10,-9/100],[h,9/10]].
+  invariant_identity:
+    determinant: "det J(h)=9/10"
+    trace: "tr J(h)=19/10-h/10"
+    coupling_coordinate: "kappa(J)=1+det J-tr J=h/10"
+  toy_windows:
+    - id: "d0"
+      role: "discovery"
+      h: 2
+      kappa: "1/5"
+      next_window_transition_label: 0
+    - id: "d1"
+      role: "discovery"
+      h: 8
+      kappa: "4/5"
+      next_window_transition_label: 1
+    - id: "h0"
+      role: "heldout"
+      h: 3
+      kappa: "3/10"
+      next_window_transition_label: 0
+    - id: "h1"
+      role: "heldout"
+      h: 7
+      kappa: "7/10"
+      next_window_transition_label: 1
+  threshold: "tau=1/2, frozen from the two discovery windows before heldout evaluation"
+  heldout_result: "kappa>1/2 predicts labels (0,1) correctly on both heldout toy windows"
+  spectral_control: >
+    For h in {2,3,7,8}, the characteristic discriminant is negative and det J=9/10,
+    so both eigenvalues have modulus sqrt(9/10); spectral radius alone is identical across
+    all four toy windows and cannot implement the toy classifier.
+  boundary: >
+    The labels are synthetic protocol labels chosen to make prediction/falsification mechanics exact.
+    This witness is not GSD evidence and does not establish that kappa predicts real training transitions.
+
+transition_local_protocol:
+  discovery_stage:
+    - "Freeze the behavioural transition definition independently of CPS."
+    - "Choose probe family, layer/state partition, horizon k, checkpoint lead Delta, and threshold/model only on discovery transitions."
+    - "Retrospective best-layer or best-statistic selection is exploratory and must not count as prediction."
+  heldout_stage:
+    - "Compute the frozen probe using only information available at checkpoint t."
+    - "Predict whether the predeclared behavioural transition criterion occurs in (t,t+Delta]."
+    - "Evaluate on heldout transitions/checkpoint windows not used to choose the probe."
+  dispositions:
+    PREDICTIVE_SIGNAL: "Frozen pre-transition probe clears the preregistered heldout criterion."
+    DESCRIPTIVE_ONLY: "Retrospective alignment exists but heldout prediction fails or was not preregistered."
+    NO_SIGNAL: "The frozen probe shows no declared descriptive/predictive value when artifacts are available."
+    BLOCKED_EXTERNAL_ARTIFACT_ABSENT: "Required exact optimizer-state artifacts are unavailable; no signal disposition is authorized."
+  causal_boundary: >
+    Predictive or descriptive association does not establish optimizer-state causality. A causal mechanism
+    claim requires a controlled optimizer-state/update intervention or another declared causal design with matched controls.
+
+epistemic_rules:
+  - "A behavioural transition is the target variable, not proof of an optimizer-state transition."
+  - "A local augmented-state Jacobian is a diagnostic object, not latent ground truth."
+  - "Spectral radius, singular gain, non-normality, and coupling coordinates are distinct diagnostics."
+  - "A retrospective signature is descriptive unless frozen before heldout evaluation."
+  - "Heldout prediction is stronger than retrospective alignment but weaker than causal mechanism evidence."
+  - "One confirmed GSD transition is insufficient to validate a general predictor."
+  - "Missing optimizer artifacts are an evidentiary block, not a negative scientific result."
+  - "A toy exact witness validates protocol arithmetic only; it does not validate the empirical CPS hypothesis."
