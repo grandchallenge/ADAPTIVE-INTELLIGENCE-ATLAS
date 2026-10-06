@@ -1,0 +1,130 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-LATENTTIME-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_relative_position_and_dynamics_prerequisites_plus_primary_time_warping_sources_plus_atlas_exact_alignment_witness"
+claim_boundary: >
+  The audited RPO prerequisite supplies typed relative-position operators, sequence-index Fourier/DC
+  decomposition, truncation language, and the explicit boundary between observed position and latent time.
+  The audited Dynamics prerequisite supplies state/trajectory/flow distinctions and the local/global boundary
+  for continuous-time reasoning. Sakoe and Chiba (1978) are used as primary authority for dynamic-programming
+  time normalization / dynamic time warping and warping constraints. Zhou and De la Torre (2012) are used as
+  primary authority for multimodal temporal alignment with generalized time warping. Atlas-owned material defines
+  the exact finite witness, its unique optimal path, identity/no-warp control, and the epistemic distinction between
+  an inferred alignment coordinate and a true physical or causal clock. No source is claimed to prove that a
+  low-cost alignment reveals uniquely true latent time or that a discrete warping path is itself a continuous-time flow.
+
+hard_prerequisites:
+  - id: "LATENTTIME-RPO-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "manuscript/parts/05-attention-sequence-position/ATLAS-CH-RPO-001.md"
+    git_blob_sha1: "0483a358aa486aab5ae213e05b5bbd23161e021d"
+    authority: "Audited relative-position operator/Fourier substrate and direct LATENTTIME handoff."
+  - id: "LATENTTIME-RPO-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "sources/source-locks/ATLAS-CH-RPO-001.yaml"
+    git_blob_sha1: "9ad49c8e7950fa4e534c3083500fbdac288127a9"
+    authority: "Exact RPO source and claim boundary."
+  - id: "LATENTTIME-RPO-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "reviews/AUDIT-051.md"
+    git_blob_sha1: "773b34624a7224c87cf908688e3a981c0ec8c618"
+    authority: "Post-draft audit preserving the direct LATENTTIME handoff and positional/latent-time boundary."
+  - id: "LATENTTIME-DYN-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md"
+    git_blob_sha1: "f4aa89075f221529401e56a152a6cdfca3dcc47d"
+    authority: "Audited state/trajectory/flow, local linearization, stability, and continuous/discrete dynamics substrate."
+  - id: "LATENTTIME-DYN-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "sources/source-locks/ATLAS-CH-DYN-001.yaml"
+    git_blob_sha1: "217d1e4e74c00c1d83a3e769d6437786197d4383"
+    authority: "Exact Dynamics source and claim boundary."
+  - id: "LATENTTIME-DYN-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "reviews/AUDIT-008.md"
+    git_blob_sha1: "c6af8bae5e875b32b3955eb0f2232c0edfa76d7b"
+    authority: "Post-draft audit of the Dynamics chapter."
+  - id: "LATENTTIME-DYN-AUDIT-FOLLOWUP"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
+    path: "reviews/AUDIT-008A.md"
+    git_blob_sha1: "525254a67510636cf39b0758c300c77a479de9a5"
+    authority: "Follow-up tightening of local-flow and local-stability hypotheses."
+
+sources:
+  - id: "LATENTTIME-SAKOE-CHIBA-1978"
+    citation_key: "SakoeChiba1978DTW"
+    kind: "peer-reviewed-journal"
+    title: "Dynamic Programming Algorithm Optimization for Spoken Word Recognition"
+    authors: "Hiroaki Sakoe; Seibi Chiba"
+    journal: "IEEE Transactions on Acoustics, Speech, and Signal Processing"
+    volume: "26"
+    issue: "1"
+    pages: "43-49"
+    year: 1978
+    doi: "10.1109/TASSP.1978.1163055"
+    authority: >
+      Primary source for dynamic-programming time normalization, time-warping functions,
+      and slope/path constraints in classical DTW-style alignment.
+  - id: "LATENTTIME-ZHOU-DELATORRE-2012"
+    citation_key: "ZhouDeLaTorre2012GTW"
+    kind: "peer-reviewed-conference"
+    title: "Generalized Time Warping for Multi-Modal Alignment of Human Motion"
+    authors: "Feng Zhou; Fernando De la Torre"
+    venue: "2012 IEEE Conference on Computer Vision and Pattern Recognition"
+    pages: "1282-1289"
+    year: 2012
+    doi: "10.1109/CVPR.2012.6247812"
+    authority: >
+      Primary source for multimodal temporal alignment and generalized monotonic time-warping
+      functions across heterogeneous observation modalities.
+
+exact_witness_contract:
+  sequence_x: "[0,1,2]"
+  sequence_y: "[0,0,1,2]"
+  local_cost: "c(i,j)=(x_i-y_j)^2"
+  path_constraints:
+    start: "(1,1)"
+    end: "(3,4)"
+    local_steps:
+      - "(1,0)"
+      - "(0,1)"
+      - "(1,1)"
+    monotonicity: "indices never decrease"
+  exhaustive_path_count: 25
+  unique_optimal_path:
+    - "(1,1)"
+    - "(1,2)"
+    - "(2,3)"
+    - "(3,4)"
+  optimal_cost: 0
+  interpretation: >
+    Observed sequence index in Y is not identical to the inferred aligned latent-phase coordinate:
+    Y indices 1 and 2 both align to X index 1, while later Y indices align to X indices 2 and 3.
+    This establishes only an optimal alignment under the declared cost and path constraints.
+
+identity_control:
+  sequence_x: "[0,1,2]"
+  sequence_y: "[0,1,2]"
+  exhaustive_path_count: 13
+  unique_optimal_path:
+    - "(1,1)"
+    - "(2,2)"
+    - "(3,3)"
+  optimal_cost: 0
+  interpretation: "When observed indices already match the phase sequence, the exact optimum is the no-warp diagonal."
+
+epistemic_rules:
+  - "Observed sequence index is not automatically latent time."
+  - "A low-cost or unique optimal warping path is optimal only relative to the declared observations, local cost, and admissible path constraints."
+  - "Alignment quality does not prove a uniquely true physical, biological, or causal clock."
+  - "Relative-position periodicity or Fourier structure does not by itself identify latent time."
+  - "A discrete warping path is a combinatorial alignment object, not automatically a continuous-time trajectory or flow."
+  - "Multimodal alignment may require modality-specific representation or weighting; raw feature-space equality is not assumed."
+  - "Identity/no-warp behavior must remain an explicit control."
