@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-MINCURR-001"
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
   branch: "work/mincurr-251"
-  pull_request: null
-  state: "local-validation-green"
-  next_action: "Exact MINCURR work head 1a1974edd3b077c6ef37503b6c6f21237f8e952c passes canonical repository validation and independent witness replay after one protocol-marker repair. Re-fetch protected main and compare against baseline 3981c7de350e2eb284eb0f3753c09321c173d436. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
+  pull_request: 252
+  state: "pr-open"
+  next_action: "Implementation PR #252 is open from exact head 1a1974edd3b077c6ef37503b6c6f21237f8e952c. Require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
