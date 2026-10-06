@@ -4,18 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 209
-  tranche_id: "TOKEN-001"
-  chapter_ids: ["ATLAS-CH-TOKEN-001"]
-  baseline_commit: "d51ad8b0bd05d7457a635c71325b129cdc0ef866"
-  branch: "audit/token-209"
-  pull_request: 210
-  state: "audit-validation"
-  next_action: "Validate exact AUDIT-052 head 9aab4bcf97051c28095645162fe5a478db166111 on PR #210. If green, merge with exact-head lease; then run final validation on merged main, close issues #207/#209, recompute the dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-TRANSPORT-001 from exact baseline db2b19c4730a938babe9a2734eb40f898ee9913e. Bind audited ATLAS-CH-NORMREP-001 / AUDIT-005 and ATLAS-CH-SPLIT-001 / AUDIT-036 before drafting. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-TOKEN-001"
+  - id: "ATLAS-CH-TRANSPORT-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-TOKENCOMP-001"]
+    direct_consumers: ["ATLAS-CH-NEURALKRYLOV-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
