@@ -1,0 +1,85 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-RPO-001"
+locked_on: "2026-10-05"
+epistemic_class: "audited_positional_geometry_and_linear_algebra_prerequisites_plus_primary_relative_position_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Positional Geometry prerequisite supplies block-rotation notation, the exact RoPE
+  relative-offset identity, multi-frequency rotary decomposition, multidimensional product-group
+  construction, and the boundary between algebraic positional structure and empirical long-context
+  behavior. The audited Linear Algebra prerequisite supplies finite-dimensional operators, unitary
+  changes of basis, spectral/SVD discipline, and projection/reduction vocabulary. Shaw, Uszkoreit,
+  and Vaswani (2018) are used as a primary precedent for relative-position representations inside
+  self-attention. Raffel et al. (2020) are used as a primary precedent for learned scalar relative
+  position biases in attention logits, with different learned relative position embeddings across
+  attention heads. Atlas-owned material defines sequence-index relative-position operators, cyclic
+  Fourier mode decomposition, the DC component, low-dimensional mode truncation, head-specific
+  spectral profiles, and exact finite witnesses. No cited source establishes that every relative-position
+  mechanism is circulant, that real sequence boundaries are periodic, that Fourier truncation is always
+  optimal for task performance, or that head-specific spectral concentration implies semantic or causal
+  specialization.
+
+sources:
+  - id: "RPO-SHAW-2018"
+    citation_key: "ShawUszkoreitVaswani2018Relative"
+    kind: "peer-reviewed-conference"
+    title: "Self-Attention with Relative Position Representations"
+    authors: "Peter Shaw; Jakob Uszkoreit; Ashish Vaswani"
+    venue: "Proceedings of NAACL-HLT 2018, Volume 2 (Short Papers)"
+    pages: "464-468"
+    year: 2018
+    doi: "10.18653/v1/N18-2074"
+    locator: "https://aclanthology.org/N18-2074/"
+    authority: >
+      Primary source for relative-position representations in self-attention and relation-aware
+      attention. Used as architectural precedent, not as authority for the Atlas Fourier/operator
+      decomposition.
+
+  - id: "RPO-T5-2020"
+    citation_key: "RaffelEtAl2020T5"
+    kind: "peer-reviewed-journal"
+    title: "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer"
+    authors: "Colin Raffel; Noam Shazeer; Adam Roberts; Katherine Lee; Sharan Narang; Michael Matena; Yanqi Zhou; Wei Li; Peter J. Liu"
+    journal: "Journal of Machine Learning Research"
+    volume: 21
+    issue: 140
+    pages: "1-67"
+    year: 2020
+    locator: "https://www.jmlr.org/papers/v21/20-074.html"
+    authority: >
+      Primary source for T5's simplified scalar relative-position attention bias and the paper's
+      statement that, within a layer, different attention heads use different learned relative
+      position embeddings. Used as precedent for head-specific relative-position operators.
+
+atlas_sources:
+  - id: "RPO-POSGEOM-MANUSCRIPT"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "manuscript/parts/05-attention-sequence-position/ATLAS-CH-POSGEOM-001.md"
+    git_blob_sha1: "841bc96c696e58fb7914c851c7c13f2e5d076b53"
+  - id: "RPO-POSGEOM-SOURCE-LOCK"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "sources/source-locks/ATLAS-CH-POSGEOM-001.yaml"
+    git_blob_sha1: "a94a592d68a5f6ddadf450127dde0e261acf429f"
+  - id: "RPO-POSGEOM-AUDIT"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "reviews/AUDIT-040.md"
+    git_blob_sha1: "6c33d4994d683e953a70813ed422e8d887b67a02"
+  - id: "RPO-LINALG-MANUSCRIPT"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md"
+    git_blob_sha1: "e7fcf56322f26d232d3a3043038d9850792b4bde"
+  - id: "RPO-LINALG-SOURCE-LOCK"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "sources/source-locks/ATLAS-CH-LINALG-001.yaml"
+    git_blob_sha1: "f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e"
+  - id: "RPO-LINALG-AUDIT"
+    commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+
+epistemic_rules:
+  - "A relative-position bias matrix, a RoPE feature-space operator, and the full content-dependent attention operator are distinct objects."
+  - "Circulant/Fourier diagonalization requires an explicit cyclic boundary assumption; finite nonperiodic relative-position matrices are generally Toeplitz-like rather than circulant."
+  - "The DC mode is the zero-frequency component of a declared translation-invariant relative-position operator; it is not synonymous with an absolute position embedding."
+  - "A low-dimensional mode truncation is exact or approximate relative to a declared norm/operator and does not automatically preserve task performance."
+  - "Head-specific spectral profiles diagnose positional-operator differences across heads; they do not by themselves establish semantic or causal specialization."
+  - "RoPE's block-frequency decomposition acts in feature coordinates, while Fourier decomposition of a relative-position kernel acts over sequence index; the two decompositions must not be conflated."
