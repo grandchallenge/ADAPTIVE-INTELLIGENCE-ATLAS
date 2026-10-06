@@ -22,7 +22,7 @@
 - specification: efa855b00af94780f08f9267ed6357ec847374c9
 - derivation packet: 997cba9eb0c8f48d06c1155c5e17f7db74c964ae
 - computational witness: 01f8fff254fb0a458935c716ce07da389a4a33ef
-- reader manuscript: 4ae2ae94cdb39dacfe4c900144159ef65b9f1a34
+- reader manuscript: e6714d0505a96e2bfdc431b4ec60d50b0044efa6
 - source lock: b9f38d496efe2d704b759510cf171d5a3e83a2c8
 - Chapter Ledger: 4c854cfd4f7e19db3399d78c95cb90a99a4da9eb
 - Source Register: ae7b98bb7b758631c202f004c444180dcfbb5401
