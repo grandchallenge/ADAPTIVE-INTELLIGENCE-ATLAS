@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
   pull_request: 256
-  state: "pr-open"
-  next_action: "Implementation PR #256 is open from exact head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47. Require exact-head GitHub Actions success before merge."
+  state: "ci-green"
+  next_action: "Exact NEURALKRYLOV implementation head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47 passed GitHub Actions run 37547958975. Re-fetch PR #256 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains c9d5c61bf611327a1ed054206c5d8e778559e28a."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
