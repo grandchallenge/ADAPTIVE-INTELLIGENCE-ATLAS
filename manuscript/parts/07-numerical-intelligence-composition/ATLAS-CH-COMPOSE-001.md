@@ -1291,7 +1291,9 @@ It is to make composition explicit.
 
 When that bridge is absent, local validity remains local.
 
-## References inherited through audited prerequisites
+## References used in this chapter
+
+Inherited through audited prerequisites:
 
 - [@Higham2002]
 - [@BaydinEtAl2018]
