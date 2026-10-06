@@ -11,8 +11,8 @@ current:
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
   branch: "audit/a233"
   pull_request: 234
-  state: "audit-pr-open"
-  next_action: "Audit PR #234 is open from exact head 4247a9ac7f2be714988d026c3d30dbb77bdfbdb8 after the receipt provenance repair. Require exact-head GitHub Actions success, then merge only if the head remains exact and protected main remains the audited implementation merge. After merge, validate final main, close issues, recompute frontier, and reset controller/handoff."
+  state: "audit-ci-green"
+  next_action: "Audit head 4247a9ac7f2be714988d026c3d30dbb77bdfbdb8 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37472951600. Re-fetch PR #234 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 57542068df60818d05c14b01f1aa2607ca619232. Then validate/read back final main, close issues #231/#233, recompute dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
