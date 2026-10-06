@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-TRANSPORT-001"]
   baseline_commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
   branch: "work/transport-211"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited NORMREP-001/AUDIT-005 and SPLIT-001/AUDIT-036 at exact baseline db2b19c4730a938babe9a2734eb40f898ee9913e; source-lock established geometry/dynamics references already used by the Atlas; then draft representation-transport objects, finite constrained-motion witnesses, and explicit non-equivalence boundaries."
+  pull_request: 212
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head ce902a555b16aa7b613714a58f61403a06662450 on PR #212. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-TRANSPORT-001"
     downstream_architecture_count: 1
