@@ -11,8 +11,8 @@ current:
   baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
   branch: "work/regretroute-259"
   pull_request: 260
-  state: "pr-open"
-  next_action: "Implementation PR #260 is open from exact head 464e8cdc6e8927188c2fab1288780a0188c1b48e. Require exact-head GitHub Actions success before merge."
+  state: "ci-green"
+  next_action: "Exact REGRETROUTE implementation head 464e8cdc6e8927188c2fab1288780a0188c1b48e passed GitHub Actions run 37549285117. Re-fetch PR #260 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 506d2642398330a27bc9b6e6c17ec38969b6f6a0."
 frontier:
   - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
