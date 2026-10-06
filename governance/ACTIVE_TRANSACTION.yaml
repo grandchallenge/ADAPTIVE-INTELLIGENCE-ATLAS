@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-ADAPTDEPTH-001"]
   baseline_commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
   branch: "work/adaptdepth-219"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited DEPTH-001/AUDIT-018 and NETNUM-001/AUDIT-023 at exact baseline e8129376ef673822ed6b43775a0d2439b88c47fb. Source-lock inherited Graves ACT, existing Figurnov spatial adaptive compute, and Dormand-Prince embedded Runge-Kutta local-error control. Keep learned halting distinct from declared local-error estimators and adaptive numerical step control."
+  pull_request: 220
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 43ec942015e5e6ce0f7e50875500117f880e2c48 on PR #220. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-ADAPTDEPTH-001"
     downstream_architecture_count: 0
