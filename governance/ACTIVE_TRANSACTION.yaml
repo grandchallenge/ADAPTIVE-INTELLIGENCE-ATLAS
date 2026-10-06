@@ -11,8 +11,8 @@ current:
   baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
   branch: "work/contextcomp-235"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited EXTMEM-001 (manuscript 181685ceda93defb7a7051e0865898c7c4e3fb1d, source lock 6ac2940c5a9432588ace9a82b15c73e7e00d874f, AUDIT-031 a33ee84f0bfc69f8dc00e165506c55cabd68fec4). Freeze a CONTEXTCOMP source lock inheriting only that audited authority unless a new external claim is introduced. Define a finite compiler with freshness/authorization filtering, mandatory records, atomic provenance envelopes, a hard context budget, deterministic selection/serialization, and a rank-only/naive-truncation control before drafting."
+  state: "source-lock-complete"
+  next_action: "CONTEXTCOMP source lock and finite compiler contract are complete on work/contextcomp-235. Draft the specification, derivation packet, exact computational witness, and reader manuscript. Preserve the distinction among storage, retrieval, ranking, compilation, serialization, and downstream model use; include the exact budget-8 freshness-aware compiler witness and the rank-prefix/truncation failure control. Then update Chapter Ledger and transaction receipt and validate the fresh exact branch head."
 frontier:
   - id: "ATLAS-CH-CONTEXTCOMP-001"
     downstream_architecture_count: 0
