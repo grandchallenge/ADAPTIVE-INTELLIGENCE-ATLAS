@@ -4,18 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 201
-  tranche_id: "ROUTERDYN-001"
-  chapter_ids: ["ATLAS-CH-ROUTERDYN-001"]
-  baseline_commit: "2c55d450c27f7411a168eedce17753885a592eb6"
-  branch: "audit/routerdyn-201"
-  pull_request: 202
-  state: "audit-validation"
-  next_action: "Validate exact AUDIT-050 head 99d0342a06dd981dd6338d9db033783fd21f2ed2 on PR #202. If green, merge with exact-head lease; then run final validation on merged main, close issues #199/#201, recompute the dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-RPO-001 from exact baseline addcbd4bb160f1501601983462fcfe2ef5b8eccf. Bind audited ATLAS-CH-POSGEOM-001 / AUDIT-040 and ATLAS-CH-LINALG-001 / AUDIT-004 before drafting. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-ROUTERDYN-001"
+  - id: "ATLAS-CH-RPO-001"
     downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-REGRETROUTE-001"]
+    direct_consumers: ["ATLAS-CH-LATENTTIME-001"]
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
