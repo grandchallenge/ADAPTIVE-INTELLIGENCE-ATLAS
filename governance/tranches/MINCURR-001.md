@@ -26,7 +26,7 @@ RESIDUAL-001:
 - specification a90bf935ef124bc9a748123d2ba67474049a5314
 - derivations b49724dba87f9cf58a59ac611b781665b57dbc95
 - witness 8d7142ed8f457a7a8647904b6e4c8e04e4b20ed7
-- manuscript 16bc4f35f637488ba0b01b1b2d12edc439acbf3f
+- manuscript 01a5491100430fe8bf56793e6e1b557ba91dc652
 - source lock e7cb725448a35b31fa879528dc01b02a72d052ca
 - bibliography c95dbd1d1e3ddd0e3b99e067ce3dd654bf8201da
 - Chapter Ledger a8d40ef1f4144def1c6e5cbd363d9837186b50f0
