@@ -1,0 +1,155 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-REGRETROUTE-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_router_dynamics_prerequisite_plus_primary_online_learning_sources_plus_atlas_exact_churn_regret_witness"
+claim_boundary: >
+  ROUTERDYN-001 supplies typed temporal routing observables: router probabilities, preferred routes,
+  accepted dispatch, loads, churn, probability drift, empirical expert-transition operators,
+  specialization profiles, and local augmented-state diagnostics. Auer et al. (2002) are used as
+  primary authority for adversarial/nonstochastic multi-armed bandit feedback and regret framing.
+  Herbster and Warmuth (1998) are used as primary authority for comparator sequences that may switch
+  among experts over time. Atlas-owned material defines the exact four-round routing witness,
+  preferred-versus-accepted action semantics, feasible-action optionality, switch-budget correction
+  capacity, and metric firewalls. No cited source establishes that low router churn implies low regret,
+  that high churn implies poor task loss, or that capacity-balanced routing is online-optimal.
+
+hard_prerequisites:
+  - id: "REGRETROUTE-ROUTERDYN-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
+    path: "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-ROUTERDYN-001.md"
+    git_blob_sha1: "4c3c4b22d7f6a564b255a251ba646d11dbbc29a4"
+    authority: "Audited router probability/preference/dispatch/load temporal diagnostics and direct REGRETROUTE handoff."
+  - id: "REGRETROUTE-ROUTERDYN-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
+    path: "sources/source-locks/ATLAS-CH-ROUTERDYN-001.yaml"
+    git_blob_sha1: "27aca5556b902c679132780e4f74ba8822420762"
+    authority: "Exact ROUTERDYN source and claim boundary."
+  - id: "REGRETROUTE-ROUTERDYN-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
+    path: "reviews/AUDIT-050.md"
+    git_blob_sha1: "19a7e4bf2d0291380b195d2ad7cc0091922bcb8b"
+    authority: "Post-draft audit preserving the boundary that temporal diagnostics are not regret theory."
+
+sources:
+  - id: "REGRETROUTE-AUER-2002-NONSTOCHASTIC"
+    citation_key: "AuerEtAl2002Nonstochastic"
+    kind: "peer-reviewed-journal"
+    title: "The Nonstochastic Multiarmed Bandit Problem"
+    authors: "Peter Auer; Nicolò Cesa-Bianchi; Yoav Freund; Robert E. Schapire"
+    journal: "SIAM Journal on Computing"
+    volume: "32"
+    issue: "1"
+    pages: "48-77"
+    year: 2002
+    doi: "10.1137/S0097539701398375"
+    authority: >
+      Primary authority for adversarial/nonstochastic bandit action selection, partial feedback,
+      and regret-style comparison to a declared benchmark. Used to type feedback and comparator
+      semantics, not to claim that the exact Atlas routing witness follows the paper's algorithm.
+  - id: "REGRETROUTE-HERBSTER-WARMUTH-1998"
+    citation_key: "HerbsterWarmuth1998Tracking"
+    kind: "peer-reviewed-journal"
+    title: "Tracking the Best Expert"
+    authors: "Mark Herbster; Manfred K. Warmuth"
+    journal: "Machine Learning"
+    volume: "32"
+    pages: "151-178"
+    year: 1998
+    doi: "10.1023/A:1007424614876"
+    authority: >
+      Primary authority for online comparison against expert sequences that may switch over time.
+      Used to motivate shifting-comparator regret; not authority for sparse-router capacity mechanics.
+
+routing_decision_contract:
+  proposal:
+    symbol: "p_t"
+    meaning: "preferred route proposed by the router before capacity/feasibility enforcement"
+  feasible_set:
+    symbol: "F_t"
+    meaning: "accepted-dispatch actions feasible after declared availability/capacity constraints"
+  accepted_action:
+    symbol: "a_t"
+    meaning: "executed/accepted dispatch action, required to lie in F_t"
+  capacity_map:
+    symbol: "G_t"
+    meaning: "declared map taking proposal p_t and capacity state kappa_t to accepted action a_t when proposal and execution differ"
+  loss:
+    symbol: "ell_t(a_t)"
+    timing: "incurred after accepted dispatch at round t"
+  feedback:
+    full_information: "all ell_t(a) for a in F_t revealed after the action"
+    bandit: "only ell_t(a_t) revealed after the action"
+    witness_mode: "full_information"
+  regret_object: "accepted dispatch a_t, not proposal p_t, unless a separate counterfactual preferred-route regret is explicitly declared"
+
+comparator_contract:
+  horizon: 4
+  switch_budget: 3
+  class: "Pi_3={u_1:4 in {A,B}^4 : sum_{t=2}^4 1[u_t != u_{t-1}] <= 3}"
+  feasibility: "u_t must lie in the same feasible accepted-dispatch set F_t used by the online policy"
+  shifting_regret: "R_4^(3)(a)=sum_t ell_t(a_t)-min_{u in Pi_3} sum_t ell_t(u_t)"
+  warning: "Changing the comparator class changes the regret object; static-regret and shifting-regret values must not be interchanged."
+
+exact_witness_contract:
+  actions: ["A","B"]
+  feasible_sets:
+    - ["A","B"]
+    - ["A","B"]
+    - ["A","B"]
+    - ["A","B"]
+  full_information_losses:
+    t1: {A: 0, B: 1}
+    t2: {A: 1, B: 0}
+    t3: {A: 0, B: 1}
+    t4: {A: 1, B: 0}
+  optimal_shifting_comparator: ["A","B","A","B"]
+  comparator_loss: 0
+  stay_policy:
+    accepted_actions: ["A","A","A","A"]
+    churn_switch_count: 0
+    cumulative_loss: 2
+    shifting_regret: 2
+  tracking_policy:
+    accepted_actions: ["A","B","A","B"]
+    churn_switch_count: 3
+    cumulative_loss: 0
+    shifting_regret: 0
+  lesson: >
+    Under the same loss sequence, feasible sets, and shifting-comparator class, zero accepted-route
+    churn can coexist with positive regret while maximal round-to-round churn can coexist with zero regret.
+    Churn is therefore not a regret surrogate.
+
+optionality_contract:
+  definition: "O_t=|F_t|-1, the number of feasible accepted alternatives other than the executed action a_t"
+  witness_values: [1,1,1,1]
+  warning: "High optionality is available choice, not automatically high value or low regret."
+
+correction_capacity_contract:
+  switch_budget_symbol: "S"
+  witness_switch_budget: 3
+  switches_used_before_round_t: "N_t=sum_{s=2}^{t-1} 1[a_s != a_{s-1}]"
+  remaining_switch_correction_capacity: "C_t=max(0,S-N_t)"
+  warning: >
+    Remaining switch budget is only one operational notion of correction capacity. A real router can also
+    be constrained by expert availability, token/expert capacity, overflow rules, latency, or delayed feedback.
+
+capacity_rules:
+  - "Preferred route and accepted dispatch must be stored separately when capacity can reject or reroute proposals."
+  - "Comparator actions must obey the same declared feasibility/capacity constraints as the online accepted-dispatch policy unless a deliberately counterfactual oracle comparator is labeled separately."
+  - "Stable accepted load can coexist with changing preferences or regret because capacity can alter execution."
+
+epistemic_rules:
+  - "Router churn and regret are distinct observables."
+  - "Regret is undefined until the action object, comparator class, loss/reward timing, and feedback model are declared."
+  - "Static regret, shifting regret, and dynamic regret are not interchangeable labels."
+  - "Probability drift, preferred-route churn, accepted-dispatch churn, load balance, specialization, regret, and downstream task loss are distinct metrics."
+  - "Low churn does not imply low regret."
+  - "High churn does not imply high regret."
+  - "Load balance does not imply low regret."
+  - "High optionality does not imply low regret."
+  - "Correction capacity is operationally constrained by feasible alternatives and switch/capacity budgets."
+  - "Bandit feedback and full-information feedback support different inference/learning guarantees."
+  - "Observed regret does not by itself identify a causal mechanism for router training dynamics."
