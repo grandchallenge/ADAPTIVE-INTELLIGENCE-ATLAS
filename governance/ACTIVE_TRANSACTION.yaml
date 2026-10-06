@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-TRANSPORT-001"]
   baseline_commit: "9d6d5bd100663b8c2587a32c16be190e6b5aac85"
   branch: "audit/transport-213"
-  pull_request: null
-  state: "post-draft-audit"
-  next_action: "Audit ATLAS-CH-TRANSPORT-001 from exact implementation merge 9d6d5bd100663b8c2587a32c16be190e6b5aac85. Recheck exact prerequisite/source/provenance identities, replay all finite sphere witnesses, inspect state/vector/parallel/optimal-transport and ODE boundaries, verify NEURALKRYLOV handoff, repair any in-scope defect, then create and validate AUDIT-053."
+  pull_request: 214
+  state: "audit-validation"
+  next_action: "Validate exact AUDIT-053 head ea486fe3e0bcea3032c8ea559940f4bdd57061c6 on PR #214. If green, merge with exact-head lease; then validate merged main, close issues #211/#213, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-TRANSPORT-001"
     downstream_architecture_count: 1
