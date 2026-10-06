@@ -11,8 +11,8 @@ current:
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
   branch: "work/compose-231"
   pull_request: null
-  state: "draft-complete"
-  next_action: "COMPOSE draft artifacts and receipt are complete on exact work head c8da62d00bc1843e13e216e7aa9e949dc9583433. Run canonical Linux validation and independent exact witness replay on this head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if main remains compatible."
+  state: "local-validation-green"
+  next_action: "Exact work head 6fc852b93cd35b2ca5bad52cff049777fe49d958 passes canonical repository validation and independent exact witness replay after documentary protocol-marker repairs. Re-fetch protected main and compare against baseline eab85ed47695e1c3ae19f69e85b194c48a576a31. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
