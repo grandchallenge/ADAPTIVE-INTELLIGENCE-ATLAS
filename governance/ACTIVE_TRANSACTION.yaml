@@ -11,8 +11,8 @@ current:
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
   branch: "audit/a245"
   pull_request: 246
-  state: "audit-pr-open"
-  next_action: "Audit PR #246 is open from exact head ec9983fd3ac3a3f82823acd5a3b945e125725820. Require exact-head Actions success before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head ec9983fd3ac3a3f82823acd5a3b945e125725820 passed Actions run 37536554335. Re-check PR #246 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
