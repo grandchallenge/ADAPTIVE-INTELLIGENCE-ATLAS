@@ -1,6 +1,6 @@
 # ATLAS-CW-TRANSPORT-001 — Constrained Representation Transport Witness
 
-**Chapter:** \`ATLAS-CH-TRANSPORT-001\`  
+**Chapter:** `ATLAS-CH-TRANSPORT-001`  
 **Witness class:** exact finite-dimensional replay  
 **Purpose:** verify the chapter's sphere-retraction, base-point tangent, and order-sensitive transport claims.
 
@@ -138,7 +138,7 @@ u_{ab}^\top u_{ba}
 
 ## W4. Minimal replay code
 
-\`\`\`python
+```python
 from sympy import Matrix, sqrt, simplify
 
 def retract(u, xi):
@@ -164,16 +164,16 @@ print(ua)
 print(uab)
 print(ub)
 print(uba)
-\`\`\`
+```
 
 Expected exact values:
 
-\`\`\`text
+```text
 ua  = Matrix([sqrt(2)/2, sqrt(2)/2, 0])
 uab = Matrix([1/2, 1/2, sqrt(2)/2])
 ub  = Matrix([sqrt(2)/2, 0, sqrt(2)/2])
 uba = Matrix([1/2, sqrt(2)/2, 1/2])
-\`\`\`
+```
 
 ## W5. What this witness establishes
 
