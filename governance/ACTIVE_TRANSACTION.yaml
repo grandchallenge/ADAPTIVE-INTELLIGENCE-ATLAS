@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 251
+  tranche_id: "MINCURR-001"
+  chapter_ids:
+    - "ATLAS-CH-MINCURR-001"
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
-  branch: null
+  branch: "work/mincurr-251"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-MINCURR-001 from exact protected main 3981c7de350e2eb284eb0f3753c09321c173d436. First bind audited PROGRESSSEARCH-001 (manuscript 30e988200933dbba8ad53f069acacf131b0944ee, source lock 6e593b0d17e4a80d5790a6ea6d580f3b4530686a, AUDIT-049 647a8b0ca273ff8c8bebaaa97073a9b198e8bee4) and audited RESIDUAL-001 (manuscript 02b0886a87e1e17c749e15349e14f43674c3d1ff, source lock 6e6a25c4b4e01475e68a6c616eefb6ba7b039341, AUDIT-006 b24ef782bedfe76a4c52d832562a0dd29d2a64a9). Source-lock only primary references genuinely needed for minimal teaching/curriculum/reasoning bases or mechanism persistence. Define an exact finite witness where a declared capability is reconstructable from a candidate basis, every strict smaller admissible candidate fails, and a high-progress search region is shown not automatically to belong to the minimal reconstructive basis. Keep acquisition, persistence, accessibility, and behavioural expression as separate evidence levels."
+  state: "tranche-instantiated"
+  next_action: "Bind audited PROGRESSSEARCH-001 and RESIDUAL-001. Add only Goldman-Kearns 1995 and Zhu 2015 as new teaching/minimality sources. Freeze the exact two-bit teaching witness with target 11, strict-smaller failure, and the high-progress auxiliary-region control. Keep acquisition, persistence, accessibility, and behavioural expression separate."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
