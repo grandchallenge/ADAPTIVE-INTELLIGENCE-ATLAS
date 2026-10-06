@@ -11,8 +11,8 @@ current:
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
   branch: "work/compose-231"
   pull_request: 232
-  state: "ci-green"
-  next_action: "Exact implementation head 6fc852b93cd35b2ca5bad52cff049777fe49d958 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37472274892. Re-fetch PR #232 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains eab85ed47695e1c3ae19f69e85b194c48a576a31. Then validate/read back the merge and instantiate the mandatory post-draft audit."
+  state: "implementation-merged"
+  next_action: "Implementation PR #232 merged from exact validated head 6fc852b93cd35b2ca5bad52cff049777fe49d958 to protected main 57542068df60818d05c14b01f1aa2607ca619232. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit prerequisite identities, source scope, order/product conventions, exact gain witness, commuting control, error-propagation derivation, certificate hierarchy, citation/provenance integrity, and repository integrity; repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
