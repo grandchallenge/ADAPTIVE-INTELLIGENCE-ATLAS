@@ -11,8 +11,8 @@ current:
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Audit issue #225 / AUDIT-056 is instantiated on branch audit/a225 from exact protected implementation merge 8c5ad59ccacb3991e1ec7646be057a72b8bec495. Independently audit ATTNAPPROX mathematical identities, primary-source scope, citations, hard prerequisite bindings, target/error distinctions, exact witnesses, and repository integrity. Repair every in-scope defect on audit/a225, validate the fresh exact audit head locally and in GitHub Actions, merge only the exact green audit head, then close issues #223 and #225 and recompute the dependency-legal frontier from final protected main."
+  state: "audit-pr-open"
+  next_action: "AUDIT-056 disposition PASS — NO REPAIR is on PR #226 from exact audit head 5a06ba97b0d803abbea0ed84113f4b39fc0675a8. Canonical Linux validation and independent witness replay are green locally. Require exact-head GitHub Actions validation; repair/replay any failure. Merge PR #226 only if the audit head is unchanged and protected main remains compatible. Then validate/read back final protected main, close issues #223 and #225, recompute the dependency-legal frontier, and reset controller/handoff to idle-ready."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
