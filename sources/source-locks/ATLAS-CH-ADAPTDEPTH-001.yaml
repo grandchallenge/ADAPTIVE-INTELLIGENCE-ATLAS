@@ -1,0 +1,106 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-ADAPTDEPTH-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_adaptive_depth_and_numerical_error_control_plus_atlas_synthesis"
+claim_boundary: >
+  The audited DEPTH chapter supplies learned halting, recurrent depth, equilibrium,
+  conditional execution, and realized-compute semantics. The audited NETNUM chapter
+  supplies exact-flow versus step-map, local/global error, stability, and numerical
+  step-size boundaries. Dormand-Prince supplies a primary embedded Runge-Kutta source
+  for paired formulas with different orders; Graves and Figurnov supply representative
+  learned adaptive-computation mechanisms. The Atlas synthesis compares these control
+  surfaces without identifying a learned halting score with a numerical local-error
+  estimator unless an explicit calibration or error-bound relation is separately established.
+
+hard_prerequisites:
+  - id: "ADAPTDEPTH-DEPTH-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-DEPTH-001.md"
+    git_blob_sha1: "9d365778e873217c40604a621dbe9f88ca2153e0"
+    authority: "Audited computational-depth, learned-halting, equilibrium, conditional-execution, and realized-compute substrate."
+  - id: "ADAPTDEPTH-DEPTH-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "sources/source-locks/ATLAS-CH-DEPTH-001.yaml"
+    git_blob_sha1: "b6c18e2e0e3ab82c65d830967e2874bfb41e9bb2"
+    authority: "Source and claim boundary for DEPTH-001."
+  - id: "ADAPTDEPTH-DEPTH-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "reviews/AUDIT-018.md"
+    git_blob_sha1: "0c9f5405bd7d94018d76aa93ebe74ec3e505cabe"
+    authority: "Audit record governing Depth as Computational Time."
+  - id: "ADAPTDEPTH-NETNUM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NETNUM-001.md"
+    git_blob_sha1: "cbaf0b96c996c821df50f985075f64028459c587"
+    authority: "Audited numerical-scheme substrate for local/global error, step size, stability, and exact-flow boundaries."
+  - id: "ADAPTDEPTH-NETNUM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "sources/source-locks/ATLAS-CH-NETNUM-001.yaml"
+    git_blob_sha1: "02bbe77d19da4a6a123e430f8aae058d666c4e35"
+    authority: "Source and claim boundary for NETNUM-001."
+  - id: "ADAPTDEPTH-NETNUM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+    path: "reviews/AUDIT-023.md"
+    git_blob_sha1: "746e0c297e4ddf29122d4735108becc33e599030"
+    authority: "Audit record governing Networks as Numerical Schemes."
+
+sources:
+  - id: "ADAPTDEPTH-GRAVES-ACT-2016"
+    citation_key: "Graves2016ACT"
+    kind: "research-preprint"
+    title: "Adaptive Computation Time for Recurrent Neural Networks"
+    author: "Alex Graves"
+    year: 2016
+    arxiv_id: "1603.08983"
+    doi: "10.48550/arXiv.1603.08983"
+    url: "https://arxiv.org/abs/1603.08983"
+    authority: >
+      Primary source for a differentiable learned adaptive-computation mechanism that
+      allocates a variable number of recurrent computational steps. Used as learned
+      halting/compute-allocation evidence, not as a numerical error estimator.
+  - id: "ADAPTDEPTH-FIGURNOV-2017"
+    citation_key: "FigurnovEtAl2017"
+    kind: "peer-reviewed-conference"
+    title: "Spatially Adaptive Computation Time for Residual Networks"
+    authors: "Michael Figurnov; Maxwell D. Collins; Yukun Zhu; Li Zhang; Jonathan Huang; Dmitry Vetrov; Ruslan Salakhutdinov"
+    venue: "CVPR"
+    year: 2017
+    url: "https://openaccess.thecvf.com/content_cvpr_2017/html/Figurnov_Spatially_Adaptive_Computation_CVPR_2017_paper.html"
+    authority: >
+      Primary source for learned spatially varying computation in residual networks.
+      Used to show that compute allocation can vary over inputs/locations; not evidence
+      that the halting signal is a calibrated local numerical-error estimate.
+  - id: "ADAPTDEPTH-DORMAND-PRINCE-1980"
+    citation_key: "DormandPrince1980"
+    kind: "peer-reviewed-journal"
+    title: "A family of embedded Runge-Kutta formulae"
+    authors: "J. R. Dormand; P. J. Prince"
+    journal: "Journal of Computational and Applied Mathematics"
+    volume: 6
+    issue: 1
+    pages: "19-26"
+    year: 1980
+    doi: "10.1016/0771-050X(80)90013-3"
+    url: "https://doi.org/10.1016/0771-050X(80)90013-3"
+    authority: >
+      Primary numerical-analysis source for embedded Runge-Kutta formulas of differing
+      order. Used for the mechanism of paired same-step approximations whose difference
+      supports local-error estimation and adaptive step control under the method's
+      declared assumptions; not a learned-computation result.
+
+epistemic_rules:
+  - "Learned halting score != numerical local-error estimate unless an explicit relation is established."
+  - "Adaptive depth (number of executed stages) != adaptive step size (mesh spacing over a declared reference problem)."
+  - "A low local-error estimate does not by itself prove a low accumulated global error."
+  - "An embedded-pair difference is an estimator whose interpretation depends on the declared numerical method and smoothness/order assumptions."
+  - "Budget exhaustion != convergence and != tolerance satisfaction."
+  - "A learned compute-allocation policy may optimize task loss, latency, or a ponder penalty without estimating discretization error."
+  - "Spatially varying execution depth != a spatially adaptive PDE mesh unless an actual discretized reference problem is declared."
+  - "Error control requires naming the target error quantity, norm, tolerance, estimator, acceptance rule, and failure/budget state."
+  - "The exact finite Euler/Heun witness is local to y'=t and does not establish a universal error identity for arbitrary ODEs or networks."
