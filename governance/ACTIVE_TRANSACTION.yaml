@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 235
+  tranche_id: "CONTEXTCOMP-001"
+  chapter_ids:
+    - "ATLAS-CH-CONTEXTCOMP-001"
   baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
-  branch: null
+  branch: "work/contextcomp-235"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-CONTEXTCOMP-001 from exact protected main b00d6020b809145a99689418db13ff6d6561a659. First bind audited EXTMEM-001 (manuscript 181685ceda93defb7a7051e0865898c7c4e3fb1d, source lock 6ac2940c5a9432588ace9a82b15c73e7e00d874f, AUDIT-031 a33ee84f0bfc69f8dc00e165506c55cabd68fec4). CONTEXTCOMP may inherit hybrid parametric/external placement, versioned records, explicit freshness policy, retrieval/storage separation, and provenance-preserving record semantics, but must independently define how retrieved records become the bounded working context of a model invocation. Source-lock only additional primary references needed for context selection/assembly, budgeting, ordering, provenance retention, conflict resolution, truncation, or compilation semantics. Define an exact finite over-budget compilation witness and a naive-truncation/rank-only control before drafting."
+  state: "tranche-instantiated"
+  next_action: "Bind audited EXTMEM-001 (manuscript 181685ceda93defb7a7051e0865898c7c4e3fb1d, source lock 6ac2940c5a9432588ace9a82b15c73e7e00d874f, AUDIT-031 a33ee84f0bfc69f8dc00e165506c55cabd68fec4). Freeze a CONTEXTCOMP source lock inheriting only that audited authority unless a new external claim is introduced. Define a finite compiler with freshness/authorization filtering, mandatory records, atomic provenance envelopes, a hard context budget, deterministic selection/serialization, and a rank-only/naive-truncation control before drafting."
 frontier:
   - id: "ATLAS-CH-CONTEXTCOMP-001"
     downstream_architecture_count: 0
