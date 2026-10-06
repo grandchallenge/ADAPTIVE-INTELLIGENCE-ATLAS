@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-NEURALKRYLOV-001"
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "audit/a257"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-064 is issue #257 on audit/a257 from exact protected implementation merge 0efe3dc8bfd47f268cd2a5f088026e95b3a6c52e. Independently audit prerequisite/source identities, exact positive/control arithmetic, residual/error/readout separation, local/global and preconditioner boundaries, receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
+  pull_request: 258
+  state: "audit-pr-open"
+  next_action: "AUDIT-064 is on PR #258 from exact audit head eb5b1d10e72b33e393a15813740738628a97b380. Require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
