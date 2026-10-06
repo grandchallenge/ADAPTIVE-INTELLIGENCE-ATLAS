@@ -11,8 +11,8 @@ current:
   baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
   branch: "work/contextcomp-235"
   pull_request: 236
-  state: "pr-open"
-  next_action: "Implementation PR #236 is open from exact head 793017b4b72762fc5b7af62bf8d58e9e4cacc3a2. Require exact-head GitHub Actions validation. Repair and replay any failure. Merge only if the PR head remains exact and protected main remains compatible, then validate/read back the merge and instantiate the mandatory post-draft audit."
+  state: "ci-green"
+  next_action: "Exact implementation head 793017b4b72762fc5b7af62bf8d58e9e4cacc3a2 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37525597267. Re-fetch PR #236 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains b00d6020b809145a99689418db13ff6d6561a659. Then validate/read back the merge and instantiate the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-CONTEXTCOMP-001"
     downstream_architecture_count: 0
