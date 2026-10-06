@@ -11,8 +11,8 @@ current:
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
   branch: "work/mincurr-251"
   pull_request: null
-  state: "draft-complete"
-  next_action: "MINCURR draft artifacts and receipt are complete on exact work head 4b0965bf09516ea6ac90ea5539f5bfb6c253af63. Run canonical repository validation and independent exhaustive replay of the minimal teaching witness and high-progress control. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
+  state: "local-validation-green"
+  next_action: "Exact MINCURR work head 1a1974edd3b077c6ef37503b6c6f21237f8e952c passes canonical repository validation and independent witness replay after one protocol-marker repair. Re-fetch protected main and compare against baseline 3981c7de350e2eb284eb0f3753c09321c173d436. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
