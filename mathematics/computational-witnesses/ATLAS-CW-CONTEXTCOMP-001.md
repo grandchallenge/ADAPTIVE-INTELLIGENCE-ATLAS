@@ -380,9 +380,9 @@ Correct compiler status:
         cost = sum(r["cost"] for r in subset)
         utility = sum(r["utility"] for r in subset)
         if cost <= residual:
-            feasible.append((utility, -cost, tuple(sorted(r["id"] for r in subset)), subset))
+            feasible.append((utility, cost, tuple(sorted(r["id"] for r in subset)), subset))
 
-    best = max(feasible, key=lambda x: (x[0], x[1], tuple(reversed(x[2]))))
+    best = min(feasible, key=lambda x: (-x[0], x[1], x[2]))
     best_ids = {r["id"] for r in best[3]}
 
     assert best_ids == {"r_fact"}
