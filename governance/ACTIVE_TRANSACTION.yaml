@@ -11,8 +11,8 @@ current:
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "work/latenttime-247"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "LATENTTIME source lock and bibliography updates are complete on work/latenttime-247. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen DTW contract. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
+  state: "draft-complete"
+  next_action: "LATENTTIME draft artifacts and receipt are complete on exact work head aa4c9c9762cf8578518e45552e3806664bd2b1d5. Run canonical repository validation and independent exact witness replay on this head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if main remains compatible."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
