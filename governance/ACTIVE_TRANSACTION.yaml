@@ -11,8 +11,8 @@ current:
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
   branch: "work/compintel-227"
   pull_request: 228
-  state: "ci-green"
-  next_action: "Exact implementation head b7818c9eb16749aa41ac20b200293e485946e845 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37468502141. Re-fetch PR #228 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 21597e4f2bb7af5312dc9967417a60dc3d8dc0f5. Then validate/read back the merge and instantiate the mandatory post-draft audit."
+  state: "implementation-merged"
+  next_action: "Implementation PR #228 merged from exact validated head b7818c9eb16749aa41ac20b200293e485946e845 to protected main d7f83f6e51d60cdb8edbc3ad8b9a1f16a47213b4. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit mathematical identities, source scope, evidence-ladder semantics, exact witnesses, citation/provenance integrity, and repository integrity; repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
