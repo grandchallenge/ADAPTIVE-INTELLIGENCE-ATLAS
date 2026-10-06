@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 231
+  issue_number: 233
   tranche_id: "COMPOSE-001"
   chapter_ids:
     - "ATLAS-CH-COMPOSE-001"
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
-  branch: "work/compose-231"
-  pull_request: 232
-  state: "implementation-merged"
-  next_action: "Implementation PR #232 merged from exact validated head 6fc852b93cd35b2ca5bad52cff049777fe49d958 to protected main 57542068df60818d05c14b01f1aa2607ca619232. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit prerequisite identities, source scope, order/product conventions, exact gain witness, commuting control, error-propagation derivation, certificate hierarchy, citation/provenance integrity, and repository integrity; repair any in-scope defect before audit merge."
+  branch: "audit/a233"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-058 is instantiated as issue #233 on audit/a233 from exact protected implementation merge 57542068df60818d05c14b01f1aa2607ca619232. Independently audit exact prerequisite identities, inherited source scope, chronological/product-order discipline, exact gain and commuting witnesses, local error-propagation derivation, certificate hierarchy, transaction-receipt provenance, citation integrity, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
