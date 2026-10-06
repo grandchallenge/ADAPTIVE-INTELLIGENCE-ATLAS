@@ -1,0 +1,103 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-TRANSPORT-001"
+locked_on: "2026-10-06"
+epistemic_class: "established_manifold_geometry_and_residual_dynamics_plus_atlas_transport_synthesis"
+claim_boundary: >
+  Manifold, tangent-space, geodesic, retraction, and vector-transport concepts are
+  established mathematics in the cited geometry references. Residual-network and
+  Neural-ODE architecture claims are limited to the cited primary sources, and
+  dynamical-systems motivation for stable deep architectures is limited to the cited
+  Haber-Ruthotto paper. The Atlas-owned contribution is the bounded synthesis that
+  treats a sequence of declared representation maps as transport of representation
+  state. This synthesis is not a theorem that arbitrary learned layers are exact ODE
+  flows, geodesics, parallel transport, vector transport, or optimal transport.
+
+hard_prerequisites:
+  - id: "TRANSPORT-NORMREP-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-NORMREP-001.md"
+    git_blob_sha1: "1500987b384fb931bbd01879756c08b42ebcff28"
+    authority: >
+      Audited prerequisite for normalized states, tangent spaces on the sphere,
+      angular/radial separation, retractions, SLERP, and the norm-erasure boundary.
+  - id: "TRANSPORT-NORMREP-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "sources/source-locks/ATLAS-CH-NORMREP-001.yaml"
+    git_blob_sha1: "58b8331e56f5c9859e72be5c58f283706b5c436e"
+    authority: "Source and claim boundary for NORMREP-001."
+  - id: "TRANSPORT-NORMREP-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "reviews/AUDIT-005.md"
+    git_blob_sha1: "11f45d9edf309cf55d9c4b0582ca88cd25c02c4d"
+    authority: "Audit record governing the normalized-representation prerequisite."
+  - id: "TRANSPORT-SPLIT-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-SPLIT-001.md"
+    git_blob_sha1: "bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0"
+    authority: >
+      Audited prerequisite for declared staged submaps, order-sensitive composition,
+      exact-flow versus learned-map separation, and autonomous/nonautonomous boundaries.
+  - id: "TRANSPORT-SPLIT-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "sources/source-locks/ATLAS-CH-SPLIT-001.yaml"
+    git_blob_sha1: "afb84e2f3ebb941f320c52693b088b0eb078b8ce"
+    authority: "Source and claim boundary for SPLIT-001."
+  - id: "TRANSPORT-SPLIT-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
+    path: "reviews/AUDIT-036.md"
+    git_blob_sha1: "5e093460550c15fe491ba3214b2f52d48076dc0a"
+    authority: "Audit record governing the split-operator prerequisite."
+
+sources:
+  - id: "TRANSPORT-LEE-2018"
+    citation_key: "Lee2018Riemannian"
+    kind: "monograph"
+    title: "Introduction to Riemannian Manifolds"
+    authority: "Standard manifold, tangent-space, geodesic, and differential-geometric background."
+  - id: "TRANSPORT-ABSIL-2008"
+    citation_key: "AbsilMahonySepulchre2008"
+    kind: "monograph"
+    title: "Optimization Algorithms on Matrix Manifolds"
+    authority: >
+      Standard source for retractions and vector transports; used to enforce the
+      distinction between moving a point and transporting tangent information.
+  - id: "TRANSPORT-RESNET-2016"
+    citation_key: "HeZhangRenSun2016"
+    kind: "peer-reviewed-conference"
+    title: "Deep Residual Learning for Image Recognition"
+    authority: >
+      Primary source for residual blocks of identity plus learned residual and the
+      empirical claims reported in that paper; not evidence that every residual block
+      is an exact discretized flow.
+  - id: "TRANSPORT-NEURAL-ODE-2018"
+    citation_key: "ChenRubanovaBettencourtDuvenaud2018"
+    kind: "peer-reviewed-conference"
+    title: "Neural Ordinary Differential Equations"
+    authority: >
+      Primary source for architectures that explicitly define continuous-depth state
+      evolution by an ODE and obtain outputs through numerical integration.
+  - id: "TRANSPORT-HABER-RUTHOTTO-2018"
+    citation_key: "HaberRuthotto2018"
+    kind: "peer-reviewed-journal"
+    title: "Stable Architectures for Deep Neural Networks"
+    authority: >
+      Source for dynamical-systems and discrete-ODE stability as an architecture-design
+      lens; not an identity between generic deep networks and one continuous flow.
+
+epistemic_rules:
+  - "Representation transport means evolution of a declared representation state through declared maps; it is an Atlas synthesis term."
+  - "State transport is distinct from vector transport between tangent spaces."
+  - "State transport is distinct from parallel transport along a connection."
+  - "Representation transport is not optimal transport of probability mass unless a probability-measure transport problem is explicitly posed."
+  - "A retraction gives a feasible manifold endpoint; it is not generally the exponential map or geodesic flow."
+  - "A residual update is not automatically an exact ODE step, and a finite stack need not have a unique underlying ODE."
+  - "Layer-varying maps require a nonautonomous/stage-dependent reading."
+  - "Constraint preservation does not imply information preservation, invertibility, stability, or task quality."
+  - "A tangent vector at one base point cannot be silently reused as tangent data at a new base point."
+  - "Order dependence in staged constrained updates is a property of the declared maps/path, not a universal theorem about all representation updates."
