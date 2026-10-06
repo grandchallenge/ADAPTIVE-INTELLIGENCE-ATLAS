@@ -1,0 +1,171 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-CONTEXTCOMP-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_external_memory_plus_atlas_finite_context_compilation_synthesis"
+claim_boundary: >
+  This chapter inherits only the audited External-Memory Thesis interface:
+  hybrid parametric/external placement, versioned records, explicit freshness
+  policy, retrieval/storage/use separation, provenance-preserving record
+  semantics, access-control boundaries, and the fact that external memory is
+  not automatically fresh, correct, complete, or safe. CONTEXTCOMP adds an
+  Atlas-owned finite compilation formalism for turning a retrieved candidate
+  set into a bounded ordered working context under declared freshness,
+  authorization, mandatory-record, atomic-record, cost, and serialization
+  rules. The exact finite witness establishes properties of that declared
+  compiler only. It does not prove that one prompt/context selection policy is
+  universally optimal, that the declared utility scores equal model usefulness,
+  that retrieval rank equals truth/relevance, or that compiled context guarantees
+  correct downstream model behavior.
+
+hard_prerequisites:
+  - id: "CONTEXTCOMP-EXTMEM-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b00d6020b809145a99689418db13ff6d6561a659"
+    path: "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-EXTMEM-001.md"
+    git_blob_sha1: "181685ceda93defb7a7051e0865898c7c4e3fb1d"
+    authority: "Audited hybrid knowledge placement, versioned record, freshness, provenance, retrieval/use, and access-control substrate."
+  - id: "CONTEXTCOMP-EXTMEM-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b00d6020b809145a99689418db13ff6d6561a659"
+    path: "sources/source-locks/ATLAS-CH-EXTMEM-001.yaml"
+    git_blob_sha1: "6ac2940c5a9432588ace9a82b15c73e7e00d874f"
+    authority: "Exact source and claim boundary for The External-Memory Thesis."
+  - id: "CONTEXTCOMP-EXTMEM-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "b00d6020b809145a99689418db13ff6d6561a659"
+    path: "reviews/AUDIT-031.md"
+    git_blob_sha1: "a33ee84f0bfc69f8dc00e165506c55cabd68fec4"
+    authority: "Post-draft audit governing The External-Memory Thesis."
+
+inherited_external_authority:
+  - id: "CONTEXTCOMP-EXTMEM-INHERITED"
+    inherited_via: "ATLAS-CH-EXTMEM-001"
+    scope: >
+      Representative retrieval-augmented/non-parametric memory and model-editing
+      examples remain source-scoped inside EXTMEM-001. CONTEXTCOMP does not add
+      any empirical claim beyond the audited EXTMEM handoff.
+
+new_external_sources: []
+
+compiler_contract:
+  candidate_record_fields:
+    - "record_id"
+    - "logical_key"
+    - "version"
+    - "status"
+    - "source"
+    - "authorized"
+    - "mandatory"
+    - "retrieval_rank"
+    - "compiled_cost"
+    - "declared_utility"
+    - "type"
+  compilation_order:
+    - "filter unauthorized records"
+    - "apply declared freshness/current-version policy"
+    - "resolve supersession/version conflicts per logical key"
+    - "include every mandatory current authorized record"
+    - "reject if mandatory compiled cost already exceeds budget"
+    - "select an atomic subset of remaining candidates maximizing declared utility under residual budget"
+    - "break ties deterministically by stable record_id"
+    - "serialize in declared type precedence, then stable record_id order"
+  atomicity: >
+    compiled_cost includes the record's provenance envelope and payload. A record
+    may be included whole or excluded; the finite witness does not authorize
+    arbitrary token-level truncation of an atomic record.
+  utility_boundary: >
+    declared_utility is a compiler-policy score used only for the finite selection
+    problem. It is not asserted to equal truth, relevance, causal importance,
+    model accuracy, or downstream task value.
+
+exact_witness_contract:
+  budget: 8
+  records:
+    - record_id: "r_policy_v1"
+      logical_key: "policy"
+      version: 1
+      status: "superseded"
+      source: "src_policy_v1"
+      authorized: true
+      mandatory: false
+      retrieval_rank: 1
+      compiled_cost: 3
+      declared_utility: 9
+      type: "policy"
+    - record_id: "r_fact"
+      logical_key: "task_fact"
+      version: 1
+      status: "current"
+      source: "src_fact"
+      authorized: true
+      mandatory: false
+      retrieval_rank: 2
+      compiled_cost: 4
+      declared_utility: 7
+      type: "evidence"
+    - record_id: "r_policy_v2"
+      logical_key: "policy"
+      version: 2
+      status: "current"
+      source: "src_policy_v2"
+      authorized: true
+      mandatory: true
+      retrieval_rank: 3
+      compiled_cost: 4
+      declared_utility: 8
+      type: "policy"
+      supersedes: "r_policy_v1"
+    - record_id: "r_background"
+      logical_key: "background"
+      version: 1
+      status: "current"
+      source: "src_background"
+      authorized: true
+      mandatory: false
+      retrieval_rank: 4
+      compiled_cost: 2
+      declared_utility: 3
+      type: "background"
+    - record_id: "r_detail"
+      logical_key: "detail"
+      version: 1
+      status: "current"
+      source: "src_detail"
+      authorized: true
+      mandatory: false
+      retrieval_rank: 5
+      compiled_cost: 3
+      declared_utility: 5
+      type: "detail"
+  compiled_result: >
+    Freshness filtering removes r_policy_v1. Mandatory r_policy_v2 consumes 4
+    units, leaving 4. Among remaining atomic candidates, r_fact has cost 4 and
+    utility 7; r_background has cost 2 and utility 3; r_detail has cost 3 and
+    utility 5; no allowed combination of r_background and r_detail fits the
+    residual budget. Therefore the unique utility-maximizing feasible set is
+    {r_policy_v2, r_fact}, total cost 8, total declared utility 15. The serializer
+    places policy before evidence and retains record_id/version/source metadata.
+  naive_rank_prefix_control: >
+    A retrieval-rank-only prefix under budget 8 selects r_policy_v1 (cost 3)
+    then r_fact (cost 4), using 7 units. The next record r_policy_v2 costs 4 and
+    cannot fit. The result contains a superseded policy and omits the mandatory
+    current policy. Truncating r_policy_v2 to the final one budget unit would
+    violate the witness's atomic record/provenance-envelope rule.
+  conclusion: >
+    Retrieval rank alone is insufficient to implement the declared compilation
+    contract. Freshness/version policy, mandatory inclusion, atomicity, budget
+    accounting, and deterministic serialization are distinct obligations.
+
+epistemic_rules:
+  - "A retrieved candidate set is not yet a working context."
+  - "Compilation is a declared transformation from candidate records to an ordered bounded context."
+  - "Storage correctness, retrieval success, candidate ranking, context inclusion, and downstream model use are distinct stages."
+  - "Freshness/version filtering precedes selection whenever the declared policy requires current records."
+  - "Authorization is a hard admissibility filter, not a utility bonus."
+  - "Mandatory records create feasibility constraints; if their compiled cost exceeds budget, the compiler must fail explicitly rather than silently omit or truncate them."
+  - "Provenance metadata is part of the compiled record in the finite formalism and consumes budget through compiled_cost."
+  - "A utility-maximizing finite subset is optimal only relative to the declared utility scores, candidate set, atomicity rule, and budget."
+  - "Retrieval rank is not truth, freshness, authorization, or mandatory status."
+  - "Naive prefix truncation can violate freshness, provenance, mandatory-record, or atomicity obligations."
+  - "The order of serialized records is part of the compiled context object, but this chapter makes no empirical claim that one order universally improves model behavior."
+  - "A valid compiled context does not imply a correct model answer."
