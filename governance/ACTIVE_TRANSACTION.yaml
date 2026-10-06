@@ -11,8 +11,8 @@ current:
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
   branch: "work/compose-231"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "COMPOSE source lock and exact witness contract are complete on work/compose-231. Draft the specification, derivation packet, exact computational witness, and reader manuscript. Preserve product-order versus chronological-order discipline; include the exact A/B order-sensitive gain witness, commuting control, and a local composition-error bound with explicit connecting-domain assumptions. Then update Chapter Ledger and transaction receipt and validate the fresh exact branch head."
+  state: "draft-complete"
+  next_action: "COMPOSE draft artifacts and receipt are complete on exact work head c8da62d00bc1843e13e216e7aa9e949dc9583433. Run canonical Linux validation and independent exact witness replay on this head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if main remains compatible."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
