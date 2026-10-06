@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 231
+  tranche_id: "COMPOSE-001"
+  chapter_ids:
+    - "ATLAS-CH-COMPOSE-001"
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
-  branch: null
+  branch: "work/compose-231"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-COMPOSE-001 from exact protected main eab85ed47695e1c3ae19f69e85b194c48a576a31. First bind audited BCONTRACT-001 (manuscript a270c38cda7ff280e517bd1a09ed196bb48dc759, source lock 80463b18216747650d3ff8e99d6da933173d4486, AUDIT-003 9723fcb3dfa0111829b98f1c9bb416a13dbd714e) and audited SPLIT-001 (manuscript bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0, source lock afb84e2f3ebb941f320c52693b088b0eb078b8ce, AUDIT-036 5e093460550c15fe491ba3214b2f52d48076dc0a). Source-lock only additional primary references needed beyond those prerequisites. Define an exact composition-failure witness and a compatible/commuting control before drafting, and keep local certificate composition separate from any global safety theorem."
+  state: "tranche-instantiated"
+  next_action: "Bind audited BCONTRACT-001 (manuscript a270c38cda7ff280e517bd1a09ed196bb48dc759, source lock 80463b18216747650d3ff8e99d6da933173d4486, AUDIT-003 9723fcb3dfa0111829b98f1c9bb416a13dbd714e) and audited SPLIT-001 (manuscript bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0, source lock afb84e2f3ebb941f320c52693b088b0eb078b8ce, AUDIT-036 5e093460550c15fe491ba3214b2f52d48076dc0a). Freeze a source lock inheriting only those authorities. Define an exact composition-failure witness and a compatible/commuting control before drafting; separate local certificate composition from any global safety theorem."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
