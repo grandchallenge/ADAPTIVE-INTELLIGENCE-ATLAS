@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 247
+  issue_number: 249
   tranche_id: "LATENTTIME-001"
   chapter_ids:
     - "ATLAS-CH-LATENTTIME-001"
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
-  branch: "work/latenttime-247"
-  pull_request: 248
-  state: "implementation-merged"
-  next_action: "Implementation PR #248 merged to protected main a89ba6cb799faca9557f01262bc0e0306d3a50ad and protected-merge validation is green. Instantiate the mandatory LATENTTIME post-draft audit from this exact merge."
+  branch: "audit/a249"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-062 is issue #249 on audit/a249 from exact protected implementation merge a89ba6cb799faca9557f01262bc0e0306d3a50ad. Independently audit prerequisite/source identities, DTW combinatorics and unique optima, clock/alignment/flow boundaries, bibliography and receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
