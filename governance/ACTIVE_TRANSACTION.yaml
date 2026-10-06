@@ -11,8 +11,8 @@ current:
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
   pull_request: null
-  state: "audit-pr-open"
-  next_action: "AUDIT-056 disposition PASS — NO REPAIR is on PR #226 from exact audit head 5a06ba97b0d803abbea0ed84113f4b39fc0675a8. Canonical Linux validation and independent witness replay are green locally. Require exact-head GitHub Actions validation; repair/replay any failure. Merge PR #226 only if the audit head is unchanged and protected main remains compatible. Then validate/read back final protected main, close issues #223 and #225, recompute the dependency-legal frontier, and reset controller/handoff to idle-ready."
+  state: "audit-ci-green"
+  next_action: "AUDIT-056 exact head 5a06ba97b0d803abbea0ed84113f4b39fc0675a8 is green in canonical Linux validation, independent witness replay, and GitHub Actions run 37461795337. Re-fetch PR #226 and protected main immediately before merge; merge only if head remains exact, mergeable, and main remains 8c5ad59ccacb3991e1ec7646be057a72b8bec495. Then validate/read back final protected main, close issues #223/#225, recompute dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
