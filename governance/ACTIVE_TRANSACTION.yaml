@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 239
+  tranche_id: "CPS-001"
+  chapter_ids:
+    - "ATLAS-CH-CPS-001"
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
-  branch: null
+  branch: "work/cps-239"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-CPS-001 from exact protected main 0ca38f5d7129db6209b2f245c14a27148df09608. First bind audited OPTDYN-001 (manuscript 59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c, source lock 0b0cb1dd109a7708bd2a5238116bd225c69fb185, AUDIT-002 4671995f0cd7465a5df2bb60431244f482e5e3c9). Re-run the current public GCL source search for Coupling-Phase Spectroscopy / optimizer-state Jacobian results because the inherited source gap was searched on 2026-10-02 and is historical, not current-state evidence. Source-lock only additional primary references needed for phase-transition, local-Jacobian, finite-horizon, or transition-local prediction claims. Define an exact finite augmented-state Jacobian probe witness and a transition-local prediction/falsification protocol before drafting, keeping local signal, causal mechanism, and generalization-state prediction as separate evidence levels."
+  state: "tranche-instantiated"
+  next_action: "Bind audited OPTDYN-001 (manuscript 59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c, source lock 0b0cb1dd109a7708bd2a5238116bd225c69fb185, AUDIT-002 4671995f0cd7465a5df2bb60431244f482e5e3c9). Freeze the 2026-10-06 public GCL refresh: current grandchallenge/GSD main ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c contains GSD-WP04 CPS transition-local dynamics; WP03R confirms one behavioural transition; WP04 is BLOCKED_EXTERNAL_ARTIFACT_ABSENT because exact public transition revisions expose no optimizer/trainer/scheduler/gradient/update-direction artifacts. Treat the block as missing evidence, not a negative CPS result. Define an exact finite augmented-state spectroscopy witness and preregistered transition-local prediction/falsification protocol before drafting."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
