@@ -11,8 +11,8 @@ current:
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
   branch: "work/cps-239"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "CPS source lock is complete on work/cps-239 with exact refreshed GSD-001 project sources. Draft the specification, derivation packet, exact computational witness, and reader manuscript. Use the exact momentum family J(h) with fixed eta=1/10,beta=9/10, matrix-derived kappa=1+det J-tr J=h/10, four discovery/heldout toy windows, and the frozen tau=1/2 prediction witness. Keep the real GSD disposition BLOCKED_EXTERNAL_ARTIFACT_ABSENT and separate descriptive alignment, heldout prediction, and causal mechanism evidence. Then promote the ledger, write the transaction receipt, and validate the exact branch head."
+  state: "draft-complete"
+  next_action: "CPS draft artifacts and receipt are complete on exact work head c2a6330cdc68d741ccc7c12477113e253d13a90d. Run canonical Linux validation and independent exact witness replay on this head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if main remains compatible."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
