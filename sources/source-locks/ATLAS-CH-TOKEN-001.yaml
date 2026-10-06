@@ -1,0 +1,112 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-TOKEN-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_information_and_representation_prerequisites_plus_primary_tokenization_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Information prerequisite supplies entropy, cross-entropy, KL, mutual information,
+  sufficient-statistic, and probability-model discipline; these quantities are not semantic meaning.
+  The audited Representation prerequisite supplies the distinction among representation, coordinates,
+  semantics, invariance/equivariance, and recoding. Sennrich et al. (2016) are used as a primary
+  precedent for BPE-style subword units in NMT. Kudo (2018) is used for unigram-language-model
+  subword segmentation and segmentation sampling; Kudo and Richardson (2018) are used for raw-text,
+  language-independent SentencePiece tokenization. Xue et al. (2022) are used for byte-level modeling
+  and its sequence-length/compute trade-offs. Rust et al. (2021) are used for controlled evidence that
+  tokenizer adequacy differs across languages and can affect multilingual downstream performance.
+  Atlas-owned material defines tokenization as a boundary map, exact fertility/length measures,
+  a finite segmentation-ambiguity witness, a byte-vs-codepoint counterexample, and morphology-boundary
+  diagnostics. No source establishes a universally optimal tokenizer, that shorter sequences are always
+  better, that morphological alignment is necessary or sufficient for model quality, or that fertility
+  alone explains multilingual performance.
+
+sources:
+  - id: "TOKEN-BPE-2016"
+    citation_key: "SennrichHaddowBirch2016BPE"
+    kind: "peer-reviewed-conference"
+    title: "Neural Machine Translation of Rare Words with Subword Units"
+    authors: "Rico Sennrich; Barry Haddow; Alexandra Birch"
+    venue: "ACL 2016"
+    pages: "1715-1725"
+    year: 2016
+    doi: "10.18653/v1/P16-1162"
+    locator: "https://aclanthology.org/P16-1162/"
+    authority: "Primary source for the paper's BPE-inspired subword segmentation in NMT and rare-word motivation."
+
+  - id: "TOKEN-UNIGRAM-2018"
+    citation_key: "Kudo2018SubwordRegularization"
+    kind: "peer-reviewed-conference"
+    title: "Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates"
+    authors: "Taku Kudo"
+    venue: "ACL 2018"
+    pages: "66-75"
+    year: 2018
+    doi: "10.18653/v1/P18-1007"
+    locator: "https://aclanthology.org/P18-1007/"
+    authority: "Primary source for unigram-language-model subword segmentation and probabilistic segmentation sampling."
+
+  - id: "TOKEN-SENTENCEPIECE-2018"
+    citation_key: "KudoRichardson2018SentencePiece"
+    kind: "peer-reviewed-system-demonstration"
+    title: "SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing"
+    authors: "Taku Kudo; John Richardson"
+    venue: "EMNLP 2018 System Demonstrations"
+    pages: "66-71"
+    year: 2018
+    doi: "10.18653/v1/D18-2012"
+    locator: "https://aclanthology.org/D18-2012/"
+    authority: "Primary source for raw-sentence, language-independent subword tokenization without mandatory pretokenization."
+
+  - id: "TOKEN-BYT5-2022"
+    citation_key: "XueEtAl2022ByT5"
+    kind: "peer-reviewed-journal"
+    title: "ByT5: Towards a Token-Free Future with Pre-trained Byte-to-Byte Models"
+    authors: "Linting Xue; Aditya Barua; Noah Constant; Rami Al-Rfou; Sharan Narang; Mihir Kale; Adam Roberts; Colin Raffel"
+    journal: "Transactions of the Association for Computational Linguistics"
+    volume: 10
+    pages: "291-306"
+    year: 2022
+    doi: "10.1162/tacl_a_00461"
+    locator: "https://aclanthology.org/2022.tacl-1.17/"
+    authority: "Primary source for byte-level Transformer modeling and the reported robustness/compute/sequence-length trade-offs."
+
+  - id: "TOKEN-MULTILINGUAL-2021"
+    citation_key: "RustEtAl2021Tokenizer"
+    kind: "peer-reviewed-conference"
+    title: "How Good is Your Tokenizer? On the Monolingual Performance of Multilingual Language Models"
+    authors: "Phillip Rust; Jonas Pfeiffer; Ivan Vulic; Sebastian Ruder; Iryna Gurevych"
+    venue: "ACL-IJCNLP 2021"
+    pages: "3118-3135"
+    year: 2021
+    doi: "10.18653/v1/2021.acl-long.243"
+    locator: "https://aclanthology.org/2021.acl-long.243/"
+    authority: "Primary controlled evidence that vocabulary/tokenizer adequacy varies across languages and can materially affect downstream performance."
+
+atlas_sources:
+  - id: "TOKEN-INFO-MANUSCRIPT"
+    commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md"
+    git_blob_sha1: "0fca10cbc7476c5b729ee15dfad0dec563665821"
+  - id: "TOKEN-INFO-SOURCE-LOCK"
+    commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
+    path: "sources/source-locks/ATLAS-CH-INFO-001.yaml"
+    git_blob_sha1: "ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c"
+  - id: "TOKEN-REP-MANUSCRIPT"
+    commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md"
+    git_blob_sha1: "6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb"
+  - id: "TOKEN-REP-SOURCE-LOCK"
+    commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
+    path: "sources/source-locks/ATLAS-CH-REP-001.yaml"
+    git_blob_sha1: "dfe9176c458a56ca5cda5f258c440aea52f9b9fa"
+  - id: "TOKEN-FOUNDATION-AUDIT"
+    commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+
+epistemic_rules:
+  - "Token IDs and embeddings are representations, not semantics."
+  - "Token length, byte length, codepoint length, fertility, compression, and model compute are distinct quantities."
+  - "BPE, unigram segmentation, and byte-level encoding optimize or remove different boundary choices; they are not interchangeable algorithms."
+  - "Segmentation can be non-unique under a fixed vocabulary."
+  - "Morphological boundary alignment is a diagnostic relative to a declared analysis, not a universal objective."
+  - "Cross-language fertility comparisons require a declared normalization unit and corpus."
+  - "A tokenizer can improve one resource or task trade-off while worsening another."
