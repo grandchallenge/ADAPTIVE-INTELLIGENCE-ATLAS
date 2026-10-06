@@ -614,8 +614,14 @@
         "ATLAS-CH-BCONTRACT-001",
         "ATLAS-CH-SPLIT-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-COMPOSE-001.md",
+      "manuscript_path": "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-COMPOSE-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-COMPOSE-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-COMPOSE-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-COMPOSE-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-SPARSE-001",
