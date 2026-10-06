@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "NEURALKRYLOV source lock is complete on work/neuralkrylov-255 with no new external source. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen fixed-left-preconditioned positive witness, B_bad low-dimension failure control, and exact readout metric firewall. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
+  state: "draft-complete"
+  next_action: "NEURALKRYLOV draft artifacts and receipt are complete on exact work head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47. Run canonical repository validation and independent exact rational replay of the positive witness, readout firewall, and bad-control residual. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
