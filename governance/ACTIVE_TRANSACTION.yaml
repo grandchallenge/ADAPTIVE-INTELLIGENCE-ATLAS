@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 237
-  tranche_id: "CONTEXTCOMP-001"
-  chapter_ids:
-    - "ATLAS-CH-CONTEXTCOMP-001"
-  baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
-  branch: "audit/a237"
-  pull_request: 238
-  state: "audit-ci-green"
-  next_action: "Audit head 8f5a5948dc629ed07340f33c1d89f3f2c886452d is green in canonical validation, independent exact witness replay, and GitHub Actions run 37526081443. Re-fetch PR #238 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains cf7221aec2909516dbf02ba2ec580fb2a8316b7d. Then validate/read back final main, close issues #235/#237, recompute dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-CPS-001 from exact protected main 0ca38f5d7129db6209b2f245c14a27148df09608. First bind audited OPTDYN-001 (manuscript 59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c, source lock 0b0cb1dd109a7708bd2a5238116bd225c69fb185, AUDIT-002 4671995f0cd7465a5df2bb60431244f482e5e3c9). Re-run the current public GCL source search for Coupling-Phase Spectroscopy / optimizer-state Jacobian results because the inherited source gap was searched on 2026-10-02 and is historical, not current-state evidence. Source-lock only additional primary references needed for phase-transition, local-Jacobian, finite-horizon, or transition-local prediction claims. Define an exact finite augmented-state Jacobian probe witness and a transition-local prediction/falsification protocol before drafting, keeping local signal, causal mechanism, and generalization-state prediction as separate evidence levels."
 frontier:
-  - id: "ATLAS-CH-CONTEXTCOMP-001"
+  - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
