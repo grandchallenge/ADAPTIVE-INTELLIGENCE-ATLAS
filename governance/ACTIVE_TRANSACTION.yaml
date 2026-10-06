@@ -11,8 +11,8 @@ current:
   baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
   branch: "work/regretroute-259"
   pull_request: null
-  state: "draft-complete"
-  next_action: "REGRETROUTE draft artifacts and receipt are complete on exact work head 464e8cdc6e8927188c2fab1288780a0188c1b48e. Run canonical repository validation and independent exact replay of the common four-round churn/regret witness, static-comparator control, optionality, and correction-capacity arithmetic. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
+  state: "local-validation-green"
+  next_action: "Exact REGRETROUTE work head 464e8cdc6e8927188c2fab1288780a0188c1b48e passes canonical repository validation and independent exact replay of the shifting-regret/churn witness, static-comparator control, optionality, and correction-capacity arithmetic. Re-fetch protected main and compare against baseline 506d2642398330a27bc9b6e6c17ec38969b6f6a0. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
