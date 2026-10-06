@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-ATTNAPPROX-001"
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
-  pull_request: 224
-  state: "implementation-merged"
-  next_action: "Implementation PR #224 merged from exact validated head 35844412e9189172fb8d7262c644ea34aecdee08 to protected main 8c5ad59ccacb3991e1ec7646be057a72b8bec495. Re-fetch and validate this exact protected main, then instantiate the mandatory post-draft audit on a fresh audit branch from 8c5ad59ccacb3991e1ec7646be057a72b8bec495. Audit mathematical identities, source scope, citation/provenance integrity, target/error semantics, repository integrity, and exact-head validation; repair any in-scope defect before audit merge."
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Audit issue #225 / AUDIT-056 is instantiated on branch audit/a225 from exact protected implementation merge 8c5ad59ccacb3991e1ec7646be057a72b8bec495. Independently audit ATTNAPPROX mathematical identities, primary-source scope, citations, hard prerequisite bindings, target/error distinctions, exact witnesses, and repository integrity. Repair every in-scope defect on audit/a225, validate the fresh exact audit head locally and in GitHub Actions, merge only the exact green audit head, then close issues #223 and #225 and recompute the dependency-legal frontier from final protected main."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
