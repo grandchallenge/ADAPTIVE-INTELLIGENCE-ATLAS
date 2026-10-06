@@ -11,8 +11,8 @@ current:
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Draft ATLAS-CH-ATTNAPPROX-001 against exact work head 13dc7dcacb6905533c5702e95addbc4f8a252a6c. Preserve the declared kernel/operator/output targets and the separation among FAVOR+ random features, low-rank/landmark approximations, and alpha-entmax sparse normalization. Add specification, derivation packet, computational witness, reader manuscript, Chapter Ledger paths/status, transaction receipt, and validate the exact branch head. Repair all in-scope validation defects before opening the PR."
+  state: "draft-complete"
+  next_action: "Validate exact work head 35844412e9189172fb8d7262c644ea34aecdee08 with canonical Linux validation and independent exact witness replay. Repair every in-scope defect and replay from the fresh exact head until green. Then open the implementation PR against protected main, require exact-head GitHub Actions validation, merge only from the validated exact head, and instantiate the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
