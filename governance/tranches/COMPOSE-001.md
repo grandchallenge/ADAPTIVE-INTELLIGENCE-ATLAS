@@ -20,8 +20,8 @@ SPLIT-001:
 ## Implementation artifacts
 - specification 9eef5fff041a255f7fc137d24ac7457fcc1db8a7
 - derivations f698e1f2ddf35099b53ad85af8e9e357de19166b
-- witness afae55764c1fb8bd97f61e182bc8fd7f224cd298
-- manuscript ef1584366386c8764f31d013fd587ec81a27293b
+- witness 878a85b8b163f99fb68b8a9a5e4f414a14fa8426
+- manuscript da94fe5d6106a50b168a4f95fa0765c9c7c6b415
 - source lock c16ab3f6ce67e81cff9f85f2f98a79ad55549cd5
 - Chapter Ledger 210dbb1d892a2cc58756e262457e5696a0d69729
 - Source Register a03c6c3f9ea02fdc74fa20d3a9f6546d46f49824
@@ -48,3 +48,11 @@ No new external primary authority was added. All external mathematical authority
 
 ## Validation gate
 Merge requires exact-head canonical repository validation, independent exact witness replay, exact-head GitHub Actions success, and a fresh post-draft audit.
+
+
+## Audit provenance repair
+AUDIT-058 identified that the original receipt predated the two documentary protocol-marker repairs required by canonical validation. The receipt is corrected to the exact implementation-merge identities:
+- witness 878a85b8b163f99fb68b8a9a5e4f414a14fa8426
+- manuscript da94fe5d6106a50b168a4f95fa0765c9c7c6b415
+
+The repairs changed only required documentary headings; no mathematical statement or witness arithmetic changed.
