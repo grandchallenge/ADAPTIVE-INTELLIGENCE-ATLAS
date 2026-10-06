@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-MINCURR-001"
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
   branch: "audit/a253"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-063 is issue #253 on audit/a253 from exact protected implementation merge f4ef49601bf2c306918f75a2e0abfc242379935e. Independently audit prerequisite/source identities, exact version-space minimality, the high-progress/non-basis control, evidence-level non-implications, receipt/bibliography provenance, and repository integrity. Repair any in-scope defect before audit merge."
+  pull_request: 254
+  state: "audit-pr-open"
+  next_action: "AUDIT-063 is on PR #254 from exact audit head 9d01bcfc92e81d9ec9062572b952e2303e56aa3d. Require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
