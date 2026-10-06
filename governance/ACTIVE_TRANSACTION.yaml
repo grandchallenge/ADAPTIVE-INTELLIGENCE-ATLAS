@@ -11,8 +11,8 @@ current:
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
   branch: "work/mincurr-251"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited PROGRESSSEARCH-001 and RESIDUAL-001. Add only Goldman-Kearns 1995 and Zhu 2015 as new teaching/minimality sources. Freeze the exact two-bit teaching witness with target 11, strict-smaller failure, and the high-progress auxiliary-region control. Keep acquisition, persistence, accessibility, and behavioural expression separate."
+  state: "source-lock-complete"
+  next_action: "MINCURR source lock and bibliography updates are complete on work/mincurr-251. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen two-bit teaching witness, high-progress/non-basis control, and four-level mechanism-evidence ladder. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
