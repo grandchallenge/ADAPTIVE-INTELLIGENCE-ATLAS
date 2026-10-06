@@ -1,0 +1,122 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-UNCERTAINTY-001"
+locked_on: "2026-10-06"
+epistemic_class: "probabilistic_definitions_plus_source_scoped_uncertainty_methods_and_atlas_synthesis"
+claim_boundary: >
+  The audited Information chapter supplies the probability/information substrate.
+  External sources support specific calibration, Bayesian-approximation, ensemble,
+  aleatoric/epistemic, conformal, and selective-prediction claims only in their stated
+  settings. The Atlas does not identify these objects with one another, and does not
+  claim that any one scalar uncertainty score is universally sufficient.
+
+hard_prerequisites:
+  - id: "UNCERTAINTY-INFO-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1fa80bdae8e5219cc7e90b481914b66e3af8c3aa"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md"
+    git_blob_sha1: "0fca10cbc7476c5b729ee15dfad0dec563665821"
+    authority: "Probability, entropy, KL, mutual information, conditioning, and statistical-structure substrate."
+  - id: "UNCERTAINTY-INFO-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1fa80bdae8e5219cc7e90b481914b66e3af8c3aa"
+    path: "sources/source-locks/ATLAS-CH-INFO-001.yaml"
+    git_blob_sha1: "ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c"
+    authority: "Source and claim boundary for INFO-001."
+  - id: "UNCERTAINTY-INFO-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "1fa80bdae8e5219cc7e90b481914b66e3af8c3aa"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Audit record governing the Information prerequisite."
+
+sources:
+  - id: "UNCERTAINTY-GUO-CALIBRATION-2017"
+    citation_key: "GuoPleissSunWeinberger2017Calibration"
+    kind: "peer-reviewed-conference"
+    title: "On Calibration of Modern Neural Networks"
+    venue: "ICML / PMLR 70"
+    year: 2017
+    url: "https://proceedings.mlr.press/v70/guo17a.html"
+    authority: >
+      Primary empirical source for confidence calibration in modern neural networks,
+      temperature scaling, and the calibration metrics studied there. Paper-specific
+      empirical effectiveness is not universalized.
+  - id: "UNCERTAINTY-GAL-GHAHRAMANI-2016"
+    citation_key: "GalGhahramani2016DropoutBayes"
+    kind: "peer-reviewed-conference"
+    title: "Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning"
+    venue: "ICML / PMLR 48"
+    year: 2016
+    url: "https://proceedings.mlr.press/v48/gal16.html"
+    authority: >
+      Primary source for the specific approximate-Bayesian interpretation of dropout
+      developed in the paper and its uncertainty experiments; not a theorem that all
+      dropout usage yields calibrated Bayesian uncertainty.
+  - id: "UNCERTAINTY-KENDALL-GAL-2017"
+    citation_key: "KendallGal2017Uncertainty"
+    kind: "peer-reviewed-conference"
+    title: "What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?"
+    venue: "NeurIPS 30"
+    year: 2017
+    url: "https://papers.nips.cc/paper_files/paper/2017/hash/2650d6089a6d640c5e85b2b88265dc2b-Abstract.html"
+    authority: >
+      Primary source for the paper's aleatoric/epistemic decomposition and computer-vision
+      modeling experiments. The two-way taxonomy is treated as a useful scoped model, not
+      an exhaustive ontology of all uncertainty.
+  - id: "UNCERTAINTY-DEEP-ENSEMBLES-2017"
+    citation_key: "LakshminarayananPritzelBlundell2017DeepEnsembles"
+    kind: "peer-reviewed-conference"
+    title: "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles"
+    venue: "NeurIPS 30"
+    year: 2017
+    url: "https://papers.nips.cc/paper/2017/hash/9ef2ed4b7fd2c810847ffa5fa85bce38-Abstract.html"
+    authority: >
+      Primary source for deep-ensemble predictive-uncertainty experiments and the
+      reported calibration/OOD behavior in the paper's settings. An ensemble is not
+      thereby a posterior sample set or a universal epistemic-uncertainty estimator.
+  - id: "UNCERTAINTY-CONFORMAL-BOOK-2005"
+    citation_key: "VovkGammermanShafer2005Conformal"
+    kind: "monograph"
+    title: "Algorithmic Learning in a Random World"
+    publisher: "Springer"
+    year: 2005
+    doi: "10.1007/b106715"
+    url: "https://link.springer.com/book/10.1007/b106715"
+    authority: >
+      Foundational source for conformal prediction and validity under its stated
+      randomness/exchangeability-style assumptions. Coverage validity is not
+      conditional calibration and is not distribution-shift robustness.
+  - id: "UNCERTAINTY-LEI-CONFORMAL-2018"
+    citation_key: "LeiEtAl2018ConformalRegression"
+    kind: "peer-reviewed-journal"
+    title: "Distribution-Free Predictive Inference for Regression"
+    journal: "Journal of the American Statistical Association"
+    year: 2018
+    doi: "10.1080/01621459.2017.1307116"
+    url: "https://arxiv.org/abs/1604.04173"
+    authority: >
+      Primary source for full/split conformal regression and finite-sample marginal
+      coverage guarantees under the paper's exchangeability assumptions; not a guarantee
+      of conditional coverage for arbitrary subgroups.
+  - id: "UNCERTAINTY-GEIFMAN-ELYANIV-2017"
+    citation_key: "GeifmanElYaniv2017Selective"
+    kind: "peer-reviewed-conference"
+    title: "Selective Classification for Deep Neural Networks"
+    venue: "NeurIPS 30"
+    year: 2017
+    url: "https://papers.nips.cc/paper_files/paper/2017/hash/4a8423d5e91fda00bb7e46540e2b0cf1-Abstract.html"
+    authority: >
+      Primary source for selective-classification/reject-option risk-coverage tradeoffs
+      and its high-probability risk-control construction in the stated setting.
+      Selective risk is not probability calibration.
+
+epistemic_rules:
+  - "Predictive probability, predictive entropy, calibration error, posterior/model uncertainty, aleatoric uncertainty, conformal coverage, and selective risk are distinct objects."
+  - "A calibrated predictor need not be sharp, informative, or accurate beyond what its probability levels imply."
+  - "Predictive entropy alone cannot in general identify whether uncertainty is aleatoric or epistemic."
+  - "Deep ensembles are an empirical predictive-uncertainty method; ensemble spread is not automatically a Bayesian posterior variance."
+  - "MC dropout inherits only the approximate-Bayesian interpretation established under the cited framework and assumptions."
+  - "Conformal validity is a coverage statement under exchangeability/randomness assumptions, not probability calibration and not arbitrary conditional coverage."
+  - "Selective prediction trades coverage against conditional risk on accepted examples; abstention does not itself calibrate probabilities."
+  - "Aleatoric/epistemic terminology is model-relative: what is reducible depends on the model class, information set, and data-generating assumptions."
+  - "The downstream Distribution Shift chapter must re-establish guarantees under shift; no i.i.d./exchangeable guarantee silently survives a changed distribution."
