@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-05  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`  
-**Current main:** `2c55d450c27f7411a168eedce17753885a592eb6`
+**Current main:** `addcbd4bb160f1501601983462fcfe2ef5b8eccf`
 
 ## Restart rule
 
@@ -15,59 +15,68 @@
 ## Current state
 
 - state: `idle-ready`
-- next target: `ATLAS-CH-ROUTERDYN-001` — **Router Dynamics and Diagnostics**
-- direct consumer: `ATLAS-CH-REGRETROUTE-001`
+- next target: `ATLAS-CH-RPO-001` — **Relative-Position Operators**
+- direct consumer: `ATLAS-CH-LATENTTIME-001`
 - downstream architecture count: 1
 
 Hard prerequisites on exact current main:
 
-- `ATLAS-CH-MOE-001`
-  - manuscript: `5281e3bc0721681c630c56057cf478311e96662d`
-  - source lock: `75d5b04a90794b7543c70414ec9e2be59c9af7ed`
-  - `AUDIT-033`: `261e63f7853c359460bd76302ddfaeed576892cb`
-- `ATLAS-CH-OPTDYN-001`
-  - manuscript: `59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c`
-  - source lock: `0b0cb1dd109a7708bd2a5238116bd225c69fb185`
-  - `AUDIT-002`: `4671995f0cd7465a5df2bb60431244f482e5e3c9`
+- `ATLAS-CH-POSGEOM-001`
+  - manuscript: `841bc96c696e58fb7914c851c7c13f2e5d076b53`
+  - source lock: `a94a592d68a5f6ddadf450127dde0e261acf429f`
+  - `AUDIT-040`: `6c33d4994d683e953a70813ed422e8d887b67a02`
+- `ATLAS-CH-LINALG-001`
+  - manuscript: `e7fcf56322f26d232d3a3043038d9850792b4bde`
+  - source lock: `f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e`
+  - `AUDIT-004`: `948f76b3f86d27fa4830efc30d8ef0135134256e`
 
-ROUTERDYN contract: study churn, specialization, commutators, temporal instability, and spectral router diagnostics while preserving the distinction between router probabilities, preferred routes, accepted dispatch, load, and augmented optimizer-state dynamics.
+RPO contract:
 
-## Completed transaction — PROGRESSSEARCH-001
+> Move from positional vectors to low-dimensional relative-position operators, frequency modes, DC components, and head-specific specialization.
 
-- implementation issue #195; PR #196
-- exact green implementation head: `1e78bc7ff7015e0af426cd18a9f8aa5c1cf230d2`
-- implementation merge: `677755fb083e3994d09d3def9a51ff6d48d39c24`
-- audit: `AUDIT-049`; issue #197; PR #198
-- exact green audit head: `841fc86ca9093426ead5ea62ba7eb6cced4128e2`
-- audit merge/current main: `2c55d450c27f7411a168eedce17753885a592eb6`
+## Completed transaction — ROUTERDYN-001
+
+- implementation issue #199; PR #200
+- exact green implementation head: `3c3f22044102f10386e5d3bc850ac2bc32b6c709`
+- implementation merge: `70cf75f3f4a67dec75267766934ce5f96c7fac49`
+- audit: `AUDIT-050`; issue #201; PR #202
+- exact green audit head: `99d0342a06dd981dd6338d9db033783fd21f2ed2`
+- audit merge/current main: `addcbd4bb160f1501601983462fcfe2ef5b8eccf`
 - disposition: **PASS — NO REPAIR**
 - final main validation: green
 
-Durable result:
+Durable ROUTERDYN substrate:
 
-- learning progress is a controller signal, not a mechanism readout;
-- exploration must be explicit;
-- delayed return and causal credit are distinct;
-- absolute progress may reflect improvement or deterioration;
-- generalization-state evidence remains a vector of declared evidence rather than a mechanism oracle;
-- search changes the training intervention and incurs overhead.
+- router-probability drift, preferred-route churn, accepted-dispatch churn, and load drift remain distinct;
+- stable accepted loads do not imply stable token routing;
+- zero preferred-route churn does not imply zero probability drift;
+- expert-transition operators are empirical diagnostics, not automatically stationary Markov laws;
+- specialization is relative to a declared token/task taxonomy;
+- load concentration is not semantic specialization;
+- local router-plus-optimizer Jacobians inherit the OPTDYN local-dynamics boundary;
+- a nonzero commutator diagnoses order sensitivity but does not identify a causal mechanism;
+- spectral statistics retain operator identity and are not universal router-health scores.
 
 Exact witnesses:
 
-- observed-only exploitation: `2`; coverage-first search: `6`;
-- immediate-greedy horizon return: `2`; investment/unlock path: `5`.
+- loads remain `(2,2)` while route churn is `1`;
+- preferred-route churn is `0` while probability drift is `0.3`;
+- successive local maps each have one-step eigenvalues `(1,1)` while their commutator norm is `sqrt(2)`.
 
 ## Recomputed frontier
 
-Count-1 candidates, in deterministic ID order:
+Count-1 candidates:
 
-- `ATLAS-CH-ROUTERDYN-001`
 - `ATLAS-CH-RPO-001`
 - `ATLAS-CH-TOKEN-001`
 - `ATLAS-CH-TRANSPORT-001`
 - `ATLAS-CH-UNCERTAINTY-001`
 
-`ATLAS-CH-MINCURR-001` is newly dependency-legal at count 0.
+Deterministic ID ordering selects `ATLAS-CH-RPO-001`.
+
+Newly dependency-legal at count 0:
+
+- `ATLAS-CH-REGRETROUTE-001`
 
 ## Legitimate stop conditions
 
