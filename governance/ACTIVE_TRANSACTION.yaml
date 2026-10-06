@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 259
+  issue_number: 261
   tranche_id: "REGRETROUTE-001"
   chapter_ids:
     - "ATLAS-CH-REGRETROUTE-001"
   baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
-  branch: "work/regretroute-259"
-  pull_request: 260
-  state: "implementation-merged"
-  next_action: "Implementation PR #260 merged to protected main 2b02b15e46fd9319931b96fb45ffd5dea4d6c1e4 and protected-merge validation is green. Instantiate the mandatory REGRETROUTE post-draft audit from this exact merge."
+  branch: "audit/a261"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Run AUDIT-065 from exact protected merge 2b02b15e46fd9319931b96fb45ffd5dea4d6c1e4; repair any in-scope defect, then validate and merge the exact audit head."
 frontier:
   - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
