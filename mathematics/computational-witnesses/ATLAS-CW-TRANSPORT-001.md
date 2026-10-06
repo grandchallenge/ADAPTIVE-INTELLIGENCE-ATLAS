@@ -192,3 +192,8 @@ It does not establish:
 - that the updates are exact ODE flows;
 - that order effects have the same size in a trained network;
 - that constraint preservation improves task performance.
+
+
+## Claim boundary
+
+This computational witness verifies only the exact finite-dimensional identities and comparisons stated above. It does not establish exact-flow semantics, geodesic or parallel transport, optimality, network-level stability, information preservation, or empirical model quality.
