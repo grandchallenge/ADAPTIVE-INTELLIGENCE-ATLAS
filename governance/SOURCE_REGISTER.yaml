@@ -365,3 +365,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-PROGRESSSEARCH-001.yaml"
     authority: "Audited Curriculum prerequisite plus primary intrinsic-motivation, competence-progress goal-exploration, and continuous teacher-search sources, with Atlas-owned exploration and horizon counterexamples."
+
+
+  - id: "ATLAS-SRC-ROUTERDYN-LOCK-001"
+    title: "Router Dynamics and Diagnostics source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-ROUTERDYN-001.yaml"
+    authority: "Audited MoE and Optimizer-State Dynamics prerequisites plus primary sparse-router stability and expert-choice routing sources, with Atlas-owned temporal churn, specialization, transition-operator, commutator, and spectral diagnostics."

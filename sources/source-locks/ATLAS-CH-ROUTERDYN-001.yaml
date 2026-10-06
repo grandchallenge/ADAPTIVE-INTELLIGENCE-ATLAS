@@ -1,0 +1,79 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-ROUTERDYN-001"
+locked_on: "2026-10-05"
+epistemic_class: "audited_moe_and_optimizer_dynamics_prerequisites_plus_primary_router_stability_and_routing_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited Mixture-of-Experts prerequisite supplies the distinction among router logits/probabilities,
+  preferred top-k routes, accepted dispatch, probability mass, realized load, capacity/overflow semantics,
+  and specialization/collapse claims. The audited Optimizer-State Dynamics prerequisite supplies augmented-state,
+  local Jacobian, non-normal transient-growth, time-varying product, and finite-horizon diagnostic boundaries.
+  Zoph et al. (2022) are used as a primary precedent for sparse-model training instability, router-logit
+  stabilization through the router z-loss, and source-specific specialization observations.
+  Zhou et al. (2022) are used as a primary precedent for routing-rule dependence of load, token-to-expert
+  assignment, and under/over-specialization concerns. Atlas-owned material defines temporal router diagnostics,
+  assignment-overlap/churn measures, empirical expert-transition matrices, commutator diagnostics for successive
+  local router-state maps, and finite counterexamples showing that stable loads or singular values need not imply
+  stable token assignments. No cited source establishes a universal scalar router-health score, a universal
+  specialization metric, or a theorem that observed router churn causes downstream loss.
+
+sources:
+  - id: "ROUTERDYN-STMOE-2022"
+    citation_key: "ZophEtAl2022STMoE"
+    kind: "primary-preprint"
+    title: "ST-MoE: Designing Stable and Transferable Sparse Expert Models"
+    authors: "Barret Zoph; Irwan Bello; Sameer Kumar; Nan Du; Yanping Huang; Jeff Dean; Noam Shazeer; William Fedus"
+    year: 2022
+    arxiv: "2202.08906"
+    locator: "https://arxiv.org/abs/2202.08906"
+    authority: >
+      Primary source for the reported sparse-model stability study, router z-loss, and the paper's
+      source-specific specialization observations. It is not used as a universal theory of router dynamics.
+
+  - id: "ROUTERDYN-EXPERTCHOICE-2022"
+    citation_key: "ZhouEtAl2022ExpertChoice"
+    kind: "peer-reviewed-conference"
+    title: "Mixture-of-Experts with Expert Choice Routing"
+    authors: "Yanqi Zhou; Tao Lei; Hanxiao Liu; Nan Du; Yanping Huang; Vincent Zhao; Andrew Dai; Zhifeng Chen; Quoc Le; James Laudon"
+    venue: "Advances in Neural Information Processing Systems 35"
+    pages: "7103-7114"
+    year: 2022
+    doi: "10.52202/068431-0515"
+    locator: "https://proceedings.neurips.cc/paper_files/paper/2022/hash/2f00ecd787b432c1d36f3de9800728eb-Abstract-Conference.html"
+    authority: >
+      Primary source for expert-choice routing, fixed expert buffer capacity, routing-strategy dependence
+      of utilization, and the under/over-specialization motivation stated by the authors.
+
+atlas_sources:
+  - id: "ROUTERDYN-MOE-MANUSCRIPT"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-MOE-001.md"
+    git_blob_sha1: "5281e3bc0721681c630c56057cf478311e96662d"
+  - id: "ROUTERDYN-MOE-SOURCE-LOCK"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "sources/source-locks/ATLAS-CH-MOE-001.yaml"
+    git_blob_sha1: "75d5b04a90794b7543c70414ec9e2be59c9af7ed"
+  - id: "ROUTERDYN-MOE-AUDIT"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "reviews/AUDIT-033.md"
+    git_blob_sha1: "261e63f7853c359460bd76302ddfaeed576892cb"
+  - id: "ROUTERDYN-OPTDYN-MANUSCRIPT"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-OPTDYN-001.md"
+    git_blob_sha1: "59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c"
+  - id: "ROUTERDYN-OPTDYN-SOURCE-LOCK"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "sources/source-locks/ATLAS-CH-OPTDYN-001.yaml"
+    git_blob_sha1: "0b0cb1dd109a7708bd2a5238116bd225c69fb185"
+  - id: "ROUTERDYN-OPTDYN-AUDIT"
+    commit: "2c55d450c27f7411a168eedce17753885a592eb6"
+    path: "reviews/AUDIT-002.md"
+    git_blob_sha1: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+
+epistemic_rules:
+  - "Router probability dynamics, preferred-route dynamics, accepted-dispatch dynamics, and realized-load dynamics are distinct observables."
+  - "Stable load balance does not imply stable token-to-expert assignment."
+  - "Zero preferred-route churn does not imply zero probability drift."
+  - "Specialization requires a declared token/task taxonomy or representation-level criterion; load concentration alone is not semantic specialization."
+  - "A nonzero commutator of successive local router-state maps diagnoses order sensitivity of those maps; it does not by itself identify a causal training mechanism."
+  - "Spectral summaries are diagnostic objects, not universal scalar health scores."
+  - "Local router-state linearizations inherit the OPTDYN boundary: they are local and need not globally predict nonlinear stochastic training."
