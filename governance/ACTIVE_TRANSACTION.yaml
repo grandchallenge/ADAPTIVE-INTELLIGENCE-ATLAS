@@ -11,8 +11,8 @@ current:
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
   branch: "work/compintel-227"
   pull_request: null
-  state: "draft-complete"
-  next_action: "Draft artifacts and receipt are complete on exact work head b7818c9eb16749aa41ac20b200293e485946e845. Run canonical Linux validation and independent exact witness replay on this head. Repair every in-scope defect and replay from the fresh exact head until green. Then open the implementation PR against protected main and require exact-head GitHub Actions validation before merge."
+  state: "local-validation-green"
+  next_action: "Exact work head b7818c9eb16749aa41ac20b200293e485946e845 has green canonical repository validation and green independent exact witness replay. Re-fetch protected main and compare against baseline 21597e4f2bb7af5312dc9967417a60dc3d8dc0f5. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
