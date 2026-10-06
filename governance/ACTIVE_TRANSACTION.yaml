@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-TOKEN-001"]
   baseline_commit: "d51ad8b0bd05d7457a635c71325b129cdc0ef866"
   branch: "audit/token-209"
-  pull_request: null
-  state: "post-draft-audit"
-  next_action: "Audit ATLAS-CH-TOKEN-001 on branch audit/token-209 from exact implementation merge d51ad8b0bd05d7457a635c71325b129cdc0ef866. Recheck exact prerequisite/source/provenance identities, replay all finite witnesses, inspect fertility/morphology/multilingual boundaries and TOKENCOMP handoff, then create and validate AUDIT-052."
+  pull_request: 210
+  state: "audit-validation"
+  next_action: "Validate exact AUDIT-052 head 9aab4bcf97051c28095645162fe5a478db166111 on PR #210. If green, merge with exact-head lease; then run final validation on merged main, close issues #207/#209, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-TOKEN-001"
     downstream_architecture_count: 1
