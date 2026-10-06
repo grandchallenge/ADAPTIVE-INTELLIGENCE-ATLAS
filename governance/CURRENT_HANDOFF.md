@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 01e72c6c33a411d83f10913d7e8db0dd5305dfbd
+**Current main:** 21597e4f2bb7af5312dc9967417a60dc3d8dc0f5
 
 ## Restart rule
 
@@ -15,90 +15,103 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-ATTNAPPROX-001 — **Approximate and Structured Attention**
+- next target: ATLAS-CH-COMPINTEL-001 — **Compression as Discovery and Intelligence Probe**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Study FAVOR+, random features, structured projections, entmax, sparsity, and approximation tradeoffs.
+> Examine compression as discovery of reusable computation and as an empirical probe of predictive structure.
 
 Hard prerequisites on exact current main:
 
-### ATLAS-CH-ATTNOP-001
+### ATLAS-CH-COMPRESS-001
 
-- manuscript: d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c
-- source lock: 4af4e53230776daaf0be825cffd1263957ed97c8
-- AUDIT-002: 4671995f0cd7465a5df2bb60431244f482e5e3c9
-
-Inherited boundary:
-
-- attention score matrix, normalized mixing operator, value field, and full state-dependent map remain distinct;
-- kernel or linear-attention interpretations are source-scoped and do not make the full attention map linear in the input;
-- masking, positional structure, and normalization assumptions must remain explicit.
-
-### ATLAS-CH-KRYLOV-001
-
-- manuscript: 59e169723ca068bef817e7bc9e28727d03b45f6a
-- source lock: adbe97c750ed79d09462a5e867e5beb772ad72e2
-- AUDIT-039: 03660b0dbd1d0604e943d0d09c7b52c6605b256c
+- manuscript: e8db79df51b64cfd4d5ef6957d4d10313886b6f4
+- source lock: 156cd6afe1a06b49d2761b54d32b586fe5d23cec
+- AUDIT-042: 677efa90a2d606c0400b8e471465278d19857393
 
 Inherited boundary:
 
-- operator-generated Krylov subspaces, random-feature approximations, and low-rank attention approximations are different constructions;
-- small residual and low-dimensional approximation do not automatically imply small solution or operator error;
-- classical iterative-subspace convergence guarantees do not transfer to learned/state-dependent attention by analogy.
+- every compression claim must declare the object, code or representation, approximation mechanism, and tolerated distortion;
+- description length is not interchangeable with parameter count;
+- exact factorization, low-rank approximation, pruning, quantization/weight sharing, and distillation are different mechanisms;
+- compression ratio must be paired with retained behavior;
+- COMPINTEL must independently justify any claim that compression reveals reusable computation, mechanism, abstraction, intelligence, or discovery.
 
-Before drafting ATTNAPPROX, bind these exact audited prerequisites and source-lock the minimum primary references needed for FAVOR+/Performer-style random-feature attention, structured/low-rank approximations, and sparse alternatives such as entmax. Define the approximation target and error notion before comparing methods.
+### ATLAS-CH-RESIDUAL-001
 
-## Immediately completed transaction — ADAPTDEPTH-001
+- manuscript: 02b0886a87e1e17c749e15349e14f43674c3d1ff
+- source lock: 6e6a25c4b4e01475e68a6c616eefb6ba7b039341
+- AUDIT-006: b24ef782bedfe76a4c52d832562a0dd29d2a64a9
 
-- implementation issue: #219
-- implementation PR: #220
-- exact green implementation head: 43ec942015e5e6ce0f7e50875500117f880e2c48
-- implementation merge: e4ead968c9c38bc4c99f40ef154437adbfe58200
-- post-draft audit: AUDIT-055
-- audit issue: #221
-- audit PR: #222
-- exact green audit head: 1e667e080fa6d878bd863607eaa4db0733a41ead
-- audit merge/current main: 01e72c6c33a411d83f10913d7e8db0dd5305dfbd
-- audit record blob: 6464d6f2ff5e101e6d9eed242f7c815fd33a34a0
+Inherited boundary:
+
+- a Residual is capability/task-relative, not a universal coordinate object;
+- invariance alone is insufficient: reconstructive capability sufficiency is separately required;
+- leastness is relative to declared descriptor and admissible post-processing classes;
+- semantic factorization and operational/computable factorization remain distinct;
+- existence, uniqueness, finite dimensionality, and efficient learnability are not assumed.
+
+Before drafting COMPINTEL, bind these exact audited prerequisites and source-lock the minimum primary references needed for claims connecting compression to reusable computation, predictive structure, discovery, or intelligence. Define a falsifiable probe: what observable compression result would count as evidence for reusable structure, and what controls would show that the effect is merely codec choice, regularization, memorization, or task-specific distortion.
+
+## Immediately completed transaction — ATTNAPPROX-001
+
+- implementation issue: #223 — closed completed
+- implementation PR: #224
+- exact green implementation head: 35844412e9189172fb8d7262c644ea34aecdee08
+- implementation GitHub Actions run: 37461213741 — success
+- implementation merge: 8c5ad59ccacb3991e1ec7646be057a72b8bec495
+- post-draft audit: AUDIT-056
+- audit issue: #225 — closed completed
+- audit PR: #226
+- exact green audit head: 5a06ba97b0d803abbea0ed84113f4b39fc0675a8
+- audit GitHub Actions run: 37461795337 — success
+- audit merge/current main: 21597e4f2bb7af5312dc9967417a60dc3d8dc0f5
+- audit record blob: aec970752de5de74b1bfb49846ea94d203defc3f
 - audit disposition: **PASS — NO REPAIR**
-- final GitHub Actions validation on current main: green
 - final canonical Linux validation on current main: green
 
-Final ADAPTDEPTH artifacts:
+Final ATTNAPPROX artifacts:
 
-- specification: 00cd2477035b9d106a8b16157e03520d1652e67e
-- derivation packet: cd67d0d4fb987ddbc6cbe4c25192f593f8a7007c
-- computational witness: 6d4240764b3e7be447f436d330ca4b88174ac22f
-- reader manuscript: 61d47ce36a825effb75c246501ca8b66f446261e
-- source lock: 717bbe901d7bc4514919f70bd65a1712e6d3aae7
-- Chapter Ledger: 487fb507262ca9520d37e42397c3dc52f375ac6b
-- Source Register: 4b5b06e0c702eaa79eb7a0771b15ab10a860762b
-- bibliography: 7a7a89bc7c3789e0865755e446ee41d7d95815f2
+- specification: 38ae190a4d303d5bfdbfc9726777f8942f4fb519
+- derivation packet: c84aa9479debc0d8f014c8edde2e914f5941376a
+- computational witness: 0952f80e270c77753bbfe92573ae821a220017f3
+- reader manuscript: 25a040be85328d76e4b09eb3495fd9127082173d
+- source lock: f9bc3fa255ba95785d86f43433b728109e93d16c
+- Chapter Ledger: e236a12fb5979d8db2a16ea9f6218a6a4f5f2fb8
+- Source Register: 033a20f617449c0c939191c6a2f08185df650187
+- bibliography: f3cfe2393979d88a6c6262f656ee7e1cd61d0665
+- transaction receipt: b07b5b7e649a75297dadf84e9206e83c09e0ed95
 
-Durable ADAPTDEPTH substrate:
+Durable ATTNAPPROX substrate:
 
-- adaptive execution depth, numerical step size, local error estimate, and learned halting score are separate objects;
-- embedded-pair differences can support method-specific local error estimation under declared assumptions;
-- the exact Euler/Heun witness on y'=t has pair difference h^2/2 equal to Euler one-step error;
-- with tolerance 1/8, h=1 is rejected and the idealized p=1 controller maps to h=1/2, where the estimator equals 1/8;
-- local error acceptance does not by itself prove a global error bound;
-- a learned halting score can perfectly rank true error while being badly miscalibrated in magnitude;
-- error control requires an explicit score/estimator-to-target-error relation;
-- expected calibration is weaker than a per-instance certified upper bound;
-- budget exhaustion remains distinct from criterion satisfaction;
-- adaptive depth is not adaptive numerical time stepping unless a reference dynamics/discretization is declared;
-- error control is distinct from compute optimality.
+- score, exponential-kernel, normalized-operator, fixed-value output, and alternative-normalization targets are distinct;
+- approximation claims must name both target and error notion;
+- positive row scaling of the exponential kernel leaves the normalized softmax operator exactly unchanged;
+- raw kernel error therefore need not track normalized-operator error;
+- kernel perturbation requires denominator control before promotion to an operator-error statement;
+- for fixed V, ||(Ahat-A)V||_F <= ||Ahat-A||_2 ||V||_F, while one output witness does not identify the full operator;
+- positive Gaussian random features give an expectation identity for the exponential dot-product kernel, but finite-feature error and FAVOR+ guarantees remain source/assumption scoped;
+- FAVOR+ random features, Linformer-style low-rank projection, Nyström/landmark reconstruction, and alpha-entmax sparse normalization are different mechanisms;
+- alpha-entmax is an alternative score-to-simplex family, not automatically a softmax estimator;
+- sparsity does not imply low rank, low rank does not imply sparsity, and exact zeros do not by themselves imply subquadratic execution;
+- feature/rank/landmark/support budgets must remain explicit in complexity claims;
+- mask, position, conditioning, and finite precision belong inside the approximation contract;
+- classical Krylov convergence guarantees do not transfer to structured or learned attention by analogy.
 
-Exact learned-halting witness:
+Exact rank-reduction witness:
 
-- true error E_k = 2^(1-k);
-- score q_k = 4^(-k) = E_k^2/4;
-- at k=2, q_2=1/16 while E_2=1/2;
-- the exact inverse is E_k=2*sqrt(q_k);
-- for target E<=1/16, the correct score threshold is q<=1/1024, first met at k=5.
+- A is positive, row-stochastic, rank 2;
+- Ahat is positive, row-stochastic, rank 1;
+- ||A-Ahat||_F^2 = 4/27;
+- ||A-Ahat||_2 = 2 sqrt(3) / 9;
+- for the declared V, ||(A-Ahat)V||_F^2 = 2/27.
+
+Exact sparse-alternative witness:
+
+- for s=(2,0,-1), softmax is strictly positive in all coordinates;
+- alpha=2 entmax/sparsemax equals (1,0,0).
 
 ## Recomputed dependency-legal frontier
 
@@ -106,9 +119,25 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering therefore selects:
 
-- ATLAS-CH-ATTNAPPROX-001
+- ATLAS-CH-COMPINTEL-001
 
-Other dependency-legal count-0 chapters remain available, including COMPINTEL, COMPOSE, CONTEXTCOMP, CPS, JOINTUNC, LATENTTIME, MINCURR, NEURALKRYLOV, REGRETROUTE, SHIFT, SPECTRALDIAG, SPECTRALSHAPE, SYNTHESIS, SYSTEMS, TOKENCOMP, and VARIOPT.
+Other dependency-legal count-0 chapters remain available:
+
+- ATLAS-CH-COMPOSE-001
+- ATLAS-CH-CONTEXTCOMP-001
+- ATLAS-CH-CPS-001
+- ATLAS-CH-JOINTUNC-001
+- ATLAS-CH-LATENTTIME-001
+- ATLAS-CH-MINCURR-001
+- ATLAS-CH-NEURALKRYLOV-001
+- ATLAS-CH-REGRETROUTE-001
+- ATLAS-CH-SHIFT-001
+- ATLAS-CH-SPECTRALDIAG-001
+- ATLAS-CH-SPECTRALSHAPE-001
+- ATLAS-CH-SYNTHESIS-001
+- ATLAS-CH-SYSTEMS-001
+- ATLAS-CH-TOKENCOMP-001
+- ATLAS-CH-VARIOPT-001
 
 ## Legitimate stop conditions
 
