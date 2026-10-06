@@ -694,8 +694,14 @@
       "dependencies": [
         "ATLAS-CH-ROUTERDYN-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-REGRETROUTE-001.md",
+      "manuscript_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-REGRETROUTE-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-REGRETROUTE-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-REGRETROUTE-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-REGRETROUTE-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-MEMTAX-001",
