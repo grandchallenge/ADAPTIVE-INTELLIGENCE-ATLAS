@@ -411,3 +411,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-ATTNAPPROX-001.yaml"
     authority: "Audited ATTNOP/KRYLOV prerequisites plus primary Performer/FAVOR+, Linformer, Nyströmformer, and alpha-entmax sources; requires explicit kernel/operator/output targets before approximation claims."
+
+
+  - id: "ATLAS-SRC-COMPINTEL-LOCK-001"
+    title: "Compression as Discovery and Intelligence Probe source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-COMPINTEL-001.yaml"
+    authority: "Audited Compression/Residual prerequisites plus Solomonoff induction, deep-model description-length, MDL probing, and compression-progress sources; Atlas-owned falsifiable held-out compression probe with explicit controls."
