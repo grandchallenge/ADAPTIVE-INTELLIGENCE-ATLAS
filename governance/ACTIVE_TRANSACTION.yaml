@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-REGRETROUTE-001"
   baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
   branch: "audit/a261"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Run AUDIT-065 from exact protected merge 2b02b15e46fd9319931b96fb45ffd5dea4d6c1e4; repair any in-scope defect, then validate and merge the exact audit head."
+  pull_request: 262
+  state: "audit-pr-open"
+  next_action: "AUDIT-065 is on PR #262 from exact audit head 1903dc4e1afeb045ee0aeb1119ee63eeaa0b00eb. Require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
