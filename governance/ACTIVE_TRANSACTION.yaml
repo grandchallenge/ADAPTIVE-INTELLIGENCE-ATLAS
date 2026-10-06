@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 211
+  issue_number: 213
   tranche_id: "TRANSPORT-001"
   chapter_ids: ["ATLAS-CH-TRANSPORT-001"]
-  baseline_commit: "db2b19c4730a938babe9a2734eb40f898ee9913e"
-  branch: "work/transport-211"
-  pull_request: 212
-  state: "implementation-validation"
-  next_action: "Validate exact implementation head ce902a555b16aa7b613714a58f61403a06662450 on PR #212. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
+  baseline_commit: "9d6d5bd100663b8c2587a32c16be190e6b5aac85"
+  branch: "audit/transport-213"
+  pull_request: null
+  state: "post-draft-audit"
+  next_action: "Audit ATLAS-CH-TRANSPORT-001 from exact implementation merge 9d6d5bd100663b8c2587a32c16be190e6b5aac85. Recheck exact prerequisite/source/provenance identities, replay all finite sphere witnesses, inspect state/vector/parallel/optimal-transport and ODE boundaries, verify NEURALKRYLOV handoff, repair any in-scope defect, then create and validate AUDIT-053."
 frontier:
   - id: "ATLAS-CH-TRANSPORT-001"
     downstream_architecture_count: 1
