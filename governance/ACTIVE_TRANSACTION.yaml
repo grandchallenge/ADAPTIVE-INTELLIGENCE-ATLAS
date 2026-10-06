@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
   pull_request: 256
-  state: "ci-green"
-  next_action: "Exact NEURALKRYLOV implementation head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47 passed GitHub Actions run 37547958975. Re-fetch PR #256 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains c9d5c61bf611327a1ed054206c5d8e778559e28a."
+  state: "implementation-merged"
+  next_action: "Implementation PR #256 merged to protected main 0efe3dc8bfd47f268cd2a5f088026e95b3a6c52e and protected-merge validation is green. Instantiate the mandatory NEURALKRYLOV post-draft audit from this exact merge."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
