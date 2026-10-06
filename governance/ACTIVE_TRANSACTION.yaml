@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-JOINTUNC-001"
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
   branch: "audit/a245"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-061 is issue #245 on audit/a245 from exact protected merge a204fb495994607bd688193210242b9a32d06ce5. Independently audit identities, covariance algebra, nonlinear remainder boundary, receipt provenance, and repository integrity; repair any defect before audit merge."
+  pull_request: 246
+  state: "audit-pr-open"
+  next_action: "Audit PR #246 is open from exact head ec9983fd3ac3a3f82823acd5a3b945e125725820. Require exact-head Actions success before merge."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
