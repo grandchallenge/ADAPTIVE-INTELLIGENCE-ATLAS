@@ -425,3 +425,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-COMPOSE-001.yaml"
     authority: "Audited Boundary Contracts and Split-Operator Networks only; Atlas-owned exact composition-failure/commuting witnesses and bounded error-propagation synthesis. No new external source authority."
+
+
+  - id: "ATLAS-SRC-CONTEXTCOMP-LOCK-001"
+    title: "Context Compilation source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-CONTEXTCOMP-001.yaml"
+    authority: "Audited External-Memory Thesis plus Atlas-owned finite context-compilation formalism for freshness/version filtering, authorization, mandatory records, provenance-preserving atomic records, hard context budgets, deterministic selection, and serialization. No new external source authority."
