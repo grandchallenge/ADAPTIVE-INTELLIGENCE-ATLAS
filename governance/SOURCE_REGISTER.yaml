@@ -446,3 +446,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-JOINTUNC-001.yaml"
     authority: "Audited RLBASE/INFO prerequisites plus Atlas-owned exact covariance-sensitive affine propagation witness and explicitly local nonlinear first-order boundary."
+
+
+  - id: "ATLAS-SRC-LATENTTIME-LOCK-001"
+    title: "Latent Clocks source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-LATENTTIME-001.yaml"
+    authority: "Audited RPO/Dynamics prerequisites plus Sakoe-Chiba dynamic time warping, Zhou-De la Torre generalized multimodal time warping, and Atlas-owned exact finite latent-alignment witness."
