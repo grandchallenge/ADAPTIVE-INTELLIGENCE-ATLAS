@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 207
+  issue_number: 209
   tranche_id: "TOKEN-001"
   chapter_ids: ["ATLAS-CH-TOKEN-001"]
-  baseline_commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
-  branch: "work/token-207"
-  pull_request: 208
-  state: "implementation-validation"
-  next_action: "Validate exact implementation head 4fc0bedf5ccf21aec4fe390d1531eb0a26aa5f58 on PR #208. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
+  baseline_commit: "d51ad8b0bd05d7457a635c71325b129cdc0ef866"
+  branch: "audit/token-209"
+  pull_request: null
+  state: "post-draft-audit"
+  next_action: "Audit ATLAS-CH-TOKEN-001 on branch audit/token-209 from exact implementation merge d51ad8b0bd05d7457a635c71325b129cdc0ef866. Recheck exact prerequisite/source/provenance identities, replay all finite witnesses, inspect fertility/morphology/multilingual boundaries and TOKENCOMP handoff, then create and validate AUDIT-052."
 frontier:
   - id: "ATLAS-CH-TOKEN-001"
     downstream_architecture_count: 1
