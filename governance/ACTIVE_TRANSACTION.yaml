@@ -11,8 +11,8 @@ current:
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
   branch: "work/cps-239"
   pull_request: 240
-  state: "ci-green"
-  next_action: "Exact implementation head c2a6330cdc68d741ccc7c12477113e253d13a90d is green in canonical validation, independent exact witness replay, and GitHub Actions run 37533936696. Re-fetch PR #240 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 0ca38f5d7129db6209b2f245c14a27148df09608. Then validate/read back the merge and instantiate the mandatory post-draft audit."
+  state: "implementation-merged"
+  next_action: "Implementation PR #240 merged from exact validated head c2a6330cdc68d741ccc7c12477113e253d13a90d to protected main 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit OPTDYN prerequisite identity, refreshed GSD source/provenance scope, exact Jacobian algebra, spectral-radius control, discovery/freeze/heldout protocol, GSD artifact-block disposition, transaction-receipt provenance, and repository integrity; repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
