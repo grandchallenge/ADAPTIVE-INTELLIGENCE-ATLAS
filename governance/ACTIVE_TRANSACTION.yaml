@@ -4,18 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 217
-  tranche_id: "UNCERTAINTY-001"
-  chapter_ids: ["ATLAS-CH-UNCERTAINTY-001"]
-  baseline_commit: "8dfb5a09bebf4c15d8257bb74d9b3657688b2d8b"
-  branch: "audit/uncertainty-217"
-  pull_request: 218
-  state: "audit-validation"
-  next_action: "Validate exact AUDIT-054 head e1d9c24d1a96ff2813ef243a3c31d4db5313c547 on PR #218. If green, merge with exact-head lease; then validate merged main, close issues #215/#217, recompute the dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-ADAPTDEPTH-001 from exact baseline e8129376ef673822ed6b43775a0d2439b88c47fb. Bind audited ATLAS-CH-DEPTH-001 / AUDIT-018 and ATLAS-CH-NETNUM-001 / AUDIT-023 before drafting. Source-lock the minimum additional primary adaptive-step/local-error and learned-stopping references needed; distinguish actual numerical error estimators from learned halting or compute-allocation policies. Do not reuse stale chat state."
 frontier:
-  - id: "ATLAS-CH-UNCERTAINTY-001"
-    downstream_architecture_count: 1
-    direct_consumers: ["ATLAS-CH-SHIFT-001"]
+  - id: "ATLAS-CH-ADAPTDEPTH-001"
+    downstream_architecture_count: 0
+    direct_consumers: []
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
