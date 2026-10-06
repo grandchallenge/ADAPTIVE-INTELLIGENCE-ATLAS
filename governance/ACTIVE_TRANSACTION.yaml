@@ -11,8 +11,8 @@ current:
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
   branch: "work/compintel-227"
   pull_request: null
-  state: "source-lock-complete"
-  next_action: "Source lock and falsifiable probe contract are complete on exact work head 00a92f53781d2f654076944e85256cdf22cd9380. Draft COMPINTEL specification, derivation packet, exact computational witness, and reader manuscript without strengthening compression into mechanism/intelligence equivalence. Then update Chapter Ledger, transaction receipt, and validate the fresh exact branch head."
+  state: "draft-complete"
+  next_action: "Draft artifacts and receipt are complete on exact work head b7818c9eb16749aa41ac20b200293e485946e845. Run canonical Linux validation and independent exact witness replay on this head. Repair every in-scope defect and replay from the fresh exact head until green. Then open the implementation PR against protected main and require exact-head GitHub Actions validation before merge."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
