@@ -11,7 +11,7 @@ current:
   branch: "audit/routerdyn-201"
   pull_request: 202
   state: "audit-validation"
-  next_action: "Validate exact implementation head 3c3f22044102f10386e5d3bc850ac2bc32b6c709 on PR #200. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
+  next_action: "Validate exact AUDIT-050 head 99d0342a06dd981dd6338d9db033783fd21f2ed2 on PR #202. If green, merge with exact-head lease; then run final validation on merged main, close issues #199/#201, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-ROUTERDYN-001"
     downstream_architecture_count: 1
