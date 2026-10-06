@@ -1,0 +1,152 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-JOINTUNC-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_rl_information_substrate_plus_atlas_exact_joint_uncertainty_derivation"
+claim_boundary: >
+  This chapter inherits the audited controlled-stochastic substrate from RLBASE-001 and the
+  audited probability/information substrate from INFO-001. The new load-bearing mathematics is
+  Atlas-owned: exact covariance propagation for an affine local decision-error functional, exact
+  finite Rademacher witnesses showing covariance amplification and cancellation, and a local
+  first-order extension for differentiable nonlinear decision maps. No new external academic
+  source is required for those algebraic identities. The chapter must not treat statistical
+  covariance/dependence as causal attribution, must not assume independence without evidence,
+  and must not promote a local linearized propagation formula into a global theorem about a
+  nonlinear sequential decision system.
+
+hard_prerequisites:
+  - id: "JOINTUNC-RLBASE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "manuscript/parts/11-decision-making/ATLAS-CH-RLBASE-001.md"
+    git_blob_sha1: "a99f78b788b97bc1bb3346ca1f1b97802c0f84db"
+    authority: >
+      Audited finite-MDP/control substrate separating transition dynamics, reward, observation,
+      policy, return, value, model error, and uncertainty; explicitly hands joint propagation to
+      JOINTUNC-001 rather than mechanically adding independent error bars.
+  - id: "JOINTUNC-RLBASE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "sources/source-locks/ATLAS-CH-RLBASE-001.yaml"
+    git_blob_sha1: "b29ecea9134227cb5ce3fcd7cc47303a90bd6699"
+    authority: "Exact external-source and claim boundary for the audited RLBASE prerequisite."
+  - id: "JOINTUNC-RLBASE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "reviews/AUDIT-017.md"
+    git_blob_sha1: "8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc"
+    authority: "Post-draft audit governing RLBASE claim scope and formal precision."
+  - id: "JOINTUNC-INFO-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md"
+    git_blob_sha1: "0fca10cbc7476c5b729ee15dfad0dec563665821"
+    authority: >
+      Audited probability/information substrate for joint distributions, conditional structure,
+      expectation, statistical dependence, covariance-related structure, and the non-causal
+      interpretation of statistical dependence.
+  - id: "JOINTUNC-INFO-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "sources/source-locks/ATLAS-CH-INFO-001.yaml"
+    git_blob_sha1: "ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c"
+    authority: "Exact external-source and claim boundary for the audited Information prerequisite."
+  - id: "JOINTUNC-INFO-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+    path: "reviews/AUDIT-004.md"
+    git_blob_sha1: "948f76b3f86d27fa4830efc30d8ef0135134256e"
+    authority: "Foundation audit confirming the Information chapter's definitions and scope."
+
+new_external_academic_sources: []
+
+source_decision:
+  finding: >
+    No additional external academic source is required for the chapter's load-bearing result.
+    Exact affine covariance propagation follows directly from expectation/covariance algebra and
+    is proved in the derivation packet. The nonlinear extension is presented only as a local
+    first-order Taylor propagation rule with an explicit remainder boundary, not as a global
+    theorem requiring imported authority.
+  reopen_condition: >
+    Add a new primary source only if later drafting introduces a theorem whose authority exceeds
+    the exact algebra and audited prerequisite substrate recorded here.
+
+uncertainty_coordinates:
+  vector: "epsilon = (epsilon_R, epsilon_T, epsilon_O, epsilon_V)^T"
+  semantics:
+    epsilon_R: "local reward-model / reward-realization error coordinate"
+    epsilon_T: "local transition-model / transition-effect error coordinate"
+    epsilon_O: "local observation / belief-state error coordinate"
+    epsilon_V: "local future-value error coordinate before discounting"
+  warning: >
+    These are declared local scalar coordinates after choosing units/sensitivities for a decision
+    functional. They are not asserted to be canonical, mutually independent, or causally distinct
+    latent variables in every RL system.
+
+exact_affine_witness:
+  decision_error: "delta = epsilon_R + epsilon_T + epsilon_O + (1/2) epsilon_V"
+  sensitivity_vector: "[1,1,1,1/2]"
+  marginal_variances: "[1,1,1,1]"
+  diagonal_only_variance: "13/4"
+  positive_common_shock:
+    construction: >
+      Let U,W be independent centered Rademacher variables. Set
+      epsilon_R=U, epsilon_T=U, epsilon_O=U, epsilon_V=W.
+    covariance_matrix:
+      - ["1","1","1","0"]
+      - ["1","1","1","0"]
+      - ["1","1","1","0"]
+      - ["0","0","0","1"]
+    exact_variance: "37/4"
+    covariance_correction: "6"
+    lesson: "Ignoring positive covariance understates propagated variance."
+  cancellation_common_shock:
+    construction: >
+      Let U,W be independent centered Rademacher variables. Set
+      epsilon_R=U, epsilon_T=U, epsilon_O=-U, epsilon_V=W.
+    covariance_matrix:
+      - ["1","1","-1","0"]
+      - ["1","1","-1","0"]
+      - ["-1","-1","1","0"]
+      - ["0","0","0","1"]
+    exact_variance: "5/4"
+    covariance_correction: "-2"
+    lesson: "Ignoring covariance can also overstate propagated variance."
+  independence_control:
+    construction: >
+      Let U_R,U_T,U_O,U_V be independent centered Rademacher variables and set each epsilon
+      coordinate to its corresponding U variable.
+    covariance_matrix:
+      - ["1","0","0","0"]
+      - ["0","1","0","0"]
+      - ["0","0","1","0"]
+      - ["0","0","0","1"]
+    exact_variance: "13/4"
+    lesson: >
+      Under independence the off-diagonal covariance terms vanish, so diagonal variance summation
+      is exact for this affine functional. Zero covariance, not full independence, is the exact
+      algebraic condition needed for the variance cross-terms to vanish.
+
+general_identity:
+  affine: "Var(a^T epsilon) = a^T Sigma a"
+  expanded: >
+    Var(a^T epsilon) = sum_i a_i^2 Var(epsilon_i) +
+    2 sum_{i<j} a_i a_j Cov(epsilon_i,epsilon_j).
+  nonlinear_local: >
+    For differentiable scalar F at nominal x with small perturbation epsilon,
+    F(x+epsilon)-F(x) = grad F(x)^T epsilon + remainder.
+    Therefore Var(F(x+epsilon)-F(x)) is approximated to first order by
+    grad F(x)^T Sigma grad F(x) only when the remainder is controlled.
+  boundary: >
+    The nonlinear formula is a local first-order approximation. It does not justify global
+    propagation through large nonlinear, nonstationary, partially observed decision systems
+    without additional remainder/stability arguments.
+
+epistemic_rules:
+  - "Transition, reward, observation, and future-value uncertainty remain distinct coordinates before composition."
+  - "Marginal variances do not determine propagated uncertainty without covariance/dependence information."
+  - "Naive independent summation can understate or overstate the exact affine propagated variance."
+  - "Independence is sufficient but not necessary for covariance cross-terms to vanish."
+  - "Statistical dependence/covariance does not specify causal direction."
+  - "A scalar propagated variance is not a complete distributional description."
+  - "Expected value and uncertainty remain distinct decision objects."
+  - "Local linearized error propagation is not a global sequential-decision theorem."
