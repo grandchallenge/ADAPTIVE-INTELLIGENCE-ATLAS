@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
   pull_request: null
-  state: "draft-complete"
-  next_action: "NEURALKRYLOV draft artifacts and receipt are complete on exact work head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47. Run canonical repository validation and independent exact rational replay of the positive witness, readout firewall, and bad-control residual. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
+  state: "local-validation-green"
+  next_action: "Exact NEURALKRYLOV work head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47 passes canonical repository validation and independent exact witness replay. Re-fetch protected main and compare against baseline c9d5c61bf611327a1ed054206c5d8e778559e28a. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
