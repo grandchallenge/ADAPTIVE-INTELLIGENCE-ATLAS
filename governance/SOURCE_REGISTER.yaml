@@ -453,3 +453,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-LATENTTIME-001.yaml"
     authority: "Audited RPO/Dynamics prerequisites plus Sakoe-Chiba dynamic time warping, Zhou-De la Torre generalized multimodal time warping, and Atlas-owned exact finite latent-alignment witness."
+
+
+  - id: "ATLAS-SRC-MINCURR-LOCK-001"
+    title: "Minimal Curricula and Reasoning Bases source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-MINCURR-001.yaml"
+    authority: "Audited PROGRESSSEARCH/RESIDUAL prerequisites plus Goldman-Kearns teaching dimension, Zhu machine teaching, and Atlas-owned exact minimal reconstructive teaching-basis/high-progress control."
