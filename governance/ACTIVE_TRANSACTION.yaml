@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 233
-  tranche_id: "COMPOSE-001"
-  chapter_ids:
-    - "ATLAS-CH-COMPOSE-001"
-  baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
-  branch: "audit/a233"
-  pull_request: 234
-  state: "audit-ci-green"
-  next_action: "Audit head 4247a9ac7f2be714988d026c3d30dbb77bdfbdb8 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37472951600. Re-fetch PR #234 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 57542068df60818d05c14b01f1aa2607ca619232. Then validate/read back final main, close issues #231/#233, recompute dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-CONTEXTCOMP-001 from exact protected main b00d6020b809145a99689418db13ff6d6561a659. First bind audited EXTMEM-001 (manuscript 181685ceda93defb7a7051e0865898c7c4e3fb1d, source lock 6ac2940c5a9432588ace9a82b15c73e7e00d874f, AUDIT-031 a33ee84f0bfc69f8dc00e165506c55cabd68fec4). CONTEXTCOMP may inherit hybrid parametric/external placement, versioned records, explicit freshness policy, retrieval/storage separation, and provenance-preserving record semantics, but must independently define how retrieved records become the bounded working context of a model invocation. Source-lock only additional primary references needed for context selection/assembly, budgeting, ordering, provenance retention, conflict resolution, truncation, or compilation semantics. Define an exact finite over-budget compilation witness and a naive-truncation/rank-only control before drafting."
 frontier:
-  - id: "ATLAS-CH-COMPOSE-001"
+  - id: "ATLAS-CH-CONTEXTCOMP-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
