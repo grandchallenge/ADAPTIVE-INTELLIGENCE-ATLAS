@@ -460,3 +460,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-MINCURR-001.yaml"
     authority: "Audited PROGRESSSEARCH/RESIDUAL prerequisites plus Goldman-Kearns teaching dimension, Zhu machine teaching, and Atlas-owned exact minimal reconstructive teaching-basis/high-progress control."
+
+
+  - id: "ATLAS-SRC-NEURALKRYLOV-LOCK-001"
+    title: "Neural Krylov Transport source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-NEURALKRYLOV-001.yaml"
+    authority: "Audited KRYLOV/TRANSPORT prerequisites plus Atlas-owned exact fixed-left-preconditioned short-horizon solve, low-dimension failure control, and residual/error/task-quality firewall."

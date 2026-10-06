@@ -1,0 +1,151 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-NEURALKRYLOV-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_krylov_and_representation_transport_prerequisites_plus_atlas_exact_local_preconditioned_solve_witness"
+claim_boundary: >
+  KRYLOV-001 is the sole external/classical authority for Krylov subspaces, projected solves,
+  residual/error distinctions, preconditioning semantics, matrix-free operator access, restart and
+  finite-precision caveats. TRANSPORT-001 is the sole representation-side authority for finite
+  learned state maps, local Jacobians, base-point semantics, constraints, and discrete-versus-flow
+  distinctions. The new positive/control witnesses in NEURALKRYLOV-001 are Atlas-owned exact finite
+  linear algebra. No new external academic source is required unless later drafting introduces a
+  theorem beyond those audited prerequisites. No classical Krylov convergence theorem is transferred
+  to a learned nonlinear transport mechanism by analogy.
+
+hard_prerequisites:
+  - id: "NEURALKRYLOV-KRYLOV-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-KRYLOV-001.md"
+    git_blob_sha1: "59e169723ca068bef817e7bc9e28727d03b45f6a"
+    authority: "Audited classical Krylov trial-space, residual, projection, preconditioning, conditioning, finite-precision, and restart vocabulary."
+  - id: "NEURALKRYLOV-KRYLOV-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "sources/source-locks/ATLAS-CH-KRYLOV-001.yaml"
+    git_blob_sha1: "adbe97c750ed79d09462a5e867e5beb772ad72e2"
+    authority: "Exact source and claim boundary for KRYLOV-001."
+  - id: "NEURALKRYLOV-KRYLOV-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "reviews/AUDIT-039.md"
+    git_blob_sha1: "03660b0dbd1d0604e943d0d09c7b52c6605b256c"
+    authority: "Post-draft audit preserving classical/learned boundary."
+  - id: "NEURALKRYLOV-TRANSPORT-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSPORT-001.md"
+    git_blob_sha1: "0a81b39a457384f7a265bbac2955ea282217bc3f"
+    authority: "Audited finite representation-map transport and local-linearization interface."
+  - id: "NEURALKRYLOV-TRANSPORT-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml"
+    git_blob_sha1: "55fcd80bc3d94e3b270ddcf28873242ba21f823f"
+    authority: "Exact source and claim boundary for TRANSPORT-001."
+  - id: "NEURALKRYLOV-TRANSPORT-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+    path: "reviews/AUDIT-053.md"
+    git_blob_sha1: "060d0b9dc320cd16fdcfe10b87484a3bbfda4c75"
+    authority: "Post-draft audit preserving state/Jacobian/flow/Krylov boundaries."
+
+new_external_academic_sources: []
+
+source_decision:
+  finding: >
+    No new external source is needed. The chapter's positive and failure witnesses are exact finite
+    linear algebra derived directly. Classical Krylov and preconditioning claims are already governed
+    by KRYLOV-001, while representation-transport and local-Jacobian semantics are already governed by
+    TRANSPORT-001.
+  reopen_condition: >
+    Add a new primary source only if later drafting introduces a learned-Krylov theorem, empirical
+    neural architecture claim, or convergence statement not already covered by the audited prerequisites.
+
+declared_local_solve_interface:
+  representation_state: "z"
+  local_operator: "A_z"
+  right_hand_side: "b_z"
+  correction: "delta_z"
+  local_linear_problem: "A_z delta_z = b_z"
+  representation_update: "z_plus = Phi(z, delta_z)"
+  warning: >
+    A_z may be chosen as a local Jacobian-derived operator, normal-equation operator, Hessian-like map,
+    or learned linear surrogate, but every use must name the operator explicitly. A local linear solve
+    does not by itself define or approximate the global nonlinear transport map beyond the declared local regime.
+
+positive_witness:
+  original_system:
+    A:
+      - ["1","0"]
+      - ["0","4"]
+    b: ["1","1"]
+    exact_solution: ["1","1/4"]
+  preconditioner:
+    type: "fixed left"
+    M:
+      - ["1","0"]
+      - ["0","2"]
+    inverse:
+      - ["1","0"]
+      - ["0","1/2"]
+  transformed_system:
+    B_equals_M_inverse_A:
+      - ["1","0"]
+      - ["0","2"]
+    c_equals_M_inverse_b: ["1","1/2"]
+  krylov:
+    K1: "span{c}"
+    best_K1_transformed_residual_scalar: "alpha=3/4"
+    x1: ["3/4","3/8"]
+    transformed_residual: ["1/4","-1/4"]
+    transformed_residual_norm_squared: "1/8"
+    original_residual: ["1/4","-1/2"]
+    original_residual_norm_squared: "5/16"
+    true_error_xstar_minus_x1: ["1/4","-1/8"]
+    true_error_norm_squared: "5/64"
+    K2: "span{c,Bc}=R^2"
+    determinant_of_basis_matrix: "1/2"
+    exact_solution_expansion: "x_star=(3/2)c-(1/2)Bc"
+    K2_residual_norm_squared: "0"
+    K2_true_error_norm_squared: "0"
+  task_readout_control:
+    w: ["1","2"]
+    exact_readout_on_xstar: "3/2"
+    readout_on_x1: "3/2"
+    lesson: >
+      The one-step representation/solution is still wrong and has nonzero residual, yet this declared
+      downstream scalar readout is exactly correct. Residual, state error, representation quality, and task
+      quality therefore cannot be identified without an explicit interface theorem.
+
+failure_control:
+  operator:
+    B_bad:
+      - ["1","0"]
+      - ["0","10"]
+    c_bad: ["1","1"]
+  K1: "span{c_bad}"
+  best_K1_scalar: "alpha=11/101"
+  residual: ["90/101","-9/101"]
+  residual_norm_squared: "81/101"
+  lesson: >
+    A one-dimensional Krylov space is computationally small but can still yield a poor one-step approximation.
+    Low subspace dimension alone does not guarantee small residual, small true error, representation quality,
+    or downstream task quality.
+
+preconditioner_rules:
+  - "The positive witness uses a fixed linear left preconditioner M."
+  - "Left preconditioning means solving M^{-1}A x = M^{-1}b; original and transformed residuals are different objects."
+  - "A learned, state-dependent, right, flexible, or nonlinear preconditioner would require separate semantics and guarantees."
+  - "Preconditioning changes the effective operator seen by the Krylov process."
+
+epistemic_rules:
+  - "Every Krylov construction must name its linear operator and starting residual/vector."
+  - "A local Jacobian or surrogate operator is not the global nonlinear transport map."
+  - "Classical Krylov convergence does not transfer to a learned nonlinear transport architecture by analogy."
+  - "Residual norm and true error are distinct."
+  - "Transformed/preconditioned residual and original-system residual are distinct."
+  - "Representation error/quality and downstream task quality are distinct from linear-solve residual."
+  - "Low Krylov dimension alone is not a convergence certificate."
+  - "Exact-arithmetic basis identities do not imply finite-precision orthogonality."
+  - "Restarting or truncating a learned iterative mechanism can discard useful directions."
