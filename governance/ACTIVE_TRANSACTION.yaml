@@ -11,8 +11,8 @@ current:
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind the exact audited ATLAS-CH-ATTNOP-001 / AUDIT-002 and ATLAS-CH-KRYLOV-001 / AUDIT-039 prerequisites on baseline 01e72c6c33a411d83f10913d7e8db0dd5305dfbd. Source-lock the minimum primary references for Performer/FAVOR+ random-feature attention, structured or low-rank approximation, and sparse alternatives such as entmax. Define the approximation target and error notion before drafting. Then write the specification, derivation packet, computational witness, reader manuscript, provenance updates, transaction receipt, and validate the exact branch head."
+  state: "source-lock-complete"
+  next_action: "Draft ATLAS-CH-ATTNAPPROX-001 against exact work head 13dc7dcacb6905533c5702e95addbc4f8a252a6c. Preserve the declared kernel/operator/output targets and the separation among FAVOR+ random features, low-rank/landmark approximations, and alpha-entmax sparse normalization. Add specification, derivation packet, computational witness, reader manuscript, Chapter Ledger paths/status, transaction receipt, and validate the exact branch head. Repair all in-scope validation defects before opening the PR."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
