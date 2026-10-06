@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 239
+  issue_number: 241
   tranche_id: "CPS-001"
   chapter_ids:
     - "ATLAS-CH-CPS-001"
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
-  branch: "work/cps-239"
-  pull_request: 240
-  state: "implementation-merged"
-  next_action: "Implementation PR #240 merged from exact validated head c2a6330cdc68d741ccc7c12477113e253d13a90d to protected main 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit OPTDYN prerequisite identity, refreshed GSD source/provenance scope, exact Jacobian algebra, spectral-radius control, discovery/freeze/heldout protocol, GSD artifact-block disposition, transaction-receipt provenance, and repository integrity; repair any in-scope defect before audit merge."
+  branch: "audit/a241"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-060 is instantiated as issue #241 on audit/a241 from exact protected implementation merge 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Independently audit exact OPTDYN prerequisite identity, refreshed GSD project-source identities and claim scope, exact J(h) algebra, equal-spectral-radius control, discovery/freeze/heldout protocol, GSD artifact-block disposition, descriptive/predictive/causal firewalls, transaction-receipt provenance, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
