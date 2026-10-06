@@ -11,8 +11,8 @@ current:
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "work/latenttime-247"
   pull_request: 248
-  state: "ci-green"
-  next_action: "Exact LATENTTIME head aa4c9c9762cf8578518e45552e3806664bd2b1d5 passed Actions run 37542354408. Re-check PR #248 and protected main, then merge only this exact head."
+  state: "implementation-merged"
+  next_action: "Implementation PR #248 merged to protected main a89ba6cb799faca9557f01262bc0e0306d3a50ad and protected-merge validation is green. Instantiate the mandatory LATENTTIME post-draft audit from this exact merge."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
