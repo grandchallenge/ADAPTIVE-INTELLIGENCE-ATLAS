@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-UNCERTAINTY-001"]
   baseline_commit: "1fa80bdae8e5219cc7e90b481914b66e3af8c3aa"
   branch: "work/uncertainty-215"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited INFO-001/AUDIT-004 at exact baseline 1fa80bdae8e5219cc7e90b481914b66e3af8c3aa. Source-lock primary references for calibration, Bayesian/ensemble uncertainty, conformal prediction, and selective prediction; define distinct uncertainty objects and guarantees before drafting."
+  pull_request: 216
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 845a5e62b7b2e2a40d01683f98954f3ff9dcbc12 on PR #216. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-UNCERTAINTY-001"
     downstream_architecture_count: 1
