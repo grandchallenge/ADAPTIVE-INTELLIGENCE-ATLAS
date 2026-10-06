@@ -11,8 +11,8 @@ current:
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "work/latenttime-247"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited RPO-001 and DYN-001 prerequisites. Add only Sakoe-Chiba 1978 and Zhou-De la Torre 2012 as new primary alignment sources. Freeze the exact DTW witness X=(0,1,2), Y=(0,0,1,2), squared local cost, endpoint/monotone steps {(1,0),(0,1),(1,1)}, unique zero-cost path ((1,1),(1,2),(2,3),(3,4)), plus identity/no-warp control X=Y=(0,1,2). Keep inferred alignment distinct from true physical/causal time and from exact continuous-time dynamics."
+  state: "source-lock-complete"
+  next_action: "LATENTTIME source lock and bibliography updates are complete on work/latenttime-247. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen DTW contract. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
