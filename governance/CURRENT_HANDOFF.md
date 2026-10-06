@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 0ca38f5d7129db6209b2f245c14a27148df09608
+**Current main:** c6b690725a0c89dd1746015d3e688c50553e0f28
 
 ## Restart rule
 
@@ -15,104 +15,116 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-CPS-001 — **Coupling-Phase Spectroscopy**
+- next target: ATLAS-CH-JOINTUNC-001 — **Joint Uncertainty Propagation**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Develop optimizer-state Jacobian probes and dynamical signatures of phase and generalization-state transitions, including transition-local prediction tests.
+> Treat transition, reward, observation, and future-value uncertainty jointly rather than by naive independent summation.
 
-Hard prerequisite on exact current main:
+Hard prerequisites on exact current main:
 
-### ATLAS-CH-OPTDYN-001
+### ATLAS-CH-RLBASE-001
 
-- manuscript: 59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c
-- source lock: 0b0cb1dd109a7708bd2a5238116bd225c69fb185
-- AUDIT-002: 4671995f0cd7465a5df2bb60431244f482e5e3c9
+- manuscript: a99f78b788b97bc1bb3346ca1f1b97802c0f84db
+- source lock: b29ecea9134227cb5ce3fcd7cc47303a90bd6699
+- AUDIT-017: 8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc
 
 Inherited boundary:
 
-- optimizer memory enlarges the model state into an augmented dynamical state;
-- local optimizer-state Jacobians, singular values, eigenvalues, and finite-horizon products are legitimate diagnostic objects under declared local assumptions;
-- spectral radius below one does not exclude transient non-normal amplification;
-- a transient spike does not by itself prove asymptotic divergence;
-- a frozen local Jacobian does not globally model a nonlinear stochastic training trajectory;
-- realistic training can require time-varying products J_(t+k-1)...J_t;
-- Adam is used upstream to demonstrate richer optimizer state, while the exact transparent transient-growth witness uses momentum;
-- mechanism visibility, local trajectory diagnosis, and empirical prevalence in frontier training are distinct claim classes.
+- state, action, transition kernel, reward, policy, return, value, and model are distinct objects;
+- value is expected future return under declared conditions, not calibrated uncertainty;
+- an exact Bellman identity is distinct from an approximate learned value/model;
+- optimality is relative to the declared MDP/reward/discount/observation problem;
+- partial observability can require information state/belief state;
+- transition-model, reward-model, observation-model, and future-value errors can interact;
+- RLBASE explicitly does not solve their joint propagation;
+- JOINTUNC may inherit the controlled stochastic substrate but must add a genuinely joint treatment rather than mechanical addition of independent error bars.
 
-CPS source boundary inherited from OPTDYN:
+### ATLAS-CH-INFO-001
 
-- the OPTDYN source lock records that, in its organization search on 2026-10-02, no separate public GCL source for the exact phrase Coupling-Phase Spectroscopy or optimizer-state Jacobian results was found;
-- that October 2 search result is historical evidence, not a claim about current October 6 repository state;
-- CPS must therefore re-run the exact public-source search at instantiation and source-lock any current project artifacts before attributing GCL empirical results;
-- absent such artifacts, CPS may still develop Atlas-owned mathematical probes and clearly labeled experimental protocols, but may not invent project-result evidence.
+- manuscript: 0fca10cbc7476c5b729ee15dfad0dec563665821
+- source lock: ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c
+- AUDIT-004: 948f76b3f86d27fa4830efc30d8ef0135134256e
 
-Before drafting CPS:
+Inherited boundary:
 
-1. bind the exact audited OPTDYN triple above;
-2. re-check current public GCL/GitHub source state for CPS/optimizer-state-Jacobian results;
-3. source-lock only the primary mathematical/empirical references actually needed for phase-transition, local-Jacobian, finite-horizon, or transition-prediction claims beyond OPTDYN;
-4. define at least one exact finite augmented-state Jacobian probe witness and one transition-local prediction/falsification protocol;
-5. keep local diagnostic signal, causal mechanism, and generalization-state prediction as separate evidence levels.
+- information and uncertainty quantities are defined only relative to a declared probability model;
+- joint and conditional distributions must remain explicit;
+- entropy, conditional entropy, mutual information, and KL divergence have distinct semantics;
+- mutual information is statistical dependence, not causal direction;
+- equal aggregate information summaries need not imply equal distributions, geometry, robustness, or causal role;
+- concentration bounds retain their assumptions;
+- sufficiency is relative to a declared statistical family/problem.
 
-## Immediately completed transaction — CONTEXTCOMP-001
+Before drafting JOINTUNC:
 
-- implementation issue: #235 — closed completed
-- implementation PR: #236
-- exact green implementation head: 793017b4b72762fc5b7af62bf8d58e9e4cacc3a2
-- implementation GitHub Actions run: 37525597267 — success
-- implementation merge: cf7221aec2909516dbf02ba2ec580fb2a8316b7d
-- post-draft audit: AUDIT-059
-- audit issue: #237 — closed completed
-- audit PR: #238
-- exact green audit head: 8f5a5948dc629ed07340f33c1d89f3f2c886452d
-- audit GitHub Actions run: 37526081443 — success
-- audit merge/current main: 0ca38f5d7129db6209b2f245c14a27148df09608
-- audit record blob: 192da81351f194751599989cc771a76b6fc67098
+1. bind the exact audited RLBASE and INFO triples above;
+2. source-lock only additional primary references genuinely needed for joint uncertainty propagation beyond those prerequisites;
+3. define at least one exact finite witness where covariance/dependence changes the propagated uncertainty relative to naive independent summation;
+4. define the decision-specific propagation object explicitly—e.g. coupled uncertainty in transition, reward, observation, and future value—rather than collapsing everything into one generic variance scalar;
+5. include an independence control where the covariance terms vanish;
+6. keep predictive/statistical dependence distinct from causal attribution;
+7. state when linearized/error-propagation formulas are local approximations rather than exact global decision-system guarantees.
+
+## Immediately completed transaction — CPS-001
+
+- implementation issue: #239 — closed completed
+- implementation PR: #240
+- exact green implementation head: c2a6330cdc68d741ccc7c12477113e253d13a90d
+- implementation GitHub Actions run: 37533936696 — success
+- implementation merge: 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c
+- post-draft audit: AUDIT-060
+- audit issue: #241 — closed completed
+- audit PR: #242
+- exact green audit head: fbbc4502c833c80e22cf135082b3147d2bf96a23
+- audit GitHub Actions run: 37534286657 — success
+- audit merge/current main: c6b690725a0c89dd1746015d3e688c50553e0f28
+- audit record blob: 1be483be1f3768bd6921769b5e31bf9c2e7e7106
 - audit disposition: **PASS — NO REPAIR**
 - final canonical Linux validation on current main: green
 
-Final CONTEXTCOMP artifacts:
+Final CPS artifacts:
 
-- specification: 8243b3b000f34bf454564d00a9599923d5fdfeae
-- derivation packet: c974ac991c24bf00e65ddfd5ef46007945d983cf
-- computational witness: a4c662a7e80c40f1b715c0572be6b438059a7ee5
-- reader manuscript: 6ad1bdba01e731fd189e825cf43bd418e6a257b4
-- source lock: fe0f8449b501afa23af6b98b111396b3b967ba94
-- Chapter Ledger: ce262fc4530a36c1d7650189b6c27cd3a2fd3522
-- Source Register: e2bc3d53cbe68f31eaeb0d22082cf77084d60ba4
-- transaction receipt: f40d602fd2a76f041cb42d54acc4d323dbae1575
+- specification: 05d1d186cce4f911790f8cd0a9bb25556bc56484
+- derivation packet: 1ced647197f9af6567736e5edbccfefd7f200d5e
+- computational witness: aafd136691e45b675ea05dc268f15f86302ba625
+- reader manuscript: c07337d1bdf013ad5ac5a2caa69c4efbb45eea50
+- source lock: 372dd928a77cf30e2e9b903239e4a49a5d479b79
+- Chapter Ledger: dcc92835850f1f4fd33ba598e94097c6be55dc1a
+- Source Register: 546eba7a627a71af4d27430e16c379457aa15ead
+- transaction receipt: be766d28d50a22036a2f9ed780f60811b34d116b
 
-Durable CONTEXTCOMP substrate:
+Durable CPS substrate:
 
-- retrieval yields candidate records; compilation yields the bounded ordered working context;
-- storage correctness, retrieval success, ranking, compilation, and downstream model use are distinct stages;
-- authorization and freshness/version semantics are hard admissibility constraints in the declared compiler;
-- mandatory current records are included before optional optimization and can trigger explicit MANDATORY_OVERFLOW;
-- provenance-preserving records are atomic in the finite formalism;
-- compiled cost includes payload plus required provenance envelope;
-- optional records maximize only declared compiler utility under residual budget;
-- utility-optimal under the declared policy is not universally optimal model context;
-- serialization is deterministic but not claimed universally best for model behavior;
-- compiler validity does not imply answer correctness;
-- compilation events can emit replayable receipts.
+- optimizer/model state is treated as an augmented dynamical state;
+- behavioral transition target, local diagnostic, retrospective alignment, heldout prediction, and causal optimizer mechanism are separate evidence objects;
+- current public GSD state was refreshed on 2026-10-06 rather than inheriting the stale 2026-10-02 source gap;
+- GSD-001 currently contains GSD-WP04 — CPS transition-local dynamics;
+- GSD-WP03R establishes one confirmed OLMo2-1B behavioral transition under the frozen protocol;
+- the exact public step-2000/3000/4000 revisions lack optimizer/trainer/scheduler/gradient/update-direction artifacts;
+- GSD-WP04 is therefore BLOCKED_EXTERNAL_ARTIFACT_ABSENT, explicitly not NO_SIGNAL;
+- for the exact toy momentum family with eta=1/10, beta=9/10:
+  - J(h)=[[1-h/10,-9/100],[h,9/10]];
+  - det J(h)=9/10;
+  - tr J(h)=19/10-h/10;
+  - kappa(J)=1+det J-tr J=h/10;
+- discovery windows h=2,8 freeze tau=1/2;
+- heldout toy windows h=3,7 are classified exactly as (0,1);
+- all four toy matrices have identical spectral radius sqrt(9/10), so spectral radius alone is provably blind to the toy separation;
+- retrospective alignment does not imply heldout prediction;
+- heldout prediction does not imply causal mechanism;
+- one confirmed 1B transition does not imply scale-general CPS prediction.
 
-Exact budget-8 witness:
+Current public GSD project sources bound in CPS:
 
-- superseded policy v1: rank 1, cost 3, utility 9;
-- task fact: rank 2, cost 4, utility 7;
-- current mandatory policy v2: rank 3, cost 4, utility 8;
-- background: rank 4, cost 2, utility 3;
-- detail: rank 5, cost 3, utility 5;
-- freshness removes policy v1;
-- mandatory policy v2 consumes 4 units;
-- residual budget is 4;
-- exhaustive selection uniquely chooses task fact;
-- final compiled set is {current policy v2, task fact}, total cost 8, total declared utility 15;
-- raw rank-prefix control selects superseded policy v1 plus task fact and is invalid;
-- budget 3 with mandatory policy cost 4 yields explicit MANDATORY_OVERFLOW.
+- grandchallenge/GSD commit: ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c
+- research programme blob: 6a898efbdbe23eb6e947cd1c12f4a4b8fcee631f
+- work-package index blob: c7af5b65f6496ff4a3c8533f4bb6ee8721467385
+- campaign state blob: bc5ef87989fbeb094b0ffe5b348d06fe409397dc
+- WP03R transition receipt blob: 01acb64e536f13bd689d20a74608a7170900d0e3
+- WP04 artifact-block receipt blob: 9e999395fd14d1e8ac1b0ea5a209a1da66abab06
 
 ## Recomputed dependency-legal frontier
 
@@ -120,11 +132,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering selects:
 
-- ATLAS-CH-CPS-001
+- ATLAS-CH-JOINTUNC-001
 
 Other dependency-legal count-0 chapters remain available:
 
-- ATLAS-CH-JOINTUNC-001
 - ATLAS-CH-LATENTTIME-001
 - ATLAS-CH-MINCURR-001
 - ATLAS-CH-NEURALKRYLOV-001
