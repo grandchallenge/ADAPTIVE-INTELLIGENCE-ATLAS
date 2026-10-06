@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 247
+  tranche_id: "LATENTTIME-001"
+  chapter_ids:
+    - "ATLAS-CH-LATENTTIME-001"
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
-  branch: null
+  branch: "work/latenttime-247"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-LATENTTIME-001 from exact protected main c550463eb448e41c2493747a6ed6ad83e34b24dc. First bind audited RPO-001 (manuscript 0483a358aa486aab5ae213e05b5bbd23161e021d, source lock 9ad49c8e7950fa4e534c3083500fbdac288127a9, AUDIT-051 773b34624a7224c87cf908688e3a981c0ec8c618) and audited DYN-001 (manuscript f4aa89075f221529401e56a152a6cdfca3dcc47d, source lock 217d1e4e74c00c1d83a3e769d6437786197d4383, AUDIT-008 c6af8bae5e875b32b3955eb0f2232c0edfa76d7b, follow-up AUDIT-008A 525254a67510636cf39b0758c300c77a479de9a5). Source-lock only primary references genuinely needed for dynamic time warping, asynchronous/multimodal alignment, or latent-time inference. Define an exact finite witness where observed sequence index differs from latent temporal alignment plus an identity/no-warp control. Keep positional periodicity distinct from inferred time, alignment quality distinct from evidence for a true causal/physical clock, and combinatorial alignment distinct from continuous-time dynamics unless an explicit bridge is proved."
+  state: "tranche-instantiated"
+  next_action: "Bind audited RPO-001 and DYN-001 prerequisites. Add only Sakoe-Chiba 1978 and Zhou-De la Torre 2012 as new primary alignment sources. Freeze the exact DTW witness X=(0,1,2), Y=(0,0,1,2), squared local cost, endpoint/monotone steps {(1,0),(0,1),(1,1)}, unique zero-cost path ((1,1),(1,2),(2,3),(3,4)), plus identity/no-warp control X=Y=(0,1,2). Keep inferred alignment distinct from true physical/causal time and from exact continuous-time dynamics."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
