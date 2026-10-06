@@ -1,0 +1,103 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-COMPOSE-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_boundary_contracts_plus_audited_operator_splitting_plus_atlas_exact_composition_synthesis"
+claim_boundary: >
+  This chapter inherits only the audited Boundary Contracts and Split-Operator
+  Networks interfaces. Boundary Contracts supplies semantic/geometric/differential/
+  numerical obligation classes, Jacobian-chain composition, local sensitivity
+  bounds, conditioning discipline, separator sufficiency questions, and the
+  firewall between local evidence and global safety. Split-Operator Networks
+  supplies exact finite-dimensional order/noncommutativity results, product-order
+  versus chronological-order discipline, commuting controls, and the firewall
+  preventing classical splitting guarantees from transferring automatically to
+  learned blocks. The new COMPOSE material consists of Atlas-owned exact finite
+  witnesses and elementary triangle-inequality/operator-norm derivations showing
+  how individually valid local contracts can be insufficient for a system-level
+  composition obligation. No universal compositional-safety theorem, neural
+  convergence theorem, or contract calculus is claimed.
+
+hard_prerequisites:
+  - id: "COMPOSE-BCONTRACT-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-BCONTRACT-001.md"
+    git_blob_sha1: "a270c38cda7ff280e517bd1a09ed196bb48dc759"
+    authority: "Audited interface-contract, local-sensitivity, and local-to-global boundary substrate."
+  - id: "COMPOSE-BCONTRACT-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "sources/source-locks/ATLAS-CH-BCONTRACT-001.yaml"
+    git_blob_sha1: "80463b18216747650d3ff8e99d6da933173d4486"
+    authority: "Exact source and claim boundary for Boundary Contracts."
+  - id: "COMPOSE-BCONTRACT-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "reviews/AUDIT-003.md"
+    git_blob_sha1: "9723fcb3dfa0111829b98f1c9bb416a13dbd714e"
+    authority: "Joint keystone audit governing Boundary Contracts."
+  - id: "COMPOSE-SPLIT-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "manuscript/parts/04-neural-architectures/ATLAS-CH-SPLIT-001.md"
+    git_blob_sha1: "bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0"
+    authority: "Audited ordered-composition, commutator, exact-flow, and commuting-control substrate."
+  - id: "COMPOSE-SPLIT-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "sources/source-locks/ATLAS-CH-SPLIT-001.yaml"
+    git_blob_sha1: "afb84e2f3ebb941f320c52693b088b0eb078b8ce"
+    authority: "Exact source and claim boundary for Split-Operator Networks."
+  - id: "COMPOSE-SPLIT-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
+    path: "reviews/AUDIT-036.md"
+    git_blob_sha1: "5e093460550c15fe491ba3214b2f52d48076dc0a"
+    authority: "Post-draft audit governing Split-Operator Networks."
+
+inherited_external_authority:
+  - citation_key: "Higham2002"
+    inherited_via: "ATLAS-CH-BCONTRACT-001"
+    scope: "Conditioning, perturbation, numerical stability, and error-budget discipline."
+  - citation_key: "BaydinEtAl2018"
+    inherited_via: "ATLAS-CH-BCONTRACT-001"
+    scope: "JVP/VJP and derivative-program mechanics."
+  - citation_key: "McLachlanQuispel2002"
+    inherited_via: "ATLAS-CH-SPLIT-001"
+    scope: "Classical operator splitting, order, and commutators under stated assumptions."
+  - citation_key: "HairerLubichWanner2006"
+    inherited_via: "ATLAS-CH-SPLIT-001"
+    scope: "Composition/splitting and bounded structure-preservation semantics."
+
+new_external_sources: []
+
+exact_witness_contract:
+  system_gain_budget: "tau = 2"
+  failure_pair:
+    A: "diag(3/2, 2/3)"
+    B: "[[0, 3/2], [2/3, 0]]"
+    individual_norms: "||A||_2 = ||B||_2 = 3/2"
+    chronological_A_then_B: "BA = [[0,1],[1,0]], ||BA||_2 = 1"
+    chronological_B_then_A: "AB = [[0,9/4],[4/9,0]], ||AB||_2 = 9/4"
+    consequence: >
+      The same two locally valid components satisfy the system gain budget in
+      one chronological order and violate it in the reverse order. Product labels
+      remain right-to-left for column-vector action.
+  commuting_control:
+    Ac: "diag(3/2, 2/3)"
+    Bc: "diag(2/3, 3/2)"
+    individual_norms: "||Ac||_2 = ||Bc||_2 = 3/2"
+    commutator: "[Ac,Bc] = 0"
+    composition: "Ac Bc = Bc Ac = I"
+    consequence: "Both chronological orders have gain 1 and satisfy tau = 2."
+
+epistemic_rules:
+  - "Passing every component-local contract does not by itself establish a system-level contract unless the composition rule and budget are proved."
+  - "For column-vector states, chronological f then g is represented by the product J_g J_f; product-order labels must not be used as chronological prose."
+  - "A product bound ||J_g J_f|| <= ||J_g|| ||J_f|| is a valid local upper bound but can be loose."
+  - "A local Jacobian or finite-domain Lipschitz bound is not automatically a global nonlinear safety theorem."
+  - "Component error budgets compose only under an explicit connecting-domain assumption and a stated downstream Lipschitz/sensitivity bound."
+  - "Noncommutativity can make ordering decisive; commutativity removes order dependence only in the declared setting."
+  - "The exact finite witnesses do not imply that arbitrary learned neural modules have the same linear structure."
+  - "Compatibility must include semantics, domains, invariants, sensitivities, and numerical/error budgets; matching tensor shapes is insufficient."
+  - "A local certificate is evidence for its declared obligation and operating region, not a universal compositional certificate."
