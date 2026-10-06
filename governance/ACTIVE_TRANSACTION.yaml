@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 257
-  tranche_id: "NEURALKRYLOV-001"
-  chapter_ids:
-    - "ATLAS-CH-NEURALKRYLOV-001"
-  baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
-  branch: "audit/a257"
-  pull_request: 258
-  state: "audit-ci-green"
-  next_action: "Audit head eb5b1d10e72b33e393a15813740738628a97b380 passed GitHub Actions run 37548244047. Re-check PR #258 and protected main, then merge only this exact head."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-REGRETROUTE-001 from exact protected main 506d2642398330a27bc9b6e6c17ec38969b6f6a0. First bind audited ROUTERDYN-001 (manuscript 4c3c4b22d7f6a564b255a251ba646d11dbbc29a4, source lock 27aca5556b902c679132780e4f74ba8822420762, AUDIT-050 19a7e4bf2d0291380b195d2ad7cc0091922bcb8b). Source-lock only primary online-learning/bandit/regret references genuinely needed beyond ROUTERDYN. Define the routing action, comparator class, reward/loss timing, feedback, optionality, correction capacity, and nonstationarity assumptions explicitly. Build an exact finite witness separating churn from regret, and keep load balance, probability drift, specialization, regret, and downstream task loss as separate metrics."
 frontier:
-  - id: "ATLAS-CH-NEURALKRYLOV-001"
+  - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
