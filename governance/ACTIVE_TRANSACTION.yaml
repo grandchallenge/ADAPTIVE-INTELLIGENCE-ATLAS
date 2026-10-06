@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-RPO-001"]
   baseline_commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
   branch: "audit/rpo-205"
-  pull_request: null
-  state: "post-draft-audit"
-  next_action: "Audit ATLAS-CH-RPO-001 on branch audit/rpo-205 from exact implementation merge d43ac5950888c47028d9a5613838f8838ddcb173. Recheck prerequisite/source/provenance identities, replay the exact Fourier/DC witness, inspect operator-space and head-specialization boundaries and LATENTTIME handoff, then create and validate AUDIT-051."
+  pull_request: 206
+  state: "audit-validation"
+  next_action: "Validate exact AUDIT-051 head bf957e1eb76e95d875f853ddfe71facef73547fe on PR #206. If green, merge with exact-head lease; then run final validation on merged main, close issues #203/#205, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-RPO-001"
     downstream_architecture_count: 1
