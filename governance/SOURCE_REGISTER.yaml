@@ -432,3 +432,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-CONTEXTCOMP-001.yaml"
     authority: "Audited External-Memory Thesis plus Atlas-owned finite context-compilation formalism for freshness/version filtering, authorization, mandatory records, provenance-preserving atomic records, hard context budgets, deterministic selection, and serialization. No new external source authority."
+
+
+  - id: "ATLAS-SRC-CPS-LOCK-001"
+    title: "Coupling-Phase Spectroscopy source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-CPS-001.yaml"
+    authority: "Audited Optimizer-State Dynamics plus current public GSD-001 transition/CPS-artifact boundary and Atlas-owned exact finite spectroscopy/prediction protocol. Current GSD WP04 is externally artifact-blocked, not scientifically negative."
