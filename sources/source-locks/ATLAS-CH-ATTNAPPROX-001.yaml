@@ -1,0 +1,142 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-ATTNAPPROX-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_attention_and_krylov_prerequisites_plus_primary_attention_approximation_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited ATTNOP prerequisite supplies the separation among score matrix,
+  positive softmax kernel, normalized mixing operator, value field, and the full
+  state-dependent attention map. The audited KRYLOV prerequisite supplies
+  low-dimensional operator-action and projection language while explicitly
+  blocking transfer of classical iterative convergence guarantees to learned
+  attention. Performer/FAVOR+ is used as a primary random-feature approximation
+  source for the exponential softmax kernel; Linformer and Nystromformer are
+  used as primary low-rank/landmark approximation sources; Peters et al. is used
+  for alpha-entmax as a sparse alternative normalization family. The Atlas
+  compares these mechanisms only after declaring the approximation target and
+  error notion. Entmax is not treated as an unbiased or consistent estimator of
+  softmax merely because both map scores to the simplex.
+
+hard_prerequisites:
+  - id: "ATTNAPPROX-ATTNOP-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNOP-001.md"
+    git_blob_sha1: "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
+    authority: "Audited score/kernel/operator/value/full-map separation and standard attention notation."
+  - id: "ATTNAPPROX-ATTNOP-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "sources/source-locks/ATLAS-CH-ATTNOP-001.yaml"
+    git_blob_sha1: "4af4e53230776daaf0be825cffd1263957ed97c8"
+    authority: "Source and claim boundary for Attention as an Operator."
+  - id: "ATTNAPPROX-ATTNOP-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "reviews/AUDIT-002.md"
+    git_blob_sha1: "4671995f0cd7465a5df2bb60431244f482e5e3c9"
+    authority: "Audit record governing the attention-operator prerequisite."
+  - id: "ATTNAPPROX-KRYLOV-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-KRYLOV-001.md"
+    git_blob_sha1: "59e169723ca068bef817e7bc9e28727d03b45f6a"
+    authority: "Audited operator-generated subspace, projection, residual/error, and low-dimensional approximation substrate."
+  - id: "ATTNAPPROX-KRYLOV-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "sources/source-locks/ATLAS-CH-KRYLOV-001.yaml"
+    git_blob_sha1: "adbe97c750ed79d09462a5e867e5beb772ad72e2"
+    authority: "Source and claim boundary for Krylov Subspaces and Iterative Solves."
+  - id: "ATTNAPPROX-KRYLOV-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
+    path: "reviews/AUDIT-039.md"
+    git_blob_sha1: "03660b0dbd1d0604e943d0d09c7b52c6605b256c"
+    authority: "Audit record governing the iterative-subspace prerequisite."
+
+sources:
+  - id: "ATTNAPPROX-PERFORMER-2021"
+    citation_key: "ChoromanskiEtAl2021Performer"
+    kind: "peer-reviewed-conference"
+    title: "Rethinking Attention with Performers"
+    authors: "Krzysztof Choromanski; Valerii Likhosherstov; David Dohan; Xingyou Song; Andreea Gane; Tamas Sarlos; Peter Hawkins; Jared Davis; Afroz Mohiuddin; Lukasz Kaiser; David Belanger; Lucy Colwell; Adrian Weller"
+    venue: "International Conference on Learning Representations"
+    year: 2021
+    arxiv_id: "2009.14794"
+    url: "https://openreview.net/forum?id=Ua6zuk0WRH"
+    arxiv_url: "https://arxiv.org/abs/2009.14794"
+    authority: >
+      Primary source for Performer and FAVOR+, which approximates softmax
+      attention kernels using positive orthogonal random features and exploits
+      associativity for linear-in-sequence-length attention computation under
+      the declared feature dimension and implementation model.
+
+  - id: "ATTNAPPROX-LINFORMER-2020"
+    citation_key: "WangEtAl2020Linformer"
+    kind: "research-preprint"
+    title: "Linformer: Self-Attention with Linear Complexity"
+    authors: "Sinong Wang; Belinda Z. Li; Madian Khabsa; Han Fang; Hao Ma"
+    year: 2020
+    arxiv_id: "2006.04768"
+    url: "https://arxiv.org/abs/2006.04768"
+    authority: >
+      Primary source for a low-rank self-attention approximation that projects
+      keys and values along the sequence dimension. Used as a representative
+      learned low-dimensional projection mechanism, not as evidence that every
+      trained attention matrix has uniformly low rank.
+
+  - id: "ATTNAPPROX-NYSTROMFORMER-2021"
+    citation_key: "XiongEtAl2021Nystromformer"
+    kind: "peer-reviewed-conference"
+    title: "Nyströmformer: A Nyström-based Algorithm for Approximating Self-Attention"
+    authors: "Yunyang Xiong; Zhanpeng Zeng; Rudrasis Chakraborty; Mingxing Tan; Glenn Fung; Yin Li; Vikas Singh"
+    venue: "Proceedings of the AAAI Conference on Artificial Intelligence"
+    volume: 35
+    issue: 16
+    pages: "14138-14148"
+    year: 2021
+    doi: "10.1609/aaai.v35i16.17664"
+    url: "https://ojs.aaai.org/index.php/AAAI/article/view/17664"
+    authority: >
+      Primary source for landmark/Nystrom reconstruction of the softmax
+      self-attention matrix. Used as a representative structured matrix
+      approximation with a declared landmark budget.
+
+  - id: "ATTNAPPROX-ENTMAX-2019"
+    citation_key: "PetersNiculaeMartins2019Entmax"
+    kind: "peer-reviewed-conference"
+    title: "Sparse Sequence-to-Sequence Models"
+    authors: "Ben Peters; Vlad Niculae; André F. T. Martins"
+    venue: "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics"
+    pages: "1504-1519"
+    year: 2019
+    doi: "10.18653/v1/P19-1146"
+    url: "https://aclanthology.org/P19-1146/"
+    authority: >
+      Primary source for the alpha-entmax family, including softmax and sparsemax
+      as limiting/special cases and exact sparse probability mappings for alpha>1.
+      Used as an alternative normalization family, not as a random-feature or
+      low-rank approximation theorem.
+
+declared_targets:
+  - id: "kernel"
+    object: "K_ij = exp(q_i^T k_j / sqrt(d_k)) before row normalization"
+    default_error: "absolute or relative Frobenius error, with row-sum/positivity diagnostics"
+  - id: "operator"
+    object: "A = D(K)^(-1) K, including the declared mask/support convention"
+    default_error: "spectral or Frobenius norm of A_hat-A; row-stochastic/support defects reported separately"
+  - id: "output"
+    object: "Y = A V for a declared value field V"
+    default_error: "absolute Frobenius norm of (A_hat-A)V, optionally normalized only when ||AV||_F>0"
+
+epistemic_rules:
+  - "Kernel approximation error, normalized-operator error, and output error are distinct quantities."
+  - "For fixed V, ||(A_hat-A)V||_F <= ||A_hat-A||_2 ||V||_F; small output error for one V does not imply small operator error."
+  - "A kernel approximation must control row normalization/denominators before its error is promoted to a normalized-attention guarantee."
+  - "Positive random features, low-rank/landmark approximation, and sparse normalization are different structures and must not be collapsed into one 'efficient attention' mechanism."
+  - "Alpha-entmax with alpha>1 deliberately changes the score-to-simplex map and may create exact zeros; it is not automatically an approximation to softmax."
+  - "Exact sparsity of A does not by itself remove the cost of forming dense scores; computational savings depend on how support is generated and represented."
+  - "Low rank of an observed or approximated attention operator does not imply that the underlying score matrix, kernel matrix, or full state-dependent attention map has the same rank."
+  - "FAVOR+/random-feature guarantees are source- and assumption-scoped; they do not transfer by analogy to arbitrary learned feature maps."
+  - "Classical Krylov residual/convergence theorems do not transfer to low-rank or random-feature attention merely because both use reduced representations."
+  - "Masking, positional structure, finite precision, feature dimension, landmark count, and sequence length remain explicit when making complexity or accuracy claims."
