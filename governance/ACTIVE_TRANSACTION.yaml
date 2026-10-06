@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 227
+  tranche_id: "COMPINTEL-001"
+  chapter_ids:
+    - "ATLAS-CH-COMPINTEL-001"
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
-  branch: null
+  branch: "work/compintel-227"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-COMPINTEL-001 from exact protected main 21597e4f2bb7af5312dc9967417a60dc3d8dc0f5. First bind the audited COMPRESS-001 triple (manuscript e8db79df51b64cfd4d5ef6957d4d10313886b6f4, source lock 156cd6afe1a06b49d2761b54d32b586fe5d23cec, AUDIT-042 677efa90a2d606c0400b8e471465278d19857393) and the audited RESIDUAL-001 triple (manuscript 02b0886a87e1e17c749e15349e14f43674c3d1ff, source lock 6e6a25c4b4e01475e68a6c616eefb6ba7b039341, AUDIT-006 b24ef782bedfe76a4c52d832562a0dd29d2a64a9). Source-lock the minimum primary references for claims connecting compression to reusable computation, predictive structure, discovery, or intelligence, and define a falsifiable probe with controls against codec choice, regularization, memorization, and task-specific distortion before drafting."
+  state: "tranche-instantiated"
+  next_action: "Bind exact audited COMPRESS-001 and RESIDUAL-001 prerequisite triples. Then source-lock minimal primary references for compression as predictive-structure/discovery probe and define a falsifiable held-out probe with codec, random-label, shuffled-structure/memorization, regularization, and task-distortion controls before drafting."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
