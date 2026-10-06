@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 219
+  issue_number: 221
   tranche_id: "ADAPTDEPTH-001"
   chapter_ids: ["ATLAS-CH-ADAPTDEPTH-001"]
-  baseline_commit: "e8129376ef673822ed6b43775a0d2439b88c47fb"
-  branch: "work/adaptdepth-219"
-  pull_request: 220
-  state: "implementation-validation"
-  next_action: "Validate exact implementation head 43ec942015e5e6ce0f7e50875500117f880e2c48 on PR #220. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
+  baseline_commit: "e4ead968c9c38bc4c99f40ef154437adbfe58200"
+  branch: "audit/adaptdepth-221"
+  pull_request: null
+  state: "post-draft-audit"
+  next_action: "Audit ATLAS-CH-ADAPTDEPTH-001 from exact implementation merge e4ead968c9c38bc4c99f40ef154437adbfe58200. Recheck DEPTH/NETNUM prerequisite identities, source scope, Euler/Heun arithmetic, local/global error boundary, halting-score calibration counterexample, budget semantics, and absence of unjustified neural/numerical equivalences. Repair any in-scope defect, then create and validate AUDIT-055."
 frontier:
   - id: "ATLAS-CH-ADAPTDEPTH-001"
     downstream_architecture_count: 0
