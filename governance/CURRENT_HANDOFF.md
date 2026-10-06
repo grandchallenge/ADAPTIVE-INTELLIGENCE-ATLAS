@@ -1,8 +1,8 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
-**Date:** 2026-10-05  
+**Date:** 2026-10-06  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`  
-**Current main:** `b4e3d2e12841a2185bd66c04b0ef79244922fbbd`
+**Current main:** `db2b19c4730a938babe9a2734eb40f898ee9913e`
 
 ## Restart rule
 
@@ -15,77 +15,79 @@
 ## Current state
 
 - state: `idle-ready`
-- next target: `ATLAS-CH-TOKEN-001` — **Tokenization and Representation Boundaries**
-- direct consumer: `ATLAS-CH-TOKENCOMP-001`
+- next target: `ATLAS-CH-TRANSPORT-001` — **Representation as Transport**
+- direct consumer: `ATLAS-CH-NEURALKRYLOV-001`
 - downstream architecture count: 1
+
+Atlas contract:
+
+> Synthesize geometry, residual computation, and constrained motion into a transport view of representation updates.
 
 Hard prerequisites on exact current main:
 
-- `ATLAS-CH-INFO-001`
-  - manuscript: `0fca10cbc7476c5b729ee15dfad0dec563665821`
-  - source lock: `ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c`
-  - `AUDIT-004`: `948f76b3f86d27fa4830efc30d8ef0135134256e`
-- `ATLAS-CH-REP-001`
-  - manuscript: `6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb`
-  - source lock: `dfe9176c458a56ca5cda5f258c440aea52f9b9fa`
-  - `AUDIT-004`: `948f76b3f86d27fa4830efc30d8ef0135134256e`
+### `ATLAS-CH-NORMREP-001`
 
-TOKEN contract:
+- manuscript: `1500987b384fb931bbd01879756c08b42ebcff28`
+- source lock: `58b8331e56f5c9859e72be5c58f283706b5c436e`
+- `AUDIT-005`: `11f45d9edf309cf55d9c4b0582ca88cd25c02c4d`
 
-> Develop bytes, characters, subwords, BPE, unigram methods, morphology, fertility, and multilingual effects.
+Inherited boundary: normalization declares radial invariance and supplies sphere/tangent/retraction geometry, but norm erasure is not automatically harmless and hyperspherical empirical claims remain source-scoped.
 
-## Completed transaction — RPO-001
+### `ATLAS-CH-SPLIT-001`
 
-- implementation issue #203; PR #204
-- exact green implementation head: `481a814e2690940979f09de8b150aa18256c7162`
-- implementation merge: `d43ac5950888c47028d9a5613838f8838ddcb173`
-- audit: `AUDIT-051`; issue #205; PR #206
-- exact green audit head: `bf957e1eb76e95d875f853ddfe71facef73547fe`
-- audit merge/current main: `b4e3d2e12841a2185bd66c04b0ef79244922fbbd`
-- disposition: **PASS — NO REPAIR**
-- final main validation: green
+- manuscript: `bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0`
+- source lock: `afb84e2f3ebb941f320c52693b088b0eb078b8ce`
+- `AUDIT-036`: `5e093460550c15fe491ba3214b2f52d48076dc0a`
 
-Durable RPO substrate:
+Inherited boundary: staged composition may support a transport interpretation only after effective submaps and execution order are declared. Generic learned residual maps are not automatically exact flows; layer-varying operators require a nonautonomous reading.
 
-- feature-space RoPE frequencies and sequence-index Fourier modes are distinct objects;
-- cyclic relative-position kernels diagonalize exactly in the sequence Fourier basis;
-- the DC component is the zero-frequency sequence mode, not an absolute position embedding;
-- low-dimensional mode truncation has exact Frobenius and operator-norm errors on the cyclic normal operator;
-- head-specific positional-mode profiles diagnose where relative-position operator energy lies;
-- positional-mode specialization is not semantic or causal specialization;
-- a relative-position bias operator is not the full content-dependent attention operator.
+## Immediately completed transaction — TOKEN-001
 
-Exact two-head witness:
+- implementation issue: #207
+- implementation PR: #208
+- exact green implementation head: `4fc0bedf5ccf21aec4fe390d1531eb0a26aa5f58`
+- implementation merge: `d51ad8b0bd05d7457a635c71325b129cdc0ef866`
+- post-draft audit: `AUDIT-052`
+- audit issue: #209
+- audit PR: #210
+- exact green audit head: `9aab4bcf97051c28095645162fe5a478db166111`
+- audit merge/current main: `db2b19c4730a938babe9a2734eb40f898ee9913e`
+- audit disposition: **PASS — NO REPAIR**
+- final canonical validation on current main: green
 
-- head A eigenvalues: `(2,1,0,1)`;
-- head B eigenvalues: `(0,1,2,1)`;
-- both unordered singular-value multisets: `(2,1,1,0)`;
-- head A mode energy: `(2/3,1/6,0,1/6)`;
-- head B mode energy: `(0,1/6,2/3,1/6)`;
-- DC-only Frobenius errors: `sqrt(2)` versus `sqrt(6)`.
+Durable TOKEN substrate:
 
-Load-bearing boundary:
+- bytes, codepoints, grapheme-like characters, words, subwords, token IDs, and embeddings are distinct representation levels;
+- token count is not entropy or model-based description length;
+- BPE and unigram segmentation are different algorithms and a vocabulary alone need not specify a tokenizer;
+- deterministic and stochastic segmentation are distinct inference rules;
+- fertility is corpus/reference-segmentation dependent and is not language complexity;
+- morphology alignment is a declared diagnostic, not a model-quality theorem;
+- multilingual tokenizer adequacy is multi-factor and corpus-scoped;
+- token IDs/embeddings are representations, not semantics.
 
-[
-	ext{same singular values}
+Exact witnesses:
 
-otRightarrow
-	ext{same labeled positional-frequency structure}.
-]
+- NFC `é`: 1 codepoint, 2 UTF-8 bytes;
+- decomposed `e` + combining acute: 2 codepoints, 3 UTF-8 bytes;
+- `abab` unigram segmentation probabilities: `(64/81, 8/81, 8/81, 1/81)`;
+- two-token declared code length: 8 bits; three-token declared code length: 3 bits;
+- toy fertility: 2.5 versus 1.0.
 
-## Recomputed frontier
+## Recomputed dependency-legal frontier
 
 Count-1 candidates:
 
-- `ATLAS-CH-TOKEN-001`
 - `ATLAS-CH-TRANSPORT-001`
 - `ATLAS-CH-UNCERTAINTY-001`
 
-Deterministic ID ordering selects `ATLAS-CH-TOKEN-001`.
+Deterministic ID ordering selects `ATLAS-CH-TRANSPORT-001`.
 
 Newly dependency-legal at count 0:
 
-- `ATLAS-CH-LATENTTIME-001`
+- `ATLAS-CH-TOKENCOMP-001`
+
+Other previously legal count-0 chapters remain available but do not outrank the count-1 frontier.
 
 ## Legitimate stop conditions
 
