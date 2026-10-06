@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 235
+  issue_number: 237
   tranche_id: "CONTEXTCOMP-001"
   chapter_ids:
     - "ATLAS-CH-CONTEXTCOMP-001"
   baseline_commit: "b00d6020b809145a99689418db13ff6d6561a659"
-  branch: "work/contextcomp-235"
-  pull_request: 236
-  state: "implementation-merged"
-  next_action: "Implementation PR #236 merged from exact validated head 793017b4b72762fc5b7af62bf8d58e9e4cacc3a2 to protected main cf7221aec2909516dbf02ba2ec580fb2a8316b7d. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit prerequisite identity, source scope, compiler-stage separation, freshness/authorization/mandatory semantics, exact budget-8 witness, rank-prefix control, mandatory-overflow proof, provenance atomicity, replay code, receipt provenance, and repository integrity; repair any in-scope defect before audit merge."
+  branch: "audit/a237"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-059 is instantiated as issue #237 on audit/a237 from exact protected implementation merge cf7221aec2909516dbf02ba2ec580fb2a8316b7d. Independently audit exact EXTMEM prerequisite identity, source scope, stage separation, authorization/freshness/mandatory semantics, finite selection objective and tie-break, budget-8 witness, rank-prefix control, mandatory-overflow proof, provenance atomicity, replay code, receipt provenance, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
 frontier:
   - id: "ATLAS-CH-CONTEXTCOMP-001"
     downstream_architecture_count: 0
