@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited KRYLOV-001 and TRANSPORT-001. Source-lock the decision to add no new external source unless drafting exposes a genuine gap. Freeze the exact left-preconditioned witness A=diag(1,4), b=(1,1), M=diag(1,2), B=M^{-1}A=diag(1,2), c=M^{-1}b=(1,1/2); best K1 transformed-residual solution alpha=3/4; K2=R^2 exact. Include B_bad=diag(1,10), c_bad=(1,1) with best K1 residual squared 81/101, plus readout w=(1,2) exact at the nonzero-residual one-step positive witness. Keep linear/local/global/task claims separate."
+  state: "source-lock-complete"
+  next_action: "NEURALKRYLOV source lock is complete on work/neuralkrylov-255 with no new external source. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen fixed-left-preconditioned positive witness, B_bad low-dimension failure control, and exact readout metric firewall. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
