@@ -551,8 +551,14 @@
         "ATLAS-CH-DEPTH-001",
         "ATLAS-CH-NETNUM-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-ADAPTDEPTH-001.md",
+      "manuscript_path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-ADAPTDEPTH-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-ADAPTDEPTH-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-ADAPTDEPTH-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-ADAPTDEPTH-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-NEURALKRYLOV-001",
