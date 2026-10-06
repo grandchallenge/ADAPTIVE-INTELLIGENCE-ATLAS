@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 223
+  tranche_id: "ATTNAPPROX-001"
+  chapter_ids:
+    - "ATLAS-CH-ATTNAPPROX-001"
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
-  branch: null
+  branch: "work/attnapprox-223"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate the next dependency-legal chapter transaction for ATLAS-CH-ATTNAPPROX-001 from exact baseline 01e72c6c33a411d83f10913d7e8db0dd5305dfbd. Bind audited ATLAS-CH-ATTNOP-001 / AUDIT-002 and ATLAS-CH-KRYLOV-001 / AUDIT-039 before drafting. Source-lock the minimum primary references for FAVOR+/random-feature attention, structured/low-rank approximation, and sparse alternatives such as entmax; define the approximation target and error notion before comparing methods. Do not reuse stale chat state."
+  state: "tranche-instantiated"
+  next_action: "Bind the exact audited ATLAS-CH-ATTNOP-001 / AUDIT-002 and ATLAS-CH-KRYLOV-001 / AUDIT-039 prerequisites on baseline 01e72c6c33a411d83f10913d7e8db0dd5305dfbd. Source-lock the minimum primary references for Performer/FAVOR+ random-feature attention, structured or low-rank approximation, and sparse alternatives such as entmax. Define the approximation target and error notion before drafting. Then write the specification, derivation packet, computational witness, reader manuscript, provenance updates, transaction receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
