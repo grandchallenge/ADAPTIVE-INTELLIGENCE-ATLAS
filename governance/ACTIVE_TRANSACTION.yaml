@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-JOINTUNC-001"
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
   branch: "work/jointunc-243"
-  pull_request: null
-  state: "local-validation-green"
-  next_action: "Validated exact head 1ad4320b548aa08434f8940b88d0c3e9d016add7. Re-check protected main against baseline, then open the implementation PR only if compatible."
+  pull_request: 244
+  state: "pr-open"
+  next_action: "PR #244 is open from exact head 1ad4320b548aa08434f8940b88d0c3e9d016add7. Require exact-head Actions success before merge."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
