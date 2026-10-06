@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-CPS-001"
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
   branch: "work/cps-239"
-  pull_request: null
-  state: "local-validation-green"
-  next_action: "Exact work head c2a6330cdc68d741ccc7c12477113e253d13a90d passes canonical repository validation and independent exact witness replay. Re-fetch protected main and compare against baseline 0ca38f5d7129db6209b2f245c14a27148df09608. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
+  pull_request: 240
+  state: "pr-open"
+  next_action: "Implementation PR #240 is open from exact head c2a6330cdc68d741ccc7c12477113e253d13a90d. Require exact-head GitHub Actions validation. Repair and replay any failure. Merge only if the PR head remains exact and protected main remains compatible, then validate/read back the merge and instantiate the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
