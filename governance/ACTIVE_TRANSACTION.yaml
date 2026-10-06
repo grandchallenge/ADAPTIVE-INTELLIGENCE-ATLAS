@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-ROUTERDYN-001"]
   baseline_commit: "2c55d450c27f7411a168eedce17753885a592eb6"
   branch: "work/routerdyn-199"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited ATLAS-CH-MOE-001 / AUDIT-033 and ATLAS-CH-OPTDYN-001 / AUDIT-002 at exact baseline 2c55d450c27f7411a168eedce17753885a592eb6; source-lock primary router-stability/specialization precedents; then draft temporal-router diagnostics and exact finite witnesses."
+  pull_request: 200
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 3c3f22044102f10386e5d3bc850ac2bc32b6c709 on PR #200. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-ROUTERDYN-001"
     downstream_architecture_count: 1
