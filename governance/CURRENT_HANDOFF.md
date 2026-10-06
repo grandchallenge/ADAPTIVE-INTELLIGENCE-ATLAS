@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** c6b690725a0c89dd1746015d3e688c50553e0f28
+**Current main:** c550463eb448e41c2493747a6ed6ad83e34b24dc
 
 ## Restart rule
 
@@ -15,116 +15,100 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-JOINTUNC-001 — **Joint Uncertainty Propagation**
+- next target: ATLAS-CH-LATENTTIME-001 — **Latent Clocks**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Treat transition, reward, observation, and future-value uncertainty jointly rather than by naive independent summation.
+> Treat time as an inferred variable using dynamic time warping, multimodal alignment, and asynchronous sequence structure.
 
-Hard prerequisites on exact current main:
+## Hard prerequisites on exact current main
 
-### ATLAS-CH-RLBASE-001
+### ATLAS-CH-RPO-001
 
-- manuscript: a99f78b788b97bc1bb3346ca1f1b97802c0f84db
-- source lock: b29ecea9134227cb5ce3fcd7cc47303a90bd6699
-- AUDIT-017: 8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc
-
-Inherited boundary:
-
-- state, action, transition kernel, reward, policy, return, value, and model are distinct objects;
-- value is expected future return under declared conditions, not calibrated uncertainty;
-- an exact Bellman identity is distinct from an approximate learned value/model;
-- optimality is relative to the declared MDP/reward/discount/observation problem;
-- partial observability can require information state/belief state;
-- transition-model, reward-model, observation-model, and future-value errors can interact;
-- RLBASE explicitly does not solve their joint propagation;
-- JOINTUNC may inherit the controlled stochastic substrate but must add a genuinely joint treatment rather than mechanical addition of independent error bars.
-
-### ATLAS-CH-INFO-001
-
-- manuscript: 0fca10cbc7476c5b729ee15dfad0dec563665821
-- source lock: ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c
-- AUDIT-004: 948f76b3f86d27fa4830efc30d8ef0135134256e
+- manuscript: 0483a358aa486aab5ae213e05b5bbd23161e021d
+- source lock: 9ad49c8e7950fa4e534c3083500fbdac288127a9
+- AUDIT-051: 773b34624a7224c87cf908688e3a981c0ec8c618
 
 Inherited boundary:
 
-- information and uncertainty quantities are defined only relative to a declared probability model;
-- joint and conditional distributions must remain explicit;
-- entropy, conditional entropy, mutual information, and KL divergence have distinct semantics;
-- mutual information is statistical dependence, not causal direction;
-- equal aggregate information summaries need not imply equal distributions, geometry, robustness, or causal role;
-- concentration bounds retain their assumptions;
-- sufficiency is relative to a declared statistical family/problem.
+- observed sequence position and latent time are distinct objects;
+- relative-position operators act on explicitly declared spaces;
+- RoPE feature-space frequencies and sequence-index Fourier frequencies must not be conflated;
+- LATENTTIME may inherit relative-offset operators, Fourier/DC decomposition, truncation errors, head-specific positional-mode profiles, and the exact finite RPO witness;
+- RPO does not pre-claim latent temporal coordinates, asynchronous alignment, dynamic time warping, or the mapping from observed sequence offset to inferred time.
 
-Before drafting JOINTUNC:
+### ATLAS-CH-DYN-001
 
-1. bind the exact audited RLBASE and INFO triples above;
-2. source-lock only additional primary references genuinely needed for joint uncertainty propagation beyond those prerequisites;
-3. define at least one exact finite witness where covariance/dependence changes the propagated uncertainty relative to naive independent summation;
-4. define the decision-specific propagation object explicitly—e.g. coupled uncertainty in transition, reward, observation, and future value—rather than collapsing everything into one generic variance scalar;
-5. include an independence control where the covariance terms vanish;
-6. keep predictive/statistical dependence distinct from causal attribution;
-7. state when linearized/error-propagation formulas are local approximations rather than exact global decision-system guarantees.
+- manuscript: f4aa89075f221529401e56a152a6cdfca3dcc47d
+- source lock: 217d1e4e74c00c1d83a3e769d6437786197d4383
+- AUDIT-008: c6af8bae5e875b32b3955eb0f2232c0edfa76d7b
+- tightening follow-up AUDIT-008A: 525254a67510636cf39b0758c300c77a479de9a5
 
-## Immediately completed transaction — CPS-001
+Inherited boundary:
 
-- implementation issue: #239 — closed completed
-- implementation PR: #240
-- exact green implementation head: c2a6330cdc68d741ccc7c12477113e253d13a90d
-- implementation GitHub Actions run: 37533936696 — success
-- implementation merge: 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c
-- post-draft audit: AUDIT-060
-- audit issue: #241 — closed completed
-- audit PR: #242
-- exact green audit head: fbbc4502c833c80e22cf135082b3147d2bf96a23
-- audit GitHub Actions run: 37534286657 — success
-- audit merge/current main: c6b690725a0c89dd1746015d3e688c50553e0f28
-- audit record blob: 1be483be1f3768bd6921769b5e31bf9c2e7e7106
+- state, vector field, trajectory, flow, and discrete update are distinct;
+- a sampled sequence is not automatically an exact continuous-time flow;
+- linearization is local and requires explicit regularity/hyperbolicity assumptions for the stated conclusions;
+- nonhyperbolic points require more than first-order spectral reasoning;
+- continuous-time dynamics and numerical/discrete approximations remain separate objects.
+
+## Before drafting LATENTTIME
+
+1. bind the exact audited RPO and Dynamics artifacts above;
+2. source-lock only the primary references actually needed for dynamic time warping, asynchronous/multimodal alignment, or latent-time inference;
+3. define at least one exact finite alignment witness where observed sequence index differs from latent temporal alignment;
+4. include an identity/no-warp control where observed index and latent time coincide;
+5. state the admissible warping/path constraints and the cost/objective being minimized;
+6. keep alignment quality distinct from proof of a true physical or causal clock;
+7. keep periodic positional structure distinct from inferred latent time;
+8. state when alignment is combinatorial/discrete versus when a continuous-time interpretation is justified.
+
+## Immediately completed transaction — JOINTUNC-001
+
+- implementation issue: #243 — closed completed
+- implementation PR: #244
+- exact green implementation head: 1ad4320b548aa08434f8940b88d0c3e9d016add7
+- implementation GitHub Actions run: 37536081988 — success
+- implementation merge: a204fb495994607bd688193210242b9a32d06ce5
+- post-draft audit: AUDIT-061
+- audit issue: #245 — closed completed
+- audit PR: #246
+- exact green audit head: ec9983fd3ac3a3f82823acd5a3b945e125725820
+- audit GitHub Actions run: 37536554335 — success
+- audit merge/current main: c550463eb448e41c2493747a6ed6ad83e34b24dc
+- audit record blob: 9ff528d66a43f574568fd82549e24f5ed0acae31
 - audit disposition: **PASS — NO REPAIR**
 - final canonical Linux validation on current main: green
 
-Final CPS artifacts:
+Final JOINTUNC artifacts:
 
-- specification: 05d1d186cce4f911790f8cd0a9bb25556bc56484
-- derivation packet: 1ced647197f9af6567736e5edbccfefd7f200d5e
-- computational witness: aafd136691e45b675ea05dc268f15f86302ba625
-- reader manuscript: c07337d1bdf013ad5ac5a2caa69c4efbb45eea50
-- source lock: 372dd928a77cf30e2e9b903239e4a49a5d479b79
-- Chapter Ledger: dcc92835850f1f4fd33ba598e94097c6be55dc1a
-- Source Register: 546eba7a627a71af4d27430e16c379457aa15ead
-- transaction receipt: be766d28d50a22036a2f9ed780f60811b34d116b
+- specification: 0b09fc62d7eacea48c9c0ab0d71971011421d595
+- derivation packet: e3aeae34aa3e03f663f1492fe3a9d4d0950c8be2
+- computational witness: e3562d3029924cc349aa73bea3b191bfaaef47ba
+- reader manuscript: 8d9072371a5d0e168903e04feb232bde93a55447
+- source lock: 07e57b2c523baa4297c7cddb6fbf3e1a95cc1c36
+- Chapter Ledger: c474886129e0bfb4ae0513bf67ef10cb0b77b3c4
+- Source Register: 3f97ca6badf30361bbbab282b55f4aff8eaf8225
+- transaction receipt: 5edfe19896d6ea1aeefa0e399e1b25eb8e3daed6
 
-Durable CPS substrate:
+Durable JOINTUNC substrate:
 
-- optimizer/model state is treated as an augmented dynamical state;
-- behavioral transition target, local diagnostic, retrospective alignment, heldout prediction, and causal optimizer mechanism are separate evidence objects;
-- current public GSD state was refreshed on 2026-10-06 rather than inheriting the stale 2026-10-02 source gap;
-- GSD-001 currently contains GSD-WP04 — CPS transition-local dynamics;
-- GSD-WP03R establishes one confirmed OLMo2-1B behavioral transition under the frozen protocol;
-- the exact public step-2000/3000/4000 revisions lack optimizer/trainer/scheduler/gradient/update-direction artifacts;
-- GSD-WP04 is therefore BLOCKED_EXTERNAL_ARTIFACT_ABSENT, explicitly not NO_SIGNAL;
-- for the exact toy momentum family with eta=1/10, beta=9/10:
-  - J(h)=[[1-h/10,-9/100],[h,9/10]];
-  - det J(h)=9/10;
-  - tr J(h)=19/10-h/10;
-  - kappa(J)=1+det J-tr J=h/10;
-- discovery windows h=2,8 freeze tau=1/2;
-- heldout toy windows h=3,7 are classified exactly as (0,1);
-- all four toy matrices have identical spectral radius sqrt(9/10), so spectral radius alone is provably blind to the toy separation;
-- retrospective alignment does not imply heldout prediction;
-- heldout prediction does not imply causal mechanism;
-- one confirmed 1B transition does not imply scale-general CPS prediction.
-
-Current public GSD project sources bound in CPS:
-
-- grandchallenge/GSD commit: ebd4681e1815a3d7f0285cc4ce2bc090b38fae8c
-- research programme blob: 6a898efbdbe23eb6e947cd1c12f4a4b8fcee631f
-- work-package index blob: c7af5b65f6496ff4a3c8533f4bb6ee8721467385
-- campaign state blob: bc5ef87989fbeb094b0ffe5b348d06fe409397dc
-- WP03R transition receipt blob: 01acb64e536f13bd689d20a74608a7170900d0e3
-- WP04 artifact-block receipt blob: 9e999395fd14d1e8ac1b0ea5a209a1da66abab06
+- transition, reward, observation, and future-value uncertainties remain distinct before composition;
+- for affine delta=a^T epsilon, Var(delta)=a^T Sigma a exactly;
+- the covariance correction is part of the exact propagated variance;
+- with a=[1,1,1,1/2] and unit marginal variances, diagonal-only propagation gives 13/4;
+- positive common shock (U,U,U,W) gives 37/4, correction +6;
+- cancellation common shock (U,U,-U,W) gives 5/4, correction -2;
+- the independence control gives 13/4 exactly;
+- all three regimes have identical marginal variances [1,1,1,1];
+- zero covariance is sufficient for the variance cross terms to vanish but does not imply independence;
+- propagated uncertainty is relative to the declared decision functional;
+- for nonlinear F, grad F^T Sigma grad F is only the first-order term unless Taylor-remainder contributions are controlled;
+- statistical dependence does not imply causal direction;
+- expected value and uncertainty remain distinct;
+- variance is not a complete risk distribution.
 
 ## Recomputed dependency-legal frontier
 
@@ -132,11 +116,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering selects:
 
-- ATLAS-CH-JOINTUNC-001
-
-Other dependency-legal count-0 chapters remain available:
-
 - ATLAS-CH-LATENTTIME-001
+
+Other dependency-legal count-0 chapters remain:
+
 - ATLAS-CH-MINCURR-001
 - ATLAS-CH-NEURALKRYLOV-001
 - ATLAS-CH-REGRETROUTE-001
