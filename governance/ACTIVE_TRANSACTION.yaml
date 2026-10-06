@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-COMPOSE-001"
   baseline_commit: "eab85ed47695e1c3ae19f69e85b194c48a576a31"
   branch: "audit/a233"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-058 is instantiated as issue #233 on audit/a233 from exact protected implementation merge 57542068df60818d05c14b01f1aa2607ca619232. Independently audit exact prerequisite identities, inherited source scope, chronological/product-order discipline, exact gain and commuting witnesses, local error-propagation derivation, certificate hierarchy, transaction-receipt provenance, citation integrity, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
+  pull_request: 234
+  state: "audit-pr-open"
+  next_action: "Audit PR #234 is open from exact head 4247a9ac7f2be714988d026c3d30dbb77bdfbdb8 after the receipt provenance repair. Require exact-head GitHub Actions success, then merge only if the head remains exact and protected main remains the audited implementation merge. After merge, validate final main, close issues, recompute frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-COMPOSE-001"
     downstream_architecture_count: 0
