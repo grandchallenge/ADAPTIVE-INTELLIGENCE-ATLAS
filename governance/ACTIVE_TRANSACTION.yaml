@@ -11,8 +11,8 @@ current:
   baseline_commit: "01e72c6c33a411d83f10913d7e8db0dd5305dfbd"
   branch: "work/attnapprox-223"
   pull_request: 224
-  state: "pr-open"
-  next_action: "Require exact-head GitHub Actions validation on implementation head 35844412e9189172fb8d7262c644ea34aecdee08. Inspect and repair any failed check, replay canonical Linux validation after every head change, and merge PR #224 only from the fresh validated exact head with protected main still compatible. Then read back protected main and instantiate the mandatory post-draft audit."
+  state: "ci-green"
+  next_action: "Exact implementation head 35844412e9189172fb8d7262c644ea34aecdee08 has green canonical Linux validation, green independent exact witness replay, and green GitHub Actions run 37461213741. Re-fetch protected main and PR #224 immediately before merge; merge only if the PR head is unchanged, mergeable, and main remains compatible. Read back protected main, checkpoint the implementation merge, then instantiate the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-ATTNAPPROX-001"
     downstream_architecture_count: 0
