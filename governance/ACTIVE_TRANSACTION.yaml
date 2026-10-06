@@ -11,8 +11,8 @@ current:
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "audit/a249"
   pull_request: 250
-  state: "audit-pr-open"
-  next_action: "AUDIT-062 is on PR #250 from exact audit head ede37df020d644a269565aa94b2cdf4442800b70. Require exact-head Actions success before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head ede37df020d644a269565aa94b2cdf4442800b70 passed Actions run 37542683362. Re-check PR #250 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
