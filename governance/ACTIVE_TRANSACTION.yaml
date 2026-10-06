@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-CPS-001"
   baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
   branch: "audit/a241"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-060 is instantiated as issue #241 on audit/a241 from exact protected implementation merge 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Independently audit exact OPTDYN prerequisite identity, refreshed GSD project-source identities and claim scope, exact J(h) algebra, equal-spectral-radius control, discovery/freeze/heldout protocol, GSD artifact-block disposition, descriptive/predictive/causal firewalls, transaction-receipt provenance, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
+  pull_request: 242
+  state: "audit-pr-open"
+  next_action: "AUDIT-060 disposition PASS — NO REPAIR is on PR #242 from exact audit head fbbc4502c833c80e22cf135082b3147d2bf96a23. Canonical validation and independent exact witness replay are green. Require exact-head GitHub Actions validation; repair/replay any failure. Merge PR #242 only if the head is unchanged and protected main remains 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Then validate/read back final main, close issues #239/#241, recompute dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-CPS-001"
     downstream_architecture_count: 0
