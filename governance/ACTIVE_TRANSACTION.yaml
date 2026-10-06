@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-ADAPTDEPTH-001"]
   baseline_commit: "e4ead968c9c38bc4c99f40ef154437adbfe58200"
   branch: "audit/adaptdepth-221"
-  pull_request: null
-  state: "post-draft-audit"
-  next_action: "Audit ATLAS-CH-ADAPTDEPTH-001 from exact implementation merge e4ead968c9c38bc4c99f40ef154437adbfe58200. Recheck DEPTH/NETNUM prerequisite identities, source scope, Euler/Heun arithmetic, local/global error boundary, halting-score calibration counterexample, budget semantics, and absence of unjustified neural/numerical equivalences. Repair any in-scope defect, then create and validate AUDIT-055."
+  pull_request: 222
+  state: "audit-validation"
+  next_action: "Validate exact AUDIT-055 head 1e667e080fa6d878bd863607eaa4db0733a41ead on PR #222. If green, merge with exact-head lease; then validate merged main, close issues #219/#221, recompute the dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-ADAPTDEPTH-001"
     downstream_architecture_count: 0
