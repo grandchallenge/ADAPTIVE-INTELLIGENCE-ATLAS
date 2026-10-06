@@ -11,8 +11,8 @@ current:
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
   branch: "work/jointunc-243"
   pull_request: 244
-  state: "pr-open"
-  next_action: "PR #244 is open from exact head 1ad4320b548aa08434f8940b88d0c3e9d016add7. Require exact-head Actions success before merge."
+  state: "ci-green"
+  next_action: "Exact JOINTUNC head 1ad4320b548aa08434f8940b88d0c3e9d016add7 passed Actions run 37536081988. Re-check PR #244 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
