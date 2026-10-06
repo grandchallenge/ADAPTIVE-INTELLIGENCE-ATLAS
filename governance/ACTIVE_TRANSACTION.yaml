@@ -11,8 +11,8 @@ current:
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
   branch: "audit/a253"
   pull_request: 254
-  state: "audit-pr-open"
-  next_action: "AUDIT-063 is on PR #254 from exact audit head 9d01bcfc92e81d9ec9062572b952e2303e56aa3d. Require exact-head GitHub Actions success before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head 9d01bcfc92e81d9ec9062572b952e2303e56aa3d passed GitHub Actions run 37545076163. Re-check PR #254 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
