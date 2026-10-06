@@ -11,8 +11,8 @@ current:
   baseline_commit: "506d2642398330a27bc9b6e6c17ec38969b6f6a0"
   branch: "work/regretroute-259"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited ROUTERDYN-001. Add only Auer-Cesa-Bianchi-Freund-Schapire 2002 for adversarial bandit regret/partial feedback and Herbster-Warmuth 1998 for shifting-expert comparator sequences. Freeze the exact four-round churn/regret witness under one common loss sequence and one comparator class, plus explicit preferred-route/accepted-dispatch, feedback, optionality, correction-capacity, and capacity/overflow semantics."
+  state: "source-lock-complete"
+  next_action: "REGRETROUTE source lock, bibliography entries, and Source Register entry are complete on work/regretroute-259. Draft specification, derivation packet, exact computational witness, and reader manuscript from the frozen accepted-dispatch action model, shifting-comparator regret, common four-round churn/regret witness, optionality, correction-capacity, and capacity/overflow semantics. Then promote the Chapter Ledger, write the transaction receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-REGRETROUTE-001"
     downstream_architecture_count: 0
