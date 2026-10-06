@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-05  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`  
-**Current main:** `addcbd4bb160f1501601983462fcfe2ef5b8eccf`
+**Current main:** `b4e3d2e12841a2185bd66c04b0ef79244922fbbd`
 
 ## Restart rule
 
@@ -15,68 +15,77 @@
 ## Current state
 
 - state: `idle-ready`
-- next target: `ATLAS-CH-RPO-001` — **Relative-Position Operators**
-- direct consumer: `ATLAS-CH-LATENTTIME-001`
+- next target: `ATLAS-CH-TOKEN-001` — **Tokenization and Representation Boundaries**
+- direct consumer: `ATLAS-CH-TOKENCOMP-001`
 - downstream architecture count: 1
 
 Hard prerequisites on exact current main:
 
-- `ATLAS-CH-POSGEOM-001`
-  - manuscript: `841bc96c696e58fb7914c851c7c13f2e5d076b53`
-  - source lock: `a94a592d68a5f6ddadf450127dde0e261acf429f`
-  - `AUDIT-040`: `6c33d4994d683e953a70813ed422e8d887b67a02`
-- `ATLAS-CH-LINALG-001`
-  - manuscript: `e7fcf56322f26d232d3a3043038d9850792b4bde`
-  - source lock: `f24e93ee0c2496ca0b9d71f6f824b0d13dbdc08e`
+- `ATLAS-CH-INFO-001`
+  - manuscript: `0fca10cbc7476c5b729ee15dfad0dec563665821`
+  - source lock: `ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c`
+  - `AUDIT-004`: `948f76b3f86d27fa4830efc30d8ef0135134256e`
+- `ATLAS-CH-REP-001`
+  - manuscript: `6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb`
+  - source lock: `dfe9176c458a56ca5cda5f258c440aea52f9b9fa`
   - `AUDIT-004`: `948f76b3f86d27fa4830efc30d8ef0135134256e`
 
-RPO contract:
+TOKEN contract:
 
-> Move from positional vectors to low-dimensional relative-position operators, frequency modes, DC components, and head-specific specialization.
+> Develop bytes, characters, subwords, BPE, unigram methods, morphology, fertility, and multilingual effects.
 
-## Completed transaction — ROUTERDYN-001
+## Completed transaction — RPO-001
 
-- implementation issue #199; PR #200
-- exact green implementation head: `3c3f22044102f10386e5d3bc850ac2bc32b6c709`
-- implementation merge: `70cf75f3f4a67dec75267766934ce5f96c7fac49`
-- audit: `AUDIT-050`; issue #201; PR #202
-- exact green audit head: `99d0342a06dd981dd6338d9db033783fd21f2ed2`
-- audit merge/current main: `addcbd4bb160f1501601983462fcfe2ef5b8eccf`
+- implementation issue #203; PR #204
+- exact green implementation head: `481a814e2690940979f09de8b150aa18256c7162`
+- implementation merge: `d43ac5950888c47028d9a5613838f8838ddcb173`
+- audit: `AUDIT-051`; issue #205; PR #206
+- exact green audit head: `bf957e1eb76e95d875f853ddfe71facef73547fe`
+- audit merge/current main: `b4e3d2e12841a2185bd66c04b0ef79244922fbbd`
 - disposition: **PASS — NO REPAIR**
 - final main validation: green
 
-Durable ROUTERDYN substrate:
+Durable RPO substrate:
 
-- router-probability drift, preferred-route churn, accepted-dispatch churn, and load drift remain distinct;
-- stable accepted loads do not imply stable token routing;
-- zero preferred-route churn does not imply zero probability drift;
-- expert-transition operators are empirical diagnostics, not automatically stationary Markov laws;
-- specialization is relative to a declared token/task taxonomy;
-- load concentration is not semantic specialization;
-- local router-plus-optimizer Jacobians inherit the OPTDYN local-dynamics boundary;
-- a nonzero commutator diagnoses order sensitivity but does not identify a causal mechanism;
-- spectral statistics retain operator identity and are not universal router-health scores.
+- feature-space RoPE frequencies and sequence-index Fourier modes are distinct objects;
+- cyclic relative-position kernels diagonalize exactly in the sequence Fourier basis;
+- the DC component is the zero-frequency sequence mode, not an absolute position embedding;
+- low-dimensional mode truncation has exact Frobenius and operator-norm errors on the cyclic normal operator;
+- head-specific positional-mode profiles diagnose where relative-position operator energy lies;
+- positional-mode specialization is not semantic or causal specialization;
+- a relative-position bias operator is not the full content-dependent attention operator.
 
-Exact witnesses:
+Exact two-head witness:
 
-- loads remain `(2,2)` while route churn is `1`;
-- preferred-route churn is `0` while probability drift is `0.3`;
-- successive local maps each have one-step eigenvalues `(1,1)` while their commutator norm is `sqrt(2)`.
+- head A eigenvalues: `(2,1,0,1)`;
+- head B eigenvalues: `(0,1,2,1)`;
+- both unordered singular-value multisets: `(2,1,1,0)`;
+- head A mode energy: `(2/3,1/6,0,1/6)`;
+- head B mode energy: `(0,1/6,2/3,1/6)`;
+- DC-only Frobenius errors: `sqrt(2)` versus `sqrt(6)`.
+
+Load-bearing boundary:
+
+[
+	ext{same singular values}
+
+otRightarrow
+	ext{same labeled positional-frequency structure}.
+]
 
 ## Recomputed frontier
 
 Count-1 candidates:
 
-- `ATLAS-CH-RPO-001`
 - `ATLAS-CH-TOKEN-001`
 - `ATLAS-CH-TRANSPORT-001`
 - `ATLAS-CH-UNCERTAINTY-001`
 
-Deterministic ID ordering selects `ATLAS-CH-RPO-001`.
+Deterministic ID ordering selects `ATLAS-CH-TOKEN-001`.
 
 Newly dependency-legal at count 0:
 
-- `ATLAS-CH-REGRETROUTE-001`
+- `ATLAS-CH-LATENTTIME-001`
 
 ## Legitimate stop conditions
 
