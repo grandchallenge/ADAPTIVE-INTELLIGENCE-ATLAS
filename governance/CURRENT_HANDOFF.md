@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 3981c7de350e2eb284eb0f3753c09321c173d436
+**Current main:** c9d5c61bf611327a1ed054206c5d8e778559e28a
 
 ## Restart rule
 
@@ -15,100 +15,101 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-MINCURR-001 — **Minimal Curricula and Reasoning Bases**
+- next target: ATLAS-CH-NEURALKRYLOV-001 — **Neural Krylov Transport**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Ask for the smallest early mechanisms and reasoning operations from which broad later capability can be reconstructed, distinguishing acquisition, persistence, accessibility, and behavioural expression.
+> Explore short-horizon preconditioned iterative solves as representation computation, without inheriting classical Krylov convergence merely by analogy.
 
 ## Hard prerequisites on exact current main
 
-### ATLAS-CH-PROGRESSSEARCH-001
+### ATLAS-CH-KRYLOV-001
 
-- manuscript: 30e988200933dbba8ad53f069acacf131b0944ee
-- source lock: 6e593b0d17e4a80d5790a6ea6d580f3b4530686a
-- AUDIT-049: 647a8b0ca273ff8c8bebaaa97073a9b198e8bee4
-
-Inherited boundary:
-
-- explicit experience-space search;
-- progress estimates with declared observation contract;
-- exploration/coverage state;
-- delayed-credit and finite-horizon semantics;
-- generalization-state evidence as non-oracular feedback;
-- exact examples where exploit-only and immediate-greedy choice fail;
-- PROGRESSSEARCH does not establish minimality, reconstructability, or a transferable reasoning basis.
-
-### ATLAS-CH-RESIDUAL-001
-
-- manuscript: 02b0886a87e1e17c749e15349e14f43674c3d1ff
-- source lock: 6e6a25c4b4e01475e68a6c616eefb6ba7b039341
-- AUDIT-006: b24ef782bedfe76a4c52d832562a0dd29d2a64a9
+- manuscript: 59e169723ca068bef817e7bc9e28727d03b45f6a
+- source lock: adbe97c750ed79d09462a5e867e5beb772ad72e2
+- AUDIT-039: 03660b0dbd1d0604e943d0d09c7b52c6605b256c
 
 Inherited boundary:
 
-- invariance alone is insufficient;
-- capability sufficiency is relative to the declared task/probe family;
-- leastness is relative to admissible descriptor class and admissible post-processing class;
-- semantic factorization and operational/computable recoverability are distinct;
-- no universal theorem guarantees existence, uniqueness, finite dimensionality, or efficient computability of a Residual.
+- operator-generated Krylov spaces, Arnoldi/Lanczos projected structure, Galerkin/minimum-residual distinctions, residual/error conditioning boundaries, and preconditioning semantics may be inherited;
+- matrix-vector access can be sufficient without explicit dense matrix formation;
+- residual and true error are distinct and linked through operator/conditioning assumptions;
+- exact-arithmetic orthogonality does not automatically survive finite precision;
+- convergence can depend on spectrum, field of values, non-normality, right-hand side, preconditioner, and polynomial approximation structure;
+- classical Krylov identities do not by themselves establish correctness or convergence of learned nonlinear Neural Krylov mechanisms.
 
-## Before drafting MINCURR
+### ATLAS-CH-TRANSPORT-001
 
-1. bind the exact audited PROGRESSSEARCH and RESIDUAL triples above;
-2. source-lock only primary references genuinely needed for minimal teaching sets, curriculum bases, program/reasoning decomposition, or mechanism persistence;
-3. define an exact finite witness where a smaller experience/mechanism basis reconstructs the declared capability and a strict smaller candidate fails;
-4. separate acquisition evidence from persistence, accessibility, and behavioural expression;
-5. state the admissible reconstruction map/class explicitly;
-6. distinguish minimality relative to a declared capability family from universal minimality;
-7. include a control showing that a high-progress search region need not belong to a minimal reconstructive basis;
-8. preserve the boundary that early mechanism presence is not implied merely by later behavioural success.
+- manuscript: 0a81b39a457384f7a265bbac2955ea282217bc3f
+- source lock: 55fcd80bc3d94e3b270ddcf28873242ba21f823f
+- AUDIT-053: 060d0b9dc320cd16fdcfe10b87484a3bbfda4c75
 
-## Immediately completed transaction — LATENTTIME-001
+Inherited boundary:
 
-- implementation issue: #247 — closed completed
-- implementation PR: #248
-- exact green implementation head: aa4c9c9762cf8578518e45552e3806664bd2b1d5
-- implementation GitHub Actions run: 37542354408 — success
-- implementation merge: a89ba6cb799faca9557f01262bc0e0306d3a50ad
-- post-draft audit: AUDIT-062
-- audit issue: #249 — closed completed
-- audit PR: #250
-- exact green audit head: ede37df020d644a269565aa94b2cdf4442800b70
-- audit GitHub Actions run: 37542683362 — success
-- audit merge/current main: 3981c7de350e2eb284eb0f3753c09321c173d436
-- audit record blob: 6fe228ae427d46da973fde1b476dfea72258db89
+- representation transport is an exact finite composition of declared state maps;
+- state transport, tangent/vector transport, parallel transport, and optimal transport are distinct objects;
+- residual stages are exact discrete maps and are not automatically exact ODE flows;
+- local Jacobians are local differential objects, not the global nonlinear map;
+- constraint preservation does not imply information preservation, stability, invertibility, or task quality;
+- shared versus stage-dependent transport maps must remain distinct;
+- TRANSPORT explicitly hands NEURALKRYLOV declared transport maps, state/base-point semantics, constrained retraction witnesses, local linearization objects, and shared/stage-dependent semantics;
+- representation transport does not imply a Krylov convergence guarantee.
+
+## Before drafting NEURALKRYLOV
+
+1. bind the exact audited KRYLOV and TRANSPORT triples above;
+2. source-lock only primary references genuinely needed for learned/preconditioned iterative representation computation beyond those prerequisites;
+3. declare the operator on which any Krylov space is built — e.g. a local Jacobian, normal-equation operator, Hessian-like map, or learned linear surrogate — and do not leave it implicit;
+4. define at least one exact finite witness where a short Krylov subspace recovers a declared component/solve more accurately than a one-step baseline under fixed operator access;
+5. include a failure/control case showing that low subspace dimension alone does not guarantee convergence or task improvement;
+6. state the preconditioner and whether it is fixed, learned, state-dependent, left/right, or nonlinear;
+7. distinguish exact linear Krylov identities from learned nonlinear transport architectures;
+8. keep residual norm, true state/solution error, representation quality, and downstream task quality as separate metrics;
+9. keep local Jacobian-based iteration distinct from global nonlinear dynamics unless an explicit bridge is proved;
+10. include finite-precision/restart boundaries if the construction depends on orthogonality or accumulated directions.
+
+## Immediately completed transaction — MINCURR-001
+
+- implementation issue: #251 — closed completed
+- implementation PR: #252
+- exact green implementation head: 1a1974edd3b077c6ef37503b6c6f21237f8e952c
+- implementation GitHub Actions run: 37544743541 — success
+- implementation merge: f4ef49601bf2c306918f75a2e0abfc242379935e
+- post-draft audit: AUDIT-063
+- audit issue: #253 — closed completed
+- audit PR: #254
+- exact green audit head: 9d01bcfc92e81d9ec9062572b952e2303e56aa3d
+- audit GitHub Actions run: 37545076163 — success
+- audit merge/current main: c9d5c61bf611327a1ed054206c5d8e778559e28a
+- audit record blob: edd7724b560249e17f732b2c47aa2e789c2fd067
 - audit disposition: **PASS — NO REPAIR**
 - final canonical Linux validation on current main: green
 
-Final LATENTTIME artifacts:
+Final MINCURR artifacts:
 
-- specification: 1fa3ecba7df0de0ba828ed7e2d2383f8c895dd2d
-- derivation packet: 82b9e9fd771003b3b0dbe7c1c88b8315028cc84c
-- computational witness: cb5983be9863b2d8898a255d38623638fae0d900
-- reader manuscript: feba2a0c9b2e1a96f0149bb2889d0e1ca8aa6afd
-- source lock: 9981093df848bee6d38191f67fc0d5180d7f5a67
-- bibliography: ac6eb5e72b3ef35daeb9b5e897c1d1e355253393
-- Chapter Ledger: 06b183fa8b5b55019cdd88604830ec5008097066
-- Source Register: 41d5419ea4783d521e14c5b2478048255a2548a3
-- transaction receipt: 5a756facae0a4de979748fedfb6d494d97e296ec
+- specification: a90bf935ef124bc9a748123d2ba67474049a5314
+- derivation packet: b49724dba87f9cf58a59ac611b781665b57dbc95
+- computational witness: 8d7142ed8f457a7a8647904b6e4c8e04e4b20ed7
+- reader manuscript: 01a5491100430fe8bf56793e6e1b557ba91dc652
+- source lock: e7cb725448a35b31fa879528dc01b02a72d052ca
+- bibliography: c95dbd1d1e3ddd0e3b99e067ce3dd654bf8201da
+- Chapter Ledger: a8d40ef1f4144def1c6e5cbd363d9837186b50f0
+- Source Register: 2b4ba80c4d8ccbf68804ab54b99b926204a387d5
+- transaction receipt: 90a8635137ed5fd761387c93faa780fbf95b4459
 
-Durable LATENTTIME substrate:
+Durable MINCURR substrate:
 
-- observed sequence index and inferred alignment coordinate are distinct;
-- admissible DTW paths use explicit endpoint, monotonicity, and local-step constraints;
-- warped witness X=(0,1,2), Y=(0,0,1,2) has exactly 25 admissible paths;
-- its unique zero-cost path is ((1,1),(1,2),(2,3),(3,4));
-- identity control X=Y=(0,1,2) has exactly 13 admissible paths;
-- its unique zero-cost path is the diagonal ((1,1),(2,2),(3,3));
-- an optimal alignment is relative to the declared observations, representation, local cost, and path constraints;
-- unique alignment does not prove a uniquely true physical or causal clock;
-- positional Fourier/RoPE structure does not itself identify latent time;
-- multimodal alignment requires an explicit common comparison structure;
-- discrete warping paths are not automatically continuous-time trajectories or flows;
-- alignment does not establish semantic identity or causal direction.
+- for H={h00,h01,h10,h11} over q1,q2 with target h11, T*={(q1,1),(q2,1)} uniquely identifies the target;
+- every strict smaller target-consistent subset leaves version-space size greater than one;
+- exact minimum teaching-set size is 2 for the declared concept class/example language/reconstructor;
+- auxiliary e3 outside the target probe family has the highest frozen progress score but leaves V_H({e3})=H;
+- therefore highest current learning progress does not imply membership in a minimal reconstructive basis;
+- minimality is relative to target/capability class, admissible examples, learner/reconstructor, and side information;
+- minimal set does not imply unique optimal sequence;
+- acquisition, persistence, accessibility, and behavioural expression are separate evidence levels;
+- later behavioural success does not prove persistence or causality of a particular early mechanism.
 
 ## Recomputed dependency-legal frontier
 
@@ -116,11 +117,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering selects:
 
-- ATLAS-CH-MINCURR-001
+- ATLAS-CH-NEURALKRYLOV-001
 
 Other dependency-legal count-0 chapters remain:
 
-- ATLAS-CH-NEURALKRYLOV-001
 - ATLAS-CH-REGRETROUTE-001
 - ATLAS-CH-SHIFT-001
 - ATLAS-CH-SPECTRALDIAG-001
