@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 253
-  tranche_id: "MINCURR-001"
-  chapter_ids:
-    - "ATLAS-CH-MINCURR-001"
-  baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
-  branch: "audit/a253"
-  pull_request: 254
-  state: "audit-ci-green"
-  next_action: "Audit head 9d01bcfc92e81d9ec9062572b952e2303e56aa3d passed GitHub Actions run 37545076163. Re-check PR #254 and protected main, then merge only this exact head."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-NEURALKRYLOV-001 from exact protected main c9d5c61bf611327a1ed054206c5d8e778559e28a. First bind audited KRYLOV-001 (manuscript 59e169723ca068bef817e7bc9e28727d03b45f6a, source lock adbe97c750ed79d09462a5e867e5beb772ad72e2, AUDIT-039 03660b0dbd1d0604e943d0d09c7b52c6605b256c) and audited TRANSPORT-001 (manuscript 0a81b39a457384f7a265bbac2955ea282217bc3f, source lock 55fcd80bc3d94e3b270ddcf28873242ba21f823f, AUDIT-053 060d0b9dc320cd16fdcfe10b87484a3bbfda4c75). Source-lock only primary references genuinely needed beyond those prerequisites. Declare the exact operator for every Krylov construction and define an exact finite witness where a short Krylov subspace improves a declared solve/component over a one-step baseline, plus a failure/control case showing low dimension alone does not guarantee convergence or task quality. Keep linear Krylov identities, learned nonlinear transport, residual norm, true error, representation quality, and downstream task quality separate."
 frontier:
-  - id: "ATLAS-CH-MINCURR-001"
+  - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
