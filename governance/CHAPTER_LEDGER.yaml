@@ -846,8 +846,14 @@
         "ATLAS-CH-PROGRESSSEARCH-001",
         "ATLAS-CH-RESIDUAL-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-MINCURR-001.md",
+      "manuscript_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-MINCURR-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-MINCURR-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-MINCURR-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-MINCURR-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-RLBASE-001",
