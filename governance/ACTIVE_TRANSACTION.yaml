@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 251
+  issue_number: 253
   tranche_id: "MINCURR-001"
   chapter_ids:
     - "ATLAS-CH-MINCURR-001"
   baseline_commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
-  branch: "work/mincurr-251"
-  pull_request: 252
-  state: "implementation-merged"
-  next_action: "Implementation PR #252 merged to protected main f4ef49601bf2c306918f75a2e0abfc242379935e and protected-merge validation is green. Instantiate the mandatory MINCURR post-draft audit from this exact merge."
+  branch: "audit/a253"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-063 is issue #253 on audit/a253 from exact protected implementation merge f4ef49601bf2c306918f75a2e0abfc242379935e. Independently audit prerequisite/source identities, exact version-space minimality, the high-progress/non-basis control, evidence-level non-implications, receipt/bibliography provenance, and repository integrity. Repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-MINCURR-001"
     downstream_architecture_count: 0
