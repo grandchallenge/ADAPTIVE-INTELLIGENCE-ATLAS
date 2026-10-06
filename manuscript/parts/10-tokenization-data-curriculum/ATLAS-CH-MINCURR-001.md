@@ -875,7 +875,7 @@ The broader research programme begins when the same discipline is applied to lea
 
 > identify the smallest reconstructive basis, then separately test whether it was acquired, whether it persisted, whether it remains accessible, and whether later capability actually uses it.
 
-## References
+## References used in this chapter
 
 - [@GoldmanKearns1995Teaching]
 - [@Zhu2015MachineTeaching]
