@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 241
-  tranche_id: "CPS-001"
-  chapter_ids:
-    - "ATLAS-CH-CPS-001"
-  baseline_commit: "0ca38f5d7129db6209b2f245c14a27148df09608"
-  branch: "audit/a241"
-  pull_request: 242
-  state: "audit-ci-green"
-  next_action: "Audit head fbbc4502c833c80e22cf135082b3147d2bf96a23 is green in canonical validation, independent exact witness replay, and GitHub Actions run 37534286657. Re-fetch PR #242 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains 7ca2ee93f1f2bc60ffadc696f2893ac0c29fed4c. Then validate/read back final main, close issues #239/#241, recompute dependency-legal frontier, and reset controller/handoff."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-JOINTUNC-001 from exact protected main c6b690725a0c89dd1746015d3e688c50553e0f28. First bind audited RLBASE-001 (manuscript a99f78b788b97bc1bb3346ca1f1b97802c0f84db, source lock b29ecea9134227cb5ce3fcd7cc47303a90bd6699, AUDIT-017 8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc) and audited INFO-001 (manuscript 0fca10cbc7476c5b729ee15dfad0dec563665821, source lock ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c, AUDIT-004 948f76b3f86d27fa4830efc30d8ef0135134256e). Source-lock only additional primary references genuinely needed for joint uncertainty propagation. Define an exact finite witness where dependence/covariance changes propagated uncertainty relative to naive independent summation, plus an independence control where covariance terms vanish. Keep transition, reward, observation, and future-value uncertainties distinct before composing them, and keep statistical dependence separate from causal attribution. State explicitly when any linearized/error-propagation formula is local rather than a global decision-system guarantee."
 frontier:
-  - id: "ATLAS-CH-CPS-001"
+  - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
