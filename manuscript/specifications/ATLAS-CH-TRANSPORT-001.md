@@ -20,12 +20,12 @@ The chapter must make the transport language precise enough to be useful while r
 
 ## Hard prerequisites
 
-- \`ATLAS-CH-NORMREP-001\` / \`AUDIT-005\`;
-- \`ATLAS-CH-SPLIT-001\` / \`AUDIT-036\`.
+- `ATLAS-CH-NORMREP-001` / `AUDIT-005`;
+- `ATLAS-CH-SPLIT-001` / `AUDIT-036`.
 
 Exact prerequisite identities and source authority are locked in:
 
-\`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml\`.
+`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml`.
 
 ## Reader outcome
 
@@ -319,7 +319,7 @@ This is geometry language. It does not imply that a learned network literally li
 
 Direct consumer:
 
-- \`ATLAS-CH-NEURALKRYLOV-001\`.
+- `ATLAS-CH-NEURALKRYLOV-001`.
 
 NEURALKRYLOV may inherit:
 
@@ -342,4 +342,4 @@ NEURALKRYLOV must independently establish any Krylov subspace, projection, resid
 
 Exact source authority and claim boundaries are locked in:
 
-\`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml\`.
+`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml`.
