@@ -2,10 +2,10 @@
 <!-- ATLAS-CH-TRANSPORT-001 -->
 
 **Epistemic status:** established geometry and dynamics + audited prerequisite inheritance + Atlas synthesis.  
-**Specification:** \`manuscript/specifications/ATLAS-CH-TRANSPORT-001.md\`  
-**Derivation packet:** \`mathematics/derivations/ATLAS-CH-TRANSPORT-001-DERIVATIONS.md\`  
-**Computational witness:** \`mathematics/computational-witnesses/ATLAS-CW-TRANSPORT-001.md\`  
-**Source lock:** \`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml\`
+**Specification:** `manuscript/specifications/ATLAS-CH-TRANSPORT-001.md`  
+**Derivation packet:** `mathematics/derivations/ATLAS-CH-TRANSPORT-001-DERIVATIONS.md`  
+**Computational witness:** `mathematics/computational-witnesses/ATLAS-CW-TRANSPORT-001.md`  
+**Source lock:** `sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml`
 
 A representation does not merely exist. In a deep adaptive system it is repeatedly changed.
 
@@ -975,7 +975,7 @@ Those questions turn “representation transport” from a metaphor into an inte
 
 The next downstream chapter is
 
-\`ATLAS-CH-NEURALKRYLOV-001\`.
+`ATLAS-CH-NEURALKRYLOV-001`.
 
 That chapter will explore short-horizon preconditioned solves as representation computation.
 
@@ -1105,4 +1105,4 @@ Everything stronger must be earned separately.
 
 Exact provenance and claim boundaries are locked in:
 
-\`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml\`.
+`sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml`.
