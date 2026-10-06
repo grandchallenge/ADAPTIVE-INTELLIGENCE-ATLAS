@@ -1,7 +1,7 @@
 # Uncertainty and Calibration
 <!-- ATLAS-CH-UNCERTAINTY-001 -->
 
-Epistemic status: established probability/statistics + source-scoped uncertainty methods + Atlas synthesis.
+**Epistemic status:** established probability/statistics + source-scoped uncertainty methods + Atlas synthesis.
 
 Specification: manuscript/specifications/ATLAS-CH-UNCERTAINTY-001.md
 Derivation packet: mathematics/derivations/ATLAS-CH-UNCERTAINTY-001-DERIVATIONS.md
