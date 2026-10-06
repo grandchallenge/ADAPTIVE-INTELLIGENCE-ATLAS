@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-RPO-001"]
   baseline_commit: "addcbd4bb160f1501601983462fcfe2ef5b8eccf"
   branch: "work/rpo-203"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited ATLAS-CH-POSGEOM-001 / AUDIT-040 and ATLAS-CH-LINALG-001 / AUDIT-004 at exact baseline addcbd4bb160f1501601983462fcfe2ef5b8eccf; source-lock primary relative-position and per-head relative-bias references; then draft the operator/Fourier/DC decomposition and exact finite witnesses."
+  pull_request: 204
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 481a814e2690940979f09de8b150aa18256c7162 on PR #204. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-RPO-001"
     downstream_architecture_count: 1
