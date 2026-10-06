@@ -11,8 +11,8 @@ current:
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
   branch: "audit/a229"
   pull_request: 230
-  state: "audit-pr-open"
-  next_action: "AUDIT-057 disposition PASS — NO REPAIR is on PR #230 from exact audit head 7694cb8ed3fd5986d906a45157149873a6fa66d4. Canonical validation and independent witness replay are green locally. Require exact-head GitHub Actions validation; repair/replay any failure. Merge PR #230 only if the head is unchanged and protected main remains compatible. Then validate/read back final main, close issues #227/#229, recompute dependency-legal frontier, and reset controller/handoff."
+  state: "audit-ci-green"
+  next_action: "AUDIT-057 exact head 7694cb8ed3fd5986d906a45157149873a6fa66d4 is green in canonical validation, independent witness replay, and GitHub Actions run 37469107477. Re-fetch PR #230 and protected main immediately before merge; merge only if head remains exact, PR is mergeable, and main remains d7f83f6e51d60cdb8edbc3ad8b9a1f16a47213b4. Then validate/read back final main, close issues #227/#229, recompute dependency-legal frontier, and reset controller/handoff."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
