@@ -9,9 +9,9 @@ current:
   chapter_ids: ["ATLAS-CH-TOKEN-001"]
   baseline_commit: "b4e3d2e12841a2185bd66c04b0ef79244922fbbd"
   branch: "work/token-207"
-  pull_request: null
-  state: "source-locking"
-  next_action: "Bind audited INFO-001 and REP-001 at exact baseline b4e3d2e12841a2185bd66c04b0ef79244922fbbd; source-lock primary BPE, unigram/SentencePiece, byte-level, and multilingual tokenizer sources; then draft tokenizer-boundary objects and exact finite witnesses."
+  pull_request: 208
+  state: "implementation-validation"
+  next_action: "Validate exact implementation head 4fc0bedf5ccf21aec4fe390d1531eb0a26aa5f58 on PR #208. Repair only validator-confirmed defects, replay on the fresh exact head, then merge with an exact-head lease and start the mandatory post-draft audit."
 frontier:
   - id: "ATLAS-CH-TOKEN-001"
     downstream_architecture_count: 1
