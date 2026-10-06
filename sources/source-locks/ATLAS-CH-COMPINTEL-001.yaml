@@ -1,0 +1,184 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-COMPINTEL-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_compression_and_residual_prerequisites_plus_primary_mdl_probe_and_compression_progress_sources_plus_atlas_synthesis"
+claim_boundary: >
+  The audited COMPRESS prerequisite supplies declared-code, size-distortion,
+  mechanism-separation, and retained-behavior discipline. The audited RESIDUAL
+  prerequisite supplies capability-relative sufficiency, admissible recoding,
+  and the distinction between semantic and operational recoverability.
+  Solomonoff (1964) supports an induction framework in which shorter programs
+  receive greater prior weight; it is not used as a computable practical metric.
+  Blier and Ollivier (2018) provide an empirical MDL/compression analysis of deep
+  learning models. Voita and Titov (2020) provide a concrete MDL probing method
+  for asking how economically labels can be transmitted from learned
+  representations. Schmidhuber (2009) proposes compression progress as a
+  curiosity/discovery principle. The Atlas treats that last connection as a
+  hypothesis and experimental design inspiration, not as a theorem that
+  compression, compressibility, compression progress, discovery, understanding,
+  intelligence, or mechanistic explanation are equivalent.
+
+hard_prerequisites:
+  - id: "COMPINTEL-COMPRESS-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-COMPRESS-001.md"
+    git_blob_sha1: "e8db79df51b64cfd4d5ef6957d4d10313886b6f4"
+    authority: "Audited compression, code, distortion, and mechanism-separation substrate."
+  - id: "COMPINTEL-COMPRESS-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "sources/source-locks/ATLAS-CH-COMPRESS-001.yaml"
+    git_blob_sha1: "156cd6afe1a06b49d2761b54d32b586fe5d23cec"
+    authority: "Exact source and claim boundary for Compression and Description Length."
+  - id: "COMPINTEL-COMPRESS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "reviews/AUDIT-042.md"
+    git_blob_sha1: "677efa90a2d606c0400b8e471465278d19857393"
+    authority: "Audit record governing the compression prerequisite."
+  - id: "COMPINTEL-RESIDUAL-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md"
+    git_blob_sha1: "02b0886a87e1e17c749e15349e14f43674c3d1ff"
+    authority: "Audited capability-relative sufficiency and portable-descriptor substrate."
+  - id: "COMPINTEL-RESIDUAL-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "sources/source-locks/ATLAS-CH-RESIDUAL-001.yaml"
+    git_blob_sha1: "6e6a25c4b4e01475e68a6c616eefb6ba7b039341"
+    authority: "Exact source and claim boundary for The Residual."
+  - id: "COMPINTEL-RESIDUAL-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
+    path: "reviews/AUDIT-006.md"
+    git_blob_sha1: "b24ef782bedfe76a4c52d832562a0dd29d2a64a9"
+    authority: "Audit record governing the Residual prerequisite."
+
+sources:
+  - id: "COMPINTEL-SOLOMONOFF-1964-I"
+    citation_key: "Solomonoff1964InductiveInferenceI"
+    kind: "peer-reviewed-journal"
+    title: "A Formal Theory of Inductive Inference. Part I"
+    authors: "Ray J. Solomonoff"
+    journal: "Information and Control"
+    volume: 7
+    issue: 1
+    pages: "1-22"
+    year: 1964
+    doi: "10.1016/S0019-9958(64)90223-2"
+    url: "https://www.sciencedirect.com/science/article/pii/S0019995864902232"
+    authority: >
+      Primary source for a formal induction framework assigning sequence priors
+      using lengths of programs/inputs to a universal machine. Used only to
+      motivate the link between compact description and prediction in the
+      idealized theory; no computable practical intelligence metric is inferred.
+
+  - id: "COMPINTEL-BLIER-OLLIVIER-2018"
+    citation_key: "BlierOllivier2018DescriptionLength"
+    kind: "peer-reviewed-conference"
+    title: "The Description Length of Deep Learning Models"
+    authors: "Léonard Blier; Yann Ollivier"
+    venue: "Advances in Neural Information Processing Systems 31"
+    year: 2018
+    url: "https://proceedings.neurips.cc/paper/2018/hash/3b712de48137572f3849aabd5666a4e3-Abstract.html"
+    authority: >
+      Primary empirical source showing that deep neural networks can obtain
+      strong lossless compression values for training data when model encoding
+      cost is included, and that coding method materially changes the bound.
+      Used as evidence that codelength is a nontrivial empirical model-complexity
+      probe, not as evidence that short codelength identifies mechanism or intelligence.
+
+  - id: "COMPINTEL-VOITA-TITOV-2020"
+    citation_key: "VoitaTitov2020MDLProbing"
+    kind: "peer-reviewed-conference"
+    title: "Information-Theoretic Probing with Minimum Description Length"
+    authors: "Elena Voita; Ivan Titov"
+    venue: "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing"
+    pages: "183-196"
+    year: 2020
+    doi: "10.18653/v1/2020.emnlp-main.14"
+    url: "https://aclanthology.org/2020.emnlp-main.14/"
+    authority: >
+      Primary source for MDL probing of learned representations. The relevant
+      operational lesson is that final predictive accuracy can hide differences
+      in how economically or data-efficiently a property is recoverable, and
+      that random-task/random-representation baselines are informative controls.
+      Claims remain scoped to probing methodology and the experiments reported.
+
+  - id: "COMPINTEL-SCHMIDHUBER-2009"
+    citation_key: "Schmidhuber2009CompressionProgress"
+    kind: "proceedings-article"
+    title: "Driven by Compression Progress: A Simple Principle Explains Essential Aspects of Subjective Beauty, Novelty, Surprise, Interestingness, Attention, Curiosity, Creativity, Art, Science, Music, Jokes"
+    authors: "Jürgen Schmidhuber"
+    venue: "Dagstuhl Seminar Proceedings 09291"
+    pages: "1-35"
+    year: 2009
+    doi: "10.4230/DagSemProc.09291.14"
+    url: "https://drops.dagstuhl.de/entities/document/10.4230/DagSemProc.09291.14"
+    authority: >
+      Primary source proposing compression progress as a signal for curiosity,
+      novelty, and discovery by a resource-bounded observer. The Atlas treats
+      this as a proposed principle and source-scoped hypothesis, not an
+      established equivalence between compression progress and intelligence.
+
+probe_contract:
+  declared_objects:
+    - "representation or model state R to be probed"
+    - "target behavior/labels Y and probe contexts Q"
+    - "fixed code family C and admissible probe/decoder class P"
+    - "training partition T and untouched held-out partition H"
+  heldout_codelength:
+    symbol: "L_C(Y_H | R, T)"
+    meaning: >
+      Bits required by the declared coding/probing procedure to transmit held-out
+      targets after learning only from the training partition and the declared
+      representation. Training-set fit alone is not the primary evidence surface.
+  compression_gain:
+    symbol: "Delta_C(R) = L_C(Y_H | baseline, T) - L_C(Y_H | R, T)"
+    interpretation: >
+      Positive Delta_C means the representation permits shorter held-out target
+      transmission than the declared baseline under the same code semantics.
+      It is evidence of exploitable predictive structure relative to C, P, T, H,
+      and the baseline; it is not by itself evidence of intelligence or mechanism.
+  compression_progress:
+    symbol: "Gamma_t = L_C,t-1(Y_H | R, T) - L_C,t(Y_H | R, T)"
+    interpretation: >
+      Positive Gamma_t measures improvement of held-out codelength while the
+      target, partition, and code semantics are fixed. Calling it discovery
+      requires controls that rule out bookkeeping, model-capacity, or leakage effects.
+
+mandatory_controls:
+  - id: "codec"
+    rule: "Repeat the comparison with at least one alternative reasonable code/probe implementation or show why the conclusion is invariant to the relevant recoding."
+  - id: "random-label"
+    rule: "Replace Y with matched random labels. A structure claim requires the real-target compression gain to exceed this control."
+  - id: "representation-shuffle"
+    rule: "Break alignment between R and examples while preserving marginal representation statistics."
+  - id: "random-representation"
+    rule: "Use a matched untrained or random representation when meaningful."
+  - id: "memorization"
+    rule: "Demonstrate held-out savings; training-only codelength reduction cannot distinguish reusable structure from memorization."
+  - id: "regularization-capacity"
+    rule: "Match or sweep probe capacity/regularization so a gain is not merely a probe-capacity artifact."
+  - id: "task-distortion"
+    rule: "Report retained behavior/accuracy/calibration alongside codelength; a shorter code for a materially degraded target is not evidence of preserved reusable computation."
+  - id: "transformation-transfer"
+    rule: >
+      Where the claimed object is representation-independent, repeat under
+      declared admissible representation changes or recodings. A signal that
+      vanishes under harmless invertible recoding is coordinate-sensitive evidence,
+      not a representation-invariant Residual.
+
+epistemic_rules:
+  - "Compressibility is relative to a declared code or model class; no finite compressor establishes Kolmogorov complexity."
+  - "Parameter count, model bytes, data codelength, conditional label codelength, and compression progress are different quantities."
+  - "Training-set compression can be produced by memorization and is insufficient evidence of reusable predictive structure."
+  - "Held-out codelength gain is evidence only relative to the declared baseline, code family, probe class, and partition."
+  - "A representation can support a short probe without revealing the mechanism by which the original system computes the target."
+  - "Compression progress is an observer/model-relative quantity; changing the compressor can change the measured progress."
+  - "Random-label, shuffled-representation, and matched-capacity controls are required before interpreting a codelength gap as learned structure."
+  - "Stable codelength gain across admissible recodings is stronger evidence than coordinate-specific gain, but still does not prove a unique Residual."
+  - "Task performance and codelength must both be reported for lossy or behavior-altering compression."
+  - "Compression can be used as a discovery heuristic without being promoted to a definition of intelligence."
