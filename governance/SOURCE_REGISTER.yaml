@@ -372,3 +372,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-ROUTERDYN-001.yaml"
     authority: "Audited MoE and Optimizer-State Dynamics prerequisites plus primary sparse-router stability and expert-choice routing sources, with Atlas-owned temporal churn, specialization, transition-operator, commutator, and spectral diagnostics."
+
+
+  - id: "ATLAS-SRC-RPO-LOCK-001"
+    title: "Relative-Position Operators source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-RPO-001.yaml"
+    authority: "Audited Positional Geometry and Linear Algebra prerequisites plus primary relative-position and per-head relative-bias sources, with Atlas-owned operator/Fourier/DC decomposition and exact head-specific mode witnesses."
