@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 243
+  tranche_id: "JOINTUNC-001"
+  chapter_ids:
+    - "ATLAS-CH-JOINTUNC-001"
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
-  branch: null
+  branch: "work/jointunc-243"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-JOINTUNC-001 from exact protected main c6b690725a0c89dd1746015d3e688c50553e0f28. First bind audited RLBASE-001 (manuscript a99f78b788b97bc1bb3346ca1f1b97802c0f84db, source lock b29ecea9134227cb5ce3fcd7cc47303a90bd6699, AUDIT-017 8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc) and audited INFO-001 (manuscript 0fca10cbc7476c5b729ee15dfad0dec563665821, source lock ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c, AUDIT-004 948f76b3f86d27fa4830efc30d8ef0135134256e). Source-lock only additional primary references genuinely needed for joint uncertainty propagation. Define an exact finite witness where dependence/covariance changes propagated uncertainty relative to naive independent summation, plus an independence control where covariance terms vanish. Keep transition, reward, observation, and future-value uncertainties distinct before composing them, and keep statistical dependence separate from causal attribution. State explicitly when any linearized/error-propagation formula is local rather than a global decision-system guarantee."
+  state: "tranche-instantiated"
+  next_action: "Bind audited RLBASE-001 (manuscript a99f78b788b97bc1bb3346ca1f1b97802c0f84db, source lock b29ecea9134227cb5ce3fcd7cc47303a90bd6699, AUDIT-017 8b7a1f9b61c15ab9c2c010ea538e25c11a7ed1cc) and audited INFO-001 (manuscript 0fca10cbc7476c5b729ee15dfad0dec563665821, source lock ea5a1b0db3aadf052fc0b749d7e813bb0ca5d43c, AUDIT-004 948f76b3f86d27fa4830efc30d8ef0135134256e). Source-lock the decision to add no new external academic authority unless drafting exposes a genuine source gap. Define the exact local affine witness with reward, transition, observation, and discounted future-value coordinates, positive-covariance amplification, negative-covariance cancellation, and an independent control. Preserve the distinction between exact affine propagation and local first-order propagation for nonlinear maps."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
