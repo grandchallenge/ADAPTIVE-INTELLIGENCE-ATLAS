@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** eab85ed47695e1c3ae19f69e85b194c48a576a31
+**Current main:** b00d6020b809145a99689418db13ff6d6561a659
 
 ## Restart rule
 
@@ -15,99 +15,95 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-COMPOSE-001 — **Composition Without Catastrophe**
+- next target: ATLAS-CH-CONTEXTCOMP-001 — **Context Compilation**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Study noncommutativity, error propagation, local certificates, and how separately valid pieces can fail together.
+> Treat prompts as compiled working sets assembled from persistent, typed, provenance-aware memory.
 
-Hard prerequisites on exact current main:
+Hard prerequisite on exact current main:
 
-### ATLAS-CH-BCONTRACT-001
+### ATLAS-CH-EXTMEM-001
 
-- manuscript: a270c38cda7ff280e517bd1a09ed196bb48dc759
-- source lock: 80463b18216747650d3ff8e99d6da933173d4486
-- AUDIT-003: 9723fcb3dfa0111829b98f1c9bb416a13dbd714e
-
-Inherited boundary:
-
-- shape/type compatibility is weaker than semantic, geometric, sensitivity, and numerical compatibility;
-- a boundary contract is a structured bundle of obligations, not automatically a certificate or universal formalism;
-- JVP/VJP and condition estimates are local unless a stronger theorem is established;
-- local sensitivity or low-order separator information does not automatically imply global composition safety;
-- project-local contract terminology may not be promoted beyond exact source support.
-
-### ATLAS-CH-SPLIT-001
-
-- manuscript: bcaf1db6b1fc7144e2472ff2725f7ff561fe7fc0
-- source lock: afb84e2f3ebb941f320c52693b088b0eb078b8ce
-- AUDIT-036: 5e093460550c15fe491ba3214b2f52d48076dc0a
+- manuscript: 181685ceda93defb7a7051e0865898c7c4e3fb1d
+- source lock: 6ac2940c5a9432588ace9a82b15c73e7e00d874f
+- AUDIT-031: a33ee84f0bfc69f8dc00e165506c55cabd68fec4
 
 Inherited boundary:
 
-- ordered composition is a real architectural degree of freedom when operators do not commute;
-- product-order labels and chronological execution order must not be conflated;
-- Lie-Trotter/Strang order statements require the classical flow/regularity assumptions under which they are proved;
-- arbitrary learned blocks do not inherit exact-flow, reversibility, symplecticity, stability, or convergence properties by analogy;
-- commutator calculations are exact only in the declared reference setting.
+- parametric and external memory are complementary architectural loci, not mutually exclusive absolutes;
+- external locus and persistence are distinct properties;
+- versioned external records may carry explicit provenance, source, status, and supersession relations;
+- external storage correctness is distinct from successful retrieval and successful use;
+- freshness/version semantics must be explicit;
+- shared memory does not imply automatic consistency, freshness, or unrestricted access;
+- retrievability is distinct from authorization;
+- no universal scalar placement score is available.
 
-Before drafting COMPOSE, bind these exact audited prerequisites. Source-lock only the additional primary references actually needed for composition-error propagation, contract compatibility, or local-certificate claims not already supported by the prerequisites. Define at least one exact witness where two components are individually valid under local contracts but their composition violates a declared downstream obligation, and one commuting/compatible control. Separate local certificate composition from any global safety theorem.
+Direct downstream obligation frozen by EXTMEM-001:
 
-## Immediately completed transaction — COMPINTEL-001
+- CONTEXTCOMP may assume hybrid parametric/external placement;
+- CONTEXTCOMP may assume versioned external records;
+- CONTEXTCOMP may assume freshness as an explicit policy;
+- CONTEXTCOMP may assume retrieval success is distinct from storage correctness;
+- CONTEXTCOMP may assume provenance-preserving record semantics;
+- CONTEXTCOMP must independently define how retrieved records become the bounded working context of a model invocation.
 
-- implementation issue: #227 — closed completed
-- implementation PR: #228
-- exact green implementation head: b7818c9eb16749aa41ac20b200293e485946e845
-- implementation GitHub Actions run: 37468502141 — success
-- implementation merge: d7f83f6e51d60cdb8edbc3ad8b9a1f16a47213b4
-- post-draft audit: AUDIT-057
-- audit issue: #229 — closed completed
-- audit PR: #230
-- exact green audit head: 7694cb8ed3fd5986d906a45157149873a6fa66d4
-- audit GitHub Actions run: 37469107477 — success
-- audit merge/current main: eab85ed47695e1c3ae19f69e85b194c48a576a31
-- audit record blob: 05dca51a9f10f9197fdd144895625752a26f1509
-- audit disposition: **PASS — NO REPAIR**
+Before drafting CONTEXTCOMP, bind the exact audited EXTMEM triple above. Source-lock only the additional primary references actually needed for context selection/assembly, prompt or working-memory budgeting, ordering, provenance retention, conflict resolution, truncation, or compilation semantics beyond what EXTMEM already supplies. Define at least one exact finite compilation witness where a record set exceeds a context budget and a declared compiler selects/serializes a bounded working set while preserving provenance; include a control showing why naive truncation or retrieval rank alone is insufficient.
+
+## Immediately completed transaction — COMPOSE-001
+
+- implementation issue: #231 — closed completed
+- implementation PR: #232
+- exact green implementation head: 6fc852b93cd35b2ca5bad52cff049777fe49d958
+- implementation GitHub Actions run: 37472274892 — success
+- implementation merge: 57542068df60818d05c14b01f1aa2607ca619232
+- post-draft audit: AUDIT-058
+- audit issue: #233 — closed completed
+- audit PR: #234
+- exact green audit head: 4247a9ac7f2be714988d026c3d30dbb77bdfbdb8
+- audit GitHub Actions run: 37472951600 — success
+- audit merge/current main: b00d6020b809145a99689418db13ff6d6561a659
+- audit record blob: 770f8f8b29d9f2702ae591bee688c50296c55e2a
+- audit disposition: **PASS AFTER ONE DOCUMENTARY PROVENANCE REPAIR**
 - final canonical Linux validation on current main: green
 
-Final COMPINTEL artifacts:
+Final COMPOSE artifacts:
 
-- specification: f3143c5b63537696e327f15aa1ef041f3f075482
-- derivation packet: a05602c16c82587170c5b57e44cc4c5033d89bac
-- computational witness: fb6f398987666794ba7520d2045982421b6f58c6
-- reader manuscript: e6396abb339b8ccc14d1cb54b9c89eb982937d1e
-- source lock: fbd6948afb38648697f0173aa25fbbe6a32b76ba
-- Chapter Ledger: 7d6e77ecd71ed76c1141a2fe39349e5dcdef8490
-- Source Register: 7b17cc17785312012761626688bac44238c67af3
-- bibliography: db440c3ea184780c4eb669609887dcc9ef6fac62
-- transaction receipt: 62e4a4942bac5927dafbe6ab970347b6ca4eccae
+- specification: 9eef5fff041a255f7fc137d24ac7457fcc1db8a7
+- derivation packet: f698e1f2ddf35099b53ad85af8e9e357de19166b
+- computational witness: 878a85b8b163f99fb68b8a9a5e4f414a14fa8426
+- reader manuscript: da94fe5d6106a50b168a4f95fa0765c9c7c6b415
+- source lock: c16ab3f6ce67e81cff9f85f2f98a79ad55549cd5
+- Chapter Ledger: 210dbb1d892a2cc58756e262457e5696a0d69729
+- Source Register: a03c6c3f9ea02fdc74fa20d3a9f6546d46f49824
+- repaired transaction receipt: b3947dd2120b3e443c03ffd1b1cee8114af08528
 
-Durable COMPINTEL substrate:
+Durable COMPOSE substrate:
 
-- finite codelength is relative to a declared code/probe family;
-- held-out conditional codelength is the primary predictive-structure surface;
-- held-out compression gain is Delta_C(R)=L_C(Y_H|baseline,T)-L_C(Y_H|R,T);
-- compression progress is Gamma_t=L_C,t-1(Y_H|R,T)-L_C,t(Y_H|R,T) under fixed or explicitly charged semantics;
-- training compression can be pure memorization and is insufficient evidence of reuse;
-- random-label, shuffle, random-representation, probe-capacity, codec, task-distortion, and recoding controls are explicit;
-- economical probe accessibility is distinct from causal use;
-- codelength ranking is distinct from the Residual factorization preorder;
-- cross-context low incremental codelength is evidence of reuse only relative to a declared task family and code;
-- compression progress is retained as a discovery hypothesis, not a theorem;
-- compressibility is not promoted to a definition or scalar ordering of intelligence.
+- local component validity does not imply system validity;
+- for column-vector action, chronological A then B is represented by BA;
+- exact order-sensitive witness:
+  - ||A||_2 = ||B||_2 = 3/2;
+  - ||BA||_2 = 1;
+  - ||AB||_2 = 9/4;
+  - under system gain budget tau=2, A-then-B passes and B-then-A fails;
+- [A,B] is nonzero in the exact witness;
+- a commuting control with the same local norm ceilings has product I in either order;
+- local product-norm bounds can be valid but loose;
+- under explicit connecting-domain assumptions, two-stage approximation error satisfies epsilon_g + L_g epsilon_f;
+- n-stage error propagation satisfies sum_j epsilon_j product_{k>j} L_k;
+- component, interface, composition, and system-level certificates are distinct evidence levels;
+- local/interface correctness does not automatically imply closed-loop or global safety.
 
-Exact predictive witness:
+AUDIT-058 repair:
 
-- training prefix T=(0,1,0,1);
-- structured held-out continuation (0,1,0,1): 1 bit versus 4-bit literal baseline, gain +3;
-- matched noncontinuing held-out control (0,0,1,1): 5 bits versus 4-bit baseline, gain -1.
-
-Exact trivial-compressibility witness:
-
-- eight zeros: 1 bit under the declared run code versus 8-bit literal baseline, gain +7;
-- this establishes compressibility without establishing learning or intelligence.
+- canonical validation required exact protocol headings in the reader manuscript and computational witness;
+- those documentary repairs changed their blob identities after the first transaction receipt was written;
+- the audit repaired the receipt to the actual merged manuscript/witness identities;
+- no mathematical claim or exact witness arithmetic changed.
 
 ## Recomputed dependency-legal frontier
 
@@ -115,11 +111,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering therefore selects:
 
-- ATLAS-CH-COMPOSE-001
+- ATLAS-CH-CONTEXTCOMP-001
 
 Other dependency-legal count-0 chapters remain available:
 
-- ATLAS-CH-CONTEXTCOMP-001
 - ATLAS-CH-CPS-001
 - ATLAS-CH-JOINTUNC-001
 - ATLAS-CH-LATENTTIME-001
