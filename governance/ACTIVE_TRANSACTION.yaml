@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-NEURALKRYLOV-001"
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "work/neuralkrylov-255"
-  pull_request: null
-  state: "local-validation-green"
-  next_action: "Exact NEURALKRYLOV work head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47 passes canonical repository validation and independent exact witness replay. Re-fetch protected main and compare against baseline c9d5c61bf611327a1ed054206c5d8e778559e28a. If compatible, open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
+  pull_request: 256
+  state: "pr-open"
+  next_action: "Implementation PR #256 is open from exact head ba58e1e990c818e5c45a8007e7a0314fa4cd9d47. Require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
