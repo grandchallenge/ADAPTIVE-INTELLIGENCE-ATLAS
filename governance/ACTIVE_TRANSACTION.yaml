@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-LATENTTIME-001"
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "audit/a249"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-062 is issue #249 on audit/a249 from exact protected implementation merge a89ba6cb799faca9557f01262bc0e0306d3a50ad. Independently audit prerequisite/source identities, DTW combinatorics and unique optima, clock/alignment/flow boundaries, bibliography and receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
+  pull_request: 250
+  state: "audit-pr-open"
+  next_action: "AUDIT-062 is on PR #250 from exact audit head ede37df020d644a269565aa94b2cdf4442800b70. Require exact-head Actions success before merge."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
