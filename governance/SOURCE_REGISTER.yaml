@@ -392,3 +392,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-TRANSPORT-001.yaml"
     authority: "Audited NORMREP/SPLIT prerequisites plus established manifold, residual-network, Neural-ODE, and dynamical-systems sources; Atlas-owned synthesis defines representation transport while explicitly separating state transport, vector/parallel transport, optimal transport, and exact-flow semantics."
+
+  - id: "ATLAS-SRC-UNCERTAINTY-LOCK-001"
+    title: "Uncertainty and Calibration source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-UNCERTAINTY-001.yaml"
+    authority: "Audited Information prerequisite plus primary calibration, approximate-Bayesian, aleatoric/epistemic, deep-ensemble, conformal-prediction, and selective-classification sources with explicit non-equivalence and distribution-shift boundaries."
