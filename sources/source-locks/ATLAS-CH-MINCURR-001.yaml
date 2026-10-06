@@ -1,0 +1,147 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-MINCURR-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_progress_search_and_residual_prerequisites_plus_primary_teaching_sources_plus_atlas_exact_minimal_basis_witness"
+claim_boundary: >
+  PROGRESSSEARCH-001 supplies governed experience-space search, exploration/coverage, delayed credit,
+  finite-horizon semantics, and exact counterexamples to exploit-only search. RESIDUAL-001 supplies
+  task-relative sufficiency and leastness relative to declared descriptor and post-processing classes.
+  Goldman and Kearns (1995) are used for the classical teaching-dimension idea that a target concept can
+  be uniquely identified by a smallest teaching set relative to a concept class. Zhu (2015) is used for
+  machine teaching as optimal training-set design relative to a specified learner and target. Atlas-owned
+  material defines the exact two-bit teaching witness, the high-progress/non-basis control, and the
+  acquisition/persistence/accessibility/behavioural-expression evidence ladder. No source is claimed to
+  establish that early neural mechanisms necessarily persist, remain accessible, or cause later behavior.
+
+hard_prerequisites:
+  - id: "MINCURR-PROGRESSSEARCH-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-PROGRESSSEARCH-001.md"
+    git_blob_sha1: "30e988200933dbba8ad53f069acacf131b0944ee"
+    authority: "Audited experience-space search, exploration, progress, credit, horizon, and MINCURR handoff."
+  - id: "MINCURR-PROGRESSSEARCH-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "sources/source-locks/ATLAS-CH-PROGRESSSEARCH-001.yaml"
+    git_blob_sha1: "6e593b0d17e4a80d5790a6ea6d580f3b4530686a"
+    authority: "Exact PROGRESSSEARCH source/claim boundary."
+  - id: "MINCURR-PROGRESSSEARCH-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "reviews/AUDIT-049.md"
+    git_blob_sha1: "647a8b0ca273ff8c8bebaaa97073a9b198e8bee4"
+    authority: "Post-draft audit preserving the direct MINCURR handoff."
+  - id: "MINCURR-RESIDUAL-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md"
+    git_blob_sha1: "02b0886a87e1e17c749e15349e14f43674c3d1ff"
+    authority: "Audited task-relative sufficiency/minimality and reconstruction-boundary substrate."
+  - id: "MINCURR-RESIDUAL-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "sources/source-locks/ATLAS-CH-RESIDUAL-001.yaml"
+    git_blob_sha1: "6e6a25c4b4e01475e68a6c616eefb6ba7b039341"
+    authority: "Exact RESIDUAL source/claim boundary."
+  - id: "MINCURR-RESIDUAL-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "3981c7de350e2eb284eb0f3753c09321c173d436"
+    path: "reviews/AUDIT-006.md"
+    git_blob_sha1: "b24ef782bedfe76a4c52d832562a0dd29d2a64a9"
+    authority: "Formal audit making leastness relative to declared descriptor/post-processing classes."
+
+sources:
+  - id: "MINCURR-GOLDMAN-KEARNS-1995"
+    citation_key: "GoldmanKearns1995Teaching"
+    kind: "peer-reviewed-journal"
+    title: "On the Complexity of Teaching"
+    authors: "Sally A. Goldman; Michael J. Kearns"
+    journal: "Journal of Computer and System Sciences"
+    volume: "50"
+    issue: "1"
+    pages: "20-31"
+    year: 1995
+    doi: "10.1006/jcss.1995.1003"
+    authority: >
+      Classical teaching-dimension authority for smallest target-identifying teaching sets relative
+      to a concept class. Not authority for neural mechanism persistence or universal curriculum optimality.
+  - id: "MINCURR-ZHU-2015"
+    citation_key: "Zhu2015MachineTeaching"
+    kind: "peer-reviewed-conference"
+    title: "Machine Teaching: An Inverse Problem to Machine Learning and an Approach Toward Optimal Education"
+    authors: "Xiaojin Zhu"
+    venue: "AAAI 2015"
+    pages: "4083-4087"
+    year: 2015
+    doi: "10.1609/aaai.v29i1.9761"
+    authority: >
+      Primary authority for machine teaching as choosing an optimal training set relative to a specified
+      learner and target. Used as framing, not as a theorem that the Atlas witness transfers to arbitrary learners.
+
+exact_witness_contract:
+  probe_set: "[q1,q2]"
+  concept_class:
+    h00: "[0,0]"
+    h01: "[0,1]"
+    h10: "[1,0]"
+    h11: "[1,1]"
+  target: "h11"
+  admissible_teacher_examples:
+    e1: "(q1,1)"
+    e2: "(q2,1)"
+  version_space: "V_H(T)={h in H: h is consistent with every labeled example in T}"
+  basis:
+    T_star:
+      - "(q1,1)"
+      - "(q2,1)"
+    version_space: "[h11]"
+    size: 2
+  strict_smaller_candidates:
+    empty:
+      version_space: "[h00,h01,h10,h11]"
+    q1_only:
+      version_space: "[h10,h11]"
+    q2_only:
+      version_space: "[h01,h11]"
+  minimality: >
+    Every strict smaller target-consistent subset of T_star has version-space size greater than one,
+    so T_star is minimal relative to the declared concept class, target, example language, and exact
+    consistency-based reconstruction rule.
+
+high_progress_control:
+  target_progress:
+    e1: 1
+    e2: 1
+  auxiliary_experience:
+    id: "e3"
+    domain: "auxiliary probe z outside target probe family {q1,q2}"
+    progress_score: 5
+    target_version_space_if_observed_alone: "[h00,h01,h10,h11]"
+  lesson: >
+    The highest current progress score can occur in an experience region that does not reduce uncertainty
+    about the declared target capability. Progress-search priority therefore does not imply membership in
+    a minimal reconstructive teaching basis.
+
+evidence_ladder:
+  acquisition:
+    definition: "Evidence that a mechanism/operation was formed or used during the learning interval."
+  persistence:
+    definition: "Evidence that the same declared mechanism/operation remains present at a later state."
+  accessibility:
+    definition: "Evidence that the persistent mechanism can be recovered, invoked, decoded, or causally accessed under a declared admissible interface."
+  behavioural_expression:
+    definition: "Evidence that the later system produces the declared behaviour on the probe family."
+  non_implications:
+    - "acquisition does not by itself establish persistence"
+    - "persistence does not by itself establish accessibility"
+    - "accessibility does not by itself establish behavioural expression under the tested context"
+    - "later behavioural expression does not prove that an earlier mechanism persisted or caused it"
+
+epistemic_rules:
+  - "Minimality is relative to the declared target capability/concept class, admissible examples/descriptors, and reconstruction rule."
+  - "A minimal teaching set is not necessarily a unique teaching set."
+  - "A high-progress region need not belong to a minimal reconstructive basis."
+  - "Behavioural success does not identify the mechanism that generated it."
+  - "Persistence claims require longitudinal identity evidence, not only early and late performance."
+  - "Accessibility is interface-relative and distinct from mere latent presence."
