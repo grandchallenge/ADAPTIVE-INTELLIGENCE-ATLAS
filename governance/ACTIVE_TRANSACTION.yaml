@@ -11,8 +11,8 @@ current:
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
   branch: "work/jointunc-243"
   pull_request: null
-  state: "draft-complete"
-  next_action: "JOINTUNC draft artifacts and receipt are complete on exact work head 1ad4320b548aa08434f8940b88d0c3e9d016add7. Run canonical Linux validation and independent exact rational witness replay on this head. Verify the three exact propagated variances 37/4, 5/4, 13/4, covariance corrections +6/-2, identical unit marginal variances, vanishing off-diagonal covariances in the independence control, and PSD constructions for Sigma+ and Sigma-. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if main remains compatible."
+  state: "local-validation-green"
+  next_action: "Validated exact head 1ad4320b548aa08434f8940b88d0c3e9d016add7. Re-check protected main against baseline, then open the implementation PR only if compatible."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
