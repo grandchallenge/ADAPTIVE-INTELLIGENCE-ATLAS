@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 227
+  issue_number: 229
   tranche_id: "COMPINTEL-001"
   chapter_ids:
     - "ATLAS-CH-COMPINTEL-001"
   baseline_commit: "21597e4f2bb7af5312dc9967417a60dc3d8dc0f5"
-  branch: "work/compintel-227"
-  pull_request: 228
-  state: "implementation-merged"
-  next_action: "Implementation PR #228 merged from exact validated head b7818c9eb16749aa41ac20b200293e485946e845 to protected main d7f83f6e51d60cdb8edbc3ad8b9a1f16a47213b4. Protected-merge canonical validation is green. Instantiate the mandatory post-draft audit from this exact merge and independently audit mathematical identities, source scope, evidence-ladder semantics, exact witnesses, citation/provenance integrity, and repository integrity; repair any in-scope defect before audit merge."
+  branch: "audit/a229"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-057 is instantiated as issue #229 on audit/a229 from exact protected implementation merge d7f83f6e51d60cdb8edbc3ad8b9a1f16a47213b4. Independently audit exact prerequisite/source identities, source-scope strength, codelength and progress definitions, evidence ladder/controls, exact witnesses, citation/provenance integrity, and repository integrity. Repair every in-scope defect, validate the fresh exact audit head locally and in GitHub Actions, then merge only that exact green head."
 frontier:
   - id: "ATLAS-CH-COMPINTEL-001"
     downstream_architecture_count: 0
