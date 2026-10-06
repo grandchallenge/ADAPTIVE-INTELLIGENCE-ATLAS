@@ -9,10 +9,10 @@ current:
   chapter_ids:
     - "ATLAS-CH-JOINTUNC-001"
   baseline_commit: "c6b690725a0c89dd1746015d3e688c50553e0f28"
-  branch: "work/jointunc-243"
-  pull_request: 244
-  state: "ci-green"
-  next_action: "Exact JOINTUNC head 1ad4320b548aa08434f8940b88d0c3e9d016add7 passed Actions run 37536081988. Re-check PR #244 and protected main, then merge only this exact head."
+  branch: null
+  pull_request: null
+  state: "implementation-merged"
+  next_action: "Open the mandatory post-draft audit from protected main a204fb495994607bd688193210242b9a32d06ce5."
 frontier:
   - id: "ATLAS-CH-JOINTUNC-001"
     downstream_architecture_count: 0
