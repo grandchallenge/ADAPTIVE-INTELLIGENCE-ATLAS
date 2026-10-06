@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-LATENTTIME-001"
   baseline_commit: "c550463eb448e41c2493747a6ed6ad83e34b24dc"
   branch: "work/latenttime-247"
-  pull_request: null
-  state: "local-validation-green"
-  next_action: "Validated exact LATENTTIME head aa4c9c9762cf8578518e45552e3806664bd2b1d5. Re-check protected main against baseline c550463eb448e41c2493747a6ed6ad83e34b24dc, then open the implementation PR only if compatible."
+  pull_request: 248
+  state: "pr-open"
+  next_action: "Implementation PR #248 is open from exact head aa4c9c9762cf8578518e45552e3806664bd2b1d5. Require exact-head Actions success before merge."
 frontier:
   - id: "ATLAS-CH-LATENTTIME-001"
     downstream_architecture_count: 0
