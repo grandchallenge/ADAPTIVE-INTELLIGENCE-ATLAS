@@ -11,8 +11,8 @@ current:
   baseline_commit: "c9d5c61bf611327a1ed054206c5d8e778559e28a"
   branch: "audit/a257"
   pull_request: 258
-  state: "audit-pr-open"
-  next_action: "AUDIT-064 is on PR #258 from exact audit head eb5b1d10e72b33e393a15813740738628a97b380. Require exact-head GitHub Actions success before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head eb5b1d10e72b33e393a15813740738628a97b380 passed GitHub Actions run 37548244047. Re-check PR #258 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-NEURALKRYLOV-001"
     downstream_architecture_count: 0
