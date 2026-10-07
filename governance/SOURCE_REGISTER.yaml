@@ -506,3 +506,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SYSTEMS-001.yaml"
     authority: "Audited HARDWARE/MOE prerequisites plus primary Megatron-LM, GPipe, Orca, and PagedAttention/vLLM sources, with Atlas-owned exact topology-placement communication witness."
+
+  - id: "ATLAS-SRC-TOKENCOMP-LOCK-001"
+    title: "Tokenization as Compression and Interface source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-TOKENCOMP-001.yaml"
+    authority: "Audited TOKEN-001 prerequisite plus Atlas-owned exact fixed-width ID, compute-proxy, Pareto-control, and canonical interoperability constructions; no new external academic authority."
