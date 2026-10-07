@@ -480,3 +480,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SHIFT-001.yaml"
     authority: "Audited UNCERTAINTY prerequisite plus Sugiyama et al. covariate-shift/importance-weighting authority, Madry et al. adversarial robust-optimization authority, and Atlas-owned exact changed-law, benign-shift, support-failure, and adversarial-separation witnesses."
+
+  - id: "ATLAS-SRC-SPECTRALDIAG-LOCK-001"
+    title: "Spectral and Operator Diagnostics source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-SPECTRALDIAG-001.yaml"
+    authority: "Audited NONNORMAL and MECHDIAG prerequisites, Mezić 2005 Koopman observable-operator authority, and Atlas-owned exact spectral non-equivalence controls."
