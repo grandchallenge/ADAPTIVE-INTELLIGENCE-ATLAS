@@ -11,8 +11,8 @@ current:
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "work/spectralshape-272"
   pull_request: 273
-  state: "ci-green"
-  next_action: "Exact SPECTRALSHAPE head 650d8eb7b9d389198e1671933db25aa1eb46f9e9 passed Actions run 37574730505. Re-check PR #273 and protected main, then merge only this exact head."
+  state: "implementation-merged"
+  next_action: "Implementation PR #273 merged to protected main ea4c44f2a41488820851a046eedd48f82628f745 and protected-merge validation is green. Instantiate the mandatory SPECTRALSHAPE post-draft audit from this exact merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
