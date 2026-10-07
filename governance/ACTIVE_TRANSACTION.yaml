@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 301
+  issue_number: 303
   tranche_id: "LICENSE-SELECTION-001"
   chapter_ids: []
   baseline_commit: "22203b61b2d2264b11d43472c5d5ab6e393b9d83"
-  branch: "work/license-301"
-  pull_request: 302
-  state: "merged"
-  next_action: "Instantiate a fresh audit from exact protected main 22203b61b2d2264b11d43472c5d5ab6e393b9d83."
+  branch: "audit/a303"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Write a fresh audit from exact protected main 22203b61b2d2264b11d43472c5d5ab6e393b9d83, validate the exact audit head, and merge only on green."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
