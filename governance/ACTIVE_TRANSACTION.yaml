@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 285
+  tranche_id: "ATLAS-CH-TOKENCOMP-001"
+  chapter_ids:
+    - "ATLAS-CH-TOKENCOMP-001"
   baseline_commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
-  branch: null
+  branch: "work/tokencomp-285"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-TOKENCOMP-001 — Tokenization as Compression and Interface from exact protected main fdaa7ec148e607654c88dfabe710ebf95f628599. First bind audited TOKEN-001 (manuscript 07c1edd5103ff179bbb3727ede9c4e15f2ec949a, source lock 616c92bb63ed33e5c5587b3fe4491ae21a0eba54, AUDIT-052 7c279eef5c55ea026fe965e18f696b62adad624e). Use the Atlas Map contract to connect vocabulary design to description length, compute, interoperability, and tokenizer lingua francas; source-lock only primary authority genuinely needed beyond TOKEN-001; preserve TOKEN-001 boundaries among bytes, codepoints, token length, fertility, semantics, and model compute; then execute the standard bounded draft -> exact-head validation -> protected merge -> fresh post-draft audit transaction."
+  state: "instantiated"
+  next_action: "Bind audited TOKEN-001 exactly in the TOKENCOMP source lock. Add no new external source unless a genuine evidentiary gap appears. Draft the specification, derivation packet, exact compression/compute/interoperability witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt; then run exact-head validation."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
