@@ -11,8 +11,8 @@ current:
   baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
   branch: "work/synthesis-276"
   pull_request: 277
-  state: "ci-green"
-  next_action: "Exact SYNTHESIS implementation head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57 passed full GitHub Actions validation run 37593846381. Re-check PR #277 and protected main, then merge only this exact head."
+  state: "implementation-merged"
+  next_action: "Implementation PR #277 merged to protected main 0925dd1a0108f99a230bb0dabf4cc423f1839867. The protected merge tree has zero file differences from exact validated head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57. Instantiate the mandatory SYNTHESIS post-draft audit from this exact protected merge."
 frontier:
   - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
