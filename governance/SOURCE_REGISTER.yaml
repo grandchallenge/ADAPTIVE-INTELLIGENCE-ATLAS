@@ -493,3 +493,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SPECTRALSHAPE-001.yaml"
     authority: "Audited MATRIXOPT/NONNORMAL prerequisites plus Atlas-owned exact normalization, clipping, polar-flattening, non-flat target-spectrum, and non-normal control witnesses."
+
+
+  - id: "ATLAS-SRC-SYNTHESIS-LOCK-001"
+    title: "Beyond the Monolithic Model source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-SYNTHESIS-001.yaml"
+    authority: "Audited FRONTIER/POLITY prerequisites plus Atlas-owned typed systems composition witness and ablation packet."

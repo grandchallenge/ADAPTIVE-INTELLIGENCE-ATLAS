@@ -1,0 +1,153 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SYNTHESIS-001"
+locked_on: "2026-10-07"
+epistemic_class: "audited_frontier_and_computational_polity_prerequisites_plus_atlas_exact_system_composition_witness"
+claim_boundary: >
+  FRONTIER-001 supplies the programme-status grammar and the obligation to preserve open research items
+  as open. POLITY-001 supplies the system-level composition object, private/shared-state separation,
+  capability-versus-authority distinction, candidate/validation/commit decomposition, heterogeneous
+  cost bookkeeping, and exact two-specialist routing witness. SYNTHESIS-001 adds an Atlas-owned typed
+  systems object covering model/representation, dynamics, memory, tools, coordination, evidence,
+  adaptation, governance, task contract, and cost; and an exact finite composition witness that
+  combines routing, validation, authorized commit, and persistent shared recall. No new external
+  academic source is required. The chapter does not claim one universal architecture of intelligence,
+  that distributed systems are always superior to monolithic models, or that open programme items are solved.
+
+hard_prerequisites:
+  - id: "SYNTHESIS-FRONTIER-READER"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "governance/tranches/CH171-READER.md"
+    git_blob_sha1: "e1a692a7e6406041a6e4395c0e23a0732fb5b4e3"
+    authority: "Audited programme map and open-obligation framing."
+  - id: "SYNTHESIS-FRONTIER-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "sources/source-locks/ATLAS-CH-FRONTIER-001.yaml"
+    git_blob_sha1: "84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63"
+    authority: "Exact Frontier source/status boundary."
+  - id: "SYNTHESIS-FRONTIER-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "reviews/AUDIT-043.md"
+    git_blob_sha1: "4ea9811d0e9c184b2e1aa223091332e356c77056"
+    authority: "Audit preserving programme-status precision and SYNTHESIS downstream boundary."
+  - id: "SYNTHESIS-POLITY-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-POLITY-001.md"
+    git_blob_sha1: "fa1cb3dad381ddbcbd7e4725a87ce42c77a03948"
+    authority: "Audited system-composition, capability/authority, shared memory, validation, governance, and cost substrate."
+  - id: "SYNTHESIS-POLITY-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "sources/source-locks/ATLAS-CH-POLITY-001.yaml"
+    git_blob_sha1: "ee898fbbafc58a4f6322a7c65ef571c9a084bc35"
+    authority: "Exact Polity source/claim boundary."
+  - id: "SYNTHESIS-POLITY-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+    path: "reviews/AUDIT-048.md"
+    git_blob_sha1: "8b04e42fecca8a361c929dc68ead4441a4f592cd"
+    authority: "Post-draft audit preserving exact specialization and downstream SYNTHESIS boundary."
+
+new_external_academic_sources: []
+
+source_decision:
+  finding: >
+    No new external authority is needed for the load-bearing synthesis. FRONTIER-001 and POLITY-001
+    already source-lock the research-programme, distributed-cognition, joint-activity, coordination,
+    shared-memory, evidence, and governance concepts consumed here. The new system-composition witness
+    is exact finite Atlas-owned logic.
+  reopen_condition: >
+    Add new external authority only if the manuscript introduces a theorem or empirical systems claim
+    not already covered by the audited prerequisites.
+
+status_grammar:
+  - "AUDIT_BOUND_SUBSTRATE"
+  - "DRAFT_SUBSTRATE"
+  - "BOUNDED_EVIDENCE"
+  - "ARCHITECTURE_STAGE"
+  - "OPEN_PROOF_OBLIGATION"
+  - "OPEN_EXPERIMENT_OBLIGATION"
+  - "CONJECTURAL_CONNECTION"
+
+typed_synthesis_object:
+  notation: "Sigma=(X,D,M,T,C,E,A,G,Q,K)"
+  fields:
+    X: "model/representation states and component-local private state"
+    D: "declared dynamics/update laws"
+    M: "persistent/shared memory with provenance/version/status semantics"
+    T: "tools and external services"
+    C: "coordination, routing, communication, and composition rules"
+    E: "evidence objects, validation rules, and replayable checks"
+    A: "adaptation/update mechanisms and their authority scope"
+    G: "governance and authorization constraints"
+    Q: "task set/distribution and success contract"
+    K: "heterogeneous resource/cost vector"
+  rule: >
+    These coordinates are typed objects and are not assumed to share one vector space, one optimizer,
+    one timescale, or one authority model.
+
+exact_composition_witness:
+  tasks: "[alpha,beta]"
+  target_answer:
+    alpha: 1
+    beta: 1
+  specialists:
+    A_alpha:
+      alpha: 1
+      beta: 0
+    A_beta:
+      alpha: 0
+      beta: 1
+  router:
+    alpha: "A_alpha"
+    beta: "A_beta"
+  candidate_record: "(q,y,source)"
+  validator_rule: "accept iff y=1 and source equals the declared specialist for q"
+  governance_rule: "commit iff validator_accept=true"
+  committed_record: "(q,y,source,status=validated)"
+  memory_semantics: "persistent shared map keyed by q"
+  success_contract:
+    - "returned answer y=1"
+    - "candidate source matches declared routed specialist"
+    - "validator accepts"
+    - "governance authorizes commit"
+    - "validated record is durably present in shared memory"
+    - "later recall returns the committed y with validated status"
+  full_composition:
+    task_accuracy: "2/2"
+    validated_commit_coverage: "2/2"
+    persistent_recall_coverage: "2/2"
+    unauthorized_commits: 0
+
+ablations:
+  broken_router:
+    mapping:
+      alpha: "A_alpha"
+      beta: "A_alpha"
+    result: >
+      beta receives y=0, validator rejects, and only alpha succeeds; task and committed coverage fall to 1/2.
+  remove_validator_keep_governance:
+    result: >
+      Candidates can still be produced, but the unchanged governance rule has no validation evidence and
+      authorizes no commit; answer accuracy can remain 2/2 while validated committed coverage is 0/2.
+  remove_shared_memory:
+    result: >
+      Correct answers, validation, and authorization may occur transiently, but persistent recall coverage is 0/2.
+  remove_governance_gate:
+    bad_candidate: "(beta,1,A_alpha)"
+    validator_result: "reject"
+    result: >
+      If commit bypasses the governance gate, the rejected bad-source candidate can be written, producing
+      one unauthorized commit. Correct-looking content is therefore not equivalent to authorized state transition.
+
+epistemic_rules:
+  - "System capability must be demonstrated under a declared composition, not inferred from component count."
+  - "Capability, authority, evidence, governance, and resource cost are distinct objects."
+  - "A validator can reduce a declared error class without becoming an oracle."
+  - "Shared memory can preserve accepted state without making stored content automatically true or current."
+  - "Open proof/experiment obligations remain open until independently discharged."
+  - "A successful finite composition witness does not establish a universal architecture of intelligence."
+  - "Distributed composition may improve one declared capability while increasing coordination cost and failure surface."
