@@ -11,8 +11,8 @@ current:
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "work/spectralshape-272"
   pull_request: 273
-  state: "pr-open"
-  next_action: "Implementation PR #273 is open from exact head 650d8eb7b9d389198e1671933db25aa1eb46f9e9. Require exact-head GitHub Actions success before merge."
+  state: "ci-green"
+  next_action: "Exact SPECTRALSHAPE head 650d8eb7b9d389198e1671933db25aa1eb46f9e9 passed Actions run 37574730505. Re-check PR #273 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
