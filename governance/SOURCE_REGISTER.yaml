@@ -486,3 +486,10 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SPECTRALDIAG-001.yaml"
     authority: "Audited NONNORMAL and MECHDIAG prerequisites, Mezić 2005 Koopman observable-operator authority, and Atlas-owned exact spectral non-equivalence controls."
+
+
+  - id: "ATLAS-SRC-SPECTRALSHAPE-LOCK-001"
+    title: "Spectral Shaping source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-SPECTRALSHAPE-001.yaml"
+    authority: "Audited MATRIXOPT/NONNORMAL prerequisites plus Atlas-owned exact normalization, clipping, polar-flattening, non-flat target-spectrum, and non-normal control witnesses."
