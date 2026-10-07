@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-VARIOPT-001"
   baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
   branch: "work/variopt-289"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the VARIOPT implementation pull request from work/variopt-289 to main. Require independent VARIOPT_EXACT_WITNESS_OK replay and full repository GitHub Actions validation on the exact PR head. Repair any in-scope defect and revalidate. Merge only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
+  pull_request: 290
+  state: "pr-open"
+  next_action: "Validate exact VARIOPT implementation head 1da24f403f7de118f205c6fab5616f5e27588a57: require VARIOPT_EXACT_WITNESS_OK replay and the full GitHub Actions validator to succeed. Repair any in-scope failure and revalidate exact head. Merge PR #290 only on green, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
