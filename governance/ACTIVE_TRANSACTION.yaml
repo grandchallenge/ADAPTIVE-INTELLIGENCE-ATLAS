@@ -11,8 +11,8 @@ current:
   baseline_commit: "7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf"
   branch: "audit/a270"
   pull_request: 271
-  state: "audit-pr-open"
-  next_action: "AUDIT-067 is on PR #271 from exact audit head 8f068791d012394c31e9aefa34547044721700c9. Require exact-head GitHub Actions success before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head 8f068791d012394c31e9aefa34547044721700c9 passed GitHub Actions run 37571680457. Re-check PR #271 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-SPECTRALDIAG-001"
     downstream_architecture_count: 0
