@@ -11,8 +11,8 @@ current:
   baseline_commit: "af551d732d83c6751051c864206df4bb153e5a3f"
   branch: "audit/a265"
   pull_request: 266
-  state: "audit-pr-open"
-  next_action: "AUDIT-066 is on PR #266 from exact audit head 67d4d56b7974225434bdc7f0211488cb4f8e8026. Require exact-head GitHub Actions success and unchanged protected main before merging only this SHA."
+  state: "audit-ci-green"
+  next_action: "Exact audit head 67d4d56b7974225434bdc7f0211488cb4f8e8026 passed GitHub Actions run 37551682501. PR #266 is mergeable and protected main is still af551d732d83c6751051c864206df4bb153e5a3f. Merge only this exact head, then validate final protected main and reset controller."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
