@@ -11,8 +11,8 @@ current:
   baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
   branch: "work/synthesis-276"
   pull_request: 277
-  state: "pr-open"
-  next_action: "Implementation PR #277 is open from exact head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57. Require full exact-head GitHub Actions validation before merge."
+  state: "ci-green"
+  next_action: "Exact SYNTHESIS implementation head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57 passed full GitHub Actions validation run 37593846381. Re-check PR #277 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
