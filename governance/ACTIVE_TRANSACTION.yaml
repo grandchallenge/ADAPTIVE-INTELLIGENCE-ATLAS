@@ -11,8 +11,8 @@ current:
   baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
   branch: "work/synthesis-276"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited FRONTIER-001 and POLITY-001. Add no new external authority unless drafting reveals a genuine gap. Freeze the typed synthesis object and exact two-specialist/router/validator/governed-memory composition witness, including router, validator, memory, and governance ablations. Preserve FRONTIER status grammar exactly and keep open obligations open."
+  state: "draft-complete"
+  next_action: "SYNTHESIS draft artifacts, ledger/register promotion, and exact receipt are complete on work head 6140675034c53c8552ae37eda004d63f4aaaee07. Run canonical repository validation and independent exact witness replay on this exact head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
 frontier:
   - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
