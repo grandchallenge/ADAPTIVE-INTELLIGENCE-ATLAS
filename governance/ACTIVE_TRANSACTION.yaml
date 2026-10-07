@@ -10,8 +10,8 @@ current:
   baseline_commit: "ab781fbf7861c36b7750a0ba2710a34ade625122"
   branch: "release-candidate/305"
   pull_request: null
-  state: "instantiated"
-  next_action: "Audit available build/render tooling and instantiate a deterministic canonical LaTeX build from the 80 ledger-selected chapters. Preserve ATLAS-CH-MECHDIAG-001 as an intentionally concise interlude. Generate PDF and HTML only from the exact LaTeX source, bind candidate version/date metadata, hash artifacts, validate exact head, merge only on green, then perform a fresh release-candidate audit. Do not authorize public release."
+  state: "draft-complete"
+  next_action: "Open RELEASE-CANDIDATE-001 PR from exact validated head e20d77b59a9c02df0bbb1f6dba86182bb7214422. Require full repository validation including candidate artifact hashes and no-public-release boundary. Merge only on green, then perform a fresh release-candidate audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
