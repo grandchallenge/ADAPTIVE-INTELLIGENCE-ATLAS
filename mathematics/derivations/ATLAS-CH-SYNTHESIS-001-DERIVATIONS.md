@@ -5,33 +5,33 @@
 Let
 
 [
-Q={alpha,eta}.
+Q={alpha, eta}.
 ]
 
 Define specialists:
 
 [
-A_alpha=(1,0),qquad A_eta=(0,1)
+A_alpha=(1,0),qquad A_ eta=(0,1)
 ]
 
-on ordered tasks ((alpha,eta)).
+on ordered tasks ((alpha, eta)).
 
 The correct router is:
 
 [
-R(alpha)=A_alpha,qquad R(eta)=A_eta.
+R(alpha)=A_alpha,qquad R( eta)=A_ eta.
 ]
 
 Hence routed answers are:
 
 [
-y(alpha)=1,qquad y(eta)=1.
+y(alpha)=1,qquad y( eta)=1.
 ]
 
 Therefore task accuracy is:
 
 [
-oxed{1}.
+ oxed{1}.
 ]
 
 ## D2. Evidence and commit
@@ -59,13 +59,13 @@ Thus both correct routed candidates commit as:
 ]
 
 [
-(eta,1,A_eta,mathrm{validated}).
+( eta,1,A_ eta,mathrm{validated}).
 ]
 
 Validated commit coverage is:
 
 [
-oxed{1}.
+ oxed{1}.
 ]
 
 ## D3. Persistent recall
@@ -75,19 +75,19 @@ Shared memory stores both records by task key.
 Later recall returns:
 
 [
-M[alpha]=1,qquad M[eta]=1.
+M[alpha]=1,qquad M[ eta]=1.
 ]
 
 Persistent recall coverage is:
 
 [
-oxed{1}.
+ oxed{1}.
 ]
 
 No rejected candidate is committed, so unauthorized commits are:
 
 [
-oxed{0}.
+ oxed{0}.
 ]
 
 ## D4. Broken-router ablation
@@ -95,7 +95,7 @@ No rejected candidate is committed, so unauthorized commits are:
 Let
 
 [
-R'(alpha)=A_alpha,qquad R'(eta)=A_alpha.
+R'(alpha)=A_alpha,qquad R'( eta)=A_alpha.
 ]
 
 Then:
@@ -105,7 +105,7 @@ y'(alpha)=1,
 ]
 
 [
-y'(eta)=0.
+y'( eta)=0.
 ]
 
 The beta candidate fails validation.
@@ -113,7 +113,7 @@ The beta candidate fails validation.
 Hence task accuracy and validated commit coverage are each:
 
 [
-oxed{rac12}.
+ oxed{ rac12}.
 ]
 
 ## D5. Remove-validator ablation
@@ -121,7 +121,7 @@ Hence task accuracy and validated commit coverage are each:
 Keep correct routing and unchanged governance rule:
 
 [
-	ext{commit iff validator_accept=true}.
+ ext{commit iff validator_accept=true}.
 ]
 
 If the validator/evidence channel is absent, no positive validation evidence exists.
@@ -129,23 +129,23 @@ If the validator/evidence channel is absent, no positive validation evidence exi
 Thus:
 
 [
-oxed{	ext{authorized commit coverage}=0}
+ oxed{ ext{authorized commit coverage}=0}
 ]
 
 even though transient answer accuracy can remain:
 
 [
-oxed{1}.
+ oxed{1}.
 ]
 
 Therefore:
 
 [
-oxed{
-	ext{answer capability}
+ oxed{
+ ext{answer capability}
 
 otRightarrow
-	ext{authorized durable state}.
+ ext{authorized durable state}.
 }
 ]
 
@@ -158,17 +158,17 @@ Delete persistent shared memory.
 Then immediate answer accuracy remains (1), but later persistent recall coverage is:
 
 [
-oxed{0}.
+ oxed{0}.
 ]
 
 Therefore:
 
 [
-oxed{
-	ext{transient success}
+ oxed{
+ ext{transient success}
 
 otRightarrow
-	ext{persistent shared recall}.
+ ext{persistent shared recall}.
 }
 ]
 
@@ -177,7 +177,7 @@ otRightarrow
 Define bad candidate:
 
 [
-c_{mathrm{bad}}=(eta,1,A_alpha).
+c_{mathrm{bad}}=( eta,1,A_alpha).
 ]
 
 It is correct-looking in value but wrong in source.
@@ -191,13 +191,13 @@ V(c_{mathrm{bad}})=0.
 With governance:
 
 [
-	ext{commit}=0.
+ ext{commit}=0.
 ]
 
 If governance is bypassed:
 
 [
-	ext{commit}=1.
+ ext{commit}=1.
 ]
 
 Thus unauthorized commits increase from (0) to (1).
@@ -205,11 +205,11 @@ Thus unauthorized commits increase from (0) to (1).
 Therefore:
 
 [
-oxed{
-	ext{content correctness alone}
+ oxed{
+ ext{content correctness alone}
 
 otRightarrow
-	ext{authorized transition}.
+ ext{authorized transition}.
 }
 ]
 
@@ -218,7 +218,7 @@ otRightarrow
 The same specialist set:
 
 [
-{A_alpha,A_eta}
+{A_alpha,A_ eta}
 ]
 
 appears in the full system and broken-router ablation.
@@ -232,17 +232,17 @@ Yet task accuracy changes from:
 to:
 
 [
-rac12.
+ rac12.
 ]
 
 Hence:
 
 [
-oxed{
-	ext{component set}
+ oxed{
+ ext{component set}
 
 otRightarrow
-	ext{system capability}.
+ ext{system capability}.
 }
 ]
 
