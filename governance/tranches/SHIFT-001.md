@@ -20,8 +20,8 @@ UNCERTAINTY-001:
 ## Implementation artifacts
 - specification b0d7a0a85e56c065b8977ba523b75601366ffc6f
 - derivations b12d6ef827f8095c8599c7dcc610e223ae2c769d
-- witness 0571af6f97e21a59a129193f82b7d7b5671ae713
-- manuscript 636ee05ffe80da145a409ee952887a7139601c5f
+- witness 4bf2a0b95d8e1ade101b00c9aa15afb4ee1dd77b
+- manuscript 064b7f05068eb212eacbb64228e51b6069d2728f
 - source lock 5c96c8b3efc459308db680dada19ebc767209634
 - bibliography ed8976909306cde1ef6a92de5383c1cd61600484
 - Chapter Ledger 94ae4b045410a8fe1e2dce84d160b78a0f163629
