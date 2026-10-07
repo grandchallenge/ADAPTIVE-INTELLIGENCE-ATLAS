@@ -10,8 +10,8 @@ current:
   baseline_commit: "22203b61b2d2264b11d43472c5d5ab6e393b9d83"
   branch: "audit/a303"
   pull_request: 304
-  state: "audit-pr-open"
-  next_action: "Require full repository validation on exact audit PR #304 head 907ecda1aea6c1544726490abff2f7a2cb69a0f4. Merge only on green, then close the bounded transaction and record the remaining Human Steward release decisions."
+  state: "audit-ci-green"
+  next_action: "Merge exact validated audit PR #304 at 907ecda1aea6c1544726490abff2f7a2cb69a0f4, verify protected-main tree equivalence, close issues #301 and #303, then record the remaining Human Steward release decisions."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
