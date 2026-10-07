@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-07
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 4e1485f3849a7284be44d81a0d5ecdec9d15783f
+**Current main:** fdaa7ec148e607654c88dfabe710ebf95f628599
 
 ## Restart rule
 
@@ -15,94 +15,78 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-SYSTEMS-001 — **Scaling, Parallelism, and Serving**
+- next target: ATLAS-CH-TOKENCOMP-001 — **Tokenization as Compression and Interface**
 - downstream architecture count: 0
-- direct consumers: none currently in architecture state
+- direct architecture consumers: none
 
-## Hard prerequisites on exact current main
+## Hard prerequisite on exact current main
 
-### ATLAS-CH-HARDWARE-001
-- manuscript: 2ce486d4cce53a5f5194241ce3bb1c0f40c7c895
-- source lock: 98d783c072fa28d784991617af49329259ba0b8e
-- AUDIT-044: 2c53ff24db17895ff9feba5f0f2854fdaa1e5c9b
-
-Inherited boundary:
-- bandwidth, locality, arithmetic intensity, precision, resource constraints, and benchmark discipline may be inherited;
-- FLOPs are not time and throughput is not latency;
-- peak throughput is not attained throughput;
-- kernel optimization is not distributed-system optimization;
-- distributed communication, serving, KV-cache behavior, and multi-device scaling remain SYSTEMS responsibilities.
-
-### ATLAS-CH-MOE-001
-- manuscript: 5281e3bc0721681c630c56057cf478311e96662d
-- source lock: 75d5b04a90794b7543c70414ec9e2be59c9af7ed
-- AUDIT-033: 261e63f7853c359460bd76302ddfaeed576892cb
+### ATLAS-CH-TOKEN-001
+- manuscript: 07c1edd5103ff179bbb3727ede9c4e15f2ec949a
+- source lock: 616c92bb63ed33e5c5587b3fe4491ae21a0eba54
+- AUDIT-052: 7c279eef5c55ea026fe965e18f696b62adad624e
 
 Inherited boundary:
-- expert placement, accepted dispatch, capacity, communication proxies, active versus total capacity, and straggler boundaries may be inherited;
-- router preference, accepted dispatch, balance, specialization, collapse, and efficiency remain distinct objects;
-- sparse experts create conditional capacity, not free capacity;
-- SYSTEMS must independently develop system/hardware cost models and measured serving efficiency.
+- token IDs and embeddings are representations, not semantics;
+- byte length, codepoint length, token length, fertility, compression, and model compute are distinct quantities;
+- BPE, unigram segmentation, SentencePiece-style raw-text tokenization, and byte-level encoding are not interchangeable algorithms;
+- no audited source establishes a universally optimal tokenizer;
+- morphology/fertility diagnostics do not by themselves establish semantic adequacy or downstream quality.
 
-## Before drafting SYSTEMS
+## Before drafting TOKENCOMP
 
-1. bind the exact audited HARDWARE and MOE triples above;
-2. source-lock only primary distributed-training/serving references genuinely needed beyond those prerequisites;
-3. type data, tensor, pipeline, and expert parallelism separately;
-4. declare communication topology and collective semantics;
-5. separate model FLOPs, bytes moved, collective cost, memory footprint, latency, throughput, utilization, and tail behavior;
-6. define at least one exact finite placement/communication witness;
-7. include a control where equal arithmetic work produces different communication or latency cost;
-8. keep training-system efficiency distinct from serving efficiency;
-9. keep preferred MoE routing distinct from accepted expert dispatch and physical placement;
-10. preserve measured-versus-modeled performance boundaries.
+1. bind the exact audited TOKEN-001 triple above;
+2. use the Atlas Map contract: connect vocabulary design to description length, compute, interoperability, and tokenizer lingua francas;
+3. source-lock only primary references genuinely needed beyond TOKEN-001;
+4. keep token count, byte count, description length/compression, model compute, semantic adequacy, and interoperability separately typed;
+5. state any tokenizer-to-compute model with its workload/model assumptions rather than treating sequence length as compute itself;
+6. include an exact finite witness and a control that prevents compression or vocabulary size from being silently identified with semantic or systems quality;
+7. preserve measured-versus-modeled and corpus/language scope boundaries.
 
-## Immediately completed transaction — SYNTHESIS-001
+## Immediately completed transaction — SYSTEMS-001
 
-- implementation issue: #276 — closed completed
-- implementation PR: #277
-- exact green implementation head: 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57
-- implementation Actions run: 37593846381 — success
-- implementation merge: 0925dd1a0108f99a230bb0dabf4cc423f1839867
-- post-draft audit: AUDIT-069 — PASS — NO REPAIR
-- audit issue: #278 — closed completed
-- audit PR: #279
-- exact green audit head: 6079d71dcf4ccb2320185bb9de028a57f6c27c5c
-- audit Actions run: 37594641803 — success
-- audit merge/current main: 4e1485f3849a7284be44d81a0d5ecdec9d15783f
-- audit record blob: 77e7168bb57b8c79fdda11537b1c6fa08d210c4a
-- final protected merge tree has zero file differences from the exact validated audit head
+- implementation issue: #281 — closed completed
+- implementation PR: #282
+- exact green implementation head: caae4650644c4677d312dcdd1ce31b30e9daeb41
+- implementation Actions run: 37600790372 — success
+- implementation merge: 397682b86648cf53c775cb5912ab4201390fbd6f
+- post-draft audit: AUDIT-070 — PASS — NO REPAIR
+- audit issue: #283 — closed completed
+- audit PR: #284
+- exact green audit head: d339bd1c787ffece209263dd9833b0aee14028fb
+- audit Actions run: 37601362925 — success
+- audit merge/current main: fdaa7ec148e607654c88dfabe710ebf95f628599
+- audit record blob: a7b6eea320c6bdd92a2c68159772031f91cc5269
+- final protected audit merge tree has zero file differences from the exact validated audit head
 
-Final SYNTHESIS artifacts:
-- specification: b654fade91567c1a2d940c766bf75e0729b7a504
-- derivation packet: f2b0fed22d025ba33c3e10e61cd61887da7d9452
-- computational witness: e9ffd717f2568259aca8fdc3bd3913d11fb814ec
-- reader manuscript: 1196cd0495bda0cc63515dbc46c127577c937f2e
-- source lock: 32f4c6b53797bbbd9ae3b9694b5f68d246ef0f3a
-- Chapter Ledger: 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
-- Source Register: 36b5c66c314f7f792e9053dfd6d9016573b70acd
-- transaction receipt: 4bd44862c5b942d50aa5509b29f24a03f3ec6d4c
+Protected SYSTEMS artifacts:
+- specification: b61e466116747a2a405df0cb457ea893e1147d98
+- derivation packet: 6689d993ba888f89cdf35cbe592e203daacad16e
+- computational witness: 33e06c5f988d7d9a607021d246fa4be0c8d5d501
+- reader manuscript: 0e2c1e948e462cc6e068e741653dac5294c2afa7
+- source lock: b2366df7956ead690789814b8fe06912f99c9f24
+- Chapter Ledger: 63fe65293efe4f39343f74fa4254473b196a3b30
+- Source Register: 0fc5f52912c037e5e5e0af4dbea1a3924fe015df
+- transaction receipt: cdd688337a24e008e9b5d1ff036782ebb6e26627
 
-Durable SYNTHESIS substrate:
-- typed system object Sigma=(X,D,M,T,C,E,A,G,Q,K);
-- full composition achieves task, validated-commit, and persistent-recall coverage 2/2 with zero unauthorized commits;
-- broken routing reduces task/commit coverage to 1/2;
-- removing validation while preserving governance can leave transient answers correct but authorized commits at 0/2;
-- removing memory destroys persistent recall without necessarily changing immediate answers;
-- removing the authorization gate can admit a validator-rejected bad-source record;
-- capability, authority, evidence, governance, memory, adaptation, and heterogeneous cost remain distinct;
-- FRONTIER status grammar is preserved and open obligations remain open;
-- no universal distributed-versus-monolithic architecture theorem is claimed.
+Durable SYSTEMS result:
+- data, tensor, pipeline, and expert parallelism are separately typed;
+- collective result semantics are distinct from collective algorithms and physical topology;
+- router preference, accepted dispatch, expert placement, and network path remain distinct;
+- in the exact four-rank ring witness, both placements retain 6 additions/rank and 48 bytes sent/rank, while grouped placement has 96 bytes of cross-node cut traffic and interleaved placement has 192 bytes;
+- under the explicitly toy 16-bytes/time-unit shared-cut model, the corresponding lower bounds are 6 and 12 time units, not measured latency;
+- model FLOPs, bytes, memory, latency, throughput, utilization, goodput, and tail behavior remain distinct;
+- training efficiency does not imply serving efficiency;
+- no universal topology, collective, scheduler, placement, or scaling-efficiency theorem is claimed.
 
 ## Recomputed dependency-legal frontier
 
-Remaining architecture chapters: 3.
+Remaining architecture chapters: 2.
 
 Stable-ID ordering selects:
-- ATLAS-CH-SYSTEMS-001
+- ATLAS-CH-TOKENCOMP-001 — Tokenization as Compression and Interface
 
-Other dependency-legal count-0 chapters:
-- ATLAS-CH-TOKENCOMP-001
+Other dependency-legal count-0 chapter:
 - ATLAS-CH-VARIOPT-001
 
 ## Legitimate stop conditions
