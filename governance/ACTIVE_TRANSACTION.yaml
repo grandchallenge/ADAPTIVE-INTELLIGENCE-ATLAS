@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
+  issue_number: 293
+  tranche_id: "GLOBAL-SYNTHESIS-001"
   chapter_ids: []
   baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
-  branch: null
+  branch: "synthesis/global-293"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Architecture drafting is complete: governance/CHAPTER_LEDGER.yaml has 80 chapters at draft-v0.1 and zero chapters at architecture on exact protected main c62320923c40e8c7c941fd551a26459f8d38b4d9. Instantiate the project-local global synthesis pass required by governance/ATLAS_EDITORIAL_PROFILE.md and governance/CHAPTER_FAMILY_ROLLOUT.md. Treat it as a new bounded repository transaction, not a new chapter: first audit cross-chapter notation, definitions, dependency handoffs, duplicated or contradictory claims, evidence-class consistency, figure/source provenance, part-level transitions, and the governing conceptual spine; then repair in dependency-safe tranches, validate exact heads, and produce a durable synthesis receipt. Do not promote any chapter beyond draft-v0.1 or claim publication readiness without a separate explicit governance transaction."
+  state: "instantiated"
+  next_action: "Audit exact protected main for current reader-facing governance state, cross-chapter notation/definition consistency, dependency handoffs, duplicated or contradictory claims, epistemic-class consistency, part transitions, and figure/source provenance. Record findings in a durable synthesis packet. Repair only dependency-safe defects supported by existing audited material; do not promote chapter status. Then run exact-head repository validation, open the synthesis PR, repair any in-scope failures, merge only on green, and complete a fresh bounded synthesis audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
