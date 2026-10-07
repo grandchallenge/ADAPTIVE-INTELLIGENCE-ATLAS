@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 293
+  issue_number: 295
   tranche_id: "GLOBAL-SYNTHESIS-001"
   chapter_ids: []
   baseline_commit: "e581addb191d6a1262a32613b81ccb9a0c08d180"
-  branch: "synthesis/global-293"
-  pull_request: 294
-  state: "merged"
-  next_action: "Instantiate the mandatory fresh post-synthesis audit from exact protected merge e581addb191d6a1262a32613b81ccb9a0c08d180. Verify the bounded repair set, lifecycle/dependency state, canonical reader identities, historical-snapshot boundaries, provenance controls, and no status promotion. Repair any in-scope defect; validate and merge the exact audit head before closing issue #293."
+  branch: "audit/a295"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Write AUDIT-073 on audit/a295 from exact protected merge e581addb191d6a1262a32613b81ccb9a0c08d180. Independently recheck the seven-file repair set, lifecycle/dependency state, canonical reader identities, historical-snapshot boundaries, phase semantics, source/figure/witness/citation controls, and no status promotion. Repair any in-scope defect. Open the audit PR and merge only after full exact-head GitHub Actions success; then close issues #293 and #295 and determine the next governed phase boundary."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
