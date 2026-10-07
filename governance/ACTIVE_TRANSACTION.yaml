@@ -11,8 +11,8 @@ current:
   baseline_commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
   branch: "work/shift-263"
   pull_request: 264
-  state: "implementation-pr-open"
-  next_action: "Implementation PR #264 is bound to exact validated head 98eeee1ed12d9ed513617ce33ee96d663f6706a5. Require exact-head GitHub Actions success and unchanged protected main before merging only this SHA."
+  state: "implementation-ci-green"
+  next_action: "Exact implementation head 98eeee1ed12d9ed513617ce33ee96d663f6706a5 passed GitHub Actions run 37551352063. PR #264 is mergeable and protected main is still 01a4c2c7d526df385bb8b2ab58046c3c476e3629. Merge only this exact head, then validate the protected merge and instantiate mandatory AUDIT-066."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
