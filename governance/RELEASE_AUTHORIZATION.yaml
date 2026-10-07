@@ -24,3 +24,25 @@ required_sha256:
   latex: "0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a"
   pdf: "efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96"
   html: "795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4"
+publication:
+  status: "published"
+  tag: "atlas-v0.1.0"
+  tag_target: "1d4c2532533ff98afb998f86e0443d3fa1d8682e"
+  release_url: "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/releases/tag/atlas-v0.1.0"
+  published_at: "2026-10-07T23:24:43Z"
+  final_audit:
+    id: "AUDIT-077"
+    issue: 311
+    pull_request: 312
+    audit_head: "25e62c35cdbd63a6dedc9ccf1f5e1a384274979b"
+    audit_merge: "202c84308ea0a3adbe6bf1dd6c426e3d43dfe2ed"
+    actions_run: 37701860716
+    disposition: "PASS — NO REPAIR"
+  published_assets_verified: true
+  round_trip_sha256:
+    latex: "0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a"
+    pdf: "efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96"
+    html: "795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4"
+    manifest: "3b33f827b687a4ace3a585805a5f88f84da0b58c463d167e69c97808f2250b44"
+    release_notes: "d0b503aec5ea3a5166ec963ea76231ff4197cf67b78f8b4ae6d3584308e4e50f"
+    checksums: "7834397751ded9c8d91db350ca1c1786f20fb2c42f6c7d24e1febbbc662a61bf"
