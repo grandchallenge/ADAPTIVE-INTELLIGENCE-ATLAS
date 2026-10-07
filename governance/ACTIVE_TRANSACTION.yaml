@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 299
-  tranche_id: "RELEASE-READINESS-001"
+  issue_number: null
+  tranche_id: null
   chapter_ids: []
-  baseline_commit: "b0d6034a76dac0e2444fd24b37bd381790995619"
-  branch: "audit/a299"
-  pull_request: 300
-  state: "audit-ci-green"
-  next_action: "Merge PR #300 from exact validated AUDIT-074 head 63b837e2250ebe36362f8a7532961600867091a4; protected main remains b0d6034a76dac0e2444fd24b37bd381790995619 and PR is mergeable. Then verify tree equivalence, close issues #297 and #299, and record the explicit license-selection/editorial release gate."
+  baseline_commit: "2d09774f0f29dc9c47e48fdfb410a3725def669a"
+  branch: null
+  pull_request: null
+  state: "blocked-human-governance"
+  next_action: "Human Steward must select and record the repository license before release-candidate/public-release promotion. Before final release packaging, also choose the intended release format(s) and adjudicate ATLAS-CH-MECHDIAG-001 editorial treatment. After those decisions, instantiate a bounded RELEASE-CANDIDATE-001 transaction from exact protected main 2d09774f0f29dc9c47e48fdfb410a3725def669a, bind version/date/tag metadata, generate rendered artifacts from the ledger-driven 80-chapter assembly, validate them, hash them, and audit the exact release candidate."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
