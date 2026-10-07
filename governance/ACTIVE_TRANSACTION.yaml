@@ -11,8 +11,8 @@ current:
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "work/spectralshape-272"
   pull_request: null
-  state: "draft-complete"
-  next_action: "SPECTRALSHAPE draft artifacts and receipt are complete on exact work head 650d8eb7b9d389198e1671933db25aa1eb46f9e9. Run canonical repository validation and independent exact replay of the shaping and non-normal controls. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
+  state: "local-validation-green"
+  next_action: "Exact SPECTRALSHAPE work head 650d8eb7b9d389198e1671933db25aa1eb46f9e9 passes canonical repository validation and independent exact witness replay. Protected main remains the baseline. Open the implementation PR from this exact head and require exact-head GitHub Actions success before merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
