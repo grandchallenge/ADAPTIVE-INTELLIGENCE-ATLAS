@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-TOKENCOMP-001"
   baseline_commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
   branch: "work/tokencomp-285"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the TOKENCOMP implementation pull request from work/tokencomp-285 to main. Require independent TOKENCOMP_EXACT_WITNESS_OK replay and full repository GitHub Actions validation on the exact PR head. Repair any in-scope defect and revalidate. Merge only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
+  pull_request: 286
+  state: "pr-open"
+  next_action: "Validate exact TOKENCOMP implementation head 4c65ab2204b1aa455dc1015e4edcada9d612873b: require TOKENCOMP_EXACT_WITNESS_OK replay and the full GitHub Actions validator to succeed. Repair any in-scope failure and revalidate exact head. Merge PR #286 only on green, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
