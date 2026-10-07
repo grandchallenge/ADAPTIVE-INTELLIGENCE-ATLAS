@@ -500,3 +500,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-SYNTHESIS-001.yaml"
     authority: "Audited FRONTIER/POLITY prerequisites plus Atlas-owned typed systems composition witness and ablation packet."
+
+  - id: "ATLAS-SRC-SYSTEMS-LOCK-001"
+    title: "Scaling, Parallelism, and Serving source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-SYSTEMS-001.yaml"
+    authority: "Audited HARDWARE/MOE prerequisites plus primary Megatron-LM, GPipe, Orca, and PagedAttention/vLLM sources, with Atlas-owned exact topology-placement communication witness."
