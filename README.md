@@ -1,18 +1,22 @@
 # A Mathematical Atlas of Adaptive Intelligence
 
-**Status:** architecture bootstrap  
-**Repository target:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`  
+**Status:** full first-draft corpus; global synthesis in progress
+**Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
 **Bootstrap record:** https://github.com/grandchallenge/.github/issues/99
 
 A Grand Challenge Labs monograph on geometry, operators, dynamics, optimization, composition, memory, coordination, diagnostics, and governed adaptation.
 
 This repository is intended to be a first-class GCL research-publication surface. It is not itself a mathematical certification authority and it does not replace `INTELLECT`, `gcl-standards`, `AETHER`, or the MATHFORGE → MATHSOLVE → MATHCERT pipeline.
 
+## Current manuscript state
+
+The architecture seed contains 14 Parts and 80 stable chapter identities. The protected Chapter Ledger now records all 80 chapters at `draft-v0.1` and none at `architecture`.
+
+The current project phase is a full-manuscript global synthesis pass. This phase reconciles cross-chapter notation, definitions, dependencies, transitions, provenance, and epistemic boundaries. It does not itself promote any chapter beyond `draft-v0.1` and does not imply publication readiness, certification, or final-copy status.
+
 ## Composition method
 
-`architecture -> dependency graph -> keystone chapters -> chapter families -> global synthesis`
-
-The architecture seed contains 14 Parts and 80 chapter contracts.
+`architecture -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis`
 
 Core editorial artifacts:
 
@@ -30,8 +34,8 @@ Imaginative work and mathematical rigor are complementary. The default allegory 
 
 Figures are part of the reasoning. A computationally rendered image must preserve its generator provenance and distinguish literal from nonliteral semantics.
 
-## First target release
+## Release boundary
 
-`atlas-v0.1-architecture`
+The architecture milestone has been completed. Global synthesis is a manuscript-coherence phase, not a release promotion.
 
-That tag is not created by this bootstrap bundle. It is the first repository milestone after remote creation and validation.
+Any release-candidate or publication promotion is a separate governed transaction and must preserve the Atlas source, witness, audit, and authority boundaries.
