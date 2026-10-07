@@ -10,8 +10,8 @@ current:
   baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
   branch: "synthesis/global-293"
   pull_request: 294
-  state: "pr-open"
-  next_action: "Require full GitHub Actions validation on exact GLOBAL-SYNTHESIS-001 PR #294 head 3640134c76aece684d665b2b9d1977b4ce7a59a6. Repair any in-scope failure and revalidate. Merge only on green exact-head validation; then verify protected-main tree equivalence and complete a fresh bounded post-synthesis audit before closing issue #293."
+  state: "ci-green"
+  next_action: "Merge PR #294 from exact validated head 3640134c76aece684d665b2b9d1977b4ce7a59a6 after confirming protected main is still c62320923c40e8c7c941fd551a26459f8d38b4d9 and PR mergeability. Then verify zero file differences between the validated implementation head and protected merge tree, and instantiate the mandatory fresh post-synthesis audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
