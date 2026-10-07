@@ -10,8 +10,8 @@ current:
   baseline_commit: "498e4c2f517255883f83bf8e23afba8841e5c9dc"
   branch: "release/public-309"
   pull_request: null
-  state: "authorized-instantiated"
-  next_action: "Implement the explicitly authorized public release as v0.1.0 by byte-preserving promotion of audited candidate atlas-v0.1.0-rc.1. Record governance/RELEASE_AUTHORIZATION.yaml with public_release_authorized: true, populate releases/v0.1.0 with exact audited LaTeX/PDF/HTML bytes under final names, bind CITATION.cff and final manifest to v0.1.0, add public-release validation, merge only on exact-head green CI, perform a fresh final-release audit, then tag and create the GitHub Release and verify published asset hashes."
+  state: "draft-complete"
+  next_action: "Open PUBLIC-RELEASE-001 PR from exact validated head 5058b6d49b1605e6d8889bbfddc14d583c560784. Require full repository validation including public-release authorization, byte-identity, hashes, citation, accessibility, and historical candidate integrity. Merge only on green, then perform a fresh public-release audit before creating tag atlas-v0.1.0 or any GitHub Release."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
