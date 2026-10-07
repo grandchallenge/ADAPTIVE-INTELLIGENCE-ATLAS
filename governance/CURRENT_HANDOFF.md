@@ -1,8 +1,8 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
-**Date:** 2026-10-06
+**Date:** 2026-10-07
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 4c038e50f91e152e8139fc0dd412587d02f620fb
+**Current main:** 4e1485f3849a7284be44d81a0d5ecdec9d15783f
 
 ## Restart rule
 
@@ -15,114 +15,93 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-SYNTHESIS-001 — **Beyond the Monolithic Model**
+- next target: ATLAS-CH-SYSTEMS-001 — **Scaling, Parallelism, and Serving**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
-Atlas contract:
-
-> Synthesize the Atlas into a systems view of intelligence sustained by geometry, dynamics, memory, composition, coordination, evidence, and governance.
-
 ## Hard prerequisites on exact current main
 
-### ATLAS-CH-FRONTIER-001
-
-- canonical reader: e1a692a7e6406041a6e4395c0e23a0732fb5b4e3
-- source lock: 84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63
-- AUDIT-043: 4ea9811d0e9c184b2e1aa223091332e356c77056
-
-Inherited boundary:
-
-- may inherit the programme taxonomy;
-- may inherit the audited/open distinction;
-- may inherit named proof and experiment obligations;
-- may inherit governed advancement rules;
-- unresolved programme items must remain unresolved;
-- architecture-stage questions are not completed pillars merely because they appear in the programme map;
-- the synthesis must distinguish what is known, engineered, measured, hypothesized, and open.
-
-### ATLAS-CH-POLITY-001
-
-- manuscript: fa1cb3dad381ddbcbd7e4725a87ce42c77a03948
-- source lock: ee898fbbafc58a4f6322a7c65ef571c9a084bc35
-- AUDIT-048: 8b04e42fecca8a361c929dc68ead4441a4f592cd
+### ATLAS-CH-HARDWARE-001
+- manuscript: 2ce486d4cce53a5f5194241ce3bb1c0f40c7c895
+- source lock: 98d783c072fa28d784991617af49329259ba0b8e
+- AUDIT-044: 2c53ff24db17895ff9feba5f0f2854fdaa1e5c9b
 
 Inherited boundary:
+- bandwidth, locality, arithmetic intensity, precision, resource constraints, and benchmark discipline may be inherited;
+- FLOPs are not time and throughput is not latency;
+- peak throughput is not attained throughput;
+- kernel optimization is not distributed-system optimization;
+- distributed communication, serving, KV-cache behavior, and multi-device scaling remain SYSTEMS responsibilities.
 
-- may inherit the polity object;
-- may inherit private/shared-state separation;
-- may inherit capability versus authority;
-- may inherit candidate / validation / commit separation;
-- may inherit the exact specialization witness;
-- system capability must be demonstrated under declared composition;
-- component count does not imply composition quality;
-- POLITY does not prescribe one universal architecture.
+### ATLAS-CH-MOE-001
+- manuscript: 5281e3bc0721681c630c56057cf478311e96662d
+- source lock: 75d5b04a90794b7543c70414ec9e2be59c9af7ed
+- AUDIT-033: 261e63f7853c359460bd76302ddfaeed576892cb
 
-## Before drafting SYNTHESIS
+Inherited boundary:
+- expert placement, accepted dispatch, capacity, communication proxies, active versus total capacity, and straggler boundaries may be inherited;
+- router preference, accepted dispatch, balance, specialization, collapse, and efficiency remain distinct objects;
+- sparse experts create conditional capacity, not free capacity;
+- SYSTEMS must independently develop system/hardware cost models and measured serving efficiency.
 
-1. bind the exact audited FRONTIER and POLITY artifacts above;
-2. source-lock only new external authority genuinely required beyond those audited prerequisites;
-3. define an explicit typed synthesis object covering model/representation, dynamics, memory, tools, coordination, evidence, adaptation, and governance rather than relying on prose aggregation;
-4. construct at least one exact finite composition witness where system capability depends on declared composition and at least one ablation/control where removing an interface, memory, validator, or authority boundary breaks the declared result;
-5. preserve capability, authority, evidence, governance, and cost as distinct objects;
-6. preserve FRONTIER's status grammar so open programmes cannot be promoted into solved substrate;
-7. state which Atlas claims are theorem-grade, computational witnesses, engineering patterns, hypotheses, or open obligations;
-8. keep systems-level capability distinct from any claim that monolithic models are obsolete or always inferior;
-9. keep specialization benefit distinct from coordination cost and failure surface;
-10. do not claim a universal architecture of intelligence.
+## Before drafting SYSTEMS
 
-## Immediately completed transaction — SPECTRALSHAPE-001
+1. bind the exact audited HARDWARE and MOE triples above;
+2. source-lock only primary distributed-training/serving references genuinely needed beyond those prerequisites;
+3. type data, tensor, pipeline, and expert parallelism separately;
+4. declare communication topology and collective semantics;
+5. separate model FLOPs, bytes moved, collective cost, memory footprint, latency, throughput, utilization, and tail behavior;
+6. define at least one exact finite placement/communication witness;
+7. include a control where equal arithmetic work produces different communication or latency cost;
+8. keep training-system efficiency distinct from serving efficiency;
+9. keep preferred MoE routing distinct from accepted expert dispatch and physical placement;
+10. preserve measured-versus-modeled performance boundaries.
 
-- implementation issue: #272 — closed completed
-- implementation PR: #273
-- exact green implementation head: 650d8eb7b9d389198e1671933db25aa1eb46f9e9
-- implementation GitHub Actions run: 37574730505 — success
-- implementation merge: ea4c44f2a41488820851a046eedd48f82628f745
-- post-draft audit: AUDIT-068
-- audit issue: #274 — closed completed
-- audit PR: #275
-- exact green audit head: facbffdf9203fe5fd1d5dc38fb4af637eb27d802
-- audit GitHub Actions run: 37575156031 — success
-- audit merge/current main: 4c038e50f91e152e8139fc0dd412587d02f620fb
-- audit record blob: a6f06b9574921805764c47d046abda04bd675373
-- audit disposition: **PASS — NO REPAIR**
-- final canonical Linux validation on current main: green
+## Immediately completed transaction — SYNTHESIS-001
 
-Final SPECTRALSHAPE artifacts:
+- implementation issue: #276 — closed completed
+- implementation PR: #277
+- exact green implementation head: 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57
+- implementation Actions run: 37593846381 — success
+- implementation merge: 0925dd1a0108f99a230bb0dabf4cc423f1839867
+- post-draft audit: AUDIT-069 — PASS — NO REPAIR
+- audit issue: #278 — closed completed
+- audit PR: #279
+- exact green audit head: 6079d71dcf4ccb2320185bb9de028a57f6c27c5c
+- audit Actions run: 37594641803 — success
+- audit merge/current main: 4e1485f3849a7284be44d81a0d5ecdec9d15783f
+- audit record blob: 77e7168bb57b8c79fdda11537b1c6fa08d210c4a
+- final protected merge tree has zero file differences from the exact validated audit head
 
-- specification: 913618031f1532e01635a20210c17e9563b4b7e6
-- derivation packet: 7516af5e01f310d75a1a444a6313d28123744010
-- computational witness: a50e364a9554db3b3b31ae59e9ad4e52376ee484
-- reader manuscript: f2a6b57d4e3a09c9398c80af2d36e7d53e77793e
-- source lock: 5b24e3184e612d2771eab370c66073a56d3ba3b8
-- Chapter Ledger: 52368e21da96630a428d2f8fba41251ea7e1f07f
-- Source Register: a20765eaacf2b2b4c570bd3657f41fc77ee3ee9d
-- transaction receipt: 92a6894191af0c6446c7236fd594d1f42fbd975c
+Final SYNTHESIS artifacts:
+- specification: b654fade91567c1a2d940c766bf75e0729b7a504
+- derivation packet: f2b0fed22d025ba33c3e10e61cd61887da7d9452
+- computational witness: e9ffd717f2568259aca8fdc3bd3913d11fb814ec
+- reader manuscript: 1196cd0495bda0cc63515dbc46c127577c937f2e
+- source lock: 32f4c6b53797bbbd9ae3b9694b5f68d246ef0f3a
+- Chapter Ledger: 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
+- Source Register: 36b5c66c314f7f792e9053dfd6d9016573b70acd
+- transaction receipt: 4bd44862c5b942d50aa5509b29f24a03f3ec6d4c
 
-Durable SPECTRALSHAPE substrate:
-
-- G=diag(4,1) has kappa2=4;
-- scalar normalization gives diag(1,1/4) and preserves kappa2=4;
-- upper clipping gives diag(2,1), kappa2=2;
-- polar flattening gives I2, kappa2=1;
-- explicit non-flat target spectrum (3,2) gives kappa2=3/2;
-- normalization, clipping, flattening, and target shaping are distinct operations;
-- A=[[1/2,2],[0,1/2]] and N=(1/2)I share eigenvalues but satisfy ||Ae2||^2=17/4 versus ||Ne2||^2=1/4;
-- at epsilon=1/4 their exact pseudospectral radii are 3/4 and 1/4;
-- instantaneous update spectra are not optimizer-state dynamics;
-- better update conditioning does not by itself prove faster nonlinear convergence or better task quality.
+Durable SYNTHESIS substrate:
+- typed system object Sigma=(X,D,M,T,C,E,A,G,Q,K);
+- full composition achieves task, validated-commit, and persistent-recall coverage 2/2 with zero unauthorized commits;
+- broken routing reduces task/commit coverage to 1/2;
+- removing validation while preserving governance can leave transient answers correct but authorized commits at 0/2;
+- removing memory destroys persistent recall without necessarily changing immediate answers;
+- removing the authorization gate can admit a validator-rejected bad-source record;
+- capability, authority, evidence, governance, memory, adaptation, and heterogeneous cost remain distinct;
+- FRONTIER status grammar is preserved and open obligations remain open;
+- no universal distributed-versus-monolithic architecture theorem is claimed.
 
 ## Recomputed dependency-legal frontier
 
-Every remaining dependency-legal architecture chapter has downstream architecture count 0.
+Remaining architecture chapters: 3.
 
-Deterministic ID ordering selects:
-
-- ATLAS-CH-SYNTHESIS-001
-
-Other dependency-legal count-0 chapters remain:
-
+Stable-ID ordering selects:
 - ATLAS-CH-SYSTEMS-001
+
+Other dependency-legal count-0 chapters:
 - ATLAS-CH-TOKENCOMP-001
 - ATLAS-CH-VARIOPT-001
 
