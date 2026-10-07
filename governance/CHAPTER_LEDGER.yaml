@@ -549,8 +549,14 @@
         "ATLAS-CH-NUMERICS-001",
         "ATLAS-CH-MANOPT-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-VARIOPT-001.md",
+      "manuscript_path": "manuscript/parts/05-optimization/ATLAS-CH-VARIOPT-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-VARIOPT-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-VARIOPT-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-VARIOPT-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-NETNUM-001",
