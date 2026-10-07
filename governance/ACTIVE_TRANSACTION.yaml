@@ -11,8 +11,8 @@ current:
   baseline_commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
   branch: "work/tokencomp-285"
   pull_request: null
-  state: "source-locked"
-  next_action: "Draft the TOKENCOMP specification, derivation packet, exact compression/compute/interoperability witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt from the locked TOKEN-001 substrate; then run exact-head validation."
+  state: "draft-complete"
+  next_action: "Open the TOKENCOMP implementation pull request from work/tokencomp-285 to main. Require independent TOKENCOMP_EXACT_WITNESS_OK replay and full repository GitHub Actions validation on the exact PR head. Repair any in-scope defect and revalidate. Merge only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
