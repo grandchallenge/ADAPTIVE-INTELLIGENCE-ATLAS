@@ -9,9 +9,9 @@ current:
   chapter_ids: []
   baseline_commit: "2d09774f0f29dc9c47e48fdfb410a3725def669a"
   branch: "work/license-301"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open a PR from validated head c8e51e1e1b7dc682926e116f58c59931e1211f01. Require full repository validation on that exact head. Merge only on green, then perform a fresh licensing audit."
+  pull_request: 302
+  state: "pr-open"
+  next_action: "Require exact-head validation for PR #302 at c8e51e1e1b7dc682926e116f58c59931e1211f01. Merge only on green, then perform a fresh audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
