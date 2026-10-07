@@ -11,8 +11,8 @@ current:
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "audit/a274"
   pull_request: 275
-  state: "audit-pr-open"
-  next_action: "AUDIT-068 is on PR #275 from exact audit head facbffdf9203fe5fd1d5dc38fb4af637eb27d802. Require exact-head GitHub Actions success and a fresh mergeability check before merge."
+  state: "audit-ci-green"
+  next_action: "Audit head facbffdf9203fe5fd1d5dc38fb4af637eb27d802 passed GitHub Actions run 37575156031. Re-check PR #275 and protected main, then merge only this exact head."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
