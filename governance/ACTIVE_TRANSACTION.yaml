@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 276
+  tranche_id: "SYNTHESIS-001"
+  chapter_ids:
+    - "ATLAS-CH-SYNTHESIS-001"
   baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
-  branch: null
+  branch: "work/synthesis-276"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-SYNTHESIS-001 from exact protected main 4c038e50f91e152e8139fc0dd412587d02f620fb. First bind audited FRONTIER-001 (reader e1a692a7e6406041a6e4395c0e23a0732fb5b4e3, source lock 84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63, AUDIT-043 4ea9811d0e9c184b2e1aa223091332e356c77056) and audited POLITY-001 (manuscript fa1cb3dad381ddbcbd7e4725a87ce42c77a03948, source lock ee898fbbafc58a4f6322a7c65ef571c9a084bc35, AUDIT-048 8b04e42fecca8a361c929dc68ead4441a4f592cd). Source-lock only new authority genuinely needed beyond those prerequisites. Define a typed Atlas-wide synthesis object, preserve FRONTIER's audited/open status grammar, and build an exact finite composition witness plus ablation/control showing which system-level capability depends on declared composition. Keep capability, authority, evidence, governance, coordination cost, and open research obligations distinct; do not prescribe one universal architecture or treat open programme items as solved."
+  state: "tranche-instantiated"
+  next_action: "Bind audited FRONTIER-001 and POLITY-001. Add no new external authority unless drafting reveals a genuine gap. Freeze the typed synthesis object and exact two-specialist/router/validator/governed-memory composition witness, including router, validator, memory, and governance ablations. Preserve FRONTIER status grammar exactly and keep open obligations open."
 frontier:
   - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
