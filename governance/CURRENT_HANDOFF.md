@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-07
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`
-**Current protected main:** `e22d9d383d048626797d7865bc7e9d3daebe1887`
+**Current protected main:** `2d09774f0f29dc9c47e48fdfb410a3725def669a`
 
 ## Restart rule
 
@@ -14,133 +14,218 @@
 
 ## Current state
 
-- controller state: `idle-ready`;
+- controller state: `blocked-human-governance`;
 - architecture drafting frontier: exhausted;
+- first bounded global synthesis: complete and audited;
+- non-promotional release readiness: complete and audited;
 - Chapter Ledger: 80 chapters at `draft-v0.1`;
-- chapters at `architecture`: 0;
-- first bounded full-manuscript global-synthesis pass: complete and audited;
-- next non-promotional phase: release-readiness assessment;
-- public-release promotion: blocked by explicit license-selection governance gate.
+- canonical working release corpus: exactly 80 ledger-selected readers;
+- public-release promotion: blocked by explicit Human Steward license selection;
+- no publication-ready, final-copy, certified, release-candidate, or released status has been granted.
 
-## GLOBAL-SYNTHESIS-001 — completed
+## RELEASE-READINESS-001 — completed
 
 Implementation:
 
-- issue: #293 — closed completed;
-- PR: #294 — merged;
-- protected baseline: `c62320923c40e8c7c941fd551a26459f8d38b4d9`;
-- exact validated implementation head: `3640134c76aece684d665b2b9d1977b4ce7a59a6`;
-- GitHub Actions run: `37607089801` — success;
-- implementation merge: `e581addb191d6a1262a32613b81ccb9a0c08d180`;
-- implementation merge tree has zero file differences from the validated head.
+- issue: #297 — closed completed;
+- PR: #298 — merged;
+- protected baseline: `e22d9d383d048626797d7865bc7e9d3daebe1887`;
+- exact validated implementation head: `1dbf6f1d24a24566503ca478c06007dfd13d0649`;
+- GitHub Actions run: `37608881886` — success;
+- implementation merge: `b0d6034a76dac0e2444fd24b37bd381790995619`;
+- implementation merge tree has zero file differences from the validated implementation head.
 
 Audit:
 
-- `AUDIT-073`;
-- audit issue: #295 — closed completed;
-- audit PR: #296 — merged;
-- exact validated audit head: `78887f9cd35f58c611f843cf2fedde3653cca522`;
-- GitHub Actions run: `37607496812` — success;
-- final audit merge / current protected main: `e22d9d383d048626797d7865bc7e9d3daebe1887`;
+- `AUDIT-074`;
+- audit issue: #299 — closed completed;
+- audit PR: #300 — merged;
+- bounded audit repair commit: `b53aeb88d826a5a04b2b1052ad2524bbe8bc8294`;
+- exact validated audit head: `63b837e2250ebe36362f8a7532961600867091a4`;
+- GitHub Actions run: `37609300522` — success;
+- final audit merge / current protected main: `2d09774f0f29dc9c47e48fdfb410a3725def669a`;
 - audit merge tree has zero file differences from the validated audit head;
-- disposition: **PASS — NO REPAIR**.
+- disposition: **PASS WITH ONE TOOL-CONTRACT REPAIR**.
 
-## Durable synthesis result
+## Durable release-readiness result
 
-The repository-level first-draft corpus is lifecycle-coherent:
+The Atlas now has a deterministic working-build boundary.
 
-- all 80 stable chapter nodes remain `draft-v0.1`;
-- dependency graph remains 80 nodes, 126 hard edges, acyclic, one root;
-- canonical epistemic vocabulary remains intact;
-- Figure Register and Source Register controls remain intact;
-- no chapter was promoted;
-- no mathematical claim was strengthened by the synthesis pass.
+`tools/assemble_manuscript.py`:
 
-Reader-path normalization:
+- uses `governance/CHAPTER_LEDGER.yaml` as the sole canonical chapter membership/order authority;
+- assembles exactly 80 canonical readers;
+- rejects duplicate, missing, or non-`manuscript/parts/` canonical paths;
+- emits one marker per canonical chapter;
+- emits a machine-readable manifest containing stable chapter ID, Part ID, lifecycle state, path, Git blob identity, and source commit;
+- marks generated output as non-promotional working material.
 
-- `ATLAS-CH-FRONTIER-001` now uses
-  `manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FRONTIER-001.md`;
-- its canonical reader is byte-identical to the AUDIT-043 accepted historical reader:
-  `e1a692a7e6406041a6e4395c0e23a0732fb5b4e3`;
-- `ATLAS-CH-MECHDIAG-001` now uses
-  `manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-MECHDIAG-001.md`;
-- its canonical reader is byte-identical to the AUDIT-047 mature companion:
-  `8275d106f3960eb21e385b3d9130b3cb7686fec0`.
+The 82 Markdown files under `manuscript/parts/` are intentionally not treated as 82 release chapters.
 
-Phase-document repair:
+The two preserved non-ledger MECHDIAG files are:
 
-- README records the full first-draft/global-synthesis phase;
-- `CHAPTER_FAMILY_ROLLOUT.md` is explicitly historical execution rationale;
-- `ATLAS_EDITORIAL_PROFILE.md` records the current lifecycle and identity semantics;
-- historical receipts/source snapshots remain historical and were not rewritten as current-state claims.
+- `manuscript/parts/12-diagnostics-robustness-compression/_probe.md`;
+- `manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-DIAGREAD-001.md`.
 
-Global synthesis receipt:
+They remain historical/companion material and are excluded from the canonical assembly.
 
-- `governance/tranches/GLOBAL-SYNTHESIS-001.md`
-- protected implementation receipt blob: `d5f86613a42d78ea4c634ae6aab2d3357fa7b002`.
+## Release-boundary enforcement
 
-Audit record:
+`tools/check_release_readiness.py` enforces:
 
-- `reviews/AUDIT-073.md`;
-- protected audit head before merge: `78887f9cd35f58c611f843cf2fedde3653cca522`.
+- exactly 80 canonical chapters;
+- all remain `draft-v0.1`;
+- unique existing canonical manuscript paths under `manuscript/parts/`;
+- only the two named MECHDIAG non-ledger companion files;
+- required `CITATION.cff` book/commit-tag metadata;
+- explicit `LICENSE_SELECTION_PENDING`;
+- no substantive committed release artifact under `releases/` while the license gate is active.
 
-## Next governed phase
+The GitHub Actions workflow is now named:
 
-The next bounded operation is a **non-promotional release-readiness assessment**, provisionally `RELEASE-READINESS-001`.
+`Validate Atlas repository`.
 
-It may autonomously:
+It executes:
 
-1. audit manuscript build requirements;
-2. audit copy-edit/style consistency;
-3. audit release packaging and versioning requirements;
-4. audit `CITATION.cff` and tagged-commit citation semantics;
-5. inventory missing release artifacts/checklists;
-6. prepare a release-readiness checklist and bounded repair plan;
-7. validate any non-promotional documentary/infrastructure repairs.
+1. `python tools/validate_atlas.py`;
+2. `python tools/check_release_readiness.py`;
+3. `python tools/assemble_manuscript.py --output /tmp/atlas-manuscript.md --manifest /tmp/atlas-manifest.json --check`.
 
-It must not:
+The assembly path is therefore exercised in CI without retaining or publishing a release artifact.
 
-- create a public release;
-- promote the manuscript to publication-ready/final-copy status;
-- select a repository license on behalf of the Human Steward;
-- imply mathematical certification from editorial readiness.
+## AUDIT-074 repair
+
+The audit found one bounded command-line contract defect.
+
+Implementation help text said `--check` required explicit temporary output paths, but the implementation did not enforce that condition.
+
+Audit repair commit:
+
+`b53aeb88d826a5a04b2b1052ad2524bbe8bc8294`.
+
+After repair:
+
+- `python tools/assemble_manuscript.py --check` exits 1;
+- it reports that explicit `--output` and `--manifest` paths are required;
+- explicit temporary paths succeed and assemble all 80 canonical chapters.
+
+## Current corpus metrics
+
+Release-readiness scan:
+
+- canonical chapters: 80;
+- approximate canonical-reader words: 199,638;
+- median chapter length: approximately 2,550 words;
+- canonical readers under 1,000 words: one.
+
+The material outlier is:
+
+- `ATLAS-CH-MECHDIAG-001`: approximately 236 words.
+
+AUDIT-047 established the chapter's bounded technical/documentary adequacy. It did not establish publication-length maturity.
+
+No automatic expansion was performed.
+
+## Open editorial decision — MECHDIAG
+
+Before final release packaging, explicitly choose whether `ATLAS-CH-MECHDIAG-001` should:
+
+1. remain intentionally concise;
+2. be expanded editorially without strengthening its claims;
+3. be presented together with adjacent diagnostic material;
+4. receive another explicitly documented editorial treatment.
+
+This is an editorial judgment boundary, not a mathematical defect.
+
+## Copy-edit boundary
+
+A raw whitespace scan finds trailing spaces in many chapter readers, but these overlap established Markdown hard-break formatting.
+
+No mass whitespace rewrite was performed.
+
+Final copy-edit must be rendering-aware; blind stripping is not authorized as a correctness repair.
+
+## Citation/version state
+
+`CITATION.cff` currently records:
+
+- CFF 1.2.0;
+- type: book;
+- title: *A Mathematical Atlas of Adaptive Intelligence*;
+- author: Grand Challenge Labs;
+- repository identity;
+- instruction to cite the specific tagged release or commit used.
+
+Release version and release date are intentionally absent.
+
+They must be bound to the exact protected release tag/commit during a future release-candidate transaction.
 
 ## Explicit governance gate — LICENSE_SELECTION_PENDING
 
-Protected `LICENSE`:
+Protected `LICENSE` blob remains:
 
-- blob: `383ba0cadbeb21255aeb5124e946167c0771bf79`;
-- state: `LICENSE SELECTION PENDING`;
-- rule: the repository license must be explicitly selected and recorded before public release of substantive manuscript content.
+`383ba0cadbeb21255aeb5124e946167c0771bf79`.
 
-This is a genuine Human Steward governance decision. It blocks public-release promotion, but it does **not** block a non-promotional release-readiness audit.
+It states:
 
-The repository currently has no substantive release artifact or build artifact:
+`LICENSE SELECTION PENDING`
 
-- `releases/`: placeholder only;
-- `build/`: placeholder only.
+and requires explicit license selection before public release of substantive manuscript content.
 
-`CITATION.cff` is present and instructs readers to cite the specific tagged release or commit used.
+The assistant is not authorized to choose that license on behalf of the Human Steward.
 
-## Promotion boundary
+This is the named governance boundary preventing the next release-promotion action.
 
-Current state remains:
+## Release formats are not yet selected
 
-`80 x draft-v0.1`.
+Before final packaging, select the intended release format or formats, for example:
 
-Global synthesis and release-readiness work do not themselves establish:
+- Markdown/source bundle;
+- PDF;
+- HTML;
+- EPUB;
+- a deliberately scoped combination.
 
-- theorem certification;
-- publication-ready status;
-- final-copy status;
-- license grant;
-- public-release authorization.
+Rendered-format verification depends on this choice.
 
-## Legitimate stop conditions
+## Remaining requirements before public release
 
-- genuine external blocker;
-- failed validation requiring human judgment;
-- explicit governance gate;
-- completion of the current bounded transaction.
+- [ ] Human Steward selects and records repository license;
+- [ ] Human Steward/editorial decision on MECHDIAG treatment;
+- [ ] release format(s) selected;
+- [ ] rendering-aware whole-corpus copy-edit;
+- [ ] release version/tag chosen;
+- [ ] `CITATION.cff` version/date bound to exact release identity;
+- [ ] final artifact(s) generated from the ledger-driven assembly;
+- [ ] rendered links, figures, equations, references, and typography verified;
+- [ ] exact artifact hashes and release manifest produced;
+- [ ] release-candidate audit completed;
+- [ ] explicit public-release authorization.
 
-The current bounded GLOBAL-SYNTHESIS-001 transaction is complete.
+## Next transaction after Human Steward decisions
+
+Instantiate `RELEASE-CANDIDATE-001` from exact protected main:
+
+`2d09774f0f29dc9c47e48fdfb410a3725def669a`.
+
+The transaction should:
+
+1. apply the selected license;
+2. implement the selected MECHDIAG editorial treatment;
+3. bind release format(s);
+4. perform rendering-aware copy-edit;
+5. choose and bind version/tag/date metadata;
+6. generate final rendered artifacts from the deterministic 80-chapter assembly;
+7. verify rendered output;
+8. generate exact artifact hashes and release manifest;
+9. run exact-head repository validation;
+10. undergo a fresh release-candidate audit;
+11. stop before public release unless explicit public-release authorization is present.
+
+## Legitimate stopping boundary
+
+**Boundary name: HUMAN_STEWARD_RELEASE_GOVERNANCE.**
+
+The bounded RELEASE-READINESS-001 transaction is complete.
+
+The next release-promotion transaction is blocked until the Human Steward makes the required license decision. Release format and MECHDIAG editorial treatment should be resolved at the same handoff if possible.
