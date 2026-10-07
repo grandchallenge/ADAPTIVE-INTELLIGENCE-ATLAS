@@ -4,19 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 291
-  tranche_id: "ATLAS-CH-VARIOPT-001"
-  chapter_ids:
-    - "ATLAS-CH-VARIOPT-001"
-  baseline_commit: "bd64ae187346e4ba33266d41067a41478d521be7"
-  branch: "audit/a291"
-  pull_request: 292
-  state: "audit-ci-green"
-  next_action: "Merge PR #292 from exact validated AUDIT-072 head d82c7acb9f81bc266808d1709a2dd2ff6e5918fe. Read back protected main and zero-file-difference tree equivalence, close audit issue #291, recompute the Chapter Ledger architecture frontier, then read repository execution/governance policy to determine the exact post-architecture completion boundary before resetting controller/handoff."
-frontier:
-  - id: "ATLAS-CH-VARIOPT-001"
-    downstream_architecture_count: 0
-    direct_consumers: []
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Architecture drafting is complete: governance/CHAPTER_LEDGER.yaml has 80 chapters at draft-v0.1 and zero chapters at architecture on exact protected main c62320923c40e8c7c941fd551a26459f8d38b4d9. Instantiate the project-local global synthesis pass required by governance/ATLAS_EDITORIAL_PROFILE.md and governance/CHAPTER_FAMILY_ROLLOUT.md. Treat it as a new bounded repository transaction, not a new chapter: first audit cross-chapter notation, definitions, dependency handoffs, duplicated or contradictory claims, evidence-class consistency, figure/source provenance, part-level transitions, and the governing conceptual spine; then repair in dependency-safe tranches, validate exact heads, and produce a durable synthesis receipt. Do not promote any chapter beyond draft-v0.1 or claim publication readiness without a separate explicit governance transaction."
+frontier: []
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
