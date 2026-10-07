@@ -10,8 +10,8 @@ current:
   baseline_commit: "e22d9d383d048626797d7865bc7e9d3daebe1887"
   branch: "release-readiness/297"
   pull_request: null
-  state: "instantiated"
-  next_action: "Audit exact protected main for manuscript assembly/build requirements, copy-edit/style defects, citation/version metadata, release packaging, provenance retention, and missing release infrastructure. Write a bounded release-readiness checklist and repair only non-promotional documentary/infrastructure defects. Do not modify LICENSE, create a public release, or promote any chapter/status. Validate the exact branch head, open a PR, merge only on green, then perform a fresh audit."
+  state: "draft-complete"
+  next_action: "Open the RELEASE-READINESS-001 PR from exact locally validated head 1dbf6f1d24a24566503ca478c06007dfd13d0649. Require full GitHub Actions validation on that exact head, including canonical validation, release-boundary checks, and an 80-chapter working assembly. Repair any in-scope failure and revalidate; merge only on green. Then perform a fresh bounded audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
