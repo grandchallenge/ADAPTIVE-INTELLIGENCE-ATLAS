@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 285
+  issue_number: 287
   tranche_id: "ATLAS-CH-TOKENCOMP-001"
   chapter_ids:
     - "ATLAS-CH-TOKENCOMP-001"
   baseline_commit: "671b20da72510adf6c5b0e01207d59f1cd93ceeb"
-  branch: "work/tokencomp-285"
-  pull_request: 286
-  state: "merged"
-  next_action: "Instantiate the mandatory fresh post-draft audit for ATLAS-CH-TOKENCOMP-001 from exact protected implementation merge 671b20da72510adf6c5b0e01207d59f1cd93ceeb. Independently replay TOKENCOMP_EXACT_WITNESS_OK, audit the prerequisite/source/provenance boundaries and the compression/compute/interoperability claims, repair any in-scope defect, validate the exact audit head, and merge only on green."
+  branch: "audit/a287"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Write AUDIT-071 on audit/a287 from exact protected baseline 671b20da72510adf6c5b0e01207d59f1cd93ceeb, recording TOKENCOMP_AUDIT_WITNESS_OK and exact protected artifact identities. If no defect is found, disposition PASS — NO REPAIR; open the audit PR, require full exact-head GitHub Actions validation, and merge only on green."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
