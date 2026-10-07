@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SYNTHESIS-001"
   baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
   branch: "work/synthesis-276"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "SYNTHESIS draft artifacts, ledger/register promotion, and exact receipt are complete on work head 6140675034c53c8552ae37eda004d63f4aaaee07. Run canonical repository validation and independent exact witness replay on this exact head. Repair every in-scope defect and replay on the fresh exact head until green. Then re-fetch protected main and open the implementation PR only if compatible."
+  pull_request: 277
+  state: "pr-open"
+  next_action: "Implementation PR #277 is open from exact head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57. Require full exact-head GitHub Actions validation before merge."
 frontier:
   - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
