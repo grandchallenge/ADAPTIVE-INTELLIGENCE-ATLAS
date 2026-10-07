@@ -8,11 +8,11 @@ current:
   tranche_id: "ATLAS-CH-TOKENCOMP-001"
   chapter_ids:
     - "ATLAS-CH-TOKENCOMP-001"
-  baseline_commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
+  baseline_commit: "671b20da72510adf6c5b0e01207d59f1cd93ceeb"
   branch: "work/tokencomp-285"
   pull_request: 286
-  state: "ci-green"
-  next_action: "Merge PR #286 from exact validated TOKENCOMP head 4c65ab2204b1aa455dc1015e4edcada9d612873b. Read back protected main and verify zero file differences from the validated implementation head, close issue #285 as completed, then instantiate and complete the mandatory fresh post-draft audit."
+  state: "merged"
+  next_action: "Instantiate the mandatory fresh post-draft audit for ATLAS-CH-TOKENCOMP-001 from exact protected implementation merge 671b20da72510adf6c5b0e01207d59f1cd93ceeb. Independently replay TOKENCOMP_EXACT_WITNESS_OK, audit the prerequisite/source/provenance boundaries and the compression/compute/interoperability claims, repair any in-scope defect, validate the exact audit head, and merge only on green."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
