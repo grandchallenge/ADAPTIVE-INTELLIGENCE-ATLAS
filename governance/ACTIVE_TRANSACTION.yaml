@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 270
-  tranche_id: "SPECTRALDIAG-001"
-  chapter_ids:
-    - "ATLAS-CH-SPECTRALDIAG-001"
-  baseline_commit: "7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf"
-  branch: "audit/a270"
-  pull_request: 271
-  state: "audit-ci-green"
-  next_action: "Audit head 8f068791d012394c31e9aefa34547044721700c9 passed GitHub Actions run 37571680457. Re-check PR #271 and protected main, then merge only this exact head."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-SPECTRALSHAPE-001 from exact protected main c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0. First bind audited MATRIXOPT-001 (manuscript ac860c93b99ee33d8213bf05845b3670061fba53, source lock f4fb1797bc93a8f038ddb06e6d3139ab6367ffcb, AUDIT-046 5f87902c5e30d45149df70d6c0b86a320c9c142a) and audited NONNORMAL-001 (manuscript a8b4cde747df1a986eeca1439203b08512a1471c, source lock f8c868af0fc35b73d9acadbdf6d952b03c1d89e9, AUDIT-001 f13b7ac01f7b10dfadd64da6f31c45832344c082). Source-lock only primary references genuinely needed beyond those prerequisites. Define the exact object and singular/eigenvalue shaping map, distinguish scalar normalization, clipping/conditioning, polar flattening, and a non-flat target profile, include an exact finite conditioning witness plus a non-normal transient/pseudospectral control, and keep instantaneous spectral shape separate from optimizer state, convergence, trajectory, and task quality."
 frontier:
-  - id: "ATLAS-CH-SPECTRALDIAG-001"
+  - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
