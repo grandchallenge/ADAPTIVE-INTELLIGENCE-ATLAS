@@ -11,8 +11,8 @@ current:
   baseline_commit: "397682b86648cf53c775cb5912ab4201390fbd6f"
   branch: "audit/a283"
   pull_request: 284
-  state: "audit-pr-open"
-  next_action: "Require full repository GitHub Actions validation on exact AUDIT-070 head d339bd1c787ffece209263dd9833b0aee14028fb for PR #284. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then read back protected main, close audit issue #283, recompute the architecture frontier, and return the controller to idle-ready."
+  state: "audit-ci-green"
+  next_action: "Merge PR #284 from exact validated AUDIT-070 head d339bd1c787ffece209263dd9833b0aee14028fb. Read back protected main and zero-file-difference tree equivalence, close audit issue #283 as completed, recompute the architecture frontier from the protected Chapter Ledger, and return the controller to idle-ready with a fresh CURRENT_HANDOFF."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
