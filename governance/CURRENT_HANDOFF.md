@@ -59,14 +59,26 @@ The completed selection transaction does not create a release candidate or autho
 
 Protected main contains no `governance/RELEASE_AUTHORIZATION.yaml` and no substantive release artifact.
 
-## Remaining Human Steward decisions
+## Release format decision
 
-Two decisions remain before `RELEASE-CANDIDATE-001`:
+Human Steward selection:
 
-1. select the intended release format or formats;
-2. choose the editorial treatment for `ATLAS-CH-MECHDIAG-001`.
+- **LaTeX** is the intended first release format.
 
-MECHDIAG is approximately 236 words. Its earlier audit established bounded technical adequacy, not publication-length maturity. Options remain: keep concise, expand without strengthening claims, combine/present with adjacent diagnostic material, or another explicitly documented treatment.
+## Remaining Human Steward decision
+
+One decision remains before `RELEASE-CANDIDATE-001`:
+
+- choose the editorial treatment for `ATLAS-CH-MECHDIAG-001`.
+
+MECHDIAG is approximately 236 words. `AUDIT-047` states that the concise reader is protocol-complete and binds the mature reader companion as part of the chapter packet. Global synthesis later made that audited companion the canonical reader.
+
+Current recommendation, not yet a Human Steward decision:
+
+- keep the audited content concise;
+- typeset it in LaTeX as an intentional short interlude/bridge chapter;
+- do not pad it merely to match neighboring chapter lengths;
+- preserve its separate chapter identity and downstream handoff to `ATLAS-CH-SPECTRALDIAG-001`.
 
 ## Next transaction
 
