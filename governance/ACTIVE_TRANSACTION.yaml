@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SHIFT-001"
   baseline_commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
   branch: "work/shift-263"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Validate exact work head f078f89fd4782c3aaad3d1ac563297a00ae8f71d with canonical repository validation and independent exact changed-law/adversarial witness replay. If green and protected main is unchanged, open implementation PR from this exact head."
+  pull_request: 264
+  state: "implementation-pr-open"
+  next_action: "Implementation PR #264 is bound to exact validated head 98eeee1ed12d9ed513617ce33ee96d663f6706a5. Require exact-head GitHub Actions success and unchanged protected main before merging only this SHA."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
