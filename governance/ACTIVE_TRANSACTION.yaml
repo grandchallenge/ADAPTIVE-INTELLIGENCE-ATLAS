@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
+  issue_number: 305
+  tranche_id: "RELEASE-CANDIDATE-001"
   chapter_ids: []
   baseline_commit: "ab781fbf7861c36b7750a0ba2710a34ade625122"
-  branch: null
+  branch: "release-candidate/305"
   pull_request: null
-  state: "blocked-human-governance"
-  next_action: "Release architecture is selected: LaTeX is the canonical source of truth; PDF is the primary presentation artifact; HTML is the broader-accessibility artifact. Await explicit Human Steward decision on ATLAS-CH-MECHDIAG-001 editorial treatment before instantiating RELEASE-CANDIDATE-001 from exact protected main ab781fbf7861c36b7750a0ba2710a34ade625122."
+  state: "instantiated"
+  next_action: "Audit available build/render tooling and instantiate a deterministic canonical LaTeX build from the 80 ledger-selected chapters. Preserve ATLAS-CH-MECHDIAG-001 as an intentionally concise interlude. Generate PDF and HTML only from the exact LaTeX source, bind candidate version/date metadata, hash artifacts, validate exact head, merge only on green, then perform a fresh release-candidate audit. Do not authorize public release."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
