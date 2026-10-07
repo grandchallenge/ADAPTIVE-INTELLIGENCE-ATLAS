@@ -11,8 +11,8 @@ current:
   baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
   branch: "work/variopt-289"
   pull_request: 290
-  state: "pr-open"
-  next_action: "Validate exact VARIOPT implementation head 1da24f403f7de118f205c6fab5616f5e27588a57: require VARIOPT_EXACT_WITNESS_OK replay and the full GitHub Actions validator to succeed. Repair any in-scope failure and revalidate exact head. Merge PR #290 only on green, then instantiate and complete the mandatory fresh post-draft audit."
+  state: "ci-green"
+  next_action: "Merge PR #290 from exact validated VARIOPT head 1da24f403f7de118f205c6fab5616f5e27588a57. Read back protected main and verify zero file differences from the validated implementation head, close issue #289 as completed, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
