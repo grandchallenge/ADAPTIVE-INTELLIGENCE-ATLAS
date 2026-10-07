@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import hashlib
 import json
 import re
 import yaml
@@ -7,6 +8,12 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
 warnings = []
+
+
+def git_blob_sha1(data: bytes) -> str:
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
+
 
 ledger = json.loads((ROOT / "governance/CHAPTER_LEDGER.yaml").read_text(encoding="utf-8"))
 chapters = ledger.get("chapters", [])
@@ -40,11 +47,42 @@ expected_extras = sorted(
 if extras != expected_extras:
     errors.append(f"unexpected non-ledger manuscript files: {extras}")
 
-license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
-if not license_text.startswith("LICENSE SELECTION PENDING"):
-    errors.append("license gate changed without an explicit release-promotion transaction")
-if "before public release" not in license_text:
-    errors.append("license file no longer records the public-release gate")
+license_path = ROOT / "LICENSE"
+if not license_path.is_file():
+    errors.append("repository LICENSE is missing")
+else:
+    license_text = license_path.read_text(encoding="utf-8")
+    required_license_markers = (
+        "Copyright © 2026 Grand Challenge Technologies Ltd.",
+        "CC BY 4.0",
+        "CC-BY-4.0",
+        "LICENSES/CC-BY-4.0.txt",
+        "MIT License",
+        "LICENSES/MIT.txt",
+        "Third-party material",
+        "No endorsement or certification implication",
+    )
+    for marker in required_license_markers:
+        if marker not in license_text:
+            errors.append(f"repository LICENSE missing selected-license marker: {marker}")
+    if "LICENSE SELECTION PENDING" in license_text:
+        errors.append("repository LICENSE still contains pending-selection state")
+
+license_files = {
+    "LICENSES/CC-BY-4.0.txt": "13ca539f377dc705af32b8d2ce89262298ea2f06",
+    "LICENSES/MIT.txt": "a431eb26664c286c260aa831d9a57adf32d303f0",
+}
+for rel, expected_blob in license_files.items():
+    path = ROOT / rel
+    if not path.is_file():
+        errors.append(f"selected standard license text missing: {rel}")
+        continue
+    actual_blob = git_blob_sha1(path.read_bytes())
+    if actual_blob != expected_blob:
+        errors.append(
+            f"selected standard license text changed: {rel}: "
+            f"expected {expected_blob}, got {actual_blob}"
+        )
 
 citation = yaml.safe_load((ROOT / "CITATION.cff").read_text(encoding="utf-8"))
 for key in ("cff-version", "title", "type", "authors", "message", "repository-code"):
@@ -58,13 +96,21 @@ if "specific tagged release or commit" not in str(citation.get("message", "")):
 release_files = sorted(
     str(p.relative_to(ROOT)).replace("\\", "/")
     for p in (ROOT / "releases").rglob("*")
-    if p.is_file() and p.name != ".gitkeep" and p.name != "README.md"
+    if p.is_file() and p.name not in {".gitkeep", "README.md"}
 )
+release_auth_path = ROOT / "governance/RELEASE_AUTHORIZATION.yaml"
 if release_files:
-    errors.append(
-        "public release artifacts exist while LICENSE_SELECTION_PENDING is active: "
-        + ", ".join(release_files)
-    )
+    if not release_auth_path.is_file():
+        errors.append(
+            "release artifacts exist without governance/RELEASE_AUTHORIZATION.yaml: "
+            + ", ".join(release_files)
+        )
+    else:
+        release_auth = yaml.safe_load(release_auth_path.read_text(encoding="utf-8")) or {}
+        if release_auth.get("public_release_authorized") is not True:
+            errors.append(
+                "release artifacts exist without explicit public_release_authorized: true"
+            )
 
 word_counts = {}
 for c in chapters:
@@ -89,5 +135,6 @@ for warning in warnings:
 print(
     "OK: release-readiness boundary intact; "
     f"{len(chapters)} canonical chapters, {len(extras)} preserved non-ledger companions, "
-    f"{sum(word_counts.values())} approximate words; LICENSE_SELECTION_PENDING blocks public release"
+    f"{sum(word_counts.values())} approximate words; scoped CC-BY-4.0/MIT licensing verified; "
+    "public release still requires explicit governance authorization"
 )
