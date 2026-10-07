@@ -12,7 +12,7 @@ current:
   branch: "audit/a287"
   pull_request: 288
   state: "audit-pr-open"
-  next_action: "Require full repository GitHub Actions validation on exact AUDIT-071 head 489f85ff3c04f5564748e60116f54d572101eca0 for PR #288. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then read back protected main, close audit issue #287, recompute the architecture frontier, and return the controller to idle-ready with a fresh CURRENT_HANDOFF."
+  next_action: "Require full repository GitHub Actions validation on exact AUDIT-071 head 71794b29fbc85a2a4369c1d1a245e9aa15b01ea4 for PR #288. The initial PR-open event registered no run; this fresh head was created to retrigger validation. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then read back protected main, close audit issue #287, recompute the architecture frontier, and return the controller to idle-ready with a fresh CURRENT_HANDOFF."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
