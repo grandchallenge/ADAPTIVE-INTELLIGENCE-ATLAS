@@ -11,8 +11,8 @@ current:
   baseline_commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
   branch: "work/systems-281"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind the exact audited HARDWARE-001 and MOE-001 triples in the SYSTEMS source lock; source-lock only primary distributed-training/serving references genuinely needed beyond those prerequisites; draft the specification, derivation packet, exact finite placement/communication witness, reader manuscript, transaction receipt, Chapter Ledger promotion, and Source Register entry; then run exact-head validation."
+  state: "source-locked"
+  next_action: "Draft SYSTEMS specification, derivation packet, exact finite placement/communication witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt from the locked prerequisites/sources; then run exact-head validation."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
