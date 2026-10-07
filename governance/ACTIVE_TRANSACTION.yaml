@@ -9,9 +9,9 @@ current:
   chapter_ids: []
   baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
   branch: "synthesis/global-293"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the GLOBAL-SYNTHESIS-001 implementation PR from exact locally validated head 3640134c76aece684d665b2b9d1977b4ce7a59a6. Require full GitHub Actions validation on that exact head. Repair any in-scope failure and revalidate; merge only on green. Then read back protected main and complete a fresh bounded post-synthesis audit before closing issue #293."
+  pull_request: 294
+  state: "pr-open"
+  next_action: "Require full GitHub Actions validation on exact GLOBAL-SYNTHESIS-001 PR #294 head 3640134c76aece684d665b2b9d1977b4ce7a59a6. Repair any in-scope failure and revalidate. Merge only on green exact-head validation; then verify protected-main tree equivalence and complete a fresh bounded post-synthesis audit before closing issue #293."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
