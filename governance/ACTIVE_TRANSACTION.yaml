@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 309
-  tranche_id: "PUBLIC-RELEASE-001"
+  issue_number: 311
+  tranche_id: "AUDIT-077"
   chapter_ids: []
-  baseline_commit: "498e4c2f517255883f83bf8e23afba8841e5c9dc"
-  branch: "release/public-309"
+  baseline_commit: "1d4c2532533ff98afb998f86e0443d3fa1d8682e"
+  branch: "audit/a311"
   pull_request: null
-  state: "draft-complete"
-  next_action: "Open PUBLIC-RELEASE-001 PR from exact validated head 5058b6d49b1605e6d8889bbfddc14d583c560784. Require full repository validation including public-release authorization, byte-identity, hashes, citation, accessibility, and historical candidate integrity. Merge only on green, then perform a fresh public-release audit before creating tag atlas-v0.1.0 or any GitHub Release."
+  state: "audit-instantiated"
+  next_action: "Replay the protected v0.1.0 publication state from exact main 1d4c2532533ff98afb998f86e0443d3fa1d8682e, confirm final tag/GitHub Release are still absent, write AUDIT-077, validate exact audit head, and merge only on green. After audit merge, create atlas-v0.1.0 at the exact audited implementation merge, create the GitHub Release with the governed assets, verify published asset hashes, then close PUBLIC-RELEASE-001."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
