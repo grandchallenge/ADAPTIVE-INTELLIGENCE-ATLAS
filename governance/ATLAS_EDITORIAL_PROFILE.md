@@ -1,7 +1,7 @@
 # Atlas Editorial Profile
 
 **Profile ID:** `GCL-ATLAS-AI-EDITORIAL-001`  
-**Status:** canonical project-local profile, post six-keystone synthesis  
+**Status:** canonical project-local profile, global synthesis phase
 **Title:** *A Mathematical Atlas of Adaptive Intelligence*
 
 ## Purpose
@@ -33,6 +33,14 @@ The Atlas uses:
 `architecture first -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis`
 
 The macro-architecture is stable enough to coordinate work but revisable through explicit ADRs.
+
+### Current phase snapshot
+
+The protected Chapter Ledger records all 80 chapter nodes at `draft-v0.1` and zero at `architecture`. The dependency-driven drafting frontier is therefore exhausted and the current project-local phase is full-manuscript global synthesis.
+
+`governance/CHAPTER_LEDGER.yaml` is authoritative for chapter lifecycle state. A specification document may retain an internal label such as `Status: specification-ready` to describe the maturity of that specification artifact; that wording does not override the ledger's chapter lifecycle state.
+
+Stable chapter IDs and ledger `part_id` values carry semantic identity. Filesystem locations are presentation coordinates. Legacy directory prefixes may therefore remain in place when moving them would create provenance churn without improving mathematical or editorial meaning.
 
 The canonical chapter-level composition grammar is now:
 
