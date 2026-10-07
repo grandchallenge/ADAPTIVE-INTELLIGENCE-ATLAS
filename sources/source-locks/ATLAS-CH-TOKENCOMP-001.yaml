@@ -1,0 +1,96 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-TOKENCOMP-001"
+locked_on: "2026-10-07"
+epistemic_class: "audited_tokenization_prerequisite_plus_atlas_exact_compression_compute_and_interoperability_witness"
+claim_boundary: >
+  TOKEN-001 supplies the audited tokenizer boundary map; distinctions among bytes, codepoints,
+  subwords, token IDs, and embeddings; corpus-scoped fertility; probability-model description
+  length; BPE/unigram/SentencePiece/byte-level mechanism boundaries; multilingual scope discipline;
+  and exact Unicode, segmentation, code-length, and fertility witnesses. TOKENCOMP-001 adds
+  Atlas-owned exact finite constructions connecting vocabulary size and segmentation length to
+  fixed-width token-ID description length, declared compute proxies, and a canonical lossless
+  interoperability interface. These constructions do not establish a universally optimal tokenizer,
+  semantic equivalence between tokenizers, model-quality equivalence, a universal compute law,
+  or a universal tokenizer lingua franca.
+
+hard_prerequisites:
+  - id: "TOKENCOMP-TOKEN-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
+    path: "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-TOKEN-001.md"
+    git_blob_sha1: "07c1edd5103ff179bbb3727ede9c4e15f2ec949a"
+    authority: "Audited tokenization boundary, fertility, code-length, morphology, multilingual, and representation-interface substrate."
+  - id: "TOKENCOMP-TOKEN-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
+    path: "sources/source-locks/ATLAS-CH-TOKEN-001.yaml"
+    git_blob_sha1: "616c92bb63ed33e5c5587b3fe4491ae21a0eba54"
+    authority: "Exact TOKEN-001 external-source and claim boundary."
+  - id: "TOKENCOMP-TOKEN-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
+    path: "reviews/AUDIT-052.md"
+    git_blob_sha1: "7c279eef5c55ea026fe965e18f696b62adad624e"
+    authority: "Post-draft audit preserving TOKENCOMP as the downstream compression/compute/interoperability boundary."
+
+new_external_academic_sources: []
+
+source_decision:
+  finding: >
+    No new external authority is required for the load-bearing TOKENCOMP results. TOKEN-001
+    already source-locks the tokenizer mechanisms and the probability-model code-length boundary.
+    TOKENCOMP's new fixed-width ID accounting, declared compute proxies, lossless translation
+    condition, and finite counterexamples are exact Atlas-owned constructions.
+  reopen_condition: >
+    Add new external authority only if the reader introduces an empirical tokenizer performance
+    claim, a hardware/runtime claim, a theorem about a specific deployed tokenizer format, or
+    a universal interoperability/standardization assertion not proved by the finite constructions.
+
+typed_objects:
+  token_length: "L_tau(x)=|tau(x)|"
+  vocabulary_size: "|V_tau|"
+  fixed_width_id_bits: "w_tau=ceil(log2 |V_tau|) for the declared toy fixed-width code"
+  fixed_width_sequence_bits: "D_fw(x;tau)=L_tau(x) w_tau"
+  model_based_code_length: "ell_p(s)=-sum_i log2 p(v_i), inherited from TOKEN-001"
+  pair_interaction_proxy: "C_pair(n)=n^2 under the declared toy cost model"
+  dense_vocabulary_proxy: "C_vocab(n,V)=n|V| under the declared toy cost model"
+  canonical_interface: "a declared byte string b in B*"
+  translation: "T_{A->B}=tau_B o delta_A where the maps are defined on the declared domain"
+
+exact_witness:
+  text: "abababab"
+  tokenizer_small:
+    vocabulary: "[a,b]"
+    vocabulary_size: 2
+    tokens: "[a,b,a,b,a,b,a,b]"
+    token_count: 8
+    fixed_width_bits_per_id: 1
+    fixed_width_sequence_bits: 8
+    pair_interaction_proxy: 64
+    dense_vocabulary_proxy: 16
+  tokenizer_piece:
+    vocabulary: "[a,b,ab,x,y,z,w,q]"
+    vocabulary_size: 8
+    tokens: "[ab,ab,ab,ab]"
+    token_count: 4
+    fixed_width_bits_per_id: 3
+    fixed_width_sequence_bits: 12
+    pair_interaction_proxy: 16
+    dense_vocabulary_proxy: 32
+  control: >
+    The piece tokenizer has half the token count and one quarter the pair-interaction proxy,
+    yet a larger fixed-width token-ID description length and a larger dense-vocabulary proxy.
+    No scalar tokenizer optimum follows.
+  interoperability: >
+    Both tokenizers detokenize exactly to the same declared byte string for the witness.
+    Translation by detokenize-to-canonical-bytes then retokenize is lossless on the declared
+    witness domain, while token IDs and segmentation remain different.
+
+epistemic_rules:
+  - "Token count is not description length unless a code convention is declared."
+  - "Vocabulary size and sequence length jointly affect fixed-width token-ID accounting."
+  - "A sequence-length reduction can improve one declared compute proxy while worsening another."
+  - "A compute proxy is not measured runtime or hardware cost."
+  - "Lossless translation through a canonical byte/text interface does not imply semantic, probabilistic, embedding, or model-behavior equivalence."
+  - "A tokenizer lingua franca is an interface proposal unless a standard/adoption claim is separately sourced."
+  - "Corpus/language scope remains explicit; finite witnesses do not establish multilingual or universal optimality."
