@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 276
-  tranche_id: "SYNTHESIS-001"
-  chapter_ids:
-    - "ATLAS-CH-SYNTHESIS-001"
-  baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
-  branch: "work/synthesis-276"
-  pull_request: 277
-  state: "implementation-merged"
-  next_action: "Implementation PR #277 merged to protected main 0925dd1a0108f99a230bb0dabf4cc423f1839867. The protected merge tree has zero file differences from exact validated head 14ba13a9ea0fd9bf7bc965fdb0b505bc83e16a57. Instantiate the mandatory SYNTHESIS post-draft audit from this exact protected merge."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-SYSTEMS-001 from exact protected main 4e1485f3849a7284be44d81a0d5ecdec9d15783f. First bind audited HARDWARE-001 (manuscript 2ce486d4cce53a5f5194241ce3bb1c0f40c7c895, source lock 98d783c072fa28d784991617af49329259ba0b8e, AUDIT-044 2c53ff24db17895ff9feba5f0f2854fdaa1e5c9b) and audited MOE-001 (manuscript 5281e3bc0721681c630c56057cf478311e96662d, source lock 75d5b04a90794b7543c70414ec9e2be59c9af7ed, AUDIT-033 261e63f7853c359460bd76302ddfaeed576892cb). Source-lock only primary distributed-training/serving references genuinely needed beyond those prerequisites. Type data, tensor, pipeline, and expert parallelism separately; declare communication topology and collective semantics; build an exact finite placement/communication witness plus a control where equal arithmetic work has different communication or latency cost; keep training efficiency, serving efficiency, routing, accepted dispatch, placement, FLOPs, bytes, latency, throughput, utilization, and tail behavior distinct."
 frontier:
-  - id: "ATLAS-CH-SYNTHESIS-001"
+  - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
