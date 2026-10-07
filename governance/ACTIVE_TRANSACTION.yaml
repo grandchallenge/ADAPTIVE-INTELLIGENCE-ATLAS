@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 303
-  tranche_id: "LICENSE-SELECTION-001"
+  issue_number: null
+  tranche_id: null
   chapter_ids: []
-  baseline_commit: "22203b61b2d2264b11d43472c5d5ab6e393b9d83"
-  branch: "audit/a303"
-  pull_request: 304
-  state: "audit-ci-green"
-  next_action: "Merge exact validated audit PR #304 at 907ecda1aea6c1544726490abff2f7a2cb69a0f4, verify protected-main tree equivalence, close issues #301 and #303, then record the remaining Human Steward release decisions."
+  baseline_commit: "ab781fbf7861c36b7750a0ba2710a34ade625122"
+  branch: null
+  pull_request: null
+  state: "blocked-human-governance"
+  next_action: "Await Human Steward release configuration decisions before instantiating the next bounded transaction from exact protected main ab781fbf7861c36b7750a0ba2710a34ade625122."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
