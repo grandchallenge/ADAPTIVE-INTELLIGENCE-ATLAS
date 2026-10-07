@@ -368,7 +368,7 @@ For every deployment-shift claim:
 
 A detected change is evidence of change. It is not by itself evidence of task failure, calibration failure, adversarial vulnerability, or structural cause.
 
-## References
+## References used in this chapter
 
 - [@SugiyamaKrauledatMuller2007Covariate]
 - [@MadryEtAl2018Adversarial]

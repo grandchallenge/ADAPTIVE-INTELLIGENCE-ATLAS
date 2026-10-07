@@ -1,5 +1,9 @@
 # ATLAS-CW-SHIFT-001 — Exact Changed-Law and Robustness Witnesses
 
+## Claim boundary
+
+This witness certifies only the exact finite changed-law, importance-weight, benign-marginal-shift, conditional-shift, and adversarial-risk identities stated below. It does not prove universal distribution-shift correction, calibration transfer, conformal transfer, or adversarial robustness beyond the declared finite objects and perturbation set.
+
 ## Purpose
 
 Replay four exact separations:
