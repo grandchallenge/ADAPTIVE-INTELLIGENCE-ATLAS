@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 305
-  tranche_id: "RELEASE-CANDIDATE-001"
+  issue_number: null
+  tranche_id: null
   chapter_ids: []
-  baseline_commit: "ab781fbf7861c36b7750a0ba2710a34ade625122"
-  branch: "release-candidate/305"
-  pull_request: 306
-  state: "pr-open"
-  next_action: "Open RELEASE-CANDIDATE-001 PR from exact validated head 00f608264bd40a9e24c073e99a10b6f5df121657. Require full repository validation including candidate artifact hashes and no-public-release boundary. Merge only on green, then perform a fresh release-candidate audit."
+  baseline_commit: "498e4c2f517255883f83bf8e23afba8841e5c9dc"
+  branch: null
+  pull_request: null
+  state: "blocked-human-governance"
+  next_action: "RELEASE-CANDIDATE-001 is complete and audited. Candidate tag atlas-v0.1.0-rc.1 points to exact audited implementation merge e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e. Public release remains unauthorized. Await explicit Human Steward public-release authorization before creating any GitHub Release, populating releases/, or setting public_release_authorized: true."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
