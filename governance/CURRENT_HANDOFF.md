@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0
+**Current main:** 4c038e50f91e152e8139fc0dd412587d02f620fb
 
 ## Restart rule
 
@@ -15,105 +15,102 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-SPECTRALSHAPE-001 — **Spectral Shaping**
+- next target: ATLAS-CH-SYNTHESIS-001 — **Beyond the Monolithic Model**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Distinguish normalization, flattening, conditioning, and intentional spectral shaping of updates.
+> Synthesize the Atlas into a systems view of intelligence sustained by geometry, dynamics, memory, composition, coordination, evidence, and governance.
 
 ## Hard prerequisites on exact current main
 
-### ATLAS-CH-MATRIXOPT-001
+### ATLAS-CH-FRONTIER-001
 
-- manuscript: ac860c93b99ee33d8213bf05845b3670061fba53
-- source lock: f4fb1797bc93a8f038ddb06e6d3139ab6367ffcb
-- AUDIT-046: 5f87902c5e30d45149df70d6c0b86a320c9c142a
-
-Inherited boundary:
-
-- SVD/polar language may be inherited;
-- rectangular semi-orthogonality may be inherited;
-- norm-dependent steepest-direction language may be inherited;
-- exact-versus-approximate singular-value transformations may be inherited;
-- polar singular-value flattening and generic diagonal spectral reshaping may be inherited as exact finite witnesses;
-- orthogonalized update direction is not an orthogonality-constrained parameter;
-- matrix-aware preconditioning is not full Hessian inversion;
-- stateful Shampoo/Muon-like optimizers are not identical to one instantaneous transform;
-- exact polar factor is not a finite Newton-Schulz realization;
-- **singular-value flattening is not arbitrary intentional spectral shaping**;
-- MATRIXOPT does not establish that a flat spectrum is universally desirable or select any particular non-flat target spectrum.
-
-### ATLAS-CH-NONNORMAL-001
-
-- manuscript: a8b4cde747df1a986eeca1439203b08512a1471c
-- source lock: f8c868af0fc35b73d9acadbdf6d952b03c1d89e9
-- AUDIT-001: f13b7ac01f7b10dfadd64da6f31c45832344c082
+- canonical reader: e1a692a7e6406041a6e4395c0e23a0732fb5b4e3
+- source lock: 84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63
+- AUDIT-043: 4ea9811d0e9c184b2e1aa223091332e356c77056
 
 Inherited boundary:
 
-- eigenvalues alone need not control finite-horizon behavior for non-normal operators;
-- transient norm growth, singular amplification, resolvent growth, pseudospectra, and eigenvalue sensitivity are distinct diagnostics;
-- exact finite-dimensional non-normal witnesses may be inherited;
-- changing singular values does not by itself settle transient or pseudospectral behavior of a non-normal operator.
+- may inherit the programme taxonomy;
+- may inherit the audited/open distinction;
+- may inherit named proof and experiment obligations;
+- may inherit governed advancement rules;
+- unresolved programme items must remain unresolved;
+- architecture-stage questions are not completed pillars merely because they appear in the programme map;
+- the synthesis must distinguish what is known, engineered, measured, hypothesized, and open.
 
-## Before drafting SPECTRALSHAPE
+### ATLAS-CH-POLITY-001
 
-1. bind the exact audited MATRIXOPT and NONNORMAL triples above;
-2. source-lock only primary references genuinely needed for intentional singular/eigenvalue shaping beyond those prerequisites;
-3. define the exact object being shaped: gradient/update matrix, preconditioned operator, Jacobian, parameter block, or another declared object;
-4. distinguish scalar normalization, clipping, conditioning, polar flattening, and an explicitly declared target singular-value map;
-5. define the shaping map on singular values/eigenvalues exactly, including treatment of zeros, rank deficiency, rectangular matrices, and finite precision;
-6. include an exact finite witness where scalar normalization preserves a bad singular-value ratio, full polar flattening sets nonzero singular values to one, and an intermediate non-flat target spectrum improves conditioning without flattening;
-7. include a non-normal control showing that matching or improving singular-value summaries does not automatically determine finite-horizon transient behavior or pseudospectra;
-8. keep instantaneous spectral shape separate from optimizer state, parameter trajectory, convergence, and downstream task quality;
-9. state whether the target spectrum is imposed for conditioning, robustness, capacity allocation, numerical stability, or another declared objective;
-10. do not infer a universal optimal spectral profile from one matrix family or task.
+- manuscript: fa1cb3dad381ddbcbd7e4725a87ce42c77a03948
+- source lock: ee898fbbafc58a4f6322a7c65ef571c9a084bc35
+- AUDIT-048: 8b04e42fecca8a361c929dc68ead4441a4f592cd
 
-## Immediately completed transaction — SPECTRALDIAG-001
+Inherited boundary:
 
-- implementation issue: #267 — closed completed
-- implementation PR: #268
-- exact green implementation head: 8d4dd2a78ae5f3b6f49984562ec27f8d8da779c7
-- implementation GitHub Actions run: 37556698565 — success
-- implementation merge: d7ac9862600874baf24128186ef23aa5e2cbb6af
-- post-draft audit: AUDIT-067
-- audit issue: #270 — closed completed
-- audit PR: #271
-- exact green audit head: 8f068791d012394c31e9aefa34547044721700c9
-- audit GitHub Actions run: 37571680457 — success
-- audit merge/current main: c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0
-- audit record blob: 395fae752abb53711d042cc369b5021362c1600b
+- may inherit the polity object;
+- may inherit private/shared-state separation;
+- may inherit capability versus authority;
+- may inherit candidate / validation / commit separation;
+- may inherit the exact specialization witness;
+- system capability must be demonstrated under declared composition;
+- component count does not imply composition quality;
+- POLITY does not prescribe one universal architecture.
+
+## Before drafting SYNTHESIS
+
+1. bind the exact audited FRONTIER and POLITY artifacts above;
+2. source-lock only new external authority genuinely required beyond those audited prerequisites;
+3. define an explicit typed synthesis object covering model/representation, dynamics, memory, tools, coordination, evidence, adaptation, and governance rather than relying on prose aggregation;
+4. construct at least one exact finite composition witness where system capability depends on declared composition and at least one ablation/control where removing an interface, memory, validator, or authority boundary breaks the declared result;
+5. preserve capability, authority, evidence, governance, and cost as distinct objects;
+6. preserve FRONTIER's status grammar so open programmes cannot be promoted into solved substrate;
+7. state which Atlas claims are theorem-grade, computational witnesses, engineering patterns, hypotheses, or open obligations;
+8. keep systems-level capability distinct from any claim that monolithic models are obsolete or always inferior;
+9. keep specialization benefit distinct from coordination cost and failure surface;
+10. do not claim a universal architecture of intelligence.
+
+## Immediately completed transaction — SPECTRALSHAPE-001
+
+- implementation issue: #272 — closed completed
+- implementation PR: #273
+- exact green implementation head: 650d8eb7b9d389198e1671933db25aa1eb46f9e9
+- implementation GitHub Actions run: 37574730505 — success
+- implementation merge: ea4c44f2a41488820851a046eedd48f82628f745
+- post-draft audit: AUDIT-068
+- audit issue: #274 — closed completed
+- audit PR: #275
+- exact green audit head: facbffdf9203fe5fd1d5dc38fb4af637eb27d802
+- audit GitHub Actions run: 37575156031 — success
+- audit merge/current main: 4c038e50f91e152e8139fc0dd412587d02f620fb
+- audit record blob: a6f06b9574921805764c47d046abda04bd675373
 - audit disposition: **PASS — NO REPAIR**
 - final canonical Linux validation on current main: green
 
-A recoverable controller checkpoint lag occurred after PR #268 merged: protected main already contained the exact validated implementation while ACTIVE_TRANSACTION.yaml still recorded the pre-merge CI-green state. Exact PR/main identity verified the merge, protected-main validation was replayed, and the controller was repaired before AUDIT-067 was instantiated.
+Final SPECTRALSHAPE artifacts:
 
-Final SPECTRALDIAG artifacts:
+- specification: 913618031f1532e01635a20210c17e9563b4b7e6
+- derivation packet: 7516af5e01f310d75a1a444a6313d28123744010
+- computational witness: a50e364a9554db3b3b31ae59e9ad4e52376ee484
+- reader manuscript: f2a6b57d4e3a09c9398c80af2d36e7d53e77793e
+- source lock: 5b24e3184e612d2771eab370c66073a56d3ba3b8
+- Chapter Ledger: 52368e21da96630a428d2f8fba41251ea7e1f07f
+- Source Register: a20765eaacf2b2b4c570bd3657f41fc77ee3ee9d
+- transaction receipt: 92a6894191af0c6446c7236fd594d1f42fbd975c
 
-- specification: 14263bc6909db5189b0324b2f2e5aa28d29411bc
-- derivation packet: f65e3bdef065a71b72db189539392175ed840728
-- computational witness: c86ee1cf38368f9f92cfa718dbc1c3527d1e077a
-- reader manuscript: fa985357911a2024a4070175c0b6a5f414740994
-- source lock: 461ec864d22c14040444c0760d9aea7b05997125
-- bibliography: acecefea7c71b895f204cd4458d7ee4aa5bd326c
-- Chapter Ledger: a8f29d878863f8b14ddf5f57259829b1aea1c16c
-- Source Register: 6b91b10e46bf4a90a77ba93807120c09b817c60b
-- transaction receipt: 488800440c4c49758da57643ff3725024a6ac42e
+Durable SPECTRALSHAPE substrate:
 
-Durable SPECTRALDIAG substrate:
-
-- every spectrum is attached to an explicitly declared operator/object and local reference state/time where applicable;
-- equal eigenvalue multisets can coexist with sharply different finite-step response;
-- equal eigenvalue and singular-value multisets can coexist with different fixed-interface response;
-- equal local Jacobian spectra do not determine the global nonlinear map;
-- equal Hessian spectra do not determine gradients or stationarity;
-- a finite Koopman representation is relative to its declared observable space and is not automatically the underlying infinite-dimensional Koopman operator;
-- eigenvalues, singular values, pseudospectra/resolvent diagnostics, Jacobian spectra, Hessian spectra, and Koopman spectra are distinct diagnostic objects;
-- descriptive spectral correlation or predictive utility is not functional necessity;
-- mechanistic significance requires intervention, ablation, substitution, recovery, or an equivalently typed functional test;
-- empirical spectra remain subject to sampling, truncation, conditioning, finite precision, and operator-estimation error.
+- G=diag(4,1) has kappa2=4;
+- scalar normalization gives diag(1,1/4) and preserves kappa2=4;
+- upper clipping gives diag(2,1), kappa2=2;
+- polar flattening gives I2, kappa2=1;
+- explicit non-flat target spectrum (3,2) gives kappa2=3/2;
+- normalization, clipping, flattening, and target shaping are distinct operations;
+- A=[[1/2,2],[0,1/2]] and N=(1/2)I share eigenvalues but satisfy ||Ae2||^2=17/4 versus ||Ne2||^2=1/4;
+- at epsilon=1/4 their exact pseudospectral radii are 3/4 and 1/4;
+- instantaneous update spectra are not optimizer-state dynamics;
+- better update conditioning does not by itself prove faster nonlinear convergence or better task quality.
 
 ## Recomputed dependency-legal frontier
 
@@ -121,11 +118,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering selects:
 
-- ATLAS-CH-SPECTRALSHAPE-001
+- ATLAS-CH-SYNTHESIS-001
 
 Other dependency-legal count-0 chapters remain:
 
-- ATLAS-CH-SYNTHESIS-001
 - ATLAS-CH-SYSTEMS-001
 - ATLAS-CH-TOKENCOMP-001
 - ATLAS-CH-VARIOPT-001
