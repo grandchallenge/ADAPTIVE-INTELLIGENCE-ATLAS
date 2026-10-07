@@ -12,7 +12,7 @@ current:
   branch: "audit/a274"
   pull_request: null
   state: "audit-instantiated"
-  next_action: "AUDIT-067 is issue #274 on audit/a274 from exact protected implementation merge ea4c44f2a41488820851a046eedd48f82628f745. Independently audit prerequisite/source identities, exact shaping arithmetic, non-normal controls, rank/conditioning and dynamics/task firewalls, receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
+  next_action: "AUDIT-068 is issue #274 on audit/a274 from exact protected implementation merge ea4c44f2a41488820851a046eedd48f82628f745. Independently audit prerequisite/source identities, exact shaping arithmetic, non-normal controls, rank/conditioning and dynamics/task firewalls, receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
