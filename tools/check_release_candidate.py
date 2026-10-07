@@ -46,17 +46,23 @@ else:
         if "Interlude: From Readability to" not in h: errors.append("HTML MECHDIAG interlude missing")
     if paths["pdf"].is_file() and not paths["pdf"].read_bytes().startswith(b"%PDF-"): errors.append("PDF signature missing")
 
+auth_path=ROOT/"governance/RELEASE_AUTHORIZATION.yaml"
+auth={}
+if auth_path.exists():
+    auth=yaml.safe_load(auth_path.read_text(encoding="utf-8")) or {}
+public_release_authorized=auth.get("public_release_authorized") is True
+
 citation=yaml.safe_load((ROOT/"CITATION.cff").read_text(encoding="utf-8"))
-if citation.get("version")!=VERSION: errors.append("CITATION.cff version not bound to release candidate")
+expected_citation_version="0.1.0" if public_release_authorized else VERSION
+if citation.get("version")!=expected_citation_version: errors.append("CITATION.cff version inconsistent with release state")
 if str(citation.get("date-released"))!="2026-10-07": errors.append("CITATION.cff date-released not bound")
-if (ROOT/"governance/RELEASE_AUTHORIZATION.yaml").exists():
-    auth=yaml.safe_load((ROOT/"governance/RELEASE_AUTHORIZATION.yaml").read_text(encoding="utf-8")) or {}
-    if auth.get("public_release_authorized") is True: errors.append("public release authorization is out of scope for RELEASE-CANDIDATE-001")
 
 release_files=[p for p in (ROOT/"releases").rglob("*") if p.is_file() and p.name not in {".gitkeep","README.md"}]
-if release_files: errors.append("substantive public release artifacts exist: "+", ".join(str(p.relative_to(ROOT)) for p in release_files))
+if release_files and not public_release_authorized:
+    errors.append("substantive public release artifacts exist without explicit authorization: "+", ".join(str(p.relative_to(ROOT)) for p in release_files))
 
 if errors:
     for e in errors: print("ERROR:",e)
     raise SystemExit(1)
-print("OK: release candidate v0.1.0-rc.1; 80 canonical chapters; 18 PDF/HTML figures; hashes verified; public release not authorized")
+state="authorized public-release promotion" if public_release_authorized else "public release not authorized"
+print(f"OK: historical release candidate v0.1.0-rc.1 remains intact; 80 canonical chapters; 18 PDF/HTML figures; hashes verified; {state}")

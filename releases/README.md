@@ -1,25 +1,32 @@
 # Releases
 
-This directory is reserved for governed release artifacts.
+This directory contains governed public-release payloads.
 
-Repository licensing has been selected:
+Repository licensing:
 
 - CC BY 4.0 for publication/documentation/figure material;
 - MIT for software/tooling;
 - file-specific and third-party rights take precedence.
 
-License selection alone does not authorize a public release.
+## v0.1.0
 
-Release promotion requires, at minimum:
+`releases/v0.1.0/` contains the authorized first public-release payload:
 
-1. exact protected release commit/tag;
-2. version/date citation metadata bound to that tag;
-3. selected release format(s);
-4. rendering-aware copy-edit and rendered-format validation;
-5. exact artifact hashes and release manifest;
-6. release-candidate audit;
-7. explicit public-release authorization recorded in governance state.
+- canonical LaTeX source copy;
+- PDF presentation artifact;
+- HTML accessibility artifact;
+- release manifest;
+- SHA-256 checksums;
+- release notes.
 
-The repository validator rejects substantive files in this directory unless `governance/RELEASE_AUTHORIZATION.yaml` exists with `public_release_authorized: true`.
+The three substantive artifacts are byte-identical to the independently audited `atlas-v0.1.0-rc.1` candidate.
 
-The existence of a build artifact, selected license, or green repository validation run does not by itself confer publication-ready, final-copy, certified, or released status.
+Public-release authority is recorded in:
+
+`governance/RELEASE_AUTHORIZATION.yaml`
+
+with `public_release_authorized: true`.
+
+Release publication is governed by the exact protected `atlas-v0.1.0` tag and corresponding GitHub Release. The repository manifest and checksums remain the integrity authority for published assets.
+
+The existence of a public release does not confer mathematical certification beyond the claim/evidence statuses and audits recorded by the Atlas.

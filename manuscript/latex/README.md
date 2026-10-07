@@ -1,15 +1,29 @@
-# Canonical LaTeX release source
+# Canonical LaTeX release sources
 
-For release candidate `v0.1.0-rc.1`, the canonical editorial source is:
+## Public release v0.1.0
+
+The canonical editorial source for the first governed public release is:
+
+`manuscript/latex/atlas-v0.1.0.tex`
+
+It is byte-identical to the independently audited release-candidate source:
 
 `manuscript/latex/atlas-v0.1.0-rc.1.tex`
 
-The PDF and HTML candidate artifacts are downstream renderings of this exact LaTeX source.
+SHA-256:
 
-The Chapter Ledger and Markdown chapter corpus remain the governed provenance/input substrate from which this first canonical LaTeX release source was constructed. Once frozen for this candidate, PDF or HTML output must not be edited independently to create content differences.
+`0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`
 
-The release-candidate build is reproducible through:
+The final PDF and HTML artifacts are byte-preserving promotions of the audited candidate outputs. They must not be edited independently to create content differences.
+
+## Provenance
+
+The Chapter Ledger and Markdown chapter corpus remain the governed provenance/input substrate from which the canonical LaTeX source was constructed. The RC source remains preserved as the exact audited predecessor.
+
+Release-candidate reproducibility remains available through:
 
 `bash tools/build_release_candidate.sh`
 
-Release-candidate status does not imply public release, final-copy status, or mathematical certification.
+Public-release authorization and exact final artifact identities are recorded in `governance/RELEASE_AUTHORIZATION.yaml` and `releases/v0.1.0/release-manifest.json`.
+
+Publication does not imply mathematical certification; claim/evidence/provenance distinctions remain those of the governed Atlas corpus.

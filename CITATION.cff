@@ -3,7 +3,7 @@ title: "A Mathematical Atlas of Adaptive Intelligence"
 type: book
 authors:
   - name: "Grand Challenge Labs"
-version: "0.1.0-rc.1"
+version: "0.1.0"
 date-released: "2026-10-07"
 message: "Please cite the specific tagged release or commit used."
 repository-code: "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"

@@ -1,6 +1,6 @@
 # A Mathematical Atlas of Adaptive Intelligence
 
-**Status:** full first-draft corpus; release-readiness phase
+**Status:** governed public release `v0.1.0`
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
 **Bootstrap record:** https://github.com/grandchallenge/.github/issues/99
 
@@ -12,13 +12,13 @@ This repository is intended to be a first-class GCL research-publication surface
 
 The Atlas contains 14 Parts and 80 stable chapter identities. The protected Chapter Ledger records all 80 chapters at `draft-v0.1` and none at `architecture`.
 
-The first bounded full-manuscript global-synthesis pass is complete and independently audited. The current project phase is non-promotional release readiness: deterministic manuscript assembly, build/copy-edit planning, citation/version preparation, packaging controls, and explicit release gates.
+The first bounded full-manuscript global-synthesis pass, release-readiness tranche, and release-candidate tranche are complete and independently audited. `v0.1.0` is the first governed public release: LaTeX is the canonical source of truth, PDF is the primary presentation artifact, and HTML is the broader-accessibility artifact.
 
-This phase does not itself promote any chapter beyond `draft-v0.1` and does not imply publication readiness, certification, final-copy status, or public-release authorization.
+Public release does not promote any chapter beyond `draft-v0.1` and does not imply mathematical certification. Claim/evidence status, source locks, witness provenance, and audit boundaries remain authoritative.
 
 ## Composition method
 
-`architecture -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis -> release readiness`
+`architecture -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis -> release readiness -> audited release candidate -> governed public release`
 
 Core editorial artifacts:
 
@@ -58,4 +58,4 @@ Copyright © 2026 Grand Challenge Technologies Ltd.
 
 See `LICENSE` and `LICENSES/` for the governing scope and standard license texts.
 
-License selection does not itself authorize a public release. Any release-candidate or publication promotion remains a separate governed transaction and must preserve the Atlas source, witness, audit, citation, artifact-hash, rendering, and explicit public-release authorization boundaries.
+Public release `v0.1.0` is explicitly authorized under `governance/RELEASE_AUTHORIZATION.yaml` and is a byte-preserving promotion of the independently audited `atlas-v0.1.0-rc.1` candidate. Exact release artifacts, hashes, and notes are under `releases/v0.1.0/`. Publication preserves the Atlas source, witness, audit, citation, artifact-hash, rendering, and mathematical-certification boundaries.

@@ -132,9 +132,13 @@ if errors:
 
 for warning in warnings:
     print("WARNING:", warning)
+authorization_state="recorded" if (
+    release_auth_path.is_file()
+    and (yaml.safe_load(release_auth_path.read_text(encoding="utf-8")) or {}).get("public_release_authorized") is True
+) else "required"
 print(
     "OK: release-readiness boundary intact; "
     f"{len(chapters)} canonical chapters, {len(extras)} preserved non-ledger companions, "
     f"{sum(word_counts.values())} approximate words; scoped CC-BY-4.0/MIT licensing verified; "
-    "public release still requires explicit governance authorization"
+    f"public release authorization={authorization_state}"
 )
