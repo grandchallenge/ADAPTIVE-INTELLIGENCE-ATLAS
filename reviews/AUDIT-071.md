@@ -563,3 +563,8 @@ AUDIT-071 passes with no repair, subject to exact-head audit-PR validation.
 The durable TOKENCOMP rule is:
 
 **tokenizer design is a multi-objective representation and interface problem: vocabulary size and segmentation jointly shape declared description lengths and compute proxies, while lossless canonical translation can provide interoperability without implying token, embedding, semantic, or model-behavior equivalence.**
+
+
+## Validation gate
+
+This audit record is not eligible for protected merge until the canonical repository validator succeeds on this exact audit head. Any subsequent audit-branch mutation invalidates prior validation identity and requires fresh exact-head validation.
