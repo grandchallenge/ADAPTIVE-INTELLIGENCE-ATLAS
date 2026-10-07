@@ -7,19 +7,19 @@
 Tasks:
 
 [
-Q={alpha,eta}.
+Q={alpha, eta}.
 ]
 
 Specialists:
 
 [
-A_alpha=(1,0),qquad A_eta=(0,1).
+A_alpha=(1,0),qquad A_ eta=(0,1).
 ]
 
 Correct routing:
 
 [
-R=(A_alpha,A_eta).
+R=(A_alpha,A_ eta).
 ]
 
 Validator accepts only correct answer plus correct declared source.
@@ -69,7 +69,7 @@ Expected metrics:
 Bad candidate:
 
 [
-(eta,1,A_alpha).
+( eta,1,A_alpha).
 ]
 
 Validator rejects it.
