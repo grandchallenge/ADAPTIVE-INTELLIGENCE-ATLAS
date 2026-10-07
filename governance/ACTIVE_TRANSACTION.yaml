@@ -8,11 +8,11 @@ current:
   tranche_id: "ATLAS-CH-SYSTEMS-001"
   chapter_ids:
     - "ATLAS-CH-SYSTEMS-001"
-  baseline_commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+  baseline_commit: "397682b86648cf53c775cb5912ab4201390fbd6f"
   branch: "work/systems-281"
   pull_request: 282
-  state: "ci-green"
-  next_action: "Merge PR #282 from exact validated head caae4650644c4677d312dcdd1ce31b30e9daeb41, read back protected main, close implementation issue #281 as completed, then instantiate and complete the mandatory fresh post-draft audit."
+  state: "merged"
+  next_action: "Instantiate the mandatory fresh post-draft audit for ATLAS-CH-SYSTEMS-001 from exact protected implementation merge 397682b86648cf53c775cb5912ab4201390fbd6f. Independently replay the exact witness, audit prerequisite/source/provenance boundaries and systems distinctions, repair any in-scope defect, validate the exact audit head, and merge only on green."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
