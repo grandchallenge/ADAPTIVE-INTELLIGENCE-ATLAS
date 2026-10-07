@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SPECTRALSHAPE-001"
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "audit/a274"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "AUDIT-068 is issue #274 on audit/a274 from exact protected implementation merge ea4c44f2a41488820851a046eedd48f82628f745. Independently audit prerequisite/source identities, exact shaping arithmetic, non-normal controls, rank/conditioning and dynamics/task firewalls, receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
+  pull_request: 275
+  state: "audit-pr-open"
+  next_action: "AUDIT-068 is on PR #275 from exact audit head facbffdf9203fe5fd1d5dc38fb4af637eb27d802. Require exact-head GitHub Actions success and a fresh mergeability check before merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
