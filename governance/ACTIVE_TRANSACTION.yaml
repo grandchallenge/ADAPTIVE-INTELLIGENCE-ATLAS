@@ -11,8 +11,8 @@ current:
   baseline_commit: "7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf"
   branch: "work/spectraldiag-267"
   pull_request: 268
-  state: "ci-green"
-  next_action: "Exact implementation head 8d4dd2a78ae5f3b6f49984562ec27f8d8da779c7 passed GitHub Actions run 37556698565. PR #268 is mergeable and protected main remains baseline 7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf. Merge only this exact head, then validate protected main and instantiate mandatory post-draft audit."
+  state: "implementation-merged"
+  next_action: "Recovered exact SPECTRALDIAG implementation merge d7ac9862600874baf24128186ef23aa5e2cbb6af from PR #268; protected-merge canonical validation is green and all implementation blobs match the frozen receipt. Instantiate mandatory AUDIT-067 from this exact protected merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALDIAG-001"
     downstream_architecture_count: 0
