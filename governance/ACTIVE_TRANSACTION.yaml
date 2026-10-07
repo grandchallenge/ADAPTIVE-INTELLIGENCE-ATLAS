@@ -9,9 +9,9 @@ current:
   chapter_ids: []
   baseline_commit: "22203b61b2d2264b11d43472c5d5ab6e393b9d83"
   branch: "audit/a303"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Write a fresh audit from exact protected main 22203b61b2d2264b11d43472c5d5ab6e393b9d83, validate the exact audit head, and merge only on green."
+  pull_request: 304
+  state: "audit-pr-open"
+  next_action: "Require full repository validation on exact audit PR #304 head 907ecda1aea6c1544726490abff2f7a2cb69a0f4. Merge only on green, then close the bounded transaction and record the remaining Human Steward release decisions."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
