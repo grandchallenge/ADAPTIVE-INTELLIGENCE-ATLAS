@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 281
+  issue_number: 283
   tranche_id: "ATLAS-CH-SYSTEMS-001"
   chapter_ids:
     - "ATLAS-CH-SYSTEMS-001"
   baseline_commit: "397682b86648cf53c775cb5912ab4201390fbd6f"
-  branch: "work/systems-281"
-  pull_request: 282
-  state: "merged"
-  next_action: "Instantiate the mandatory fresh post-draft audit for ATLAS-CH-SYSTEMS-001 from exact protected implementation merge 397682b86648cf53c775cb5912ab4201390fbd6f. Independently replay the exact witness, audit prerequisite/source/provenance boundaries and systems distinctions, repair any in-scope defect, validate the exact audit head, and merge only on green."
+  branch: "audit/a283"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Write AUDIT-070 on audit/a283 from exact protected baseline 397682b86648cf53c775cb5912ab4201390fbd6f, recording the independent SYSTEMS_AUDIT_WITNESS_OK replay and exact artifact identities. If no defect is found, disposition PASS — NO REPAIR; then open the audit PR, require full exact-head GitHub Actions validation, and merge only on green."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
