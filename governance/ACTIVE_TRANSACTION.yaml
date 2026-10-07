@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 263
-  tranche_id: "SHIFT-001"
+  issue_number: 265
+  tranche_id: "AUDIT-066"
   chapter_ids:
     - "ATLAS-CH-SHIFT-001"
-  baseline_commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
-  branch: "work/shift-263"
-  pull_request: 264
-  state: "implementation-merged"
-  next_action: "Implementation PR #264 merged exact validated head 98eeee1ed12d9ed513617ce33ee96d663f6706a5 to protected main af551d732d83c6751051c864206df4bb153e5a3f. Protected-merge validation is green. Instantiate mandatory AUDIT-066 from this exact protected merge and repair any in-scope defect before disposition."
+  baseline_commit: "af551d732d83c6751051c864206df4bb153e5a3f"
+  branch: "audit/a265"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Complete AUDIT-066 for SHIFT from exact protected merge af551d732d83c6751051c864206df4bb153e5a3f, then validate and merge the exact audit head if green."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
