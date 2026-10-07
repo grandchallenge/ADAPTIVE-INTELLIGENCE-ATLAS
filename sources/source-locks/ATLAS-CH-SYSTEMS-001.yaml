@@ -1,0 +1,94 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SYSTEMS-001"
+locked_on: "2026-10-07"
+epistemic_class: "audited_hardware_and_moe_prerequisites_plus_primary_distributed_training_and_serving_sources_plus_atlas_exact_communication_witness"
+claim_boundary: >
+  HARDWARE-001 supplies the audited single-device distinctions among FLOPs, bytes, bandwidth,
+  latency, throughput, utilization, precision, and measured versus modeled performance.
+  MOE-001 supplies audited router-preference, accepted-dispatch, expert-placement, capacity,
+  communication-proxy, and straggler boundaries. SYSTEMS-001 adds typed data, tensor, pipeline,
+  and expert parallelism; explicit collective/topology accounting; training-versus-serving
+  distinctions; KV-cache and request-scheduling boundaries; and an Atlas-owned exact finite
+  placement/communication witness. The external systems sources establish representative
+  mechanisms and measured systems results in their stated settings. They do not establish one
+  universally optimal parallelism mix, topology, batch policy, placement, collective algorithm,
+  serving scheduler, or scaling-efficiency law.
+
+hard_prerequisites:
+  - id: "SYSTEMS-HARDWARE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-HARDWARE-001.md"
+    git_blob_sha1: "2ce486d4cce53a5f5194241ce3bb1c0f40c7c895"
+    authority: "Audited single-device work/data-movement/performance and benchmark-discipline substrate."
+  - id: "SYSTEMS-HARDWARE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "sources/source-locks/ATLAS-CH-HARDWARE-001.yaml"
+    git_blob_sha1: "98d783c072fa28d784991617af49329259ba0b8e"
+    authority: "Exact Hardware source and claim boundary."
+  - id: "SYSTEMS-HARDWARE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "reviews/AUDIT-044.md"
+    git_blob_sha1: "2c53ff24db17895ff9feba5f0f2854fdaa1e5c9b"
+    authority: "Post-draft audit preserving the downstream distributed/serving boundary."
+  - id: "SYSTEMS-MOE-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-MOE-001.md"
+    git_blob_sha1: "5281e3bc0721681c630c56057cf478311e96662d"
+    authority: "Audited sparse-expert routing, accepted dispatch, capacity, placement, communication-proxy, and straggler substrate."
+  - id: "SYSTEMS-MOE-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "sources/source-locks/ATLAS-CH-MOE-001.yaml"
+    git_blob_sha1: "75d5b04a90794b7543c70414ec9e2be59c9af7ed"
+    authority: "Exact MoE source and claim boundary."
+  - id: "SYSTEMS-MOE-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
+    path: "reviews/AUDIT-033.md"
+    git_blob_sha1: "261e63f7853c359460bd76302ddfaeed576892cb"
+    authority: "Post-draft audit preserving routing/dispatch/placement and systems-cost distinctions."
+
+sources:
+  - id: "SYSTEMS-MEGATRON-2021"
+    kind: "primary-research-paper"
+    title: "Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM"
+    authors: "Deepak Narayanan; Mohammad Shoeybi; Jared Casper; Patrick LeGresley; Mostofa Patwary; Vijay Anand Korthikanti; Dmitri Vainbrand; Prethvi Kashinkunti; Julie Bernauer; Bryan Catanzaro; Amar Phanishayee; Matei Zaharia"
+    year: 2021
+    arxiv_id: "2104.04473"
+    authority: "Primary source for composed tensor, pipeline, and data parallel training, their scaling trade-offs, and measured large-cluster training behavior."
+  - id: "SYSTEMS-GPIPE-2019"
+    kind: "primary-research-paper"
+    title: "GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism"
+    authors: "Yanping Huang; Youlong Cheng; Ankur Bapna; Orhan Firat; Mia Xu Chen; Dehao Chen; HyoukJoong Lee; Jiquan Ngiam; Quoc V. Le; Yonghui Wu; Zhifeng Chen"
+    year: 2019
+    arxiv_id: "1811.06965"
+    authority: "Primary source for microbatch pipeline parallelism and pipeline utilization/bubble mechanisms in sequential layer partitions."
+  - id: "SYSTEMS-ORCA-2022"
+    kind: "peer-reviewed-conference-paper"
+    title: "Orca: A Distributed Serving System for Transformer-Based Generative Models"
+    authors: "Gyeong-In Yu; Joo Seong Jeong; Geon-Woo Kim; Soojeong Kim; Byung-Gon Chun"
+    venue: "16th USENIX Symposium on Operating Systems Design and Implementation (OSDI 22)"
+    pages: "521-538"
+    year: 2022
+    authority: "Primary source for iteration-level scheduling, selective batching, and measured latency-throughput behavior in autoregressive Transformer serving."
+  - id: "SYSTEMS-VLLM-2023"
+    kind: "primary-research-paper"
+    title: "Efficient Memory Management for Large Language Model Serving with PagedAttention"
+    authors: "Woosuk Kwon; Zhuohan Li; Siyuan Zhuang; Ying Sheng; Lianmin Zheng; Cody Hao Yu; Joseph E. Gonzalez; Hao Zhang; Ion Stoica"
+    year: 2023
+    arxiv_id: "2309.06180"
+    authority: "Primary source for KV-cache memory-management pressure, PagedAttention, request batching capacity, and measured serving throughput/latency trade-offs."
+
+epistemic_rules:
+  - "Data, tensor, pipeline, and expert parallelism are separately typed transformations and may be composed only after their state partition and synchronization semantics are declared."
+  - "Collective semantics describe what values must be combined or redistributed; a collective algorithm and its topology mapping are additional implementation choices."
+  - "Model FLOPs, local arithmetic work, bytes moved, cross-cut bytes, collective steps, memory footprint, latency, throughput, utilization, and tail latency are distinct quantities."
+  - "Equal arithmetic work does not imply equal communication cost or equal latency."
+  - "Training throughput and scaling efficiency do not determine serving latency, goodput, KV-cache pressure, or tail behavior."
+  - "MoE router preference, accepted dispatch, expert placement, and physical network path remain distinct."
+  - "Modeled lower bounds and accounting witnesses are not measured hardware performance."
+  - "A measured result is scoped to its model, hardware, software, workload, topology, scheduler, and metric definition."

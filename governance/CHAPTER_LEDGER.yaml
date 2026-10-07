@@ -1124,8 +1124,14 @@
         "ATLAS-CH-HARDWARE-001",
         "ATLAS-CH-MOE-001"
       ],
-      "status": "architecture",
-      "keystone": false
+      "status": "draft-v0.1",
+      "keystone": false,
+      "spec_path": "manuscript/specifications/ATLAS-CH-SYSTEMS-001.md",
+      "manuscript_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-SYSTEMS-001.md",
+      "derivation_path": "mathematics/derivations/ATLAS-CH-SYSTEMS-001-DERIVATIONS.md",
+      "source_lock_path": "sources/source-locks/ATLAS-CH-SYSTEMS-001.yaml",
+      "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-SYSTEMS-001.md",
+      "figure_ids": []
     },
     {
       "id": "ATLAS-CH-EXPERIMENT-001",
