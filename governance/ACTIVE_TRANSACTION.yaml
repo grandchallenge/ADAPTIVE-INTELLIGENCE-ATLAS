@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 311
-  tranche_id: "AUDIT-077"
+  issue_number: null
+  tranche_id: null
   chapter_ids: []
-  baseline_commit: "1d4c2532533ff98afb998f86e0443d3fa1d8682e"
-  branch: "audit/a311"
+  baseline_commit: "e096897e2e30459bfd5a3af660fd3e9dee53a1c9"
+  branch: null
   pull_request: null
-  state: "audit-instantiated"
-  next_action: "Replay the protected v0.1.0 publication state from exact main 1d4c2532533ff98afb998f86e0443d3fa1d8682e, confirm final tag/GitHub Release are still absent, write AUDIT-077, validate exact audit head, and merge only on green. After audit merge, create atlas-v0.1.0 at the exact audited implementation merge, create the GitHub Release with the governed assets, verify published asset hashes, then close PUBLIC-RELEASE-001."
+  state: "complete"
+  next_action: "No pending action for Atlas v0.1.0. The governed public release is published and round-trip verified at https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/releases/tag/atlas-v0.1.0. Future manuscript changes require a new bounded transaction and a new release identity."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
