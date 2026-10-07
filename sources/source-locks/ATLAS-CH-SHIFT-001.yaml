@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-SHIFT-001"
+locked_on: "2026-10-06"
+epistemic_class: "audited_uncertainty_boundary_plus_primary_shift_and_robust_optimization_sources_plus_atlas_owned_exact_witnesses"
+claim_boundary: >
+  The audited Uncertainty chapter supplies calibration, coverage, selective-risk, and uncertainty objects only under their declared source-law assumptions. SHIFT independently types changed-law guarantees. Sugiyama, Krauledat, and Mueller support the covariate-shift/importance-weighting setting in which P_X and Q_X differ while P(Y|X)=Q(Y|X). Madry et al. support adversarial robustness formulated through robust optimization over a declared perturbation set. Exact finite changed-law, benign-marginal-shift, and adversarial-separation witnesses are Atlas-owned. No source is used to identify covariate shift, concept shift, adversarial perturbation, and structural shift as one object.
+
+hard_prerequisites:
+  - id: "SHIFT-UNCERTAINTY-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
+    path: "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-UNCERTAINTY-001.md"
+    git_blob_sha1: "e6714d0505a96e2bfdc431b4ec60d50b0044efa6"
+    authority: "Audited uncertainty, calibration, exchangeability, conformal-coverage, and risk-coverage substrate."
+  - id: "SHIFT-UNCERTAINTY-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
+    path: "sources/source-locks/ATLAS-CH-UNCERTAINTY-001.yaml"
+    git_blob_sha1: "b9f38d496efe2d704b759510cf171d5a3e83a2c8"
+    authority: "Source and claim boundary for UNCERTAINTY-001."
+  - id: "SHIFT-UNCERTAINTY-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
+    path: "reviews/AUDIT-054.md"
+    git_blob_sha1: "132a0df9a603ec88811312d193971100549648a4"
+    authority: "Audit record governing the Uncertainty prerequisite and its explicit downstream changed-law boundary."
+
+sources:
+  - id: "SHIFT-SUGIYAMA-2007"
+    citation_key: "SugiyamaKrauledatMuller2007Covariate"
+    kind: "peer-reviewed-journal"
+    title: "Covariate Shift Adaptation by Importance Weighted Cross Validation"
+    authors: "Masashi Sugiyama; Matthias Krauledat; Klaus-Robert Mueller"
+    journal: "Journal of Machine Learning Research"
+    volume: 8
+    pages: "985--1005"
+    year: 2007
+    url: "https://www.jmlr.org/papers/v8/sugiyama07a.html"
+    authority: >
+      Primary source for the covariate-shift setting P_X != Q_X with invariant conditional output law, and for importance-weighted correction/model-selection claims under the assumptions stated in the paper. The Atlas separately states support/absolute-continuity requirements before using density ratios.
+  - id: "SHIFT-MADRY-2018"
+    citation_key: "MadryEtAl2018Adversarial"
+    kind: "peer-reviewed-conference"
+    title: "Towards Deep Learning Models Resistant to Adversarial Attacks"
+    authors: "Aleksander Madry; Aleksandar Makelov; Ludwig Schmidt; Dimitris Tsipras; Adrian Vladu"
+    venue: "International Conference on Learning Representations"
+    year: 2018
+    url: "https://openreview.net/forum?id=rJzIBfZAb"
+    authority: >
+      Primary source for adversarial robustness studied through robust optimization against a specified perturbation/adversary class. It is not authority that average-case distribution shift and worst-case perturbation are equivalent, nor that one perturbation set captures structural shift.
+
+epistemic_rules:
+  - "Every shifted-law claim names source law P and deployment law Q, or names an explicit adversarial/structural perturbation object instead."
+  - "Covariate shift means P_X and Q_X may differ while the relevant conditional law P(Y|X)=Q(Y|X) is held fixed; concept/conditional shift changes that conditional law."
+  - "A marginal shift diagnostic does not by itself imply changed predictive risk."
+  - "Calibration under P does not automatically imply calibration under Q, even with an unchanged predictor and unchanged P(Y|X)=Q(Y|X)."
+  - "Importance weighting requires Q_X to be absolutely continuous with respect to P_X on the target support used by the correction; where P_X=0 and Q_X>0, the ordinary density ratio is unavailable."
+  - "Adversarial risk is worst-case risk over a declared perturbation set and is not ordinary Q-average predictive risk unless a bridge is proved."
+  - "Structural sensitivity concerns declared changes to model/system structure or mechanism and cannot be inferred solely from changed predictive statistics."
+  - "Calibration, marginal coverage, selective risk, predictive risk, adversarial risk, and structural sensitivity remain distinct metrics."
