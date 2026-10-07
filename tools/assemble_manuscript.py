@@ -27,14 +27,20 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Assemble the canonical Atlas manuscript from CHAPTER_LEDGER order."
     )
-    parser.add_argument("--output", default="build/atlas-manuscript.md")
-    parser.add_argument("--manifest", default="build/atlas-manifest.json")
+    parser.add_argument("--output", default=None)
+    parser.add_argument("--manifest", default=None)
     parser.add_argument(
         "--check",
         action="store_true",
         help="Validate the assembly and write only to explicitly supplied paths.",
     )
     args = parser.parse_args()
+
+    if args.check and (args.output is None or args.manifest is None):
+        raise SystemExit("--check requires explicit --output and --manifest paths")
+
+    output_arg = args.output or "build/atlas-manuscript.md"
+    manifest_arg = args.manifest or "build/atlas-manifest.json"
 
     ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
     chapters = ledger.get("chapters", [])
@@ -87,8 +93,8 @@ def main() -> int:
             }
         )
 
-    out_path = ROOT / args.output if not Path(args.output).is_absolute() else Path(args.output)
-    manifest_path = ROOT / args.manifest if not Path(args.manifest).is_absolute() else Path(args.manifest)
+    out_path = ROOT / output_arg if not Path(output_arg).is_absolute() else Path(output_arg)
+    manifest_path = ROOT / manifest_arg if not Path(manifest_arg).is_absolute() else Path(manifest_arg)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
 
