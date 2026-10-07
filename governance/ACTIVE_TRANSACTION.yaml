@@ -8,11 +8,11 @@ current:
   tranche_id: "ATLAS-CH-VARIOPT-001"
   chapter_ids:
     - "ATLAS-CH-VARIOPT-001"
-  baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+  baseline_commit: "bd64ae187346e4ba33266d41067a41478d521be7"
   branch: "work/variopt-289"
   pull_request: 290
-  state: "ci-green"
-  next_action: "Merge PR #290 from exact validated VARIOPT head 1da24f403f7de118f205c6fab5616f5e27588a57. Read back protected main and verify zero file differences from the validated implementation head, close issue #289 as completed, then instantiate and complete the mandatory fresh post-draft audit."
+  state: "merged"
+  next_action: "Instantiate the mandatory fresh post-draft audit for ATLAS-CH-VARIOPT-001 from exact protected implementation merge bd64ae187346e4ba33266d41067a41478d521be7. Independently replay VARIOPT_EXACT_WITNESS_OK, audit prerequisite/source/programme/provenance boundaries and all divergence/variational/symplectic/MODULUS claims, repair any in-scope defect, validate the exact audit head, and merge only on green."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
