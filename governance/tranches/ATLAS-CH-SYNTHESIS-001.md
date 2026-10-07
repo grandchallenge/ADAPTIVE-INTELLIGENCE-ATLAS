@@ -22,8 +22,8 @@ No new external academic source added. New systems witness is Atlas-owned exact 
 
 ## Implementation artifacts
 - specification b654fade91567c1a2d940c766bf75e0729b7a504
-- derivations f2b0fed22d025ba33c3e10e61cd61887da7d9452
-- witness e9ffd717f2568259aca8fdc3bd3913d11fb814ec
+- derivations 0663219250200efc8515ce3974fb9b5c5b64743b
+- witness 0150ee755d43e278e209494b8434d517651311cd
 - manuscript 1196cd0495bda0cc63515dbc46c127577c937f2e
 - source lock 32f4c6b53797bbbd9ae3b9694b5f68d246ef0f3a
 - Chapter Ledger 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
