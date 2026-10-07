@@ -7,11 +7,11 @@ current:
   issue_number: 293
   tranche_id: "GLOBAL-SYNTHESIS-001"
   chapter_ids: []
-  baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
+  baseline_commit: "e581addb191d6a1262a32613b81ccb9a0c08d180"
   branch: "synthesis/global-293"
   pull_request: 294
-  state: "ci-green"
-  next_action: "Merge PR #294 from exact validated head 3640134c76aece684d665b2b9d1977b4ce7a59a6 after confirming protected main is still c62320923c40e8c7c941fd551a26459f8d38b4d9 and PR mergeability. Then verify zero file differences between the validated implementation head and protected merge tree, and instantiate the mandatory fresh post-synthesis audit."
+  state: "merged"
+  next_action: "Instantiate the mandatory fresh post-synthesis audit from exact protected merge e581addb191d6a1262a32613b81ccb9a0c08d180. Verify the bounded repair set, lifecycle/dependency state, canonical reader identities, historical-snapshot boundaries, provenance controls, and no status promotion. Repair any in-scope defect; validate and merge the exact audit head before closing issue #293."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
