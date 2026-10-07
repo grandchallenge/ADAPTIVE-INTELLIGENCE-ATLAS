@@ -11,8 +11,8 @@ current:
   baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
   branch: "work/spectralshape-272"
   pull_request: null
-  state: "tranche-instantiated"
-  next_action: "Bind audited MATRIXOPT-001 and NONNORMAL-001. Add no new external source unless a genuine gap appears. Freeze the exact G=diag(4,1) normalization/clipping/polar/non-flat target witness and the non-normal transient/pseudospectral control. Keep instantaneous spectral shape separate from optimizer state, convergence, trajectory, and task quality."
+  state: "source-lock-complete"
+  next_action: "SPECTRALSHAPE source lock is complete on work/spectralshape-272 with no new external source. Draft specification, derivations, exact computational witness, and reader manuscript from the frozen G=diag(4,1) shaping maps and non-normal control; then promote the ledger, write the receipt, and validate the exact branch head."
 frontier:
   - id: "ATLAS-CH-SPECTRALSHAPE-001"
     downstream_architecture_count: 0
