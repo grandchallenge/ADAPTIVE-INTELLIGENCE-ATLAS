@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 289
+  tranche_id: "ATLAS-CH-VARIOPT-001"
+  chapter_ids:
+    - "ATLAS-CH-VARIOPT-001"
   baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
-  branch: null
+  branch: "work/variopt-289"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-VARIOPT-001 — Variational and Divergence-Derived Optimization from exact protected main 77946bcbe595f88c0fe446f6d0dfc9868267da00. First bind audited NUMERICS-001 (manuscript a719a16e86d1feb76679e1f1cda2d9d3393d2e42, source lock 7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d, AUDIT-009 2bbb1b7687d6c4b8c0bfeed5206de836dac92dca) and audited MANOPT-001 (manuscript 62ded6bc72c980feb96dff2c77c122141171f64f, source lock e98e655839f521250d25350c33006c9eed60e23c, AUDIT-045 f6663dde7a93c9ca7a471e3e272759c9c337dfd6). Use the Atlas Map contract to develop divergences as geometry, discrete Lagrangians, symplectic updates, and MODULUS-style derivation of update rules. Source-lock only primary variational/divergence authority and exact GCL MODULUS evidence genuinely needed beyond those prerequisites. Keep exact flow versus discrete update, stability versus accuracy, tangent/retraction geometry, constraint preservation, descent, stationarity, symplecticity, energy behavior, and global optimality distinct; do not promote a GCL-specific optimizer programme into established general theory. Then execute the standard bounded draft -> exact-head validation -> protected merge -> fresh post-draft audit transaction."
+  state: "instantiated"
+  next_action: "Bind exact audited NUMERICS-001 and MANOPT-001 triples; source-lock primary Bregman, discrete variational-integrator, and Bregman-Lagrangian authority; bind exact protected grandchallenge/MODULUS implementation/programme evidence only as GCL-specific evidence. Draft specification, derivation packet, exact finite witness, reader manuscript, ledger/register/receipt integration, then exact-head validation."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
