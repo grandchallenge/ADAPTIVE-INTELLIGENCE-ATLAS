@@ -9,9 +9,9 @@ current:
   chapter_ids: []
   baseline_commit: "ab781fbf7861c36b7750a0ba2710a34ade625122"
   branch: "release-candidate/305"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open RELEASE-CANDIDATE-001 PR from exact validated head e20d77b59a9c02df0bbb1f6dba86182bb7214422. Require full repository validation including candidate artifact hashes and no-public-release boundary. Merge only on green, then perform a fresh release-candidate audit."
+  pull_request: 306
+  state: "pr-open"
+  next_action: "Open RELEASE-CANDIDATE-001 PR from exact validated head 00f608264bd40a9e24c073e99a10b6f5df121657. Require full repository validation including candidate artifact hashes and no-public-release boundary. Merge only on green, then perform a fresh release-candidate audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
