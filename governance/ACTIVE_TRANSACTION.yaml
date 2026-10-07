@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 297
+  issue_number: 299
   tranche_id: "RELEASE-READINESS-001"
   chapter_ids: []
-  baseline_commit: "e22d9d383d048626797d7865bc7e9d3daebe1887"
-  branch: "release-readiness/297"
-  pull_request: 298
-  state: "ci-green"
-  next_action: "Merge PR #298 from exact validated head 1dbf6f1d24a24566503ca478c06007dfd13d0649; protected main remains e22d9d383d048626797d7865bc7e9d3daebe1887 and PR is mergeable. Then verify tree equivalence and perform a fresh bounded release-readiness audit."
+  baseline_commit: "b0d6034a76dac0e2444fd24b37bd381790995619"
+  branch: "audit/a299"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "Perform AUDIT-074 from exact protected merge b0d6034a76dac0e2444fd24b37bd381790995619. Repair the discovered assemble_manuscript.py --check contract defect so check mode requires explicit output and manifest paths. Re-verify release-corpus membership, lifecycle/citation/license gates, no substantive release artifact, CI coverage, and no promotion. Open the audit PR and merge only after exact-head GitHub Actions success."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
