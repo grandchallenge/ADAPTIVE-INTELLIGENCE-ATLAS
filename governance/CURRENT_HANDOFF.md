@@ -1,108 +1,147 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
-**Date:** 2026-10-07
-**Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`
-**Current protected main:** `ab781fbf7861c36b7750a0ba2710a34ade625122`
+**Date:** 2026-10-07  
+**Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`  
+**Current protected main:** `498e4c2f517255883f83bf8e23afba8841e5c9dc`
 
 ## Restart rule
 
 1. Read `governance/ACTIVE_TRANSACTION.yaml` first.
 2. Read this handoff.
 3. Fetch live `main`.
-4. If live `main` differs from the recorded baseline, recompute release-configuration state.
+4. Verify candidate tag `atlas-v0.1.0-rc.1` still dereferences to the exact implementation merge below.
 5. Repository state overrides chat history.
 
 ## Current state
 
-- controller state: `blocked-human-governance`;
 - architecture drafting: complete;
 - global synthesis: complete and audited;
 - release readiness: complete and audited;
-- repository rights selection: complete and audited;
+- repository licensing: complete and audited;
+- release candidate: complete and audited;
 - Chapter Ledger: 80/80 chapters remain `draft-v0.1`;
-- release candidate: not yet instantiated;
-- public release: not authorized.
+- public release: **not authorized**;
+- controller state: `blocked-human-governance`.
 
-## Completed rights-selection transaction
+## RELEASE-CANDIDATE-001 — complete
 
 Implementation:
 
-- issue #301 — closed completed;
-- PR #302 — merged;
-- exact validated head: `c8e51e1e1b7dc682926e116f58c59931e1211f01`;
-- Actions run: `37611010380` — success;
-- implementation merge: `22203b61b2d2264b11d43472c5d5ab6e393b9d83`.
+- issue #305 — closed completed;
+- PR #306 — merged;
+- source baseline: `ab781fbf7861c36b7750a0ba2710a34ade625122`;
+- exact validated implementation head: `00f608264bd40a9e24c073e99a10b6f5df121657`;
+- Actions run: `37634048971` — success;
+- protected implementation merge: `e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e`;
+- implementation merge tree: zero file differences from exact validated head.
 
 Fresh audit:
 
-- `AUDIT-075`;
-- issue #303 — closed completed;
-- PR #304 — merged;
-- exact validated audit head: `907ecda1aea6c1544726490abff2f7a2cb69a0f4`;
-- Actions run: `37611629107` — success;
-- final protected merge: `ab781fbf7861c36b7750a0ba2710a34ade625122`;
+- `AUDIT-076`;
+- issue #307 — closed completed;
+- PR #308 — merged;
+- exact validated audit head: `a1b1e35e24efdbca1301b01057969422f7d457f9`;
+- Actions run: `37634616690` — success;
+- final audit merge / current protected main: `498e4c2f517255883f83bf8e23afba8841e5c9dc`;
+- audit merge tree: zero file differences from exact validated audit head;
 - disposition: **PASS — NO REPAIR**.
 
-Authoritative repository artifacts:
+## Candidate identity
 
-- `LICENSE`;
-- `LICENSES/`;
-- `governance/tranches/LICENSE-SELECTION-001.md`;
-- `reviews/AUDIT-075.md`;
-- `tools/check_release_readiness.py`.
+Annotated tag:
 
-These artifacts contain the exact Human Steward selection, copyright-holder identity, standard-text provenance, scope rules, and machine verification. Do not reconstruct those details from chat.
+`atlas-v0.1.0-rc.1`
 
-## Release authorization remains separate
+The tag dereferences to:
 
-The completed selection transaction does not create a release candidate or authorize publication.
+`e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e`
 
-Protected main contains no `governance/RELEASE_AUTHORIZATION.yaml` and no substantive release artifact.
+This is the exact audited implementation merge containing the candidate artifacts.
 
-## Release artifact hierarchy
+The tag is a release-candidate identity only. It is not a GitHub Release and does not authorize public release.
 
-Human Steward selection:
+## Release architecture
 
-- **LaTeX** is the canonical source of truth for the release.
-- **PDF** is the primary presentation artifact.
+Human Steward decision:
+
+- **LaTeX** is the canonical source of truth;
+- **PDF** is the primary presentation artifact;
 - **HTML** is the broader-accessibility artifact.
 
-PDF and HTML must be generated from the exact canonical LaTeX release source and bound to the same protected release identity. Neither rendered artifact may become an independent editorial source of truth.
+Canonical LaTeX:
 
-## Remaining Human Steward decision
+`manuscript/latex/atlas-v0.1.0-rc.1.tex`
 
-One decision remains before `RELEASE-CANDIDATE-001`:
+SHA-256:
 
-- choose the editorial treatment for `ATLAS-CH-MECHDIAG-001`.
+`0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`
 
-MECHDIAG is approximately 236 words. `AUDIT-047` states that the concise reader is protocol-complete and binds the mature reader companion as part of the chapter packet. Global synthesis later made that audited companion the canonical reader.
+PDF:
 
-Current recommendation, not yet a Human Steward decision:
+`build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.pdf`
 
-- keep the audited content concise;
-- typeset it in LaTeX as an intentional short interlude/bridge chapter;
-- do not pad it merely to match neighboring chapter lengths;
-- preserve its separate chapter identity and downstream handoff to `ATLAS-CH-SPECTRALDIAG-001`.
+SHA-256:
 
-## Next transaction
+`efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96`
 
-After those two decisions, instantiate `RELEASE-CANDIDATE-001` from:
+HTML:
 
-`ab781fbf7861c36b7750a0ba2710a34ade625122`.
+`build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.html`
 
-Then:
+SHA-256:
 
-1. construct the canonical LaTeX release source from the deterministic 80-chapter assembly;
-2. implement the selected MECHDIAG treatment;
-3. perform rendering-aware copy-edit in the LaTeX source of truth;
-4. bind version/tag/date and citation metadata;
-5. generate PDF and HTML from that exact LaTeX release source;
-6. validate links, figures, equations, references, typography, and cross-format consistency;
-7. generate exact hashes for the LaTeX source bundle, PDF, HTML artifact set, and release manifest;
-8. run exact-head validation;
-9. perform a fresh release-candidate audit;
-10. stop before public release unless explicit public-release authorization is recorded.
+`795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4`
 
-## Legitimate stopping boundary
+Exact input chapter identities, toolchain details, and hashes are recorded in:
 
-**Boundary name: HUMAN_STEWARD_RELEASE_CONFIGURATION.**
+`build/release-candidate/v0.1.0-rc.1/release-manifest.json`
+
+## MECHDIAG treatment
+
+`ATLAS-CH-MECHDIAG-001` remains intentionally concise and is presented as:
+
+**Interlude: From Readability to Functional Evidence**
+
+Its stable chapter identity and downstream handoff are preserved. No mathematical strengthening or padding was introduced.
+
+## Validation boundary
+
+Protected exact-head validation confirms:
+
+- 80 canonical chapters;
+- 126 hard dependency edges;
+- one graph root;
+- 18 registered/rendered figures;
+- 85 sources;
+- 175 bibliography keys;
+- 18 embedded HTML images;
+- 18 HTML alt attributes;
+- exact release-candidate artifact hashes;
+- deterministic promoted build path;
+- no public-release authorization;
+- no substantive files under `releases/`.
+
+## Licensing
+
+Copyright holder:
+
+**Grand Challenge Technologies Ltd.**
+
+Repository licensing remains:
+
+- CC BY 4.0 for publication/documentation/figure material;
+- MIT for software/tooling;
+- file-specific and third-party rights take precedence.
+
+## Remaining governance boundary
+
+No further mechanical release-candidate work is pending.
+
+Public release requires a new explicit Human Steward authorization before any of the following may occur:
+
+- creation of a GitHub Release;
+- population of `releases/` with substantive public-release artifacts;
+- creation or mutation of `governance/RELEASE_AUTHORIZATION.yaml` to record `public_release_authorized: true`;
+- representation of the candidate as publicly released/final.
+
+**Boundary name: HUMAN_STEWARD_PUBLIC_RELEASE_AUTHORIZATION.**
