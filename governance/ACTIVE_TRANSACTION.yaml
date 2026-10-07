@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 283
-  tranche_id: "ATLAS-CH-SYSTEMS-001"
-  chapter_ids:
-    - "ATLAS-CH-SYSTEMS-001"
-  baseline_commit: "397682b86648cf53c775cb5912ab4201390fbd6f"
-  branch: "audit/a283"
-  pull_request: 284
-  state: "audit-ci-green"
-  next_action: "Merge PR #284 from exact validated AUDIT-070 head d339bd1c787ffece209263dd9833b0aee14028fb. Read back protected main and zero-file-difference tree equivalence, close audit issue #283 as completed, recompute the architecture frontier from the protected Chapter Ledger, and return the controller to idle-ready with a fresh CURRENT_HANDOFF."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "fdaa7ec148e607654c88dfabe710ebf95f628599"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-TOKENCOMP-001 — Tokenization as Compression and Interface from exact protected main fdaa7ec148e607654c88dfabe710ebf95f628599. First bind audited TOKEN-001 (manuscript 07c1edd5103ff179bbb3727ede9c4e15f2ec949a, source lock 616c92bb63ed33e5c5587b3fe4491ae21a0eba54, AUDIT-052 7c279eef5c55ea026fe965e18f696b62adad624e). Use the Atlas Map contract to connect vocabulary design to description length, compute, interoperability, and tokenizer lingua francas; source-lock only primary authority genuinely needed beyond TOKEN-001; preserve TOKEN-001 boundaries among bytes, codepoints, token length, fertility, semantics, and model compute; then execute the standard bounded draft -> exact-head validation -> protected merge -> fresh post-draft audit transaction."
 frontier:
-  - id: "ATLAS-CH-SYSTEMS-001"
+  - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
