@@ -2,124 +2,105 @@
 
 **Date:** 2026-10-07
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 77946bcbe595f88c0fe446f6d0dfc9868267da00
+**Current main:** c62320923c40e8c7c941fd551a26459f8d38b4d9
 
 ## Restart rule
 
 1. Read ACTIVE_TRANSACTION.yaml first.
 2. Read this handoff.
 3. Fetch live main.
-4. If live main differs from the recorded baseline, recompute the frontier from governance/CHAPTER_LEDGER.yaml.
+4. If live main differs from the recorded baseline, recompute the Chapter Ledger and phase state.
 5. Repository state overrides chat history.
 
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-VARIOPT-001 — **Variational and Divergence-Derived Optimization**
-- remaining architecture chapters: 1
-- downstream architecture count: 0
-- direct architecture consumers: none
+- architecture frontier: exhausted
+- Chapter Ledger: 80 chapters at draft-v0.1
+- chapters remaining at architecture: 0
+- next project-local phase: global synthesis
 
-## Hard prerequisites on exact current main
+## Governing next phase
 
-### ATLAS-CH-NUMERICS-001
+The canonical editorial profile records:
 
-- manuscript: a719a16e86d1feb76679e1f1cda2d9d3393d2e42
-- source lock: 7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d
-- AUDIT-009: 2bbb1b7687d6c4b8c0bfeed5206de836dac92dca
+architecture first -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis.
 
-Inherited boundary:
-- exact flow and numerical update are distinct;
-- local defect, global error, stability, and accuracy are distinct;
-- standard absolute stability uses the declared method/test-problem convention;
-- stiffness is problem/method-relative;
-- Lie-Trotter/Strang order claims require appropriate regularity/domain assumptions;
-- symplectic or structure-preserving behavior does not imply exact energy conservation or general accuracy;
-- a neural/update analogy does not automatically inherit a numerical integrator theorem.
+The chapter-family rollout requires global synthesis as the manuscript matures and immediately before a release candidate.
 
-### ATLAS-CH-MANOPT-001
+The next bounded transaction is therefore **a full-manuscript global synthesis pass**, not another chapter.
 
-- manuscript: 62ded6bc72c980feb96dff2c77c122141171f64f
-- source lock: e98e655839f521250d25350c33006c9eed60e23c
-- AUDIT-045: f6663dde7a93c9ca7a471e3e272759c9c337dfd6
+### Initial synthesis obligations
 
-Inherited boundary:
-- Euclidean and Riemannian gradients are metric-dependent objects;
-- a tangent direction is a legal local velocity, not generally a finite feasible point;
-- a retraction need not equal the exponential map;
-- constraint preservation does not imply descent, convergence, or global optimality;
-- stationarity does not imply global optimality;
-- vector transport is distinct from reusing ambient coordinates;
-- generic manifold optimization is not identical to any GCL-specific normalized, Muon, MODULUS, or related optimizer programme.
+1. recompute cross-chapter dependency and handoff consistency on exact protected main;
+2. reconcile notation and definitions across all 14 Parts and 80 draft chapters;
+3. detect duplicated, conflicting, or silently strengthened claims;
+4. preserve epistemic classes across established theory, Atlas derivation, computational witness, GCL public project evidence, programme context, conjecture, open problem, and institutional status;
+5. audit part-to-part transitions against the conceptual spine:
+   geometry -> operators -> dynamics -> optimization -> composition -> memory -> coordination -> diagnostics -> governed adaptation;
+6. audit figure/source/provenance completeness and stale documentary state;
+7. repair only in dependency-safe bounded tranches with fresh exact-head validation;
+8. produce a durable global-synthesis receipt and updated handoff.
 
-## Atlas Map contract for VARIOPT
+### Promotion boundary
 
-Develop:
+Global synthesis does not by itself promote any chapter beyond draft-v0.1 and does not establish publication-ready, certified, or final-copy status.
 
-- divergences as geometry;
-- discrete Lagrangians;
-- symplectic updates;
-- MODULUS-style derivation of update rules.
+Any release-candidate or publication promotion is a separate governance transaction.
 
-## Before drafting VARIOPT
+## Immediately completed transaction — VARIOPT-001
 
-1. bind the exact audited NUMERICS and MANOPT triples above;
-2. source-lock only primary variational/divergence references genuinely required beyond those prerequisites;
-3. if GCL MODULUS material is consumed, bind exact public/project evidence and keep project evidence distinct from established mathematical authority;
-4. type divergence, metric, Bregman-like local geometry, action/Lagrangian, discrete stationarity, update map, and optimizer state separately;
-5. distinguish a variational derivation from a claim of empirical optimizer superiority;
-6. distinguish symplecticity/structure preservation from energy conservation, stability, accuracy, descent, and global optimality;
-7. include an exact finite derivation/witness plus a control showing that structure-preserving or divergence-derived updates need not minimize the objective faster or monotonically;
-8. preserve modeled, proved, observed, and programme-specific evidence boundaries.
-
-## Immediately completed transaction — TOKENCOMP-001
-
-- implementation issue: #285 — closed completed
-- implementation PR: #286
-- exact green implementation head: 4c65ab2204b1aa455dc1015e4edcada9d612873b
-- implementation Actions run: 37602677325 — success
-- implementation merge: 671b20da72510adf6c5b0e01207d59f1cd93ceeb
-- post-draft audit: AUDIT-071 — PASS — NO REPAIR
-- audit issue: #287 — closed completed
-- audit PR: #288
-- initial audit PR-open event: no workflow run registered
-- validation recovery: audit-gate clarification commit created fresh exact head
-- exact green audit head: 71794b29fbc85a2a4369c1d1a245e9aa15b01ea4
-- audit Actions run: 37603052575 — success
-- audit merge/current main: 77946bcbe595f88c0fe446f6d0dfc9868267da00
-- audit record blob: 4fc6521aee1a1cb084e3ea06dc1def9bc1cd650c
+- implementation issue: #289 — closed completed
+- implementation PR: #290
+- exact green implementation head: 1da24f403f7de118f205c6fab5616f5e27588a57
+- implementation Actions run: 37604276951 — success
+- implementation merge: bd64ae187346e4ba33266d41067a41478d521be7
+- post-draft audit: AUDIT-072 — PASS — NO REPAIR
+- audit issue: #291 — closed completed
+- audit PR: #292
+- exact green audit head: d82c7acb9f81bc266808d1709a2dd2ff6e5918fe
+- audit Actions run: 37604745971 — success
+- audit merge/current main: c62320923c40e8c7c941fd551a26459f8d38b4d9
+- audit record blob: 421c7e243d03c0cf1b86553b9e8f861a4d2ec7b4
 - final protected audit merge tree has zero file differences from the exact validated audit head
 
-Protected TOKENCOMP artifacts:
-- specification: 7910cfe70266e23eab3e2acbb67bbad1af9e9fe1
-- derivation packet: 8a00dabe255901309f29650c7e082201f632e45a
-- computational witness: ec40dea6e29b772962ff3aded130a6cbbcabdb14
-- reader manuscript: 59cd3d63baa653975b0398f1fbdb635b54667cc4
-- source lock: 2022fae0751eda9408e77de2e02c42c1e437601e
-- Chapter Ledger: 72654340f6943e41ccc7068d16997a015d2d5bb9
-- Source Register: cff81d8047f5a28f21afcc83ff8fb7dce9776543
-- transaction receipt: 4693baafee2e3c06c41d314d430e8e91dd8eff56
+Protected VARIOPT artifacts:
 
-Durable TOKENCOMP result:
-- fixed-width token-ID length depends jointly on token count and vocabulary size;
-- fixed-width ID length remains distinct from probability-model description length and total compressor size;
-- in the exact witness, the 4-token tokenizer reduces the pair proxy from 64 to 16 but increases fixed-width ID length from 8 to 12 bits and the dense-vocabulary proxy from 16 to 32;
-- neither witness tokenizer Pareto-dominates the other under the declared objective vector;
-- lossless translation through a canonical byte domain is exact under declared round-trip assumptions;
-- lossless transport does not imply equal tokens, embeddings, probabilities, semantics, or model behavior;
-- canonical transport is an interface construction, not a universal tokenizer standard;
-- toy compute proxies are not measured runtime.
+- specification: 9023f94675ad4d0144f9b074877c82f62c84909a
+- derivation packet: 0862c95b24ea66ca6a6a6d4f1d9d3c031af1354b
+- computational witness: 82ac7737ac0718c83db48face1e5fb9d402aebcb
+- reader manuscript: 57751af058ee5885e7478e1aa74c1cc50aa2f463
+- source lock: 1e20f98009b8828963c9d26aa87323292d6f99b3
+- Chapter Ledger: 09a07425e69f67d1113f037aaf62f60fa769dd39
+- Source Register: 1910bb5a199cb976b0821e9a1c9d5158556db53d
+- transaction receipt: 4628b94d73b217e8377e3aa7019df3a620b4789f
 
-## Recomputed dependency-legal frontier
+## Durable VARIOPT result
 
-Remaining architecture chapters: 1.
+- Bregman divergence can be asymmetric while inducing a local Hessian quadratic form;
+- mirror/Bregman-proximal updates are dual-coordinate constructions and do not guarantee descent without further conditions;
+- the exact entropic witness maps 1 to 1/2 under the declared mirror step;
+- the Euclidean-Bregman non-descent control maps 0 to 6 and increases the objective from 2 to 8;
+- the declared discrete harmonic-oscillator action yields symplectic Euler exactly;
+- its state matrix satisfies M^T J M = J exactly;
+- exact symplecticity does not imply exact energy conservation or objective descent;
+- Wibisono-Wilson-Jordan Bregman-Lagrangian theory remains source-scoped continuous-time variational optimization theory;
+- MODULUS is bound as GCL implementation/programme evidence, not general theorem authority;
+- the protected Hyperball target-angle branch controls pre-retraction tangent-update norm; in the exact unit orthogonal witness the finite post-retraction angle is theta=arctan(alpha), so alpha is first-order angular control rather than an exact finite geodesic angle.
 
-The sole dependency-legal target is:
+## Architecture completion state
 
-- ATLAS-CH-VARIOPT-001 — Variational and Divergence-Derived Optimization
+Protected Chapter Ledger on c62320923c40e8c7c941fd551a26459f8d38b4d9:
+
+- total chapter nodes: 80
+- draft-v0.1: 80
+- architecture: 0
+
+The dependency-driven chapter-drafting frontier is therefore exhausted.
 
 ## Legitimate stop conditions
 
 - genuine external blocker;
 - failed validation requiring human judgment;
-- explicit human governance gate.
+- explicit human governance gate;
+- completion of the next bounded global-synthesis transaction.
