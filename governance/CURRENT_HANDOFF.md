@@ -2,124 +2,119 @@
 
 **Date:** 2026-10-07  
 **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`  
-**Current protected main:** `498e4c2f517255883f83bf8e23afba8841e5c9dc`
+**Current protected main:** `e096897e2e30459bfd5a3af660fd3e9dee53a1c9`
 
 ## Restart rule
 
 1. Read `governance/ACTIVE_TRANSACTION.yaml` first.
 2. Read this handoff.
 3. Fetch live `main`.
-4. Verify candidate tag `atlas-v0.1.0-rc.1` still dereferences to the exact implementation merge below.
-5. Repository state overrides chat history.
+4. Verify public tag `atlas-v0.1.0` still dereferences to the protected implementation merge below.
+5. Verify the GitHub Release remains published and its governed asset digests remain unchanged.
+6. Repository state overrides chat history.
 
-## Current state
+## Terminal state
 
+Atlas `v0.1.0` is **published and verified**.
+
+There is no pending bounded transaction.
+
+- controller state: `complete`;
 - architecture drafting: complete;
 - global synthesis: complete and audited;
 - release readiness: complete and audited;
 - repository licensing: complete and audited;
 - release candidate: complete and audited;
-- Chapter Ledger: 80/80 chapters remain `draft-v0.1`;
-- public release: **not authorized**;
-- controller state: `blocked-human-governance`.
+- public release: complete and audited;
+- publication round-trip verification: complete;
+- Chapter Ledger: 80/80 chapters remain `draft-v0.1`.
 
-## RELEASE-CANDIDATE-001 — complete
+## Public release
+
+Release URL:
+
+`https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/releases/tag/atlas-v0.1.0`
+
+Published at:
+
+`2026-10-07T23:24:43Z`
+
+Release state:
+
+- draft: false;
+- prerelease: false;
+- tag: `atlas-v0.1.0`;
+- title: `A Mathematical Atlas of Adaptive Intelligence v0.1.0`.
+
+## Final tag identity
+
+`atlas-v0.1.0`
+
+dereferences to:
+
+`1d4c2532533ff98afb998f86e0443d3fa1d8682e`
+
+This is the exact protected PUBLIC-RELEASE-001 implementation merge audited by AUDIT-077.
+
+## PUBLIC-RELEASE-001
 
 Implementation:
 
-- issue #305 — closed completed;
-- PR #306 — merged;
-- source baseline: `ab781fbf7861c36b7750a0ba2710a34ade625122`;
-- exact validated implementation head: `00f608264bd40a9e24c073e99a10b6f5df121657`;
-- Actions run: `37634048971` — success;
-- protected implementation merge: `e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e`;
+- issue #309 — closed completed;
+- PR #310 — merged;
+- exact validated implementation head: `5058b6d49b1605e6d8889bbfddc14d583c560784`;
+- Actions run: `37701495663` — success;
+- protected implementation merge: `1d4c2532533ff98afb998f86e0443d3fa1d8682e`;
 - implementation merge tree: zero file differences from exact validated head.
 
-Fresh audit:
+Fresh final audit:
 
-- `AUDIT-076`;
-- issue #307 — closed completed;
-- PR #308 — merged;
-- exact validated audit head: `a1b1e35e24efdbca1301b01057969422f7d457f9`;
-- Actions run: `37634616690` — success;
-- final audit merge / current protected main: `498e4c2f517255883f83bf8e23afba8841e5c9dc`;
-- audit merge tree: zero file differences from exact validated audit head;
+- `AUDIT-077`;
+- issue #311 — closed completed;
+- PR #312 — merged;
+- exact validated audit head: `25e62c35cdbd63a6dedc9ccf1f5e1a384274979b`;
+- Actions run: `37701860716` — success;
+- protected audit merge: `202c84308ea0a3adbe6bf1dd6c426e3d43dfe2ed`;
 - disposition: **PASS — NO REPAIR**.
 
-## Candidate identity
+Post-publication reconciliation:
 
-Annotated tag:
-
-`atlas-v0.1.0-rc.1`
-
-The tag dereferences to:
-
-`e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e`
-
-This is the exact audited implementation merge containing the candidate artifacts.
-
-The tag is a release-candidate identity only. It is not a GitHub Release and does not authorize public release.
+- PR #313 — merged;
+- exact reconciliation head: `4af3b3531b520121d53deef0a2b7eb6b633b36fa`;
+- Actions run: `37702438193` — success;
+- current protected main: `e096897e2e30459bfd5a3af660fd3e9dee53a1c9`.
 
 ## Release architecture
 
-Human Steward decision:
+- **LaTeX** — canonical source of truth;
+- **PDF** — primary presentation artifact;
+- **HTML** — broader-accessibility artifact.
 
-- **LaTeX** is the canonical source of truth;
-- **PDF** is the primary presentation artifact;
-- **HTML** is the broader-accessibility artifact.
+Final artifacts are byte-preserving promotions of the independently audited `atlas-v0.1.0-rc.1` candidate.
 
-Canonical LaTeX:
+## Governed artifact hashes
 
-`manuscript/latex/atlas-v0.1.0-rc.1.tex`
+- LaTeX: `0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`
+- PDF: `efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96`
+- HTML: `795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4`
+- release manifest: `3b33f827b687a4ace3a585805a5f88f84da0b58c463d167e69c97808f2250b44`
+- release notes: `d0b503aec5ea3a5166ec963ea76231ff4197cf67b78f8b4ae6d3584308e4e50f`
+- checksums: `7834397751ded9c8d91db350ca1c1786f20fb2c42f6c7d24e1febbbc662a61bf`
 
-SHA-256:
+All six GitHub Release assets were downloaded after publication and matched the protected repository payload byte-for-byte.
 
-`0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`
+GitHub's reported digests for the substantive LaTeX/PDF/HTML assets also match the governed hashes.
 
-PDF:
+## Durable publication evidence
 
-`build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.pdf`
+Protected main contains:
 
-SHA-256:
-
-`efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96`
-
-HTML:
-
-`build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.html`
-
-SHA-256:
-
-`795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4`
-
-Exact input chapter identities, toolchain details, and hashes are recorded in:
-
-`build/release-candidate/v0.1.0-rc.1/release-manifest.json`
-
-## MECHDIAG treatment
-
-`ATLAS-CH-MECHDIAG-001` remains intentionally concise and is presented as:
-
-**Interlude: From Readability to Functional Evidence**
-
-Its stable chapter identity and downstream handoff are preserved. No mathematical strengthening or padding was introduced.
-
-## Validation boundary
-
-Protected exact-head validation confirms:
-
-- 80 canonical chapters;
-- 126 hard dependency edges;
-- one graph root;
-- 18 registered/rendered figures;
-- 85 sources;
-- 175 bibliography keys;
-- 18 embedded HTML images;
-- 18 HTML alt attributes;
-- exact release-candidate artifact hashes;
-- deterministic promoted build path;
-- no public-release authorization;
-- no substantive files under `releases/`.
+- `governance/RELEASE_AUTHORIZATION.yaml`;
+- `governance/tranches/PUBLIC-RELEASE-001.md`;
+- `governance/tranches/PUBLIC-RELEASE-001-PUBLICATION.md`;
+- `reviews/AUDIT-077.md`;
+- `releases/v0.1.0/`;
+- final public-release validation in `tools/check_public_release.py`.
 
 ## Licensing
 
@@ -127,21 +122,14 @@ Copyright holder:
 
 **Grand Challenge Technologies Ltd.**
 
-Repository licensing remains:
-
 - CC BY 4.0 for publication/documentation/figure material;
 - MIT for software/tooling;
 - file-specific and third-party rights take precedence.
 
-## Remaining governance boundary
+## Completion boundary
 
-No further mechanical release-candidate work is pending.
+**Boundary name: PUBLIC_RELEASE_COMPLETE.**
 
-Public release requires a new explicit Human Steward authorization before any of the following may occur:
+No further action is required for Atlas `v0.1.0`.
 
-- creation of a GitHub Release;
-- population of `releases/` with substantive public-release artifacts;
-- creation or mutation of `governance/RELEASE_AUTHORIZATION.yaml` to record `public_release_authorized: true`;
-- representation of the candidate as publicly released/final.
-
-**Boundary name: HUMAN_STEWARD_PUBLIC_RELEASE_AUTHORIZATION.**
+Any future manuscript/content change requires a new bounded transaction, fresh validation/audit appropriate to the change, and a new release identity.
