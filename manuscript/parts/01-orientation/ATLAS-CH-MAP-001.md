@@ -155,7 +155,7 @@ Then (B) may consume the declared content of (A) without reconstructing it from 
 Write this schematically as
 
 [
-Alongrightarrow B.
+A \longrightarrow B.
 ]
 
 The arrow is permission.
@@ -177,7 +177,7 @@ A soft cross-link means something weaker.
 Two chapters may illuminate one another:
 
 [
-Aleftrightarrow B.
+A \leftrightarrow B.
 ]
 
 But neither is automatically permitted to assume the other has been read.
@@ -290,7 +290,7 @@ The canonical rule is:
 [
 \text{reproducible computation}
 
-otRightarrow
+\notRightarrow
 \text{proof by default}.
 ]
 
@@ -371,7 +371,7 @@ The canonical rule is:
 \boxed{
 \text{presentation}
 
-otRightarrow
+\notRightarrow
 \text{epistemic promotion}.
 }
 ]
@@ -419,7 +419,7 @@ But the epistemic protocol states a critical nonimplication:
 \boxed{
 \text{replay}
 
-otRightarrow
+\notRightarrow
 \text{truth, independent replication, formal verification, or certification}.
 }
 ]
