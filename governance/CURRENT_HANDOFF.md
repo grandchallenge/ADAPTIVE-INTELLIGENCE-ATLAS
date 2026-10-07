@@ -59,11 +59,15 @@ The completed selection transaction does not create a release candidate or autho
 
 Protected main contains no `governance/RELEASE_AUTHORIZATION.yaml` and no substantive release artifact.
 
-## Release format decision
+## Release artifact hierarchy
 
 Human Steward selection:
 
-- **LaTeX** is the intended first release format.
+- **LaTeX** is the canonical source of truth for the release.
+- **PDF** is the primary presentation artifact.
+- **HTML** is the broader-accessibility artifact.
+
+PDF and HTML must be generated from the exact canonical LaTeX release source and bound to the same protected release identity. Neither rendered artifact may become an independent editorial source of truth.
 
 ## Remaining Human Steward decision
 
@@ -88,13 +92,13 @@ After those two decisions, instantiate `RELEASE-CANDIDATE-001` from:
 
 Then:
 
-1. record the selected output formats;
+1. construct the canonical LaTeX release source from the deterministic 80-chapter assembly;
 2. implement the selected MECHDIAG treatment;
-3. perform rendering-aware copy-edit;
+3. perform rendering-aware copy-edit in the LaTeX source of truth;
 4. bind version/tag/date and citation metadata;
-5. generate final artifacts from the deterministic 80-chapter assembly;
-6. validate rendered links, figures, equations, references, and typography;
-7. generate exact artifact hashes and a release manifest;
+5. generate PDF and HTML from that exact LaTeX release source;
+6. validate links, figures, equations, references, typography, and cross-format consistency;
+7. generate exact hashes for the LaTeX source bundle, PDF, HTML artifact set, and release manifest;
 8. run exact-head validation;
 9. perform a fresh release-candidate audit;
 10. stop before public release unless explicit public-release authorization is recorded.
