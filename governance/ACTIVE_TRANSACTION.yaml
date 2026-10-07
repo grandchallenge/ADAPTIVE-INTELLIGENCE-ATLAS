@@ -4,17 +4,16 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 274
-  tranche_id: "SPECTRALSHAPE-001"
-  chapter_ids:
-    - "ATLAS-CH-SPECTRALSHAPE-001"
-  baseline_commit: "c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0"
-  branch: "audit/a274"
-  pull_request: 275
-  state: "audit-ci-green"
-  next_action: "Audit head facbffdf9203fe5fd1d5dc38fb4af637eb27d802 passed GitHub Actions run 37575156031. Re-check PR #275 and protected main, then merge only this exact head."
+  issue_number: null
+  tranche_id: null
+  chapter_ids: []
+  baseline_commit: "4c038e50f91e152e8139fc0dd412587d02f620fb"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate ATLAS-CH-SYNTHESIS-001 from exact protected main 4c038e50f91e152e8139fc0dd412587d02f620fb. First bind audited FRONTIER-001 (reader e1a692a7e6406041a6e4395c0e23a0732fb5b4e3, source lock 84b4b3f80a5daf5a557b29c1f0ea0f7991c7dd63, AUDIT-043 4ea9811d0e9c184b2e1aa223091332e356c77056) and audited POLITY-001 (manuscript fa1cb3dad381ddbcbd7e4725a87ce42c77a03948, source lock ee898fbbafc58a4f6322a7c65ef571c9a084bc35, AUDIT-048 8b04e42fecca8a361c929dc68ead4441a4f592cd). Source-lock only new authority genuinely needed beyond those prerequisites. Define a typed Atlas-wide synthesis object, preserve FRONTIER's audited/open status grammar, and build an exact finite composition witness plus ablation/control showing which system-level capability depends on declared composition. Keep capability, authority, evidence, governance, coordination cost, and open research obligations distinct; do not prescribe one universal architecture or treat open programme items as solved."
 frontier:
-  - id: "ATLAS-CH-SPECTRALSHAPE-001"
+  - id: "ATLAS-CH-SYNTHESIS-001"
     downstream_architecture_count: 0
     direct_consumers: []
 stop_conditions:
