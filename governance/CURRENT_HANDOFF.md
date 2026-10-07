@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-06
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** 7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf
+**Current main:** c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0
 
 ## Restart rule
 
@@ -15,15 +15,35 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-SPECTRALDIAG-001 — **Spectral and Operator Diagnostics**
+- next target: ATLAS-CH-SPECTRALSHAPE-001 — **Spectral Shaping**
 - downstream architecture count: 0
 - direct consumers: none currently in architecture state
 
 Atlas contract:
 
-> Develop singular spectra, Jacobian/Hessian spectra, pseudospectra, Koopman views, relative-position diagnostics, spectral drift, and transition-local signatures without assuming a universal scalar diagnostic.
+> Distinguish normalization, flattening, conditioning, and intentional spectral shaping of updates.
 
 ## Hard prerequisites on exact current main
+
+### ATLAS-CH-MATRIXOPT-001
+
+- manuscript: ac860c93b99ee33d8213bf05845b3670061fba53
+- source lock: f4fb1797bc93a8f038ddb06e6d3139ab6367ffcb
+- AUDIT-046: 5f87902c5e30d45149df70d6c0b86a320c9c142a
+
+Inherited boundary:
+
+- SVD/polar language may be inherited;
+- rectangular semi-orthogonality may be inherited;
+- norm-dependent steepest-direction language may be inherited;
+- exact-versus-approximate singular-value transformations may be inherited;
+- polar singular-value flattening and generic diagonal spectral reshaping may be inherited as exact finite witnesses;
+- orthogonalized update direction is not an orthogonality-constrained parameter;
+- matrix-aware preconditioning is not full Hessian inversion;
+- stateful Shampoo/Muon-like optimizers are not identical to one instantaneous transform;
+- exact polar factor is not a finite Newton-Schulz realization;
+- **singular-value flattening is not arbitrary intentional spectral shaping**;
+- MATRIXOPT does not establish that a flat spectrum is universally desirable or select any particular non-flat target spectrum.
 
 ### ATLAS-CH-NONNORMAL-001
 
@@ -34,85 +54,66 @@ Atlas contract:
 Inherited boundary:
 
 - eigenvalues alone need not control finite-horizon behavior for non-normal operators;
-- transient norm growth, resolvent growth, pseudospectra, and eigenvalue sensitivity are distinct but related diagnostics;
-- exact finite-dimensional non-normal witnesses and pseudospectral definitions may be inherited;
-- a spectral or pseudospectral signature is descriptive evidence, not automatically a mechanistic or functional explanation.
+- transient norm growth, singular amplification, resolvent growth, pseudospectra, and eigenvalue sensitivity are distinct diagnostics;
+- exact finite-dimensional non-normal witnesses may be inherited;
+- changing singular values does not by itself settle transient or pseudospectral behavior of a non-normal operator.
 
-### ATLAS-CH-MECHDIAG-001
+## Before drafting SPECTRALSHAPE
 
-Ledger-selected manuscript:
-- manuscript: 4682d5b4abc77c40aa27fd5144d6909250add86f
-- source lock: 94362bbe21c5f7f29123e461cc749e617bc117c7
-- AUDIT-047: 960e75262c69c0fdb24cc3d33813b250879f25eb
+1. bind the exact audited MATRIXOPT and NONNORMAL triples above;
+2. source-lock only primary references genuinely needed for intentional singular/eigenvalue shaping beyond those prerequisites;
+3. define the exact object being shaped: gradient/update matrix, preconditioned operator, Jacobian, parameter block, or another declared object;
+4. distinguish scalar normalization, clipping, conditioning, polar flattening, and an explicitly declared target singular-value map;
+5. define the shaping map on singular values/eigenvalues exactly, including treatment of zeros, rank deficiency, rectangular matrices, and finite precision;
+6. include an exact finite witness where scalar normalization preserves a bad singular-value ratio, full polar flattening sets nonzero singular values to one, and an intermediate non-flat target spectrum improves conditioning without flattening;
+7. include a non-normal control showing that matching or improving singular-value summaries does not automatically determine finite-horizon transient behavior or pseudospectra;
+8. keep instantaneous spectral shape separate from optimizer state, parameter trajectory, convergence, and downstream task quality;
+9. state whether the target spectrum is imposed for conditioning, robustness, capacity allocation, numerical stability, or another declared objective;
+10. do not infer a universal optimal spectral profile from one matrix family or task.
 
-AUDIT-047 additionally binds:
-- mature reader companion `ATLAS-CH-DIAGREAD-001.md`: 8275d106f3960eb21e385b3d9130b3cb7686fec0
-- source-scope packet `AUDIT-047-SOURCES.yaml`: fe3a99a8a162dc2d364ff2db2674d737a1fdeb20
+## Immediately completed transaction — SPECTRALDIAG-001
 
-Inherited boundary:
-
-- readability and functional necessity are different;
-- probes, ablations, interventions, substitution, recovery, and diagnostic bookkeeping must be typed separately;
-- redundant coordinates can defeat one-component necessity tests;
-- the diagnostic record and exact finite witness may be inherited;
-- any proposed spectral signature still requires its own functional evidence.
-
-## Before drafting SPECTRALDIAG
-
-1. bind the exact NONNORMAL and MECHDIAG packets above, including the AUDIT-047 mature reader and source-scope packet;
-2. source-lock only the minimum primary references genuinely needed for singular/Jacobian/Hessian spectra, pseudospectra, Koopman/operator views, relative-position diagnostics, spectral drift, or transition-local signatures;
-3. declare the exact operator, matrix, Jacobian, Hessian, transition map, or empirical object whose spectrum is being measured;
-4. distinguish eigenvalues, singular values, pseudospectra/resolvent diagnostics, and local linearizations rather than collapsing them into one spectral scalar;
-5. distinguish global spectra from transition-local signatures and state the reference state/time/window for every local object;
-6. include exact finite controls showing why equal eigenvalue or singular-value summaries need not imply equal transient dynamics or functional mechanism;
-7. pair any claimed mechanistic significance with an intervention, ablation, substitution, recovery, or other functional test rather than spectral correlation alone;
-8. keep descriptive diagnostic quality, predictive utility, functional necessity, and causal mechanism as separate epistemic claims;
-9. state finite-precision, estimation, sampling, and conditioning limits for empirical spectra;
-10. do not infer a universal scalar diagnostic from successful behavior in one operator family or transition regime.
-
-## Immediately completed transaction — SHIFT-001
-
-- implementation issue: #263 — closed completed
-- implementation PR: #264
-- exact green implementation head: 98eeee1ed12d9ed513617ce33ee96d663f6706a5
-- implementation GitHub Actions run: 37551352063 — success
-- implementation merge: af551d732d83c6751051c864206df4bb153e5a3f
-- post-draft audit: AUDIT-066
-- audit issue: #265 — closed completed
-- audit PR: #266
-- exact green audit head: 67d4d56b7974225434bdc7f0211488cb4f8e8026
-- audit GitHub Actions run: 37551682501 — success
-- audit merge/current main: 7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf
-- audit record blob: 3077637aae2f87e6230bc30a2ea4e24af6aedb3a
+- implementation issue: #267 — closed completed
+- implementation PR: #268
+- exact green implementation head: 8d4dd2a78ae5f3b6f49984562ec27f8d8da779c7
+- implementation GitHub Actions run: 37556698565 — success
+- implementation merge: d7ac9862600874baf24128186ef23aa5e2cbb6af
+- post-draft audit: AUDIT-067
+- audit issue: #270 — closed completed
+- audit PR: #271
+- exact green audit head: 8f068791d012394c31e9aefa34547044721700c9
+- audit GitHub Actions run: 37571680457 — success
+- audit merge/current main: c17966203c5a3d7c5bbb629caa2d3b2ae87d81e0
+- audit record blob: 395fae752abb53711d042cc369b5021362c1600b
 - audit disposition: **PASS — NO REPAIR**
 - final canonical Linux validation on current main: green
 
-Final SHIFT artifacts:
+A recoverable controller checkpoint lag occurred after PR #268 merged: protected main already contained the exact validated implementation while ACTIVE_TRANSACTION.yaml still recorded the pre-merge CI-green state. Exact PR/main identity verified the merge, protected-main validation was replayed, and the controller was repaired before AUDIT-067 was instantiated.
 
-- specification: b0d7a0a85e56c065b8977ba523b75601366ffc6f
-- derivation packet: b12d6ef827f8095c8599c7dcc610e223ae2c769d
-- computational witness: 4bf2a0b95d8e1ade101b00c9aa15afb4ee1dd77b
-- reader manuscript: 064b7f05068eb212eacbb64228e51b6069d2728f
-- source lock: 5c96c8b3efc459308db680dada19ebc767209634
-- bibliography: ed8976909306cde1ef6a92de5383c1cd61600484
-- Chapter Ledger: 94ae4b045410a8fe1e2dce84d160b78a0f163629
-- Source Register: 540d7ff9a0e0e2668ca5444a4a42456b22c94d4a
-- transaction receipt: 62a0f5405b0837b1a199d968b0d7a6308f5fefe9
+Final SPECTRALDIAG artifacts:
 
-Durable SHIFT substrate:
+- specification: 14263bc6909db5189b0324b2f2e5aa28d29411bc
+- derivation packet: f65e3bdef065a71b72db189539392175ed840728
+- computational witness: c86ee1cf38368f9f92cfa718dbc1c3527d1e077a
+- reader manuscript: fa985357911a2024a4070175c0b6a5f414740994
+- source lock: 461ec864d22c14040444c0760d9aea7b05997125
+- bibliography: acecefea7c71b895f204cd4458d7ee4aa5bd326c
+- Chapter Ledger: a8f29d878863f8b14ddf5f57259829b1aea1c16c
+- Source Register: 6b91b10e46bf4a90a77ba93807120c09b817c60b
+- transaction receipt: 488800440c4c49758da57643ff3725024a6ac42e
 
-- source law P and deployment law Q are different objects unless a bridge is proved;
-- covariate shift and conditional/concept shift are distinct;
-- under covariate shift with Q_X absolutely continuous with respect to P_X, target risk can be represented by source importance weighting;
-- ordinary density-ratio correction fails on target-only support without additional assumptions;
-- exact calibration witness: unchanged score 1/2 is calibrated under P_X=(1/2,1/2) but has deployment calibration gap 1/4 under Q_X=(3/4,1/4), while Brier risk remains 1/4 under both laws;
-- exact importance weights in that witness are 3/2 and 1/2;
-- benign marginal-shift control has TV distance 2/5 but source and target 0/1 risk both zero;
-- conditional-shift control has unchanged X-marginal, density ratio one, and target risk one for the source-perfect predictor;
-- clean risk zero can coexist with adversarial risk one under a declared perturbation set;
-- average-case deployment-law risk and worst-case adversarial risk are different objects;
-- calibration, coverage, selective risk, predictive risk, adversarial risk, and structural sensitivity remain separate metrics;
-- changed predictive statistics do not by themselves identify a structural cause.
+Durable SPECTRALDIAG substrate:
+
+- every spectrum is attached to an explicitly declared operator/object and local reference state/time where applicable;
+- equal eigenvalue multisets can coexist with sharply different finite-step response;
+- equal eigenvalue and singular-value multisets can coexist with different fixed-interface response;
+- equal local Jacobian spectra do not determine the global nonlinear map;
+- equal Hessian spectra do not determine gradients or stationarity;
+- a finite Koopman representation is relative to its declared observable space and is not automatically the underlying infinite-dimensional Koopman operator;
+- eigenvalues, singular values, pseudospectra/resolvent diagnostics, Jacobian spectra, Hessian spectra, and Koopman spectra are distinct diagnostic objects;
+- descriptive spectral correlation or predictive utility is not functional necessity;
+- mechanistic significance requires intervention, ablation, substitution, recovery, or an equivalently typed functional test;
+- empirical spectra remain subject to sampling, truncation, conditioning, finite precision, and operator-estimation error.
 
 ## Recomputed dependency-legal frontier
 
@@ -120,11 +121,10 @@ Every remaining dependency-legal architecture chapter has downstream architectur
 
 Deterministic ID ordering selects:
 
-- ATLAS-CH-SPECTRALDIAG-001
+- ATLAS-CH-SPECTRALSHAPE-001
 
 Other dependency-legal count-0 chapters remain:
 
-- ATLAS-CH-SPECTRALSHAPE-001
 - ATLAS-CH-SYNTHESIS-001
 - ATLAS-CH-SYSTEMS-001
 - ATLAS-CH-TOKENCOMP-001
