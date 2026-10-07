@@ -10,8 +10,8 @@ current:
   baseline_commit: "e22d9d383d048626797d7865bc7e9d3daebe1887"
   branch: "release-readiness/297"
   pull_request: 298
-  state: "pr-open"
-  next_action: "Require full GitHub Actions validation on exact RELEASE-READINESS-001 PR #298 head 1dbf6f1d24a24566503ca478c06007dfd13d0649. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then verify protected-main tree equivalence and perform a fresh bounded audit."
+  state: "ci-green"
+  next_action: "Merge PR #298 from exact validated head 1dbf6f1d24a24566503ca478c06007dfd13d0649; protected main remains e22d9d383d048626797d7865bc7e9d3daebe1887 and PR is mergeable. Then verify tree equivalence and perform a fresh bounded release-readiness audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
