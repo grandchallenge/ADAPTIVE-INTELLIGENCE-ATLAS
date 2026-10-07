@@ -9,9 +9,9 @@ current:
   chapter_ids: []
   baseline_commit: "e22d9d383d048626797d7865bc7e9d3daebe1887"
   branch: "release-readiness/297"
-  pull_request: null
-  state: "draft-complete"
-  next_action: "Open the RELEASE-READINESS-001 PR from exact locally validated head 1dbf6f1d24a24566503ca478c06007dfd13d0649. Require full GitHub Actions validation on that exact head, including canonical validation, release-boundary checks, and an 80-chapter working assembly. Repair any in-scope failure and revalidate; merge only on green. Then perform a fresh bounded audit."
+  pull_request: 298
+  state: "pr-open"
+  next_action: "Require full GitHub Actions validation on exact RELEASE-READINESS-001 PR #298 head 1dbf6f1d24a24566503ca478c06007dfd13d0649. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then verify protected-main tree equivalence and perform a fresh bounded audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
