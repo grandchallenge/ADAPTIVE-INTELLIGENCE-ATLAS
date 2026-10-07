@@ -11,8 +11,8 @@ current:
   baseline_commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
   branch: "work/systems-281"
   pull_request: 282
-  state: "pr-open"
-  next_action: "Validate exact implementation head caae4650644c4677d312dcdd1ce31b30e9daeb41: replay the SYSTEMS witness and require the full GitHub Actions validator to succeed. Repair any in-scope failure and revalidate exact head. Merge PR #282 only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
+  state: "ci-green"
+  next_action: "Merge PR #282 from exact validated head caae4650644c4677d312dcdd1ce31b30e9daeb41, read back protected main, close implementation issue #281 as completed, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
