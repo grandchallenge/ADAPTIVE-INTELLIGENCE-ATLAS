@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SHIFT-001"
   baseline_commit: "af551d732d83c6751051c864206df4bb153e5a3f"
   branch: "audit/a265"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Complete AUDIT-066 for SHIFT from exact protected merge af551d732d83c6751051c864206df4bb153e5a3f, then validate and merge the exact audit head if green."
+  pull_request: 266
+  state: "audit-pr-open"
+  next_action: "AUDIT-066 is on PR #266 from exact audit head 67d4d56b7974225434bdc7f0211488cb4f8e8026. Require exact-head GitHub Actions success and unchanged protected main before merging only this SHA."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
