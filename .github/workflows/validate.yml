@@ -1,4 +1,4 @@
-name: Validate Atlas architecture
+name: Validate Atlas repository
 on:
   pull_request:
   push:
@@ -20,3 +20,5 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt
       - run: python tools/validate_atlas.py
+      - run: python tools/check_release_readiness.py
+      - run: python tools/assemble_manuscript.py --output /tmp/atlas-manuscript.md --manifest /tmp/atlas-manifest.json --check
