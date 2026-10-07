@@ -11,7 +11,7 @@ current:
   branch: null
   pull_request: null
   state: "blocked-human-governance"
-  next_action: "Release format is selected as LaTeX. Await explicit Human Steward decision on ATLAS-CH-MECHDIAG-001 editorial treatment before instantiating RELEASE-CANDIDATE-001 from exact protected main ab781fbf7861c36b7750a0ba2710a34ade625122."
+  next_action: "Release architecture is selected: LaTeX is the canonical source of truth; PDF is the primary presentation artifact; HTML is the broader-accessibility artifact. Await explicit Human Steward decision on ATLAS-CH-MECHDIAG-001 editorial treatment before instantiating RELEASE-CANDIDATE-001 from exact protected main ab781fbf7861c36b7750a0ba2710a34ade625122."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
