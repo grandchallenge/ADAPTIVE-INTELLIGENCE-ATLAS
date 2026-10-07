@@ -4,17 +4,18 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 295
-  tranche_id: "GLOBAL-SYNTHESIS-001"
+  issue_number: null
+  tranche_id: null
   chapter_ids: []
-  baseline_commit: "e581addb191d6a1262a32613b81ccb9a0c08d180"
-  branch: "audit/a295"
-  pull_request: 296
-  state: "audit-ci-green"
-  next_action: "Merge validated audit PR #296 at head 78887f9cd35f58c611f843cf2fedde3653cca522; then verify protected merge, close synthesis/audit issues, and determine the next governed phase."
+  baseline_commit: "e22d9d383d048626797d7865bc7e9d3daebe1887"
+  branch: null
+  pull_request: null
+  state: "idle-ready"
+  next_action: "Instantiate a bounded non-promotional RELEASE-READINESS-001 transaction from exact protected main e22d9d383d048626797d7865bc7e9d3daebe1887. Audit final build/copy-edit/versioning/citation/release packaging requirements and prepare a release-readiness checklist. Do not create or promote a public release until the Human Steward explicitly selects and records the repository license: LICENSE at blob 383ba0cadbeb21255aeb5124e946167c0771bf79 states that license selection is pending and required before public release of substantive manuscript content."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
   - "explicit-human-governance-gate"
+  - "bounded-transaction-complete"
 recovery_rule: "Read governance/ACTIVE_TRANSACTION.yaml first, then governance/CURRENT_HANDOFF.md. Verify branch/head and continue next_action. Repository state overrides chat history."
