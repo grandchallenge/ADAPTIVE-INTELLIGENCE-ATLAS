@@ -4,14 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
-  chapter_ids: []
+  issue_number: 263
+  tranche_id: "SHIFT-001"
+  chapter_ids:
+    - "ATLAS-CH-SHIFT-001"
   baseline_commit: "01a4c2c7d526df385bb8b2ab58046c3c476e3629"
-  branch: null
+  branch: "work/shift-263"
   pull_request: null
-  state: "idle-ready"
-  next_action: "Instantiate ATLAS-CH-SHIFT-001 from exact protected main 01a4c2c7d526df385bb8b2ab58046c3c476e3629. First bind audited UNCERTAINTY-001 (manuscript e6714d0505a96e2bfdc431b4ec60d50b0044efa6, source lock b9f38d496efe2d704b759510cf171d5a3e83a2c8, AUDIT-054 132a0df9a603ec88811312d193971100549648a4). Source-lock only primary references genuinely needed for covariate shift, concept/conditional shift, adversarial robustness, robust optimization, or structural sensitivity. Declare source law P and deployment law Q explicitly. Build an exact finite witness where a calibration/risk/coverage statement valid under P fails under Q with the predictor unchanged, plus a control where a detected marginal shift does not change the relevant conditional/task risk. Keep calibration, coverage, selective risk, predictive risk, adversarial risk, and structural sensitivity separate, and state support assumptions for any reweighting correction."
+  state: "tranche-instantiated"
+  next_action: "Bind audited UNCERTAINTY-001 exactly. Add only Sugiyama-Krauledat-Mueller 2007 for covariate shift/importance weighting and Madry-Makelov-Schmidt-Tsipras-Vladu 2018 for adversarial robust optimization. Declare source law P and deployment law Q. Freeze exact finite changed-law and benign-marginal-shift controls, support assumptions, metric firewalls, and structural/adversarial boundaries before drafting."
 frontier:
   - id: "ATLAS-CH-SHIFT-001"
     downstream_architecture_count: 0
