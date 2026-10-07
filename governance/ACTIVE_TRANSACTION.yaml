@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
+  issue_number: 301
+  tranche_id: "LICENSE-SELECTION-001"
   chapter_ids: []
   baseline_commit: "2d09774f0f29dc9c47e48fdfb410a3725def669a"
-  branch: null
+  branch: "work/license-301"
   pull_request: null
-  state: "blocked-human-governance"
-  next_action: "Human Steward must select and record the repository license before release-candidate/public-release promotion. Before final release packaging, also choose the intended release format(s) and adjudicate ATLAS-CH-MECHDIAG-001 editorial treatment. After those decisions, instantiate a bounded RELEASE-CANDIDATE-001 transaction from exact protected main 2d09774f0f29dc9c47e48fdfb410a3725def669a, bind version/date/tag metadata, generate rendered artifacts from the ledger-driven 80-chapter assembly, validate them, hash them, and audit the exact release candidate."
+  state: "instantiated"
+  next_action: "Implement the Human Steward license decision: CC BY 4.0 for publication/documentation/figure material, MIT for software/tooling, copyright holder Grand Challenge Technologies Ltd. Add canonical license texts, replace LICENSE_SELECTION_PENDING with scoped repository terms, update release-readiness checks and release documentation, preserve third-party/file-specific precedence, and do not create or promote a public release. Validate exact head, merge only on green, then perform a fresh bounded audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
