@@ -962,13 +962,13 @@ If the error or halting criterion is not met before that cap, the output may sti
 But the termination reason is
 
 \[
-\text{budget_exhausted}.
+\text{budget\_exhausted}.
 \]
 
 It is not
 
 \[
-\text{criterion_met}.
+\text{criterion\_met}.
 \]
 
 This distinction was repaired explicitly in AUDIT-018.

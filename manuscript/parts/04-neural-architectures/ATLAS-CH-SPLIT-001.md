@@ -33,13 +33,13 @@ One is an additive update:
 \[
 x^+
 =
-x+F_A(x\)+F_B(x\).
+x+F_A(x)+F_B(x).
 \]
 
 Another is sequential composition:
 
 \[
-x_1=\Psi_A(x\),
+x_1=\Psi_A(x),
 \qquad
 x^+=\Psi_B(x_1).
 \]
@@ -47,7 +47,7 @@ x^+=\Psi_B(x_1).
 A third is the reversed sequence:
 
 \[
-\tilde x_1=\Psi_B(x\),
+\tilde x_1=\Psi_B(x),
 \qquad
 \tilde x^+=\Psi_A(\tilde x_1).
 \]
@@ -59,9 +59,9 @@ Even when the two transformations are small residual increments, the sequential 
 Take the linear residual increments
 
 \[
-F_A(x\)=hAx,
+F_A(x)=hAx,
 \qquad
-F_B(x\)=hBx.
+F_B(x)=hBx.
 \]
 
 The additive update is
@@ -132,13 +132,13 @@ e^{h(A+B)}.
 If we can solve the two parts separately, we can form the Lie-Trotter compositions
 
 \[
-S_{AB}\(h\)=e^{hA}e^{hB},
+S_{AB}(h)=e^{hA}e^{hB},
 \]
 
 and
 
 \[
-S_{BA}\(h\)=e^{hB}e^{hA}.
+S_{BA}(h)=e^{hB}e^{hA}.
 \]
 
 The first means one exact \(B\)-subflow and one exact \(A\)-subflow in the composition order encoded by the matrix product. The second reverses them.
@@ -257,7 +257,7 @@ so
 The two Lie steps are exactly
 
 \[
-S_{AB}\(h\)
+S_{AB}(h)
 =
 \begin{pmatrix}
 1+h^2&h\\
@@ -268,7 +268,7 @@ h&1
 and
 
 \[
-S_{BA}\(h\)
+S_{BA}(h)
 =
 \begin{pmatrix}
 1&h\\
@@ -279,7 +279,7 @@ h&1+h^2
 Subtract:
 
 \[
-S_{AB}\(h\)-S_{BA}\(h\)
+S_{AB}(h)-S_{BA}(h)
 =
 h^2[A,B].
 \]
@@ -357,7 +357,7 @@ This distinction matters when translating the picture into neural networks. The 
 A standard symmetric composition is Strang splitting:
 
 \[
-S_{ABA}\(h\)
+S_{ABA}(h)
 =
 e^{hA/2}e^{hB}e^{hA/2}.
 \]
@@ -369,7 +369,7 @@ Our witness shows the cancellation directly.
 Because \(A^2=B^2=0\),
 
 \[
-S_{ABA}\(h\)
+S_{ABA}(h)
 =
 \begin{pmatrix}
 1+h^2/2&h+h^3/4\\
@@ -456,11 +456,11 @@ Return to the Transformer residual stream.
 Let \(H\) be the current residual-stream state. A simplified pre-normalized pair of learned submaps might be written as
 
 \[
-\Psi_A(H\)=H+F_A(N_A(H\)),
+\Psi_A(H)=H+F_A(N_A(H)),
 \]
 
 \[
-\Psi_B(H\)=H+F_B(N_B(H\)).
+\Psi_B(H)=H+F_B(N_B(H)).
 \]
 
 Here \(F_A\) might stand for attention-like computation and \(F_B\) for an FFN-like computation.
@@ -470,7 +470,7 @@ The ordered block is then
 \[
 H'
 =
-(\Psi_B\circ\Psi_A)\(H\).
+(\Psi_B\circ\Psi_A)(H).
 \]
 
 The reversed block is
@@ -478,7 +478,7 @@ The reversed block is
 \[
 \tilde H'
 =
-(\Psi_A\circ\Psi_B)\(H\).
+(\Psi_A\circ\Psi_B)(H).
 \]
 
 In general,
@@ -511,7 +511,7 @@ In a pre-LN block, the actual maps look more like
 H_1
 =
 H+
-\operatorname{Attn}(\operatorname{LN}\(H\)),
+\operatorname{Attn}(\operatorname{LN}(H)),
 \]
 
 \[
@@ -556,11 +556,11 @@ For exact flows, this time-symmetric composition has important numerical consequ
 
 To even write a neural analogue of that sequence, one must first define a step-parameterized family of learned maps
 \[
-\Psi_A(h\),\qquad \Psi_B(h\),
+\Psi_A(h),\qquad \Psi_B(h),
 \]
 with a meaningful half-stage \(\Psi_A(h/2)\). Only then can one form
 \[
-\Psi_A(h/2)\circ\Psi_B(h\)\circ\Psi_A(h/2).
+\Psi_A(h/2)\circ\Psi_B(h)\circ\Psi_A(h/2).
 \]
 
 For a generic learned block \(\Psi_A\) with no declared step parameter, the symbol "half of A" is not defined by the architecture. Halving a residual coefficient or duplicating a block is a new design choice, not automatically the classical half-flow.
@@ -673,7 +673,7 @@ In a pre-LN form,
 H_1
 =
 H+
-\operatorname{Attn}(\operatorname{LN}\(H\)),
+\operatorname{Attn}(\operatorname{LN}(H)),
 \]
 
 \[
@@ -716,31 +716,31 @@ For nonlinear maps, several related objects are possible.
 One can compare compositions directly:
 
 \[
-\Psi_B(\Psi_A(x\))
+\Psi_B(\Psi_A(x))
 -
-\Psi_A(\Psi_B(x\)).
+\Psi_A(\Psi_B(x)).
 \]
 
 One can also differentiate the nonlinear composition defect. If
 \[
-C_\Psi\(x\)
+C_\Psi(x)
 =
-\Psi_B(\Psi_A(x\))
+\Psi_B(\Psi_A(x))
 -
-\Psi_A(\Psi_B(x\)),
+\Psi_A(\Psi_B(x)),
 \]
 then, when the maps are differentiable,
 \[
-DC_\Psi\(x\)
+DC_\Psi(x)
 =
-J_B(\Psi_A(x\))J_A(x\)
+J_B(\Psi_A(x))J_A(x)
 -
-J_A(\Psi_B(x\))J_B(x\).
+J_A(\Psi_B(x))J_B(x).
 \]
 
 A same-state algebraic Jacobian commutator
 \[
-J_B(x\)J_A(x\)-J_A(x\)J_B(x\)
+J_B(x)J_A(x)-J_A(x)J_B(x)
 \]
 can still be used as a local diagnostic, but it is generally not the derivative of \(C_\Psi\). Intermediate-state evaluation matters.
 

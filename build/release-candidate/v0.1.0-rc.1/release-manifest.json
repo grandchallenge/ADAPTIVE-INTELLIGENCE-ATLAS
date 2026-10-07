@@ -1,0 +1,672 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_class": "release-candidate",
+  "public_release_authorized": false,
+  "version": "0.1.0-rc.1",
+  "release_date": "2026-10-07",
+  "source_baseline_commit": "ab781fbf7861c36b7750a0ba2710a34ade625122",
+  "source_date_epoch": 1791331200,
+  "canonical_source": "manuscript/latex/atlas-v0.1.0-rc.1.tex",
+  "presentation_artifacts": {
+    "pdf": "build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.pdf",
+    "html": "build/release-candidate/v0.1.0-rc.1/atlas-v0.1.0-rc.1.html"
+  },
+  "chapter_count": 80,
+  "figure_count": 18,
+  "legacy_map_display_normalizations": 11,
+  "false_setext_normalizations": 26,
+  "html_image_wrapper_normalizations": 18,
+  "html_alt_attributes": 18,
+  "assembly_chapters": [
+    {
+      "index": 1,
+      "id": "ATLAS-CH-THESIS-001",
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/01-orientation/ATLAS-CH-THESIS-001.md",
+      "git_blob_sha1": "ae89cf78b1bed99dc8d0f4c64b3c1c6553548544"
+    },
+    {
+      "index": 2,
+      "id": "ATLAS-CH-MAP-001",
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/01-orientation/ATLAS-CH-MAP-001.md",
+      "git_blob_sha1": "4551ef65a657f09f2c28efff4aec4b64e34fc2e4"
+    },
+    {
+      "index": 3,
+      "id": "ATLAS-CH-OBJECTS-001",
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md",
+      "git_blob_sha1": "6e8bd13b7d7ec7337e14135f8e9cf0a7fc415054"
+    },
+    {
+      "index": 4,
+      "id": "ATLAS-CH-EVIDENCE-001",
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md",
+      "git_blob_sha1": "17eaa9caf90ede47c74dccff052f93d9fb3d901e"
+    },
+    {
+      "index": 5,
+      "id": "ATLAS-CH-LINALG-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md",
+      "git_blob_sha1": "e7fcf56322f26d232d3a3043038d9850792b4bde"
+    },
+    {
+      "index": 6,
+      "id": "ATLAS-CH-NONNORMAL-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NONNORMAL-001.md",
+      "git_blob_sha1": "a8b4cde747df1a986eeca1439203b08512a1471c"
+    },
+    {
+      "index": 7,
+      "id": "ATLAS-CH-KRYLOV-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-KRYLOV-001.md",
+      "git_blob_sha1": "59e169723ca068bef817e7bc9e28727d03b45f6a"
+    },
+    {
+      "index": 8,
+      "id": "ATLAS-CH-INFO-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md",
+      "git_blob_sha1": "0fca10cbc7476c5b729ee15dfad0dec563665821"
+    },
+    {
+      "index": 9,
+      "id": "ATLAS-CH-GEOM-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md",
+      "git_blob_sha1": "f8e406f24a01bd852996e11118e04427ff549f35"
+    },
+    {
+      "index": 10,
+      "id": "ATLAS-CH-DYN-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
+      "git_blob_sha1": "f4aa89075f221529401e56a152a6cdfca3dcc47d"
+    },
+    {
+      "index": 11,
+      "id": "ATLAS-CH-NUMERICS-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md",
+      "git_blob_sha1": "a719a16e86d1feb76679e1f1cda2d9d3393d2e42"
+    },
+    {
+      "index": 12,
+      "id": "ATLAS-CH-LOCALGLOBAL-001",
+      "part_id": "ATLAS-PART-MATH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LOCALGLOBAL-001.md",
+      "git_blob_sha1": "95ee828cd0d32e87cab97cebf91178aec5e2e478"
+    },
+    {
+      "index": 13,
+      "id": "ATLAS-CH-REP-001",
+      "part_id": "ATLAS-PART-REP",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md",
+      "git_blob_sha1": "6109e6ac9505a339cb8bc2dd85a8b9bc882f72bb"
+    },
+    {
+      "index": 14,
+      "id": "ATLAS-CH-NORMREP-001",
+      "part_id": "ATLAS-PART-REP",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/03-representation-learning/ATLAS-CH-NORMREP-001.md",
+      "git_blob_sha1": "1500987b384fb931bbd01879756c08b42ebcff28"
+    },
+    {
+      "index": 15,
+      "id": "ATLAS-CH-QUOTIENT-001",
+      "part_id": "ATLAS-PART-REP",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/03-representation-learning/ATLAS-CH-QUOTIENT-001.md",
+      "git_blob_sha1": "3b372f76765996bf24dac39aec70aa39dc401553"
+    },
+    {
+      "index": 16,
+      "id": "ATLAS-CH-RESIDUAL-001",
+      "part_id": "ATLAS-PART-REP",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md",
+      "git_blob_sha1": "02b0886a87e1e17c749e15349e14f43674c3d1ff"
+    },
+    {
+      "index": 17,
+      "id": "ATLAS-CH-TRANSFER-001",
+      "part_id": "ATLAS-PART-REP",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/03-representation-learning/ATLAS-CH-TRANSFER-001.md",
+      "git_blob_sha1": "1ec9c42ab907da1f3e0fd72212058b0c89791c64"
+    },
+    {
+      "index": 18,
+      "id": "ATLAS-CH-ARCHHIST-001",
+      "part_id": "ATLAS-PART-ARCH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/04-neural-architectures/ATLAS-CH-ARCHHIST-001.md",
+      "git_blob_sha1": "3d373695ed5516dbc3b0557112f204636e911897"
+    },
+    {
+      "index": 19,
+      "id": "ATLAS-CH-TRANSFORMER-001",
+      "part_id": "ATLAS-PART-ARCH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSFORMER-001.md",
+      "git_blob_sha1": "197b74ffd40fe54b79ca15ab731b73538aada494"
+    },
+    {
+      "index": 20,
+      "id": "ATLAS-CH-DEPTH-001",
+      "part_id": "ATLAS-PART-ARCH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/04-neural-architectures/ATLAS-CH-DEPTH-001.md",
+      "git_blob_sha1": "9d365778e873217c40604a621dbe9f88ca2153e0"
+    },
+    {
+      "index": 21,
+      "id": "ATLAS-CH-SPLIT-001",
+      "part_id": "ATLAS-PART-ARCH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/04-neural-architectures/ATLAS-CH-SPLIT-001.md",
+      "git_blob_sha1": "f3f2f5a36ade41493dea2f7343a37a197887765f"
+    },
+    {
+      "index": 22,
+      "id": "ATLAS-CH-TRANSPORT-001",
+      "part_id": "ATLAS-PART-ARCH",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSPORT-001.md",
+      "git_blob_sha1": "0a81b39a457384f7a265bbac2955ea282217bc3f"
+    },
+    {
+      "index": 23,
+      "id": "ATLAS-CH-ATTNOP-001",
+      "part_id": "ATLAS-PART-ATTN",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNOP-001.md",
+      "git_blob_sha1": "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c"
+    },
+    {
+      "index": 24,
+      "id": "ATLAS-CH-ATTNAPPROX-001",
+      "part_id": "ATLAS-PART-ATTN",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNAPPROX-001.md",
+      "git_blob_sha1": "25a040be85328d76e4b09eb3495fd9127082173d"
+    },
+    {
+      "index": 25,
+      "id": "ATLAS-CH-POSGEOM-001",
+      "part_id": "ATLAS-PART-ATTN",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-POSGEOM-001.md",
+      "git_blob_sha1": "841bc96c696e58fb7914c851c7c13f2e5d076b53"
+    },
+    {
+      "index": 26,
+      "id": "ATLAS-CH-RPO-001",
+      "part_id": "ATLAS-PART-ATTN",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-RPO-001.md",
+      "git_blob_sha1": "0483a358aa486aab5ae213e05b5bbd23161e021d"
+    },
+    {
+      "index": 27,
+      "id": "ATLAS-CH-LATENTTIME-001",
+      "part_id": "ATLAS-PART-ATTN",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-LATENTTIME-001.md",
+      "git_blob_sha1": "feba2a0c9b2e1a96f0149bb2889d0e1ca8aa6afd"
+    },
+    {
+      "index": 28,
+      "id": "ATLAS-CH-OPTBASE-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md",
+      "git_blob_sha1": "42df47c50c2d6d26da65a58b230040e2663f901f"
+    },
+    {
+      "index": 29,
+      "id": "ATLAS-CH-SECOND-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-SECOND-001.md",
+      "git_blob_sha1": "10ee7db734df519e886e335301bf107d01d27f5c"
+    },
+    {
+      "index": 30,
+      "id": "ATLAS-CH-MATRIXOPT-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-MATRIXOPT-001.md",
+      "git_blob_sha1": "ac860c93b99ee33d8213bf05845b3670061fba53"
+    },
+    {
+      "index": 31,
+      "id": "ATLAS-CH-MANOPT-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-MANOPT-001.md",
+      "git_blob_sha1": "62ded6bc72c980feb96dff2c77c122141171f64f"
+    },
+    {
+      "index": 32,
+      "id": "ATLAS-CH-SPECTRALSHAPE-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-SPECTRALSHAPE-001.md",
+      "git_blob_sha1": "f2a6b57d4e3a09c9398c80af2d36e7d53e77793e"
+    },
+    {
+      "index": 33,
+      "id": "ATLAS-CH-OPTDYN-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-OPTDYN-001.md",
+      "git_blob_sha1": "59b03c10b7f4b917cc8a0cb4d6893e12c1993c8c"
+    },
+    {
+      "index": 34,
+      "id": "ATLAS-CH-CPS-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-CPS-001.md",
+      "git_blob_sha1": "c07337d1bdf013ad5ac5a2caa69c4efbb45eea50"
+    },
+    {
+      "index": 35,
+      "id": "ATLAS-CH-VARIOPT-001",
+      "part_id": "ATLAS-PART-OPT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/05-optimization/ATLAS-CH-VARIOPT-001.md",
+      "git_blob_sha1": "57751af058ee5885e7478e1aa74c1cc50aa2f463"
+    },
+    {
+      "index": 36,
+      "id": "ATLAS-CH-NETNUM-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NETNUM-001.md",
+      "git_blob_sha1": "cbaf0b96c996c821df50f985075f64028459c587"
+    },
+    {
+      "index": 37,
+      "id": "ATLAS-CH-ADAPTDEPTH-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-ADAPTDEPTH-001.md",
+      "git_blob_sha1": "3c8b32f386743d8a79d5bc233fdd48cf973eea81"
+    },
+    {
+      "index": 38,
+      "id": "ATLAS-CH-NEURALKRYLOV-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NEURALKRYLOV-001.md",
+      "git_blob_sha1": "d2740a2d47c004dc48a0dc97ae0ebbb43d60707b"
+    },
+    {
+      "index": 39,
+      "id": "ATLAS-CH-BOUNDARYPROBE-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-BOUNDARYPROBE-001.md",
+      "git_blob_sha1": "873151a5639d07bb31fcafd176a2d7767b675316"
+    },
+    {
+      "index": 40,
+      "id": "ATLAS-CH-BCONTRACT-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-BCONTRACT-001.md",
+      "git_blob_sha1": "a270c38cda7ff280e517bd1a09ed196bb48dc759"
+    },
+    {
+      "index": 41,
+      "id": "ATLAS-CH-COMPOSE-001",
+      "part_id": "ATLAS-PART-NUMINT",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-COMPOSE-001.md",
+      "git_blob_sha1": "da94fe5d6106a50b168a4f95fa0765c9c7c6b415"
+    },
+    {
+      "index": 42,
+      "id": "ATLAS-CH-SPARSE-001",
+      "part_id": "ATLAS-PART-SPARSE",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-SPARSE-001.md",
+      "git_blob_sha1": "9ddd74ac449724631fb92e0af7d6b0114ce6e3b0"
+    },
+    {
+      "index": 43,
+      "id": "ATLAS-CH-MOE-001",
+      "part_id": "ATLAS-PART-SPARSE",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-MOE-001.md",
+      "git_blob_sha1": "5281e3bc0721681c630c56057cf478311e96662d"
+    },
+    {
+      "index": 44,
+      "id": "ATLAS-CH-ROUTERDYN-001",
+      "part_id": "ATLAS-PART-SPARSE",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-ROUTERDYN-001.md",
+      "git_blob_sha1": "4c3c4b22d7f6a564b255a251ba646d11dbbc29a4"
+    },
+    {
+      "index": 45,
+      "id": "ATLAS-CH-REGRETROUTE-001",
+      "part_id": "ATLAS-PART-SPARSE",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-REGRETROUTE-001.md",
+      "git_blob_sha1": "9f0a309089ebdc04ebb87c01d0db99308819a187"
+    },
+    {
+      "index": 46,
+      "id": "ATLAS-CH-MEMTAX-001",
+      "part_id": "ATLAS-PART-MEM",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-MEMTAX-001.md",
+      "git_blob_sha1": "de0cc5225e84748311f4a36e7a81f1978414aa6e"
+    },
+    {
+      "index": 47,
+      "id": "ATLAS-CH-RETRIEVAL-001",
+      "part_id": "ATLAS-PART-MEM",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-RETRIEVAL-001.md",
+      "git_blob_sha1": "a4cf5482885ae61ec5751168187365afd1866f3a"
+    },
+    {
+      "index": 48,
+      "id": "ATLAS-CH-CONTINUAL-001",
+      "part_id": "ATLAS-PART-MEM",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-CONTINUAL-001.md",
+      "git_blob_sha1": "0e9d13767e63ea4464ccaa61ce58809e38332d6c"
+    },
+    {
+      "index": 49,
+      "id": "ATLAS-CH-EXTMEM-001",
+      "part_id": "ATLAS-PART-MEM",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-EXTMEM-001.md",
+      "git_blob_sha1": "181685ceda93defb7a7051e0865898c7c4e3fb1d"
+    },
+    {
+      "index": 50,
+      "id": "ATLAS-CH-CONTEXTCOMP-001",
+      "part_id": "ATLAS-PART-MEM",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-CONTEXTCOMP-001.md",
+      "git_blob_sha1": "6ad1bdba01e731fd189e825cf43bd418e6a257b4"
+    },
+    {
+      "index": 51,
+      "id": "ATLAS-CH-TOKEN-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-TOKEN-001.md",
+      "git_blob_sha1": "07c1edd5103ff179bbb3727ede9c4e15f2ec949a"
+    },
+    {
+      "index": 52,
+      "id": "ATLAS-CH-TOKENCOMP-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-TOKENCOMP-001.md",
+      "git_blob_sha1": "59cd3d63baa653975b0398f1fbdb635b54667cc4"
+    },
+    {
+      "index": 53,
+      "id": "ATLAS-CH-DATA-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-DATA-001.md",
+      "git_blob_sha1": "e4cb245419ad3601aa82ac33129660673ab1622c"
+    },
+    {
+      "index": 54,
+      "id": "ATLAS-CH-CURRICULUM-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-CURRICULUM-001.md",
+      "git_blob_sha1": "b65f88c07ad5e523cff5d0ca3bd8a28c9bed41cc"
+    },
+    {
+      "index": 55,
+      "id": "ATLAS-CH-PROGRESSSEARCH-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-PROGRESSSEARCH-001.md",
+      "git_blob_sha1": "30e988200933dbba8ad53f069acacf131b0944ee"
+    },
+    {
+      "index": 56,
+      "id": "ATLAS-CH-MINCURR-001",
+      "part_id": "ATLAS-PART-DATA",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-MINCURR-001.md",
+      "git_blob_sha1": "01a5491100430fe8bf56793e6e1b557ba91dc652"
+    },
+    {
+      "index": 57,
+      "id": "ATLAS-CH-RLBASE-001",
+      "part_id": "ATLAS-PART-DECISION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/11-decision-making/ATLAS-CH-RLBASE-001.md",
+      "git_blob_sha1": "a99f78b788b97bc1bb3346ca1f1b97802c0f84db"
+    },
+    {
+      "index": 58,
+      "id": "ATLAS-CH-EXPLORE-001",
+      "part_id": "ATLAS-PART-DECISION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/11-decision-making/ATLAS-CH-EXPLORE-001.md",
+      "git_blob_sha1": "d358ec986bb1baa604668707ae0d598856247d89"
+    },
+    {
+      "index": 59,
+      "id": "ATLAS-CH-REGRET-001",
+      "part_id": "ATLAS-PART-DECISION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/11-decision-making/ATLAS-CH-REGRET-001.md",
+      "git_blob_sha1": "6c842b5bd41eef31891d8ce99734109aa344e0a4"
+    },
+    {
+      "index": 60,
+      "id": "ATLAS-CH-OPTIONALITY-001",
+      "part_id": "ATLAS-PART-DECISION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/11-decision-making/ATLAS-CH-OPTIONALITY-001.md",
+      "git_blob_sha1": "a202d82ad9f2242fd17117cf6faa6eaa30227369"
+    },
+    {
+      "index": 61,
+      "id": "ATLAS-CH-JOINTUNC-001",
+      "part_id": "ATLAS-PART-DECISION",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/11-decision-making/ATLAS-CH-JOINTUNC-001.md",
+      "git_blob_sha1": "8d9072371a5d0e168903e04feb232bde93a55447"
+    },
+    {
+      "index": 62,
+      "id": "ATLAS-CH-UNCERTAINTY-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-UNCERTAINTY-001.md",
+      "git_blob_sha1": "e6714d0505a96e2bfdc431b4ec60d50b0044efa6"
+    },
+    {
+      "index": 63,
+      "id": "ATLAS-CH-SHIFT-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-SHIFT-001.md",
+      "git_blob_sha1": "064b7f05068eb212eacbb64228e51b6069d2728f"
+    },
+    {
+      "index": 64,
+      "id": "ATLAS-CH-MECHDIAG-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-MECHDIAG-001.md",
+      "git_blob_sha1": "8275d106f3960eb21e385b3d9130b3cb7686fec0"
+    },
+    {
+      "index": 65,
+      "id": "ATLAS-CH-SPECTRALDIAG-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-SPECTRALDIAG-001.md",
+      "git_blob_sha1": "fa985357911a2024a4070175c0b6a5f414740994"
+    },
+    {
+      "index": 66,
+      "id": "ATLAS-CH-COMPRESS-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-COMPRESS-001.md",
+      "git_blob_sha1": "e8db79df51b64cfd4d5ef6957d4d10313886b6f4"
+    },
+    {
+      "index": 67,
+      "id": "ATLAS-CH-COMPINTEL-001",
+      "part_id": "ATLAS-PART-DIAG",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-COMPINTEL-001.md",
+      "git_blob_sha1": "e6396abb339b8ccc14d1cb54b9c89eb982937d1e"
+    },
+    {
+      "index": 68,
+      "id": "ATLAS-CH-AGENTS-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-AGENTS-001.md",
+      "git_blob_sha1": "decd7d7eb6404d54aa94905000f24d9bf068ca6f"
+    },
+    {
+      "index": 69,
+      "id": "ATLAS-CH-COORD-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-COORD-001.md",
+      "git_blob_sha1": "f9c5e9353e59525dce2e18c8b164ce85532be283"
+    },
+    {
+      "index": 70,
+      "id": "ATLAS-CH-EVIDEX-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-EVIDEX-001.md",
+      "git_blob_sha1": "b5952da63156c79245b367c59cd8271c75bf650f"
+    },
+    {
+      "index": 71,
+      "id": "ATLAS-CH-POLITY-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-POLITY-001.md",
+      "git_blob_sha1": "fa1cb3dad381ddbcbd7e4725a87ce42c77a03948"
+    },
+    {
+      "index": 72,
+      "id": "ATLAS-CH-HARDWARE-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-HARDWARE-001.md",
+      "git_blob_sha1": "2ce486d4cce53a5f5194241ce3bb1c0f40c7c895"
+    },
+    {
+      "index": 73,
+      "id": "ATLAS-CH-SYSTEMS-001",
+      "part_id": "ATLAS-PART-POLITY",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-SYSTEMS-001.md",
+      "git_blob_sha1": "0e2c1e948e462cc6e068e741653dac5294c2afa7"
+    },
+    {
+      "index": 74,
+      "id": "ATLAS-CH-EXPERIMENT-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-EXPERIMENT-001.md",
+      "git_blob_sha1": "3fd090fbcd7a55571fcdb3d79366f2e43684003d"
+    },
+    {
+      "index": 75,
+      "id": "ATLAS-CH-REPLAY-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-REPLAY-001.md",
+      "git_blob_sha1": "4d95568d12ec0b27bcace910d8573f4a22e8b161"
+    },
+    {
+      "index": 76,
+      "id": "ATLAS-CH-FORMAL-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FORMAL-001.md",
+      "git_blob_sha1": "c3e8933a773e0f34a6d38ab23a056fd84408ccbf"
+    },
+    {
+      "index": 77,
+      "id": "ATLAS-CH-RESEARCHSM-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md",
+      "git_blob_sha1": "fca394ca7fe69561730ea5b13076974f22fe73e9"
+    },
+    {
+      "index": 78,
+      "id": "ATLAS-CH-GOVADAPT-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-GOVADAPT-001.md",
+      "git_blob_sha1": "5d7d87a1918edebc2487359a5dfea15cfa157b47"
+    },
+    {
+      "index": 79,
+      "id": "ATLAS-CH-FRONTIER-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FRONTIER-001.md",
+      "git_blob_sha1": "e1a692a7e6406041a6e4395c0e23a0732fb5b4e3"
+    },
+    {
+      "index": 80,
+      "id": "ATLAS-CH-SYNTHESIS-001",
+      "part_id": "ATLAS-PART-GOV",
+      "status": "draft-v0.1",
+      "path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-SYNTHESIS-001.md",
+      "git_blob_sha1": "1196cd0495bda0cc63515dbc46c127577c937f2e"
+    }
+  ],
+  "toolchain": {
+    "pypandoc_binary": "1.17",
+    "pandoc": "3.9",
+    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)"
+  },
+  "sha256": {
+    "latex": "0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a",
+    "pdf": "efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96",
+    "html": "795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4"
+  }
+}
