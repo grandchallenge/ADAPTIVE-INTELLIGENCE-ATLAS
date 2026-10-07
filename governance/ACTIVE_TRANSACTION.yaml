@@ -10,8 +10,8 @@ current:
   baseline_commit: "c62320923c40e8c7c941fd551a26459f8d38b4d9"
   branch: "synthesis/global-293"
   pull_request: null
-  state: "instantiated"
-  next_action: "Audit exact protected main for current reader-facing governance state, cross-chapter notation/definition consistency, dependency handoffs, duplicated or contradictory claims, epistemic-class consistency, part transitions, and figure/source provenance. Record findings in a durable synthesis packet. Repair only dependency-safe defects supported by existing audited material; do not promote chapter status. Then run exact-head repository validation, open the synthesis PR, repair any in-scope failures, merge only on green, and complete a fresh bounded synthesis audit."
+  state: "draft-complete"
+  next_action: "Open the GLOBAL-SYNTHESIS-001 implementation PR from exact locally validated head 3640134c76aece684d665b2b9d1977b4ce7a59a6. Require full GitHub Actions validation on that exact head. Repair any in-scope failure and revalidate; merge only on green. Then read back protected main and complete a fresh bounded post-synthesis audit before closing issue #293."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
