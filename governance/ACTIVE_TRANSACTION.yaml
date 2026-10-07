@@ -11,8 +11,8 @@ current:
   baseline_commit: "4e1485f3849a7284be44d81a0d5ecdec9d15783f"
   branch: "work/systems-281"
   pull_request: null
-  state: "source-locked"
-  next_action: "Draft SYSTEMS specification, derivation packet, exact finite placement/communication witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt from the locked prerequisites/sources; then run exact-head validation."
+  state: "draft-complete"
+  next_action: "Open the SYSTEMS implementation pull request from work/systems-281 to main, run the full repository validator and exact witness on the exact PR head, repair any in-scope failures, merge only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
