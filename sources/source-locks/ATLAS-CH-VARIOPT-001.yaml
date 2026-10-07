@@ -1,0 +1,152 @@
+schema_version: "1.0.0"
+chapter_id: "ATLAS-CH-VARIOPT-001"
+locked_on: "2026-10-07"
+epistemic_class: "audited_numerics_and_manifold_optimization_prerequisites_plus_primary_variational_and_bregman_sources_plus_exact_gcl_modulus_programme_evidence_plus_atlas_finite_derivations"
+claim_boundary: >
+  NUMERICS-001 supplies the audited distinction between exact flows and discrete updates,
+  consistency/error/stability boundaries, splitting, and structure-preserving caveats.
+  MANOPT-001 supplies tangent gradients, retractions, sphere/Stiefel constraint geometry,
+  stationarity and optimality boundaries. Primary external sources support Bregman divergences,
+  discrete variational mechanics/variational integrators, and the Bregman-Lagrangian
+  continuous-time perspective on accelerated optimization. Atlas-owned material provides
+  finite divergence/local-metric derivations, mirror/proximal updates, exact symplectic
+  controls, and non-descent counterexamples. grandchallenge/MODULUS is bound only as a
+  versioned GCL optimization implementation/research provider. Its Hyperball pipeline
+  demonstrates an explicit geometry-to-update construction (base proposal -> tangent
+  projection -> scale -> retraction), but it is not treated as authority for a universal
+  variational principle, optimizer superiority, convergence theorem, or claim promotion.
+
+hard_prerequisites:
+  - id: "VARIOPT-NUMERICS-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md"
+    git_blob_sha1: "a719a16e86d1feb76679e1f1cda2d9d3393d2e42"
+    authority: "Audited numerical-analysis substrate."
+  - id: "VARIOPT-NUMERICS-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "sources/source-locks/ATLAS-CH-NUMERICS-001.yaml"
+    git_blob_sha1: "7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d"
+    authority: "Exact Numerics source and claim boundary."
+  - id: "VARIOPT-NUMERICS-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "reviews/AUDIT-009.md"
+    git_blob_sha1: "2bbb1b7687d6c4b8c0bfeed5206de836dac92dca"
+    authority: "Post-draft Numerics audit including the stability-convention repair."
+  - id: "VARIOPT-MANOPT-MANUSCRIPT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "manuscript/parts/05-optimization/ATLAS-CH-MANOPT-001.md"
+    git_blob_sha1: "62ded6bc72c980feb96dff2c77c122141171f64f"
+    authority: "Audited tangent/retraction/constrained-optimization substrate."
+  - id: "VARIOPT-MANOPT-SOURCE-LOCK"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "sources/source-locks/ATLAS-CH-MANOPT-001.yaml"
+    git_blob_sha1: "e98e655839f521250d25350c33006c9eed60e23c"
+    authority: "Exact Manifold Optimization source and claim boundary."
+  - id: "VARIOPT-MANOPT-AUDIT"
+    repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+    commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
+    path: "reviews/AUDIT-045.md"
+    git_blob_sha1: "f6663dde7a93c9ca7a471e3e272759c9c337dfd6"
+    authority: "Post-draft Manifold Optimization audit."
+
+sources:
+  - id: "VARIOPT-BREGMAN-1967"
+    kind: "primary-journal-article"
+    title: "The relaxation method of finding the common point of convex sets and its application to the solution of problems in convex programming"
+    authors: "L. M. Bregman"
+    journal: "USSR Computational Mathematics and Mathematical Physics"
+    volume: 7
+    issue: 3
+    pages: "200-217"
+    year: 1967
+    doi: "10.1016/0041-5553(67)90040-7"
+    authority: >
+      Original Bregman-distance source. Used for the divergence construction and
+      projection/convex-programming lineage only; not as a claim that every divergence
+      is a metric or that every divergence-derived optimizer is superior.
+  - id: "VARIOPT-MARSDEN-WEST-2001"
+    kind: "peer-reviewed-survey"
+    title: "Discrete mechanics and variational integrators"
+    authors: "J. E. Marsden; M. West"
+    journal: "Acta Numerica"
+    volume: 10
+    pages: "357-514"
+    year: 2001
+    doi: "10.1017/S096249290100006X"
+    authority: >
+      Standard source for discrete variational principles and variational integrators,
+      including the symplectic structure of regular discrete variational mechanics.
+      Does not supply optimization descent or global-optimality claims.
+  - id: "VARIOPT-WIBISONO-WILSON-JORDAN-2016"
+    kind: "peer-reviewed-journal-article"
+    title: "A variational perspective on accelerated methods in optimization"
+    authors: "Andre Wibisono; Ashia C. Wilson; Michael I. Jordan"
+    journal: "Proceedings of the National Academy of Sciences"
+    volume: 113
+    issue: 47
+    pages: "E7351-E7358"
+    year: 2016
+    doi: "10.1073/pnas.1614734113"
+    arxiv_id: "1603.04245"
+    authority: >
+      Primary source for the Bregman-Lagrangian continuous-time variational
+      perspective on accelerated optimization and the associated passage to families
+      of discrete algorithms. Used source-scopingly; it does not make arbitrary
+      variational discretizations stable, accurate, monotone, or optimal.
+
+gcl_programme_evidence:
+  - id: "VARIOPT-MODULUS-MAIN"
+    repository: "grandchallenge/MODULUS"
+    commit: "7ca4ffcdace32d5ff79c27ad557bfb690fac0af3"
+    authority: "Exact protected MODULUS programme snapshot consumed by this chapter."
+  - id: "VARIOPT-MODULUS-CONTEXT"
+    repository: "grandchallenge/MODULUS"
+    commit: "7ca4ffcdace32d5ff79c27ad557bfb690fac0af3"
+    path: "docs/context/MOTIVATION_AND_CONTEXT.md"
+    git_blob_sha1: "73af647840f07aa527e98998e0397de240d34e7c"
+    authority: >
+      Programme statement that MODULUS treats geometry as a first-class optimizer
+      control surface and is an optimization research toolkit rather than a universal framework.
+  - id: "VARIOPT-MODULUS-HYPERBALL"
+    repository: "grandchallenge/MODULUS"
+    commit: "7ca4ffcdace32d5ff79c27ad557bfb690fac0af3"
+    path: "modulus/optim/hyperball.py"
+    git_blob_sha1: "88b5e2b4c9abe760b8670f7fd2691fee25587b17"
+    authority: >
+      Exact implementation of base-update proposal, tangent projection, target
+      tangent-norm/angle scaling, and sphere/ball retraction or norm control.
+      This is programme implementation evidence, not established-theory authority.
+  - id: "VARIOPT-MODULUS-HYPERBALL-TEST"
+    repository: "grandchallenge/MODULUS"
+    commit: "7ca4ffcdace32d5ff79c27ad557bfb690fac0af3"
+    path: "modulus/tests/test_hyperball.py"
+    git_blob_sha1: "105d6b4e38fe6d71bef8e7ec28c2f05a5ce08434"
+    authority: >
+      Programme test evidence for approximate sphere-norm invariance, masking,
+      and rough angular control under the implementation.
+  - id: "VARIOPT-MODULUS-PROVIDER-PROFILE"
+    repository: "grandchallenge/gcl-standards"
+    commit: "b89fc0ab807e69a255760c11ce85b1048d329c81"
+    path: "fixtures/repository_profiles/MODULUS.json"
+    git_blob_sha1: "6d52d66cbc11478c0f0a8872c19160d572dc4396"
+    authority: >
+      GCL profile: MODULUS is an optimization research, benchmark, and implementation
+      provider with versioned implementation/benchmark/empirical authority and no
+      programme, certification, or claim-promotion authority.
+
+epistemic_rules:
+  - "A Bregman divergence need not be symmetric and is not generally a metric."
+  - "For twice differentiable strictly convex generator phi, the Hessian gives a local quadratic form; this local geometry does not convert the global divergence into a metric."
+  - "A mirror/Bregman-proximal step is defined only after the objective linearization, divergence generator, domain, and step parameter are declared."
+  - "A variational derivation identifies stationarity of an action/discrete action; it does not by itself establish numerical stability, accuracy, or optimization descent."
+  - "A regular discrete variational integrator can be symplectic under its theorem assumptions; symplecticity does not imply exact energy conservation."
+  - "Structure preservation does not imply monotone objective decrease, convergence speed, or global optimality."
+  - "The Bregman Lagrangian is source-scoped continuous-time optimization theory; arbitrary discretizations do not automatically inherit its properties."
+  - "MODULUS Hyperball is programme-specific geometric update machinery. It is not claimed here to arise from the Bregman Lagrangian or a discrete action."
+  - "MODULUS target_angle scales tangent-update norm approximately as alpha*||w|| before retraction; the finite post-retraction angle need not equal alpha exactly."
+  - "GCL programme evidence remains distinct from established external mathematical authority."

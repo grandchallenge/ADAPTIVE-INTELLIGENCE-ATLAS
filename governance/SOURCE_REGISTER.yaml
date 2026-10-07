@@ -512,3 +512,9 @@ sources:
     kind: "chapter-source-lock"
     path: "sources/source-locks/ATLAS-CH-TOKENCOMP-001.yaml"
     authority: "Audited TOKEN-001 prerequisite plus Atlas-owned exact fixed-width ID, compute-proxy, Pareto-control, and canonical interoperability constructions; no new external academic authority."
+
+  - id: "ATLAS-SRC-VARIOPT-LOCK-001"
+    title: "Variational and Divergence-Derived Optimization source lock"
+    kind: "chapter-source-lock"
+    path: "sources/source-locks/ATLAS-CH-VARIOPT-001.yaml"
+    authority: "Audited NUMERICS/MANOPT prerequisites plus primary Bregman, discrete-variational, and Bregman-Lagrangian theory, with exact GCL MODULUS programme evidence separately typed."
