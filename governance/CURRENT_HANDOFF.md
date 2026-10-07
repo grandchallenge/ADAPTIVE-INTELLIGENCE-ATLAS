@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-07
 **Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** fdaa7ec148e607654c88dfabe710ebf95f628599
+**Current main:** 77946bcbe595f88c0fe446f6d0dfc9868267da00
 
 ## Restart rule
 
@@ -15,79 +15,108 @@
 ## Current state
 
 - state: idle-ready
-- next target: ATLAS-CH-TOKENCOMP-001 — **Tokenization as Compression and Interface**
+- next target: ATLAS-CH-VARIOPT-001 — **Variational and Divergence-Derived Optimization**
+- remaining architecture chapters: 1
 - downstream architecture count: 0
 - direct architecture consumers: none
 
-## Hard prerequisite on exact current main
+## Hard prerequisites on exact current main
 
-### ATLAS-CH-TOKEN-001
-- manuscript: 07c1edd5103ff179bbb3727ede9c4e15f2ec949a
-- source lock: 616c92bb63ed33e5c5587b3fe4491ae21a0eba54
-- AUDIT-052: 7c279eef5c55ea026fe965e18f696b62adad624e
+### ATLAS-CH-NUMERICS-001
+
+- manuscript: a719a16e86d1feb76679e1f1cda2d9d3393d2e42
+- source lock: 7feea1c8ca3026fa1f61f35b87281b4afe9ccd8d
+- AUDIT-009: 2bbb1b7687d6c4b8c0bfeed5206de836dac92dca
 
 Inherited boundary:
-- token IDs and embeddings are representations, not semantics;
-- byte length, codepoint length, token length, fertility, compression, and model compute are distinct quantities;
-- BPE, unigram segmentation, SentencePiece-style raw-text tokenization, and byte-level encoding are not interchangeable algorithms;
-- no audited source establishes a universally optimal tokenizer;
-- morphology/fertility diagnostics do not by themselves establish semantic adequacy or downstream quality.
+- exact flow and numerical update are distinct;
+- local defect, global error, stability, and accuracy are distinct;
+- standard absolute stability uses the declared method/test-problem convention;
+- stiffness is problem/method-relative;
+- Lie-Trotter/Strang order claims require appropriate regularity/domain assumptions;
+- symplectic or structure-preserving behavior does not imply exact energy conservation or general accuracy;
+- a neural/update analogy does not automatically inherit a numerical integrator theorem.
 
-## Before drafting TOKENCOMP
+### ATLAS-CH-MANOPT-001
 
-1. bind the exact audited TOKEN-001 triple above;
-2. use the Atlas Map contract: connect vocabulary design to description length, compute, interoperability, and tokenizer lingua francas;
-3. source-lock only primary references genuinely needed beyond TOKEN-001;
-4. keep token count, byte count, description length/compression, model compute, semantic adequacy, and interoperability separately typed;
-5. state any tokenizer-to-compute model with its workload/model assumptions rather than treating sequence length as compute itself;
-6. include an exact finite witness and a control that prevents compression or vocabulary size from being silently identified with semantic or systems quality;
-7. preserve measured-versus-modeled and corpus/language scope boundaries.
+- manuscript: 62ded6bc72c980feb96dff2c77c122141171f64f
+- source lock: e98e655839f521250d25350c33006c9eed60e23c
+- AUDIT-045: f6663dde7a93c9ca7a471e3e272759c9c337dfd6
 
-## Immediately completed transaction — SYSTEMS-001
+Inherited boundary:
+- Euclidean and Riemannian gradients are metric-dependent objects;
+- a tangent direction is a legal local velocity, not generally a finite feasible point;
+- a retraction need not equal the exponential map;
+- constraint preservation does not imply descent, convergence, or global optimality;
+- stationarity does not imply global optimality;
+- vector transport is distinct from reusing ambient coordinates;
+- generic manifold optimization is not identical to any GCL-specific normalized, Muon, MODULUS, or related optimizer programme.
 
-- implementation issue: #281 — closed completed
-- implementation PR: #282
-- exact green implementation head: caae4650644c4677d312dcdd1ce31b30e9daeb41
-- implementation Actions run: 37600790372 — success
-- implementation merge: 397682b86648cf53c775cb5912ab4201390fbd6f
-- post-draft audit: AUDIT-070 — PASS — NO REPAIR
-- audit issue: #283 — closed completed
-- audit PR: #284
-- exact green audit head: d339bd1c787ffece209263dd9833b0aee14028fb
-- audit Actions run: 37601362925 — success
-- audit merge/current main: fdaa7ec148e607654c88dfabe710ebf95f628599
-- audit record blob: a7b6eea320c6bdd92a2c68159772031f91cc5269
+## Atlas Map contract for VARIOPT
+
+Develop:
+
+- divergences as geometry;
+- discrete Lagrangians;
+- symplectic updates;
+- MODULUS-style derivation of update rules.
+
+## Before drafting VARIOPT
+
+1. bind the exact audited NUMERICS and MANOPT triples above;
+2. source-lock only primary variational/divergence references genuinely required beyond those prerequisites;
+3. if GCL MODULUS material is consumed, bind exact public/project evidence and keep project evidence distinct from established mathematical authority;
+4. type divergence, metric, Bregman-like local geometry, action/Lagrangian, discrete stationarity, update map, and optimizer state separately;
+5. distinguish a variational derivation from a claim of empirical optimizer superiority;
+6. distinguish symplecticity/structure preservation from energy conservation, stability, accuracy, descent, and global optimality;
+7. include an exact finite derivation/witness plus a control showing that structure-preserving or divergence-derived updates need not minimize the objective faster or monotonically;
+8. preserve modeled, proved, observed, and programme-specific evidence boundaries.
+
+## Immediately completed transaction — TOKENCOMP-001
+
+- implementation issue: #285 — closed completed
+- implementation PR: #286
+- exact green implementation head: 4c65ab2204b1aa455dc1015e4edcada9d612873b
+- implementation Actions run: 37602677325 — success
+- implementation merge: 671b20da72510adf6c5b0e01207d59f1cd93ceeb
+- post-draft audit: AUDIT-071 — PASS — NO REPAIR
+- audit issue: #287 — closed completed
+- audit PR: #288
+- initial audit PR-open event: no workflow run registered
+- validation recovery: audit-gate clarification commit created fresh exact head
+- exact green audit head: 71794b29fbc85a2a4369c1d1a245e9aa15b01ea4
+- audit Actions run: 37603052575 — success
+- audit merge/current main: 77946bcbe595f88c0fe446f6d0dfc9868267da00
+- audit record blob: 4fc6521aee1a1cb084e3ea06dc1def9bc1cd650c
 - final protected audit merge tree has zero file differences from the exact validated audit head
 
-Protected SYSTEMS artifacts:
-- specification: b61e466116747a2a405df0cb457ea893e1147d98
-- derivation packet: 6689d993ba888f89cdf35cbe592e203daacad16e
-- computational witness: 33e06c5f988d7d9a607021d246fa4be0c8d5d501
-- reader manuscript: 0e2c1e948e462cc6e068e741653dac5294c2afa7
-- source lock: b2366df7956ead690789814b8fe06912f99c9f24
-- Chapter Ledger: 63fe65293efe4f39343f74fa4254473b196a3b30
-- Source Register: 0fc5f52912c037e5e5e0af4dbea1a3924fe015df
-- transaction receipt: cdd688337a24e008e9b5d1ff036782ebb6e26627
+Protected TOKENCOMP artifacts:
+- specification: 7910cfe70266e23eab3e2acbb67bbad1af9e9fe1
+- derivation packet: 8a00dabe255901309f29650c7e082201f632e45a
+- computational witness: ec40dea6e29b772962ff3aded130a6cbbcabdb14
+- reader manuscript: 59cd3d63baa653975b0398f1fbdb635b54667cc4
+- source lock: 2022fae0751eda9408e77de2e02c42c1e437601e
+- Chapter Ledger: 72654340f6943e41ccc7068d16997a015d2d5bb9
+- Source Register: cff81d8047f5a28f21afcc83ff8fb7dce9776543
+- transaction receipt: 4693baafee2e3c06c41d314d430e8e91dd8eff56
 
-Durable SYSTEMS result:
-- data, tensor, pipeline, and expert parallelism are separately typed;
-- collective result semantics are distinct from collective algorithms and physical topology;
-- router preference, accepted dispatch, expert placement, and network path remain distinct;
-- in the exact four-rank ring witness, both placements retain 6 additions/rank and 48 bytes sent/rank, while grouped placement has 96 bytes of cross-node cut traffic and interleaved placement has 192 bytes;
-- under the explicitly toy 16-bytes/time-unit shared-cut model, the corresponding lower bounds are 6 and 12 time units, not measured latency;
-- model FLOPs, bytes, memory, latency, throughput, utilization, goodput, and tail behavior remain distinct;
-- training efficiency does not imply serving efficiency;
-- no universal topology, collective, scheduler, placement, or scaling-efficiency theorem is claimed.
+Durable TOKENCOMP result:
+- fixed-width token-ID length depends jointly on token count and vocabulary size;
+- fixed-width ID length remains distinct from probability-model description length and total compressor size;
+- in the exact witness, the 4-token tokenizer reduces the pair proxy from 64 to 16 but increases fixed-width ID length from 8 to 12 bits and the dense-vocabulary proxy from 16 to 32;
+- neither witness tokenizer Pareto-dominates the other under the declared objective vector;
+- lossless translation through a canonical byte domain is exact under declared round-trip assumptions;
+- lossless transport does not imply equal tokens, embeddings, probabilities, semantics, or model behavior;
+- canonical transport is an interface construction, not a universal tokenizer standard;
+- toy compute proxies are not measured runtime.
 
 ## Recomputed dependency-legal frontier
 
-Remaining architecture chapters: 2.
+Remaining architecture chapters: 1.
 
-Stable-ID ordering selects:
-- ATLAS-CH-TOKENCOMP-001 — Tokenization as Compression and Interface
+The sole dependency-legal target is:
 
-Other dependency-legal count-0 chapter:
-- ATLAS-CH-VARIOPT-001
+- ATLAS-CH-VARIOPT-001 — Variational and Divergence-Derived Optimization
 
 ## Legitimate stop conditions
 
