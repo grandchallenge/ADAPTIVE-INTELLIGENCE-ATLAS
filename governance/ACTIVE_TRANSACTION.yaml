@@ -11,8 +11,8 @@ current:
   baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
   branch: "work/variopt-289"
   pull_request: null
-  state: "source-locked"
-  next_action: "Draft VARIOPT specification, derivation packet, exact divergence/mirror/symplectic/MODULUS programme witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt from the locked evidence; then run exact-head validation."
+  state: "draft-complete"
+  next_action: "Open the VARIOPT implementation pull request from work/variopt-289 to main. Require independent VARIOPT_EXACT_WITNESS_OK replay and full repository GitHub Actions validation on the exact PR head. Repair any in-scope defect and revalidate. Merge only on green exact-head validation, then instantiate and complete the mandatory fresh post-draft audit."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
