@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-TOKENCOMP-001"
   baseline_commit: "671b20da72510adf6c5b0e01207d59f1cd93ceeb"
   branch: "audit/a287"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Write AUDIT-071 on audit/a287 from exact protected baseline 671b20da72510adf6c5b0e01207d59f1cd93ceeb, recording TOKENCOMP_AUDIT_WITNESS_OK and exact protected artifact identities. If no defect is found, disposition PASS — NO REPAIR; open the audit PR, require full exact-head GitHub Actions validation, and merge only on green."
+  pull_request: 288
+  state: "audit-pr-open"
+  next_action: "Require full repository GitHub Actions validation on exact AUDIT-071 head 489f85ff3c04f5564748e60116f54d572101eca0 for PR #288. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then read back protected main, close audit issue #287, recompute the architecture frontier, and return the controller to idle-ready with a fresh CURRENT_HANDOFF."
 frontier:
   - id: "ATLAS-CH-TOKENCOMP-001"
     downstream_architecture_count: 0
