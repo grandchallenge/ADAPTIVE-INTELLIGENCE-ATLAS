@@ -11,8 +11,8 @@ current:
   baseline_commit: "77946bcbe595f88c0fe446f6d0dfc9868267da00"
   branch: "work/variopt-289"
   pull_request: null
-  state: "instantiated"
-  next_action: "Bind exact audited NUMERICS-001 and MANOPT-001 triples; source-lock primary Bregman, discrete variational-integrator, and Bregman-Lagrangian authority; bind exact protected grandchallenge/MODULUS implementation/programme evidence only as GCL-specific evidence. Draft specification, derivation packet, exact finite witness, reader manuscript, ledger/register/receipt integration, then exact-head validation."
+  state: "source-locked"
+  next_action: "Draft VARIOPT specification, derivation packet, exact divergence/mirror/symplectic/MODULUS programme witness, reader manuscript, Chapter Ledger promotion, Source Register entry, and transaction receipt from the locked evidence; then run exact-head validation."
 frontier:
   - id: "ATLAS-CH-VARIOPT-001"
     downstream_architecture_count: 0
