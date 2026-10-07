@@ -4,15 +4,15 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 267
+  issue_number: 270
   tranche_id: "SPECTRALDIAG-001"
   chapter_ids:
     - "ATLAS-CH-SPECTRALDIAG-001"
   baseline_commit: "7d2da2ceb970bbba7c43a387ce2ce74f8035e8cf"
-  branch: "work/spectraldiag-267"
-  pull_request: 268
-  state: "implementation-merged"
-  next_action: "Recovered exact SPECTRALDIAG implementation merge d7ac9862600874baf24128186ef23aa5e2cbb6af from PR #268; protected-merge canonical validation is green and all implementation blobs match the frozen receipt. Instantiate mandatory AUDIT-067 from this exact protected merge."
+  branch: "audit/a270"
+  pull_request: null
+  state: "audit-instantiated"
+  next_action: "AUDIT-067 is issue #270 on audit/a270 from exact protected implementation merge d7ac9862600874baf24128186ef23aa5e2cbb6af. Independently audit prerequisite/source identities, finite spectral controls, Koopman witness, diagnostic-versus-functional evidence boundary, receipt provenance, and repository integrity. Repair any in-scope defect before audit merge."
 frontier:
   - id: "ATLAS-CH-SPECTRALDIAG-001"
     downstream_architecture_count: 0
