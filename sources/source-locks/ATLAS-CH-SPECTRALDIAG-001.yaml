@@ -49,7 +49,6 @@ hard_prerequisites:
 
 sources:
   - id: "SPECTRALDIAG-MEZIC-2005"
-    citation_key: "Mezic2005Spectral"
     kind: "peer-reviewed-journal"
     title: "Spectral Properties of Dynamical Systems, Model Reduction and Decompositions"
     author: "Igor Mezić"
