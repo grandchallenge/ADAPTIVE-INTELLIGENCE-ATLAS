@@ -2,11 +2,11 @@
 
 ## Disposition
 
-**PASS — NO REPAIR**
+**PASS AFTER DOCUMENTARY REPAIR**
 
 ATLAS-CH-SYNTHESIS-001 remains at draft-v0.1.
 
-The audit found no mathematical, dependency, source-scope, provenance, witness, status-grammar, capability/authority, memory, governance, or repository defect requiring repair.
+The implementation mathematics, dependency structure, source scope, provenance, witness logic, status grammar, capability/authority separation, memory semantics, governance semantics, and repository structure pass. Final readback found one documentary defect: control-character sanitation had removed TeX escape prefixes in the derivation and witness prose. Repair issue #280 corrects that notation without changing the executable witness logic or chapter claims.
 
 ## Audited implementation
 
@@ -22,13 +22,13 @@ The audit found no mathematical, dependency, source-scope, provenance, witness, 
 Protected implementation artifact identities:
 
 - specification: b654fade91567c1a2d940c766bf75e0729b7a504
-- derivation packet: f2b0fed22d025ba33c3e10e61cd61887da7d9452
-- computational witness: e9ffd717f2568259aca8fdc3bd3913d11fb814ec
+- derivation packet: 0663219250200efc8515ce3974fb9b5c5b64743b
+- computational witness: 0150ee755d43e278e209494b8434d517651311cd
 - reader manuscript: 1196cd0495bda0cc63515dbc46c127577c937f2e
 - source lock: 32f4c6b53797bbbd9ae3b9694b5f68d246ef0f3a
 - Chapter Ledger: 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
 - Source Register: 36b5c66c314f7f792e9053dfd6d9016573b70acd
-- transaction receipt: 4bd44862c5b942d50aa5509b29f24a03f3ec6d4c
+- transaction receipt: 74e32956a13e402ce671885697c547e2c07a95cd
 
 The protected merge has zero file differences from the fully validated implementation head, so the validated tree is exactly the protected implementation tree.
 
@@ -193,9 +193,13 @@ The protected merge tree is byte-equivalent to the validated implementation tree
 
 Independent audit replay returned SYNTHESIS_AUDIT_WITNESS_OK.
 
+## Post-audit documentary repair
+
+Repair issue #280 rewrites the visible derivation notation and repairs the witness display-math tokens that were damaged by the earlier sanitation step. The exact executable Python witness is unchanged in semantics and is replayed again on the repaired head. Fresh full repository validation is mandatory before the repair can merge.
+
 ## Final disposition
 
-AUDIT-069 passes with no repair.
+AUDIT-069 passes after the documentary repair above, subject to fresh exact-head validation and replay.
 
 The durable synthesis rule is:
 
