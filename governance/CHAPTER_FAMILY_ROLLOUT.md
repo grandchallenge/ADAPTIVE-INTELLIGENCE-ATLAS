@@ -1,8 +1,11 @@
 # Chapter-Family Rollout After the Six Keystones
 
-**Status:** dependency-driven drafting plan  
-**Baseline:** six audited keystones at `draft-v0.1`  
-**Remaining chapters:** 74
+**Status:** historical dependency-driven drafting plan — execution complete
+**Original baseline:** six audited keystones at `draft-v0.1`
+**Original remaining chapters:** 74
+**Current protected phase:** 80/80 chapter nodes at `draft-v0.1`; architecture frontier exhausted; global synthesis active.
+
+This document is retained as the execution rationale for chapter-family drafting. Its family sequencing describes how the corpus was built. Current chapter lifecycle state is governed by `governance/CHAPTER_LEDGER.yaml`; active transaction state is governed by `governance/ACTIVE_TRANSACTION.yaml` on the controller branch.
 
 ## Principle
 

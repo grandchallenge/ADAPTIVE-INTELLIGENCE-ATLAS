@@ -1001,7 +1001,7 @@
       "status": "draft-v0.1",
       "keystone": false,
       "spec_path": "manuscript/specifications/ATLAS-CH-MECHDIAG-001.md",
-      "manuscript_path": "manuscript/parts/12-diagnostics-robustness-compression/_probe.md",
+      "manuscript_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-MECHDIAG-001.md",
       "derivation_path": "mathematics/derivations/ATLAS-CH-MECHDIAG-001-DERIVATIONS.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-MECHDIAG-001.yaml",
       "computational_witness_path": "mathematics/computational-witnesses/ATLAS-CW-MECHDIAG-001.md",
@@ -1233,7 +1233,7 @@
       "status": "draft-v0.1",
       "keystone": false,
       "spec_path": "governance/tranches/CH171-SPEC.md",
-      "manuscript_path": "governance/tranches/CH171-READER.md",
+      "manuscript_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FRONTIER-001.md",
       "derivation_path": "governance/tranches/CH171-EVIDENCE-MATRIX.md",
       "source_lock_path": "sources/source-locks/ATLAS-CH-FRONTIER-001.yaml",
       "figure_ids": []
