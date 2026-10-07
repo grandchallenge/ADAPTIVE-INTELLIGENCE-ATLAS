@@ -10,9 +10,9 @@ current:
     - "ATLAS-CH-SYSTEMS-001"
   baseline_commit: "397682b86648cf53c775cb5912ab4201390fbd6f"
   branch: "audit/a283"
-  pull_request: null
-  state: "audit-instantiated"
-  next_action: "Write AUDIT-070 on audit/a283 from exact protected baseline 397682b86648cf53c775cb5912ab4201390fbd6f, recording the independent SYSTEMS_AUDIT_WITNESS_OK replay and exact artifact identities. If no defect is found, disposition PASS — NO REPAIR; then open the audit PR, require full exact-head GitHub Actions validation, and merge only on green."
+  pull_request: 284
+  state: "audit-pr-open"
+  next_action: "Require full repository GitHub Actions validation on exact AUDIT-070 head d339bd1c787ffece209263dd9833b0aee14028fb for PR #284. Repair any in-scope failure and revalidate. Merge only on green exact-head validation, then read back protected main, close audit issue #283, recompute the architecture frontier, and return the controller to idle-ready."
 frontier:
   - id: "ATLAS-CH-SYSTEMS-001"
     downstream_architecture_count: 0
