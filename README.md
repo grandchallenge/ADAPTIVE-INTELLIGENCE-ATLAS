@@ -46,8 +46,16 @@ Imaginative work and mathematical rigor are complementary. The default allegory 
 
 Figures are part of the reasoning. A computationally rendered image must preserve its generator provenance and distinguish literal from nonliteral semantics.
 
-## Release boundary
+## Licensing and release boundary
 
-The repository license remains explicitly unresolved. No public release of substantive manuscript content is authorized until the Human Steward selects and records the repository license.
+Repository licensing is selected and scoped:
 
-Any release-candidate or publication promotion is a separate governed transaction and must preserve the Atlas source, witness, audit, citation, artifact-hash, and authority boundaries.
+- CC BY 4.0 for manuscript, exposition, documentation, figures, and other non-software publication material;
+- MIT for software and executable tooling;
+- file-specific notices and third-party rights take precedence.
+
+Copyright © 2026 Grand Challenge Technologies Ltd.
+
+See `LICENSE` and `LICENSES/` for the governing scope and standard license texts.
+
+License selection does not itself authorize a public release. Any release-candidate or publication promotion remains a separate governed transaction and must preserve the Atlas source, witness, audit, citation, artifact-hash, rendering, and explicit public-release authorization boundaries.

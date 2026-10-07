@@ -1,4 +1,44 @@
-LICENSE SELECTION PENDING
+# Repository Licensing
 
-This bootstrap does not grant a software, documentation, figure, or publication license.
-Select and record the repository license explicitly before public release of substantive manuscript content.
+Copyright © 2026 Grand Challenge Technologies Ltd.
+
+A Mathematical Atlas of Adaptive Intelligence contains both publication material and software tooling. Different portions of this repository are licensed according to their function.
+
+## Publication, documentation, figures, and research material
+
+Except where a file or incorporated third-party material states otherwise, the manuscript, chapter text, mathematical exposition, specifications, governance and documentation material, diagrams, figures, and other non-software publication material are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+SPDX identifier: `CC-BY-4.0`
+
+The canonical license text is stored at:
+
+`LICENSES/CC-BY-4.0.txt`
+
+## Software and executable tooling
+
+Except where a file states otherwise, source code, scripts, validators, generators, computational tooling, workflow code, and other software in this repository are licensed under the MIT License.
+
+SPDX identifier: `MIT`
+
+The applicable MIT license text is stored at:
+
+`LICENSES/MIT.txt`
+
+## Scope and precedence
+
+Where a file contains an explicit license notice, that file-specific notice controls.
+
+Third-party material, quoted material, reproduced figures, data, code, or other incorporated content subject to separate rights is not relicensed by this repository notice. Source, citation, and provenance records remain relevant to determining those rights.
+
+Where no file-specific notice is present:
+
+- material whose primary purpose is publication, exposition, documentation, illustration, or research communication is licensed under CC BY 4.0;
+- material whose primary purpose is executable software or software tooling is licensed under MIT.
+
+Machine-generated build artifacts inherit the license applicable to their underlying source material and do not acquire a different license merely by being generated.
+
+## No endorsement or certification implication
+
+Permission to copy, modify, redistribute, adapt, or build upon material under the applicable license does not imply endorsement, mathematical certification, validation, or approval by Grand Challenge Technologies Ltd., Grand Challenge Labs, or any associated certification process.
+
+The licenses grant only the rights stated in their respective standard texts.
