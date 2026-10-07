@@ -22,4 +22,5 @@ jobs:
       - run: python tools/validate_atlas.py
       - run: python tools/check_release_readiness.py
       - run: python tools/check_release_candidate.py
+      - run: python tools/check_public_release.py
       - run: python tools/assemble_manuscript.py --output /tmp/atlas-manuscript.md --manifest /tmp/atlas-manifest.json --check

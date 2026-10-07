@@ -1,0 +1,26 @@
+schema_version: "1.0.0"
+release_id: "ATLAS-V0.1.0"
+repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
+authorized_by: "Human Steward"
+authorized_at: "2026-10-07"
+authorization_basis:
+  conversation_instruction: "resume to completion"
+  prior_governance_boundary: "HUMAN_STEWARD_PUBLIC_RELEASE_AUTHORIZATION"
+public_release_authorized: true
+final_version: "0.1.0"
+final_tag: "atlas-v0.1.0"
+source_candidate:
+  tag: "atlas-v0.1.0-rc.1"
+  implementation_merge: "e6a97fe9cf2ef4577f046c95f74f5eb690ba2e0e"
+  audit_merge: "498e4c2f517255883f83bf8e23afba8841e5c9dc"
+  audit_disposition: "PASS — NO REPAIR"
+promotion_policy:
+  byte_preserving_artifacts: true
+  mathematical_content_mutation_authorized: false
+  citation_metadata_rebinding_authorized: true
+  github_release_authorized: true
+  populate_releases_directory_authorized: true
+required_sha256:
+  latex: "0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a"
+  pdf: "efd0f21088ced19e5cc706069cc57cd4d0fa57ffc402c63767d8ad4939d96b96"
+  html: "795700db6ac8cd689d8dcfad7d116734015f7a196e3fd3fce2608eb5cac7daa4"
