@@ -1,6 +1,6 @@
 # A Mathematical Atlas of Adaptive Intelligence
 
-**Status:** full first-draft corpus; global synthesis in progress
+**Status:** full first-draft corpus; global synthesis phase
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
 **Bootstrap record:** https://github.com/grandchallenge/.github/issues/99
 
