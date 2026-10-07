@@ -10,8 +10,8 @@ current:
   baseline_commit: "2d09774f0f29dc9c47e48fdfb410a3725def669a"
   branch: "work/license-301"
   pull_request: null
-  state: "instantiated"
-  next_action: "Implement the Human Steward license decision: CC BY 4.0 for publication/documentation/figure material, MIT for software/tooling, copyright holder Grand Challenge Technologies Ltd. Add canonical license texts, replace LICENSE_SELECTION_PENDING with scoped repository terms, update release-readiness checks and release documentation, preserve third-party/file-specific precedence, and do not create or promote a public release. Validate exact head, merge only on green, then perform a fresh bounded audit."
+  state: "draft-complete"
+  next_action: "Open a PR from validated head c8e51e1e1b7dc682926e116f58c59931e1211f01. Require full repository validation on that exact head. Merge only on green, then perform a fresh licensing audit."
 frontier: []
 stop_conditions:
   - "genuine-external-blocker"
