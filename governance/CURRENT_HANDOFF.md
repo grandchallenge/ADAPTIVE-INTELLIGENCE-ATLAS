@@ -1,106 +1,146 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
 **Date:** 2026-10-07
-**Recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller
-**Current main:** c62320923c40e8c7c941fd551a26459f8d38b4d9
+**Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`
+**Current protected main:** `e22d9d383d048626797d7865bc7e9d3daebe1887`
 
 ## Restart rule
 
-1. Read ACTIVE_TRANSACTION.yaml first.
+1. Read `governance/ACTIVE_TRANSACTION.yaml` first.
 2. Read this handoff.
-3. Fetch live main.
-4. If live main differs from the recorded baseline, recompute the Chapter Ledger and phase state.
+3. Fetch live `main`.
+4. If live `main` differs from the recorded baseline, recompute lifecycle and release-readiness state.
 5. Repository state overrides chat history.
 
 ## Current state
 
-- state: idle-ready
-- architecture frontier: exhausted
-- Chapter Ledger: 80 chapters at draft-v0.1
-- chapters remaining at architecture: 0
-- next project-local phase: global synthesis
+- controller state: `idle-ready`;
+- architecture drafting frontier: exhausted;
+- Chapter Ledger: 80 chapters at `draft-v0.1`;
+- chapters at `architecture`: 0;
+- first bounded full-manuscript global-synthesis pass: complete and audited;
+- next non-promotional phase: release-readiness assessment;
+- public-release promotion: blocked by explicit license-selection governance gate.
 
-## Governing next phase
+## GLOBAL-SYNTHESIS-001 — completed
 
-The canonical editorial profile records:
+Implementation:
 
-architecture first -> dependency graph -> keystone chapters -> six-keystone synthesis -> chapter families -> global synthesis.
+- issue: #293 — closed completed;
+- PR: #294 — merged;
+- protected baseline: `c62320923c40e8c7c941fd551a26459f8d38b4d9`;
+- exact validated implementation head: `3640134c76aece684d665b2b9d1977b4ce7a59a6`;
+- GitHub Actions run: `37607089801` — success;
+- implementation merge: `e581addb191d6a1262a32613b81ccb9a0c08d180`;
+- implementation merge tree has zero file differences from the validated head.
 
-The chapter-family rollout requires global synthesis as the manuscript matures and immediately before a release candidate.
+Audit:
 
-The next bounded transaction is therefore **a full-manuscript global synthesis pass**, not another chapter.
+- `AUDIT-073`;
+- audit issue: #295 — closed completed;
+- audit PR: #296 — merged;
+- exact validated audit head: `78887f9cd35f58c611f843cf2fedde3653cca522`;
+- GitHub Actions run: `37607496812` — success;
+- final audit merge / current protected main: `e22d9d383d048626797d7865bc7e9d3daebe1887`;
+- audit merge tree has zero file differences from the validated audit head;
+- disposition: **PASS — NO REPAIR**.
 
-### Initial synthesis obligations
+## Durable synthesis result
 
-1. recompute cross-chapter dependency and handoff consistency on exact protected main;
-2. reconcile notation and definitions across all 14 Parts and 80 draft chapters;
-3. detect duplicated, conflicting, or silently strengthened claims;
-4. preserve epistemic classes across established theory, Atlas derivation, computational witness, GCL public project evidence, programme context, conjecture, open problem, and institutional status;
-5. audit part-to-part transitions against the conceptual spine:
-   geometry -> operators -> dynamics -> optimization -> composition -> memory -> coordination -> diagnostics -> governed adaptation;
-6. audit figure/source/provenance completeness and stale documentary state;
-7. repair only in dependency-safe bounded tranches with fresh exact-head validation;
-8. produce a durable global-synthesis receipt and updated handoff.
+The repository-level first-draft corpus is lifecycle-coherent:
 
-### Promotion boundary
+- all 80 stable chapter nodes remain `draft-v0.1`;
+- dependency graph remains 80 nodes, 126 hard edges, acyclic, one root;
+- canonical epistemic vocabulary remains intact;
+- Figure Register and Source Register controls remain intact;
+- no chapter was promoted;
+- no mathematical claim was strengthened by the synthesis pass.
 
-Global synthesis does not by itself promote any chapter beyond draft-v0.1 and does not establish publication-ready, certified, or final-copy status.
+Reader-path normalization:
 
-Any release-candidate or publication promotion is a separate governance transaction.
+- `ATLAS-CH-FRONTIER-001` now uses
+  `manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FRONTIER-001.md`;
+- its canonical reader is byte-identical to the AUDIT-043 accepted historical reader:
+  `e1a692a7e6406041a6e4395c0e23a0732fb5b4e3`;
+- `ATLAS-CH-MECHDIAG-001` now uses
+  `manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-MECHDIAG-001.md`;
+- its canonical reader is byte-identical to the AUDIT-047 mature companion:
+  `8275d106f3960eb21e385b3d9130b3cb7686fec0`.
 
-## Immediately completed transaction — VARIOPT-001
+Phase-document repair:
 
-- implementation issue: #289 — closed completed
-- implementation PR: #290
-- exact green implementation head: 1da24f403f7de118f205c6fab5616f5e27588a57
-- implementation Actions run: 37604276951 — success
-- implementation merge: bd64ae187346e4ba33266d41067a41478d521be7
-- post-draft audit: AUDIT-072 — PASS — NO REPAIR
-- audit issue: #291 — closed completed
-- audit PR: #292
-- exact green audit head: d82c7acb9f81bc266808d1709a2dd2ff6e5918fe
-- audit Actions run: 37604745971 — success
-- audit merge/current main: c62320923c40e8c7c941fd551a26459f8d38b4d9
-- audit record blob: 421c7e243d03c0cf1b86553b9e8f861a4d2ec7b4
-- final protected audit merge tree has zero file differences from the exact validated audit head
+- README records the full first-draft/global-synthesis phase;
+- `CHAPTER_FAMILY_ROLLOUT.md` is explicitly historical execution rationale;
+- `ATLAS_EDITORIAL_PROFILE.md` records the current lifecycle and identity semantics;
+- historical receipts/source snapshots remain historical and were not rewritten as current-state claims.
 
-Protected VARIOPT artifacts:
+Global synthesis receipt:
 
-- specification: 9023f94675ad4d0144f9b074877c82f62c84909a
-- derivation packet: 0862c95b24ea66ca6a6a6d4f1d9d3c031af1354b
-- computational witness: 82ac7737ac0718c83db48face1e5fb9d402aebcb
-- reader manuscript: 57751af058ee5885e7478e1aa74c1cc50aa2f463
-- source lock: 1e20f98009b8828963c9d26aa87323292d6f99b3
-- Chapter Ledger: 09a07425e69f67d1113f037aaf62f60fa769dd39
-- Source Register: 1910bb5a199cb976b0821e9a1c9d5158556db53d
-- transaction receipt: 4628b94d73b217e8377e3aa7019df3a620b4789f
+- `governance/tranches/GLOBAL-SYNTHESIS-001.md`
+- protected implementation receipt blob: `d5f86613a42d78ea4c634ae6aab2d3357fa7b002`.
 
-## Durable VARIOPT result
+Audit record:
 
-- Bregman divergence can be asymmetric while inducing a local Hessian quadratic form;
-- mirror/Bregman-proximal updates are dual-coordinate constructions and do not guarantee descent without further conditions;
-- the exact entropic witness maps 1 to 1/2 under the declared mirror step;
-- the Euclidean-Bregman non-descent control maps 0 to 6 and increases the objective from 2 to 8;
-- the declared discrete harmonic-oscillator action yields symplectic Euler exactly;
-- its state matrix satisfies M^T J M = J exactly;
-- exact symplecticity does not imply exact energy conservation or objective descent;
-- Wibisono-Wilson-Jordan Bregman-Lagrangian theory remains source-scoped continuous-time variational optimization theory;
-- MODULUS is bound as GCL implementation/programme evidence, not general theorem authority;
-- the protected Hyperball target-angle branch controls pre-retraction tangent-update norm; in the exact unit orthogonal witness the finite post-retraction angle is theta=arctan(alpha), so alpha is first-order angular control rather than an exact finite geodesic angle.
+- `reviews/AUDIT-073.md`;
+- protected audit head before merge: `78887f9cd35f58c611f843cf2fedde3653cca522`.
 
-## Architecture completion state
+## Next governed phase
 
-Protected Chapter Ledger on c62320923c40e8c7c941fd551a26459f8d38b4d9:
+The next bounded operation is a **non-promotional release-readiness assessment**, provisionally `RELEASE-READINESS-001`.
 
-- total chapter nodes: 80
-- draft-v0.1: 80
-- architecture: 0
+It may autonomously:
 
-The dependency-driven chapter-drafting frontier is therefore exhausted.
+1. audit manuscript build requirements;
+2. audit copy-edit/style consistency;
+3. audit release packaging and versioning requirements;
+4. audit `CITATION.cff` and tagged-commit citation semantics;
+5. inventory missing release artifacts/checklists;
+6. prepare a release-readiness checklist and bounded repair plan;
+7. validate any non-promotional documentary/infrastructure repairs.
+
+It must not:
+
+- create a public release;
+- promote the manuscript to publication-ready/final-copy status;
+- select a repository license on behalf of the Human Steward;
+- imply mathematical certification from editorial readiness.
+
+## Explicit governance gate — LICENSE_SELECTION_PENDING
+
+Protected `LICENSE`:
+
+- blob: `383ba0cadbeb21255aeb5124e946167c0771bf79`;
+- state: `LICENSE SELECTION PENDING`;
+- rule: the repository license must be explicitly selected and recorded before public release of substantive manuscript content.
+
+This is a genuine Human Steward governance decision. It blocks public-release promotion, but it does **not** block a non-promotional release-readiness audit.
+
+The repository currently has no substantive release artifact or build artifact:
+
+- `releases/`: placeholder only;
+- `build/`: placeholder only.
+
+`CITATION.cff` is present and instructs readers to cite the specific tagged release or commit used.
+
+## Promotion boundary
+
+Current state remains:
+
+`80 x draft-v0.1`.
+
+Global synthesis and release-readiness work do not themselves establish:
+
+- theorem certification;
+- publication-ready status;
+- final-copy status;
+- license grant;
+- public-release authorization.
 
 ## Legitimate stop conditions
 
 - genuine external blocker;
 - failed validation requiring human judgment;
-- explicit human governance gate;
-- completion of the next bounded global-synthesis transaction.
+- explicit governance gate;
+- completion of the current bounded transaction.
+
+The current bounded GLOBAL-SYNTHESIS-001 transaction is complete.
