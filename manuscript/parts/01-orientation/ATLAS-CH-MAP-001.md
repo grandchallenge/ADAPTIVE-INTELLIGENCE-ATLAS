@@ -289,7 +289,7 @@ The canonical rule is:
 
 [
 \text{reproducible computation}
-\notRightarrow
+\nRightarrow
 \text{proof by default}.
 ]
 
@@ -369,7 +369,7 @@ The canonical rule is:
 [
 \boxed{
 \text{presentation}
-\notRightarrow
+\nRightarrow
 \text{epistemic promotion}.
 }
 ]
@@ -416,7 +416,7 @@ But the epistemic protocol states a critical nonimplication:
 [
 \boxed{
 \text{replay}
-\notRightarrow
+\nRightarrow
 \text{truth, independent replication, formal verification, or certification}.
 }
 ]
