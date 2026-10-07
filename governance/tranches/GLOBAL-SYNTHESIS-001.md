@@ -2,7 +2,7 @@
 
 ## Status
 
-Implementation tranche in progress.
+Bounded global-synthesis implementation record.
 
 ## Identity
 
