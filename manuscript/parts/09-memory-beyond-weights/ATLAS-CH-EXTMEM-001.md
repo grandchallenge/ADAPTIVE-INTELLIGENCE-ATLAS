@@ -114,21 +114,23 @@ The external-memory thesis asks when some of those obligations can be avoided by
 
 ## 6. The placement descriptor
 
-For knowledge item or class `k`, use:
+For knowledge item or class $k$, use:
 
-`Place(k)=(V,P,S,D,R,L,H,A,G)`.
+\[
+\operatorname{Place}(k)=(V,P,S,D,R,L,H,A,G).
+\]
 
 The coordinates are:
 
-- volatility `V`;
-- provenance/audit need `P`;
-- sharing scope `S`;
-- deletion/supersession need `D`;
-- retrievability/addressability `R`;
-- latency constraint `L`;
-- availability/failure-tolerance requirement `H`;
-- access-control/privacy requirement `A`;
-- value of parametric generalization/compression `G`.
+- volatility $V$;
+- provenance/audit need $P$;
+- sharing scope $S$;
+- deletion/supersession need $D$;
+- retrievability/addressability $R$;
+- latency constraint $L$;
+- availability/failure-tolerance requirement $H$;
+- access-control/privacy requirement $A$;
+- value of parametric generalization/compression $G$.
 
 The chapter defines no universal scalar score over these dimensions. External locus and persistence also remain distinct: this thesis focuses on persistent external records when that lifetime is deliberately chosen; it does not redefine every external memory object as persistent.
 
@@ -282,7 +284,7 @@ The Atlas uses this as one primary example, not as proof that RAG is the univers
 
 ## 16. kNN-LM shows datastore substitution
 
-Khandelwal et al. augment a pretrained language model with a nearest-neighbor datastore.
+Khandelwal et al. augment a pretrained language model with a nearest-neighbor datastore [@KhandelwalEtAl2020].
 
 In their reported experiments, changing the datastore supports domain adaptation without further model training.
 
@@ -294,7 +296,7 @@ That is exactly the update-separation property the external-memory thesis cares 
 
 ## 17. RETRO shows scale, not universal superiority
 
-Borgeaud et al. condition language modeling on chunks retrieved from a very large text database.
+Borgeaud et al. condition language modeling on chunks retrieved from a very large text database [@BorgeaudEtAl2022].
 
 Their result demonstrates that explicit retrieved memory can complement model parameters at large scale.
 
@@ -304,7 +306,7 @@ Scale is evidence that the architecture is viable, not a universal placement rul
 
 ## 18. ROME gives the necessary counterexample
 
-Meng et al. show that specific factual associations can be edited directly in model parameters in their reported setting.
+Meng et al. show that specific factual associations can be edited directly in model parameters in their reported setting [@MengEtAl2022].
 
 That matters because it blocks an overstrong thesis.
 
@@ -320,43 +322,57 @@ The real question is which update semantics and system guarantees are desirable.
 
 Use two queries:
 
-`A` and `B`.
+$A$ and $B$.
 
 Let:
 
-`f_theta(A)=theta_1+theta_2`
+\[
+f_\theta(A)=\theta_1+\theta_2
+\]
 
 and:
 
-`f_theta(B)=theta_1-theta_2`.
+\[
+f_\theta(B)=\theta_1-\theta_2.
+\]
 
 Initial target facts are:
 
-`A=2`
-
-`B=0`.
+\[
+f_\theta(A)=2, \qquad f_\theta(B)=0.
+\]
 
 The unique parameter vector is:
 
-`theta=(1,1)`.
+\[
+\theta=(1,1).
+\]
 
 ## 20. Updating one fact requires a coordinated edit here
 
 Now change only the target for A:
 
-`A:2 -> 4`
+\[
+A: 2 \to 4
+\]
 
 while preserving:
 
-`B=0`.
+\[
+f_\theta(B)=0.
+\]
 
 The new unique parameter vector is:
 
-`theta'=(2,2)`.
+\[
+\theta'=(2,2).
+\]
 
 Therefore:
 
-`Delta theta=(1,1)`.
+\[
+\Delta \theta=(1,1).
+\]
 
 Both coordinates change.
 
@@ -910,9 +926,9 @@ It must independently define multi-agent governance, coordination, authority, an
 ## References used in this chapter
 
 - Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks* [@LewisEtAl2020RAG].
-- Khandelwal et al., *Generalization through Memorization: Nearest Neighbor Language Models*.
-- Borgeaud et al., *Improving language models by retrieving from trillions of tokens*.
-- Meng et al., *Locating and Editing Factual Associations in GPT*.
+- Khandelwal et al., *Generalization through Memorization: Nearest Neighbor Language Models* [@KhandelwalEtAl2020].
+- Borgeaud et al., *Improving language models by retrieving from trillions of tokens* [@BorgeaudEtAl2022].
+- Meng et al., *Locating and Editing Factual Associations in GPT* [@MengEtAl2022].
 
 Exact source identities and authority boundaries are recorded in:
 

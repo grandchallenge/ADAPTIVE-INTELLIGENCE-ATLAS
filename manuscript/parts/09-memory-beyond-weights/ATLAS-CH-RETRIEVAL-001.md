@@ -66,20 +66,22 @@ So retrieval must not collapse the rest of the memory contract.
 
 ## 2. A retrieval contract
 
-Let `D` be the underlying record set.
+Let $\mathcal{D}$ be the underlying record set.
 
 Write a retrieval contract as
 
-`Retr=(D,Q,F,s,pi,k,O)`.
+\[
+\operatorname{Retr}=(\mathcal{D}, \mathcal{Q}, F, s, \pi, k, \mathcal{O}).
+\]
 
 Here:
 
-- `Q` is the query space;
-- `F(q,D)` is an optional admissibility/filter operator;
-- `s(q,d)` is a score, distance, or match relation;
-- `pi` is a ranking/selection rule;
-- `k` is a truncation or budget;
-- `O` is the returned projection or set of fields.
+- $\mathcal{Q}$ is the query space;
+- $F(q, \mathcal{D})$ is an optional admissibility/filter operator;
+- $s(q, d)$ is a score, distance, or match relation;
+- $\pi$ is a ranking/selection rule;
+- $k$ is a truncation or budget;
+- $\mathcal{O}$ is the returned projection or set of fields.
 
 This representation makes one fact explicit:
 
@@ -202,18 +204,21 @@ Vector retrieval maps queries and records into a shared coordinate space.
 
 Let
 
-`phi_Q(q) in R^m`
+\[
+\phi_Q(q) \in \mathbb{R}^m
+\]
 
 and
 
-`phi_D(d) in R^m`.
+\[
+\phi_{\mathcal{D}}(d) \in \mathbb{R}^m.
+\]
 
 Then a distance-based retrieval rule can be written as
 
-`d^*
-in
-argmin_{d in D}
-delta(phi_Q(q),phi_D(d))`.
+\[
+d^* \in \arg\min_{d \in \mathcal{D}} \delta(\phi_Q(q), \phi_{\mathcal{D}}(d)).
+\]
 
 Or a similarity rule can maximize a score.
 
@@ -811,13 +816,17 @@ Evaluation should therefore name which layer it measures.
 
 Information retrieval metrics such as precision and recall need a declared notion of relevance.
 
-For retrieved set `S` and relevant set `G`:
+For retrieved set $S$ and relevant ground-truth set $G$:
 
-`precision=|S intersect G|/|S|`
+\[
+\operatorname{precision} = \frac{|S \cap G|}{|S|}
+\]
 
 and
 
-`recall=|S intersect G|/|G|`
+\[
+\operatorname{recall} = \frac{|S \cap G|}{|G|}
+\]
 
 when denominators are nonzero.
 
