@@ -113,7 +113,7 @@ That remains true even though it can generate useful local geometry.
 
 ## 4. Local geometry from a Hessian
 
-For a small displacement \(\delta\):
+Assume \(\phi\) has a locally Lipschitz Hessian near \(x\), for example bounded third derivatives. Then for a small displacement \(\delta\):
 
 \[
 D_\phi(x+\delta,x)
@@ -124,7 +124,7 @@ D_\phi(x+\delta,x)
 O(\|\delta\|^3).
 \]
 
-The Hessian acts as a local quadratic form.
+The Hessian acts as a local quadratic form. Under merely continuous second differentiability, the same expansion holds with the weaker remainder \(o(\|\delta\|^2)\); the displayed cubic-order remainder requires the stated stronger regularity.
 
 For:
 

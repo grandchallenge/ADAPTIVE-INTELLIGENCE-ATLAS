@@ -468,6 +468,10 @@ A spectral map that floors zero singular values changes rank and therefore chang
 
 Such rank modification must be declared.
 
+A zero singular value also makes the choice of singular vectors in the nullspaces nonunique. A rule \(G=U\Sigma V^\top\mapsto Uf(\Sigma)V^\top\) is SVD-independent on those directions when \(f(0)=0\); if \(f(0)\ne0\), pairing the left and right nullspace directions requires additional data.
+
+For instance, \(G=\operatorname{diag}(1,0)\) has both \(U=V=I_2\) and \(U=\operatorname{diag}(1,-1), V=I_2\), with the same \(\Sigma=\operatorname{diag}(1,0)\). Setting \(f(1)=f(0)=1\) yields two distinct images, \(I_2\) and \(\operatorname{diag}(1,-1)\). The input matrix alone does not choose between them.
+
 ## D15. Target-profile boundary
 
 A target spectrum
