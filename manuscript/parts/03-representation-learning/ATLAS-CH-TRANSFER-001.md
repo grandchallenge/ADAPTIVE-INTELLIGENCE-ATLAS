@@ -491,7 +491,7 @@ D_2=5.
 
 Both source and target representations reconstruct both outputs exactly through the same \(r\).
 
-![Two different representations compile to the same exact Residual r=(3,1) and reconstruct target outputs 4 and 5; a second panel shows a lossy bottleneck P(r)=1 merging two states that require different D2 outputs.](../../figures/masters/ATLAS-FIG-TRANSFER-001.png)
+![Two different representations compile to the same exact Residual r=(3,1) and reconstruct target outputs 4 and 5; a second panel shows a lossy bottleneck P(r)=1 merging two states that require different D2 outputs.](../../../figures/derivatives/ATLAS-FIG-TRANSFER-001-v0.1.1.png)
 
 ## 14. Exact recoding is the easy case
 
