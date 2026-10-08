@@ -261,15 +261,15 @@ The dual norm of \(\|\cdot\|_2\) is the nuclear norm, so
 Set
 
 \[
-\Delta=-\rho UV^\top.
+\Delta=-\rho U_rV_r^\top.
 \]
 
-Because \(\|UV^\top\|_2=1\),
+Because \(\|U_rV_r^\top\|_2=1\),
 
 \[
 \langle G,\Delta\rangle_F
 =
--\rho\operatorname{tr}(\Sigma)
+-\rho\operatorname{tr}(\Sigma_r)
 =
 -\rho\|G\|_*.
 \]
@@ -277,7 +277,7 @@ Because \(\|UV^\top\|_2=1\),
 Therefore
 
 \[
-\Delta_2^\star=-\rho UV^\top
+\Delta_2^\star=-\rho U_rV_r^\top
 \]
 
 is a spectral-ball steepest direction.
