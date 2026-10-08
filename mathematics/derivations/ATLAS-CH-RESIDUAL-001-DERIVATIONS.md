@@ -106,13 +106,13 @@ Interpretation:
 
 \(R_1\) contains no more distinctions than \(R_2\), because \(R_1\) can be recovered from \(R_2\).
 
-This is a preorder provided (mathfrak M) contains identity maps and is closed under composition.
+Let \(\mathfrak M\) denote the admitted post-processing maps \(\phi\). This is a preorder provided \(\mathfrak M\) contains identity maps and is closed under composition.
 
 Distinct codings can factor through one another, so antisymmetry need not hold at the representation level.
 
-When (mathfrak M) contains all maps, this is a semantic information preorder.
+When \(\mathfrak M\) contains all maps, this is a semantic information preorder.
 
-Restricting (mathfrak M) to efficiently computable or bounded-cost maps yields a stronger operational notion of recoverability.
+Restricting \(\mathfrak M\) to efficiently computable or bounded-cost maps yields a stronger operational notion of recoverability.
 
 ## D5. Provisional Residual
 
@@ -323,7 +323,7 @@ B(s,n).
 
 Let \(S\) be any descriptor sufficient for \(B\).
 
-By sufficiency, there exists \(D_S\) such that
+By sufficiency, there exists a decoder \(D_S\) such that
 
 \[
 B=D_S\circ S.
@@ -349,9 +349,9 @@ Hence
 R\preceq S.
 \]
 
-This holds for every invariant sufficient \(S\).
+This holds for every invariant sufficient \(S\) in the semantic preorder, where all set-theoretic post-processing maps are admitted. If post-processing is restricted to a class \(\mathfrak M\), the decoder \(D_S\) must also belong to \(\mathfrak M\); sufficiency alone does not guarantee operational factorization.
 
-Therefore \(R=s\) is a least invariant sufficient descriptor in this toy setting.
+Therefore \(R=s\) is a least invariant sufficient descriptor in this toy setting under semantic post-processing.
 
 ## D8. Full state is sufficient but not least
 
