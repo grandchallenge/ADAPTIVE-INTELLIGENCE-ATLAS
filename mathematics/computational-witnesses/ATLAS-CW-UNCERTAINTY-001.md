@@ -97,7 +97,7 @@ Thus
 P(\text{coverage})=4/5=0.8.
 \]
 
-The witness establishes marginal rank coverage only.
+The witness establishes marginal rank coverage only. At smaller miscoverage levels, the order-statistic edge case matters: with n=4 and alpha=0.1 the index is k=5>n, so a nonrandomized split-conformal construction uses an infinite threshold rather than attempting to index a nonexistent fifth calibration score.
 
 ## W4. Selective risk/coverage witness
 
@@ -143,6 +143,9 @@ The following arithmetic can be checked directly:
     k = ceil((n + 1) * (1 - alpha))
     assert k == 4
     assert Fraction(k, n + 1) == Fraction(4, 5)
+    alpha_small = Fraction(1, 10)
+    k_small = ceil((n + 1) * (1 - alpha_small))
+    assert k_small == n + 1  # threshold must be +infinity, not the nth order statistic
 
     # Selective prediction witness
     errors = [0, 0, 0, 1, 1]

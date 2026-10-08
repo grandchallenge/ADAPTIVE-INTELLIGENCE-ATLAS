@@ -527,13 +527,7 @@ n
 
 calibration nonconformity scores and one future score.
 
-For target miscoverage
-
-\[
-\alpha,
-\]
-
-the finite-sample rank correction uses
+For target miscoverage \(0<\alpha<1\), the finite-sample rank correction uses
 
 \[
 k
@@ -542,6 +536,8 @@ k
 (n+1)(1-\alpha)
 \right\rceil.
 \]
+
+The threshold is the \(k\)-th smallest calibration score **when \(1\le k\le n\)**. If \(k=n+1\), there is no such order statistic in the \(n\) calibration scores; the standard nonrandomized convention sets the threshold to \(+\infty\) (and hence uses an unrestricted prediction set for that score rule). This occurs when \(\alpha<1/(n+1)\). For example, with \(n=4\) and \(\alpha=0.1\), one obtains \(k=5\), not a fifth calibration observation.
 
 Under exchangeability, the future score has a symmetric rank among the
 
