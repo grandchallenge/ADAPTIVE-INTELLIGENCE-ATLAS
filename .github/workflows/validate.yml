@@ -20,6 +20,7 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt
       - run: python tools/validate_atlas.py
+      - run: python -m unittest discover -s tests -p test_atlas_direct_return_projector.py
       - run: python tools/check_release_readiness.py
       - run: python tools/check_release_candidate.py
       - run: python tools/check_public_release.py
