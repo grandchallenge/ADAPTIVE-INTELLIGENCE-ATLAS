@@ -205,7 +205,7 @@ For a circulant operator,
 |\lambda_{h,k}|^2,
 \]
 
-and
+and, when at least one mode is omitted,
 
 \[
 \|K_h-K_{h,S}\|_2
@@ -213,6 +213,8 @@ and
 \max_{k\notin S}
 |\lambda_{h,k}|.
 \]
+
+If \(S=\{0,\ldots,L-1\}\), no mode is omitted and \(K_{h,S}=K_h\); both errors are exactly zero. This avoids interpreting a maximum over the empty set as a numerical value.
 
 These are exact approximation statements.
 
@@ -270,7 +272,7 @@ This chapter diagnoses one component of attention, not the entire head.
 
 ## 9. Head-specific positional mode profiles
 
-For head h, define
+For a head \(h\) whose declared relative-position operator is nonzero, so that \(\sum_j|\lambda_{h,j}|^2>0\), define
 
 \[
 q_{h,k}
@@ -279,7 +281,7 @@ q_{h,k}
 {\sum_j|\lambda_{h,j}|^2}.
 \]
 
-This is a probability distribution over labeled sequence-index modes.
+This is a probability distribution over labeled sequence-index modes. When \(K_h=0\), the denominator vanishes and the normalized profile is undefined; report a zero-energy operator instead of assigning it a fictitious frequency preference.
 
 It answers a narrow question:
 

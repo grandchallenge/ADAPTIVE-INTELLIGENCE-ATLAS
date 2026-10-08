@@ -209,13 +209,15 @@ Unitary invariance gives
 |\lambda_k|^2.
 \]
 
-Because K is normal, its singular values are \(|\lambda_k|\), so
+Because \(K\) is normal, its singular values are \(|\lambda_k|\). When \(S\) omits at least one mode,
 
 \[
 \|K-K_S\|_2
 =
 \max_{k\notin S}|\lambda_k|.
 \]
+
+If \(S\) contains every mode, \(K_S=K\) and the spectral and Frobenius truncation errors are both zero. No maximum over an empty index set is needed.
 
 Selecting the r largest magnitudes gives the best rank-at-most-r approximation under Frobenius and spectral norm for this cyclic normal operator.
 
@@ -240,7 +242,7 @@ q_{h,k}\ge0,
 \sum_kq_{h,k}=1.
 \]
 
-This is a probability distribution over labeled sequence-index modes.
+This is a probability distribution over labeled sequence-index modes. For the zero operator all \(\lambda_{h,k}=0\), so the spectral-energy denominator vanishes; the normalized mode profile is undefined and should not be assigned an arbitrary distribution.
 
 Its labels matter.
 
