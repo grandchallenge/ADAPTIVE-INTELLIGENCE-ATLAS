@@ -1,5 +1,21 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## LATEST RECOVERY CHECKPOINT — 2026-10-08 (supersedes the older 2026-10-08 summary below)
+
+**Controller authority:** `state/atlas-controller` `governance/ACTIVE_TRANSACTION.yaml` state `rc2-wolfram-figures-admitted-accessibility-and-typography-active`. Recover there first. This record supersedes stale SHA references later in this file.
+
+**Editable workbench:** PR [#320](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/320), branch `editorial/part01-corrections-20261008`, exact verified head `7009dd8ca120d1fcd3b99636fba7be5d9ed44eba`, still a **draft**. Exact-head [CI run 37852681139](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37852681139) SUCCESS. Protected `main` remains `35555ce031d68c26a3d53f8981e0443ad39b811d`. Published `atlas-v0.1.0` and original 18 master assets remain unchanged.
+
+**Current RC2:** `manuscript/latex/atlas-v0.1.1-rc.2.tex` SHA-256 `f64081df79f1a21bca0cb91e00055b1621873aa9419bd92d7eccde0e2e1d425b`. Ledger-synchronized 80/80 chapters, 2,971 original labels, and 18 figures. Recomposition exact-check, structural validation and preserved public-release hashes passed. Three-pass pdfLaTeX compiled; standalone corrected HTML embedded all 18 PNGs and source-specific 18/18 alt descriptions, verified by bytes. Five hostile semantic-alt tests passed.
+
+**Admitted bounded work:** twelve first-source mathematical correction PRs #346–#355, #357–#358; later #360 SYNTHESIS, #361 DATA/TOKEN, #365 MECHDIAG/UNCERTAINTY; edition replay #367. Each was a role-separated critical review, exact-head CI, and mutable-workbench admission only. #366 fixes a source→HTML alt-loss problem; historical HTML tool intentionally unchanged. #364 replaced collision-prone MANIFOLD and PSPECTRUM annotations with versioned Wolfram evaluator derivatives. #368 repairs OPTBASE pathological historical 1160×6759 white-canvas issue with a versioned **700×990** Wolfram evaluator native figure. OPTBASE PNG SHA-256 `b704c720fe3ac90148c310ce6d188264c2d0eb968df6e3324fdadc8327d72179`. Native inspection and full printed PDF page **443** (physical 513) confirmed three complete panels without float overflow; annotations still have residual P2 small-type risk. Original Wolfram master and first Matplotlib editorial derivative remain separately and truthfully attributed.
+
+**Worker queue:** figure tasks [#362](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/362), [#363](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/363) and [#324](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/324) now have source-backed RESULT/1 returns and Project #2 `GCL State=RETURNED`. OPTBASE return comment `6070175415`; GitHub projector [run 37852731236](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37852731236) SUCCESS after transient return-to-queue lag. [#325](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/325) has a partial semantic-alt return; comprehensive accessibility remains open.
+
+**Next bounded actions:** finish actual print-scale typography for TRANSFER and other P2 labels, review the semantic accuracy and navigability of figure descriptions, continue the 80-chapter worker editorial passes, and migrate Part I overlay back to canonical chapter sources when mathematically/adjudicatively safe. No final chapter signoffs at this checkpoint (0/80). Do not conflate agent review with extra GitHub identities, and do not promote the RC2 corrected manuscript to a public edition without the prescribed substantive acceptance and governance processes.
+
+---
+
 ## AUTHORITATIVE CURRENT CHECKPOINT — 2026-10-08 (supersedes earlier heads below)
 
 - Controller state: `rc2-recomposed-figure-visual-triaged-repairs-queued`. Read `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller` first; this is recovery authority.
