@@ -172,7 +172,7 @@ Without \(\Pi\), “regret” is incomplete.
 
 ## 7. Static regret asks one question
 
-A static comparator uses one fixed route for every round.
+A static comparator uses one fixed route for every round, restricted here to routes in \(\bigcap_{t=1}^T F_t\). If the intersection is empty, a feasible static comparator does not exist and a different comparator or an expressly labeled counterfactual benchmark is needed.
 
 It asks:
 
@@ -189,16 +189,17 @@ Suppose which expert is best changes over time.
 Let:
 
 \[
-\Pi_S
+\Pi_S(F_{1:T})
 =
 \left\{
  u_{1:T}:
+ u_t\in F_t\ \text{for every }t,\quad
  \sum_{t=2}^T\mathbf 1[u_t\neq u_{t-1}]
  \le S
 \right\}.
 \]
 
-Now the comparator may switch at most \(S\) times.
+Now the comparator may switch at most \(S\) times **while respecting the same declared feasible accepted-dispatch sets**. This version assumes the comparator class is nonempty; otherwise the minimum in the regret definition is not defined without an additional convention. A comparator allowed to use capacity-infeasible actions is a different, explicitly counterfactual benchmark.
 
 Herbster and Warmuth study tracking a best expert that can change over segments [@HerbsterWarmuth1998Tracking].
 
