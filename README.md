@@ -1,6 +1,6 @@
 # A Mathematical Atlas of Adaptive Intelligence
 
-**Status:** governed public release `v0.1.0`
+**Status:** public `v0.1.0` initial-draft release; comprehensive editorial review in progress (issue #314)
 **Repository:** `grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS`
 **Bootstrap record:** https://github.com/grandchallenge/.github/issues/99
 
