@@ -24,7 +24,7 @@ print("MECHDIAG witness: PASS")
 
 ## Independent redundancy control
 
-For the separate binary-domain map (G(h_1,h_2)=\max(h_1,h_2)\), a baseline state ((1,1)\) has output 1; masking either coordinate individually retains output 1, while masking both gives 0. This proves that null single-coordinate interventions need not rule out a jointly relevant component set. It does not claim that every null ablation is due to redundancy.
+For the separate binary-domain map \(G(h_1,h_2)=\max(h_1,h_2)\), a baseline state \((1,1)\) has output 1; masking either coordinate individually retains output 1, while masking both gives 0. This proves that null single-coordinate interventions need not rule out a jointly relevant component set. It does not claim that every null ablation is due to redundancy.
 
 ## Claim boundary
 
