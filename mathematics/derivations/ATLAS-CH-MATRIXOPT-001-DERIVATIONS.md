@@ -124,19 +124,19 @@ The wide case is symmetric.
 
 ## 6. Polar factor
 
-Given
+Let \(r=\operatorname{rank}(G)\), and use a compact SVD with only positive singular values:
 
 \[
-G=U\Sigma V^\top,
+G=U_r\Sigma_rV_r^\top.
 \]
 
-define
+Define the support-restricted polar factor
 
 \[
-Q=UV^\top.
+Q=U_rV_r^\top,
 \]
 
-For full column rank and \(m\ge n\),
+with \(Q=0\) if \(G=0\). In the full-column-rank case \(m\ge n=r\), write \(U=U_r,\Sigma=\Sigma_r,V=V_r\). Then
 
 \[
 G^\top G=V\Sigma^2V^\top,
@@ -160,29 +160,29 @@ Moreover,
 Q^\top Q=I_n.
 \]
 
-For a tall matrix,
+For a full-column-rank tall matrix,
 
 \[
 QQ^\top=UU^\top,
 \]
 
-the projector onto the column space of \(G\), not \(I_m\).
+the projector onto the column space of \(G\), not \(I_m\). For rank-deficient \(G\), the support-restricted factor instead satisfies \(Q^\top Q=V_rV_r^\top\) and \(QQ^\top=U_rU_r^\top\).
 
 ## 7. Polar flattening
 
 Because
 
 \[
-Q=UI_rV^\top,
+Q=U_rI_rV_r^\top,
 \]
 
-all nonzero singular values of \(Q\) equal \(1\).
+all nonzero singular values of \(Q\) equal \(1\), while null directions remain zero. For \(G=\operatorname{diag}(1,0)\), its compact polar factor is \(\operatorname{diag}(1,0)\), not \(I_2\).
 
 The map removes the magnitude information in \(\Sigma\) while retaining its singular subspaces.
 
 ## 8. One-step inverse-root support identity
 
-On the nonzero singular support,
+On the nonzero singular support, write \(U=U_r,V=V_r,\Sigma=\Sigma_r\), and interpret inverse powers as support-restricted matrix powers:
 
 \[
 (GG^\top)^{-1/4}
@@ -214,7 +214,7 @@ With damping, the transform is defined on the full space but does not give exact
 
 ## 9. Frobenius-ball steepest direction
 
-Solve
+Assume \(G\ne0\) and \(\rho>0\). Solve
 
 \[
 \min_{\|\Delta\|_F\le\rho}
@@ -241,7 +241,7 @@ Equality is attained by
 
 ## 10. Spectral-ball steepest direction
 
-Solve
+Continue under \(G\ne0\) and \(\rho>0\). Solve
 
 \[
 \min_{\|\Delta\|_2\le\rho}
@@ -281,6 +281,8 @@ Therefore
 \]
 
 is a spectral-ball steepest direction.
+
+For \(G=0\), every point in either norm ball minimizes the zero linear functional; \(\Delta=0\) is one valid choice. The Frobenius formula above must not divide by \(\|G\|_F=0\).
 
 The Frobenius- and spectral-ball decreases are not directly comparable optimizer scores because the feasible sets differ.
 
