@@ -178,7 +178,7 @@ Q=U_rI_rV_r^\top,
 
 all nonzero singular values of \(Q\) equal \(1\), while null directions remain zero. For \(G=\operatorname{diag}(1,0)\), its compact polar factor is \(\operatorname{diag}(1,0)\), not \(I_2\).
 
-The map removes the magnitude information in \(\Sigma\) while retaining its singular subspaces.
+The map removes magnitude information on the nonzero singular support encoded by \(\Sigma_r\), while retaining the corresponding singular subspaces.
 
 ## 8. One-step inverse-root support identity
 
