@@ -30,25 +30,19 @@ N=
 N^2=0.
 \]
 
-For integer \(n\ge1\),
+For each integer \(n\ge 2\), the nilpotent binomial expansion truncates because every term with \(N^j\), \(j\ge2\), vanishes:
 
 \[
 A^n
 =
-(aI+KN)^n.
-\]
-
-Because every term with \(N^j\), \(j\ge2\), vanishes,
-
-\[
-A^n
+(aI+KN)^n
 =
 a^nI
 +
 n a^{n-1}KN.
 \]
 
-Hence
+For these \(n\), therefore
 
 \[
 \boxed{
@@ -60,6 +54,8 @@ a^n&nKa^{n-1}\\
 \end{pmatrix}.
 }
 \]
+
+The low powers are \(A^0=I\) and \(A^1=A\). Treating them separately avoids the \(a^0\) convention at \(a=0\).
 
 The only eigenvalue is \(a\), with algebraic multiplicity two, so
 
@@ -120,7 +116,7 @@ Therefore
 }
 \]
 
-For \(A^n\),
+For \(B=A^n\) with \(n\ge 2\),
 
 \[
 p=a^n,
