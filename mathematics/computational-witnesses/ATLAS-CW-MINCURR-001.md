@@ -33,11 +33,13 @@ e_1=(q_1,1),
 e_2=(q_2,1).
 \]
 
-For any teaching set \(T\), the version space is:
+For any finite set \(T\) of labeled experiences, restrict to \(T_Q=\{(q,y)\in T:q\in Q\}\). The **target-relative** version space is:
 
 \[
-V_H(T)=\{h\in H:h\text{ is consistent with }T\}.
+V_H(T)=\{h\in H:\forall(q,y)\in T_Q,\ h(q)=y\}.
 \]
+
+This explicitly matches the replay code below, which skips auxiliary probes outside \(Q\); it is not an assertion that such experiences are globally uninformative.
 
 ## W3. Exact basis
 
