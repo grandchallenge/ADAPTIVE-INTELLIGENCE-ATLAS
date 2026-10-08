@@ -251,13 +251,15 @@ Suppose
 \delta=\mathbf 1^\top e.
 \]
 
-The normalized rows are
+The normalized rows (assuming \(\widehat z>0\)) are
 
 \[
 a=\frac g z,
 \qquad
 \widehat a=\frac{g+e}{\widehat z}.
 \]
+
+This algebra does not by itself require every entry of \(\widehat g=g+e\) to be nonnegative. If any approximate entry is negative, \(\widehat a\) still sums to one but is not a probability row; interpreting it as an attention distribution requires separate entrywise nonnegativity. Positive random-feature constructions supply that nonnegativity by design.
 
 Direct subtraction gives
 
