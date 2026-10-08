@@ -398,12 +398,17 @@ Therefore:
 If route switching itself is costly, define:
 
 \[
+\widetilde\ell_1=\ell_1(a_1),
+\qquad
 \widetilde\ell_t
 =
 \ell_t(a_t)
 +
-\lambda\mathbf 1[a_t\neq a_{t-1}].
+\lambda\mathbf 1[a_t\neq a_{t-1}]
+\quad(t=2,\ldots,T).
 \]
+
+The initial round has no switching penalty unless a pre-horizon action \(a_0\) is separately declared. Thus exactly the \(T-1\) transitions within the horizon enter the switching charge.
 
 Then churn enters the objective explicitly.
 
