@@ -126,24 +126,24 @@ Damping, accumulated history, pseudoinverse conventions, or support-restricted i
 
 ## 6. The polar factor
 
-Let
+Let \(r=\operatorname{rank}(G)\), and take a compact SVD retaining only the \(r\) strictly positive singular values:
 
 \[
-G=U\Sigma V^\top
+G=U_r\Sigma_rV_r^\top.
 \]
 
-be a reduced SVD.
-
-The polar or orthogonalized factor is
+The support-restricted polar factor is
 
 \[
-Q=UV^\top.
+Q=U_rV_r^\top.
 \]
+
+For \(G=0\), set \(Q=0\). For full-column-rank tall \(G\), this agrees with the usual \(UV^\top\).
 
 For a tall full-column-rank matrix,
 
 \[
-Q^\top Q=I.
+Q^\top Q=I_n.
 \]
 
 But generally
@@ -152,7 +152,7 @@ But generally
 QQ^\top\ne I.
 \]
 
-The columns are orthonormal; the rows cannot all be orthonormal because there are more rows than columns.
+In the full-column-rank case, the columns are orthonormal; the rows cannot all be orthonormal because there are more rows than columns. If \(G\) has rank \(r<n\), instead \(Q^\top Q=V_rV_r^\top\), a rank-\(r\) projector.
 
 For a wide full-row-rank matrix, the roles reverse.
 
@@ -162,23 +162,17 @@ Higham's classical treatment supplies the numerical-analysis setting for polar d
 
 ## 7. Polar orthogonalization is singular-value flattening
 
-The SVD is
+Using the compact rank-\(r\) SVD, the polar factor is
 
 \[
-G=U\Sigma V^\top.
-\]
-
-The polar factor is
-
-\[
-Q=UIV^\top.
+Q=U_rI_rV_r^\top.
 \]
 
 Every nonzero singular value is replaced by \(1\).
 
-The singular vectors remain.
+The nonzero singular subspaces remain; zero singular directions remain zero. For example, \(G=\operatorname{diag}(1,0)\) has compact polar factor \(Q=\operatorname{diag}(1,0)\), not \(I_2\).
 
-That is exact singular-value flattening.
+That is exact singular-value flattening on the nonzero support.
 
 It is a strong and specific spectral transformation.
 
@@ -194,7 +188,7 @@ f(W+\Delta)
 f(W)+\langle G,\Delta\rangle_F.
 \]
 
-If equally large moves are defined by
+For \(G\ne0\) and \(\rho>0\), if equally large moves are defined by
 
 \[
 \|\Delta\|_F\le\rho,
@@ -222,7 +216,9 @@ then one steepest direction is
 -\rho UV^\top.
 \]
 
-The polar factor therefore appears naturally as a spectral-norm steepest direction. Bernstein and Newhouse develop this norm-dependent optimizer viewpoint [@BernsteinNewhouse2024OldOptimizer].
+If \(G=0\), the linearized objective is constant on both norm balls; every feasible displacement minimizes it, and choosing \(\Delta=0\) is valid. In particular, do not divide by \(\|G\|_F=0\).
+
+The polar factor therefore appears naturally as a spectral-norm steepest direction for nonzero \(G\). Bernstein and Newhouse develop this norm-dependent optimizer viewpoint [@BernsteinNewhouse2024OldOptimizer].
 
 The two directions do not contradict one another. They minimize the same linear functional over different feasible sets.
 
