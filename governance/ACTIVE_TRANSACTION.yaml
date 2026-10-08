@@ -10,12 +10,14 @@ current:
   baseline_commit: "f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04"
   branch: "editorial/part01-corrections-20261008"
   pull_request: 320
-  state: "correction-candidate-draft"
-  next_action: "Draft corrected LaTeX candidate PR #320 at exact head 6ac0a9613d029db0d3ec894ff66fbff9a44f2565: local invariance, Atlas structural validation and three-pass PDF compile passed; exact-head CI validate green run 37752208620. Part I is NOT editor-approved. Independent review #322 must check flow and evidence math, HTML/PDF, and editorial acceptability; global numbering defect issue #321 remains P1. Follow independent findings with changed-head replay, separate editorial audit and protected admission only when all gates are met. Parent #314 remains open 0/80; do not mutate public v0.1.0."
+  state: "agent-executable-editorial-production"
+  next_action: "Candidate PR #320 at exact head 33cde8140c3b7ebf5f339ee5fb2ec36329eb0db5 has green Actions 37755063314 and local three-pass PDF/HTML production. Mechanical 2467-heading normalization prepared (#321) and full 18-figure provenance/dimension ledger created. Current real work: agent-executable corrections and reviews in parallel (#322 Part I math/HTML, #323 18-figure review, #324 OPTBASE 1160x6759 regeneration, #325 accessibility), plus outstanding copyedit and rendered acceptance. External human review is NOT the immediate production blocker; preserve distinct-author checks only where actual protected admission requires them. No final editorial signoffs 0/80; public atlas-v0.1.0 immutable. Re-read live PR head and CI before next source edit; changed head invalidates earlier validation and findings."
 frontier:
   - "corpus-wide editorial scan"
   - "80-chapter coverage ledger"
   - "substantive editorial findings"
+  - "figure/plot and accessibility reconciliation across all 18 assets"
+  - "agent-first chapter editorial work across 80 chapters"
   - "future corrected edition acceptance criteria"
 stop_conditions:
   - "genuine-external-blocker"
