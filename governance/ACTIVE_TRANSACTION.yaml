@@ -4,15 +4,19 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: null
-  tranche_id: null
+  issue_number: 314
+  tranche_id: "EDITORIAL-REVIEW-001"
   chapter_ids: []
   baseline_commit: "e096897e2e30459bfd5a3af660fd3e9dee53a1c9"
-  branch: null
+  branch: "editorial/review-314"
   pull_request: null
-  state: "complete"
-  next_action: "No pending action for Atlas v0.1.0. The governed public release is published and round-trip verified at https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/releases/tag/atlas-v0.1.0. Future manuscript changes require a new bounded transaction and a new release identity."
-frontier: []
+  state: "instantiated"
+  next_action: "Review exact public v0.1.0 as published but not comprehensive-editorially-reviewed; perform reproducible corpus-wide and representative human-grade editorial assessment. Record findings and coverage without assuming mechanical checks certify prose. Submit a durable reviewed ledger/roadmap, validate and audit it, then advance into bounded chapter review passes. Preserve public release bytes and source tag unchanged; corrections require a new release identity and editorial acceptance."
+frontier:
+  - "corpus-wide editorial scan"
+  - "80-chapter coverage ledger"
+  - "substantive editorial findings"
+  - "future corrected edition acceptance criteria"
 stop_conditions:
   - "genuine-external-blocker"
   - "failed-validation-requiring-human-judgment"
