@@ -1,0 +1,248 @@
+schema_version: 1.0.0
+campaign: EDITORIAL-REVIEW-001
+parent_issue: 314
+immutable_public_commit: 1d4c2532533ff98afb998f86e0443d3fa1d8682e
+corrected_candidate_pr: 320
+work_packages_published: 20
+review_scope_chapters: 76
+part_i_issue: 318
+publication_authorized: false
+note: GitHub issue availability is NOT an authenticated worker claim, result, review
+  signoff or certification. Agents must pin the live exact candidate head on claim.
+work_packages:
+- assignment_id: ATLAS-EDITORIAL-P02-A
+  issue_number: 326
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/326
+  part: ATLAS-PART-MATH
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-LINALG-001
+  - ATLAS-CH-NONNORMAL-001
+  - ATLAS-CH-KRYLOV-001
+  - ATLAS-CH-INFO-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P02-B
+  issue_number: 327
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/327
+  part: ATLAS-PART-MATH
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-GEOM-001
+  - ATLAS-CH-DYN-001
+  - ATLAS-CH-NUMERICS-001
+  - ATLAS-CH-LOCALGLOBAL-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P03
+  issue_number: 328
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328
+  part: ATLAS-PART-REP
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-REP-001
+  - ATLAS-CH-NORMREP-001
+  - ATLAS-CH-QUOTIENT-001
+  - ATLAS-CH-RESIDUAL-001
+  - ATLAS-CH-TRANSFER-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P04
+  issue_number: 329
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329
+  part: ATLAS-PART-ARCH
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-ARCHHIST-001
+  - ATLAS-CH-TRANSFORMER-001
+  - ATLAS-CH-DEPTH-001
+  - ATLAS-CH-SPLIT-001
+  - ATLAS-CH-TRANSPORT-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P05
+  issue_number: 330
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330
+  part: ATLAS-PART-ATTN
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-ATTNOP-001
+  - ATLAS-CH-ATTNAPPROX-001
+  - ATLAS-CH-POSGEOM-001
+  - ATLAS-CH-RPO-001
+  - ATLAS-CH-LATENTTIME-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P06-A
+  issue_number: 331
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/331
+  part: ATLAS-PART-OPT
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-OPTBASE-001
+  - ATLAS-CH-SECOND-001
+  - ATLAS-CH-MATRIXOPT-001
+  - ATLAS-CH-MANOPT-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P06-B
+  issue_number: 332
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/332
+  part: ATLAS-PART-OPT
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-SPECTRALSHAPE-001
+  - ATLAS-CH-OPTDYN-001
+  - ATLAS-CH-CPS-001
+  - ATLAS-CH-VARIOPT-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P07-A
+  issue_number: 333
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/333
+  part: ATLAS-PART-NUMINT
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-NETNUM-001
+  - ATLAS-CH-ADAPTDEPTH-001
+  - ATLAS-CH-NEURALKRYLOV-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P07-B
+  issue_number: 334
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/334
+  part: ATLAS-PART-NUMINT
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-BOUNDARYPROBE-001
+  - ATLAS-CH-BCONTRACT-001
+  - ATLAS-CH-COMPOSE-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P08
+  issue_number: 335
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335
+  part: ATLAS-PART-SPARSE
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-SPARSE-001
+  - ATLAS-CH-MOE-001
+  - ATLAS-CH-ROUTERDYN-001
+  - ATLAS-CH-REGRETROUTE-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P09
+  issue_number: 336
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336
+  part: ATLAS-PART-MEM
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-MEMTAX-001
+  - ATLAS-CH-RETRIEVAL-001
+  - ATLAS-CH-CONTINUAL-001
+  - ATLAS-CH-EXTMEM-001
+  - ATLAS-CH-CONTEXTCOMP-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P10-A
+  issue_number: 337
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/337
+  part: ATLAS-PART-DATA
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-TOKEN-001
+  - ATLAS-CH-TOKENCOMP-001
+  - ATLAS-CH-DATA-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P10-B
+  issue_number: 338
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/338
+  part: ATLAS-PART-DATA
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-CURRICULUM-001
+  - ATLAS-CH-PROGRESSSEARCH-001
+  - ATLAS-CH-MINCURR-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P11
+  issue_number: 339
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339
+  part: ATLAS-PART-DECISION
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-RLBASE-001
+  - ATLAS-CH-EXPLORE-001
+  - ATLAS-CH-REGRET-001
+  - ATLAS-CH-OPTIONALITY-001
+  - ATLAS-CH-JOINTUNC-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P12-A
+  issue_number: 340
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/340
+  part: ATLAS-PART-DIAG
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-UNCERTAINTY-001
+  - ATLAS-CH-SHIFT-001
+  - ATLAS-CH-MECHDIAG-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P12-B
+  issue_number: 341
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/341
+  part: ATLAS-PART-DIAG
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-SPECTRALDIAG-001
+  - ATLAS-CH-COMPRESS-001
+  - ATLAS-CH-COMPINTEL-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P13-A
+  issue_number: 342
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/342
+  part: ATLAS-PART-POLITY
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-AGENTS-001
+  - ATLAS-CH-COORD-001
+  - ATLAS-CH-EVIDEX-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P13-B
+  issue_number: 343
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/343
+  part: ATLAS-PART-POLITY
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-POLITY-001
+  - ATLAS-CH-HARDWARE-001
+  - ATLAS-CH-SYSTEMS-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P14-A
+  issue_number: 344
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344
+  part: ATLAS-PART-GOV
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-EXPERIMENT-001
+  - ATLAS-CH-REPLAY-001
+  - ATLAS-CH-FORMAL-001
+  - ATLAS-CH-RESEARCHSM-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true
+- assignment_id: ATLAS-EDITORIAL-P14-B
+  issue_number: 345
+  issue_url: https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/345
+  part: ATLAS-PART-GOV
+  status: PUBLISHED_UNCLAIMED
+  chapter_ids:
+  - ATLAS-CH-GOVADAPT-001
+  - ATLAS-CH-FRONTIER-001
+  - ATLAS-CH-SYNTHESIS-001
+  return_protocol: RESULT/1
+  authenticated_independent_agent_required_for_final_acceptance: true

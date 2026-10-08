@@ -5,7 +5,7 @@
 **Prepared against protected main:** `f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04`.  
 **Candidate:** `manuscript/latex/atlas-v0.1.1-rc.1.tex`; this is **not** an approved public-release candidate.  
 **Original source SHA-256:** `0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`.  
-**Candidate SHA-256:** `202ad6d9db0baf412b68eef612d380b3f045f50c290682cea05134bb51680082`.
+**Candidate SHA-256:** `9818f897e2cba7482a1853467e30d9cb14890d68923e83d9368a6d57f766372a`.
 
 **Disposition: NO EDITORIAL SIGNOFF. INDEPENDENT TECHNICAL CHECK PENDING. RENDERED PDF/HTML REVIEW PENDING. Repairs and agent review proceed concurrently.**
 
@@ -45,3 +45,7 @@ No modifications to released `atlas-v0.1.0` or its PDF/HTML assets are authorize
 ## OPTBASE derivative (continuation)
 
 The corrected-edition candidate uses a declared Matplotlib derivative for one figure path, leaving the original Wolfram master and public v0.1.0 untouched. See OPTBASE_FIGURE_REPAIR_001.md and the candidate derivative manifest. The 76 downstream chapters otherwise retain text and formulas except normalized heading prefixes.
+
+## Part II mathematical scope note
+
+The candidate now also contains the narrowly scoped NONNORMAL exponent-domain correction documented in PART02_MATH_REVIEW_001.md and checked by tools/check_editorial_part01.py. No other downstream prose or equations are changed beyond heading normalization and OPTBASE image substitution.

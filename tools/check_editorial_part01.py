@@ -30,7 +30,19 @@ assert a.count(legacy_path)==1
 assert b.count(candidate_path)==1
 assert legacy_path not in b
 expected_tail=normalized_tail.replace(legacy_path,candidate_path)
-assert expected_tail == b[bb[4]:], "chapters 5-80 changed beyond heading ordinals and one OPTBASE image reference"
+assert expected_tail.count("The binomial expansion truncates:")==1
+expected_tail=expected_tail.replace("The binomial expansion truncates:\n",
+    "For every integer \\(n\\ge 2\\), the nilpotent binomial expansion truncates:\n",1)
+assert expected_tail.count("Therefore\n\n\\[\n\\boxed{") >= 1
+expected_tail=expected_tail.replace("Therefore\n\n\\[\n\\boxed{",
+    "For these \\(n\\), therefore\n\n\\[\n\\boxed{",1)
+assert expected_tail.count("The eigenvalue is always ")==1
+expected_tail=expected_tail.replace("The eigenvalue is always ",
+    "The low powers are \\(A^0=I\\) and \\(A^1=A\\). Treating them separately avoids the \\(a^0\\) convention at \\(a=0\\).\n\nThe eigenvalue is always ",1)
+assert expected_tail.count("For \\(A^n\\),\n\n\\[\np=a^n,")==1
+expected_tail=expected_tail.replace("For \\(A^n\\),\n\n\\[\np=a^n,",
+    "For \\(B=A^n\\) with \\(n\\ge 2\\),\n\n\\[\np=a^n,",1)
+assert expected_tail == b[bb[4]:], "chapters 5-80 changed beyond heading ordinals, declared OPTBASE image, and NONNORMAL exponent-domain clarification"
 import struct, yaml, subprocess
 asset=ROOT/candidate_path
 assert asset.exists()
@@ -72,5 +84,5 @@ receipt = (ROOT / "governance/editorial/v0.1.0/PART01_CORRECTION_CANDIDATE.md").
 for phrase in ("NO EDITORIAL SIGNOFF", "INDEPENDENT TECHNICAL CHECK PENDING",
                "RENDERED PDF/HTML REVIEW PENDING", "atlas-v0.1.0"):
     assert phrase in receipt
-print("PASS: public source SHA-256; 80 chapters; original labels; 76 downstream chapters differ only by normalized headings and one declared OPTBASE derivative reference; exact derivation and image hash")
+print("PASS: public source SHA-256; 80 chapters; original labels; 76 downstream chapters differ only by normalized headings and one OPTBASE derivative and a scoped NONNORMAL exponent-domain clarification; exact figure inputs and hash")
 print("CANDIDATE_SHA256:", hashlib.sha256(new.read_bytes()).hexdigest())

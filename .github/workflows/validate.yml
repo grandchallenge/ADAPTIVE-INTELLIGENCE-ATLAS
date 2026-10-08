@@ -25,6 +25,7 @@ jobs:
             python tools/check_editorial_part01.py
           fi
       - run: python tools/editorial_figure_inventory.py --check
+      - run: python tools/check_editorial_chapter_queue.py
       - run: python tools/check_release_readiness.py
       - run: python tools/check_release_candidate.py
       - run: python tools/check_public_release.py

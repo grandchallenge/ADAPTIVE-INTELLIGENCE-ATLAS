@@ -175,7 +175,7 @@ N=
 N^2=0.
 \]
 
-The binomial expansion truncates:
+For each integer \(n\ge 2\), the nilpotent binomial expansion truncates:
 
 \[
 A^n
@@ -185,7 +185,7 @@ a^nI
 n a^{n-1}KN.
 \]
 
-Therefore
+For these \(n\), therefore
 
 \[
 \boxed{
@@ -197,6 +197,8 @@ a^n&nKa^{n-1}\\
 \end{pmatrix}.
 }
 \]
+
+The low powers are \(A^0=I\) and \(A^1=A\). Treating them separately avoids the \(a^0\) convention at \(a=0\).
 
 The eigenvalue is always \(a\), with algebraic multiplicity two, so
 
@@ -267,7 +269,7 @@ The spectral norm is therefore
 }
 \]
 
-For \(A^n\),
+For \(B=A^n\) with \(n\ge 2\),
 
 \[
 p=a^n,
