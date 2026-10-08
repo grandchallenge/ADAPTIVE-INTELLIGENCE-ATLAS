@@ -462,13 +462,13 @@ Which one matters depends on the problem.
 
 ## 12. SLERP
 
-For unit vectors \(a,b\), with
+Let \(a,b\) be unit vectors with angle
 
 \[
-\theta=\arccos(a^\top b),
+\theta=\arccos(a^\top b).
 \]
 
-when \(0<\theta<\pi\), spherical linear interpolation is
+For \(0<\theta<\pi\), spherical linear interpolation is
 
 \[
 \operatorname{SLERP}(a,b;t)
@@ -679,8 +679,6 @@ Then
 \]
 
 and the shortest interpolation path is not unique. On \(S^1\) there are two shortest semicircular arcs; on \(S^{d-1}\) for \(d\ge3\) there are infinitely many great-circle semicircles joining the endpoints.
-
-The interpolation path is not uniquely determined by the endpoints alone.
 
 This is another reminder that normalization simplifies one degree of freedom without making all geometry trivial.
 
