@@ -148,6 +148,8 @@ a=\frac{k}{z},
 \widehat a=\frac{k+e}{\widehat z}.
 \]
 
+The bound uses a positive denominator only. Entrywise nonnegativity of \(\widehat k\) is an additional requirement before interpreting \(\widehat a\) as a probability row; otherwise its entries can have mixed signs despite summing to one.
+
 Then
 
 \[
