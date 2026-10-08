@@ -3,7 +3,7 @@
   "witness_id": "ATLAS-CW-REPLAY-DETERMINISTIC-001",
   "chapter_id": "ATLAS-CH-REPLAY-001",
   "script_path": "mathematics/computational-witnesses/replay_examples/deterministic_fraction_sum.py",
-  "script_sha256": "e6e841bfe975f283ab948c4f7f9bbbf5ba488d267fda36edc1b270d5dcd062c1",
+  "script_sha256": "bfbe36fbd5535fc0f95e9c9d9bde2daeebd383e0715d94c62e8d3c5596c4844f",
   "expected_output_path": "mathematics/computational-witnesses/replay_examples/deterministic_fraction_sum.expected",
   "expected_output_sha256": "3117b181de4d46b7ff8adb4c78adec272c019160d4adf27a901e90ec114e1845",
   "invocation": [
@@ -14,7 +14,8 @@
     "language": "Python",
     "minimum_version": "3.11",
     "dependencies": "stdlib-only",
-    "arithmetic": "fractions.Fraction exact rational arithmetic"
+    "arithmetic": "fractions.Fraction exact rational arithmetic",
+    "stdout_encoding": "explicit ASCII bytes, LF newline (not platform text-mode newline translation)"
   },
   "expected_stdout": "1/1\n",
   "claim_boundary": "Replays a deterministic exact-arithmetic toy computation only; it does not establish a broader mathematical or institutional claim."
