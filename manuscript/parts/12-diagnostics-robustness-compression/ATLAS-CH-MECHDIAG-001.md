@@ -181,7 +181,7 @@ Changing a hidden activation during one forward pass and editing a model's store
 
 An activation patch compares a behavior under a controlled internal-state substitution. A parameter edit changes the function used by subsequent inputs and can have effects outside the test case. Success on one example does not establish preservation of unrelated behavior, and it does not make the edited parameter location a uniquely identified causal component.
 
-The external interpretability literature recorded in the source lock motivates mechanistic probing, intervention and editing questions [@ElazarEtAl2021Amnesic; @MengEtAl2022FactualAssociations; @WangEtAl2023Interpretability]. This chapter uses those sources as context, not as an authority for a general causal theorem. Its exact proof obligation is confined to the finite constructions above.
+The external interpretability literature recorded in the source lock motivates mechanistic probing, intervention and editing questions. The bibliography keys in that source-lock file are retained as documentary identifiers, not inserted as citations until the manuscript bibliography defines them. This chapter uses those sources as context, not as an authority for a general causal theorem. Its exact proof obligation is confined to the finite constructions above.
 
 ## 9. Reading an intervention report
 
@@ -222,9 +222,11 @@ The durable rule is:
 
 ## References used in this chapter
 
-- [@ElazarEtAl2021Amnesic]
-- [@MengEtAl2022FactualAssociations]
-- [@WangEtAl2023Interpretability]
+- Elazar et al. (2021), identifier `ElazarEtAl2021Amnesic`.
+- Meng et al. (2022), identifier `MengEtAl2022FactualAssociations`.
+- Wang et al. (2023), identifier `WangEtAl2023Interpretability`.
+
+These source-lock identifiers still need bibliographic reconciliation before chapter-level citation signoff.
 
 Exact source identities, prerequisite locks and finite claim boundaries are recorded in:
 
