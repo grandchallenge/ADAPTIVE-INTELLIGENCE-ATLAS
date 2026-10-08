@@ -49,7 +49,7 @@ normalizing or weakening the replay check.
 
 Program SHA-256:
 
-\`bfbe36fbd5535fc0f95e9c9d9bde2daeebd383e0715d94c62e8d3c5596c4844f\`
+\`f21d6b4e38da3600e584f5dbcff0406a3f51af08b0f6d1b654fa3fff54352257\`
 
 Expected-output SHA-256:
 
