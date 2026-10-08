@@ -549,12 +549,17 @@ Suppose switching has penalty \(\lambda\).
 Use:
 
 \[
+\widetilde\ell_1=\ell_1(a_1),
+\qquad
 \widetilde\ell_t
 =
 \ell_t(a_t)
 +
-\lambda\mathbf1[a_t\neq a_{t-1}].
+\lambda\mathbf1[a_t\neq a_{t-1}]
+\quad(t=2,\ldots,T).
 \]
+
+This convention charges only switches **between** the \(T\) executed actions; there is no undeclared \(a_0\) or first-round switching penalty. A deployment that charges initialization or migration from a pre-existing route must declare that initial route and charge separately.
 
 Now churn enters the decision objective directly.
 
