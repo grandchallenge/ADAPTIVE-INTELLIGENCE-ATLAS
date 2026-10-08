@@ -1,5 +1,19 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## WORKER QUEUE RECONCILIATION — 2026-10-08 (latest operations)
+
+**Operational discovery authority:** Organization Issue Field `GCL State` in [Project #2](https://github.com/orgs/grandchallenge/projects/2); projects/labels are operational projections and never grant certification. The current Atlas editorial coverage remains 80 source chapters; no final release acceptance has been promoted. Under [PR #320](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/320), the current bound head remains `b0b7d03705c3a1a312d4907f2f4359c89b2108e6`.
+
+**Real worker assignments:** 20 non-Part-I reviewer jobs #326–#345; 16 returned for synthesis/adjudication and **only four available**: [#338](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/338), [#339](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339), [#343](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/343), and [#344](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344). Two additional available technical jobs, [#321](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/321) and [#322](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/322), have had their issue-body controlling instructions refreshed to reflect already merged typesetting repairs and role-separated agent review (no separate GitHub login or Human Steward approval ceremony).
+
+**Issue-field truth repaired:** Atlas [#335](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335) and [#336](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336) now correctly show `RETURNED` in organization Issue Fields on direct reread, bound to previous substantive `RESULT/1` comments. Cross-programme CDA #2 now has its previously missing Issue Field metadata. Across all Project #2: **48 RETURNED, 12 AVAILABLE, one BLOCKED**.
+
+**Project board (partial mechanics):** Initially all 61 items had `Status=Todo`. Reconciliation moved first 40 of 49 stale Project statuses before GitHub GraphQL rate-limit exhaustion. The remaining nine are a recoverable API quota boundary, **not** a human governance stop, and must be reconciled with fresh state readback. Status `Done` signals returned worker assignment only; the 48 returns have not been mathematically or editorially accepted by that UI projection. [MATHSOLVE PR #1016](https://github.com/grandchallenge/MATHSOLVE/pull/1016) proposes permanent dry-run-first Project lifecycle reconciliation (7 offline tests PASS), governed by MATH-PROGRAMME owner policy. Normal protected Solve admission remains pending.
+
+**Next:** after GraphQL quota recovery, replay MATHSOLVE `ci/gcl_worker_queue_project_status.py --apply` with authorized org Project-write credentials and verify full Project Status readback. Then process 16 returned chapter reviews for concrete unresolved findings, integrate/review the existing #370/#371 candidate fixes when authorized, and launch bounded successors only for uncovered residuals. Do not duplicate already returned worker packages.
+
+---
+
 ## LATEST WORKBENCH CHECKPOINT — 2026-10-08 (TRANSFER after OPTBASE; supersedes all older heads below)
 
 - **Controller recovery source:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`, state `rc2-four-wolfram-derivatives-admitted-chapter-review-active`; read it before continuing.
