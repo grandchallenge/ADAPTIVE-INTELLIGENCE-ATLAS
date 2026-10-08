@@ -291,7 +291,7 @@ It is not yet a claim about a neural training run.
 
 The primary figure puts three views of the same toy system beside one another.
 
-![Phase trajectories, eigenvalues relative to the unit circle, and finite-horizon spectral norm gain for the exact momentum-state matrix.](../../figures/masters/ATLAS-FIG-OPTDYN-001.png)
+![Phase trajectories, eigenvalues relative to the unit circle, and finite-horizon spectral norm gain for the exact momentum-state matrix.](../../../figures/masters/ATLAS-FIG-OPTDYN-001.png)
 
 The left panel shows trajectories in the augmented \((\theta,v)\) state plane.
 
