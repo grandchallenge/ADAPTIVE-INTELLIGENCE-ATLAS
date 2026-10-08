@@ -213,7 +213,7 @@ then one steepest direction is
 \[
 \Delta_2^\star
 =
--\rho UV^\top.
+-\rho U_rV_r^\top.
 \]
 
 If \(G=0\), the linearized objective is constant on both norm balls; every feasible displacement minimizes it, and choosing \(\Delta=0\) is valid. In particular, do not divide by \(\|G\|_F=0\).
