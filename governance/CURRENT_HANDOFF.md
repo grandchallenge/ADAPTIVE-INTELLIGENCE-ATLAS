@@ -1,5 +1,20 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## AUTHORITATIVE CURRENT CHECKPOINT — 2026-10-08 (supersedes earlier heads below)
+
+- Controller state: `rc2-recomposed-figure-visual-triaged-repairs-queued`. Read `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller` first; this is recovery authority.
+- Protected main: `35555ce031d68c26a3d53f8981e0443ad39b811d` following operational PR #356, with tested live `RESULT/1` automatic status projection. Public `atlas-v0.1.0` remains immutable.
+- Mutable corrected-edition workbench: [PR #320](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/320), exact current head `dcbaf42bb6ab1ea928c20a7c1b03f845fc5c08cc`, draft. Twelve bounded source PRs #346–#355 and #357–#358 were independently checked **by agent role, not by separate accounts**, and merged into the editable branch.
+- Canonical draft `manuscript/latex/atlas-v0.1.1-rc.2.tex`: SHA-256 `fb638c98863eeeca1130d4a60b306a7536572c807ab01b8736ac99f39eea9414`, derived by `tools/build_editorial_candidate_rc2.py --check`. Matched 80 chapters, 2,971 anchors, 18 figure placements, no public release mutation. Three-pass diagnostic PDF built; corrected HTML built with 18 embedded figures and alt attributes, not yet semantically accessibility-accepted. Exact-head GitHub Actions [37789953167](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37789953167) SUCCESS.
+- A separate `VISUAL_CHECK` agent pass `ATLAS-FIGURES-RC2-VISUAL-002` visually triaged all 18 figure assets, six at native resolution. Audit `governance/editorial/v0.1.0/FIGURE_VISUAL_AUDIT_002.md` on PR #320, status PARTIAL. `RESULT/1` comment 6061720288 on #323 was projected to `RETURNED` by live run [37790251574](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37790251574).
+- Concrete new P1 findings: `ATLAS-FIG-MANIFOLD-001` has overlapping labels for exponential map/retraction; `ATLAS-FIG-PSPECTRUM-001` has stacked unreadable epsilon-contour labels. Zero-context constructive repair jobs [#362](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/362) and [#363](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/363) have been added to Project #2 with `GCL State=AVAILABLE` and `GCL Campaign=ATLAS-EDITORIAL-REVIEW-001`; publication/readback confirmed.
+- P1 historical original OPTBASE Wolfram master still needs governed native source replay or explicit editorial replacement decision (#324); the properly attributed Matplotlib derivative is provisionally legible. TRANSFER and other fine-label figures need full PDF print-scale review; figure semantic accessible descriptions remain for #325.
+- Parent #314 remains open. Final editorial chapter signoffs **0/80** at this checkpoint; this is not an independent human-login requirement. Do not promote a chapter or publish a new edition from CI alone.
+
+**Next bounded production action:** execute #362/#363 Wolfram-native figure label repairs or an openly declared derivative, update manifests/candidate figure paths, run figure audits and real PDF/HTML page-scale/alt checks on new exact head, and adjudicate remaining agent returns. Neither figure queue publication nor the partial #323 return is editorial acceptance.
+
+---
+
 Date: 2026-10-08.
 Recovery authority: state/atlas-controller / governance/ACTIVE_TRANSACTION.yaml (read first).
 Protected main: f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04.
