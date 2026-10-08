@@ -79,7 +79,7 @@ Define:
 \right\}.
 \]
 
-Because a length-four binary sequence can switch at most three times, \(\Pi_3\) contains every binary action sequence of length four.
+Because a length-four binary sequence can switch at most three times **and both accepted routes are feasible on all four rounds**, \(\Pi_3\) contains every binary action sequence of length four. This equivalence is specific to the witness. In the general capacity-constrained problem, the shifting comparator class must also impose \(u_t\in F_t\) for every \(t\), and be nonempty; otherwise the regret minimum is undefined or may benchmark an infeasible oracle. A feasible static benchmark analogously requires an action in \(\bigcap_t F_t\).
 
 ## D5. Shifting regret
 
