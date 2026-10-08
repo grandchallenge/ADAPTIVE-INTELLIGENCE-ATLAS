@@ -339,7 +339,7 @@ The two matrices have the same eigenvalue story and radically different finite-t
 
 ## 7. The primary figure
 
-![Matched-eigenvalue normal and non-normal matrices compared through transient 2-norm gain and pseudospectral contours.](../../figures/masters/ATLAS-FIG-PSPECTRUM-001.png)
+![Matched-eigenvalue normal and non-normal matrices compared through transient 2-norm gain and pseudospectral contours.](../../../figures/derivatives/ATLAS-FIG-PSPECTRUM-001-v0.1.1.png)
 
 The left panel compares
 

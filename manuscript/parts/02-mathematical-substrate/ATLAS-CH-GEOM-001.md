@@ -253,7 +253,7 @@ The figure shows:
 - the normalized-retraction endpoint;
 - the great-circle direction.
 
-![Unit sphere with the tangent plane at x, a tangent vector v, and separate exponential-map and normalized-retraction endpoints.](../../figures/masters/ATLAS-FIG-MANIFOLD-001.png)
+![Unit sphere with the tangent plane at x, a tangent vector v, and separate exponential-map and normalized-retraction endpoints.](../../../figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.1.png)
 
 The plate is partly schematic. Perspective, tangent-plane extent, and label placement are pedagogical. The plotted points themselves are generated from the stated equations.
 
