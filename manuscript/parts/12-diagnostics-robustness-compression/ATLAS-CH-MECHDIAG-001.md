@@ -1,4 +1,4 @@
-# Mechanistic Intervention: From Readability to Functional Evidence
+# From Readability to Functional Evidence
 <!-- ATLAS-CH-MECHDIAG-001 -->
 
 **Epistemic status:** audited Evidence and Transformer prerequisites + Atlas-owned finite counterexamples + source-scoped interpretation.  
@@ -17,7 +17,7 @@ They require different evidence. The chapter's central question is:
 
 A successful local test is still not, by itself, proof of a unique global explanation.
 
-## 1. First identify the objects
+## Exact finite separation
 
 Let an input \(x\) produce an internal representation \(h(x)\in\mathcal H\). A declared downstream map
 
@@ -39,7 +39,7 @@ F\text{ functionally depends on the probed coordinates}.
 
 The right-hand statement needs a specified dependence or intervention test. Neither question can be answered by an attractive visualization of an activation alone.
 
-## 2. A two-coordinate separation
+**Two-coordinate separation**
 
 Take the finite input domain
 
@@ -64,7 +64,7 @@ To see the distinction, compare the unmodified state with two zero-setting inter
 
 Thus the difference from the original output is nonzero when coordinate 1 is zeroed, but exactly zero when coordinate 2 is zeroed. The conclusion is exact **for this specified map, domain and intervention**. It does not assert that every high-performing probe of a trained model is functionally unused.
 
-## 3. A reference-state substitution control
+**Reference-state substitution control**
 
 Zero is one possible intervention value, not a neutral universal default. A complementary test replaces a coordinate with its value in a declared **clean/reference state**.
 
@@ -88,7 +88,7 @@ F(-x,x)=-x.
 
 This clean/reference substitution supports the same local separation as the zero-setting test. Crucially, the states \((x,-x)\) and \((-x,x)\) are not among the naturally observed states \(h(\{-1,+1\})\). The algebra is valid because this toy \(F\) is defined on both, but a real network's off-distribution patched activations may require additional controls. A restoration effect does not automatically make the patched state natural or identify a unique circuit.
 
-## 4. The diagnostic record
+## Diagnostic record
 
 A component-level assertion should be transported with its actual test, not reduced to “feature \(j\) matters.”
 
@@ -116,7 +116,7 @@ At either input \(x\in\{-1,+1\}\), setting \(h_1=0\) gives \(M_T(x)=1\); setting
 
 The notation does not create an empirical guarantee. It forces the investigator to declare what was actually varied and what counts as an effect.
 
-## 5. A null single-coordinate result is not absence
+## Redundancy boundary
 
 Functional tests have their own false-negative modes. Consider another finite map,
 
@@ -147,7 +147,7 @@ This is an exact redundancy counterexample. A one-coordinate ablation is null ev
 
 It does **not** prove that every null result hides redundancy. The correct next step is to test justified groups or alternative interventions, with the expanded search space and limitations explicitly reported.
 
-## 6. Three diagnostic outcomes, not two
+**Three diagnostic outcomes, not two**
 
 A tested property can be:
 
@@ -159,7 +159,7 @@ The second category is not automatically the third. Failure to find a linear pro
 
 This distinction prevents a test result from being promoted into a universal information or mechanism claim.
 
-## 7. Localization, restoration and uniqueness
+**Localization, restoration and uniqueness**
 
 Locating an activation with a substantial intervention effect is one question. Showing that a chosen small component set is a **complete** explanation is another.
 
@@ -175,7 +175,7 @@ For example, if an invertible linear recoding replaces \(h\) by \(Ah\) while the
 
 An evidence report should separate the *tested* component set and representation from claims of globally unique mechanism.
 
-## 8. Activation interventions are not parameter edits
+**Activation interventions are not parameter edits**
 
 Changing a hidden activation during one forward pass and editing a model's stored parameters are different operations.
 
@@ -183,7 +183,7 @@ An activation patch compares a behavior under a controlled internal-state substi
 
 The external interpretability literature recorded in the source lock motivates mechanistic probing, intervention and editing questions. The bibliography keys in that source-lock file are retained as documentary identifiers, not inserted as citations until the manuscript bibliography defines them. This chapter uses those sources as context, not as an authority for a general causal theorem. Its exact proof obligation is confined to the finite constructions above.
 
-## 9. Reading an intervention report
+**Reading an intervention report**
 
 A reader should be able to ask, in order:
 
@@ -197,7 +197,7 @@ A reader should be able to ask, in order:
 
 The finite examples show why changing only one of these fields can change what follows from the evidence.
 
-## 10. What this chapter does not prove
+**What this chapter does not prove**
 
 Neither exact example is an empirical finding about a deployed neural network. The first proves that a perfectly readable coordinate may be unused by a particular output map. The second proves that null one-coordinate masking can coexist with joint support of a behavior.
 
@@ -205,7 +205,7 @@ The chapter does not prove that a probe identifies a causal mechanism; that succ
 
 A spectral correlate is likewise not automatically an interventionally validated explanation.
 
-## 11. Downstream handoff
+## Downstream handoff
 
 ATLAS-CH-SPECTRALDIAG-001 may inherit four bounded objects:
 
