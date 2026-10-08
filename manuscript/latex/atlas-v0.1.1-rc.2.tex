@@ -54753,7 +54753,11 @@ Suppose a declared linguistic analysis places internal boundaries in a
 word.
 
 Let \(B_M(x)\) be those boundaries and \(B_\tau(x)\) the tokenizer's
-internal boundaries.
+internal boundaries. Both sets must be measured as offsets in the
+\textbf{same declared canonical form of \(x\)} and the \textbf{same
+unit} (for example, positions between Unicode codepoints). Byte offsets
+from one representation cannot be compared directly with codepoint
+offsets from another.
 
 One can define boundary precision and recall:
 
@@ -54768,6 +54772,13 @@ R_M
 =
 \frac{|B_M\cap B_\tau|}{|B_M|}.
 \]
+
+These ratios are defined only when their respective denominators are
+nonzero: \(P_M\) requires \(|B_\tau|>0\) and \(R_M\) requires
+\(|B_M|>0\). When a boundary set is empty, report the affected quantity
+as \textbf{undefined/not applicable} rather than silently replacing
+\(0/0\) with zero or one. A particular evaluation protocol may
+separately declare a different empty-set convention.
 
 For the toy analysis
 
@@ -56890,6 +56901,20 @@ Therefore a dataset pipeline must distinguish:
 \item
   other grouping policies.
 \end{itemize}
+
+For an exact nontransitivity example at the same \(3/4\) threshold, let
+\(A=\{a,b,c\}\), \(B=\{a,b,c,d\}\), and \(C=\{b,c,d\}\). Token-set
+Jaccard gives
+
+\[
+J(A,B)=J(B,C)=\frac34,
+\qquad J(A,C)=\frac12.
+\]
+
+Thus \(A\) is near \(B\), and \(B\) is near \(C\), but \(A\) is not near
+\(C\). Connected-component clustering puts all three in one cluster; a
+complete-link rule need not. This is a separate toy counterexample, not
+an alteration of the five-record contamination witness.
 
 The cluster definition is part of the data method.
 
