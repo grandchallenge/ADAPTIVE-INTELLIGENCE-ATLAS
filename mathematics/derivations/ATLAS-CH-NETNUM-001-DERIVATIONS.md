@@ -74,31 +74,39 @@ Let
 
 Starting one step from the exact state,
 
-`delta_{k+1}
+\[
+\delta_{k+1}
 =
-Phi_{h_k}(t_k,x(t_k))
+\Phi_{h_k}(t_k,x(t_k))
 -
-Psi_k(x(t_k))`.
+\Psi_k(x(t_k)).
+\]
 
-Taylor expansion gives
+If the exact solution has a bounded third derivative on the time step, Taylor expansion gives
 
-`x(t_k+h_k)
+\[
+x(t_k+h_k)
 =
 x(t_k)
 +
 h_k f(t_k,x(t_k))
 +
-(h_k^2/2)x''(t_k)
+\frac{h_k^2}{2}x''(t_k)
 +
-O(h_k^3)`.
+O(h_k^3).
+\]
 
-Hence
+With only a continuously differentiable solution derivative \(x''\), the weaker remainder is \(o(h_k^2)\).
 
-`delta_{k+1}
+Hence, under the stated bounded-third-derivative condition,
+
+\[
+\delta_{k+1}
 =
-(h_k^2/2)x''(t_k)
+\frac{h_k^2}{2}x''(t_k)
 +
-O(h_k^3)`.
+O(h_k^3).
+\]
 
 Thus explicit Euler has local defect `O(h_k^2)` under the needed smoothness assumptions.
 
@@ -117,9 +125,11 @@ A repeated numerical scheme propagates both:
 
 For a one-step method with suitable Lipschitz propagation,
 
-`||e_{k+1}||
-<=
-(1+C h_k)||e_k|| + ||delta_{k+1}||`
+\[
+\|e_{k+1}\|
+\le
+(1+C h_k)\|e_k\|+\|\delta_{k+1}\|,
+\]
 
 for an appropriate finite-time constant `C`.
 
