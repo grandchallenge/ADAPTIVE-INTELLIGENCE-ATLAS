@@ -5,9 +5,9 @@
 **Prepared against protected main:** `f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04`.  
 **Candidate:** `manuscript/latex/atlas-v0.1.1-rc.1.tex`; this is **not** an approved public-release candidate.  
 **Original source SHA-256:** `0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`.  
-**Candidate SHA-256:** `0dc0e29a4de8f35143952130c8765df275e507eff3127b85f92324226ea4c6d0`.
+**Candidate SHA-256:** `b7c780f7cdb9d02709c102170b68000d8b6cc87c71341cf84dd1641d7e333fa6`.
 
-**Disposition: NO EDITORIAL SIGNOFF. INDEPENDENT TECHNICAL CHECK PENDING. RENDERED PDF/HTML REVIEW PENDING.**
+**Disposition: NO EDITORIAL SIGNOFF. INDEPENDENT TECHNICAL CHECK PENDING. RENDERED PDF/HTML REVIEW PENDING. Repairs and agent review proceed concurrently.**
 
 ## Bounded editorial work
 
@@ -23,13 +23,13 @@
 | ER-P1-08 | EVIDENCE | Typeset the six-field packet and the scoped support relation in LaTeX; explicitly distinguished support from entailment. | Check rendering, semantically compare to source lock. |
 | ER-P1-09 | EVIDENCE | Cross-reference to detailed evidence chapter is now explicit in MAP. | Worked cross-class reader exercise remains to be written and reviewed. |
 
-No modifications to released `atlas-v0.1.0` or its PDF/HTML assets are authorized. The canonical v0.1.0 source remains byte-for-byte unchanged, and chapters 5–80 are unchanged in the candidate. The public first release must continue to be described as technically verified but not publication-editorially accepted.
+No modifications to released `atlas-v0.1.0` or its PDF/HTML assets are authorized. The canonical v0.1.0 source remains unchanged. In chapters 5–80, only redundant section/subsection heading ordinals changed; equations and prose are unchanged, per normalized-tail invariant. The public first release must continue to be described as technically verified but not publication-editorially accepted.
 
 ## Validation and known limitations
 
-- The generated candidate compiled with `pdflatex` successfully through **three** passes, producing a local 1360-page PDF. No compiled binary is promoted or committed as a release asset.
+- The generated candidate compiled with `pdflatex` successfully through **three** passes, producing a local 1360-page PDF from the previous candidate head; a fresh changed-head build supersedes it. No compiled binary is promoted or committed as a release asset.
 - The candidate retains all chapter-level and section-level LaTeX labels from the original four chapters. The public edition's unmodified source hash is confirmed in the candidate-generation check.
-- The existing LaTeX tree's manually prefixed numbered section headings combine with automatic numbering (for example, `1.1 1. What...`). This is an **additional corpus-level typography finding, ER-P1-10**, requiring a consistent book-wide fix before a corrected public edition. Do not fix only four chapters at the expense of a mixed style.
+- The released LaTeX displays double heading numbering (for example, `1.1 1. What...`). The candidate removes **2,467** redundant heading ordinals throughout; retain issue #321 until fresh PDF/HTML check is complete.
 - A third-pass LaTeX warning reports a figure float too large by approximately 60.4pt at input line 27504, outside the edited Part I span. Track separately under the figure/typesetting review; compilation is not visual acceptance.
 - A complete side-by-side PDF/HTML visual and accessibility pass, including math semantics and anchors, is still outstanding. Existing v0.1.0 assets are immutable.
 - Source locks remain project-local synthesis/documentary-synthesis. No mathematical theorem, experimental result, or certification status is promoted through this edit.
@@ -39,5 +39,5 @@ No modifications to released `atlas-v0.1.0` or its PDF/HTML assets are authorize
 1. Run and retain the Part I invariance checker against the exact candidate head; independently review the flow classification and all claim-boundary changes.
 2. Inspect rendered PDF/HTML side-by-side with the public snapshot; verify first four chapters, formula rendering, route navigation, accessibility, and retained reference anchors.
 3. Resolve all nine Part I findings to accepted, explicitly deferred, or still open; do not treat candidate preparation as final correction.
-4. Require a distinct editorial reviewer and an exact-head audit before any merge/signoff. At parent #314, final editorial coverage remains **0/80** until those decisions are evidenced.
+4. Use independent agent editorial/technical checks and a later exact-head audit for acceptance, not an external-human gate to ordinary corrections. At parent #314, final editorial coverage remains **0/80** until those decisions are evidenced.
 5. Continue parts 2–14 under separately bounded reviews, maintaining claim/source/figure and editorial states independently. Public-release authorization for a later version remains a separate Human Steward governance gate.

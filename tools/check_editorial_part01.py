@@ -17,7 +17,15 @@ aa = [m.start() for m in chapter.finditer(a)]
 bb = [m.start() for m in chapter.finditer(b)]
 assert len(aa) == len(bb) == 80, "chapter cardinality"
 assert a[:aa[0]] == b[:bb[0]], "preamble was altered"
-assert a[aa[4]:] == b[bb[4]:], "chapters 5-80 changed"
+from normalize_editorial_heading_numbers import normalize
+normalized_tail, changes = normalize(a[aa[4]:])
+assert normalize(b)[1] == [], 'candidate contains duplicate ordinals'
+from normalize_editorial_heading_numbers import cleanup
+assert cleanup('2x2 quadratic example') == ('2x2 quadratic example',False)
+assert cleanup('12. Operator type') == ('Operator type',True)
+assert cleanup('Chapter 2. geometry') == ('Chapter 2. geometry',False)
+assert normalized_tail == b[bb[4]:], "chapters 5-80 changed beyond heading ordinals"
+assert len(changes)>2000, "expected corpus-wide heading normalization"
 old4, new4 = a[aa[0]:aa[4]], b[bb[0]:bb[4]]
 assert old4 != new4, "no Part I changes"
 old_labels = set(re.findall(r"\\label\{([^}]+)\}", old4))
@@ -39,5 +47,5 @@ receipt = (ROOT / "governance/editorial/v0.1.0/PART01_CORRECTION_CANDIDATE.md").
 for phrase in ("NO EDITORIAL SIGNOFF", "INDEPENDENT TECHNICAL CHECK PENDING",
                "RENDERED PDF/HTML REVIEW PENDING", "atlas-v0.1.0"):
     assert phrase in receipt
-print("PASS: public source SHA-256, preamble and 76-chapter invariance, 80 chapters, historical labels, bounded changes")
+print("PASS: public source SHA-256; exact 76-chapter prose/equation invariance except headings; 80 chapters; historical labels")
 print("CANDIDATE_SHA256:", hashlib.sha256(new.read_bytes()).hexdigest())
