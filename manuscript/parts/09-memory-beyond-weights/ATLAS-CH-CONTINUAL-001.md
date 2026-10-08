@@ -73,21 +73,29 @@ So continual learning should begin from the trajectory of performance, not only 
 
 ## 2. An Atlas forgetting summary
 
-For a sequence with `T>=2`, and for an earlier context `j<T`, define its best prior score
+For a sequence with $T \ge 2$, and for an earlier context $j < T$, define its best prior score
 
-`B_j=max_{k=j,...,T-1} R_{k,j}`.
+\[
+B_j = \max_{k=j,\dots,T-1} R_{k,j}.
+\]
 
 Define endpoint forgetting
 
-`F_j=max(0,B_j-R_{T,j})`.
+\[
+F_j = \max(0, B_j - R_{T,j}).
+\]
 
 Then define
 
-`F_avg=(1/(T-1)) sum_{j<T} F_j`
+\[
+F_{\mathrm{avg}} = \frac{1}{T-1} \sum_{j < T} F_j
+\]
 
 and
 
-`F_max=max_{j<T} F_j`.
+\[
+F_{\mathrm{max}} = \max_{j < T} F_j.
+\]
 
 These are Atlas summaries.
 
@@ -423,29 +431,31 @@ Sequential interference follows from incompatible objectives sharing one paramet
 
 ## 14. Exact quadratic consolidation
 
-Set the scalar importance estimate to
-
-`F=1`.
+Set the scalar importance estimate to $F=1$.
 
 Use the retention objective
 
-`J_lambda(w)
-=
-L_B(w)
-+
-(lambda/2)(w+1)^2`.
+\[
+J_\lambda(w) = L_B(w) + \frac{\lambda}{2}(w+1)^2.
+\]
 
 The exact minimizer is
 
-`w_lambda=(1-lambda)/(1+lambda)`.
+\[
+w_\lambda = \frac{1-\lambda}{1+\lambda}.
+\]
 
 At that point,
 
-`L_A(w_lambda)=2/(1+lambda)^2`
+\[
+L_A(w_\lambda) = \frac{2}{(1+\lambda)^2}
+\]
 
 and
 
-`L_B(w_lambda)=2lambda^2/(1+lambda)^2`.
+\[
+L_B(w_\lambda) = \frac{2\lambda^2}{(1+\lambda)^2}.
+\]
 
 For
 

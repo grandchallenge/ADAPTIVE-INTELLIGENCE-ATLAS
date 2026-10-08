@@ -55,25 +55,20 @@ What memory contract does this state satisfy?
 
 For the Atlas, write a memory system as
 
+\[
 M = (L, W, R, T, A, U, P, S).
+\]
 
 Here:
 
-L is storage locus;
-
-W is the write or update path;
-
-R is the read or retrieval path;
-
-T is lifetime and retention policy;
-
-A is addressability;
-
-U is mutability and update cadence;
-
-P is provenance;
-
-S is sharing and synchronization scope.
+- $L$ is storage locus;
+- $W$ is the write or update path;
+- $R$ is the read or retrieval path;
+- $T$ is lifetime and retention policy;
+- $A$ is addressability;
+- $U$ is mutability and update cadence;
+- $P$ is provenance;
+- $S$ is sharing and synchronization scope.
 
 The familiar memory labels are patterns across these coordinates.
 
@@ -119,15 +114,19 @@ It is the point.
 
 A trained model carries information in its parameters.
 
-Let theta denote the parameter state.
+Let $\theta$ denote the parameter state.
 
 A training or editing procedure changes it:
 
-theta' = W_param(theta, data, objective, update_rule).
+\[
+\theta' = W_{\mathrm{param}}(\theta, \text{data}, \text{objective}, \text{update\_rule}).
+\]
 
 A forward pass reads from that state implicitly:
 
-y = f_theta(x).
+\[
+y = f_\theta(x).
+\]
 
 There may be no explicit record saying that one fact is stored at one address.
 
@@ -239,7 +238,9 @@ provenance.
 
 Write one record as
 
-e_i = (id_i, time_i, context_i, payload_i, provenance_i).
+\[
+e_i = (\mathrm{id}_i, \mathrm{time}_i, \mathrm{context}_i, \mathrm{payload}_i, \mathrm{provenance}_i).
+\]
 
 The key feature is event binding.
 
@@ -271,7 +272,9 @@ objects of type X usually require operation Y.
 
 A consolidation procedure can produce a reusable knowledge object:
 
-K = C({e_i}).
+\[
+K = C(\{e_i\}_{i \in I}).
+\]
 
 The new object may be more compact and easier to reuse than the raw episodes.
 
