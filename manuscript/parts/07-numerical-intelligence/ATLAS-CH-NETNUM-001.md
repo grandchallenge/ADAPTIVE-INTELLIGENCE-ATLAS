@@ -23,7 +23,9 @@ Write one explicit-Euler step for
 
 as
 
-`x_{k+1}=x_k+h_k f(t_k,x_k)`.
+\[
+x_{k+1}=x_k+h_k f(t_k,x_k).
+\]
 
 The shapes match.
 
@@ -157,9 +159,9 @@ It is tempting to call `alpha_k` the step size.
 
 Sometimes that is exactly right.
 
-If `G_k` samples a declared vector field, then `alpha_k` can play the role of `h_k`.
+If \(G_k\) samples a declared vector field, then `alpha_k` can play the role of `h_k`.
 
-But if changing `alpha_k` is accompanied by retraining `G_k), changing normalization, changing feature geometry, or otherwise changing the update field, then the comparison is not simply "same ODE, smaller step."
+But if changing `alpha_k` is accompanied by retraining \(G_k\), changing normalization, changing feature geometry, or otherwise changing the update field, then the comparison is not simply "same ODE, smaller step."
 
 A step size has meaning only relative to an underlying evolution.
 
@@ -173,21 +175,23 @@ The Numerics chapter defined the exact flow over one step as
 
 `Phi_h`
 
-and the numerical map as
-
-`Psi_h`.
+and the numerical map as \(\Psi_h\).
 
 The local defect is computed by starting the numerical step from the exact state:
 
-`delta_{k+1}
+\[
+\delta_{k+1}
 =
-Phi_{h_k}(t_k,x(t_k))
+\Phi_{h_k}(t_k,x(t_k))
 -
-Psi_k(x(t_k))`.
+\Psi_k(x(t_k)).
+\]
 
 For explicit Euler, under the usual smoothness assumptions,
 
-`delta_{k+1}=O(h_k^2)`.
+\[
+\delta_{k+1}=O(h_k^2).
+\]
 
 That statement contains more structure than it first appears.
 
@@ -241,13 +245,17 @@ This error is not simply the sum of local defects.
 
 Each old error is transported through later steps.
 
-For a stable one-step method, the error recursion has the schematic form
+For a one-step method with the declared Lipschitz error-propagation bound, the error recursion has the schematic form
 
-`||e_{k+1}||
-<=
-(1+C h_k)||e_k||
+\[
+\|e_{k+1}\|
+\le
+(1+C h_k)\|e_k\|
 +
-||delta_{k+1}||`.
+\|\delta_{k+1}\|.
+\]
+
+Here \(C\) and the norm depend on the fixed reference problem and interval; this is not an unconditional guarantee for a learned residual network.
 
 The factor multiplying `e_k` matters.
 
