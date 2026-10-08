@@ -72,9 +72,11 @@ T_f(G)
 U f(\Sigma)V^\top,
 \]
 
-where \(f\) acts on the singular values.
+where \(f\) acts on the singular values. When \(G\) is rank-deficient, the map must specify its behavior on zero singular directions. Taking \(f(0)=0\) leaves those directions zero and yields an SVD-independent singular-value transform. If \(f(0)\ne0\), a rule also needs a declared pairing of the left and right nullspaces; the zero-singular-vector choices in an SVD of \(G\) are not unique.
 
-Different \(f\) give different update geometries.
+As a counterexample, let \(G=\operatorname{diag}(1,0)\) and \(f(1)=f(0)=1\). Two valid SVDs are \(U=V=I_2\) and \(U=\operatorname{diag}(1,-1),V=I_2\), both with \(\Sigma=\operatorname{diag}(1,0)\). They give different transformed matrices, \(I_2\) and \(\operatorname{diag}(1,-1)\). Hence a rank-increasing rule requires extra structure. The full-rank witnesses below are unaffected.
+
+Different well-defined \(f\) give different update geometries.
 
 ## 4. Exact witness matrix
 
