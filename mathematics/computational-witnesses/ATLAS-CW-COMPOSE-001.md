@@ -248,7 +248,25 @@ Then
 }
 \]
 
-The local \(1/10\) budgets are individually acceptable, but the derived composition guarantee violates the stricter system budget.
+The local \(1/10\) budgets are individually acceptable. The derived worst-case ceiling \(1/4\) is above the stricter system requirement, so the ceiling alone cannot certify that requirement.
+
+To establish an **actual** failure, choose the admissible implementations
+
+\[
+\widehat f(x)=x+\frac1{10},
+\qquad
+\widehat g(y)=\frac32y+\frac1{10}.
+\]
+
+Their errors are \(1/10\) each, and
+
+\[
+|\widehat g(\widehat f(x))-g(f(x))|
+=\left|\frac3{20}+\frac1{10}\right|
+=\frac14>\frac15
+\]
+
+for every real \(x\). Thus the upper bound is tight for this specific construction, while a different admissible pair may satisfy the system requirement.
 
 ## W8. Minimal replay code
 

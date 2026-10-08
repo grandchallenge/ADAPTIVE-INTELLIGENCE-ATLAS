@@ -461,9 +461,27 @@ then
 \frac14>\frac15.
 \]
 
-Both component-local error ceilings are \(1/10\), yet the guaranteed system error exceeds the declared system budget.
+Because \(1/4>1/5\), these component-local bounds alone cannot certify the required system accuracy; an upper bound above a threshold does not establish an actual violation.
 
-This is a budget-composition failure, not an order/noncommutativity failure.
+Here a matching concrete counterexample exists. Define, on all real inputs,
+
+\[
+\widehat f(x)=x+\frac1{10},
+\qquad
+\widehat g(y)=\frac32y+\frac1{10}.
+\]
+
+The local errors are exactly \(1/10\), so both component contracts hold. Direct substitution gives
+
+\[
+\begin{aligned}
+\widehat g(\widehat f(x))-g(f(x))
+&=\frac32\left(x+\frac1{10}\right)+\frac1{10}-\frac32x\\
+&=\frac14.
+\end{aligned}
+\]
+
+Hence \(E=1/4>1/5\) **for these specific implementations**. This witness establishes both the lack of a system guarantee from component ceilings alone and an attainable system-level failure; neither conclusion relies on noncommutativity.
 
 ## D10. n-stage error recurrence
 
