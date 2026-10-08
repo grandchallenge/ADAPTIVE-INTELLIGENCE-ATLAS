@@ -149,7 +149,7 @@ Q^\top Q=I_n.
 But generally
 
 \[
-QQ^\top\ne I.
+QQ^\top\ne I_m.
 \]
 
 In the full-column-rank case, the columns are orthonormal; the rows cannot all be orthonormal because there are more rows than columns. If \(G\) has rank \(r<n\), instead \(Q^\top Q=V_rV_r^\top\), a rank-\(r\) projector.
