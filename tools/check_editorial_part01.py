@@ -24,7 +24,32 @@ from normalize_editorial_heading_numbers import cleanup
 assert cleanup('2x2 quadratic example') == ('2x2 quadratic example',False)
 assert cleanup('12. Operator type') == ('Operator type',True)
 assert cleanup('Chapter 2. geometry') == ('Chapter 2. geometry',False)
-assert normalized_tail == b[bb[4]:], "chapters 5-80 changed beyond heading ordinals"
+legacy_path='figures/masters/ATLAS-FIG-OPTBASE-001.png'
+candidate_path='figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.1.png'
+assert a.count(legacy_path)==1
+assert b.count(candidate_path)==1
+assert legacy_path not in b
+expected_tail=normalized_tail.replace(legacy_path,candidate_path)
+assert expected_tail == b[bb[4]:], "chapters 5-80 changed beyond heading ordinals and one OPTBASE image reference"
+import struct, yaml, subprocess
+asset=ROOT/candidate_path
+assert asset.exists()
+data=asset.read_bytes()
+assert data[:8]==bytes.fromhex("89504e470d0a1a0a")
+w,h=struct.unpack(">II",data[16:24])
+assert (w,h)==(2482,738)
+asset_hash=hashlib.sha256(data).hexdigest()
+assert asset_hash=="550ad96bd4f7763260a8b64e79518734b0133dc318f5ee9bb221d2ad1fcf7591"
+manifest=yaml.safe_load((ROOT/"figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.1.yaml").read_text())
+assert manifest["generator"]["image_sha256"]==asset_hash
+assert manifest["generator"]["render_pixels"]==[w,h]
+assert manifest["generator"]["system"]=="Python Matplotlib"
+assert manifest["original_wolfram_provenance"]["original_master"]==legacy_path
+assert manifest["generator"]["source_git_blob_sha1"]==subprocess.check_output(["git","hash-object",str(ROOT/manifest["generator"]["source"])],text=True).strip()
+assert manifest["original_wolfram_provenance"]["source_git_blob_sha1"]==subprocess.check_output(["git","hash-object",str(ROOT/manifest["original_wolfram_provenance"]["source"])],text=True).strip()
+from fractions import Fraction
+assert (Fraction(6,5)**2+Fraction(8,5)**2)==4
+assert Fraction(183,100)-Fraction(181,100)==Fraction(1,50)
 assert len(changes)>2000, "expected corpus-wide heading normalization"
 old4, new4 = a[aa[0]:aa[4]], b[bb[0]:bb[4]]
 assert old4 != new4, "no Part I changes"
@@ -47,5 +72,5 @@ receipt = (ROOT / "governance/editorial/v0.1.0/PART01_CORRECTION_CANDIDATE.md").
 for phrase in ("NO EDITORIAL SIGNOFF", "INDEPENDENT TECHNICAL CHECK PENDING",
                "RENDERED PDF/HTML REVIEW PENDING", "atlas-v0.1.0"):
     assert phrase in receipt
-print("PASS: public source SHA-256; exact 76-chapter prose/equation invariance except headings; 80 chapters; historical labels")
+print("PASS: public source SHA-256; 80 chapters; original labels; 76 downstream chapters differ only by normalized headings and one declared OPTBASE derivative reference; exact derivation and image hash")
 print("CANDIDATE_SHA256:", hashlib.sha256(new.read_bytes()).hexdigest())

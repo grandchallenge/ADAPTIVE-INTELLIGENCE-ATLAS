@@ -5,7 +5,7 @@
 **Prepared against protected main:** `f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04`.  
 **Candidate:** `manuscript/latex/atlas-v0.1.1-rc.1.tex`; this is **not** an approved public-release candidate.  
 **Original source SHA-256:** `0d636871e6875bbadbd244e54bf272fdefe2dbd5179515d9d22d3a25e49c384a`.  
-**Candidate SHA-256:** `b7c780f7cdb9d02709c102170b68000d8b6cc87c71341cf84dd1641d7e333fa6`.
+**Candidate SHA-256:** `202ad6d9db0baf412b68eef612d380b3f045f50c290682cea05134bb51680082`.
 
 **Disposition: NO EDITORIAL SIGNOFF. INDEPENDENT TECHNICAL CHECK PENDING. RENDERED PDF/HTML REVIEW PENDING. Repairs and agent review proceed concurrently.**
 
@@ -41,3 +41,7 @@ No modifications to released `atlas-v0.1.0` or its PDF/HTML assets are authorize
 3. Resolve all nine Part I findings to accepted, explicitly deferred, or still open; do not treat candidate preparation as final correction.
 4. Use independent agent editorial/technical checks and a later exact-head audit for acceptance, not an external-human gate to ordinary corrections. At parent #314, final editorial coverage remains **0/80** until those decisions are evidenced.
 5. Continue parts 2–14 under separately bounded reviews, maintaining claim/source/figure and editorial states independently. Public-release authorization for a later version remains a separate Human Steward governance gate.
+
+## OPTBASE derivative (continuation)
+
+The corrected-edition candidate uses a declared Matplotlib derivative for one figure path, leaving the original Wolfram master and public v0.1.0 untouched. See OPTBASE_FIGURE_REPAIR_001.md and the candidate derivative manifest. The 76 downstream chapters otherwise retain text and formulas except normalized heading prefixes.
