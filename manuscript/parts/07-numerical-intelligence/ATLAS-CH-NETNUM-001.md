@@ -15,7 +15,7 @@ It is also one of the easiest analogies in modern deep learning to overstate.
 
 Write a residual layer as
 
-\[x_{k+1}=x_k+F_k(x_k).\].
+\[x_{k+1}=x_k+F_k(x_k).\]
 
 Write one explicit-Euler step for
 
@@ -57,7 +57,7 @@ This makes depth look less like repeated replacement and more like repeated stat
 
 The Numerical Methods chapter supplied the corresponding mathematical object:
 
-\[x_{n+1}=\Psi_h(t_n,x_n).\].
+\[x_{n+1}=\Psi_h(t_n,x_n).\]
 
 A one-step method takes the current numerical state and advances it by a discrete rule.
 
@@ -71,15 +71,15 @@ The question is what additional assumptions make the alignment mathematically su
 
 Suppose the intended continuous system is
 
-\[\frac{dx}{dt}=f(t,x).\].
+\[\frac{dx}{dt}=f(t,x).\]
 
 Explicit Euler gives
 
-\[x_{k+1}=x_k+h_kf(t_k,x_k).\].
+\[x_{k+1}=x_k+h_kf(t_k,x_k).\]
 
 A residual layer becomes Euler-compatible after the declaration
 
-\[F_k(x)=h_k f(t_k,x).\].
+\[F_k(x)=h_k f(t_k,x).\]
 
 This line performs the bridge.
 
@@ -137,11 +137,11 @@ for a common `f`, then the blocks have the direct form of fixed-step Euler appli
 
 But a continuous system can be explicitly time-dependent:
 
-\[\frac{dx}{dt}=f(t,x).\].
+\[\frac{dx}{dt}=f(t,x).\]
 
 Then layer-varying residuals can correspond to
 
-\[F_k(x)=h_k f(t_k,x).\].
+\[F_k(x)=h_k f(t_k,x).\]
 
 So untied weights do not rule out an ODE interpretation.
 
@@ -153,7 +153,7 @@ The real issue is whether there is a declared continuous object and a meaningful
 
 Suppose we introduce a residual scale:
 
-\[x_{k+1}=x_k+\alpha_kG_k(x_k).\].
+\[x_{k+1}=x_k+\alpha_kG_k(x_k).\]
 
 It is tempting to call \(\alpha_k\) the step size.
 
@@ -239,7 +239,7 @@ This is a recurring category error:
 
 Define the global numerical error as
 
-\[e_k=x(t_k)-x_k.\].
+\[e_k=x(t_k)-x_k.\]
 
 This error is not simply the sum of local defects.
 
@@ -798,7 +798,7 @@ This distinction deserves a compact table.
 
 | Statement | Status |
 |---|---|
-| \[x_{k+1}=x_k+F_k(x_k).\] resembles Euler form | algebraic observation |
+| \(x_{k+1}=x_k+F_k(x_k)\) resembles Euler form | algebraic observation |
 | `F_k=h_k f(t_k,.)` for declared `f,h_k` | modeling declaration |
 | local defect is `O(h^2)` | numerical theorem under smoothness assumptions |
 | global error is `O(h)` | numerical theorem under stability/regularity assumptions |
