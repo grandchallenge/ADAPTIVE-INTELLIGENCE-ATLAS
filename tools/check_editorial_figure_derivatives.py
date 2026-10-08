@@ -34,4 +34,40 @@ for stem,ch in ids.items():
  assert marker in source.read_text()
  print('FIGURE_REPAIR_VALID',fid,'PNG',wh,'SHA256',record['generator']['image_sha256'])
 assert rc2.count('\\includegraphics')==18
-print('FIGURE_REPAIR_PASS 2 candidate Wolfram-native derivatives, 18 plates, original masters unchanged')
+
+# OPTBASE: candidate Wolfram 15.0.1, separately versioned after the Matplotlib alternative.
+fid='ATLAS-FIG-OPTBASE-001'
+prefix=f'{fid}-v0.1.2'
+deriv=root/'figures/derivatives'
+record=yaml.safe_load((deriv/(prefix+'.yaml')).read_text())
+old=yaml.safe_load((root/'figures/manifests'/(fid+'.yaml')).read_text())
+wl=deriv/(prefix+'.wl')
+png=deriv/(prefix+'.png')
+prev=deriv/(fid+'-v0.1.1.yaml')
+assert record['source_figure_id']==fid
+assert record['parameters']==old['parameters']
+assert record['literal_semantics']==old['literal_semantics']
+assert record['claim_boundary']==old['claim_boundary']
+assert record['original_wolfram_provenance']['source_git_blob_sha1']==old['generator']['source_git_blob_sha1']
+assert record['original_wolfram_provenance']['original_render_git_blob_sha1']==old['generator']['rendered_git_blob_sha1']
+assert record['predecessor_editorial_derivative']['image_sha256']==yaml.safe_load(prev.read_text())['generator']['image_sha256']
+assert subprocess.check_output(['git','hash-object',str(root/old['generator']['source'])],text=True).strip()==old['generator']['source_git_blob_sha1']
+assert subprocess.check_output(['git','hash-object',str(root/old['generator']['rendered'])],text=True).strip()==old['generator']['rendered_git_blob_sha1']
+assert subprocess.check_output(['git','hash-object',str(wl)],text=True).strip()==record['generator']['source_git_blob_sha1']
+assert hashlib.sha256(png.read_bytes()).hexdigest()==record['generator']['image_sha256']
+data=png.read_bytes()
+assert data[:8]==bytes.fromhex('89504e470d0a1a0a')
+wh=list(struct.unpack('>II',data[16:24]))
+assert wh==record['generator']['render_pixels']==[700,990]
+txt=wl.read_text()
+assert '183/100-181/100==1/50' in txt
+assert 'gc=={6/5,8/5}' in txt
+assert 'Norm[g]==5 && Norm[gc]==2' in txt
+assert 'Abs[1-a]' in txt and '0 < a < 2: contractive' in txt
+assert 'Inset[gd' in txt and 'Inset[decay' in txt
+assert rc2.count('figures/derivatives/'+prefix+'.png')==1
+ch=(root/'manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md').read_text()
+assert ch.count('../../../figures/derivatives/'+prefix+'.png')==1
+assert rc2.count('\\includegraphics')==18
+print('FIGURE_REPAIR_VALID',fid,'PNG',wh,'SHA256',record['generator']['image_sha256'])
+print('FIGURE_REPAIR_PASS 3 candidate Wolfram-native derivatives, 18 plates, original masters unchanged')
