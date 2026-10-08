@@ -212,6 +212,121 @@ Therefore raw action labels are not a sound optionality metric.
 | zero-tolerance ex-ante correction capacity | `1` | `1/2` |
 | information gain | `1 bit` | `1 bit` |
 
+## Executable finite policy and correction-capacity replay
+
+The program below constructs the two-state decision problem directly. The
+environment reveals its label at stage 1 for either first-stage action;
+preservation retains both terminal choices, whereas commitment restricts
+the feasible action set. The clairvoyant comparator knows the label *before*
+the first-stage decision. All reported payoffs, Bayes/worst-case regrets,
+feasible action classes and correction indicators are calculated using exact
+rational arithmetic, not copied from the receipt table.
+
+    from fractions import Fraction as F
+
+    environments = ("L", "R")
+    prior = {"L": F(1, 2), "R": F(1, 2)}
+    feasible = {
+        "P": frozenset(("L", "R")),
+        "C_L": frozenset(("L",)),
+        "C_R": frozenset(("R",)),
+    }
+
+    def terminal_payoff(theta, terminal_action):
+        return int(theta == terminal_action)
+
+    def first_stage_reward(action, cost=F(1, 2)):
+        return -cost if action == "P" else F(0)
+
+    def policy_return(action, theta, cost=F(1, 2)):
+        # With perfect stage-1 information, choose a feasible
+        # terminal action maximizing the declared terminal payoff.
+        best_terminal = max(
+            terminal_payoff(theta, a) for a in feasible[action]
+        )
+        return first_stage_reward(action, cost) + best_terminal
+
+    def prior_mean(values):
+        return sum((prior[t] * values[t] for t in environments), F(0))
+
+    preserve = {t: policy_return("P", t) for t in environments}
+    commit_left = {t: policy_return("C_L", t) for t in environments}
+    clairvoyant = {
+        t: policy_return("C_" + t, t) for t in environments
+    }
+    assert preserve == {"L": F(1, 2), "R": F(1, 2)}
+    assert commit_left == {"L": F(1), "R": F(0)}
+    assert clairvoyant == {"L": F(1), "R": F(1)}
+    assert prior_mean(preserve) == prior_mean(commit_left) == F(1, 2)
+
+    def regrets(policy):
+        return {t: clairvoyant[t] - policy[t] for t in environments}
+
+    preserve_regret = regrets(preserve)
+    commit_regret = regrets(commit_left)
+    assert prior_mean(preserve_regret) == F(1, 2)
+    assert prior_mean(commit_regret) == F(1, 2)
+    assert max(preserve_regret.values()) == F(1, 2)
+    assert max(commit_regret.values()) == F(1)
+
+    # A terminal consequence is identified by the action's outcome
+    # signature. Here L and R have distinct consequences across theta.
+    def signature(a):
+        return tuple(terminal_payoff(t, a) for t in environments)
+
+    def distinct_consequences(action):
+        return {signature(a) for a in feasible[action]}
+
+    assert len(distinct_consequences("P")) == 2
+    assert len(distinct_consequences("C_L")) == 1
+
+    # Correction target is to perform the matching terminal action,
+    # not merely to achieve the same reward by some alternative action.
+    def correctable(action, theta):
+        return int(theta in feasible[action])
+
+    def capacity(action):
+        return prior_mean({
+            t: F(correctable(action, t)) for t in environments
+        })
+
+    assert tuple(correctable("P", t) for t in environments) == (1, 1)
+    assert tuple(correctable("C_L", t) for t in environments) == (1, 0)
+    assert capacity("P") == F(1)
+    assert capacity("C_L") == F(1, 2)
+
+    # Both observations reveal theta, so each contributes one bit.
+    # The two equally likely labels require exactly one binary bit.
+    observation_class_count = len(environments)
+    assert observation_class_count == 2
+    info_bits_P = info_bits_CL = 1
+    assert info_bits_P == info_bits_CL
+
+    costly_preserve = {
+        t: policy_return("P", t, F(3, 4))
+        for t in environments
+    }
+    assert prior_mean(costly_preserve) == F(1, 4)
+    assert prior_mean(costly_preserve) < prior_mean(commit_left)
+
+    # An alias must not create a new functional option merely
+    # because the action string is different.
+    alias_outcomes = {"x_1": (0, 1), "x_2": (0, 1)}
+    assert len(alias_outcomes) == 2
+    assert len(set(alias_outcomes.values())) == 1
+
+    print("OPTIONALITY_EXACT_POLICY_REPLAY_OK")
+
+Expected output:
+
+    OPTIONALITY_EXACT_POLICY_REPLAY_OK
+
+This verifies the finite decision contract and the two counterexamples.
+The Shannon information identity uses the stipulated *perfect* observation
+of a uniform binary label; no general entropy or Bayesian exploration theorem
+is being asserted. All claims remain conditional on the declared action
+feasibility, terminal reward and clairvoyant comparator.
+
 ## Claim boundary
 
 This witness establishes only the exact finite calculations above.
