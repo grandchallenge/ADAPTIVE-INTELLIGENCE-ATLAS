@@ -184,7 +184,7 @@ T_t(a,b)
 }.
 \]
 
-Each observed row is stochastic.
+Every row with a positive denominator is stochastic. An expert with **no previously assigned tracked token** has no empirical conditional transition row: the quotient is undefined there, and any zero/uniform fill-in would be an explicit smoothing convention rather than an observation. The following witness has both prior expert classes occupied, so both rows are defined.
 
 The swap witness produces
 
@@ -383,11 +383,13 @@ Let
 
 collect the declared router-plus-optimizer state.
 
-A local linearization is
+For a differentiable router-plus-optimizer update map \(H_t\), set \(J_t=DH_t(\xi_t)\). Its **tangent (first-variation) dynamics** are
 
 \[
 \delta\xi_{t+1}=J_t\delta\xi_t.
 \]
+
+Here \(\delta\xi\) denotes a tangent perturbation along a fixed reference trajectory, not an arbitrary finite difference between two nonlinear runs. For finite input displacement \(v\), differentiability gives \(H_t(\xi_t+v)-H_t(\xi_t)=J_tv+o(\|v\|)\) instead.
 
 Along a changing trajectory,
 
@@ -397,7 +399,7 @@ Along a changing trajectory,
 J_{t+h-1}\cdots J_t\delta\xi_t.
 \]
 
-This is inherited directly from the audited Optimizer-State Dynamics viewpoint.
+This product is exact for the tangent recursion with its declared trajectory-dependent Jacobians, not a global finite-amplitude nonlinear evolution law. This is inherited from the audited Optimizer-State Dynamics viewpoint.
 
 ## 15. Commutators detect order sensitivity
 
