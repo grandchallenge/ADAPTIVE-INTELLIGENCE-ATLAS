@@ -721,7 +721,7 @@ from
 Suppose a learned halting score satisfies
 
 \[
-E[E_k\mid q_k=s]
+\mathbb E[E_k\mid q_k=s]
 =
 g(s).
 \]
