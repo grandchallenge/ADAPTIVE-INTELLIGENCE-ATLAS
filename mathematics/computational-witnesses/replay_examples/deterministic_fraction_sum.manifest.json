@@ -3,7 +3,7 @@
   "witness_id": "ATLAS-CW-REPLAY-DETERMINISTIC-001",
   "chapter_id": "ATLAS-CH-REPLAY-001",
   "script_path": "mathematics/computational-witnesses/replay_examples/deterministic_fraction_sum.py",
-  "script_sha256": "bfbe36fbd5535fc0f95e9c9d9bde2daeebd383e0715d94c62e8d3c5596c4844f",
+  "script_sha256": "f21d6b4e38da3600e584f5dbcff0406a3f51af08b0f6d1b654fa3fff54352257",
   "expected_output_path": "mathematics/computational-witnesses/replay_examples/deterministic_fraction_sum.expected",
   "expected_output_sha256": "3117b181de4d46b7ff8adb4c78adec272c019160d4adf27a901e90ec114e1845",
   "invocation": [
