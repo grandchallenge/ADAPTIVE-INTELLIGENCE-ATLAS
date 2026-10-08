@@ -214,6 +214,63 @@ The correct conclusion is that comparisons must hold the relevant code semantics
     assert zero_run_length(Z) == 1
     assert 8 - zero_run_length(Z) == 7
 
+    # Verify the actual conditional four-bit code, not just its lengths.
+    # The decoder and encoder share T and know the suffix length is exactly 4.
+    from fractions import Fraction
+    from itertools import product
+
+    def encode4(train, heldout):
+        assert len(train) == 4 and len(heldout) == 4
+        assert set(train) <= {0, 1} and set(heldout) <= {0, 1}
+        h = tuple(heldout)
+        return (1,) if h == period2_prediction(train, 4) else (0,) + h
+
+    def decode4(train, codeword):
+        assert len(train) == 4 and set(train) <= {0, 1}
+        c = tuple(codeword)
+        if c == (1,):
+            return period2_prediction(train, 4)
+        assert len(c) == 5 and c[0] == 0 and set(c[1:]) <= {0, 1}
+        return c[1:]
+
+    domain = list(product((0, 1), repeat=4))
+    emitted = [encode4(T, h) for h in domain]
+    assert len(set(emitted)) == 16
+    assert all(decode4(T, cw) == h for h, cw in zip(domain, emitted))
+    assert all(
+        not (cw != other and cw[:len(other)] == other)
+        for cw in emitted for other in emitted
+    )  # no emitted codeword extends another
+    assert sum((Fraction(1, 2**len(cw)) for cw in emitted),
+               Fraction(0)) == Fraction(31, 32)
+    assert len(encode4(T, H_structured)) == 1
+    assert len(encode4(T, H_control)) == 5
+
+    # A separate eight-bit zero-run codec has the same round-trip property.
+    def encode_zero8(bits):
+        assert len(bits) == 8 and set(bits) <= {0, 1}
+        return (1,) if tuple(bits) == (0,) * 8 else (0,) + tuple(bits)
+
+    def decode_zero8(codeword):
+        c = tuple(codeword)
+        if c == (1,):
+            return (0,) * 8
+        assert len(c) == 9 and c[0] == 0 and set(c[1:]) <= {0, 1}
+        return c[1:]
+
+    assert decode_zero8(encode_zero8(Z)) == Z
+    assert len(encode_zero8(Z)) == 1
+
+The four-bit replay exhaustively tests all 16 possible held-out suffixes:
+the observed encoder/decoder round trips on every suffix, and the emitted
+codewords are pairwise prefix-free. Their Kraft sum is (31/32), since
+there is one one-bit motif codeword and 15 five-bit fallback codewords.
+The unused five-bit literal fallback for the motif itself could be added
+without violating prefix-freeness, yielding Kraft sum (1). This finite
+domain and its known message length are part of the declared codec: the
+five-bit fallback is **not** a self-delimiting code for arbitrary-length
+unknown suffixes.
+
 ## W10. Probe-state separation
 
 The replay has three distinct quantities:
