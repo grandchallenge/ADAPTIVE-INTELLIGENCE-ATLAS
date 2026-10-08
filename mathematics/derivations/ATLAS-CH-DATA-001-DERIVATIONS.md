@@ -236,7 +236,7 @@ Thus `t1,t2,t3` lie in one connected duplicate cluster under graph clustering of
 
 Together with `t4` and `t5`, there are three clusters.
 
-This clustering rule must be declared because pairwise near-duplicate relations need not be transitive in general.
+This clustering rule must be declared because pairwise near-duplicate relations need not be transitive in general. An exact independent counterexample at threshold \(\tau=3/4\) is \(A=\{a,b,c\}\), \(B=\{a,b,c,d\}\), and \(C=\{b,c,d\}\): \(J(A,B)=J(B,C)=3/4\), while \(J(A,C)=1/2\). The first two near-duplicate edges do not imply a third edge. This example is independent of the frozen \(t_1,\ldots,t_5\) record set.
 
 ## 16. Domain proportions before processing
 

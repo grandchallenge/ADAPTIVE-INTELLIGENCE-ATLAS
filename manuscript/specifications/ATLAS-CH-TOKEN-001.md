@@ -185,7 +185,7 @@ P_M=\frac{|B_M\cap B_\tau|}{|B_\tau|},
 R_M=\frac{|B_M\cap B_\tau|}{|B_M|},
 \]
 
-when denominators are nonzero.
+when denominators are nonzero and both sets are located in the same normalized input and coordinate unit (for example, codepoint-interstitial offsets). If a denominator is zero, the corresponding ratio is undefined without a separately declared empty-set convention.
 
 These are alignment diagnostics relative to a declared morphological analysis.
 
