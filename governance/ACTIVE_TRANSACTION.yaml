@@ -4,20 +4,22 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 318
-  tranche_id: "EDITORIAL-PART-01"
+  issue_number: 314
+  tranche_id: "EDITORIAL-CORPUS-PRODUCTION-001"
   chapter_ids: []
   baseline_commit: "f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04"
   branch: "editorial/part01-corrections-20261008"
   pull_request: 320
-  state: "agent-executable-editorial-production"
-  next_action: "Candidate PR #320 at exact head 33cde8140c3b7ebf5f339ee5fb2ec36329eb0db5 has green Actions 37755063314 and local three-pass PDF/HTML production. Mechanical 2467-heading normalization prepared (#321) and full 18-figure provenance/dimension ledger created. Current real work: agent-executable corrections and reviews in parallel (#322 Part I math/HTML, #323 18-figure review, #324 OPTBASE 1160x6759 regeneration, #325 accessibility), plus outstanding copyedit and rendered acceptance. External human review is NOT the immediate production blocker; preserve distinct-author checks only where actual protected admission requires them. No final editorial signoffs 0/80; public atlas-v0.1.0 immutable. Re-read live PR head and CI before next source edit; changed head invalidates earlier validation and findings."
+  state: "production-artifacts-published-agent-returns-pending"
+  next_action: "Exact PR #320 head ff3ed0972e3637350c9140eaa85de7169fe6ca76; CI validate run 37759785308 SUCCESS. Newly corrected derivative OPTBASE figure at 2482x738 and narrow NONNORMAL n>=2 algebra clarification; original Wolfram master and public v0.1.0 immutable. 20 GitHub WPs #326-#345 (76/76 chapters Parts II-XIV) are PUBLISHED_UNCLAIMED, not completed or claimed; queue ledger is governance/editorial/v0.1.0/CHAPTER_AGENT_QUEUE.yaml. Immediate native work: continue figure/plot print-scale and semantic repairs (#323/#324), accessible PDF/HTML review (#325), Part I agent math review (#322), and outstanding chapter revisions while checking authenticated worker returns. Agents can act concurrently and should attach RESULT/1 and exact source head; absence of external human reviewer is NOT a production blocker. Keep any protected acceptance and publication authority separate. Parent #314 OPEN, final editorial signoffs 0/80. On changed source head rerun exact-head invariants/CI and refresh controller."
 frontier:
   - "corpus-wide editorial scan"
   - "80-chapter coverage ledger"
   - "substantive editorial findings"
+  - "Part II NONNORMAL exponent-domain mathematical correction"
   - "figure/plot and accessibility reconciliation across all 18 assets"
   - "agent-first chapter editorial work across 80 chapters"
+  - "20 published unclaimed reviewer WPs #326-#345 covering all 76 non-Part-I chapters"
   - "future corrected edition acceptance criteria"
 stop_conditions:
   - "genuine-external-blocker"
