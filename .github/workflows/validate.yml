@@ -29,6 +29,8 @@ jobs:
           if [ -f manuscript/latex/atlas-v0.1.1-rc.2.tex ]; then
             python tools/build_editorial_candidate_rc2.py --check
           fi
+      - run: python tools/editorial_export_figure_alts.py
+      - run: python -m unittest discover -s tests -p test_atlas_semantic_alt.py
       - run: python tools/editorial_figure_inventory.py --check
       - run: python tools/check_editorial_figure_derivatives.py
       - run: python tools/check_editorial_chapter_queue.py
