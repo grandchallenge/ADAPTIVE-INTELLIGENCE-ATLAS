@@ -34,6 +34,8 @@ For an autonomous true flow,
 }
 \]
 
+The composition identity is understood only wherever all maps are defined; in a one-sided forward semiflow it is restricted to \(s,t\ge0\).
+
 A sampled trajectory is not the same object as the flow law.
 
 A numerical update is not automatically the exact flow map.
@@ -102,7 +104,7 @@ f(x_\star+\delta)
 =
 J_f(x_\star)\delta
 +
-O(\|\delta\|^2).
+o(\|\delta\|).
 \]
 
 Hence locally
@@ -112,8 +114,10 @@ Hence locally
 =
 J_f(x_\star)\delta
 +
-O(\|\delta\|^2).
+o(\|\delta\|).
 \]
+
+The little-\(o\) estimate requires only differentiability at the equilibrium. Upgrading it to \(O(\|\delta\|^2)\) requires stronger regularity, for example a locally Lipschitz Jacobian.
 
 For a hyperbolic equilibrium:
 
