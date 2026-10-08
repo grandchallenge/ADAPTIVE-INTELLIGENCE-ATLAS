@@ -11,8 +11,20 @@ for x in (-1, 1):
     ref = (-x, -x)
     assert (x, ref[1])[0] == x
     assert (ref[0], x)[0] == -x
+# A different output map gives a redundancy control on the binary domain.
+def g(h):
+    return max(h)
+assert g((1, 1)) == 1
+assert g((0, 1)) == 1
+assert g((1, 0)) == 1
+assert g((0, 0)) == 0
+
 print("MECHDIAG witness: PASS")
 ```
+
+## Independent redundancy control
+
+For the separate binary-domain map (G(h_1,h_2)=\max(h_1,h_2)\), a baseline state ((1,1)\) has output 1; masking either coordinate individually retains output 1, while masking both gives 0. This proves that null single-coordinate interventions need not rule out a jointly relevant component set. It does not claim that every null ablation is due to redundancy.
 
 ## Claim boundary
 
