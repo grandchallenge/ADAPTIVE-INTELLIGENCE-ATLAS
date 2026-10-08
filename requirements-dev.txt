@@ -1,1 +1,2 @@
 PyYAML>=6.0,<7
+pypandoc_binary==1.17
