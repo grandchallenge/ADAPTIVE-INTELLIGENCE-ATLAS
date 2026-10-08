@@ -71,3 +71,37 @@ assert ch.count('../../../figures/derivatives/'+prefix+'.png')==1
 assert rc2.count('\\includegraphics')==18
 print('FIGURE_REPAIR_VALID',fid,'PNG',wh,'SHA256',record['generator']['image_sha256'])
 print('FIGURE_REPAIR_PASS 3 candidate Wolfram-native derivatives, 18 plates, original masters unchanged')
+
+# TRANSFER: candidate print-legible vertical Wolfram-native schematic.
+fid='ATLAS-FIG-TRANSFER-001'
+prefix=f'{fid}-v0.1.1'
+deriv=root/'figures/derivatives'
+record=yaml.safe_load((deriv/(prefix+'.yaml')).read_text())
+old=yaml.safe_load((root/'figures/manifests'/(fid+'.yaml')).read_text())
+wl=deriv/(prefix+'.wl')
+png=deriv/(prefix+'.png')
+assert record['source_figure_id']==fid
+assert record['parameters']==old['parameters']
+assert record['literal_semantics']==old['literal_semantics']
+assert record['claim_boundary']==old['claim_boundary']
+assert record['original_wolfram_provenance']['source_git_blob_sha1']==old['generator']['source_git_blob_sha1']
+assert record['original_wolfram_provenance']['original_render_git_blob_sha1']==old['generator']['rendered_git_blob_sha1']
+assert subprocess.check_output(['git','hash-object',str(root/old['generator']['source'])],text=True).strip()==old['generator']['source_git_blob_sha1']
+assert subprocess.check_output(['git','hash-object',str(root/old['generator']['rendered'])],text=True).strip()==old['generator']['rendered_git_blob_sha1']
+assert subprocess.check_output(['git','hash-object',str(wl)],text=True).strip()==record['generator']['source_git_blob_sha1']
+data=png.read_bytes()
+assert hashlib.sha256(data).hexdigest()==record['generator']['image_sha256']
+assert data[:8]==bytes.fromhex('89504e470d0a1a0a')
+wh=list(struct.unpack('>II',data[16:24]))
+assert wh==record['generator']['render_pixels']==[700,760]
+txt=wl.read_text()
+assert 'Inset[left' in txt and 'Inset[right' in txt
+assert 'Subscript["z","s"]' in txt and 'Subscript["z","t"]' in txt
+for item in ['(4,2)','(6,1/2)','r=(3,1)','D','P(r)=1','(1,0)','(1,1)']:
+ assert item in txt,item
+assert rc2.count('figures/derivatives/'+prefix+'.png')==1
+chapter=(root/'manuscript/parts/03-representation-learning/ATLAS-CH-TRANSFER-001.md').read_text()
+assert chapter.count('../../../figures/derivatives/'+prefix+'.png')==1
+assert rc2.count('\includegraphics')==18
+print('FIGURE_REPAIR_VALID',fid,'PNG',wh,'SHA256',record['generator']['image_sha256'])
+print('FIGURE_REPAIR_PASS 4 candidate Wolfram-native derivatives, 18 plates, original masters unchanged')
