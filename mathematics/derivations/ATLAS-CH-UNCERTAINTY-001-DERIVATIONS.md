@@ -226,13 +226,13 @@ It must not infer that arbitrary dropout masks are exact posterior samples.
 
 ## D9. Split-conformal rank correction
 
-For n calibration scores and target miscoverage alpha, define
+For n calibration scores and target miscoverage (0<\alpha<1), define
 
 \[
 k=\lceil(n+1)(1-\alpha)\rceil.
 \]
 
-When k<=n, use the kth order statistic of calibration scores as threshold.
+When (1\le k\le n), use the (k\)-th order statistic of calibration scores as threshold. When (k=n+1), the calibration sample has no (k\)-th order statistic. The standard nonrandomized convention uses the threshold (+\infty); this case occurs for \(\alpha<1/(n+1)\). For example, \(n=4\), \(\alpha=0.1\) gives \(k=\lceil5(0.9)\rceil=5\), so the threshold is \(+\infty\) rather than an undefined fifth calibration value.
 
 Under exchangeability, the future score's rank among n+1 scores is symmetric.
 
