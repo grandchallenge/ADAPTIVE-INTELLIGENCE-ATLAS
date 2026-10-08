@@ -30,6 +30,7 @@ jobs:
             python tools/build_editorial_candidate_rc2.py --check
           fi
       - run: python tools/editorial_figure_inventory.py --check
+      - run: python tools/check_editorial_figure_derivatives.py
       - run: python tools/check_editorial_chapter_queue.py
       - run: python tools/check_release_readiness.py
       - run: python tools/check_release_candidate.py

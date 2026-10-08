@@ -1,0 +1,48 @@
+schema_version: 1.0.0
+derivative_id: ATLAS-FIG-PSPECTRUM-001-v0.1.1
+source_figure_id: ATLAS-FIG-PSPECTRUM-001
+chapter_id: ATLAS-CH-NONNORMAL-001
+candidate: atlas-v0.1.1-rc.2
+status: editorial-wolfram-derivative-rendered-review-required
+representation_class: data-derived
+generator:
+  system: Wolfram Language evaluator
+  version: 15.0.1 for Linux x86 (64-bit) (July 2, 2026)
+  system_id: Linux-x86-64
+  source: figures/derivatives/ATLAS-FIG-PSPECTRUM-001-v0.1.1.wl
+  source_git_blob_sha1: 24a45fdf9719d59092d892f3160b235c0ca94874
+  image: figures/derivatives/ATLAS-FIG-PSPECTRUM-001-v0.1.1.png
+  image_sha256: 98e7228b577c1dea820ee94b8ad71d1da51114068f0d0f0495f861013635c6be
+  render_pixels:
+  - 1100
+  - 418
+  note: Wolfram evaluator Graphics result raster. Source Export line defines derivative
+    path; binary generated through evaluator output, not claimed byte-identical to
+    standalone Export due PNG metadata.
+original_wolfram_provenance:
+  source: figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl
+  source_git_blob_sha1: 0a84e8c2497fa4f224690a1004946a11c29579ef
+  original_master: figures/masters/ATLAS-FIG-PSPECTRUM-001.png
+  original_render_git_blob_sha1: cf87cec053f71b22ce25adfd12224fd601a49f9e
+parameters:
+  a: 4/5
+  K: 4
+  steps: 0..20
+  epsilons:
+  - 0.01
+  - 0.03
+  - 0.1
+  - 0.3
+mathematics:
+  nonnormal_matrix: A=[[a,K],[0,a]]
+  normal_comparison: N=a I
+  exact_power: A^n=[[a^n,n K a^(n-1)],[0,a^n]]
+  pseudospectrum_boundary: '|z-a|^2=epsilon(epsilon+K)'
+claim_boundary: The figure establishes the mechanism for this exact finite-dimensional
+  example. It does not establish that a particular neural optimizer or network exhibits
+  the same mechanism.
+visual_change: Matched-eigenvalue transient gains and analytic epsilon-radius contours
+  only
+rendering_gate: Inspect native PNG, revised PDF/HTML at exact candidate SHA, role-separated
+  editorial visual and numerical checks; historical public master unchanged.
+norm: spectral/operator 2-norm
