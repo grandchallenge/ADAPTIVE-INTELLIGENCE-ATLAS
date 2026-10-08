@@ -90,7 +90,8 @@ exact_witness_contract:
   admissible_teacher_examples:
     e1: "(q1,1)"
     e2: "(q2,1)"
-  version_space: "V_H(T)={h in H: h is consistent with every labeled example in T}"
+  version_space: "V_H(T)={h in H: for every (q,y) in T with q in Q, h(q)=y}"
+  version_space_domain_rule: "Probes outside Q impose no constraint on target identification; no claim of irrelevance to other learning objectives."
   basis:
     T_star:
       - "(q1,1)"
