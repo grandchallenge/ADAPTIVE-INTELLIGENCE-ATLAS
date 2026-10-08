@@ -36,13 +36,15 @@ h^\star=h_{11}.
 
 ## D2. Version space
 
-For target-consistent labeled teaching set \(T\), define:
+For a finite set \(T\) of labeled experiences, write \(T_Q=\{(q,y)\in T:q\in Q\}\). Define the target-relative version space:
 
 \[
 V_H(T)
 =
-\{h\in H: h\text{ is consistent with every example in }T\}.
+\{h\in H:\forall(q,y)\in T_Q,\ h(q)=y\}.
 \]
+
+Only probes in the declared domain \(Q\) constrain hypotheses in \(H\). Auxiliary experiences outside \(Q\) are ignored **for this target-identification test**, not asserted to be unhelpful for other learning goals.
 
 The declared exact reconstructor succeeds iff:
 
