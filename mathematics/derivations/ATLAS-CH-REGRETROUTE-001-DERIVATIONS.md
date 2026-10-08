@@ -79,7 +79,7 @@ Define:
 \right\}.
 \]
 
-Because a length-four binary sequence can switch at most three times, \(\Pi_3\) contains every binary action sequence of length four.
+Because a length-four binary sequence can switch at most three times **and both accepted routes are feasible on all four rounds**, \(\Pi_3\) contains every binary action sequence of length four. This equivalence is specific to the witness. In the general capacity-constrained problem, the shifting comparator class must also impose \(u_t\in F_t\) for every \(t\), and be nonempty; otherwise the regret minimum is undefined or may benchmark an infeasible oracle. A feasible static benchmark analogously requires an action in \(\bigcap_t F_t\).
 
 ## D5. Shifting regret
 
@@ -398,12 +398,17 @@ Therefore:
 If route switching itself is costly, define:
 
 \[
+\widetilde\ell_1=\ell_1(a_1),
+\qquad
 \widetilde\ell_t
 =
 \ell_t(a_t)
 +
-\lambda\mathbf 1[a_t\neq a_{t-1}].
+\lambda\mathbf 1[a_t\neq a_{t-1}]
+\quad(t=2,\ldots,T).
 \]
+
+The initial round has no switching penalty unless a pre-horizon action \(a_0\) is separately declared. Thus exactly the \(T-1\) transitions within the horizon enter the switching charge.
 
 Then churn enters the objective explicitly.
 
