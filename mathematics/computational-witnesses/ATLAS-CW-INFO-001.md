@@ -12,61 +12,61 @@ Replay a small joint distribution whose mutual information is nonzero, compare i
 
 Let
 
-[
+\[
 P_{XY}
 =
 \begin{pmatrix}
-3/8&1/8\
+3/8&1/8\\
 1/8&3/8
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
 Both marginals are
 
-[
+\[
 (1/2,1/2).
-]
+\]
 
 Wolfram evaluates
 
-[
+\[
 I(X;Y)
 =
-\frac{log(27/16)}{log 16}
-approx
+\frac{\log(27/16)}{\log 16}
+\approx
 0.1887218755408671
-]
+\]
 
 bits.
 
 The joint entropy is
 
-[
+\[
 H(X,Y)
-approx
+\approx
 1.811278124459133
-]
+\]
 
 bits.
 
 ## Deterministic witness
 
-For a fair binary variable with (Y=X),
+For a fair binary variable with \(Y=X\),
 
-[
+\[
 P_{XY}
 =
 \begin{pmatrix}
-1/2&0\
+1/2&0\\
 0&1/2
-end{pmatrix},
-]
+\end{pmatrix},
+\]
 
 Wolfram gives
 
-[
+\[
 I(X;Y)=1
-]
+\]
 
 bit.
 
@@ -76,17 +76,17 @@ Neither computation identifies a causal direction.
 
 If
 
-[
+\[
 P=(1/2,1/2),
-qquad
+\qquad
 Q=(1,0),
-]
+\]
 
-then (P) assigns positive mass where (Q) assigns zero mass, so
+then \(P\) assigns positive mass where \(Q\) assigns zero mass, so
 
-[
-D_{\rm KL}(P|Q)=infty.
-]
+\[
+D_{\mathrm{KL}}(P\|Q)=\infty.
+\]
 
 ## Claim boundary
 
