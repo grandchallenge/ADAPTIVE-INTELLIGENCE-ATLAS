@@ -87,10 +87,10 @@ Suppose
 z=r(x).
 \]
 
-Now apply an invertible transformation
+For a finite-dimensional real representation space \(\mathcal Z=\mathbb R^d\), apply an invertible linear transformation
 
 \[
-T:\mathcal Z\to\mathcal Z
+T:\mathbb R^d\to\mathbb R^d
 \]
 
 and define
