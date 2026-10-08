@@ -4,14 +4,14 @@ repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
 controller_branch: "state/atlas-controller"
 handoff_path: "governance/CURRENT_HANDOFF.md"
 current:
-  issue_number: 314
-  tranche_id: "EDITORIAL-REVIEW-001"
+  issue_number: 318
+  tranche_id: "EDITORIAL-PART-01"
   chapter_ids: []
-  baseline_commit: "e096897e2e30459bfd5a3af660fd3e9dee53a1c9"
-  branch: "editorial/review-314"
+  baseline_commit: "84507c9a7dcb615c98d4d4e05f215de9cb293d4e"
+  branch: "editorial/part01-318"
   pull_request: null
-  state: "instantiated"
-  next_action: "Review exact public v0.1.0 as published but not comprehensive-editorially-reviewed; perform reproducible corpus-wide and representative human-grade editorial assessment. Record findings and coverage without assuming mechanical checks certify prose. Submit a durable reviewed ledger/roadmap, validate and audit it, then advance into bounded chapter review passes. Preserve public release bytes and source tag unchanged; corrections require a new release identity and editorial acceptance."
+  state: "source-review"
+  next_action: "Review four Part I chapters and source-locks, create exact-location editorial records and reader-path restructure; do not change public v0.1.0 assets or assert full editorial signoff. Continue whole-book review under issue #314."
 frontier:
   - "corpus-wide editorial scan"
   - "80-chapter coverage ledger"
