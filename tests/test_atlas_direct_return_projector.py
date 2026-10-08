@@ -41,6 +41,27 @@ class ProjectionTests(unittest.TestCase):
     def test_spoofed_identity(self):
         e,f=fixture();e["comment"]["user"]["login"]="another-user"
         self.assertEqual(mod.evaluate(e,f)["reason"],"authenticated_actor_mismatch")
+    def test_agent_review_same_authenticated_login(self):
+        e,f=fixture()
+        e["comment"]["body"] = e["comment"]["body"].replace(
+            "reviewer_identity: reviewer42 (independent reviewer)",
+            "github_actor: reviewer42\nreviewer_identity: atlas-math-reviewer\nagent_role: MATH_CHECK\nagent_run_id: independent-pass-02",
+        )
+        result=mod.evaluate(e,f)
+        self.assertTrue(result["project"])
+        self.assertEqual(result["authenticated_actor"],"reviewer42")
+        self.assertEqual(result["agent_role"],"MATH_CHECK")
+        self.assertEqual(result["agent_run_id"],"independent-pass-02")
+        self.assertFalse(result["independent_review_approved"])
+
+    def test_explicit_transport_actor_mismatch(self):
+        e,f=fixture()
+        e["comment"]["body"]=e["comment"]["body"].replace(
+            "reviewer_identity: reviewer42 (independent reviewer)",
+            "github_actor: otheruser\nreviewer_identity: atlas-reviewer",
+        )
+        self.assertEqual(mod.evaluate(e,f)["reason"],"authenticated_actor_mismatch")
+
     def test_wrong_assignment(self):
         e,f=fixture();e["comment"]["body"]=e["comment"]["body"].replace(ASSIGN,"ATLAS-EDITORIAL-P99")
         self.assertEqual(mod.evaluate(e,f)["reason"],"wrong_assignment")

@@ -52,9 +52,12 @@ def evaluate(event: dict, fields: list[dict]) -> dict:
     if field_map.get("GCL State") != "AVAILABLE":
         return skip("state_not_available")
     matches = dict(RETURN_FIELD.findall(body))
-    needed = ["assignment_id", "reviewer_identity", "input_head", "status"]
-    if any(k not in matches for k in needed):
+    if any(k not in matches for k in ("assignment_id", "status")):
         return skip("missing_required_return_field")
+    if not (matches.get("github_actor") or matches.get("reviewer_identity")):
+        return skip("missing_actor_attribution")
+    if not (matches.get("reviewed_head") or matches.get("input_head")):
+        return skip("missing_source_head")
     issue_body = issue.get("body") or ""
     source = ASSIGNMENT.search(issue_body)
     if source:
@@ -66,10 +69,15 @@ def evaluate(event: dict, fields: list[dict]) -> dict:
         required_assignment = prefix.group(1)
     if matches["assignment_id"].strip() != required_assignment:
         return skip("wrong_assignment")
-    claimed = LOGIN.match(matches["reviewer_identity"].strip())
+    # Bind the comment to the authenticated GitHub transport account.
+    # This is NOT the test for independence of the review agent role.
+    declared_actor = (matches.get("github_actor") or
+                      matches.get("reviewer_identity") or "")
+    claimed = LOGIN.match(declared_actor.strip())
     if not claimed or claimed.group(1).casefold() != actor["login"].casefold():
         return skip("authenticated_actor_mismatch")
-    head = matches["input_head"].strip()
+    head = (matches.get("reviewed_head") or
+            matches.get("input_head") or "").strip()
     if not SHA.fullmatch(head):
         return skip("invalid_source_head")
     status = matches["status"].strip()
@@ -81,6 +89,8 @@ def evaluate(event: dict, fields: list[dict]) -> dict:
         "issue_number": issue["number"],
         "comment_id": comment["id"],
         "authenticated_actor": actor["login"],
+        "agent_role": matches.get("agent_role") or "UNDECLARED",
+        "agent_run_id": matches.get("agent_run_id") or "UNRECORDED",
         "assignment": required_assignment,
         "input_head": head,
         "self_reported_status": status,
