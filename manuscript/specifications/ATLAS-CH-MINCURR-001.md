@@ -106,13 +106,13 @@ e_1=(q_1,1),
 e_2=(q_2,1).
 \]
 
-For any teaching set \(T\), define version space:
+For any finite set \(T\) of labeled experiences, restrict it to \(T_Q=\{(q,y)\in T:q\in Q\}\). Define the target-relative version space:
 
 \[
-V_H(T)
-=
-\{h\in H:\text{$h$ is consistent with every example in }T\}.
+V_H(T)=\{h\in H:\forall(q,y)\in T_Q,\ h(q)=y\}.
 \]
+
+Auxiliary experiences outside \(Q\) do not constrain this declared target reconstructor. This does not imply that they are useless under another capability target.
 
 The declared reconstructor succeeds exactly when:
 
