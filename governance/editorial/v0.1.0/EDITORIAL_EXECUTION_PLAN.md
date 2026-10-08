@@ -54,3 +54,7 @@ stop condition.
 Continue repairs now. Parent #314 is OPEN; 0/80 final signoffs. Require exact
 release identity, current candidate head, scope and a durable return record
 for every agent. Allow explicit failure returns.
+
+## Role-based editorial checks (Human Steward, 2026-10-08)
+
+For Atlas editorial production, independent means separate agent roles, review passes, and evidence, not separate people or GitHub logins. An agent reviewer can use the same repository credentials as the drafting agent. Document distinct review scope, source revision, tests, and findings. Ordinary corrections proceed without waiting for human review. Preserve any separately applicable protected GitHub admission constraints. See governance/EDITORIAL_AGENT_ROLE_SEPARATION.md on state/atlas-controller.
