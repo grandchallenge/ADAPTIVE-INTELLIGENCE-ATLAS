@@ -6,21 +6,21 @@
 
 Tasks:
 
-[
-Q={alpha, eta}.
-]
+\[
+Q=\{\alpha,\beta\}.
+\]
 
 Specialists:
 
-[
-A_alpha=(1,0),qquad A_ eta=(0,1).
-]
+\[
+A_{\alpha}=(1,0),\qquad A_{\beta}=(0,1).
+\]
 
 Correct routing:
 
-[
-R=(A_alpha,A_ eta).
-]
+\[
+R=(A_{\alpha},A_{\beta}).
+\]
 
 Validator accepts only correct answer plus correct declared source.
 
@@ -39,7 +39,7 @@ Expected exact metrics:
 
 ## W3. Broken router
 
-Use (R'=(A_alpha,A_alpha)).
+Use \(R'=(A_{\alpha},A_{\alpha})\).
 
 Expected metrics:
 
@@ -68,9 +68,9 @@ Expected metrics:
 
 Bad candidate:
 
-[
-( eta,1,A_alpha).
-]
+\[
+(\beta,1,A_{\alpha}).
+\]
 
 Validator rejects it.
 

@@ -4,69 +4,69 @@
 
 Let
 
-[
-Q={alpha, eta}.
-]
+\[
+Q=\{\alpha,\beta\}.
+\]
 
 Define specialists:
 
-[
-A_alpha=(1,0),qquad A_ eta=(0,1)
-]
+\[
+A_{\alpha}=(1,0),\qquad A_{\beta}=(0,1)
+\]
 
-on ordered tasks ((alpha, eta)).
+on the ordered tasks \((\alpha,\beta)\).
 
 The correct router is:
 
-[
-R(alpha)=A_alpha,qquad R( eta)=A_ eta.
-]
+\[
+R(\alpha)=A_{\alpha},\qquad R(\beta)=A_{\beta}.
+\]
 
 Hence routed answers are:
 
-[
-y(alpha)=1,qquad y( eta)=1.
-]
+\[
+y(\alpha)=1,\qquad y(\beta)=1.
+\]
 
 Therefore task accuracy is:
 
-[
- oxed{1}.
-]
+\[
+\boxed{1}.
+\]
 
 ## D2. Evidence and commit
 
 Candidate:
 
-[
+\[
 c=(q,y,s).
-]
+\]
 
 Validator accepts iff:
 
-[
+\[
 y=1
-]
+\]
 
-and source (s) equals the declared specialist for (q).
+and source \(s\) equals the declared specialist for task \(q\).
 
 Governance commits iff validation accepts.
 
 Thus both correct routed candidates commit as:
 
-[
-(alpha,1,A_alpha,mathrm{validated}),
-]
+\[
+(\alpha,1,A_{\alpha},\mathrm{validated}),
+\]
 
-[
-( eta,1,A_ eta,mathrm{validated}).
-]
+\[
+(\beta,1,A_{\beta},\mathrm{validated}).
+\]
 
 Validated commit coverage is:
 
-[
- oxed{1}.
-]
+\[
+\boxed{1}.
+\]
 
 ## D3. Persistent recall
 
@@ -74,80 +74,80 @@ Shared memory stores both records by task key.
 
 Later recall returns:
 
-[
-M[alpha]=1,qquad M[ eta]=1.
-]
+\[
+M[\alpha]=1,\qquad M[\beta]=1.
+\]
 
 Persistent recall coverage is:
 
-[
- oxed{1}.
-]
+\[
+\boxed{1}.
+\]
 
 No rejected candidate is committed, so unauthorized commits are:
 
-[
- oxed{0}.
-]
+\[
+\boxed{0}.
+\]
 
 ## D4. Broken-router ablation
 
 Let
 
-[
-R'(alpha)=A_alpha,qquad R'( eta)=A_alpha.
-]
+\[
+R'(\alpha)=A_{\alpha},\qquad R'(\beta)=A_{\alpha}.
+\]
 
 Then:
 
-[
-y'(alpha)=1,
-]
+\[
+y'(\alpha)=1,
+\]
 
-[
-y'( eta)=0.
-]
+\[
+y'(\beta)=0.
+\]
 
 The beta candidate fails validation.
 
 Hence task accuracy and validated commit coverage are each:
 
-[
- oxed{ rac12}.
-]
+\[
+\boxed{\frac{1}{2}}.
+\]
 
 ## D5. Remove-validator ablation
 
 Keep correct routing and unchanged governance rule:
 
-[
- ext{commit iff validator_accept=true}.
-]
+\[
+\text{commit iff validator_accept=true}.
+\]
 
 If the validator/evidence channel is absent, no positive validation evidence exists.
 
 Thus:
 
-[
- oxed{ ext{authorized commit coverage}=0}
-]
+\[
+\boxed{\text{authorized commit coverage}=0}
+\]
 
 even though transient answer accuracy can remain:
 
-[
- oxed{1}.
-]
+\[
+\boxed{1}.
+\]
 
 Therefore:
 
-[
- oxed{
- ext{answer capability}
+\[
+\boxed{
+\text{answer capability}
 
-otRightarrow
- ext{authorized durable state}.
+\not\Rightarrow
+\text{authorized durable state}.
 }
-]
+\]
 
 ## D6. Remove-memory ablation
 
@@ -157,94 +157,94 @@ Delete persistent shared memory.
 
 Then immediate answer accuracy remains (1), but later persistent recall coverage is:
 
-[
- oxed{0}.
-]
+\[
+\boxed{0}.
+\]
 
 Therefore:
 
-[
- oxed{
- ext{transient success}
+\[
+\boxed{
+\text{transient success}
 
-otRightarrow
- ext{persistent shared recall}.
+\not\Rightarrow
+\text{persistent shared recall}.
 }
-]
+\]
 
 ## D7. Remove-governance ablation
 
 Define bad candidate:
 
-[
-c_{mathrm{bad}}=( eta,1,A_alpha).
-]
+\[
+c_{\mathrm{bad}}=(\beta,1,A_{\alpha}).
+\]
 
 It is correct-looking in value but wrong in source.
 
 Validator result:
 
-[
+\[
 V(c_{mathrm{bad}})=0.
-]
+\]
 
 With governance:
 
-[
- ext{commit}=0.
-]
+\[
+\text{commit}=0.
+\]
 
 If governance is bypassed:
 
-[
- ext{commit}=1.
-]
+\[
+\text{commit}=1.
+\]
 
 Thus unauthorized commits increase from (0) to (1).
 
 Therefore:
 
-[
- oxed{
- ext{content correctness alone}
+\[
+\boxed{
+\text{content correctness alone}
 
-otRightarrow
- ext{authorized transition}.
+\not\Rightarrow
+\text{authorized transition}.
 }
-]
+\]
 
 ## D8. Capability is composition-relative
 
 The same specialist set:
 
-[
-{A_alpha,A_ eta}
-]
+\[
+\{A_{\alpha},A_{\beta}\}
+\]
 
 appears in the full system and broken-router ablation.
 
 Yet task accuracy changes from:
 
-[
+\[
 1
-]
+\]
 
 to:
 
-[
- rac12.
-]
+\[
+\frac{1}{2}.
+\]
 
 Hence:
 
-[
- oxed{
- ext{component set}
+\[
+\boxed{
+\text{component set}
 
-otRightarrow
- ext{system capability}.
+\not\Rightarrow
+\text{system capability}.
 }
-]
+\]
 
 The composition rule matters.
 
@@ -273,9 +273,9 @@ A CONJECTURAL_CONNECTION does not become substrate through narrative synthesis.
 
 Let:
 
-[
-K=(c_{mathrm{coord}},c_{mathrm{mem}},c_{mathrm{tool}},c_{mathrm{human}},c_{mathrm{val}}).
-]
+\[
+K=(c_{\mathrm{coord}},c_{\mathrm{mem}},c_{\mathrm{tool}},c_{\mathrm{human}},c_{\mathrm{val}}).
+\]
 
 The witness proves no dominance relation between architectures under this heterogeneous cost vector.
 
