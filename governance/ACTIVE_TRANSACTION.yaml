@@ -8,10 +8,10 @@ current:
   tranche_id: "EDITORIAL-PART-01"
   chapter_ids: []
   baseline_commit: "f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04"
-  branch: "editorial/part01-318"
-  pull_request: 319
-  state: "source-review-merged"
-  next_action: "Part I review PR #319 merged green at f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04; all four orientation chapters require editorial revisions. Next inspect source packets and rendered PDF/HTML, prepare revised canonical LaTeX ONLY under a new editorial candidate identity, independently check any mathematical-claim changes, then complete Part I and proceed through remaining Parts under parent issue #314. Do not alter public v0.1.0."
+  branch: "editorial/part01-corrections-20261008"
+  pull_request: 320
+  state: "correction-candidate-draft"
+  next_action: "Draft corrected LaTeX candidate PR #320 at exact head 6ac0a9613d029db0d3ec894ff66fbff9a44f2565: local invariance, Atlas structural validation and three-pass PDF compile passed; exact-head CI validate green run 37752208620. Part I is NOT editor-approved. Independent review #322 must check flow and evidence math, HTML/PDF, and editorial acceptability; global numbering defect issue #321 remains P1. Follow independent findings with changed-head replay, separate editorial audit and protected admission only when all gates are met. Parent #314 remains open 0/80; do not mutate public v0.1.0."
 frontier:
   - "corpus-wide editorial scan"
   - "80-chapter coverage ledger"
