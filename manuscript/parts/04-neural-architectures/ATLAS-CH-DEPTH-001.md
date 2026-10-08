@@ -57,14 +57,15 @@ The purpose of this chapter is to make the depth coordinate explicit enough that
 
 Write a depth-L computation as
 
-x_{k+1}=F_k(x_k),
-k=0,...,L-1.
+\[
+x_{k+1}=F_k(x_k),\qquad k=0,\ldots,L-1.
+\]
 
 Then
 
-x_L
-=
-F_{L-1} o ... o F_0(x_0).
+\[
+x_L=(F_{L-1}\circ\cdots\circ F_0)(x_0).
+\]
 
 The architecture commits in advance to L sequential transformations.
 
@@ -114,7 +115,9 @@ A stronger claim that a particular network discretizes a particular differential
 
 Now tie the transformation:
 
+\[
 x_{k+1}=F(x_k).
+\]
 
 One operator is reused across computational depth.
 
@@ -156,23 +159,16 @@ Let epsilon be a threshold.
 
 Let K_max be the largest permitted depth under the current compute budget.
 
-Define
+Define the bounded stopping depth
 
-tau
-=
-min(
-{k in {0,...,K_max} : h_k <= epsilon}
-union
-{K_max}
-).
+\[
+\tau=\min\left(\{k\in\{0,\ldots,K_{\max}\}:h_k\le\varepsilon\}\cup\{K_{\max}\}\right).
+\]
 
-The realized output is x_tau.
+The realized output is \(x_\tau\). The termination status must also be retained:
 
-The termination status must also be retained:
-
-criterion_met if h_tau <= epsilon;
-
-budget_exhausted otherwise.
+- `criterion_met` if \(h_\tau\le\varepsilon\);
+- `budget_exhausted` otherwise.
 
 This equation separates two ideas.
 
@@ -200,33 +196,23 @@ They do not show that learned halting always tracks task difficulty correctly.
 
 Consider the scalar recurrence
 
-x_{k+1}
-=
-(x_k+2)/2,
-
-with
-
-x_0=0.
+\[
+x_{k+1}=\frac{x_k+2}{2},\qquad x_0=0.
+\]
 
 The fixed point is 2.
 
 Subtract it:
 
-x_{k+1}-2
-=
-(1/2)(x_k-2).
+\[
+x_{k+1}-2=\frac12(x_k-2).
+\]
 
 Hence
 
-x_k
-=
-2(1-2^{-k}),
-
-and the exact error is
-
-|x_k-2|
-=
-2^{1-k}.
+\[
+x_k=2(1-2^{-k}),\qquad |x_k-2|=2^{1-k}.
+\]
 
 Depth now has a literal approximation meaning for this one system.
 
@@ -240,9 +226,9 @@ At depth 5, it is 1/16.
 
 For tolerance epsilon in (0,2), the minimum depth satisfying the tolerance is
 
-tau(epsilon)
-=
-ceil(log_2(2/epsilon)).
+\[
+\tau(\varepsilon)=\left\lceil\log_2\!\left(\frac{2}{\varepsilon}\right)\right\rceil.
+\]
 
 The transformation did not change.
 
@@ -278,17 +264,17 @@ So define realized computational cost more carefully.
 
 For one declared resource unit,
 
-C(x_0)
-=
-sum_{k=0}^{tau-1} c_k(x_k),
+\[
+C(x_0)=\sum_{k=0}^{\tau-1}c_k(x_k),
+\]
 
 where c_k records the cost of the executed transition in that unit.
 
 If several heterogeneous resources are tracked, use a vector such as
 
-C_vec
-=
-(C_FLOPs, C_memory, C_energy, C_latency-proxy)
+\[
+C_{\mathrm{vec}}=(C_{\mathrm{FLOPs}},C_{\mathrm{memory}},C_{\mathrm{energy}},C_{\mathrm{latency}}).
+\]
 
 rather than adding unlike units without a declared scalarization.
 
@@ -308,7 +294,9 @@ Equilibrium models make a different move.
 
 Instead of declaring an explicit number of layers, define the representation by a fixed-point equation:
 
-x*=F(x*).
+\[
+x_\star=F(x_\star).
+\]
 
 The computational problem becomes:
 
@@ -326,7 +314,9 @@ And the equilibrium equation does not prescribe one solver.
 
 Naive fixed-point iteration
 
+\[
 x_{k+1}=F(x_k)
+\]
 
 is one possibility.
 
@@ -368,15 +358,15 @@ Conditional execution asks which blocks to run at all.
 
 For a residual-style block, write
 
-x_{k+1}
-=
-x_k
-+
-g_k(x_k) Delta_k(x_k).
+\[
+x_{k+1}=x_k+g_k(x_k)\Delta_k(x_k).
+\]
 
 With a hard gate
 
-g_k in {0,1},
+\[
+g_k\in\{0,1\},
+\]
 
 the block is either applied or skipped.
 
@@ -392,7 +382,9 @@ Two examples entering the same nominal network can traverse different numbers of
 
 During training, it is often convenient to relax a binary gate:
 
-g_k in [0,1].
+\[
+g_k\in[0,1].
+\]
 
 Then the update can interpolate continuously between carry and transform.
 
@@ -416,15 +408,15 @@ That boundary is handed directly to the later Conditional Computation chapter.
 
 For hard gating, define the active block set
 
-A(x_0)
-=
-{k : g_k(x_k)=1}.
+\[
+\mathcal A(x_0)=\{k:g_k(x_k)=1\}.
+\]
 
 A simple realized block cost is
 
-C_block(x_0)
-=
-sum_{k in A(x_0)} c_k,
+\[
+C_{\mathrm{block}}(x_0)=\sum_{k\in\mathcal A(x_0)}c_k,
+\]
 
 plus the overhead required to make the routing decisions.
 
