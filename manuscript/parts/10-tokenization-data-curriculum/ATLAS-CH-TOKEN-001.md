@@ -301,7 +301,7 @@ That alone does not tell us which tokenizer gives better morphology, likelihood,
 
 Suppose a declared linguistic analysis places internal boundaries in a word.
 
-Let \(B_M(x)\) be those boundaries and \(B_\tau(x)\) the tokenizer's internal boundaries.
+Let \(B_M(x)\) be those boundaries and \(B_\tau(x)\) the tokenizer's internal boundaries. Both sets must be measured as offsets in the **same declared canonical form of \(x\)** and the **same unit** (for example, positions between Unicode codepoints). Byte offsets from one representation cannot be compared directly with codepoint offsets from another.
 
 One can define boundary precision and recall:
 
@@ -316,6 +316,8 @@ R_M
 =
 \frac{|B_M\cap B_\tau|}{|B_M|}.
 \]
+
+These ratios are defined only when their respective denominators are nonzero: \(P_M\) requires \(|B_\tau|>0\) and \(R_M\) requires \(|B_M|>0\). When a boundary set is empty, report the affected quantity as **undefined/not applicable** rather than silently replacing \(0/0\) with zero or one. A particular evaluation protocol may separately declare a different empty-set convention.
 
 For the toy analysis
 
