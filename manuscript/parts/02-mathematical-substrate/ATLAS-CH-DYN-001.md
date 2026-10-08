@@ -142,6 +142,8 @@ For an autonomous true flow,
 }
 \]
 
+The identity holds only for states and times on which the relevant compositions are defined. A forward-only system has a semiflow, with \(s,t\ge 0\), rather than a globally defined two-sided flow.
+
 This composition law is stronger than merely having a depth-indexed family of transformations.
 
 The word **flow** should therefore not be used automatically for any sequence of neural layers.
@@ -238,7 +240,7 @@ f(x_\star+\delta)
 =
 J_f(x_\star)\delta
 +
-O(\|\delta\|^2).
+o(\|\delta\|).
 \]
 
 So the local perturbation dynamics are
@@ -248,8 +250,10 @@ So the local perturbation dynamics are
 =
 J_f(x_\star)\delta
 +
-O(\|\delta\|^2).
+o(\|\delta\|).
 \]
+
+The little-\(o\) remainder is the general differentiability guarantee. A quadratic \(O(\|\delta\|^2)\) bound needs additional regularity, such as a locally Lipschitz Jacobian.
 
 The Jacobian provides the first local approximation to the nonlinear system.
 
