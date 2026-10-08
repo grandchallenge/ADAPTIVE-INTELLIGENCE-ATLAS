@@ -192,13 +192,15 @@ Therefore a reproducible BPE tokenizer specification must bind at least:
 
 ## 7. Morphological-boundary alignment
 
-Given declared internal morphology boundaries \(B_M(x)\) and token boundaries \(B_\tau(x)\), define
+Given declared internal morphology boundaries \(B_M(x)\) and token boundaries \(B_\tau(x)\), represent both as offsets in the same normalized \(x\) and coordinate unit (e.g. inter-codepoint positions); otherwise their intersection has no declared meaning. When the corresponding denominator is positive, define
 
 \[
 P_M=\frac{|B_M\cap B_\tau|}{|B_\tau|},
 \qquad
 R_M=\frac{|B_M\cap B_\tau|}{|B_M|}.
 \]
+
+If \(|B_\tau|=0\), \(P_M\) is undefined; if \(|B_M|=0\), \(R_M\) is undefined. Do not silently assign a score to \(0/0\). A separate reporting protocol may adopt an explicit empty-boundary convention.
 
 For a toy analysis `un|believ|able`, the morphology boundary set has size two.
 
