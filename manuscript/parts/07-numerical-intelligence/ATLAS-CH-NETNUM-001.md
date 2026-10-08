@@ -304,25 +304,25 @@ Depth alone does not supply it.
 
 The Numerical Methods chapter used the scalar test equation
 
-`x'=lambda x`.
+\(\dot x=\lambda x\).
 
 This small system exposes stability cleanly.
 
 For explicit Euler,
 
-`x_{k+1}=(1+h lambda)x_k`.
+\(\,x_{k+1}=(1+h\lambda)x_k\,\).
 
 Define
 
-`z=h lambda`.
+\(z=h\lambda\).
 
 The amplification factor is
 
-`R(z)=1+z`.
+\(R(z)=1+z\).
 
 The standard non-growth stability condition is
 
-`|1+z|<=1`.
+\(|1+z|\le1\).
 
 This exact calculation transfers directly to a linear residual block when the block has been declared to represent the Euler step.
 
@@ -334,27 +334,27 @@ small perturbations in that scalar mode are multiplied by the same amplification
 
 Set
 
-`lambda=-1`.
+\(\lambda=-1\).
 
 The continuous solution decays:
 
-`x(t)=e^{-t}x(0)`.
+\(x(t)=e^{-t}x(0)\).
 
 Euler gives
 
-`x_{k+1}=(1-h)x_k`.
+\(x_{k+1}=(1-h)x_k\).
 
 The non-growth condition is
 
-`|1-h|<=1`.
+\(|1-h|\le1\).
 
 For real nonnegative `h`, the non-growth set is
 
-`0<=h<=2`.
+\(0\le h\le2\).
 
 Strict asymptotic decay requires
 
-`0<h<2`.
+\(0<h<2\).
 
 At `h=2`, the factor is `-1`: bounded but non-decaying.
 
@@ -364,11 +364,11 @@ Now choose
 
 The exact continuous factor over one step is
 
-`e^{-3}`.
+\(e^{-3}\).
 
 The Euler factor is
 
-`-2`.
+\(-2\).
 
 The continuous mode decays strongly.
 
@@ -450,36 +450,36 @@ It is not, by itself, a theorem about generalization or optimization success.
 
 Consider
 
-`x'=-x`,
-`x(0)=1`.
+\(x'=-x\),
+\(x(0)=1\).
 
 The exact solution at time `1` is
 
-`e^{-1}`.
+\(e^{-1}\).
 
 Use explicit Euler with `N` equal steps:
 
-`h=1/N`.
+\(h=1/N\).
 
 Then
 
-`x_N=(1-1/N)^N`.
+\(x_N=(1-1/N)^N\).
 
 For `N=2`:
 
-`x_2=1/4`.
+\(x_2=1/4\).
 
 For `N=4`:
 
-`x_4=81/256`.
+\(x_4=81/256\).
 
 For `N=8`:
 
-`x_8=5764801/16777216`.
+\(x_8=5764801/16777216\).
 
 These values move toward
 
-`e^{-1}`
+\(e^{-1}\)
 
 over the declared finite sequence.
 
@@ -611,7 +611,7 @@ A layer can be invertible without being a symmetric integrator.
 
 Return to
 
-`x'=-x`.
+\(x'=-x\).
 
 Euler gives
 
