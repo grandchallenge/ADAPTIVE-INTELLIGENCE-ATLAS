@@ -570,9 +570,28 @@ Yet the derived system guarantee is
 \frac14>\frac15.
 \]
 
-The local budgets pass individually.
+The local budgets pass individually. **The upper bound alone would show only that the system budget cannot yet be certified.** It would not prove that a particular implementation violates the requirement.
 
-The system budget fails.
+For this witness, we can exhibit an implementation attaining that bound. Choose
+
+\[
+\widehat f(x)=x+\frac1{10},
+\qquad
+\widehat g(y)=\frac32y+\frac1{10}.
+\]
+
+Each component has actual error exactly \(1/10\), on all real inputs, so the local contracts are satisfied. But
+
+\[
+\begin{aligned}
+\widehat g(\widehat f(x))-g(f(x))
+&=\frac32\left(x+\frac1{10}\right)+\frac1{10}-\frac32x\\
+&=\frac14
+>\frac15.
+\end{aligned}
+\]
+
+Thus **this explicit composition actually fails** the system error requirement. The separate statement that the generic upper bound is insufficient for certification remains true when no particular implementations are supplied.
 
 ## 14. This is not the same as noncommutativity
 
