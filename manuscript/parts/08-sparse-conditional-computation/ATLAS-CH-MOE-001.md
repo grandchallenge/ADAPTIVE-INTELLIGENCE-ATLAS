@@ -303,7 +303,7 @@ Define normalized accepted load:
 
 `f_e
 =
-n_e / sum_j n_j`.
+n_e / sum_j n_j`, **provided at least one expert assignment was accepted**, so \(\sum_jn_j>0\). If every token is dropped (or there are no dispatched tokens), the normalized accepted-load vector is undefined; record an empty-dispatch state and the absolute loads rather than divide by zero or claim balanced traffic.
 
 If all top-1 tokens are accepted:
 
