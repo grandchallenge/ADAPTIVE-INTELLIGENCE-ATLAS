@@ -1,0 +1,77 @@
+name: Project Atlas direct editorial returns
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  project-return:
+    if: >-
+      github.event.issue.pull_request == null &&
+      startsWith(github.event.comment.body, 'RESULT/1')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    concurrency:
+      group: atlas-editorial-return-${{ github.event.issue.number }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.12"
+
+      - name: Read operational fields
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/issue-field-values" \
+            > "$RUNNER_TEMP/issue-fields.json"
+
+      - name: Evaluate direct-return projection
+        run: |
+          python ci/atlas_direct_return_projector.py \
+            --event "$GITHUB_EVENT_PATH" \
+            --issue-fields "$RUNNER_TEMP/issue-fields.json" \
+            --output "$RUNNER_TEMP/projection.json"
+          cat "$RUNNER_TEMP/projection.json"
+
+      - name: Reconcile operational RETURNED state
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          if [ "$(jq -r '.project' "$RUNNER_TEMP/projection.json")" != true ]; then
+            exit 0
+          fi
+
+          # Issue Fields are the authoritative Project #2 GCL State projection.
+          # The comment is NOT reviewed, certified, or admitted by this step.
+          printf '%s\n' '{"issue_field_values":[{"field_id":47953501,"value":"RETURNED"}]}' \
+            > "$RUNNER_TEMP/state-update.json"
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/issue-field-values" \
+            --input "$RUNNER_TEMP/state-update.json" > /dev/null
+
+          printf '%s\n' '{"labels":["gcl-state:returned"]}' \
+            > "$RUNNER_TEMP/returned-label.json"
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/labels" \
+            --input "$RUNNER_TEMP/returned-label.json" > /dev/null
+
+          gh api --method DELETE \
+            "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/labels/gcl-state%3Aavailable" \
+            > /dev/null || true
+
+          gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/issue-field-values" \
+            > "$RUNNER_TEMP/readback.json"
+          jq -e 'any(.[]; .issue_field_name=="GCL State" and .single_select_option.name=="RETURNED")' \
+            "$RUNNER_TEMP/readback.json" > /dev/null
