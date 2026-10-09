@@ -1037,15 +1037,9 @@ A trivial sequence can compress beautifully.
 
 A causal mechanism can remain hidden behind an accessible correlate.
 
-The disciplined conclusion is:
+**Compression can probe predictive structure** when the code, data split, controls, and retained behavior are declared. A short code alone does not establish discovery, intelligence, or a causal mechanism. Those stronger claims demand further tests.
 
-\[
-\boxed{
-\text{compression is a probe of predictive structure when the code, split, controls, and retained behavior are explicit.}
-}
-\]
 
-Discovery and intelligence require more.
 
 ## References used in this chapter
 

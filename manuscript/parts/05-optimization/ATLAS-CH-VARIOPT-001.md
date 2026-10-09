@@ -940,21 +940,7 @@ nor:
 
 The useful abstraction is not "physics-inspired optimizer."
 
-It is more precise:
-
-\[
-\boxed{
-\text{choose structure}
-\to
-\text{derive legal dynamics}
-\to
-\text{discretize explicitly}
-\to
-\text{prove or measure the property actually needed}.
-}
-\]
-
-Each arrow can fail if left implicit.
+It is more precise to **choose a mathematical structure, derive the dynamics that it permits, specify a discrete update, and prove or measure the actual property of interest**. Each transition requires its own assumptions and justification; a variational analogy alone establishes neither optimization descent nor empirical superiority.
 
 ## 35. Evidence classes
 
