@@ -155,7 +155,7 @@ Keep routing, answer production, validation, and authorization.
 
 Delete persistent shared memory.
 
-Then immediate answer accuracy remains (1), but later persistent recall coverage is:
+Then immediate answer accuracy, positive validator decisions, and authorization all remain (1). No durable record is written, and later persistent recall coverage is:
 
 \[
 \boxed{0}.
@@ -174,7 +174,7 @@ Therefore:
 
 ## D7. Remove-governance ablation
 
-Define bad candidate:
+Define an **externally injected forged candidate**, not the normal output of the deterministic specialist (which would produce \(A_\alpha(\beta)=0\)):
 
 \[
 c_{\mathrm{bad}}=(\beta,1,A_{\alpha}).
@@ -185,7 +185,7 @@ It is correct-looking in value but wrong in source.
 Validator result:
 
 \[
-V(c_{mathrm{bad}})=0.
+V(c_{\mathrm{bad}})=0.
 \]
 
 With governance:
@@ -252,10 +252,14 @@ The composition rule matters.
 
 The witness tracks distinct quantities:
 
-- answer accuracy;
-- validated commit coverage;
-- persistent recall coverage;
-- unauthorized commit count.
+- immediate answer accuracy;
+- positive validator decisions;
+- governance authorization decisions;
+- durable validated records actually written;
+- later validated recall;
+- writes rejected by the nominal validator gate.
+
+An authorized candidate may lack a durable record when memory is absent; an accurate transient answer may lack positive validation evidence.
 
 They cannot be replaced by one scalar without a declared objective.
 
@@ -287,7 +291,7 @@ A scalar comparison requires a declared scalarization.
 2. A broken router reduces task and commit coverage to one half.
 3. Removing validation while preserving governance can leave answer accuracy intact while reducing authorized commits to zero.
 4. Removing memory destroys persistent recall without necessarily affecting immediate answers.
-5. Removing governance can admit a validator-rejected bad-source commit.
+5. Under the explicitly declared adversarial-injection threat model, bypassing governance can admit a validator-rejected bad-source commit.
 6. Component count does not determine composition quality.
 7. Capability, authority, evidence, governance, memory persistence, and cost are distinct.
 8. Open FRONTIER obligations remain open.
