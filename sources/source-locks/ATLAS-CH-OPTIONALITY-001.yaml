@@ -61,7 +61,7 @@ atlas_sources:
     repository: "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS"
     commit: "39f419abb72c941e041f92f2834229f9968da006"
     path: "manuscript/parts/11-decision-making/ATLAS-CH-REGRET-001.md"
-    git_blob_sha1: "56d6039348cbb13814325a4cfb3256177ab39a56"
+    git_blob_sha1: "6c842b5bd41eef31891d8ce99734109aa344e0a4"
     authority: >
       Audited hard prerequisite supplying explicit horizon/environment/policy/comparator
       semantics, Bayesian versus minimax distinctions, and the negative result that low

@@ -187,6 +187,84 @@ dynamic_regret= 1
 cumulative= 1 simple= 0
 ```
 
+## Independent enumeration of the stochastic and comparator controls
+
+The original short script prints the declared probability table and regret
+values. This second replay *derives* those probabilities by enumerating all
+four two-round Bernoulli reward paths, derives comparator rewards from the
+two-round reward table, and checks the Bayes/minimax claims at the interval
+endpoints and their analytic crossing. It uses no random-number generator.
+
+    from fractions import Fraction as F
+    from itertools import product
+
+    mu_A, mu_B = F(1, 4), F(3, 4)
+    paths = tuple(product((0, 1), repeat=2))
+
+    def path_probability(ys):
+        return (mu_A if ys[0] else 1 - mu_A) * (
+            mu_A if ys[1] else 1 - mu_A
+        )
+
+    def path_regret(ys):
+        return 2 * mu_B - sum(ys)
+
+    assert sum((path_probability(p) for p in paths), F(0)) == 1
+    distribution = {}
+    for path in paths:
+        r = path_regret(path)
+        distribution[r] = distribution.get(r, F(0)) + path_probability(path)
+    assert distribution == {
+        F(3, 2): F(9, 16),
+        F(1, 2): F(6, 16),
+        F(-1, 2): F(1, 16),
+    }
+    expected = sum((r * mass for r, mass in distribution.items()), F(0))
+    pseudo = 2 * (mu_B - mu_A)
+    assert expected == pseudo == 1
+
+    def worst_case_regret(q):
+        return max(1 - q, q)
+
+    def bayesian_regret(q):
+        return F(9, 10) * (1 - q) + F(1, 10) * q
+
+    # max(1-q,q) has the unique crossing q=1/2, where both
+    # affine branches attain 1/2. For q below/above 1/2,
+    # the respective branch exceeds 1/2.
+    q_star = F(1, 2)
+    assert worst_case_regret(q_star) == F(1, 2)
+    for q in (F(0), F(1, 4), F(3, 4), F(1)):
+        assert worst_case_regret(q) > worst_case_regret(q_star)
+
+    # Bayes regret = 9/10 - (4/5)q, strictly decreasing
+    # on the whole [0,1]. Its optimum is the endpoint q=1.
+    q_bayes = F(1)
+    assert bayesian_regret(q_bayes) == F(1, 10)
+    assert worst_case_regret(q_bayes) == 1
+    for q in (F(0), F(1, 4), F(1, 2), F(3, 4)):
+        assert bayesian_regret(q) > bayesian_regret(q_bayes)
+
+    rewards = ((1, 0), (0, 1))
+    selected_actions = (0, 0)
+    learner = sum(rewards[t][a] for t, a in enumerate(selected_actions))
+    best_fixed = max(sum(rewards[t][a] for t in range(2)) for a in (0, 1))
+    best_per_round = sum(max(row) for row in rewards)
+    assert (learner, best_fixed, best_per_round) == (1, 1, 2)
+    assert (best_fixed - learner, best_per_round - learner) == (0, 1)
+
+    print("REGRET_ENUMERATED_CONTROLS_OK")
+
+Expected output:
+
+    REGRET_ENUMERATED_CONTROLS_OK
+
+The finite samples above witness the analytic Bayes/minimax formulas;
+their global optima follow from the stated monotonicity and crossing
+arguments, not from checking four grid points. The path distribution uses
+independent Bernoulli rewards for the *fixed always-A policy*. No
+environment-uniform regret rate is inferred.
+
 ## Claim boundary
 
 These witnesses prove only the declared finite calculations.
