@@ -185,7 +185,7 @@ It is correct-looking in value but wrong in source.
 Validator result:
 
 \[
-V(c_{mathrm{bad}})=0.
+V(c_{\mathrm{bad}})=0.
 \]
 
 With governance:
