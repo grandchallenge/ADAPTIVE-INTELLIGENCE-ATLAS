@@ -26,4 +26,7 @@ jobs:
           expected=re.findall(r"\[\]\{#([^}]+)\}",mp)
           c=collections.Counter(ids)
           print("MAP_HTML_ALIAS_DIAGNOSTIC",dict(expected_count=len(expected),missing=[x for x in expected if c[x]==0],duplicated=[(x,n) for x,n in c.items() if n>1],headings=len(re.findall(r'^## ',mp,re.M)),id_count=len(ids)))
+          h=Path("/tmp/atlas-map-alias-diag.html").read_text()
+          for m in re.finditer(r'id="computational-witness"',h):
+            print("DUPLICATE_ID_CONTEXT",repr(h[max(0,m.start()-220):m.start()+240]))
           PY
