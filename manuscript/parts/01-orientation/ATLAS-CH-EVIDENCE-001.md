@@ -39,7 +39,9 @@ For that reason the Atlas treats claim identity as part of the scientific object
 
 The chapter will use a compact documentary object:
 
-K = (q, τ, S, Ω, N, D).
+\[
+K=(q,\tau,S,\Omega,N,D).
+\]
 
 Its fields are:
 
@@ -57,9 +59,13 @@ D — downstream permission: what a later chapter may consume without silently s
 
 We write
 
-S ↝[Ω, τ] q
+\[
+S \mathrel{\rightsquigarrow}_{\Omega,\tau}q.
+\]
 
-to mean that S supports q under the declared scope and epistemic class.
+This means that \(S\) supports \(q\) within the declared scope \(\Omega\)
+and epistemic class \(\tau\). This is a scoped evidentiary judgment, not a
+logical entailment.
 
 The arrow is intentionally not a symbol for logical entailment.
 

@@ -55,6 +55,12 @@ def main():
     tail,num=normalize(generated[gch[4]:])
     assert num and len(num)>1800, "expected corpus-wide chapter heading normalization"
     rc2=previous[:pch[4]]+tail
+    # RC1 is an immutable editorial overlay predecessor. Remove one
+    # demonstrably dangling, duplicated prose fragment in the mutable RC2
+    # derivative; do not alter RC1 or the public base.
+    dangling="to mean that S supports q under the declared scope and epistemic class.\n"
+    assert rc2.count(dangling)==1, "Part I evidence overlay text changed"
+    rc2=rc2.replace(dangling,"",1)
     assert len(list(chapter.finditer(rc2)))==80
     labels=lambda s:set(re.findall(r"\\label\{([^}]+)\}",s))
     assert len(labels(rc2))==2971
@@ -62,6 +68,13 @@ def main():
     assert rc2.count(r"\includegraphics")==18
     assert rc2.count("figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.png")==1
     assert not normalize(rc2)[1], "redundant heading ordinals remain"
+    # Source Markdown must also preserve the mathematical edits currently
+    # materialized in the immutable Part I TeX overlay. This is a narrow
+    # synchronization check, not a claim that every overlay has been migrated.
+    objects=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md").read_text(encoding="utf-8")
+    evidence=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md").read_text(encoding="utf-8")
+    assert "global autonomous flow" in objects and "state-dependent range of times" in objects
+    assert r"S \mathrel{\rightsquigarrow}_{\Omega,\tau}q." in evidence
     assert "state-dependent time domain" in rc2[:pch[4]]
     assert "separate agent roles" not in rc2, "governance note leaked into chapter math"
 
