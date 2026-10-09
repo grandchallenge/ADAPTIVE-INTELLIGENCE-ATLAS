@@ -74,7 +74,7 @@ def main():
     evidence=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md").read_text(encoding="utf-8")
     assert "continuous global autonomous flow" in objects and "open time-state domain" in objects and "jointly continuous" in objects
     assert r"S \mathrel{\rightsquigarrow}_{\Omega,\tau}q." in evidence
-    assert "global autonomous flow" in rc2[:rc2.index(r"\chapter{Linear Maps")]
+    assert re.search(r"global\s+autonomous\s+flow", rc2[:rc2.index(r"\chapter{Linear Maps")]), "flow definition absent from rendered Part I"
     assert "open time-state domain" in objects
     assert "separate agent roles" not in rc2, "governance note leaked into chapter math"
 
