@@ -179,25 +179,23 @@ Without role discipline, the phrase “the representation matrix” can hide whe
 
 ## 6. Flow and dynamics
 
-A **global autonomous flow** is a family of maps
+On a topological state space \(\mathcal X\), a **continuous global autonomous flow** is a jointly continuous map
 
 \[
-\Phi_t:\mathcal X\to\mathcal X,
-\qquad t\in\mathbb R,
+\Phi:\mathbb R\times\mathcal X\to\mathcal X,
+\qquad (t,x)\mapsto\Phi_t(x),
 \]
 
-with \(\Phi_0=\mathrm{id}_{\mathcal X}\) and
+such that \(\Phi_0=\mathrm{id}_{\mathcal X}\) and
 
 \[
 \Phi_{t+s}=\Phi_t\circ\Phi_s
 \qquad (t,s\in\mathbb R).
 \]
 
-When only nonnegative \(t,s\) are available, with the corresponding identity
-and composition laws, the object is a **semiflow**. A **local flow** may be
-defined only for a state-dependent range of times: composition is asserted
-only where both sides exist. Local existence does not imply a global
-two-sided flow.
+When the evolution parameter is restricted to nonnegative times, a jointly continuous action of \([0,\infty)\) satisfying the analogous laws is a **continuous semiflow**. A **local flow** has a suitable open time-state domain of definition and satisfies the composition law only where the relevant trajectories and times are defined. Neither a local flow nor a semiflow automatically extends to a global two-sided flow.
+
+The algebraic identity and composition laws **alone** define a group or semigroup action; they do not imply continuity or differentiability. For flows arising from a differentiable ODE, additional regularity and existence/uniqueness hypotheses justify the claimed smoothness and domain.
 
 If a differential equation
 
@@ -315,15 +313,16 @@ The Boundary Contracts chapter later turns this question into a formal programme
 
 ## 10. Third category error: matching shape equals composability
 
-Let
+Let \(F:\mathbb R^2\setminus\{0\}\to\mathbb R^2\) be the normalization map
 
 \[
 F(x)
 =
-\frac{x}{\|x\|_2}
+\frac{x}{\|x\|_2},
+\qquad x\ne 0.
 \]
 
-return direction only.
+It returns direction only; it is not defined at the zero vector.
 
 Let
 
