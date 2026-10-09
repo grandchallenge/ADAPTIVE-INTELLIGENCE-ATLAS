@@ -1,0 +1,58 @@
+name: Bounded Atlas output-active PDF page audit
+on:
+  pull_request:
+    branches: [editorial/part01-corrections-20261008]
+permissions:
+  contents: write
+jobs:
+  geometry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: editorial/output-page-audit-393-001
+          persist-credentials: true
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt PyMuPDF
+      - run: sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils
+      - name: Exact candidate source and historical label proof
+        run: |
+          python tools/validate_atlas.py
+          python tools/build_editorial_candidate_rc2.py --check
+      - name: Three-pass complete source-bound PDF
+        run: |
+          mkdir -p /tmp/atlas-output-audit
+          for n in 1 2 3; do
+            if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-output-audit manuscript/latex/atlas-v0.1.1-rc.2.tex >/tmp/atlas-output-audit-stdout.log 2>&1; then
+              tail -n 100 /tmp/atlas-output-audit-stdout.log
+              exit 1
+            fi
+          done
+          pdfinfo /tmp/atlas-output-audit/atlas-v0.1.1-rc.2.pdf | grep -E 'Pages:|Page size:'
+      - name: All-page physical text geometry and source-less output routine warning diagnosis
+        run: |
+          python tools/atlas_output_page_audit.py \
+            --pdf /tmp/atlas-output-audit/atlas-v0.1.1-rc.2.pdf \
+            --log /tmp/atlas-output-audit/atlas-v0.1.1-rc.2.log \
+            --json governance/editorial/v0.1.1/ATLAS_OUTPUT_PAGE_AUDIT_393_001.json \
+            --markdown governance/editorial/v0.1.1/ATLAS_OUTPUT_PAGE_AUDIT_393_001.md \
+            --preview-dir /tmp/atlas-output-audit/sample-pages
+      - name: Retain sample raster page renderings as CI evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: atlas-output-page-393-samples
+          path: /tmp/atlas-output-audit/sample-pages/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Commit exact-head evidence only on bounded branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/editorial/v0.1.1/ATLAS_OUTPUT_PAGE_AUDIT_393_001.md governance/editorial/v0.1.1/ATLAS_OUTPUT_PAGE_AUDIT_393_001.json
+          if ! git diff --cached --quiet; then
+            git commit -m "docs(editorial): exact 393 output-page audit readback"
+            git push origin HEAD:refs/heads/editorial/output-page-audit-393-001
+          fi
