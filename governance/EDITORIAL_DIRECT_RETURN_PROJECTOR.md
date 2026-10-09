@@ -24,3 +24,23 @@ The workflow uses `issue_comment.created` and the default-branch workflow, plus 
 
 `python3 -m unittest discover -s tests -p test_atlas_direct_return_projector.py -v` tests standard, partial, actor mismatch, wrong assignment, other campaign, unrelated issue, bad head, duplicate, blocked, wrong status, and figure-title fallback.
 \n## Agent-role independence\n\nThe authenticated GitHub actor is transport provenance, not the identity of an agent review role. The same GitHub login may represent multiple independently executed agent roles. The modern RESULT/1 header permits github_actor, agent_role, agent_run_id and reviewed_head, while legacy reviewer_identity and input_head remain compatible. A separate critical review pass with substantive evidence is required for a claim of role independence. The projector merely records RETURNED and does not decide that claim. See controller branch state/atlas-controller, governance/EDITORIAL_AGENT_ROLE_SEPARATION.md.\n
+
+## Missed-event replay
+
+The issue-comment event handler is not the only recovery path. The repository
+also runs `.github/workflows/atlas-direct-editorial-return-replay.yml` hourly
+and on manual dispatch.
+
+The replay job scans open direct-editorial Atlas issues, reads their durable
+comments and organization Issue Fields, and re-evaluates any persisted
+`RESULT/1` comments using the same `atlas_direct_return_projector.py`
+contract. It may skip malformed returns and continue to a later conforming one.
+
+A replayed return has exactly the same limited effect as the event-driven path:
+`GCL State` becomes `RETURNED`, `gcl-state:returned` is present,
+`gcl-state:available` is absent, and both field and label state are read back.
+The replay job does not adjudicate review quality, infer independence, approve a
+chapter, merge a PR, or create publication/certification authority.
+
+This makes the durable issue comment the recovery substrate when GitHub event
+delivery is missed.
