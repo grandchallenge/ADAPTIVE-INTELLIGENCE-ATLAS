@@ -9,7 +9,7 @@ from __future__ import annotations
 import argparse, bisect, collections, json, re
 from pathlib import Path
 
-WARN=re.compile(r"Overfull \\hbox \(([\d.]+)pt too wide\)(?: in paragraph at lines (\d+)--(\d+)| detected at line (\d+))")
+WARN=re.compile(r"Overfull \\hbox \(([\d.]+)pt too wide\)([^\n]*)")
 CHAPTER=re.compile(r"\\chapter(?:\[[^\]]*\])?\{")
 SECTION=re.compile(r"\\(?:sub)*section(?:\[[^\]]*\])?\{")
 def parse(tex_path:Path,log_path:Path,ledger_path:Path):
@@ -21,9 +21,11 @@ def parse(tex_path:Path,log_path:Path,ledger_path:Path):
     sec_idx=[i+1 for i,s in enumerate(lines) if SECTION.search(s)]
     events=[]
     for m in WARN.finditer(log_path.read_text(errors="replace")):
-        width=float(m.group(1));line=int(m.group(4) or m.group(2))
-        chapter_position=bisect.bisect_right(chap_idx,line)-1
-        if chapter_position<0: cid="FRONT_MATTER";source_path="";section="front matter";source_line=None
+        width=float(m.group(1))
+        lm=re.search(r"(?:lines (\d+)(?:--\d+)?|line (\d+))",m.group(2))
+        line=int(lm.group(1) or lm.group(2)) if lm else 0
+        chapter_position=bisect.bisect_right(chap_idx,line)-1 if line else -1
+        if chapter_position<0: cid="UNLOCATED" if not line else "FRONT_MATTER";source_path="";section="no source line" if not line else "front matter";source_line=None
         else:
             ch=chapters[chapter_position]
             cid=ch["id"];source_path=ch["manuscript_path"]
@@ -40,7 +42,7 @@ def parse(tex_path:Path,log_path:Path,ledger_path:Path):
                 text=section.strip().lower().replace(r"\_","_")
                 hits=[i+1 for i,s in enumerate(md) if s.lstrip("# ").strip().lower()==text]
                 if hits:source_line=hits[0]
-        excerpt=" ".join(s.strip() for s in lines[max(0,line-3):min(len(lines),line+2)])
+        excerpt=" ".join(s.strip() for s in lines[max(0,line-3):min(len(lines),line+2)]) if line else m.group(2)
         events.append(dict(width_pt=width,tex_line=line,chapter_id=cid,
                            source_path=source_path,section=section,
                            source_heading_line=source_line,tex_excerpt=excerpt[:380]))
@@ -65,7 +67,9 @@ def main():
                 baseline_max=max((x["width_pt"] for x in prior),default=0),
                 current_max=max((x["width_pt"] for x in current),default=0),
                 unparsed_current_count=a.current_log.read_text(errors="replace").count("Overfull \\hbox")-len(current),
-                unparsed_baseline_count=a.baseline_log.read_text(errors="replace").count("Overfull \\hbox")-len(prior))
+                unparsed_baseline_count=a.baseline_log.read_text(errors="replace").count("Overfull \\hbox")-len(prior),
+                unlocated_current=sum(1 for x in current if x["chapter_id"]=="UNLOCATED"),
+                unlocated_baseline=sum(1 for x in prior if x["chapter_id"]=="UNLOCATED"))
     print("ATLAS_PRINT_SEVERITY_AUDIT_JSON="+json.dumps(result,separators=(",",":"),ensure_ascii=True))
     if result["unparsed_current_count"] or result["unparsed_baseline_count"]:raise SystemExit("WARNING: unparsed overfull patterns")
 if __name__=="__main__":main()
