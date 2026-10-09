@@ -1,7 +1,7 @@
 # Chapter Specification — ATLAS-CH-SYNTHESIS-001
 
 ## Identity
-**Title:** Beyond the Monolithic Model  
+**Title:** Connections, Boundaries, and Open Terrain  
 **Part:** Scientific Method, Evidence, and Governed Adaptation  
 **Status target:** draft-v0.1  
 **Implementation issue:** #276  
@@ -16,13 +16,15 @@ Exact identities are frozen in:
 
 sources/source-locks/ATLAS-CH-SYNTHESIS-001.yaml
 
-## Typed synthesis object
+## Optional systems signature
 
-Define
+For the bounded composite-systems example, introduce the descriptive signature
 
 \[
 \Sigma=(X,D,M,T,C,E,A,G,Q,K).
 \]
+
+It is not a universal ontology or an independent mathematical theorem. This chapter's primary duty is to map mathematical connections and limits across the Atlas, without claiming an architecture ranking.
 
 - \(X\): model/representation and private state.
 - \(D\): dynamics/update laws.

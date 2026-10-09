@@ -12,6 +12,12 @@ The guiding rule is:
 
 > make the object visible, make the mathematics exact, make the evidence reconstructable, and make the claim boundary explicit.
 
+## Concept-first chapter freedom
+
+The Atlas follows an Axler-inspired pedagogical preference: lead with the mathematical question and a revealing example; introduce abstraction when it solves a visible problem; prove what needs proof; use counterexamples, exercises, and figures to make structure intelligible. This is not a requirement to imitate another author's style or exclusions.
+
+The ten functions below need not appear as ten headings or as administrative prose in the reader-facing book. The Atlas is opinionated, not thesis-driven. A chapter can be excellent without contributing toward a book-wide architecture theorem. Reader comprehension, precise hypotheses, well-chosen examples and mathematical insight govern editorial acceptance.
+
 ## Default chapter grammar
 
 ### 1. Opening problem

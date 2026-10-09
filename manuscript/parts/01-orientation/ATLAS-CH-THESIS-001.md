@@ -1,4 +1,4 @@
-# The Adaptive-System Thesis
+# A Mathematical Atlas, by Choice {#the-adaptive-system-thesis}
 <!-- ATLAS-CH-THESIS-001 -->
 
 **Epistemic status:** Atlas Synthesis  
@@ -6,40 +6,19 @@
 **Documentary packet:** mathematics/derivations/ATLAS-CH-THESIS-001-DERIVATIONS.md  
 **Source lock:** sources/source-locks/ATLAS-CH-THESIS-001.yaml
 
-## 1. What this book is trying to explain
+## 1. Why make an atlas? {#what-this-book-is-trying-to-explain}
 
-Machine learning is often introduced as a catalogue of model classes.
+A textbook may build a theory from its foundations. A survey may inventory a field. An atlas has a different task: reveal the shape of a mathematical landscape, give the reader several navigable routes, and identify where the maps overlap or remain incomplete.
 
-Linear models lead to multilayer networks. Convolutional networks lead to attention. Attention leads to Transformers. Transformers lead to mixture-of-experts systems, retrieval, tools, agents, and increasingly elaborate training pipelines.
+This book explores mathematical structures used to describe systems that represent, transform, learn, remember, coordinate, and adapt. It is deliberately **selective and opinionated**. We often prefer operators to bare parameter counts, dynamics to static layer diagrams, geometry to unconstrained coordinates, and explicit interfaces to treating a deployed model as an isolated function.
 
-That chronology is useful, but it hides a structural fact.
+These are editorial preferences, not a single proposition that the remaining chapters must prove.
 
-The objects that matter are no longer contained inside one function approximator.
+For example, eigenvalues inside the unit disk do not preclude finite-time amplification by powers of a non-normal matrix. Operator norms tell us something eigenvalues alone do not. The value of the second viewpoint comes from the question it illuminates and the mathematics that establishes the answer, not from its place in a universal theory of intelligence.
 
-A capable system may include:
+We will sometimes study individual models, sometimes composed systems, and sometimes a purely mathematical object without insisting on an AI analogy. One may follow different mathematical maps of the same territory. Each map should be judged by what it helps the reader understand and by the limits of its assumptions.
 
-- learned states;
-- transformations acting on those states;
-- persistent or external memory;
-- numerical solvers;
-- routing and scheduling;
-- tools and other models;
-- interaction protocols;
-- evidence stores;
-- human or machine review;
-- mechanisms governing how the system may change itself.
-
-The Atlas begins from that observation.
-
-Its governing thesis is:
-
-> Adaptive intelligence is more usefully studied here as organized computation over states, operators, dynamics, memory, interfaces, evidence, and governance than as a catalogue of model classes.
-
-This is the **Adaptive-System Thesis**.
-
-It is the thesis of this monograph.
-
-It is not introduced as an externally established theorem.
+**The ambition is to make the mathematics visible without making it smaller.**
 
 ## 2. An atlas, not a catalogue
 
@@ -82,11 +61,7 @@ The map therefore has to be versioned.
 
 ## 3. The recurring shifts
 
-The source inventory that seeded this monograph records a recurring sequence of conceptual shifts.
-
-They are not presented as discoveries of this chapter.
-
-They are the programme-level pattern the Atlas is being built to examine.
+These changes of viewpoint guide the book's editorial selection. They are routes to mathematical questions, not new discoveries or mandatory steps in a unified proof.
 
 ### 3.1 Vectors to operators
 
@@ -198,7 +173,7 @@ The Replayable Evidence Objects keystone turns that support path into an explici
 
 ## 4. A provisional system decomposition
 
-For orientation, the Atlas uses the explanatory decomposition
+For one systems-oriented route, we may use the provisional explanatory decomposition
 
 \[
 \mathcal A
@@ -252,13 +227,11 @@ and
 \text{governance}.
 \]
 
-This tuple is not a universal ontology.
-
-It is a map legend.
+This tuple is neither a universal ontology nor a theorem. It is one map legend. Later chapters may use other coordinates for different questions without proving those coordinates equivalent.
 
 Later chapters will refine each term and, where necessary, expose the places where the decomposition becomes inadequate.
 
-## 5. Why the model boundary is too small
+## 5. Choose the boundary to fit the question {#why-the-model-boundary-is-too-small}
 
 Consider a retrieval-augmented system.
 
@@ -282,7 +255,7 @@ A planner that calls a solver and writes to shared memory cannot be understood e
 
 Capability is partly distributed over the arrangement.
 
-This motivates a broader unit of analysis:
+For that question, a broader unit of analysis may be useful:
 
 \[
 \boxed{
@@ -292,26 +265,15 @@ This motivates a broader unit of analysis:
 }
 \]
 
-The inclusion can be strict.
+The inclusion can be strict. But an individual model may be the right boundary for a particular mathematical claim. The distinction is about useful explanation, not a compulsory systems ontology.
 
-## 6. A useful thesis must be vulnerable
+## 6. What makes a chosen viewpoint worthwhile? {#a-useful-thesis-must-be-vulnerable}
 
-A thesis that explains everything after the fact explains very little.
+An opinionated atlas owes readers reasons rather than allegiance. A perspective earns its place by clarifying a concrete problem, exposing a useful invariant, resolving an apparent paradox, improving a calculation, or revealing a precise connection to another subject.
 
-The Adaptive-System Thesis therefore has pressure points.
+For each preferred lens, ask: What question does it answer? What small example reveals the need for it? Which theorem, calculation, or witness makes the insight exact? When would a competing lens work better?
 
-It should become less attractive if:
-
-- the proposed object distinctions repeatedly obscure rather than clarify important mechanisms;
-- memory, interfaces, or governance turn out to be accidental implementation details rather than load-bearing computational structure;
-- the operator/dynamics viewpoint adds no predictive or design value;
-- composition can be handled adequately by shape-level software interfaces alone;
-- evidence provenance proves irrelevant to the reliability of adaptive research systems;
-- later chapters require entirely different primitives that cannot be expressed naturally through the Atlas roles.
-
-The book is not arranged to prevent these outcomes.
-
-It is arranged to make them visible.
+Not every neural network is a discretized differential equation. Not every question about intelligent computation needs governance or persistent memory. Not every geometric analogy supports a theorem. The Atlas should show these limitations as openly as its successful connections.
 
 ## 7. Description versus programme
 
@@ -339,47 +301,19 @@ A research programme can be useful before it becomes established theory.
 
 It must still be labeled correctly.
 
-## 8. The dependency graph is part of the argument
+## 8. Dependencies and connections are different maps {#the-dependency-graph-is-part-of-the-argument}
 
-The Atlas dependency graph is not merely production tooling.
+The hard dependency graph records exactly which definitions and results later chapters may assume. Soft cross-links reveal possible routes through the terrain. Neither graph is a proof that the whole subject reduces to one sequence.
 
-It expresses an epistemic claim:
+The keystone chapters were written early to test a durable mathematical composition method. The remaining chapters extend the coverage. That production history does not itself validate an overall theory of adaptive intelligence.
 
-> later arguments should expose the mathematical and documentary objects they depend on.
+## 9. What the chapters should give the reader {#what-later-chapters-must-earn}
 
-This is why the book is not being written strictly in table-of-contents order.
+A mature chapter should make a worthwhile mathematical object intelligible. It should motivate its definitions, develop the needed mathematics, supply an example or figure when useful, and state clearly what has been established.
 
-The six keystone chapters were drafted first because they tested the composition grammar.
+Geometry should explain how constraints change admissible motion. Operator theory should distinguish asymptotic eigenvalue claims from finite-horizon behavior. Numerical analysis should reveal when a time-stepping algorithm fails to respect a continuous law. Memory and coordination chapters should expose what they add to a particular system-level task. Scientific-method chapters should make the support for claims inspectable.
 
-The present foundation tranche now backfills the reader path that those keystones depend on.
-
-The process mirrors the book's thesis.
-
-Composition requires explicit contracts.
-
-So does authorship.
-
-## 9. What later chapters must earn
-
-The Adaptive-System Thesis will become credible only if later chapters show that the proposed viewpoints do real work.
-
-The Geometry chapters must show why constrained state spaces change update rules.
-
-The operator chapters must show why transformations reveal more than stored vectors.
-
-The dynamics chapters must show why finite-time and stateful behavior matters.
-
-The memory chapters must show when external or shared memory is a better systems boundary than weights alone.
-
-The composition chapters must show why local interface obligations matter.
-
-The scientific-method chapters must show why evidence structure affects what can responsibly be claimed.
-
-The governance chapters must show how a system can increase its ability to change without increasing its ability to corrupt its own support structure.
-
-The thesis is therefore not the conclusion placed at the beginning.
-
-It is the question the rest of the Atlas is organized to answer.
+None is required to establish a single Adaptive-System Thesis. Incomplete GCL investigations can be included as expressly unfinished terrain rather than evidence forced into a conclusion.
 
 ## 10. The map ahead
 
@@ -401,7 +335,7 @@ After that, the mathematical substrate develops:
 
 Only then does the Atlas move deeply into representation, architecture, optimization, memory, routing, agents, and governed adaptation.
 
-The recurring conceptual spine is:
+One useful itinerary is:
 
 \[
 \boxed{
@@ -425,21 +359,15 @@ The recurring conceptual spine is:
 }
 \]
 
-This is a route through the atlas.
-
-It is not the only possible route.
+This is a route through the atlas, not a deduction or an obligatory reading order.
 
 ## 11. Closing view
 
-The central wager of this book is that the next useful abstraction boundary for machine intelligence is larger than the model.
+The Atlas is not neutral about which mathematical viewpoints are enlightening. It is equally unwilling to confuse its selection with a universal result.
 
-It includes the transformations the model performs, the geometry in which those transformations occur, the dynamics through which they accumulate, the memory they consult, the interfaces through which components compose, the evidence by which claims are supported, and the governance by which adaptation is constrained.
+The concluding chapters will revisit connections and unresolved boundaries rather than manufacture a theorem that all chapters were written to support.
 
-Whether that wager survives is the work of the chapters ahead.
-
-The Atlas begins by naming the territory.
-
-It will spend the rest of the book trying to deserve the map.
+An atlas succeeds when readers leave better equipped to recognize an important mathematical structure, ask a sharper question, choose the right formal tool, and know where an argument stops. That is the standard by which this book should be judged.
 
 ## References used in this chapter
 

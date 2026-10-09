@@ -12,7 +12,7 @@ The map records purpose and hard dependency, not final chapter numbering. Stable
 
 | Stable ID | Chapter | Contract | Depends on |
 |---|---|---|---|
-| `ATLAS-CH-THESIS-001` | The Adaptive-System Thesis | State the Atlas thesis: intelligence as organized adaptive computation rather than a catalogue of model classes. | — |
+| `ATLAS-CH-THESIS-001` | A Mathematical Atlas, by Choice | Explain the selective mathematical viewpoints of an opinionated atlas without requiring one grand theorem. | — |
 | `ATLAS-CH-MAP-001` | How to Read a Mathematical Atlas | Explain the multi-resolution reading strategy, epistemic labels, figures, computational witnesses, and dependency paths. | `ATLAS-CH-THESIS-001` |
 | `ATLAS-CH-OBJECTS-001` | States, Operators, Flows, and Interfaces | Introduce the four recurring object types used across the book and why confusing them causes conceptual errors. | `ATLAS-CH-THESIS-001` |
 | `ATLAS-CH-EVIDENCE-001` | Claims, Evidence, and Computational Witnesses | Establish the Atlas distinction among theorem, observation, computation, interpretation, conjecture, and programme. | `ATLAS-CH-MAP-001` |
@@ -169,7 +169,7 @@ The map records purpose and hard dependency, not final chapter numbering. Stable
 | `ATLAS-CH-RESEARCHSM-001` | Research as a State Machine | Develop Forge → Solve → Cert, bounded work packages, independent actors, idempotence, and promotion gates. | `ATLAS-CH-REPLAY-001`, `ATLAS-CH-FORMAL-001` |
 | `ATLAS-CH-GOVADAPT-001` | Governed Adaptation | Ask how systems can change themselves while preserving correction capacity, provenance, and bounded authority. | `ATLAS-CH-OPTIONALITY-001`, `ATLAS-CH-RESEARCHSM-001` |
 | `ATLAS-CH-FRONTIER-001` | Frontier Questions of Adaptive Intelligence | Collect the Atlas research programme: geometry-derived optimization, operator-valued position, adaptive depth, shared memory, minimal curricula, residual structure, benign nonconvexity, and boundary contracts. | `ATLAS-CH-GOVADAPT-001`, `ATLAS-CH-RESIDUAL-001`, `ATLAS-CH-BCONTRACT-001` |
-| `ATLAS-CH-SYNTHESIS-001` | Beyond the Monolithic Model | Synthesize the Atlas into a systems view of intelligence sustained by geometry, dynamics, memory, composition, coordination, evidence, and governance. | `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-POLITY-001` |
+| `ATLAS-CH-SYNTHESIS-001` | Connections, Boundaries, and Open Terrain | Cross-reference important mathematical connections, alternate routes and unresolved territory without universal architecture claims. | `ATLAS-CH-FRONTIER-001`, `ATLAS-CH-POLITY-001` |
 
 ## Keystone chapter set
 
