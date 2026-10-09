@@ -59,7 +59,7 @@ These documents were derived from the six audited keystone drafts. They speciali
 
 `geometry -> operators -> dynamics -> optimization -> composition -> memory -> coordination -> diagnostics -> governed adaptation`
 
-The manuscript is a coherent argument, not an encyclopedia of machine-learning topics.
+This is one opinionated mathematical itinerary, not a compulsory argument, an undifferentiated catalogue, or a theorem the final chapter must establish. Multiple mathematical lenses remain legitimate; chapters earn their place by teaching important mathematics and useful connections. The programme's incomplete research is marked as open territory, never forced into an Atlas-wide conclusion.
 
 ## Epistemic vocabulary
 
@@ -70,6 +70,10 @@ Reader-facing technical claims must preserve the distinction among established e
 Presentation may reveal status. It does not create status.
 
 ## Pedagogical doctrine
+
+Axler-inspired concept-first exposition is the book-level literary ambition: reveal the question and a well-chosen example before unnecessary formal machinery; build from examples to definitions and proofs; use counterexamples to clarify the scope of theorems. The aim is conceptual depth, exact mathematics, and lucid progression, not stylistic imitation.
+
+Pedagogical utility is paramount. Chapter order, examples, figures, proofs, and notation serve the serious reader. No chapter must substantiate a single universal theory of intelligence.
 
 Imagination and rigor are complementary.
 
