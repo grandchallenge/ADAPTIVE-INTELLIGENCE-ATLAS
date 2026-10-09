@@ -1,4 +1,4 @@
-# A Mathematical Atlas, by Choice
+# A Mathematical Atlas, by Choice {#the-adaptive-system-thesis}
 <!-- ATLAS-CH-THESIS-001 -->
 
 **Epistemic status:** Atlas Synthesis  
@@ -6,7 +6,7 @@
 **Documentary packet:** mathematics/derivations/ATLAS-CH-THESIS-001-DERIVATIONS.md  
 **Source lock:** sources/source-locks/ATLAS-CH-THESIS-001.yaml
 
-## 1. Why make an atlas?
+## 1. Why make an atlas? {#what-this-book-is-trying-to-explain}
 
 A textbook may build a theory from its foundations. A survey may inventory a field. An atlas has a different task: reveal the shape of a mathematical landscape, give the reader several navigable routes, and identify where the maps overlap or remain incomplete.
 
@@ -231,7 +231,7 @@ This tuple is neither a universal ontology nor a theorem. It is one map legend. 
 
 Later chapters will refine each term and, where necessary, expose the places where the decomposition becomes inadequate.
 
-## 5. Choose the boundary to fit the question
+## 5. Choose the boundary to fit the question {#why-the-model-boundary-is-too-small}
 
 Consider a retrieval-augmented system.
 
@@ -267,7 +267,7 @@ For that question, a broader unit of analysis may be useful:
 
 The inclusion can be strict. But an individual model may be the right boundary for a particular mathematical claim. The distinction is about useful explanation, not a compulsory systems ontology.
 
-## 6. What makes a chosen viewpoint worthwhile?
+## 6. What makes a chosen viewpoint worthwhile? {#a-useful-thesis-must-be-vulnerable}
 
 An opinionated atlas owes readers reasons rather than allegiance. A perspective earns its place by clarifying a concrete problem, exposing a useful invariant, resolving an apparent paradox, improving a calculation, or revealing a precise connection to another subject.
 
@@ -301,13 +301,13 @@ A research programme can be useful before it becomes established theory.
 
 It must still be labeled correctly.
 
-## 8. Dependencies and connections are different maps
+## 8. Dependencies and connections are different maps {#the-dependency-graph-is-part-of-the-argument}
 
 The hard dependency graph records exactly which definitions and results later chapters may assume. Soft cross-links reveal possible routes through the terrain. Neither graph is a proof that the whole subject reduces to one sequence.
 
 The keystone chapters were written early to test a durable mathematical composition method. The remaining chapters extend the coverage. That production history does not itself validate an overall theory of adaptive intelligence.
 
-## 9. What the chapters should give the reader
+## 9. What the chapters should give the reader {#what-later-chapters-must-earn}
 
 A mature chapter should make a worthwhile mathematical object intelligible. It should motivate its definitions, develop the needed mathematics, supply an example or figure when useful, and state clearly what has been established.
 
