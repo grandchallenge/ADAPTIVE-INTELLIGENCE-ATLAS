@@ -1,4 +1,4 @@
-# Beyond the Monolithic Model
+# Connections, Boundaries, and Open Terrain
 <!-- ATLAS-CH-SYNTHESIS-001 -->
 
 **Epistemic status:** audited Frontier and Computational Polity prerequisites + Atlas-owned exact systems-composition witness.  
@@ -7,23 +7,17 @@
 **Computational witness:** mathematics/computational-witnesses/ATLAS-CW-SYNTHESIS-001.md  
 **Source lock:** sources/source-locks/ATLAS-CH-SYNTHESIS-001.yaml
 
-The Atlas does not end by declaring one universal model architecture.
+The Atlas does not close by declaring that one mathematical viewpoint has conquered all the others.
 
-It ends by making the system boundary explicit.
+Its purpose is to return to the landscape and ask what different tools have illuminated, which connections are exact, which are analogies, and which questions remain open. Operator theory, geometry, numerical analysis, memory, coordination and scientific evidence are not all instances of a single theorem about intelligence.
 
-A deployed capability can depend on representation, dynamics, memory, tools, coordination, evidence, adaptation, and governance at once. When those interfaces are part of the mechanism, they belong inside the explanatory object.
+A systems-level view is especially useful when the task depends on tools, shared state, validation or authority. A model-level view may be better suited to a question about a single transformation. These are choices of explanatory boundary.
 
-The governing rule is:
+The finite routing and governance example later in this chapter illustrates a few such boundaries. It does not justify an architecture ranking or a universal account of intelligence.
 
-\[
-\boxed{
-\text{system capability is a property of declared composition, not component count alone.}
-}
-\]
+## 1. One possible systems map
 
-## 1. A typed synthesis object
-
-Write
+For a deployed, composite-system question, we may use the descriptive signature
 
 \[
 \Sigma=(X,D,M,T,C,E,A,G,Q,K).
@@ -42,7 +36,9 @@ Here:
 - \(Q\) is the task/success contract;
 - \(K\) is the heterogeneous cost vector.
 
-These are typed objects. They need not share a vector space, timescale, optimizer, or authority model.
+These names identify different roles, which need not share a vector space, timescale, optimizer or authority model. The tuple by itself does not specify domains, transition maps, invariants or contracts; it is a **legend for a possible formal model**, not a complete formal system or a universal ontology.
+
+The opening chapter offered a different seven-role legend: states, operators, dynamics, memory, interfaces, evidence and governance. The present example makes tools, coordination, adaptation, task contracts and costs explicit. Operators and interfaces can occur within or between these roles. The maps overlap; neither is required to derive the other.
 
 ## 2. Frontier status survives synthesis
 
@@ -72,7 +68,7 @@ Stored state is not truth.
 
 Component count is not composition quality.
 
-## 4. Exact finite composition
+## 4. One deliberately small composition example
 
 Let
 
@@ -225,6 +221,8 @@ Thus
 
 ## 11. Governance ablation
 
+The following candidate represents **adversarial injection**, not ordinary output from the deterministic specialist defined above (which has \(A_\alpha(\beta)=0\)). This distinction must be included in any interpretation of the test:
+
 Consider
 
 \[
@@ -237,7 +235,7 @@ The validator rejects it.
 
 With governance enforced, the rejected candidate cannot commit.
 
-If the commit gate is bypassed, it can be written.
+If a commit gate is bypassed and a forged candidate enters through an external injection surface, it can be written. This example demonstrates an integrity boundary under its declared threat model; it is not a trace of ordinary routing.
 
 Therefore
 
@@ -464,17 +462,17 @@ or
 
 Such comparisons require declared tasks, metrics, costs, and failure models.
 
-## 30. The durable synthesis
+## 30. Three routes worth carrying forward
 
-The strongest justified statement is a scoped synthesis, not a universal theorem:
+**Operators and finite-time behavior.** In **Normality, Pseudospectra, and Transient Growth** (ATLAS-CH-NONNORMAL-001), a matrix can have spectral radius less than one while a finite power has norm greater than one. The eigenvalue description is not false; it answers a different question from transient amplification. This is an exact mathematical reason to change maps.
 
-**Adaptive intelligence can be analyzed as a typed system of representations, dynamics, memory, tools, coordination, evidence, adaptation, and governance.**
+**Continuous dynamics and computation.** In **Discretization, Stability, and Splitting** (ATLAS-CH-NUMERICS-001), the continuous scalar equation \(\dot x=\lambda x\) and explicit Euler iteration \(x_{n+1}=(1+h\lambda)x_n\) have different stability conditions. Continuous decay when \(\operatorname{Re}\lambda<0\) does not by itself ensure the discrete condition \(|1+h\lambda|\leq1\). Numerical analysis explains what a computational implementation must still earn. This does not mean every network is literally a differential equation.
 
-When those interfaces are part of the mechanism, they belong inside the explanatory boundary.
+**Composition and durable state.** In the finite routing example above, correct answers, positive validation, authorized writes and later recall are distinct properties. The example gives a small laboratory for those distinctions; its deterministic specialists, idealized validation and artificial injection surface are important limits. A realistic evaluation also requires task and cost comparisons. It proves no universal advantage for multi-agent systems.
 
-The final lesson is therefore not “beyond models.”
+Other mathematical routes in the Atlas, including geometry, information and optimization, stand on their own merits. Their connections need not force a common ontology. The book's exact results are the particular source-bounded theorems and derivations of its chapters, not a new theorem manufactured by collecting them.
 
-It is beyond pretending that every consequential system property must live inside one undifferentiated model boundary.
+The Atlas is opinionated about useful maps. It remains open about what lies beyond them. The aim is to help the reader recognize structure and move between viewpoints without mistaking an attractive picture for an established fact.
 
 ## References used in this chapter
 
