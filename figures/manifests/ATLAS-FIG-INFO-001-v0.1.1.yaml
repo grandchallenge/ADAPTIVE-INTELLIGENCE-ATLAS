@@ -8,8 +8,9 @@ canonical_original_master: "figures/masters/ATLAS-FIG-INFO-001.png"
 canonical_original_manifest: "figures/manifests/ATLAS-FIG-INFO-001.yaml"
 native_derivative: "figures/derivatives/ATLAS-FIG-INFO-001-v0.1.1.png"
 native_derivative_git_blob_sha1: "e513566bf81f9fbc72d8f7db5d6d595a7e83c5fd"
-native_derivative_sha256: "d13471e8c11d5a4e1c40847933072e45c0902e47477dcd37823090d6684d332f"
+native_derivative_sha256: "f973742ea8b5e6b7b6e052f22575227a252e6948d27f7629f466d2d13f6ca27d"
 native_derivative_png_bytes: 45281
+sha256_measurement: "Hash[ByteArray[pngBytes], SHA256] (raw bytes), not Hash[Normal[ByteArray]] (Wolfram expression)"
 native_derivative_dimensions_px: [1167, 1326]
 method:
   system: "Wolfram Language"
