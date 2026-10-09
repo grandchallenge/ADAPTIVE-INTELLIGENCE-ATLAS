@@ -97,6 +97,10 @@ A definition is not weak evidence; it is not evidence of that kind at all. An op
 
 The vocabulary is therefore closer to a set of typed roles than to a single confidence score. The classes do not form a scalar ladder.
 
+A second distinction matters: **these labels do not all answer the same question**. A statement may simultaneously be an Atlas Derivation, have a Computational Witness as a check, originate in a public GCL artifact, and have a separately recorded Institutional Status. These are not mutually exclusive choices.
+
+For reading purposes, one may think of \(\tau\) in the claim-support packet as a *structured set of tags*: what kind of claim is being made, how it is supported, where its evidence originates, and what review state it has reached. This is an interpretation of the existing eleven-label vocabulary, **not a new machine-readable certification schema**. A missing institutional tag means that no institutional status is being asserted, not that the underlying mathematics is false.
+
 Within a particular role, support can certainly be better or worse. A proof can be correct or defective. An experiment can be well or poorly controlled. A source can be primary or remote. But those judgments do not turn the role taxonomy itself into one scalar order.
 
 ## 4. Definition is not discovery
@@ -173,6 +177,40 @@ It does not become certification because CI is green.
 It does not become causal explanation because the observed pattern matches an intuition.
 
 The support route remains what it is.
+
+**Two completed claim-support packets.** The six fields introduced in Section 2 become useful when they are populated rather than merely named.
+
+First, use the exact finite parity enumeration in ATLAS-CW-EVIDENCE-001:
+
+| Field | Finite parity packet |
+|---|---|
+| \(q\) | For every integer \(n\) from \(-10\) through \(10\), the integer \(n(n-1)\) is even |
+| \(\tau\) | Computational Witness, exact finite enumeration; no institutional certification asserted |
+| \(S\) | The enumerated 21 exact integer residues in ATLAS-CW-EVIDENCE-001 |
+| \(\Omega\) | Precisely those 21 integers, with exact integer arithmetic |
+| \(N\) | This enumeration alone does not establish the universal quantifier over \(\mathbb Z\) |
+| \(D\) | A later chapter may cite the finite exhaustive result but must give the separate consecutive-integers proof if it needs the universal result |
+
+Now choose a different sort of support, from **Normality, Pseudospectra, and Transient Growth** (ATLAS-CH-NONNORMAL-001):
+
+\[
+A=\begin{pmatrix}4/5&4\\0&4/5\end{pmatrix},
+\qquad
+e_2=(0,1)^\top.
+\]
+
+The triangular matrix has spectral radius \(4/5\), while \(Ae_2=(4,4/5)^\top\) and \(\|Ae_2\|_2=\sqrt{16+16/25}>1\).
+
+| Field | Non-normal matrix packet |
+|---|---|
+| \(q\) | For this \(A\), \(\rho(A)<1\) but \(\|A\|_2>1\) |
+| \(\tau\) | Atlas Derivation using standard finite-dimensional linear algebra; the related chapter also has a separate plotted computational witness |
+| \(S\) | Its triangular eigenvalues and direct application to the unit vector \(e_2\); \(\|A\|_2\geq\|Ae_2\|_2\) |
+| \(\Omega\) | The specified real \(2\times 2\) matrix and Euclidean induced operator norm |
+| \(N\) | No inference that non-normality caused a real training instability, or that every stable-spectrum matrix transiently amplifies |
+| \(D\) | Later chapters may cite this explicit counterexample to the claim that eigenvalue stability forces one-step norm contraction; a causal claim about a deployed system needs different evidence |
+
+The second packet is supported by a mathematical calculation, not by treating a figure or an institutional workflow as proof. Both packets show the same discipline: identify the exact statement first, and let the support carry no more than it proves.
 
 ## 7. Observation is not interpretation
 
