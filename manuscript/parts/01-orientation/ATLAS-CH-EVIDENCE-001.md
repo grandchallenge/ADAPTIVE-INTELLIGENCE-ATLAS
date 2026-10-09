@@ -129,6 +129,8 @@ A correct Atlas derivation may be entirely rigorous. Its label tells the reader 
 
 ## 6. Computational witnesses {#computational-witness-1}
 
+[]{#computational-witnesses}
+
 A computational witness is one of the Atlas's most useful evidence forms because many structures become visible only when symbolic, numerical, finite-search, graphical, simulation, or replay machinery is allowed to participate.
 
 The rule is simple:
