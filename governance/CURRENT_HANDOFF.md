@@ -1,5 +1,15 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## CONCEPT-FIRST READER ROUTE + EVIDENCE PACKETS ADMITTED — 2026-10-09 (current)
+
+- **Controller readback:** PR #320 editable corrected-edition head `213ea1614dc490e851d59df8a786bbedc3102d51`; [PR #385](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/385) merged. No protected main/public v0.1.0 mutation.
+- **Actual editorial content:** MAP §29 now shows a worked reader journey through LINALG → NONNORMAL → PSPECTRUM: the exact matrix `[[4/5,4],[0,4/5]]` has spectral radius 4/5 but `||Ae2||_2=sqrt(16+16/25)>1`. EVIDENCE §3 explains typed overlapping labels (claim/support/provenance/institutional status), without redefining authoritative machine schema. §6 includes complete six-field finite-parity and exact non-normality claim-support packets with explicit non-entailments and downstream permissions.
+- **Exact evidence:** feature-branch source Markdown and RC2 TeX generated using one-off branch-only GitHub Actions, then temporary workflows removed. Native exact-head [CI 37905158186](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37905158186) SUCCESS; distinct critic role PR review 5467667743. [Three-pass PDF and HTML render 37904958772](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37904958772) SUCCESS, 80 chapters, 2,971 historical anchors, 18 embedded figures/source-verified semantic alts; HTML 5,946 IDs/zero duplicates. Post-merge TeX Git blob `bdecbfeeb3685b86232eb69c7acd9dd0fa3dc785` matches physical-render candidate exactly. PDF 1,442 pages SHA256 `bddf8f4c8e8b1da7e820ac7b81b3e22ee918b4566c518ab08699a2273da01fb3`, **969 overfull warnings** (four more than previous 965), largest 245.8541pt; NOT full print acceptance.
+- **Next bounded jobs:** [issue #386](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/386) severity-rank/source-map remaining print warnings and identify newly introduced four; [issue #387](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/387) condense 36-section MAP as concept-first sustained prose with exact navigation anchors and mathematical examples; 18 figure print/accessibility and 80 final chapter-critical decisions remain open. Separate corrected-edition release authorization not supplied.
+
+---
+
+
 ## PRINT #380 AND PART I/SYNTHESIS MATHEMATICAL CORRECTIONS ADMITTED — 2026-10-09
 
 - **Controller recovery:** editable PR #320 at **b3c484a68e54808ee2ff58e6d4c0c5680763a394**. The exact-head YAML next action supersedes historical older heads below. Protected main and public atlas-v0.1.0 remain untouched.
