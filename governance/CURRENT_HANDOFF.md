@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## PRINT REPAIR ADMISSION CHECKPOINT — 2026-10-08 (latest; supersedes older #377-open status)
+
+- **Recovery authority:** `governance/ACTIVE_TRANSACTION.yaml` on `state/atlas-controller`, verified after latest changed-head admission.
+- **Current mutable corrected-edition:** PR #320, head `e00e7a41dc6eaaa00a57c14616156dca5e40fe3d` (live GitHub readback), DRAFT. No protected main/public v0.1.0 mutation; parent #314 remains OPEN.
+- **PR #377:** independently reviewed in critical role `ATLAS-P14-377-CRITICAL-20261008-001`; candidate-head CI 37867607580 SUCCESS. Merged to editable workbench at `e00e7a41dc6eaaa00a57c14616156dca5e40fe3d` and post-merge exact-head Actions run 37868243475 `validate` SUCCESS, including source validator, figure inventory, manuscript assembly and release safeguards.
+- **Measured print fix, correctly scoped:** three-pass PDF of PR #377 candidate head removed the 335.10654pt SYNTHESIS unbreakable math-box overflow and changed reported box count 931 to 930. No independent three-pass PDF digest/readback was made for the just-merged head; do not invent it.
+- **Immediate next:** editorial issue #378, remaining 183.49959pt RESEARCHSM MATH-PROGRAMME@SHA overfull box, original generated RC2 near lines 80412–80416. Preserve complete historical SHA and source-lock meaning, patch narrowly with line-wrap prose, recompose and replay three-pass PDF, obtain independent critical role and head-bound CI before admission.
+- **Acceptance frontier:** all 20 chapter-review correction PRs and Part I #375 admitted to editable workbench, but 80 individual chapter final dispositions, 18 figure print/source/alt assessments, and Part I source parity remain incomplete. Last count 0/80 signoffs. Separate publication authorization mandatory.
+
+---
+
 ## TERMINAL QUEUE + EDITORIAL PRODUCTION READBACK — 2026-10-08 (latest, supersedes previous checkpoint)
 
 - **Recovery:** `governance/ACTIVE_TRANSACTION.yaml` updated on the controller branch; this section supersedes earlier heads/status tables below. Protected public `atlas-v0.1.0@1d4c2532533ff98afb998f86e0443d3fa1d8682e` remains immutable. Protected `main` at prior verified `35555ce031d68c26a3d53f8981e0443ad39b811d`.
