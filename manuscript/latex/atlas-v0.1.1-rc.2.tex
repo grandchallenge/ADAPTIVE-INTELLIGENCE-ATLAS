@@ -72151,9 +72151,7 @@ If byte identity matters, fingerprint the bytes.
 \section{A tiny ambiguity with an exact
 answer}\label{a-tiny-ambiguity-with-an-exact-answer}
 
-The chapter's witness uses two source versions.
-
-Both are called
+The chapter's witness uses three source versions, all called
 
 inputs.txt.
 
@@ -72169,7 +72167,13 @@ a=2
 
 b=4.
 
-The declared procedure is to add a and b.
+Version three contains:
+
+a=1
+
+b=4.
+
+The declared deterministic procedure adds a and b.
 
 The returned evidence bytes say:
 
@@ -72179,21 +72183,30 @@ Now consider a handoff that records only
 
 source\_path=inputs.txt.
 
-There are two candidate sources.
+There are three candidate sources.
 
 Replay version one and we obtain 5.
 
 Replay version two and we obtain 6.
 
-The returned result bytes alone do not tell us which source was used.
+Replay version three and we obtain 5.
 
-The provenance reconstruction is ambiguous.
+The returned value rules out version two \textbf{under the declared
+exact procedure and complete candidate set}, but it does not distinguish
+versions one and three. Both have different input bytes and reproduce
+exactly the same returned evidence.
+
+This is stronger than pathname ambiguity alone: even output-consistency
+filtering leaves two source identities.
 
 Now add the exact SHA-256 of version one.
 
-Within the finite candidate set, only one source matches.
+Within the finite candidate set, only version one matches that source
+fingerprint.
 
-Replay reproduces 5.
+Replay reproduces 5. The fingerprint selects the declared source; replay
+checks consistency with the returned value. Neither step proves that the
+original producer was truthful about the source identity.
 
 Nothing about the arithmetic became more intelligent.
 

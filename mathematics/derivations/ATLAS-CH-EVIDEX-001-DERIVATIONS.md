@@ -208,7 +208,7 @@ A hash alone does not tell us what an object means or whether it is authoritativ
 
 ## 10. Exact source-identity witness
 
-Use two source versions with the same human pathname:
+Use three source versions with the same human pathname:
 
 inputs.txt, version v1:
 
@@ -227,6 +227,15 @@ b=4
 SHA-256:
 
 c572528f7b0e700de0fd7bf2f3b7144a68f671ee0ed4b9d47943d9b489fe9844
+
+inputs.txt, version v3:
+
+a=1
+b=4
+
+SHA-256:
+
+af3f00343ac49267cd0a4519d85ade7d6c3857725f45454b12dbf556cf224c2d
 
 Returned evidence bytes:
 
@@ -247,17 +256,17 @@ The return identifies only:
 
 source_path = inputs.txt.
 
-Two source candidates satisfy that path label:
+Three source candidates satisfy that path label:
 
-v1 and v2.
-
-Therefore provenance reconstruction is ambiguous.
+v1, v2, and v3.
 
 If v1 is replayed, the procedure returns 5.
 
 If v2 is replayed, the procedure returns 6.
 
-The evidence bytes "result=5" do not determine which source version was used.
+If v3 is replayed, the procedure returns 5.
+
+Hence matching the returned bytes to the deterministic output excludes v2 but leaves **two** distinct consistent source versions, v1 and v3. The inference assumes exactly the declared procedure and a complete enumerated candidate set. Therefore the returned bytes, even together with these replay outcomes, do not determine which of the two consistent source versions was used.
 
 ### Handoff B
 
@@ -266,11 +275,11 @@ The return includes:
 source_sha256 =
 b64a71cff6737624915d32f719c1c6957c60cfb0b286eb9d0b5d3741f26b1265.
 
-Exactly one of the two candidate source versions matches.
+Exactly one of the three candidate source versions matches.
 
 Replay of the declared addition yields 5.
 
-Thus Handoff B supports deterministic source-version reconstruction within the finite candidate set.
+Thus Handoff B supports deterministic source-version selection within the finite candidate set, followed by a consistency check against the returned result. This is a claim about the identity asserted by the packet, not independent proof of what the producer actually used.
 
 This proves an identity property, not the universal correctness of content hashes or replay systems.
 
