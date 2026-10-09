@@ -38,3 +38,19 @@ All 18 exact figures have their own register entries, original source files, man
 ## Editorial boundaries
 
 The 18 actual printed PDF pages have been retained as raster samples for a separate figure critical-role reading. Physical DPI and page-bounds checks do not establish legible mathematical text, correct symbols, complete figure captions, alternate-text semantics in PDF, accessible reading order, or validity of Wolfram computation. Any negative case must be a concrete follow-on correction with fresh exact-head replay; no publication/80-chapter signoff is granted.
+
+
+## Separate critical-role inspection of all 18 actual PDF figure pages (2026-10-09)
+
+The [exact-figure-page artifact from physical run 37917803809](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37917803809) contains a true rasterized PDF page for **each of the 18 figures**; each page was inspected by a separate critical editorial role in contact-sheet form, with the four below-200-DPI pages additionally inspected at individual-page resolution. This is printed-page evidence, not a substitute for source-Wolfram numerical proof, independent typesetting checks, or a reader study.
+
+**Per-figure dispositions:** 14 figures have no sub-200-DPI flag and display their figures and accompanying captions within the page region; **four require bounded resolution/label review**:
+
+- `ATLAS-FIG-INFO-001`, physical PDF page 154, **146.6 effective DPI**: the 2×2 exact joint-distribution probabilities and explanatory labels remain interpretable at the sampled printed size, but source-quality resolution should be increased for final publication.
+- `ATLAS-FIG-MANIFOLD-001`, physical PDF page 166, **159.2 effective DPI**: tangent-plane/geometric labels and pale linework are fine and faint at normal reading scale. Improve symbol/line contrast, publication-quality mathematical label typesetting, and source-derived resolution without changing the mathematical object.
+- `ATLAS-FIG-TRANSFER-001`, physical PDF page 318, **146.6 effective DPI**: the two exact flow diagrams remain readable in the current sample, but small subscripts/branch annotations warrant source-level resolution and math-label inspection.
+- `ATLAS-FIG-OPTBASE-001`, physical PDF page 507, **146.6 effective DPI**: three-panel quantitative diagram is present, but panel B numerical labels and arrows are crowded and the panel C annotations have tight spacing. This is the strongest **observed legibility concern**. Repair in original Wolfram/native math source; mere bitmap interpolation does not improve label fidelity.
+
+This distinction is important: **the count of four below a review threshold is not proof of four unusable figures**, and the remaining 14 are not certified mathematically or universally accessible merely because their placement and PDF pixel density pass. All 18 captions were visible in sample print pages, but a complete independent verification of each figure's literal plot values and equation-label typesetting against its Wolfram generator remains outstanding.
+
+**Residual explicit tasks:** source-exact improved derivatives/high-resolution mathematical labels for the four flagged figures; regenerate PDF/HTML against exact workbench head; repeat actual printed-page review and source/alt/digest mapping. Review PDF/UA tagging and assistive technology reading order separately. The existing Figure Register remains the mathematical depiction/provenance authority until independent source reconciliation.
