@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## PRINT #380 AND PART I/SYNTHESIS MATHEMATICAL CORRECTIONS ADMITTED — 2026-10-09
+
+- **Controller recovery:** editable PR #320 at **b3c484a68e54808ee2ff58e6d4c0c5680763a394**. The exact-head YAML next action supersedes historical older heads below. Protected main and public atlas-v0.1.0 remain untouched.
+- **Issue #380 CLOSED:** [PR #383](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/383) merged at intermediate workbench `1efddca8a09d742e74027a1b5db3d7368410f3e9`. Replaced unbreakable 282.356pt NEURALKRYLOV boxed English with correct scoped prose; 3-pass candidate PDF 965→964 warnings, semantic 18-alt HTML PASS, PR exact-head CI 37902595581 SUCCESS, critical role 5467438021; [RESULT/1 return](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/380#issuecomment-6076987518).
+- **Mathematical clarity [PR #384](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/384) MERGED:** Part I OBJECTS §6 continuous global flow now demands joint continuity and distinguishes local/semi flows, §10 normalization excludes zero. SYNTHESIS derivation/manuscript/finite witness separates immediate accuracy, validator acceptance, governance authorization, persisted validated records, later recall and validator-rejected writes. The bad-source candidate is explicitly adversarially injected, not a deterministic specialist output. Witness executable output `SYNTHESIS_EXACT_WITNESS_OK`; exact-head CI 37903610012 SUCCESS and distinct critical role 5467524001. Generated candidate TeX blob `30eebebeaf50d608aae211c4f74ed9a47db60b89` verified unchanged after merge.
+- **Physical/HTML evidence:** PR #384 three-pass 80-chapter PDF sha256 `1e0c28b1431251d8718dd8303b021b38b15cd73c6da5fd97782f98bd9b5aa0cd`, still **965 overfull warnings** (typesetting not accepted); HTML SHA256 `ab5e06c493639d9173e8a23b3df23ef5edc75d7a8df1304b21009f24579c1aad` with 18 source-bound alt descriptions and 5,946 unique IDs/zero duplicates. All original 2,971 historical labels remain.
+- **Next bounded pedagogical unit:** MAP worked reader-route through exact NONNORMAL matrix witness; EVIDENCE epistemic class versus support/provenance/institutional axes, completed support packets. Then severity-triage top print warnings, 18 figure semantic/readability audits, 80 chapter-by-chapter Axler-inspired critical decisions. No 80/80 acceptance or release authorization.
+
+---
+
+
 ## OPINIONATED ATLAS EDITORIAL IDENTITY ADMITTED — 2026-10-09
 
 - **Mutable corrected-edition PR #320 workbench:** exact head `d2ff46e08700dd943384c4978210e639f9d2fe95` after [PR #382](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/382) merged; protected main and immutable atlas-v0.1.0 unchanged.
