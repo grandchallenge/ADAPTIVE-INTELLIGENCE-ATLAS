@@ -1,0 +1,42 @@
+name: Bounded Atlas print severity comparison
+on:
+  push:
+    branches:
+      - editorial/print-severity-386-001
+permissions:
+  contents: read
+jobs:
+  severity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - run: sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils
+      - name: Match exact chapter ledger and baseline
+        run: |
+          test "$(git rev-parse 213ea1614dc490e851d59df8a786bbedc3102d51^{commit})" = "213ea1614dc490e851d59df8a786bbedc3102d51"
+          git show 213ea1614dc490e851d59df8a786bbedc3102d51:manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-baseline.tex
+          mkdir -p /tmp/atlas-baseline /tmp/atlas-current
+      - name: Three full TeX passes against exact predecessor and current source
+        run: |
+          for mode in baseline current; do
+            if [ "$mode" = baseline ]; then src=/tmp/atlas-baseline.tex; else src=manuscript/latex/atlas-v0.1.1-rc.2.tex; fi
+            for i in 1 2 3; do
+              if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-$mode "$src" > /tmp/atlas-$mode-stdout.log 2>&1; then
+                tail -n 100 /tmp/atlas-$mode-stdout.log
+                exit 1
+              fi
+            done
+            pdfinfo /tmp/atlas-$mode/$(basename "${src%.tex}").pdf | grep 'Pages:'
+          done
+      - name: Emit machine-readable source/chapter severity inventory
+        run: |
+          python3 tools/atlas_print_severity_audit.py \
+            --current-tex manuscript/latex/atlas-v0.1.1-rc.2.tex \
+            --current-log /tmp/atlas-current/atlas-v0.1.1-rc.2.log \
+            --baseline-tex /tmp/atlas-baseline.tex \
+            --baseline-log /tmp/atlas-baseline/atlas-baseline.log \
+            --ledger governance/CHAPTER_LEDGER.yaml --top 30
