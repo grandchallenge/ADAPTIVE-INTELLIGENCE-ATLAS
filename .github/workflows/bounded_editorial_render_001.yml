@@ -20,7 +20,7 @@ jobs:
       - name: Install LaTeX and PDF inspection tools
         run: |
           sudo apt-get update -qq
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended ghostscript poppler-utils
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern ghostscript poppler-utils
       - name: Exact-current-source RC2 recomposition
         run: |
           python tools/build_editorial_candidate_rc2.py --check
