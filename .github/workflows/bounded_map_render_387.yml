@@ -1,0 +1,61 @@
+name: Bounded MAP complete physical proof
+on:
+  pull_request:
+    branches: [editorial/part01-corrections-20261008]
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils ghostscript
+      - run: |
+          python tools/build_editorial_candidate_rc2.py --check
+          python tools/validate_atlas.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path("manuscript/parts/01-orientation/ATLAS-CH-MAP-001.md")
+          m=p.read_text()
+          assert len(re.findall(r'^## ',m,re.M))==10
+          print("MAP_STRUCTURAL_PASS",len(m),"chars, 9 substantive chapter sections, 1 references section")
+          PY
+      - name: Three-pass full manuscript physical PDF
+        run: |
+          mkdir -p /tmp/atlas-map-physical
+          for n in 1 2 3; do
+            if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-map-physical manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-map-latex-stdout.log 2>&1; then
+              tail -n 80 /tmp/atlas-map-latex-stdout.log
+              exit 1
+            fi
+          done
+          pdfinfo /tmp/atlas-map-physical/atlas-v0.1.1-rc.2.pdf | grep -E 'Pages:|Page size:'
+      - name: Fully embedded HTML and figure semantic alt
+        run: |
+          python tools/release_tex_for_html.py
+          python -c 'import pypandoc; pypandoc.convert_file("/tmp/atlas-rc-html-input.tex","html5",format="latex",outputfile="/tmp/atlas-map-physical.html",extra_args=["--standalone","--toc","--number-sections","--mathjax","--embed-resources","--resource-path=."])'
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-map-physical.html --write
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-map-physical.html --verify
+      - name: Print and navigation metrics
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,hashlib
+          p=Path('/tmp/atlas-map-physical/atlas-v0.1.1-rc.2.pdf')
+          tex=Path('manuscript/latex/atlas-v0.1.1-rc.2.tex')
+          log=Path('/tmp/atlas-map-physical/atlas-v0.1.1-rc.2.log').read_text()
+          s=Path('/tmp/atlas-map-physical.html').read_text()
+          ids=re.findall(r'\bid="([^"]+)"',s)
+          w=[float(x) for x in re.findall(r'Overfull \\hbox \(([0-9.]+)pt too wide\)',log)]
+          print('MAP_COMPLETE_RENDER_METRICS',dict(tex_sha256=hashlib.sha256(tex.read_bytes()).hexdigest(),pdf_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),html_sha256=hashlib.sha256(s.encode()).hexdigest(),overfull=len(w),max_overfull=max(w or [0]),html_anchors=len(ids),html_duplicates=len(ids)-len(set(ids)),figures=s.count('<img ')))
+          assert len(ids)==len(set(ids)) and s.count('<img ')==18
+          assert not re.search(r"LaTeX Warning: (Citation|Reference).*undefined",log)
+          PY
