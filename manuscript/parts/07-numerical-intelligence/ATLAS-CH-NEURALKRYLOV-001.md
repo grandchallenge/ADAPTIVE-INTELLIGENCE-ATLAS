@@ -950,19 +950,7 @@ Short-horizon iterative representation computation creates explicit operator-cal
 
 Neural Krylov Transport is not the claim that neural networks secretly run GMRES.
 
-It is a disciplined architecture pattern:
-
-\[
-\boxed{
-\text{declared local operator}
-+
-\text{few operator-generated directions}
-+
-\text{declared projection}
-+
-\text{declared representation update}.
-}
-\]
+Its **disciplined architecture pattern** begins with a declared local linear operator, constructs a few operator-generated directions, applies a declared projection, and uses the result for a declared representation update. This is a sequence of typed operations, not an algebraic sum or a general convergence theorem.
 
 The finite witness shows why this can matter.
 

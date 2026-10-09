@@ -1032,15 +1032,7 @@ The mandatory record can rank lower.
 
 A naive prefix can fit the budget and still be invalid.
 
-The correct conclusion is:
-
-\[
-\boxed{
-\text{context construction is a governed bounded transformation from candidate memory records to a replayable working set.}
-}
-\]
-
-That transformation deserves its own mathematics, provenance, and failure semantics.
+**Context construction is a governed, budget-bounded transformation** from candidate memory records into a replayable working set. The transformation deserves its own mathematical specification, provenance, and failure semantics; a high retrieval score alone does not establish admissibility.
 
 ## References used in this chapter
 

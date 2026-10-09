@@ -861,15 +861,7 @@ we obtained:
 
 Nothing changed except dependence.
 
-The correct conclusion is:
-
-\[
-\boxed{
-\text{propagate the joint uncertainty of the declared decision object, not an assumed independent sum of marginal errors.}
-}
-\]
-
-And when the decision map is nonlinear, keep the local approximation boundary visible.
+**Propagate uncertainty for the declared joint decision object**, not an independently summed set of marginal errors unless the dependence assumptions justify that simplification. For a nonlinear decision map, keep the local approximation boundary visible.
 
 ## References used in this chapter
 
