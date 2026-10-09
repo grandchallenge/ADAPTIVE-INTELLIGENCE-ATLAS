@@ -655,17 +655,9 @@ Routing systems can possess non-normal local update operators and finite-horizon
 **Spectral diagnostics.**  
 Eigenvalues, singular values, pseudospectra, and finite-horizon propagators become complementary diagnostic objects.
 
-The recurring Atlas shift is:
+The recurring diagnostic question is not merely **where the eigenvalues lie**, but **how strongly the operator can amplify perturbations over the time horizon of interest**. The two questions are mathematically different; the exact non-normal example above shows why both matter.
 
-\[
-\boxed{
-\text{Where are the eigenvalues?}
-\longrightarrow
-\text{What can this operator do to perturbations over the horizon that matters?}
-}
-\]
 
-## 15. Closing view
 
 Eigenvalues are not wrong.
 
