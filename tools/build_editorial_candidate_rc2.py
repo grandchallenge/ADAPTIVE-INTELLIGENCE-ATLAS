@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Reproducibly recompose non-public Atlas editorial candidate v0.1.1-rc.2.
 
-The first four edited orientation chapters are explicitly overlaid from
-immutable RC1 workbench TeX. The other 76 chapters come directly from the
-current Chapter Ledger Markdown assembly through pinned Pandoc conversion.
+All 80 chapters are assembled from the current Chapter Ledger Markdown and
+rendered through pinned Pandoc conversion. The immutable RC1 and released base
+remain checked predecessors, never silently substituted for canonical Part I.
+Explicit stable heading anchors preserve historical LaTeX/HTML link identity.
 Public v0.1.0 and its release manifest are never modified.
 """
 from pathlib import Path
@@ -54,13 +55,11 @@ def main():
     assert len(pch)==len(gch)==80
     tail,num=normalize(generated[gch[4]:])
     assert num and len(num)>1800, "expected corpus-wide chapter heading normalization"
-    rc2=previous[:pch[4]]+tail
-    # RC1 is an immutable editorial overlay predecessor. Remove one
-    # demonstrably dangling, duplicated prose fragment in the mutable RC2
-    # derivative; do not alter RC1 or the public base.
+    # Part I now comes from canonical Markdown too: the old immutable RC1
+    # overlay would silently overwrite a revised orientation chapter.
+    rc2=generated[:gch[4]]+tail
     dangling="to mean that S supports q under the declared scope and epistemic class.\n"
-    assert rc2.count(dangling)==1, "Part I evidence overlay text changed"
-    rc2=rc2.replace(dangling,"",1)
+    assert rc2.count(dangling)==0, "legacy Part I evidence fragment returned"
     assert len(list(chapter.finditer(rc2)))==80
     labels=lambda s:set(re.findall(r"\\label\{([^}]+)\}",s))
     assert len(labels(rc2))==2971
@@ -68,14 +67,14 @@ def main():
     assert rc2.count(r"\includegraphics")==18
     assert rc2.count("figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.png")==1
     assert not normalize(rc2)[1], "redundant heading ordinals remain"
-    # Source Markdown must also preserve the mathematical edits currently
-    # materialized in the immutable Part I TeX overlay. This is a narrow
-    # synchronization check, not a claim that every overlay has been migrated.
+    # Explicit source contracts now guard the canonical Part I content
+    # replacing RC1's historically overlaid TeX.
     objects=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md").read_text(encoding="utf-8")
     evidence=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md").read_text(encoding="utf-8")
     assert "global autonomous flow" in objects and "state-dependent range of times" in objects
     assert r"S \mathrel{\rightsquigarrow}_{\Omega,\tau}q." in evidence
-    assert "state-dependent time domain" in rc2[:pch[4]]
+    assert "global autonomous flow" in rc2[:rc2.index(r"\chapter{Linear Maps")]
+    assert "state-dependent range of times" in objects
     assert "separate agent roles" not in rc2, "governance note leaked into chapter math"
 
     if opts.check:
