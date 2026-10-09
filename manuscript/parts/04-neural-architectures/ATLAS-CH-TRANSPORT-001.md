@@ -1077,23 +1077,9 @@ Continuous-depth models may provide an actual flow.
 
 Finite residual networks may provide only a composition.
 
-The durable Atlas synthesis is therefore:
+**Representation transport** is a useful mathematical description when its state, stage maps, constraints, and path semantics have been specified. These ingredients do not themselves establish a continuous flow, geodesic, or an optimal transport problem. Each stronger description requires separate hypotheses.
 
-\[
-\boxed{
-\text{representation transport}
-=
-\text{declared state}
-+
-\text{declared stage maps}
-+
-\text{declared constraints}
-+
-\text{declared path semantics}.
-}
-\]
 
-Everything stronger must be earned separately.
 
 ## References used in this chapter
 
