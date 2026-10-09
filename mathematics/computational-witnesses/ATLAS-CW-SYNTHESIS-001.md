@@ -24,16 +24,16 @@ R=(A_{\alpha},A_{\beta}).
 
 Validator accepts only correct answer plus correct declared source.
 
-Governance commits only accepted candidates.
-
-Shared memory persists committed validated records.
+Governance authorizes a candidate only after positive validator evidence. Authorization is not itself a persistent write. Shared memory, when present, stores authorized records; later recall is a further separate event.
 
 ## W2. Full composition
 
 Expected exact metrics:
 
 - task accuracy: (2/2);
-- validated commit coverage: (2/2);
+- validator acceptance: (2/2);
+- authorization: (2/2);
+- persisted validated record coverage: (2/2);
 - persistent recall coverage: (2/2);
 - unauthorized commits: (0).
 
@@ -44,7 +44,7 @@ Use \(R'=(A_{\alpha},A_{\alpha})\).
 Expected metrics:
 
 - task accuracy: (1/2);
-- validated commit coverage: (1/2).
+- validator acceptance, authorization, and persisted validated record coverage: (1/2) each.
 
 ## W4. Validator ablation
 
@@ -53,7 +53,7 @@ Keep correct routing and unchanged governance.
 Expected metrics:
 
 - transient answer accuracy: (2/2);
-- authorized commit coverage: (0/2).
+- validator acceptance, authorization, and persisted writes: (0/2) each.
 
 ## W5. Memory ablation
 
@@ -62,11 +62,12 @@ Keep correct routing, validation, and governance.
 Expected metrics:
 
 - immediate answer accuracy: (2/2);
-- persistent recall coverage: (0/2).
+- validator acceptance and authorization: (2/2) each;
+- persisted writes and persistent recall coverage: (0/2) each.
 
 ## W6. Governance ablation
 
-Bad candidate:
+An **externally injected, forged candidate** (not an output of deterministic \(A_\alpha\), which returns zero on \(\beta\)):
 
 \[
 (\beta,1,A_{\alpha}).
@@ -105,7 +106,9 @@ With governance bypassed: one unauthorized commit.
     def run(router, validator_present=True, memory_present=True, governance_present=True):
         memory = {}
         answers = {}
-        unauthorized = 0
+        validated = 0
+        authorized = 0
+        rejected_writes = 0
 
         for q in tasks:
             source = router[q]
@@ -114,33 +117,36 @@ With governance bypassed: one unauthorized commit.
             answers[q] = y
 
             accepted = validator(candidate) if validator_present else False
-
-            if governance_present:
-                may_commit = accepted
-            else:
-                may_commit = True
-                if not accepted:
-                    unauthorized += 1
-
+            validated += int(accepted)
+            may_commit = (accepted if governance_present else True)
+            if governance_present and accepted:
+                authorized += 1
             if may_commit and memory_present:
                 memory[q] = (y, source, "validated" if accepted else "unvalidated")
+                if not accepted:
+                    rejected_writes += 1
 
         accuracy = sum(answers[q] == 1 for q in tasks)
-        validated_commits = sum(
+        persisted_validated = sum(
             q in memory and memory[q][2] == "validated" for q in tasks
         )
         recall = sum(
             q in memory and memory[q][0] == 1 and memory[q][2] == "validated"
             for q in tasks
         )
+        return (accuracy, validated, authorized,
+                persisted_validated, recall, rejected_writes)
 
-        return accuracy, validated_commits, recall, unauthorized
+    # (accuracy, validation, authorization, durable validated record,
+    #  later validated recall, writes violating the validator gate)
+    assert run(good_router) == (2, 2, 2, 2, 2, 0)
+    assert run(bad_router) == (1, 1, 1, 1, 1, 0)
+    assert run(good_router, validator_present=False) == (2, 0, 0, 0, 0, 0)
+    assert run(good_router, memory_present=False) == (2, 2, 2, 0, 0, 0)
+    assert run(good_router, governance_present=False) == (2, 2, 0, 2, 2, 0)
 
-    assert run(good_router) == (2, 2, 2, 0)
-    assert run(bad_router)[:3] == (1, 1, 1)
-    assert run(good_router, validator_present=False) == (2, 0, 0, 0)
-    assert run(good_router, memory_present=False) == (2, 0, 0, 0)
-
+    # Injected forged candidate is NOT produced by either normal router:
+    # specialists["A_alpha"]["beta"] == 0, while forged y is 1.
     # Explicit rejected bad-source candidate for governance bypass.
     bad_candidate = ("beta", 1, "A_alpha")
     assert validator(bad_candidate) is False
