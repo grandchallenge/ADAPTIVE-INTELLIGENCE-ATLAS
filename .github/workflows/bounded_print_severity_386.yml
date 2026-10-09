@@ -17,8 +17,8 @@ jobs:
       - run: sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils
       - name: Match exact chapter ledger and baseline
         run: |
-          test "$(git rev-parse 213ea1614dc490e851d59df8a786bbedc3102d51^{commit})" = "213ea1614dc490e851d59df8a786bbedc3102d51"
-          git show 213ea1614dc490e851d59df8a786bbedc3102d51:manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-baseline.tex
+          test "$(git rev-parse b3c484a68e54808ee2ff58e6d4c0c5680763a394^{commit})" = "b3c484a68e54808ee2ff58e6d4c0c5680763a394"
+          git show b3c484a68e54808ee2ff58e6d4c0c5680763a394:manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-baseline.tex
           mkdir -p /tmp/atlas-baseline /tmp/atlas-current
       - name: Three full TeX passes against exact predecessor and current source
         run: |
