@@ -57,6 +57,19 @@ def main():
     prior=parse(a.baseline_tex,a.baseline_log,a.ledger)
     cc=collections.Counter(x["chapter_id"] for x in current)
     pc=collections.Counter(x["chapter_id"] for x in prior)
+    # A changed TeX line number is not a new mathematical warning. Compare
+    # stable measured width and nearby TeX excerpt, not raw line locations.
+    def fingerprint(e):
+        return (round(e["width_pt"],5),e["tex_excerpt"])
+    old=collections.Counter(fingerprint(e) for e in prior)
+    new=collections.Counter(fingerprint(e) for e in current)
+    added=new-old;removed=old-new
+    def examples(counter,rows):
+        return [dict(count=n,width_pt=key[0],chapter_id=e["chapter_id"],
+                     source_path=e["source_path"],tex_line=e["tex_line"],
+                     tex_excerpt=key[1][:180])
+                for key,n in sorted(counter.items(),key=lambda x:(-x[0][0],x[0][1]))[:40]
+                for e in rows if fingerprint(e)==key][:40]
     count_delta=[(id,cc[id]-pc[id],pc[id],cc[id]) for id in set(cc)|set(pc) if cc[id]!=pc[id]]
     count_delta.sort(key=lambda row:(-abs(row[1]),row[0]))
     result=dict(baseline_count=len(prior),current_count=len(current),
@@ -69,7 +82,10 @@ def main():
                 unparsed_current_count=a.current_log.read_text(errors="replace").count("Overfull \\hbox")-len(current),
                 unparsed_baseline_count=a.baseline_log.read_text(errors="replace").count("Overfull \\hbox")-len(prior),
                 unlocated_current=sum(1 for x in current if x["chapter_id"]=="UNLOCATED"),
-                unlocated_baseline=sum(1 for x in prior if x["chapter_id"]=="UNLOCATED"))
+                unlocated_baseline=sum(1 for x in prior if x["chapter_id"]=="UNLOCATED"),
+                added_warning_count=sum(added.values()),removed_warning_count=sum(removed.values()),
+                added_warning_signatures=examples(added,current)[:25],
+                removed_warning_signatures=examples(removed,prior)[:15])
     print("ATLAS_PRINT_SEVERITY_AUDIT_JSON="+json.dumps(result,separators=(",",":"),ensure_ascii=True))
     if result["unparsed_current_count"] or result["unparsed_baseline_count"]:raise SystemExit("WARNING: unparsed overfull patterns")
 if __name__=="__main__":main()
