@@ -10,11 +10,11 @@ current:
   baseline_commit: "f6f3a0c5fa681dd5f1556cb6e0cbaf0ebc1b7f04"
   branch: "editorial/part01-corrections-20261008"
   pull_request: 320
-  state: "editorial-opinionated-print380-math-corrections-admitted-next-pedagogical-review"
-  next_action: "On 2026-10-09 the editable corrected-edition workbench PR #320 reached exact head b3c484a68e54808ee2ff58e6d4c0c5680763a394 after opinionated/Axler identity PR #382, scoped Neural Krylov print repair #383 and mathematical clarity/finite synthesis witness PR #384, all admitted with exact-head CI, distinct critical role comments, candidate 3-pass PDF/HTML and TeX-blob readback. Issue #380 closed. Continue next: Part I MAP worked reader route and EVIDENCE multi-axis claim tags; physical severity triage of 965 PDF overfull warnings and 18 figure print accessibility; 80/80 final chapter acceptance remains OPEN. Never confuse this draft with protected public atlas-v0.1.0 or authorize a corrected release."
+  state: "editorial-concept-first-reader-route-and-evidence-packets-admitted-print-triage-next"
+  next_action: "2026-10-09 exact-head readback: mutable Atlas PR #320 corrected-edition head 213ea1614dc490e851d59df8a786bbedc3102d51, after PR #385 admitted with a worked non-normal matrix reader route and two complete claim-support packets; label/schema scope preserved. PR #385 exact-head CI 37905158186 SUCCESS, bounded three-pass PDF/HTML render 37904958772 SUCCESS, critic 5467667743, 2971 labels/18 figures, generated candidate TeX Git blob bdecbfeeb3685b86232eb69c7acd9dd0fa3dc785 matches merged workbench; 1442 PDF pages and 969 overfull boxes, top 245.8541pt, alt 18/18. Temporary feature-branch runner workflows removed. Next: bounded print severity-source mapping issue #386 and pedagogical MAP structural reduction issue #387, then continued 18 print/accessibility figure checks and 80 final chapter critical evaluations. User-authorized opinionated/Axler Atlas identity governs; prior thesis-proof obligation withdrawn. Protected main and public atlas-v0.1.0 unchanged; release authority not granted."
 frontier:
-  - "MAP/EVIDENCE concept-first worked reader route and multidimensional epistemic tags"
-  - "965 residual overfull warnings after math changes: source-aware severity triage"
+  - "Issue #387 MAP 36-section narrative compression, preserving stable labels and mathematical worked route"
+  - "Issue #386 source-aware triage of 969 physical overfull warnings, including four new table-related suspects"
   - "Chapter-specific 80/80 production and distinct critical-role acceptance criteria"
   - "Figure/plot mathematical fidelity and true print-scale legibility across all 18"
   - "Accessible semantics and keyboard/screen-reader/HTML reading order"
