@@ -7,9 +7,9 @@ canonical_original_source_blob_sha1: "9b4feabb9f0413dd3fa499b8353e84e405391da4"
 canonical_original_master: "figures/masters/ATLAS-FIG-INFO-001.png"
 canonical_original_manifest: "figures/manifests/ATLAS-FIG-INFO-001.yaml"
 native_derivative: "figures/derivatives/ATLAS-FIG-INFO-001-v0.1.1.png"
-native_derivative_git_blob_sha1: "54d5c50890c38b3cc6050b9769370d3d3bb7c11f"
-native_derivative_sha256: "a006d95ff921afa3a5b26bef1d3573f76d3c5508902ceb2560e186c0124d0aca"
-native_derivative_png_bytes: 45608
+native_derivative_git_blob_sha1: "e513566bf81f9fbc72d8f7db5d6d595a7e83c5fd"
+native_derivative_sha256: "d13471e8c11d5a4e1c40847933072e45c0902e47477dcd37823090d6684d332f"
+native_derivative_png_bytes: 45281
 native_derivative_dimensions_px: [1167, 1326]
 method:
   system: "Wolfram Language"
@@ -17,7 +17,7 @@ method:
   system_id: "Linux-x86-64"
   original_source_evaluated_without_semantic_edits: true
   export_expression: 'ExportByteArray[originalGraphics, "PNG", ImageResolution -> 120]'
-  output_retrieval: "BaseEncode of exact Wolfram PNG ByteArray in 8600-character segments; GitHub base64 Git blob"
+  output_retrieval: "PNG made deterministic by retaining signature + IHDR/pHYs/IDAT/IEND chunks, excluding varying EXIF/tEXt metadata; no pixel data changed. Base64 transferred in 8600-character chunks and committed as Git blob."
   independent_exact_math:
     marginal_x: "[1/2,1/2]"
     marginal_y: "[1/2,1/2]"
