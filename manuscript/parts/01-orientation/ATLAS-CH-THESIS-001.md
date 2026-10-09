@@ -335,31 +335,7 @@ After that, the mathematical substrate develops:
 
 Only then does the Atlas move deeply into representation, architecture, optimization, memory, routing, agents, and governed adaptation.
 
-One useful itinerary is:
-
-\[
-\boxed{
-\text{geometry}
-\to
-\text{operators}
-\to
-\text{dynamics}
-\to
-\text{optimization}
-\to
-\text{composition}
-\to
-\text{memory}
-\to
-\text{coordination}
-\to
-\text{diagnostics}
-\to
-\text{governed adaptation}.
-}
-\]
-
-This is a route through the atlas, not a deduction or an obligatory reading order.
+One useful itinerary begins with **geometry and operators**, proceeds through **dynamics and optimization**, and then investigates **composition, memory, coordination, diagnostics, and governed adaptation**. This is a reader-selected route through the Atlas, not a deduction or an obligatory reading order.
 
 ## 11. Closing view
 

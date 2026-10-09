@@ -1345,29 +1345,9 @@ A controller compares that indicator with a target.
 
 The system spends more or less computation accordingly.
 
-The durable synthesis is:
+**Error-informed adaptive computation** requires a declared error target, an estimator with a justified relationship to the error, a tolerance, a controller, and a computational budget state. These are separate mathematical and engineering obligations, not terms that add up to an equality theorem.
 
-\[
-\boxed{
-\text{adaptive error control}
-=
-\text{adaptive computation}
-+
-\text{target error}
-+
-\text{estimator/error relation}
-+
-\text{tolerance}
-+
-\text{controller}
-+
-\text{budget state}.
-}
-\]
-
-Remove the estimator/error relation and we still have adaptive computation.
-
-We no longer have justified error control.
+Without the estimator/error relation, the mechanism may still adapt its computation. It no longer has a justified error-control guarantee.
 
 ## References used in this chapter
 

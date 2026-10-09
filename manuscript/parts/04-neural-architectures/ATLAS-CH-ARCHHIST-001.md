@@ -28,27 +28,7 @@ It is:
 
 > What new mathematical object became worth analyzing?
 
-This chapter follows a selective lineage:
-
-\[
-\text{composition}
-\to
-\text{structured operators}
-\to
-\text{persistent state}
-\to
-\text{interfaces}
-\to
-\text{gated carry}
-\to
-\text{residual transport}
-\to
-\text{explicit continuous depth}.
-\]
-
-That sequence is pedagogical.
-
-It is not a claim that the actual history of neural networks was linear.
+This chapter compares a selective sequence of mathematical viewpoints: **composition and structured operators**, then **persistent state and interfaces**, followed by **gated carry, residual transport, and explicit continuous depth**. The ordering is pedagogical; it is not a claim that the actual history of neural networks was linear.
 
 ## 2. From assembly line to evolving state
 

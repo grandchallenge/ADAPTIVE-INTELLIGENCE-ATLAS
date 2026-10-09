@@ -22,15 +22,7 @@ Once computation crosses devices, several new objects appear:
 - stragglers;
 - service-level metrics.
 
-The governing rule is:
-
-\[
-\boxed{
-\text{distributed execution cost is a property of computation, communication, placement, scheduling, and measurement together.}
-}
-\]
-
-This chapter develops that boundary without turning one training stack or serving system into a universal law.
+**The governing principle:** distributed execution cost depends jointly on the computation performed, communication, device placement, scheduling, and the declared measurement convention. This chapter develops that boundary without turning one training stack or serving system into a universal law.
 
 ## 1. From hardware to systems
 
