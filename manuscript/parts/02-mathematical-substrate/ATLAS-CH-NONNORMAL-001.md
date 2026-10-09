@@ -658,6 +658,7 @@ Eigenvalues, singular values, pseudospectra, and finite-horizon propagators beco
 The recurring diagnostic question is not merely **where the eigenvalues lie**, but **how strongly the operator can amplify perturbations over the time horizon of interest**. The two questions are mathematically different; the exact non-normal example above shows why both matter.
 
 
+## 15. Closing view
 
 Eigenvalues are not wrong.
 
