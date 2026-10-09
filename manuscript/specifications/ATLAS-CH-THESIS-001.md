@@ -2,18 +2,18 @@
 
 ## Identity
 
-**Title:** The Adaptive-System Thesis  
+**Title:** A Mathematical Atlas, by Choice  
 **Part:** Orientation  
 **Status:** specification-ready  
 **Epistemic class:** Atlas synthesis.
 
 ## Chapter contract
 
-State the monograph's governing claim without presenting it as an externally established theorem:
+Introduce the opinionated perspective of a mathematical atlas without presenting one editorial preference as an Atlas-wide theorem:
 
 > Adaptive intelligence is more usefully studied here as organized computation over states, operators, dynamics, memory, interfaces, evidence, and governance than as a catalogue of model classes.
 
-The chapter must make clear that this is the Atlas thesis: a research and explanatory synthesis that the remainder of the book will earn, qualify, and sometimes challenge.
+The chapter must make clear that chosen lenses illuminate different problems, and no later chapter owes a proof of the perspective.
 
 ## Dependency contract
 
@@ -25,7 +25,7 @@ The chapter may name later objects but must not assume their mathematics.
 
 A reader should be able to:
 
-1. state the Atlas thesis in bounded form;
+1. describe the Atlas's selectively opinionated mathematical viewpoints;
 2. distinguish a model from the larger adaptive system in which it participates;
 3. explain the recurring shifts vectors→operators, layers→flows, context→compiled memory access, agents→distributed systems, and results→evidence objects;
 4. distinguish descriptive claims about current ML systems from the Atlas programme;
