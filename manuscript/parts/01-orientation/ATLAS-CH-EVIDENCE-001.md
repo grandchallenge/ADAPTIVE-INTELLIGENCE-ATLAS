@@ -127,7 +127,7 @@ The distinction is not an insult to either class. It is provenance.
 
 A correct Atlas derivation may be entirely rigorous. Its label tells the reader where the derivation was performed and where responsibility for the argument lies. If the same statement is later located in external literature, the source record can be enriched. The original derivation does not retroactively become someone else's result.
 
-## 6. Computational witnesses
+## 6. Computational witnesses {#computational-witness-1}
 
 A computational witness is one of the Atlas's most useful evidence forms because many structures become visible only when symbolic, numerical, finite-search, graphical, simulation, or replay machinery is allowed to participate.
 
@@ -250,7 +250,7 @@ Public evidence should not be weakened by mixing it with recollection. Programme
 
 A programme idea can motivate a chapter, suggest an experiment, or identify a useful open problem. It simply cannot be laundered into a statement that an implementation or result exists publicly when no exact public object has been bound.
 
-## 9. Conjecture and open problem
+## 9. Conjecture and open problem {#conjecture-and-open-problem-1}
 
 A conjecture and an open problem are related but different.
 
