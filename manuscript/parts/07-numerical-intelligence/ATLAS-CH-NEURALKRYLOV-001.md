@@ -976,13 +976,7 @@ And an exact downstream readout can coexist with a non-exact solve.
 
 So the durable lesson is not “Krylov always works.”
 
-It is:
-
-\[
-\boxed{
-\text{short-horizon operator-generated computation can be useful, but every guarantee is operator-, metric-, preconditioner-, and interface-relative.}
-}
-\]
+**Short-horizon operator-generated computation can be useful, but its guarantees depend on the declared operator, metric, preconditioner, and interface.** This chapter's exact finite witnesses demonstrate that restricted statement; they do not establish a general convergence theorem for a learned nonlinear transport mechanism.
 
 ## References used in this chapter
 
