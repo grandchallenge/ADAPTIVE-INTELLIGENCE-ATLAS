@@ -798,7 +798,7 @@ It has failed when the reader can no longer tell which part is metaphor.
 
 ## 33. What changed in our picture?
 
-The Atlas thesis says adaptive intelligence is better understood as a system of geometry, operators, dynamics, memory, composition, coordination, diagnostics, and governed adaptation.
+The Atlas deliberately foregrounds geometry, operators, dynamics, memory, composition, coordination, diagnostics, and governed adaptation. These are valuable mathematical lenses rather than a compulsory theory of intelligence.
 
 This chapter adds a second-order lesson.
 
