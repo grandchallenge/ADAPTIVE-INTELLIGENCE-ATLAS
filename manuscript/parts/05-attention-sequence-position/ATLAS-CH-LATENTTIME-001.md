@@ -878,15 +878,9 @@ The optimal correspondence therefore repeats one alignment state:
 
 The identity control shows the same machinery leaves already aligned streams unwarped.
 
-The right conclusion is:
+**Latent time is an inferred correspondence structure**, and its interpretation depends on the declared alignment model. An inferred phase coordinate can be useful without representing physical time or an intrinsic clock.
 
-\[
-\boxed{
-\text{latent time is an inferred correspondence structure whose meaning depends on the declared alignment model.}
-}
-\]
 
-It can be useful without being a metaphysical clock.
 
 ## References used in this chapter
 
