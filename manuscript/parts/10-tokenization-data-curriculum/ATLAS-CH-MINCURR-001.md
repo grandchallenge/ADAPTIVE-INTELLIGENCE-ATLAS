@@ -103,15 +103,19 @@ e_1=(q_1,1),
 e_2=(q_2,1).
 \]
 
-For teaching set \(T\), define:
+For a finite set \(T\) of labeled experiences, first restrict it to the target probe family:
 
 \[
-V_H(T)
-=
-\{h\in H:
-h\text{ is consistent with every example in }T
-\}.
+T_Q=\{(q,y)\in T:q\in Q\}.
 \]
+
+Define the **target-relative** version space by
+
+\[
+V_H(T)=\{h\in H:\forall(q,y)\in T_Q,\ h(q)=y\}.
+\]
+
+An auxiliary experience with probe outside \(Q\) imposes no constraint on this reconstructor. This is a declared target-identification convention, not a claim that the experience is useless for learning other capabilities.
 
 The reconstructor succeeds only when:
 

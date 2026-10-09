@@ -15,15 +15,17 @@ It is also one of the easiest analogies in modern deep learning to overstate.
 
 Write a residual layer as
 
-`x_{k+1}=x_k+F_k(x_k)`.
+\[x_{k+1}=x_k+F_k(x_k).\]
 
 Write one explicit-Euler step for
 
-`dx/dt=f(t,x)`
+\[\frac{dx}{dt}=f(t,x).\]
 
 as
 
-`x_{k+1}=x_k+h_k f(t_k,x_k)`.
+\[
+x_{k+1}=x_k+h_k f(t_k,x_k).
+\]
 
 The shapes match.
 
@@ -43,7 +45,7 @@ That distinction lets us use numerical analysis rigorously rather than decorativ
 
 The Architecture History chapter established the residual form
 
-`x_{k+1}=x_k+F_k(x_k)`
+\[x_{k+1}=x_k+F_k(x_k).\]
 
 as a structural shift.
 
@@ -55,7 +57,7 @@ This makes depth look less like repeated replacement and more like repeated stat
 
 The Numerical Methods chapter supplied the corresponding mathematical object:
 
-`x_{n+1}=Psi_h(t_n,x_n)`.
+\[x_{n+1}=\Psi_h(t_n,x_n).\]
 
 A one-step method takes the current numerical state and advances it by a discrete rule.
 
@@ -69,15 +71,15 @@ The question is what additional assumptions make the alignment mathematically su
 
 Suppose the intended continuous system is
 
-`dx/dt=f(t,x)`.
+\[\frac{dx}{dt}=f(t,x).\]
 
 Explicit Euler gives
 
-`x_{k+1}=x_k+h_k f(t_k,x_k)`.
+\[x_{k+1}=x_k+h_kf(t_k,x_k).\]
 
 A residual layer becomes Euler-compatible after the declaration
 
-`F_k(x)=h_k f(t_k,x)`.
+\[F_k(x)=h_k f(t_k,x).\]
 
 This line performs the bridge.
 
@@ -129,17 +131,17 @@ That is too crude.
 
 If
 
-`F_k(x)=h f(x)`
+\[F_k(x)=h f(x).\]
 
 for a common `f`, then the blocks have the direct form of fixed-step Euler applied to an autonomous ODE.
 
 But a continuous system can be explicitly time-dependent:
 
-`dx/dt=f(t,x)`.
+\[\frac{dx}{dt}=f(t,x).\]
 
 Then layer-varying residuals can correspond to
 
-`F_k(x)=h_k f(t_k,x)`.
+\[F_k(x)=h_k f(t_k,x).\]
 
 So untied weights do not rule out an ODE interpretation.
 
@@ -151,15 +153,15 @@ The real issue is whether there is a declared continuous object and a meaningful
 
 Suppose we introduce a residual scale:
 
-`x_{k+1}=x_k+alpha_k G_k(x_k)`.
+\[x_{k+1}=x_k+\alpha_kG_k(x_k).\]
 
-It is tempting to call `alpha_k` the step size.
+It is tempting to call \(\alpha_k\) the step size.
 
 Sometimes that is exactly right.
 
-If `G_k` samples a declared vector field, then `alpha_k` can play the role of `h_k`.
+If \(G_k\) samples a declared vector field, then \(\alpha_k\) can play the role of \(h_k\).
 
-But if changing `alpha_k` is accompanied by retraining `G_k), changing normalization, changing feature geometry, or otherwise changing the update field, then the comparison is not simply "same ODE, smaller step."
+But if changing \(\alpha_k\) is accompanied by retraining \(G_k\), changing normalization, changing feature geometry, or otherwise changing the update field, then the comparison is not simply "same ODE, smaller step."
 
 A step size has meaning only relative to an underlying evolution.
 
@@ -171,23 +173,25 @@ It does not automatically refine a fixed continuous problem.
 
 The Numerics chapter defined the exact flow over one step as
 
-`Phi_h`
+\(\Phi_h\)
 
-and the numerical map as
-
-`Psi_h`.
+and the numerical map as \(\Psi_h\).
 
 The local defect is computed by starting the numerical step from the exact state:
 
-`delta_{k+1}
+\[
+\delta_{k+1}
 =
-Phi_{h_k}(t_k,x(t_k))
+\Phi_{h_k}(t_k,x(t_k))
 -
-Psi_k(x(t_k))`.
+\Psi_k(x(t_k)).
+\]
 
 For explicit Euler, under the usual smoothness assumptions,
 
-`delta_{k+1}=O(h_k^2)`.
+\[
+\delta_{k+1}=O(h_k^2).
+\]
 
 That statement contains more structure than it first appears.
 
@@ -196,7 +200,7 @@ It assumes:
 - a continuous trajectory exists;
 - an exact flow is defined;
 - the layer is tied to a numerical step;
-- `h_k` is a meaningful small parameter.
+- \(h_k\) is a meaningful small parameter.
 
 If a residual block is merely a learned map with no declared continuous reference, then saying it has "small local truncation error" is not merely unproven.
 
@@ -206,7 +210,7 @@ The quantity has not been defined.
 
 Suppose
 
-`||F_k(x)||`
+\(\|F_k(x)\|\)
 
 is small.
 
@@ -235,19 +239,23 @@ This is a recurring category error:
 
 Define the global numerical error as
 
-`e_k=x(t_k)-x_k`.
+\[e_k=x(t_k)-x_k.\]
 
 This error is not simply the sum of local defects.
 
 Each old error is transported through later steps.
 
-For a stable one-step method, the error recursion has the schematic form
+For a one-step method with the declared Lipschitz error-propagation bound, the error recursion has the schematic form
 
-`||e_{k+1}||
-<=
-(1+C h_k)||e_k||
+\[
+\|e_{k+1}\|
+\le
+(1+C h_k)\|e_k\|
 +
-||delta_{k+1}||`.
+\|\delta_{k+1}\|.
+\]
+
+Here \(C\) and the norm depend on the fixed reference problem and interval; this is not an unconditional guarantee for a learned residual network.
 
 The factor multiplying `e_k` matters.
 
@@ -296,25 +304,25 @@ Depth alone does not supply it.
 
 The Numerical Methods chapter used the scalar test equation
 
-`x'=lambda x`.
+\(\dot x=\lambda x\).
 
 This small system exposes stability cleanly.
 
 For explicit Euler,
 
-`x_{k+1}=(1+h lambda)x_k`.
+\(\,x_{k+1}=(1+h\lambda)x_k\,\).
 
 Define
 
-`z=h lambda`.
+\(z=h\lambda\).
 
 The amplification factor is
 
-`R(z)=1+z`.
+\(R(z)=1+z\).
 
 The standard non-growth stability condition is
 
-`|1+z|<=1`.
+\(|1+z|\le1\).
 
 This exact calculation transfers directly to a linear residual block when the block has been declared to represent the Euler step.
 
@@ -326,27 +334,27 @@ small perturbations in that scalar mode are multiplied by the same amplification
 
 Set
 
-`lambda=-1`.
+\(\lambda=-1\).
 
 The continuous solution decays:
 
-`x(t)=e^{-t}x(0)`.
+\(x(t)=e^{-t}x(0)\).
 
 Euler gives
 
-`x_{k+1}=(1-h)x_k`.
+\(x_{k+1}=(1-h)x_k\).
 
 The non-growth condition is
 
-`|1-h|<=1`.
+\(|1-h|\le1\).
 
-For real nonnegative `h`, the non-growth set is
+For real nonnegative \(h\), the non-growth set is
 
-`0<=h<=2`.
+\(0\le h\le2\).
 
 Strict asymptotic decay requires
 
-`0<h<2`.
+\(0<h<2\).
 
 At `h=2`, the factor is `-1`: bounded but non-decaying.
 
@@ -356,11 +364,11 @@ Now choose
 
 The exact continuous factor over one step is
 
-`e^{-3}`.
+\(e^{-3}\).
 
 The Euler factor is
 
-`-2`.
+\(-2\).
 
 The continuous mode decays strongly.
 
@@ -442,36 +450,36 @@ It is not, by itself, a theorem about generalization or optimization success.
 
 Consider
 
-`x'=-x`,
-`x(0)=1`.
+\(x'=-x\),
+\(x(0)=1\).
 
 The exact solution at time `1` is
 
-`e^{-1}`.
+\(e^{-1}\).
 
-Use explicit Euler with `N` equal steps:
+Use explicit Euler with \(N\) equal steps:
 
-`h=1/N`.
+\(h=1/N\).
 
 Then
 
-`x_N=(1-1/N)^N`.
+\(x_N=(1-1/N)^N\).
 
 For `N=2`:
 
-`x_2=1/4`.
+\(x_2=1/4\).
 
 For `N=4`:
 
-`x_4=81/256`.
+\(x_4=81/256\).
 
 For `N=8`:
 
-`x_8=5764801/16777216`.
+\(x_8=5764801/16777216\).
 
 These values move toward
 
-`e^{-1}`
+\(e^{-1}\)
 
 over the declared finite sequence.
 
@@ -603,7 +611,7 @@ A layer can be invertible without being a symmetric integrator.
 
 Return to
 
-`x'=-x`.
+\(x'=-x\).
 
 Euler gives
 
@@ -790,7 +798,7 @@ This distinction deserves a compact table.
 
 | Statement | Status |
 |---|---|
-| `x_{k+1}=x_k+F_k(x_k)` resembles Euler form | algebraic observation |
+| \(x_{k+1}=x_k+F_k(x_k)\) resembles Euler form | algebraic observation |
 | `F_k=h_k f(t_k,.)` for declared `f,h_k` | modeling declaration |
 | local defect is `O(h^2)` | numerical theorem under smoothness assumptions |
 | global error is `O(h)` | numerical theorem under stability/regularity assumptions |
@@ -811,7 +819,7 @@ Before using numerical language for a network, record:
 |---|---|
 | reference flow | What continuous evolution is being approximated? |
 | step map | What network block corresponds to one numerical step? |
-| mesh | What are `t_k` and `h_k`? |
+| mesh | What are `t_k` and \(h_k\)? |
 | refinement | How is depth increased while preserving the same reference problem? |
 | error | What norm and exact reference define local/global error? |
 | stability | Which perturbation and which stability notion are intended? |

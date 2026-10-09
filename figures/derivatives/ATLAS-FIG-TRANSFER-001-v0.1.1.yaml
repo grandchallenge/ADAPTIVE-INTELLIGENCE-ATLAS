@@ -1,0 +1,57 @@
+schema_version: 1.0.0
+derivative_id: ATLAS-FIG-TRANSFER-001-v0.1.1
+source_figure_id: ATLAS-FIG-TRANSFER-001
+chapter_id: ATLAS-CH-TRANSFER-001
+candidate: atlas-v0.1.1-rc.2
+status: editorial-wolfram-vertical-print-derivative-needs-editorial-review
+representation_class: schematic
+generator:
+  system: Wolfram Language evaluator
+  version: 15.0.1 for Linux x86 (64-bit) (July 2, 2026)
+  system_id: Linux-x86-64
+  source: figures/derivatives/ATLAS-FIG-TRANSFER-001-v0.1.1.wl
+  source_git_blob_sha1: 31e684f131b6fc959231d95414a7776175b2b6e3
+  image: figures/derivatives/ATLAS-FIG-TRANSFER-001-v0.1.1.png
+  image_sha256: cc03d27f8c6384940606982199abb8527daf71b6ace09c3645c5b93515c0f2ba
+  render_pixels:
+  - 700
+  - 760
+  note: PNG bytes captured from Wolfram Graphics evaluator; standalone Export byte-exact
+    metadata equivalence not asserted.
+original_wolfram_provenance:
+  source: figures/wolfram/ATLAS-FIG-TRANSFER-001.wl
+  source_git_blob_sha1: 793a444e8a466b5d7d913c2e477bf9acf1314d5c
+  original_master: figures/masters/ATLAS-FIG-TRANSFER-001.png
+  original_render_git_blob_sha1: a85567e5ab80a8f11646fec91985fbce54f5d30f
+parameters:
+  source_matrix: '[[1,1],[1,-1]]'
+  target_matrix: '[[2,0],[0,1/2]]'
+  residual: '[3,1]'
+  source_representation: '[4,2]'
+  target_representation: '[6,1/2]'
+  target_outputs: '[4,5]'
+  bottleneck_states: r_A=[1,0], r_B=[1,1]
+  bottleneck_value: 1
+  conflicting_task_outputs: '[2,1]'
+literal_semantics: 'The left panel displays the exact source representation, target
+  representation, common Residual, and target-task outputs from the declared linear
+  witness. The right panel displays the exact pair of states merged by the one-dimensional
+  bottleneck and their conflicting target-task outputs.
+
+  '
+nonliteral_semantics: 'Box positions, arrow lengths, spacing, and panel layout are
+  pedagogical and do not encode a learned geometry, probability distribution, or empirical
+  effect size.
+
+  '
+claim_boundary: 'The figure illustrates one sufficient common-Residual reconstruction
+  certificate and one exact deterministic bottleneck failure. It does not establish
+  empirical transfer benefit, optimization success, or robustness to distribution
+  shift.
+
+  '
+visual_change: Stack the two separately identified schematic certificates vertically
+  in 700x760 print format; use Wolfram Subscript typesetting while preserving all
+  source/target/residual/output numbers and arrows. No new empirical transfer claim.
+rendering_gate: Check source identity, manuscript compile, exact embedded HTML raster
+  and actual PDF print-scale figure against the new exact head; no public v0.1.0 mutation.

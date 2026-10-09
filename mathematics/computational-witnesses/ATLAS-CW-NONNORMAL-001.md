@@ -22,7 +22,7 @@ Both matrices have the same eigenvalue \(4/5\), with multiplicity two.
 
 ## Exact power check
 
-For integer \(n\ge1\),
+For integer \(n\ge 2\) (with \(A^0=I\) and \(A^1=A\)),
 
 \[
 A^n

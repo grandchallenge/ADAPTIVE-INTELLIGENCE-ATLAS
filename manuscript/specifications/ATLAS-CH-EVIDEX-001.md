@@ -127,7 +127,7 @@ FAIRness is not treated as scientific validity.
 
 Create mathematics/computational-witnesses/ATLAS-CW-EVIDEX-001.md.
 
-Use two source versions with the same human pathname:
+Use three source versions with the same human pathname:
 
 version v1 bytes:
 
@@ -147,6 +147,15 @@ SHA-256:
 
     c572528f7b0e700de0fd7bf2f3b7144a68f671ee0ed4b9d47943d9b489fe9844
 
+version v3 bytes:
+
+    a=1
+    b=4
+
+SHA-256:
+
+    af3f00343ac49267cd0a4519d85ade7d6c3857725f45454b12dbf556cf224c2d
+
 Returned evidence bytes are:
 
     result=5
@@ -155,11 +164,11 @@ with SHA-256:
 
     ccdc6ccf3d8b13ef2de8739e91bacbe75d8f29b5c5a4dba8da5ac49881617d2f
 
-Handoff A names only the mutable/human path "inputs.txt". Two source candidates remain.
+Handoff A names only the mutable/human path "inputs.txt". Three source candidates match; even after filtering by the declared deterministic procedure and returned value, two different byte strings, v1 and v3, remain consistent with result=5. The third candidate v2 computes result=6.
 
-Handoff B names the exact v1 SHA-256. One source candidate remains, and replay of the declared addition recomputes 5.
+Handoff B names the exact v1 SHA-256. One candidate source version matches the declared fingerprint, and replay of its addition recomputes 5.
 
-The witness establishes source-identity disambiguation, not truth of arbitrary evidence.
+The witness establishes source-identity disambiguation under the explicitly bounded candidate set, not truth of arbitrary evidence or independent verification of a producer's provenance assertion.
 
 ## GCL bounded project evidence
 

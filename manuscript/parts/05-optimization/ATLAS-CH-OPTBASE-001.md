@@ -197,7 +197,9 @@ the factor is \(-1\), so the iterate alternates sign without decaying.
 
 Beyond that boundary, the discrete method diverges.
 
-![Three exact panels: scalar quadratic gradient-descent amplification and its convergence interval; norm clipping of g=(3,4) to threshold 2; and the exact coupled-versus-decoupled adaptive decay next iterates 183/100 and 181/100.](../../figures/masters/ATLAS-FIG-OPTBASE-001.png)
+![Three exact panels: scalar quadratic gradient-descent amplification and its convergence interval; norm clipping of g=(3,4) to threshold 2; and the exact coupled-versus-decoupled adaptive decay next iterates 183/100 and 181/100.](../../../figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.png)
+
+*Corrected-edition figure candidate:* This plate is the Wolfram Language 15.0.1 evaluator derivative in `figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.yaml`, which replaces the malformed historical Wolfram `GraphicsGrid` layout without changing the toy mathematics. The earlier Matplotlib derivative remains separately attributed as a superseded editorial alternative. The original Wolfram source and master remain unchanged. Print-scale and accessibility acceptance of the derivative is still pending under #324.
 
 ## 6. Curvature sets the useful scale
 

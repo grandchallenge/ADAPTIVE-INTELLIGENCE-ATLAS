@@ -537,7 +537,7 @@ A sensitivity number is useful only when its scope remains attached to it.
 
 ## 10. The boundary figure
 
-![A schematic upstream-to-downstream boundary contract listing semantic, geometric, differential, and numerical obligations beside the exact image of the unit perturbation circle under C equals [[2,1/2],[0,1]].](../../figures/masters/ATLAS-FIG-BCONTRACT-001.png)
+![A schematic upstream-to-downstream boundary contract listing semantic, geometric, differential, and numerical obligations beside the exact image of the unit perturbation circle under C equals [[2,1/2],[0,1]].](../../../figures/masters/ATLAS-FIG-BCONTRACT-001.png)
 
 The left panel is schematic.
 

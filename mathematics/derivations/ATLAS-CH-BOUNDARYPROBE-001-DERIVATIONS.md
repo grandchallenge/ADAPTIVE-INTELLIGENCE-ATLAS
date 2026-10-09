@@ -154,13 +154,19 @@ Its eigenvalues are:
 
 Power iteration applies:
 
-`u_{k+1}=A z_k`;
+\[
+u_{k+1}=Az_k,
+\qquad
+z_{k+1}=\frac{u_{k+1}}{\|u_{k+1}\|_2},
+\]
 
-`z_{k+1}=u_{k+1}/||u_{k+1}||_2`.
+provided \(Az_k\ne0\). When \(Az_k=0\), normalization is undefined: record probe breakdown and restart with an independently chosen direction rather than assigning a spurious zero norm estimate. For instance, if \(J=\operatorname{diag}(3,0)\), \(A=J^\top J=\operatorname{diag}(9,0)\), and \(z_0=(0,1)^\top\), then \(Az_0=0\), although \(\|J\|_2=3\).
 
-The Rayleigh quotient is:
+The Rayleigh quotient for nonzero \(z_k\) is:
 
-`rho_k=z_k^T A z_k`.
+\[
+\rho_k=\frac{z_k^\top A z_k}{z_k^\top z_k}.
+\]
 
 When the iteration aligns with the dominant eigenspace:
 

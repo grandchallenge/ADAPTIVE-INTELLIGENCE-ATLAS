@@ -1,6 +1,11 @@
 # Krylov Subspaces and Iterative Solves
+<!-- ATLAS-CH-KRYLOV-001 -->
 
-**Epistemic status:** established numerical linear algebra + audited Atlas substrate + Atlas synthesis.
+**Epistemic status:** established numerical linear algebra + audited Atlas substrate + Atlas synthesis.  
+**Specification:** manuscript/specifications/ATLAS-CH-KRYLOV-001.md  
+**Derivation packet:** mathematics/derivations/ATLAS-CH-KRYLOV-001-DERIVATIONS.md  
+**Computational witness:** mathematics/computational-witnesses/ATLAS-CW-KRYLOV-001.md  
+**Source lock:** sources/source-locks/ATLAS-CH-KRYLOV-001.yaml
 
 Large linear problems are often attacked without solving the whole space at once.
 
@@ -349,12 +354,10 @@ It must independently justify any learned, nonlinear, adaptive, or representatio
 
 ## References used in this chapter
 
-- Arnoldi (1951), operator-generated orthogonal reduction for matrix eigenvalue problems.
-- Lanczos (1950), symmetric short-recurrence iterative reduction.
-- Saad (2003), iterative methods for sparse linear systems.
-- Trefethen and Bau (1997), numerical linear algebra.
-- Golub and Van Loan (2013), matrix computations.
+- [@Arnoldi1951]
+- [@Lanczos1950]
+- [@Saad2003]
+- [@TrefethenBau1997]
+- [@GolubVanLoan2013]
 
-Exact source identities and claim boundaries are recorded in:
-
-sources/source-locks/ATLAS-CH-KRYLOV-001.yaml
+See sources/source-locks/ATLAS-CH-KRYLOV-001.yaml for exact source identities and claim scope.

@@ -60,9 +60,9 @@ Therefore this Bregman divergence is not a metric.
 
 ## D3. Local Hessian expansion
 
-Let \(y=x+\delta\).
+Let \(y=x+\delta\). Assume \(\phi\) has a locally Lipschitz Hessian near \(x\) (bounded third derivatives suffice).
 
-Taylor expansion gives:
+Taylor expansion then gives:
 
 \[
 \phi(x+\delta)
@@ -76,7 +76,7 @@ Taylor expansion gives:
 O(\|\delta\|^3).
 \]
 
-Subtracting the affine part:
+Subtracting the affine part (without the Lipschitz-Hessian hypothesis, a twice-continuously differentiable generator generally gives only an \(o(\|\delta\|^2)\) remainder):
 
 \[
 D_\phi(x+\delta,x)

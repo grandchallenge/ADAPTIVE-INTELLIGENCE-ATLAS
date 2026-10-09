@@ -199,17 +199,21 @@ Its eigenvalues are:
 
 Power iteration applies:
 
-`u_(k+1)=A z_k`
+\[
+u_{k+1}=Az_k,
+\qquad
+z_{k+1}=\frac{u_{k+1}}{\|u_{k+1}\|_2},
+\]
 
-and normalizes:
+**only when** \(\|Az_k\|_2>0\). If \(Az_k=0\), the normalized step is undefined and a probe must report that breakdown rather than silently divide by zero. For example, \(A=\operatorname{diag}(9,0)\) and \(z_0=(0,1)^\top\) give \(Az_0=0\), even though the true dominant singular value of the corresponding \(J=\operatorname{diag}(3,0)\) is \(3\). A restart with a different direction may be needed.
 
-`z_(k+1)=u_(k+1)/||u_(k+1)||_2`.
+For a nonzero probe direction, the Rayleigh quotient
 
-The Rayleigh quotient:
+\[
+\rho_k=\frac{z_k^\top A z_k}{z_k^\top z_k}
+\]
 
-`rho_k=z_k^T A z_k`
-
-can approach the dominant eigenvalue.
+can approach the dominant eigenvalue under the stated spectral and initialization conditions.
 
 Then:
 

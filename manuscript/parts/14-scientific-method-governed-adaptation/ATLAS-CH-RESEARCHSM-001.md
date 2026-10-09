@@ -788,7 +788,12 @@ It must independently answer the harder question:
 
 - Atlas prerequisite: *Replayable Evidence Objects* (`ATLAS-CH-REPLAY-001`) and its audited source lock.
 - Atlas prerequisite: *Formal Methods and Machine-Checkable Claims* (`ATLAS-CH-FORMAL-001`) and `AUDIT-025`.
-- GCL public lifecycle controller: `grandchallenge/MATH-PROGRAMME@fdd7a3fe3df7b2d699753347080c1cbc2127e02d`, `governance/openmath_unattended_lifecycle_controller.json`.
+- GCL public lifecycle controller (pinned source identity):
+  - Repository: `grandchallenge/MATH-PROGRAMME`.
+  - Commit: `fdd7a3fe3df7b2d699753347080c1cbc2127e02d`.
+  - Source directory: `governance/`.
+  - Filename: `openmath_unattended_lifecycle_controller.json`.
+  - [Exact source file at the pinned commit](https://github.com/grandchallenge/MATH-PROGRAMME/blob/fdd7a3fe3df7b2d699753347080c1cbc2127e02d/governance/openmath_unattended_lifecycle_controller.json).
 - GCL public Frontier Advancement Gate at the same protected commit.
 - GCL public Controlled Epistemic Interface at the same protected commit.
 

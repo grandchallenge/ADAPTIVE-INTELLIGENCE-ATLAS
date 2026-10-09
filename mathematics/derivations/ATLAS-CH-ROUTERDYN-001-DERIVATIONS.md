@@ -180,7 +180,7 @@ T_t(a,b)
 }.
 \]
 
-Observed rows sum to one.
+The quotient is defined only for prior expert classes with positive tracked occupancy; such observed rows sum to one. Empty prior classes have undefined empirical transition rows and must be marked unobserved, not silently imputed as stochastic rows. The total-swap witness has positive occupancy for both experts.
 
 For the total-swap witness,
 
@@ -325,13 +325,15 @@ Let
 
 collect declared router parameters and optimizer memory needed for the next update.
 
-A local linearization has form
+For differentiable update \(\xi_{t+1}=H_t(\xi_t)\) with \(J_t=DH_t(\xi_t)\) along its declared reference trajectory, the tangent first variation obeys
 
 \[
 \delta\xi_{t+1}
 =
 J_t\delta\xi_t.
 \]
+
+This equality defines the **linearized/tangent** recurrence; a finite displacement \(v\) between nonlinear executions obeys \(H_t(\xi_t+v)-H_t(\xi_t)=J_tv+o(\|v\|)\), not the exact tangent equality.
 
 For a time-varying trajectory,
 
@@ -341,7 +343,7 @@ For a time-varying trajectory,
 J_{t+h-1}\cdots J_t\delta\xi_t.
 \]
 
-No one \(J_t\) is assumed to globally describe training.
+The matrix product is an exact propagation law for the tangent recurrence, not for finite differences between nonlinear runs. No one \(J_t\) is assumed to globally describe training.
 
 ## 11. Commutator diagnostic
 

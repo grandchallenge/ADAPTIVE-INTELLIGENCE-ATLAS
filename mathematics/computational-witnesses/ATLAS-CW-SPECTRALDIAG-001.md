@@ -33,17 +33,38 @@ Fmap = lambda x: F(1,2)*x
 Gmap = lambda x: F(1,2)*x + x*x
 assert Fmap(x) == F(1,4)
 assert Gmap(x) == F(1,2)
-# Analytic derivatives at zero are both 1/2.
-JF0 = F(1,2)
-JG0 = F(1,2)
-assert JF0 == JG0
+# For polynomials of degree at most 2, the symmetric difference at zero
+# equals the exact analytic first derivative there (quadratic terms cancel).
+def first_derivative_zero(p):
+    return (p(F(1)) - p(F(-1))) / 2
+
+JF0 = first_derivative_zero(Fmap)
+JG0 = first_derivative_zero(Gmap)
+assert JF0 == JG0 == F(1,2)
 
 # W4: identical Hessian spectrum 2I, different gradients at origin.
-grad_f_0 = (F(0),F(0))
-grad_g_0 = (F(1),F(0))
-hessian_diag = (F(2),F(2))
-assert grad_f_0 != grad_g_0
-assert hessian_diag == (F(2),F(2))
+# For quadratic polynomials, central first and second differences with
+# unit steps exactly recover the derivatives/Hessian at the origin.
+f = lambda x,y: x*x + y*y
+g = lambda x,y: x*x + y*y + x
+
+def grad_zero(q):
+    return ((q(F(1),F(0)) - q(F(-1),F(0))) / 2,
+            (q(F(0),F(1)) - q(F(0),F(-1))) / 2)
+
+def hessian_zero(q):
+    q00 = q(F(0),F(0))
+    xx = q(F(1),F(0)) - 2*q00 + q(F(-1),F(0))
+    yy = q(F(0),F(1)) - 2*q00 + q(F(0),F(-1))
+    xy = (q(F(1),F(1)) - q(F(1),F(-1))
+          - q(F(-1),F(1)) + q(F(-1),F(-1))) / 4
+    return ((xx,xy),(xy,yy))
+
+grad_f_0 = grad_zero(f)
+grad_g_0 = grad_zero(g)
+assert grad_f_0 == (F(0),F(0))
+assert grad_g_0 == (F(1),F(0))
+assert hessian_zero(f) == hessian_zero(g) == ((F(2),F(0)),(F(0),F(2)))
 
 # W5: two-state Koopman swap matrix U has eigenvalues +/-1.
 U = ((F(0),F(1)),(F(1),F(0)))
@@ -57,6 +78,11 @@ assert detU == -1
 
 print('SPECTRALDIAG_EXACT_WITNESS_OK')
 ```
+
+The W3–W4 replay now computes the stated local derivatives instead of
+assuming their values. Symmetric finite differences are exact **here because
+the displayed maps are polynomials of degree at most two**; they are not a
+general exact-derivative procedure for arbitrary learned functions.
 
 ## Expected output
 

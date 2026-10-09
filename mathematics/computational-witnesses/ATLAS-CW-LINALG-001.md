@@ -9,80 +9,80 @@ Check the exact distinction among eigenvalues, singular values, projection struc
 
 ## Witness A — non-normal matrix
 
-[
+\[
 A=
 \begin{pmatrix}
-1&1\
+1&1\\
 0&1
-end{pmatrix}.
-]
+\end{pmatrix}.
+\]
 
 Wolfram returns eigenvalues
 
-[
-{1,1},
-]
+\[
+\{1,1\},
+\]
 
 but singular values
 
-[
-left{
-\frac{1+sqrt5}{2},
-\frac{sqrt5-1}{2}
-\right}.
-]
+\[
+\left\{
+\frac{1+\sqrt{5}}{2},
+\frac{\sqrt{5}-1}{2}
+\right\}.
+\]
 
 Thus equal eigenvalue moduli do not determine one-step Euclidean amplification.
 
-The best rank-one approximation error in induced (2)-norm is
+The best rank-one approximation error in induced \(2\)-norm is
 
-[
-sigma_2(A)
+\[
+\sigma_2(A)
 =
-\frac{sqrt5-1}{2}.
-]
+\frac{\sqrt{5}-1}{2}.
+\]
 
 ## Witness B — orthogonal projection
 
 For
 
-[
+\[
 P=
 \begin{pmatrix}
-1&0\
+1&0\\
 0&0
-end{pmatrix},
-]
+\end{pmatrix},
+\]
 
 Wolfram returns
 
-[
+\[
 P^2=P.
-]
+\]
 
 ## Witness C — conditioning
 
 For
 
-[
+\[
 D=
 \begin{pmatrix}
-1&0\
+1&0\\
 0&1/100
-end{pmatrix},
-]
+\end{pmatrix},
+\]
 
 the singular values are
 
-[
-1,quad 1/100,
-]
+\[
+1,\quad 1/100,
+\]
 
 hence
 
-[
-kappa_2(D)=100.
-]
+\[
+\kappa_2(D)=100.
+\]
 
 ## Replay expression
 

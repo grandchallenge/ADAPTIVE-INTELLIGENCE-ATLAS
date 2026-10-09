@@ -207,6 +207,64 @@ Those exclusions are part of the witness definition.
 
 The example therefore should not be compared numerically to measured GPU runtime.
 
+## Executable independent traffic/roofline replay
+
+The following exact-rational Python replay computes the matrix product,
+enumerates a naive *load trace* for all four output entries, counts unique
+input locations under the declared ideal-reuse model, and checks bytes,
+intensity and Roofline bandwidth-side upper bounds. A load-trace count is
+an accounting model, not a hardware cache-traffic measurement.
+
+    from fractions import Fraction as F
+
+    A = ((1, 2), (3, 4))
+    B = ((5, 6), (7, 8))
+    product = tuple(
+        tuple(sum(A[i][k] * B[k][j] for k in range(2))
+              for j in range(2)) for i in range(2)
+    )
+    assert product == ((19, 22), (43, 50))
+
+    a_reads = tuple(("A", i, k)
+                    for i in range(2) for j in range(2) for k in range(2))
+    b_reads = tuple(("B", k, j)
+                    for i in range(2) for j in range(2) for k in range(2))
+    all_reads = a_reads + b_reads
+    output_stores = 4
+    assert len(all_reads) == 16
+    assert len(set(all_reads)) == 8
+    assert output_stores == 4
+
+    # Each of four outputs uses two multiplies and one addition.
+    flops = 4 * (2 + 1)
+    scalar_bytes = 4
+    q_no_reuse = scalar_bytes * (len(all_reads) + output_stores)
+    q_full_reuse = scalar_bytes * (len(set(all_reads)) + output_stores)
+    assert (flops, q_no_reuse, q_full_reuse) == (12, 80, 48)
+
+    i_no_reuse = F(flops, q_no_reuse)
+    i_full_reuse = F(flops, q_full_reuse)
+    assert i_no_reuse == F(3, 20)
+    assert i_full_reuse == F(1, 4)
+    assert i_full_reuse / i_no_reuse == F(5, 3)
+
+    # TFLOP/s and TB/s units are consistent (both powers of 10^12).
+    compute_roof = F(10)
+    bandwidth = F(1)
+    roof_a = min(compute_roof, bandwidth * i_no_reuse)
+    roof_b = min(compute_roof, bandwidth * i_full_reuse)
+    assert roof_a == F(3, 20)
+    assert roof_b == F(1, 4)
+
+    print("HARDWARE_EXACT_TRAFFIC_REPLAY_OK")
+
+Expected output:
+
+    HARDWARE_EXACT_TRAFFIC_REPLAY_OK
+
+The computation verifies the declared **FLOP/byte accounting**, not actual
+memory requests, device-cache behavior, measured kernel throughput or latency.
+
 ## Claim boundary
 
 This witness proves only the following finite statement under its declared accounting convention:

@@ -560,6 +560,15 @@ Therefore a dataset pipeline must distinguish:
 - representative-based clustering;
 - other grouping policies.
 
+For an exact nontransitivity example at the same \(3/4\) threshold, let \(A=\{a,b,c\}\), \(B=\{a,b,c,d\}\), and \(C=\{b,c,d\}\). Token-set Jaccard gives
+
+\[
+J(A,B)=J(B,C)=\frac34,
+\qquad J(A,C)=\frac12.
+\]
+
+Thus \(A\) is near \(B\), and \(B\) is near \(C\), but \(A\) is not near \(C\). Connected-component clustering puts all three in one cluster; a complete-link rule need not. This is a separate toy counterexample, not an alteration of the five-record contamination witness.
+
 The cluster definition is part of the data method.
 
 ## 34. Mixture weights in the witness

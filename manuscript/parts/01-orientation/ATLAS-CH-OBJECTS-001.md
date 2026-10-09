@@ -179,19 +179,25 @@ Without role discipline, the phrase “the representation matrix” can hide whe
 
 ## 6. Flow and dynamics
 
-A flow is a parameterized family of transformations
+A **global autonomous flow** is a family of maps
 
 \[
-\Phi_t:\mathcal X\to\mathcal X.
+\Phi_t:\mathcal X\to\mathcal X,
+\qquad t\in\mathbb R,
 \]
 
-For an exact autonomous flow,
+with \(\Phi_0=\mathrm{id}_{\mathcal X}\) and
 
 \[
-\Phi_{t+s}
-=
-\Phi_t\circ\Phi_s.
+\Phi_{t+s}=\Phi_t\circ\Phi_s
+\qquad (t,s\in\mathbb R).
 \]
+
+When only nonnegative \(t,s\) are available, with the corresponding identity
+and composition laws, the object is a **semiflow**. A **local flow** may be
+defined only for a state-dependent range of times: composition is asserted
+only where both sides exist. Local existence does not imply a global
+two-sided flow.
 
 If a differential equation
 

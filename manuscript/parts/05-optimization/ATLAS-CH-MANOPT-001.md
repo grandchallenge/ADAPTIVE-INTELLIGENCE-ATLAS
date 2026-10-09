@@ -385,13 +385,15 @@ A retraction earns its role through local first-order agreement and feasibility,
 
 ## 11. The Stiefel manifold
 
-The Stiefel manifold is
+For integers \(1\le p\le n\), the nonempty Stiefel manifold is
 
 \[
 \operatorname{St}(n,p)
 =
 \{X\in\mathbb R^{n\times p}:X^\top X=I_p\}.
 \]
+
+If \(p>n\), an \(n\times p\) real matrix cannot have \(p\) orthonormal columns; the tangent and retraction constructions below assume \(1\le p\le n\).
 
 Its columns are orthonormal.
 

@@ -86,6 +86,97 @@ If the only repeated future event is an idempotent retry, all listed safety inva
 
 Therefore the finite execution is safe under the declared invariants but not live with respect to eventual advancement.
 
+## Executable canonical/history and exhaustive-guard replay
+
+The following Python replay makes the state distinction testable. Canonical
+evidence and advancement are immutable sets of exact identities; history
+records attempts separately. The five-bit gate is checked for **all 32 Boolean
+vectors**, not only the three displayed examples. The model uses a declared
+identity-only separation policy; actor labels and different GitHub transports
+are **not** a general independence certificate.
+
+```python
+from itertools import product
+
+d = 17
+r_A, r_B = (d, "A"), (d, "B")
+assert r_A != r_B and r_A[0] == r_B[0]
+
+def capture(evidence, history, result_identity):
+    return (
+        evidence | frozenset((result_identity,)),
+        history + (("capture", result_identity),),
+    )
+
+def advance(advanced, history, result_identity, conditions):
+    assert len(conditions) == 5
+    approved = all(conditions)
+    return (
+        advanced | frozenset((result_identity,)) if approved else advanced,
+        history + (("advance_attempt", result_identity, tuple(conditions)),),
+    )
+
+evidence, capture_history = frozenset(), tuple()
+evidence, capture_history = capture(evidence, capture_history, r_A)
+assert evidence == frozenset((r_A,)) and len(capture_history) == 1
+after_first = evidence
+evidence, capture_history = capture(evidence, capture_history, r_A)
+assert evidence == after_first and len(capture_history) == 2
+evidence, capture_history = capture(evidence, capture_history, r_B)
+assert evidence == frozenset((r_A, r_B))
+assert len(evidence) == 2 and len(capture_history) == 3
+
+def gate(bits):
+    assert len(bits) == 5 and all(b in (0, 1) for b in bits)
+    return int(all(bits))
+
+assert gate((1, 1, 1, 1, 0)) == 0
+assert gate((1, 1, 1, 1, 1)) == 1
+assert gate((1, 1, 0, 1, 1)) == 0
+
+all_guards = tuple(product((0, 1), repeat=5))
+assert len(all_guards) == 32
+assert sum(gate(bits) for bits in all_guards) == 1
+for bits in all_guards:
+    first, first_history = advance(frozenset(), (), r_A, bits)
+    second, second_history = advance(first, first_history, r_A, bits)
+    assert first == second
+    assert first == (frozenset((r_A,)) if all(bits) else frozenset())
+    assert len(first_history) == 1 and len(second_history) == 2
+
+# This identity-only separation policy is *one possible declared policy*.
+separated = lambda prod, review: int(prod != review)
+assert separated("A", "A") == 0
+assert separated("A", "B") == 1
+
+# A safe but non-live infinite trace: repeated blocked attempts never
+# advance r_A, even though each attempt remains durable in history.
+blocked = (1, 1, 0, 1, 1)
+advanced, history = frozenset(), tuple()
+for attempt in range(1, 101):
+    advanced, history = advance(advanced, history, r_A, blocked)
+    assert r_A not in advanced
+    assert len(history) == attempt
+assert advanced == frozenset()
+# For *every* future repetition of the fixed blocked event, the same
+# all-false mutation branch preserves this empty canonical set.
+assert gate(blocked) == 0
+
+print("RESEARCHSM_CANONICAL_GATES_REPLAY_OK")
+```
+
+Expected output:
+
+```text
+RESEARCHSM_CANONICAL_GATES_REPLAY_OK
+```
+
+The 100 attempted blocked events are an executable finite prefix. The
+non-liveness conclusion additionally follows by induction because every
+further identical blocked transition leaves the canonical advanced set
+unchanged. This demonstration does not establish fairness assumptions or
+liveness properties for deployed controllers.
+
 ## Claim boundary
 
 This witness proves only the exact finite identity, Boolean-guard, actor-identity-separation, idempotence, and safety/liveness statements above.

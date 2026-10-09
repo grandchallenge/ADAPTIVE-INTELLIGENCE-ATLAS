@@ -462,13 +462,13 @@ Which one matters depends on the problem.
 
 ## 12. SLERP
 
-For non-antipodal unit vectors \(a,b\), with
+Let \(a,b\) be unit vectors with angle
 
 \[
-\theta=\arccos(a^\top b),
+\theta=\arccos(a^\top b).
 \]
 
-spherical linear interpolation is
+For \(0<\theta<\pi\), spherical linear interpolation is
 
 \[
 \operatorname{SLERP}(a,b;t)
@@ -477,6 +477,8 @@ spherical linear interpolation is
 +
 \frac{\sin(t\theta)}{\sin\theta}b.
 \]
+
+For coincident endpoints \(a=b\), the displayed quotient is \(0/0\), so define \(\operatorname{SLERP}(a,a;t)=a\) by continuous extension. At antipodal endpoints \(a=-b\), the shortest interpolation path is not unique without an additional directional choice.
 
 For the sixty-degree witness at
 
@@ -676,9 +678,7 @@ Then
 \theta=\pi,
 \]
 
-and there are infinitely many great circles connecting the antipodal points.
-
-The interpolation path is not uniquely determined by the endpoints alone.
+and the shortest interpolation path is not unique. On \(S^1\) there are two shortest semicircular arcs; on \(S^{d-1}\) for \(d\ge3\) there are infinitely many great-circle semicircles joining the endpoints.
 
 This is another reminder that normalization simplifies one degree of freedom without making all geometry trivial.
 

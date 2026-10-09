@@ -1,0 +1,44 @@
+schema_version: 1.0.0
+derivative_id: ATLAS-FIG-MANIFOLD-001-v0.1.1
+source_figure_id: ATLAS-FIG-MANIFOLD-001
+chapter_id: ATLAS-CH-GEOM-001
+candidate: atlas-v0.1.1-rc.2
+status: editorial-wolfram-derivative-rendered-review-required
+representation_class: schematic
+generator:
+  system: Wolfram Language evaluator
+  version: 15.0.1 for Linux x86 (64-bit) (July 2, 2026)
+  system_id: Linux-x86-64
+  source: figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.1.wl
+  source_git_blob_sha1: 2cdedefbb3323b36de4c9a7f871adc93342e2447
+  image: figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.1.png
+  image_sha256: 49db8aaeecf2ca3625eb033d842cc022c37bcc4e3134278cc2a76b423b632ccf
+  render_pixels:
+  - 760
+  - 792
+  note: Wolfram evaluator Graphics result raster. Source Export line defines derivative
+    path; binary generated through evaluator output, not claimed byte-identical to
+    standalone Export due PNG metadata.
+original_wolfram_provenance:
+  source: figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl
+  source_git_blob_sha1: 16cfefd6fe09a01b425dd463a75ed08dd47379f1
+  original_master: figures/masters/ATLAS-FIG-MANIFOLD-001.png
+  original_render_git_blob_sha1: 39c6a40522b4d65c8ef34a0c4f6a36119dceab66
+parameters:
+  x:
+  - 0
+  - 0
+  - 1
+  v:
+  - 0.8
+  - 0
+  - 0
+mathematics:
+  exponential_map: Exp_x(v)=cos(||v||)x+sin(||v||)v/||v|| on the unit sphere
+  retraction: R_x(v)=(x+v)/||x+v||
+claim_boundary: The figure is exact for the stated unit-sphere example. It does not
+  assert that an arbitrary learned representation lies on a sphere or that the chosen
+  retraction equals the exponential map.
+visual_change: Unit-sphere exponential map and normalized retraction labels only
+rendering_gate: Inspect native PNG, revised PDF/HTML at exact candidate SHA, role-separated
+  editorial visual and numerical checks; historical public master unchanged.

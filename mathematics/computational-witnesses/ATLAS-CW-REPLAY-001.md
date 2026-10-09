@@ -36,13 +36,20 @@ The locked standard output is exactly:
 \boxed{\texttt{1/1}}
 \]
 
-followed by one newline.
+followed by one ASCII LF byte (0x0A), not an operating-system-dependent
+text-mode newline.
+
+The replay script writes the explicitly encoded bytes to stdout's binary
+buffer. On Windows, text-mode print output would ordinarily yield CRLF
+(0x0D 0x0A), failing the locked LF-byte comparison despite correct arithmetic.
+The binary-output contract removes that environmental ambiguity without
+normalizing or weakening the replay check.
 
 ## Content identities
 
 Program SHA-256:
 
-\`e6e841bfe975f283ab948c4f7f9bbbf5ba488d267fda36edc1b270d5dcd062c1\`
+\`f21d6b4e38da3600e584f5dbcff0406a3f51af08b0f6d1b654fa3fff54352257\`
 
 Expected-output SHA-256:
 

@@ -188,17 +188,18 @@ Static regret answers:
 For switch budget \(S\), define:
 
 \[
-\Pi_S
+\Pi_S(F_{1:T})
 =
 \left\{
  u_{1:T}:
+ u_t\in F_t\quad(\forall t),\qquad
  \sum_{t=2}^T
  \mathbf 1[u_t\neq u_{t-1}]
  \le S
 \right\}.
 \]
 
-This comparator can track a changing best route up to the declared switch budget.
+This comparator can track a changing best route up to the declared switch budget and must also obey the same accepted-dispatch feasibility constraints. The class must be nonempty for the displayed minimum to be meaningful. If no fixed route is feasible across all rounds, a feasible static comparator cannot be introduced without modifying the benchmark; an infeasible oracle must be labeled counterfactual.
 
 Herbster and Warmuth motivate this kind of shifting-expert comparison.
 

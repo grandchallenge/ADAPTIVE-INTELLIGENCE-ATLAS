@@ -254,7 +254,7 @@ Write
 R_1\preceq R_2
 \]
 
-when there exists a map
+when there exists an admissible post-processing map \(\phi\) from a declared class \(\mathfrak M\), with
 
 \[
 \phi:Z_2\to Z_1
@@ -274,9 +274,11 @@ Interpretation:
 
 This is a preorder when the declared post-processing class contains identities and is closed under composition.
 
-If (mathfrak M) is the class of all set-theoretic maps, the preorder is purely semantic.
+If \(\mathfrak M\) is the class of all set-theoretic maps, the preorder is purely semantic.
 
-If (mathfrak M) is restricted to efficiently computable, bounded-cost, differentiable, or otherwise admissible maps, the preorder becomes operationally stronger.
+If \(\mathfrak M\) is restricted to efficiently computable, bounded-cost, differentiable, or otherwise admissible maps, the preorder becomes operationally stronger.
+
+The leastness argument below uses unrestricted set-theoretic post-processing. If \(\mathfrak M\) is restricted, an abstract decoder witnessing sufficiency need not belong to \(\mathfrak M\); it cannot be used to certify operational leastness without that additional check.
 
 Two different codings can factor through one another.
 
@@ -588,13 +590,13 @@ R
 D_S\circ S.
 \]
 
-Hence
+Hence, for unrestricted semantic post-processing,
 
 \[
 R\preceq S.
 \]
 
-So \(R=s\) is least among the declared sufficient descriptors.
+So \(R=s\) is least among the declared sufficient descriptors in the semantic preorder. For an operational preorder, this argument additionally requires \(D_S\in\mathfrak M\) for every compared sufficient descriptor \(S\).
 
 The proof is almost embarrassingly simple.
 

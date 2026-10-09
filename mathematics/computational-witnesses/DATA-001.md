@@ -49,6 +49,16 @@ Also:
 
 Under graph clustering of pairwise near-duplicate edges at threshold `3/4`, {t1,t2,t3} forms one cluster. Together with t4 and t5, there are `3` clusters.
 
+## Exact nontransitivity control
+
+At the same token-set Jaccard threshold \(3/4\), consider a **separate** three-set example:
+
+\[
+A=\{a,b,c\},\quad B=\{a,b,c,d\},\quad C=\{b,c,d\}.
+\]
+
+Then \(J(A,B)=J(B,C)=3/4\), but \(J(A,C)=1/2\). Pairwise near-duplicate adjacency is not transitive. Connected-component clustering joins all three through \(B\), whereas a complete-link cluster cannot include all three at this threshold. The original training/evaluation records and contamination rates remain unchanged.
+
 ## Domain proportions
 
 Raw proportions for web, books, code, synth:
@@ -73,6 +83,7 @@ Thus raw proportions, post-dedup proportions, and sampling weights are three dif
 
 - `J(e2,t1)=3/4`
 - `J(t1,t3)=3/4`
+- nontransitivity control: `J(A,B)=J(B,C)=3/4`, `J(A,C)=1/2`
 - `CR_exact=1/3`
 - `CR_near=2/3`
 - raw proportions `(2/5,1/5,1/5,1/5)`
