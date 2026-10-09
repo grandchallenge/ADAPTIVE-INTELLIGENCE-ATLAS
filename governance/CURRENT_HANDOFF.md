@@ -1,5 +1,17 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## CURRENT — PRINT REPAIR AND PHYSICAL EVIDENCE (2026-10-09)
+
+- **Exact protected recovery authority:** governance/ACTIVE_TRANSACTION.yaml on state/atlas-controller; mutable book source PR #320 workbench exact head `e8078674dd679ced91ddfcec1b5d5bf0dedb03bb`. Public/protected v0.1.0 unchanged.
+- **Admitted [PR #394](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/394):** source corrections in VARIOPT, TRANSPORT, COMPINTEL, LATENTTIME; 3-pass 1,426-page candidate PDF (929→925 overfull, worst 164.55→131.44pt), 2,971 anchors/18 figures, HTML 18 source-alts PASS, separate critical review 5468608456, CI 37915166263 SUCCESS.
+- **Admitted [PR #395](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/395), issue #393 CLOSED:** complete [source-less output-page audit](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/blob/editorial/part01-corrections-20261008/governance/editorial/v0.1.1/ATLAS_OUTPUT_PAGE_AUDIT_393_001.md), 172 \output-active warnings, 1330 shipout tokens and uncertain page neighborhoods, all-page PDF geometry, sample raster archive 11608688418. Found **genuine printed-page 1110 running-header/page-number collision** despite 0 text spans outside PDF crop.
+- **Admitted [PR #397](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/397), issue #396 CLOSED:** width-bounded and separated even/odd page running heads; verified actual printed p.1110 collision repaired in [sample raster artifact 11608794638](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37916347225). Three-pass exact PDF SHA256 `988a4cb8b62b37ff424171723729bac2eac1b98b6074deec7a9bc4614f240620`, 1,426 pages, **overfull 925→753** and **output-active 172→0**, worst 131.44014pt. HTML 18 alts/5,908 unique anchors/zero duplicates. Generated TeX candidate/merge blob `4807c1366c1aa18d8e980e9f7cecbcb908e42f65`, 2971 historical labels. Critical role 5468741108; latest native CI 37916635209 PASS.
+- **In progress:** [issue #398](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/398) and [PR #399](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/399), branch editorial/print-mathphrases-398-001 from the exact aforementioned head: NONNORMAL / COMPOSE / SYSTEMS source-level large box repairs. Bounded workflow 37916937882; require full generation/PDF/HTML, critical review and final CI before merge.
+- **Actual remaining authority boundaries:** 80/80 chapter final critical signoffs NOT attained; all-page physical and figure print/accessible reading-order review NOT completed; source-mapped overfull warnings and corrected-edition protected publication NOT accepted. The GCL-approved Axler-inspired **opinionated mathematical atlas** is the editorial lens, not a global thesis-proof project.
+
+---
+
+
 ## CONCEPT-FIRST READER ROUTE + EVIDENCE PACKETS ADMITTED — 2026-10-09 (current)
 
 - **Controller readback:** PR #320 editable corrected-edition head `213ea1614dc490e851d59df8a786bbedc3102d51`; [PR #385](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/385) merged. No protected main/public v0.1.0 mutation.
