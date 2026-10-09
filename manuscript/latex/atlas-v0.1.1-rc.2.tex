@@ -1760,6 +1760,69 @@ The table chooses a route.
 
 It does not choose what is true.
 
+\textbf{Worked route --- stable eigenvalues, surprising growth.}
+
+Suppose someone tells us that a matrix is stable because both of its
+eigenvalues lie inside the unit circle. Is that sufficient to rule out
+transient amplification?
+
+Begin with the actual matrix in \textbf{Normality, Pseudospectra, and
+Transient Growth} (ATLAS-CH-NONNORMAL-001):
+
+\[
+A=
+\begin{pmatrix}
+4/5&4\\
+0&4/5
+\end{pmatrix}.
+\]
+
+The eigenvalues are both \(4/5\); therefore the spectral radius is
+\(\rho(A)=4/5<1\). If we began with eigenvalues alone, we might expect
+every step to shrink every perturbation.
+
+\textbf{Start with the simplest test, not a large theory.} For the
+second coordinate vector \(e_2=(0,1)^\top\),
+
+\[
+Ae_2=(4,4/5)^\top,
+\qquad
+\|Ae_2\|_2=\sqrt{16+16/25}>1.
+\]
+
+Since \(\|e_2\|_2=1\), the operator norm satisfies \(\|A\|_2>1\). Thus
+the spectral-radius statement and a one-step amplification statement are
+both true. This is a finite-dimensional exact calculation, not a
+numerical observation about neural-network training.
+
+The reader can now choose a \textbf{real dependency-first route}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Linear Maps and Decompositions} (ATLAS-CH-LINALG-001) supplies
+  spectral radius, induced \(2\)-norm, and singular values.
+\item
+  \textbf{Normality, Pseudospectra, and Transient Growth}
+  (ATLAS-CH-NONNORMAL-001) supplies the triangular matrix, exact powers,
+  the finite-horizon gain calculation, and a matching normal comparison.
+\item
+  The chapter's \textbf{ATLAS-FIG-PSPECTRUM-001} figure offers a visual
+  route through the distinction; its manifest and derivation determine
+  which curves and contours are literal.
+\item
+  Only after that should the reader visit dynamics or optimization
+  chapters to ask whether non-normal amplification is relevant to some
+  \emph{specified} training model. The matrix alone cannot establish
+  prevalence or a causal mechanism in a real training run.
+\end{enumerate}
+
+The route has moved from a tempting generalization to an exact
+counterexample, the mathematical language that explains it, and the
+boundary of what follows. That is what a mathematical atlas should make
+easy.
+
 \section{How to read a keystone}\label{how-to-read-a-keystone}
 
 A keystone chapter has unusually large downstream reach.
@@ -2915,6 +2978,21 @@ public implementation claims.
 The vocabulary is therefore closer to a set of typed roles than to a
 single confidence score. The classes do not form a scalar ladder.
 
+A second distinction matters: \textbf{these labels do not all answer the
+same question}. A statement may simultaneously be an Atlas Derivation,
+have a Computational Witness as a check, originate in a public GCL
+artifact, and have a separately recorded Institutional Status. These are
+not mutually exclusive choices.
+
+For reading purposes, one may think of \(\tau\) in the claim-support
+packet as a \emph{structured set of tags}: what kind of claim is being
+made, how it is supported, where its evidence originates, and what
+review state it has reached. This is an interpretation of the existing
+eleven-label vocabulary, \textbf{not a new machine-readable
+certification schema}. A missing institutional tag means that no
+institutional status is being asserted, not that the underlying
+mathematics is false.
+
 Within a particular role, support can certainly be better or worse. A
 proof can be correct or defective. An experiment can be well or poorly
 controlled. A source can be primary or remote. But those judgments do
@@ -3038,6 +3116,90 @@ It does not become causal explanation because the observed pattern
 matches an intuition.
 
 The support route remains what it is.
+
+\textbf{Two completed claim-support packets.} The six fields introduced
+in Section 2 become useful when they are populated rather than merely
+named.
+
+First, use the exact finite parity enumeration in ATLAS-CW-EVIDENCE-001:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Field
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Finite parity packet
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(q\) & For every integer \(n\) from \(-10\) through \(10\), the integer
+\(n(n-1)\) is even \\
+\(\tau\) & Computational Witness, exact finite enumeration; no
+institutional certification asserted \\
+\(S\) & The enumerated 21 exact integer residues in
+ATLAS-CW-EVIDENCE-001 \\
+\(\Omega\) & Precisely those 21 integers, with exact integer
+arithmetic \\
+\(N\) & This enumeration alone does not establish the universal
+quantifier over \(\mathbb Z\) \\
+\(D\) & A later chapter may cite the finite exhaustive result but must
+give the separate consecutive-integers proof if it needs the universal
+result \\
+\end{longtable}
+}
+
+Now choose a different sort of support, from \textbf{Normality,
+Pseudospectra, and Transient Growth} (ATLAS-CH-NONNORMAL-001):
+
+\[
+A=\begin{pmatrix}4/5&4\\0&4/5\end{pmatrix},
+\qquad
+e_2=(0,1)^\top.
+\]
+
+The triangular matrix has spectral radius \(4/5\), while
+\(Ae_2=(4,4/5)^\top\) and \(\|Ae_2\|_2=\sqrt{16+16/25}>1\).
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Field
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Non-normal matrix packet
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(q\) & For this \(A\), \(\rho(A)<1\) but \(\|A\|_2>1\) \\
+\(\tau\) & Atlas Derivation using standard finite-dimensional linear
+algebra; the related chapter also has a separate plotted computational
+witness \\
+\(S\) & Its triangular eigenvalues and direct application to the unit
+vector \(e_2\); \(\|A\|_2\geq\|Ae_2\|_2\) \\
+\(\Omega\) & The specified real \(2\times 2\) matrix and Euclidean
+induced operator norm \\
+\(N\) & No inference that non-normality caused a real training
+instability, or that every stable-spectrum matrix transiently
+amplifies \\
+\(D\) & Later chapters may cite this explicit counterexample to the
+claim that eigenvalue stability forces one-step norm contraction; a
+causal claim about a deployed system needs different evidence \\
+\end{longtable}
+}
+
+The second packet is supported by a mathematical calculation, not by
+treating a figure or an institutional workflow as proof. Both packets
+show the same discipline: identify the exact statement first, and let
+the support carry no more than it proves.
 
 \section{Observation is not
 interpretation}\label{observation-is-not-interpretation}

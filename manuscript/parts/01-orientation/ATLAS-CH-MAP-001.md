@@ -724,6 +724,43 @@ The table chooses a route.
 
 It does not choose what is true.
 
+
+**Worked route — stable eigenvalues, surprising growth.**
+
+Suppose someone tells us that a matrix is stable because both of its eigenvalues lie inside the unit circle. Is that sufficient to rule out transient amplification?
+
+Begin with the actual matrix in **Normality, Pseudospectra, and Transient Growth** (ATLAS-CH-NONNORMAL-001):
+
+\[
+A=
+\begin{pmatrix}
+4/5&4\\
+0&4/5
+\end{pmatrix}.
+\]
+
+The eigenvalues are both \(4/5\); therefore the spectral radius is \(\rho(A)=4/5<1\). If we began with eigenvalues alone, we might expect every step to shrink every perturbation.
+
+**Start with the simplest test, not a large theory.** For the second coordinate vector \(e_2=(0,1)^\top\),
+
+\[
+Ae_2=(4,4/5)^\top,
+\qquad
+\|Ae_2\|_2=\sqrt{16+16/25}>1.
+\]
+
+Since \(\|e_2\|_2=1\), the operator norm satisfies \(\|A\|_2>1\). Thus the spectral-radius statement and a one-step amplification statement are both true. This is a finite-dimensional exact calculation, not a numerical observation about neural-network training.
+
+The reader can now choose a **real dependency-first route**:
+
+1. **Linear Maps and Decompositions** (ATLAS-CH-LINALG-001) supplies spectral radius, induced \(2\)-norm, and singular values.
+2. **Normality, Pseudospectra, and Transient Growth** (ATLAS-CH-NONNORMAL-001) supplies the triangular matrix, exact powers, the finite-horizon gain calculation, and a matching normal comparison.
+3. The chapter's **ATLAS-FIG-PSPECTRUM-001** figure offers a visual route through the distinction; its manifest and derivation determine which curves and contours are literal.
+4. Only after that should the reader visit dynamics or optimization chapters to ask whether non-normal amplification is relevant to some *specified* training model. The matrix alone cannot establish prevalence or a causal mechanism in a real training run.
+
+The route has moved from a tempting generalization to an exact counterexample, the mathematical language that explains it, and the boundary of what follows. That is what a mathematical atlas should make easy.
+
+
 ## 30. How to read a keystone
 
 A keystone chapter has unusually large downstream reach.
