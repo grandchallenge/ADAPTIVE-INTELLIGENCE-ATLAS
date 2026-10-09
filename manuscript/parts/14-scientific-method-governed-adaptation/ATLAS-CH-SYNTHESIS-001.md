@@ -1,4 +1,4 @@
-# Connections, Boundaries, and Open Terrain
+# Connections, Boundaries, and Open Terrain {#beyond-the-monolithic-model}
 <!-- ATLAS-CH-SYNTHESIS-001 -->
 
 **Epistemic status:** audited Frontier and Computational Polity prerequisites + Atlas-owned exact systems-composition witness.  
@@ -15,7 +15,7 @@ A systems-level view is especially useful when the task depends on tools, shared
 
 The finite routing and governance example later in this chapter illustrates a few such boundaries. It does not justify an architecture ranking or a universal account of intelligence.
 
-## 1. One possible systems map
+## 1. One possible systems map {#a-typed-synthesis-object}
 
 For a deployed, composite-system question, we may use the descriptive signature
 
@@ -68,7 +68,7 @@ Stored state is not truth.
 
 Component count is not composition quality.
 
-## 4. One deliberately small composition example
+## 4. One deliberately small composition example {#exact-finite-composition}
 
 Let
 
@@ -462,7 +462,7 @@ or
 
 Such comparisons require declared tasks, metrics, costs, and failure models.
 
-## 30. Three routes worth carrying forward
+## 30. Three routes worth carrying forward {#the-durable-synthesis}
 
 **Operators and finite-time behavior.** In **Normality, Pseudospectra, and Transient Growth** (ATLAS-CH-NONNORMAL-001), a matrix can have spectral radius less than one while a finite power has norm greater than one. The eigenvalue description is not false; it answers a different question from transient amplification. This is an exact mathematical reason to change maps.
 
