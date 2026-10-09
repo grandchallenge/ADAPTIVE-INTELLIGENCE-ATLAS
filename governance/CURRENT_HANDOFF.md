@@ -1,5 +1,18 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## ALL FOUR NATIVE WOLFRAM FIGURES CREATED AND ADMITTED — 2026-10-09
+
+The figure correction assignment in [issue #402](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/402) is **COMPLETED** for native asset creation, source provenance, PDF placement/resolution, and draft admission. Workbench PR #320 current exact head is `07ea97f688bd8eab54f4d395aa2f6b1f1fa2c6ef`. Protected main/public Atlas v0.1.0 is untouched.
+
+- [PR #403](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/403) admitted `ATLAS-FIG-INFO-001-v0.1.1.png`, true Wolfram 15.0.1 source-derived binary and manifest, effective PDF p154 244.46 DPI (formerly 146.6), full run 37922982033 SUCCESS.
+- [PR #404](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/404) admitted versioned `MANIFOLD-v0.1.2`, `TRANSFER-v0.1.2`, and `OPTBASE-v0.1.3` source-native files and manifest/digests, with actual PDF pp166/318/507 effective 265.41/244.46/244.46 DPI. Prior source, figure masters and derivative variants remain unchanged. The known original MANIFOLD `SyntaxQ` error was repaired in a **separate versioned successor**, not retroactively erased.
+- The three new binary SHA256 values and exact Wolfram mathematical claims are in [ATLAS_NATIVE_FIGURES_402_001.md](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/blob/editorial/part01-corrections-20261008/governance/editorial/v0.1.1/ATLAS_NATIVE_FIGURES_402_001.md) and their individual manifests. Every final binary passed Git raw identity and PNG dimension checks. Bounded test run 37927801045 SUCCESS; separate source critical-role review 5469829784; **exact final head native CI 37928289572 SUCCESS** after stale original derivative-guard assertions were corrected and reverified. The final workbench RC2 TeX Git blob `bfa21437164174b514bef5c12d0670820d15db05` matches the physically rendered candidate exactly.
+- Current generated book: 80 chapters; 2,971 historical labels; 18 registered figures and 18 verified HTML source-semantic descriptions; 1,426-page 3-pass PDF SHA256 `dfba9295e0f45c61c5d5e78508b6dc8067780d9fac9fe087c4804cd8b69b2588`; HTML SHA256 `e27af19fbc2e298f07ddddb66d76b6e4475786bff95d27d0e67888df33a515ca`; 5,908 unique HTML anchors, zero duplicates. Overfull warnings: 750; worst: 94.36205pt. No user-facing image previews were emitted.
+- **Remaining editorial boundaries (not blocked by figure creation):** mathematical/visual symbol fidelity on every published plate, genuine PDF/UA and screen-reader reading-order inspection, rigorous distinct critic-role chapter assessment across all 80 chapters, and separately authorized corrected-edition publication. These cannot be reported as certified by file existence, DPI or CI. Continue from this exact head under #314, applying the GCL approved opinionated Atlas / Axler-inspired mathematical teaching editorial frame.
+
+---
+
+
 ## FIGURE PHYSICAL AUDIT ADMITTED; SOURCE-NATIVE REPLAY UNDERWAY — 2026-10-09
 
 - **Authoritative editable workbench:** PR #320 `editorial/part01-corrections-20261008@e97f63e1701e29a7b363d586646ddf9aae2b9f22` after [figure audit PR #401](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/401) merged. This PR added a reusable source-linked 18-figure audit and durable [per-figure report](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/blob/editorial/part01-corrections-20261008/governance/editorial/v0.1.1/ATLAS_FIGURE_PHYSICAL_400_001.md), not revised source plots. 18/18 actual printed figure pages, registered sources/manifests and semantic HTML alt passed; PDF raster box extent safe. Critic 5469095834, CI 37920473124 success, exact physical run 37917803809 success, print specimens 11611046598.
