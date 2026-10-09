@@ -1300,15 +1300,7 @@ Sometimes every local statement remains true while the system simply leaves the 
 
 The correct response is not to distrust modularity.
 
-It is to make composition explicit.
-
-\[
-\boxed{
-\text{safe composition requires a proved bridge between local guarantees and the declared system obligation.}
-}
-\]
-
-When that bridge is absent, local validity remains local.
+It is to make composition explicit. **A claim of safe composition requires a justified bridge from the local guarantees to the stated system-level obligation.** That bridge may require interface assumptions, error control, stability bounds, or a domain invariant. When the bridge is absent, local validity remains local.
 
 ## References used in this chapter
 

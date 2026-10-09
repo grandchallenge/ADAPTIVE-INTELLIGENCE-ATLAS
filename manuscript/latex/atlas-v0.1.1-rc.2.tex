@@ -4011,15 +4011,11 @@ finite-horizon amplification.
 Eigenvalues, singular values, pseudospectra, and finite-horizon
 propagators become complementary diagnostic objects.
 
-The recurring Atlas shift is:
-
-\[
-\boxed{
-\text{Where are the eigenvalues?}
-\longrightarrow
-\text{What can this operator do to perturbations over the horizon that matters?}
-}
-\]
+The recurring diagnostic question is not merely \textbf{where the
+eigenvalues lie}, but \textbf{how strongly the operator can amplify
+perturbations over the time horizon of interest}. The two questions are
+mathematically different; the exact non-normal example above shows why
+both matter.
 
 \section{Closing view}\label{closing-view-4}
 
@@ -43070,15 +43066,11 @@ leaves the region where those statements apply.
 
 The correct response is not to distrust modularity.
 
-It is to make composition explicit.
-
-\[
-\boxed{
-\text{safe composition requires a proved bridge between local guarantees and the declared system obligation.}
-}
-\]
-
-When that bridge is absent, local validity remains local.
+It is to make composition explicit. \textbf{A claim of safe composition
+requires a justified bridge from the local guarantees to the stated
+system-level obligation.} That bridge may require interface assumptions,
+error control, stability bounds, or a domain invariant. When the bridge
+is absent, local validity remains local.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-40}
@@ -74280,21 +74272,12 @@ A stage count alone cannot determine it.
 
 \section{Expert parallelism}\label{expert-parallelism-1}
 
-MOE-001 established a chain:
-
-\[
-\text{router probabilities}
-\to
-\text{preferred routes}
-\to
-\text{capacity/overflow}
-\to
-\text{accepted dispatch}
-\to
-\text{expert execution}.
-\]
-
-Expert parallelism adds physical placement.
+MOE-001 distinguishes several stages of routed computation.
+\textbf{Router probabilities} express preferences; a \textbf{capacity
+and overflow rule} filters them into \textbf{accepted dispatches}; the
+selected expert can then execute the assigned work. Those steps are
+logically distinct from the physical placement and network path that
+expert parallelism subsequently introduces.
 
 Let:
 
