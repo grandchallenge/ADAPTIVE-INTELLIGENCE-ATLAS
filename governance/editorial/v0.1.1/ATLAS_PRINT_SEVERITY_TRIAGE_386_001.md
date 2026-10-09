@@ -62,3 +62,12 @@ These are **measured candidates for visual inspection and source-level repair**;
 - Issue [#386](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/386).
 - Temporary [PR #388](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/388) carrying the reusable `tools/atlas_print_severity_audit.py`.
 - Editorial workbench [PR #320](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/320).
+
+
+## Independent warning-signature comparison — second pass
+
+[Run 37907941323](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/37907941323) replayed the same pinned baseline/current sources and passed generalized overfull parsing, again confirming **965 → 969**, zero unparsed warning headers and 171 → 172 warnings with no TeX source line. Comparing warning fingerprints by excess width and nearby TeX text (not unreliable shifted source line numbers) found **88 added occurrences and 84 removed occurrences**, a net difference of four. These are **reflow changes**, not 88 distinct newly introduced source defects.
+
+Among the largest changed signatures are four `\\output is active` warnings of 50.04036pt in the later layout in place of four 45.04036pt warnings in the predecessor, plus numerous small (~4.49997pt) paragraphs whose location shifts between OBJECTS and EVIDENCE as the added support tables change pagination. The 245.8541pt top offender is unchanged. **There is insufficient evidence to attribute the net +4 exclusively to the new evidence tables**: identifying the exact printed page/box for the `\\output` cases remains a bounded physical-inspection obligation. No unearned claim of causal attribution is made.
+
+The next authorized corrective subtranche may remove source-identified unbreakable English displays independently of that unresolved output-routine provenance; source/visual evidence must still close the unresolved page-level cases.
