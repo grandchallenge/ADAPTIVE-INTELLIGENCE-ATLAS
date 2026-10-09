@@ -8,3 +8,22 @@
 \DeclareUnicodeCharacter{219D}{\ensuremath{\rightsquigarrow}}
 \DeclareUnicodeCharacter{227A}{\ensuremath{\prec}}
 \setlength{\emergencystretch}{3em}
+
+% Running-head typography is editorial, not mathematical source authority.
+% The book class's default marks can overlap printed page numbers for
+% deliberately descriptive Atlas chapter titles (see print audit #393).
+% Preserve navigation while constraining both header fields independently.
+\usepackage{fancyhdr}
+\usepackage{truncate}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\normalfont\small\thepage}
+\fancyhead[RE]{\normalfont\small\itshape\nouppercase{\truncate{0.72\headwidth}{\leftmark}}}
+\fancyhead[LO]{\normalfont\small\itshape\nouppercase{\truncate{0.72\headwidth}{\rightmark}}}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\normalfont\small\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
