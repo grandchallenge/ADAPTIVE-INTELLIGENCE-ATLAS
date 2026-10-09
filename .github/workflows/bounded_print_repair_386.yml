@@ -1,0 +1,72 @@
+name: Bounded prose-box print repair proof
+on:
+  pull_request:
+    branches: [editorial/part01-corrections-20261008]
+permissions:
+  contents: write
+jobs:
+  proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: editorial/print-prose-386-002
+          persist-credentials: true
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern poppler-utils ghostscript
+      - name: Full source proof and deterministic RC2 reconstruction
+        run: |
+          python tools/validate_atlas.py
+          python tools/build_editorial_candidate_rc2.py
+          python tools/build_editorial_candidate_rc2.py --check
+          python - <<'PY'
+          from pathlib import Path
+          t=Path("manuscript/latex/atlas-v0.1.1-rc.2.tex").read_text()
+          for phrase in (r"\text{governed adaptation}",r"\text{explicit continuous depth}",r"\text{distributed execution cost is a property"):
+            assert phrase not in t, "old unbreakable box remains: "+phrase
+          print("PRINT_SOURCE_BOX_REMOVAL_PASS")
+          PY
+      - name: Three-pass complete 80-chapter PDF
+        run: |
+          mkdir -p /tmp/atlas-print-proof
+          for n in 1 2 3; do
+            if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-print-proof manuscript/latex/atlas-v0.1.1-rc.2.tex >/tmp/atlas-print-proof-stdout.log 2>&1; then
+              tail -n 120 /tmp/atlas-print-proof-stdout.log
+              exit 1
+            fi
+          done
+          pdfinfo /tmp/atlas-print-proof/atlas-v0.1.1-rc.2.pdf | grep -E 'Pages:|Page size:'
+      - name: Source-bound HTML figure and anchor proof
+        run: |
+          python tools/release_tex_for_html.py
+          python -c 'import pypandoc; pypandoc.convert_file("/tmp/atlas-rc-html-input.tex","html5",format="latex",outputfile="/tmp/atlas-print-proof.html",extra_args=["--standalone","--toc","--number-sections","--mathjax","--embed-resources","--resource-path=."])'
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-print-proof.html --write
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-print-proof.html --verify
+      - name: QA metrics and scope checks
+        run: |
+          python - <<'PY'
+          import hashlib,re
+          from pathlib import Path
+          t=Path("manuscript/latex/atlas-v0.1.1-rc.2.tex")
+          p=Path("/tmp/atlas-print-proof/atlas-v0.1.1-rc.2.pdf")
+          log=Path("/tmp/atlas-print-proof/atlas-v0.1.1-rc.2.log").read_text()
+          html=Path("/tmp/atlas-print-proof.html").read_text()
+          ids=re.findall(r'\bid="([^"]+)"',html)
+          widths=[float(w) for w in re.findall(r'Overfull \\hbox \(([0-9.]+)pt too wide\)',log)]
+          print("PRINT_386_SOURCE_CORRECTION_QA",dict(tex_sha256=hashlib.sha256(t.read_bytes()).hexdigest(),pdf_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),html_sha256=hashlib.sha256(html.encode()).hexdigest(),warnings=len(widths),max_pt=max(widths or [0]),html_ids=len(ids),html_duplicate_ids=len(ids)-len(set(ids)),figures=html.count('<img ')))
+          assert len(ids)==len(set(ids)) and html.count('<img ')==18
+          assert not re.search(r"LaTeX Warning: (Citation|Reference).*undefined",log)
+          PY
+      - name: Commit only exact generated RC2 back to isolated PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manuscript/latex/atlas-v0.1.1-rc.2.tex
+          if ! git diff --cached --quiet; then
+            git commit -m "build(editorial): exact-head full corpus after oversized prose-box repair"
+            git push origin HEAD:refs/heads/editorial/print-prose-386-002
+          fi
