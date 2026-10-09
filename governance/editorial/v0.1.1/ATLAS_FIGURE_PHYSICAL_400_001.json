@@ -1,0 +1,543 @@
+{
+  "source_head": "9867e3212ce43426d7139373d2bdb6bfe057574d",
+  "pdf_sha256": "31379ab6f8c59ea9ca807bc39e1fa719cab650d70342002b4ca9bf9def398573",
+  "tex_sha256": "ccf41636058752bdfc8981c1bd0f9b64ec0b73ddfa83274a6bf164a313d3d74f",
+  "physical_page_count": 1426,
+  "figure_count": 18,
+  "source_assets_and_witness_manifests_exist": true,
+  "source_asset_pixel_dimensions_match_pdf": true,
+  "distinct_printed_figure_pages": 18,
+  "outside_page_count": 0,
+  "sub_200_dpi_count": 4,
+  "min_dpi": 146.6,
+  "by_figure": [
+    {
+      "id": "ATLAS-FIG-LINALG-001",
+      "chapter_id": "ATLAS-CH-LINALG-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-LINALG-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-LINALG-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-LINALG-001.png",
+      "native_px": [
+        1100,
+        470
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 121,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 390.99,
+        "width_pt": 343.72,
+        "height_pt": 146.86
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.04,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 125,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-PSPECTRUM-001",
+      "chapter_id": "ATLAS-CH-NONNORMAL-001",
+      "representation_class": "data-derived",
+      "source": "figures/wolfram/ATLAS-FIG-PSPECTRUM-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-PSPECTRUM-001.yaml",
+      "raster": "figures/derivatives/ATLAS-FIG-PSPECTRUM-001-v0.1.1.png",
+      "native_px": [
+        1100,
+        418
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 130,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 486.95,
+        "width_pt": 343.72,
+        "height_pt": 130.61
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.81,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 117,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-INFO-001",
+      "chapter_id": "ATLAS-CH-INFO-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-INFO-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-INFO-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-INFO-001.png",
+      "native_px": [
+        700,
+        796
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 154,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 182.49,
+        "width_pt": 343.72,
+        "height_pt": 390.86
+      },
+      "dpi_x": 146.6,
+      "dpi_y": 146.6,
+      "min_effective_dpi": 146.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 5.43,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 166,
+      "flag": "CHECK_EFFECTIVE_DPI"
+    },
+    {
+      "id": "ATLAS-FIG-MANIFOLD-001",
+      "chapter_id": "ATLAS-CH-GEOM-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-MANIFOLD-001.yaml",
+      "raster": "figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.1.png",
+      "native_px": [
+        760,
+        792
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 166,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 203.84,
+        "width_pt": 343.7,
+        "height_pt": 358.17
+      },
+      "dpi_x": 159.2,
+      "dpi_y": 159.2,
+      "min_effective_dpi": 159.2,
+      "physical_width_in": 4.77,
+      "physical_height_in": 4.97,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 126,
+      "flag": "CHECK_EFFECTIVE_DPI"
+    },
+    {
+      "id": "ATLAS-FIG-DYN-001",
+      "chapter_id": "ATLAS-CH-DYN-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-DYN-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-DYN-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-DYN-001.png",
+      "native_px": [
+        1160,
+        400
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 181,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 126.86,
+        "width_pt": 343.71,
+        "height_pt": 118.52
+      },
+      "dpi_x": 243.0,
+      "dpi_y": 243.0,
+      "min_effective_dpi": 243.0,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.65,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 169,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-NUMERICS-001",
+      "chapter_id": "ATLAS-CH-NUMERICS-001",
+      "representation_class": "data-derived",
+      "source": "figures/wolfram/ATLAS-FIG-NUMERICS-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-NUMERICS-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-NUMERICS-001.png",
+      "native_px": [
+        1160,
+        384
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 204,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 126.86,
+        "width_pt": 343.71,
+        "height_pt": 113.78
+      },
+      "dpi_x": 243.0,
+      "dpi_y": 243.0,
+      "min_effective_dpi": 243.0,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.58,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 142,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-REP-001",
+      "chapter_id": "ATLAS-CH-REP-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-REP-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-REP-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-REP-001.png",
+      "native_px": [
+        1100,
+        555
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 244,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 126.86,
+        "width_pt": 343.72,
+        "height_pt": 173.42
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.41,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 143,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-NORMREP-001",
+      "chapter_id": "ATLAS-CH-NORMREP-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-NORMREP-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-NORMREP-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-NORMREP-001.png",
+      "native_px": [
+        1100,
+        555
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 258,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 126.86,
+        "width_pt": 343.72,
+        "height_pt": 173.42
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.41,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 268,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-QUOTIENT-001",
+      "chapter_id": "ATLAS-CH-QUOTIENT-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-QUOTIENT-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-QUOTIENT-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-QUOTIENT-001.png",
+      "native_px": [
+        1100,
+        465
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 275,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 475.21,
+        "width_pt": 343.72,
+        "height_pt": 145.3
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.02,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 160,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-RESIDUAL-001",
+      "chapter_id": "ATLAS-CH-RESIDUAL-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-RESIDUAL-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-RESIDUAL-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-RESIDUAL-001.png",
+      "native_px": [
+        1120,
+        755
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 299,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 189.88,
+        "width_pt": 343.71,
+        "height_pt": 231.69
+      },
+      "dpi_x": 234.6,
+      "dpi_y": 234.6,
+      "min_effective_dpi": 234.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 3.22,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 191,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-TRANSFER-001",
+      "chapter_id": "ATLAS-CH-TRANSFER-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-TRANSFER-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-TRANSFER-001.yaml",
+      "raster": "figures/derivatives/ATLAS-FIG-TRANSFER-001-v0.1.1.png",
+      "native_px": [
+        700,
+        760
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 318,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 190.08,
+        "width_pt": 343.72,
+        "height_pt": 373.18
+      },
+      "dpi_x": 146.6,
+      "dpi_y": 146.6,
+      "min_effective_dpi": 146.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 5.18,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 213,
+      "flag": "CHECK_EFFECTIVE_DPI"
+    },
+    {
+      "id": "ATLAS-FIG-ARCHHIST-001",
+      "chapter_id": "ATLAS-CH-ARCHHIST-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-ARCHHIST-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-ARCHHIST-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-ARCHHIST-001.png",
+      "native_px": [
+        1120,
+        508
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 345,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 240.75,
+        "width_pt": 343.71,
+        "height_pt": 155.9
+      },
+      "dpi_x": 234.6,
+      "dpi_y": 234.6,
+      "min_effective_dpi": 234.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.17,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 185,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-TRANSFORMER-001",
+      "chapter_id": "ATLAS-CH-TRANSFORMER-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-TRANSFORMER-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-TRANSFORMER-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-TRANSFORMER-001.png",
+      "native_px": [
+        1240,
+        363
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 365,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 169.25,
+        "width_pt": 343.72,
+        "height_pt": 100.62
+      },
+      "dpi_x": 259.7,
+      "dpi_y": 259.7,
+      "min_effective_dpi": 259.7,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.4,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 181,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-ATTNOP-001",
+      "chapter_id": "ATLAS-CH-ATTNOP-001",
+      "representation_class": "data-derived",
+      "source": "figures/wolfram/ATLAS-FIG-ATTNOP-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-ATTNOP-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-ATTNOP-001.png",
+      "native_px": [
+        1000,
+        388
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 430,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 212.33,
+        "width_pt": 343.72,
+        "height_pt": 133.36
+      },
+      "dpi_x": 209.5,
+      "dpi_y": 209.5,
+      "min_effective_dpi": 209.5,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.85,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 125,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-OPTBASE-001",
+      "chapter_id": "ATLAS-CH-OPTBASE-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-OPTBASE-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-OPTBASE-001.yaml",
+      "raster": "figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.png",
+      "native_px": [
+        700,
+        990
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 507,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 127.64,
+        "width_pt": 343.72,
+        "height_pt": 486.12
+      },
+      "dpi_x": 146.6,
+      "dpi_y": 146.6,
+      "min_effective_dpi": 146.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 6.75,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 227,
+      "flag": "CHECK_EFFECTIVE_DPI"
+    },
+    {
+      "id": "ATLAS-FIG-OPTDYN-001",
+      "chapter_id": "ATLAS-CH-OPTDYN-001",
+      "representation_class": "simulation-derived",
+      "source": "figures/wolfram/ATLAS-FIG-OPTDYN-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-OPTDYN-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-OPTDYN-001.png",
+      "native_px": [
+        1120,
+        390
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 590,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 126.86,
+        "width_pt": 343.71,
+        "height_pt": 119.68
+      },
+      "dpi_x": 234.6,
+      "dpi_y": 234.6,
+      "min_effective_dpi": 234.6,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.66,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 135,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-BCONTRACT-001",
+      "chapter_id": "ATLAS-CH-BCONTRACT-001",
+      "representation_class": "schematic",
+      "source": "figures/wolfram/ATLAS-FIG-BCONTRACT-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-BCONTRACT-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-BCONTRACT-001.png",
+      "native_px": [
+        1100,
+        554
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 730,
+      "rectangle_pt": {
+        "x0": 160.67,
+        "y0": 219.16,
+        "width_pt": 343.72,
+        "height_pt": 173.11
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 2.4,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 208,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    },
+    {
+      "id": "ATLAS-FIG-REPLAY-001",
+      "chapter_id": "ATLAS-CH-REPLAY-001",
+      "representation_class": "exact",
+      "source": "figures/wolfram/ATLAS-FIG-REPLAY-001.wl",
+      "manifest": "figures/manifests/ATLAS-FIG-REPLAY-001.yaml",
+      "raster": "figures/masters/ATLAS-FIG-REPLAY-001.png",
+      "native_px": [
+        1100,
+        416
+      ],
+      "pdf_native_pixel_identity": true,
+      "page": 1327,
+      "rectangle_pt": {
+        "x0": 106.87,
+        "y0": 465.79,
+        "width_pt": 343.72,
+        "height_pt": 129.99
+      },
+      "dpi_x": 230.4,
+      "dpi_y": 230.4,
+      "min_effective_dpi": 230.4,
+      "physical_width_in": 4.77,
+      "physical_height_in": 1.81,
+      "outside_pdf_box": false,
+      "caption_word_detected": true,
+      "alt_chars": 228,
+      "flag": "NO_DPI_THRESHOLD_FLAG"
+    }
+  ],
+  "limitations": [
+    "TeX/figure ordering is assumed to preserve raster placement; per-figure native dimensions are cross-checked but image-pixel algebra is not re-proved.",
+    "A 200 DPI threshold is an editorial review trigger, not a formal mathematical or publisher quality standard.",
+    "Raster samples require independent visual reading; HTML alt checks do not establish PDF/UA tagging or screen-reader reading order.",
+    "Source-manifest existence does not mathematically certify all plotted values."
+  ]
+}
