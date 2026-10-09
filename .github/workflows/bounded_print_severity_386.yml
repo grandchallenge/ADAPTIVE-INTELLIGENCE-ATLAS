@@ -1,8 +1,8 @@
 name: Bounded Atlas print severity comparison
 on:
-  push:
+  pull_request:
     branches:
-      - editorial/print-severity-386-001
+      - editorial/part01-corrections-20261008
 permissions:
   contents: read
 jobs:
