@@ -725,7 +725,7 @@ The table chooses a route.
 It does not choose what is true.
 
 
-### A worked route: stable eigenvalues, surprising growth
+**Worked route — stable eigenvalues, surprising growth.**
 
 Suppose someone tells us that a matrix is stable because both of its eigenvalues lie inside the unit circle. Is that sufficient to rule out transient amplification?
 
