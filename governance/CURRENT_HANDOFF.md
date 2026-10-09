@@ -1,5 +1,16 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## OPINIONATED ATLAS EDITORIAL IDENTITY ADMITTED — 2026-10-09
+
+- **Mutable corrected-edition PR #320 workbench:** exact head `d2ff46e08700dd943384c4978210e639f9d2fe95` after [PR #382](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/382) merged; protected main and immutable atlas-v0.1.0 unchanged.
+- **Book identity:** now an **opinionated mathematical atlas** with Axler-inspired concept-first teaching as paramount, not a thesis-driven monograph. Chapter `ATLAS-CH-THESIS-001` titled *A Mathematical Atlas, by Choice*; `ATLAS-CH-SYNTHESIS-001` titled *Connections, Boundaries, and Open Terrain*. Stable chapter IDs, 2,971 historical links, 18 figures retained. Canonical directions recorded in `governance/editorial/v0.1.1/OPINIONATED_ATLAS_EDITORIAL_IDENTITY_001.md` on workbench.
+- **Critical and build evidence:** PR #382 separate agent-role critical review 5467110916; candidate exact-head CI run 37898875730 SUCCESS. Generator repairs stale RC1 Part I overlay; all 80 chapters derive from canonical Markdown. Last candidate `e871e6eefc86357f0a47941a5f0d1c177a6a6e65` has TeX Git blob `ca8e64526edbc644c20379b6f9a0896ebceda891` verified byte-identical after workbench merge; three-pass PDF 1,440 pages, 965 overfull warnings; HTML direct-source binding and 18 figure alt checks PASS, 5,946 anchor IDs/zero duplicates.
+- **Reader-facing frozen preview:** [PDF](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/blob/preview/atlas-opinionated-20261009/previews/atlas-opinionated-rc2-d2ff/atlas-v0.1.1-rc.2.pdf) and [HTML](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/blob/preview/atlas-opinionated-20261009/previews/atlas-opinionated-rc2-d2ff/atlas-v0.1.1-rc.2.html); non-public, not accepted. Source-head and artifact hashes in companion REVIEW-ME.md.
+- **Next:** immediate physical print issue #380 (remaining 965 warnings), source-mathematical defects identified in Part I/synthesis review, 18 figure print and accessibility critical checks, and 80 individual chapter judgments using the new local acceptance lens. Final chapter acceptance 0/80. No protected publication granted. Previous global-thesis "proof" requirement withdrawn; genuine mathematical defects remain open.
+
+---
+
+
 ## RESEARCHSM PRINT REPAIR CLOSED — 2026-10-08 (latest; supersedes older issue #378 open status)
 
 - **Authoritative resume:** first read `governance/ACTIVE_TRANSACTION.yaml` from fixed `state/atlas-controller`, then this handoff. Current editable Atlas [PR #320](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/320) exact head `19889fd5220b56b189a14e69af67e4509247cf83`; DRAFT, not public/protected main.
