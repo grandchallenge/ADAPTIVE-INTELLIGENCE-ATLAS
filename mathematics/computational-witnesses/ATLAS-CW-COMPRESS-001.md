@@ -121,6 +121,69 @@ L(H_B,D)=12.
 
 Under this declared code, H_A has the shorter total description.
 
+## W7. Executable finite replay
+
+The following Python uses exact rational arithmetic, tests every matrix
+entry of the rank-one reconstruction, computes low-rank errors and the
+pruning control, and checks the declared code payloads. It tests the
+**declared fixed-shape and shared-grid codecs**, not universal compression.
+
+```python
+from fractions import Fraction as F
+
+u = (1, 1, 1, 1)
+v = (1, 1, 1, 1)
+W = tuple(tuple(u[i] * v[j] for j in range(4)) for i in range(4))
+assert W == tuple((1, 1, 1, 1) for _ in range(4))
+assert (1 + 4 * 4, 1 + 4 + 4) == (17, 9)
+
+def action(matrix, x):
+    return tuple(sum(row[j] * x[j] for j in range(len(x)))
+                 for row in matrix)
+
+for x in ((0, 0, 0, 0), (1, 2, 3, 4), (-3, 1, 0, 7)):
+    assert action(W, x) == tuple(
+        u[i] * sum(v[j] * x[j] for j in range(4)) for i in range(4)
+    )
+
+diag = (4, 3, 1)
+sq_frobenius = lambda a, b: sum((x-y)**2 for x, y in zip(a, b))
+assert sq_frobenius(diag, (4, 0, 0)) == 10
+assert sq_frobenius(diag, (4, 3, 0)) == 1
+
+weights = (F(1), F(1, 8))
+example = (F(0), F(8))
+dot = lambda x, y: sum((a*b for a,b in zip(x,y)), F(0))
+pruned = tuple(w if abs(w) >= F(1, 4) else F(0) for w in weights)
+assert dot(weights, example) == 1
+assert pruned == (F(1), F(0))
+assert dot(pruned, example) == 0
+
+values = (F(1,4), F(1,2), F(1,2), F(1,4))
+grid = (F(0), F(1,4), F(1,2), F(3,4))
+encoded = tuple(grid.index(w) for w in values)
+assert tuple(grid[i] for i in encoded) == values
+assert len(values) * 8 == 32
+assert len(encoded) * 2 == 8
+
+centroids = (F(1,4), F(1,2))
+indices = tuple(centroids.index(w) for w in values)
+assert tuple(centroids[i] for i in indices) == values
+assert len(centroids) * 8 + len(indices) == 20
+assert (3 + 5, 7 + 5) == (8, 12)
+
+print("COMPRESS_EXACT_WITNESS_OK")
+```
+
+Expected output:
+
+```text
+COMPRESS_EXACT_WITNESS_OK
+```
+
+This finite replay does not establish an optimal code, behavior preservation
+on unseen tasks, practical execution speed, or entropy-coder overhead.
+
 ## Replay table
 
 | Check | Exact result |
