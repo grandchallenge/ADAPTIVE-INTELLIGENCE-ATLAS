@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-OPTBASE-001"
+edition_derivative: "v0.1.3"
+state: "source_native_wolfram_print_candidate"
+original_source: "figures/wolfram/ATLAS-FIG-OPTBASE-001.wl"
+original_source_git_blob_sha1: "61123040326f80ec73a170778ba1140ef3f8fcb9"
+original_locked_master_unchanged: true
+successor_source: "figures/wolfram/ATLAS-FIG-OPTBASE-001-print-v0.1.2.wl"
+successor_source_git_blob_sha1: "49f0249f29cd503b7b6db466206d81b028862be9"
+rendered_derivative: "figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.3.png"
+rendered_derivative_git_blob_sha1: "2e4f56f0c5b666c7f21807b94d984334bc087d3d"
+rendered_derivative_raw_sha256: "90bab967825cc406015680fcc44a06c17154b09ffe948787a261f9d13e32c087"
+rendered_derivative_bytes: 50737
+rendered_derivative_dimensions_px: [1167, 1650]
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  command: 'Evaluate versioned source; ExportByteArray[fig, "PNG", ImageResolution -> 120]'
+  normalization: "Preserve PNG signature and IHDR/pHYs/IDAT/IEND, remove nonreproducible EXIF/tEXt ancillary chunks. Pixel data unchanged."
+  transfer: "BaseEncode fixed byte array in exact offset segments; GitHub Git Blob API committed native binary."
+literal_semantics: >-
+  quadratic scalar amplification |1-a| with strict contraction 0<a<2; clip (3,4) at radius two to (6/5,8/5); decoupled=181/100 and coupled=183/100, difference=1/50
+nonliteral_semantics: >-
+  three panels vertically stacked to separate labels, axis ranges and shading are presentational choices
+claim_boundary: "Exact declared finite mathematical witness only; no empirical optimizer, learned geometry or universal generalization claim is made."
+required_acceptance:
+  - "sha256 on raw final file and native dimension match manifest"
+  - "source parse, numerical witness checks, 80-chapter regenerated RC2, 2971 historical labels"
+  - "18 figures and source-bound HTML alt, no broken navigation or duplicate anchors"
+  - "3-pass full PDF with physically measured print DPI >= 200 for this derivative"
+  - "distinct critic role on print-legibility and mathematical label parity"
+  - "no protected atlas-v0.1.0 promotion or 80/80 chapter certification"
