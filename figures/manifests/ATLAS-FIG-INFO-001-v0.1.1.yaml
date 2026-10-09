@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-INFO-001"
+edition_derivative: "v0.1.1"
+status: "editorial-native-wolfram-print-candidate"
+canonical_original_source: "figures/wolfram/ATLAS-FIG-INFO-001.wl"
+canonical_original_source_blob_sha1: "9b4feabb9f0413dd3fa499b8353e84e405391da4"
+canonical_original_master: "figures/masters/ATLAS-FIG-INFO-001.png"
+canonical_original_manifest: "figures/manifests/ATLAS-FIG-INFO-001.yaml"
+native_derivative: "figures/derivatives/ATLAS-FIG-INFO-001-v0.1.1.png"
+native_derivative_git_blob_sha1: "54d5c50890c38b3cc6050b9769370d3d3bb7c11f"
+native_derivative_sha256: "a006d95ff921afa3a5b26bef1d3573f76d3c5508902ceb2560e186c0124d0aca"
+native_derivative_png_bytes: 45608
+native_derivative_dimensions_px: [1167, 1326]
+method:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  original_source_evaluated_without_semantic_edits: true
+  export_expression: 'ExportByteArray[originalGraphics, "PNG", ImageResolution -> 120]'
+  output_retrieval: "BaseEncode of exact Wolfram PNG ByteArray in 8600-character segments; GitHub base64 Git blob"
+  independent_exact_math:
+    marginal_x: "[1/2,1/2]"
+    marginal_y: "[1/2,1/2]"
+    mutual_information_exact: "Log[27/16]/Log[16]"
+    mutual_information_decimal: 0.1887218755408671
+claim_boundary: "Resolution-only editorial derivative from pinned original exact 2x2 joint probability Wolfram witness; dependence does not identify causality."
+admission_requirements:
+  - "Recompute sha256 and pixel dimensions on exact branch"
+  - "Regenerate canonical all-80-chapter TeX at exact current head"
+  - "Preserve all 2971 historical anchors and 18 stable figure IDs"
+  - "Three-pass PDF/HTML, source-bound semantic alt and figure placement"
+  - "Visual physical sample and distinct agent-role critical review"
+  - "No public v0.1.0 alteration or mathematical certification"
