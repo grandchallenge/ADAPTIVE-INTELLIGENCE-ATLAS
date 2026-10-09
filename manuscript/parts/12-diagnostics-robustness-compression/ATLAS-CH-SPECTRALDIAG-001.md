@@ -528,13 +528,9 @@ Spectral diagnostics are powerful precisely because they expose structure that s
 
 They become misleading when their object is unnamed or their epistemic role is inflated.
 
-The durable rule is:
+**A spectral signature supplies evidence about a declared operator; mechanistic meaning requires a separate functional bridge.** Neither a striking spectrum nor a correlation alone supplies that missing bridge.
 
-\[
-\boxed{\text{a spectral signature is evidence about a declared operator; mechanistic meaning requires a separate functional bridge.}}
-\]
 
-## References used in this chapter
 
 - [@HornJohnson2012]
 - [@TrefethenEmbree2005]
