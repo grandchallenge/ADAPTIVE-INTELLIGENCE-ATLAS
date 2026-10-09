@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-MANIFOLD-001"
+edition_derivative: "v0.1.2"
+state: "source_native_wolfram_print_candidate"
+original_source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl"
+original_source_git_blob_sha1: "16cfefd6fe09a01b425dd463a75ed08dd47379f1"
+original_locked_master_unchanged: true
+successor_source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001-print-v0.1.2.wl"
+successor_source_git_blob_sha1: "42394b53e19f3813a8b5c25d2ba9d033f497eeca"
+rendered_derivative: "figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.2.png"
+rendered_derivative_git_blob_sha1: "f71d0da791b4661a929c17403d5c04c145783787"
+rendered_derivative_raw_sha256: "8da9d6018b90bce88d2975d9eacf8fd8ff5786616fc8795f45691415f52e5667"
+rendered_derivative_bytes: 188824
+rendered_derivative_dimensions_px: [1267, 1320]
+generator:
+  system: "Wolfram Language"
+  version: "15.0.1 for Linux x86 (64-bit) (July 2, 2026)"
+  system_id: "Linux-x86-64"
+  command: 'Evaluate versioned source; ExportByteArray[fig, "PNG", ImageResolution -> 120]'
+  normalization: "Preserve PNG signature and IHDR/pHYs/IDAT/IEND, remove nonreproducible EXIF/tEXt ancillary chunks. Pixel data unchanged."
+  transfer: "BaseEncode fixed byte array in exact offset segments; GitHub Git Blob API committed native binary."
+literal_semantics: >-
+  unit sphere x=(0,0,1), tangent v=(4/5,0,0), Exp_x(v)=(sin(4/5),0,cos(4/5)), R_x(v)=(4/sqrt(41),0,5/sqrt(41)); geodesic g(t)=(sin(4t/5),0,cos(4t/5)); perspective and label positions are illustrative
+nonliteral_semantics: >-
+  projection, opacity, tangent-plane patch, camera, symbolic label offsets, and print resolution
+claim_boundary: "Exact declared finite mathematical witness only; no empirical optimizer, learned geometry or universal generalization claim is made."
+required_acceptance:
+  - "sha256 on raw final file and native dimension match manifest"
+  - "source parse, numerical witness checks, 80-chapter regenerated RC2, 2971 historical labels"
+  - "18 figures and source-bound HTML alt, no broken navigation or duplicate anchors"
+  - "3-pass full PDF with physically measured print DPI >= 200 for this derivative"
+  - "distinct critic role on print-legibility and mathematical label parity"
+  - "no protected atlas-v0.1.0 promotion or 80/80 chapter certification"
