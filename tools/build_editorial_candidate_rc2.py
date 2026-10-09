@@ -57,7 +57,8 @@ def main():
     assert num and len(num)>1800, "expected corpus-wide chapter heading normalization"
     # Part I now comes from canonical Markdown too: the old immutable RC1
     # overlay would silently overwrite a revised orientation chapter.
-    rc2=generated[:gch[4]]+tail
+    part1,part1_normalized=normalize(generated[:gch[4]])
+    rc2=part1+tail
     dangling="to mean that S supports q under the declared scope and epistemic class.\n"
     assert rc2.count(dangling)==0, "legacy Part I evidence fragment returned"
     assert len(list(chapter.finditer(rc2)))==80
