@@ -738,1315 +738,278 @@ Atlas}\label{how-to-read-a-mathematical-atlas}
 mathematics/derivations/ATLAS-CH-MAP-001-DOCUMENTARY.md\\
 \textbf{Source lock:} sources/source-locks/ATLAS-CH-MAP-001.yaml
 
-\section{An atlas is not a road}\label{an-atlas-is-not-a-road}
+\section{Begin with a question}\label{an-atlas-is-not-a-road}
 
-A road tells you where to go next.
+Why can a matrix be asymptotically stable and still amplify a
+perturbation? This is the kind of question an atlas should help the
+reader answer. It suggests where to start, which mathematical tools
+illuminate the difficulty, and which conclusions are not justified.
 
-An atlas gives you enough structure to choose.
+A textbook can take a single road from definitions to theorems. An atlas
+provides more than one useful route: it gives landmarks, several scales
+of description, and honest boundaries. Its reading order is flexible,
+but the hypotheses on which a result depends are not.
 
-That distinction matters for this book.
-
-\emph{A Mathematical Atlas of Adaptive Intelligence} has an editorial
-order, but it is not designed to have only one valid reading order.
-
-Different readers arrive with different objectives:
-
-\begin{itemize}
-\tightlist
-\item
-  learn the foundations;
-\item
-  understand one technical result;
-\item
-  reconstruct a computational witness;
-\item
-  evaluate a research frontier;
-\item
-  follow one concept across several domains;
-\item
-  enter through a figure and descend into the mathematics.
-\end{itemize}
-
-The Atlas must support all of these without allowing convenience to
-erase prerequisites.
-
-The governing rule is simple:
-
-\begin{quote}
-reading order is flexible; dependency and claim boundaries are not.
-\end{quote}
-
-\section{Map and territory}\label{map-and-territory}
-
-The word \textbf{atlas} is more than decoration.
-
-A geographic atlas contains:
-
-\begin{itemize}
-\tightlist
-\item
-  maps at several scales;
-\item
-  legends;
-\item
-  coordinates;
-\item
-  routes;
-\item
-  landmarks;
-\item
-  survey records;
-\item
-  boundaries.
-\end{itemize}
-
-The mathematical correspondence is:
-
-\begin{itemize}
-\tightlist
-\item
-  territory ↔ the mathematical and scientific subject;
-\item
-  map ↔ an organized representation of that subject;
-\item
-  scale ↔ level of resolution;
-\item
-  legend ↔ notation and epistemic labels;
-\item
-  coordinates ↔ stable chapter and object IDs;
-\item
-  route ↔ a reader-selected path;
-\item
-  landmark ↔ a chapter of unusual structural importance;
-\item
-  survey record ↔ source locks, witnesses, and audits.
-\end{itemize}
-
-The limit is equally important.
-
-The territory is not exhausted by the map.
-
-A route is not a unique curriculum.
-
-A landmark is not evidence for every claim around it.
-
-A legend tells us how to read a mark; it does not make the mark true.
-
-\section{Read at several
-resolutions}\label{read-at-several-resolutions}
-
-The Atlas is designed for movement among scales.
-
-At the largest scale:
+Consider the exact matrix from \textbf{Normality, Pseudospectra, and
+Transient Growth} (ATLAS-CH-NONNORMAL-001):
 
 \[
-\text{Atlas}
+A=\begin{pmatrix}4/5&4\\0&4/5\end{pmatrix}.
 \]
 
-shows the whole conceptual landscape.
+Both eigenvalues are \(4/5\), so \(\rho(A)=4/5<1\). Since the
+eigenvalues lie inside the unit disk, \(A^n\to0\) as \(n\to\infty\).
+Does every individual application of \(A\) therefore shrink a vector?
 
-Then come:
+Use the simplest possible test. For the unit vector \(e_2=(0,1)^\top\),
 
 \[
-\text{Part}
-\to
-\text{Chapter}
-\to
-\text{claim}
-\to
-\text{support object}.
+Ae_2=(4,4/5)^\top,\qquad
+\|Ae_2\|_2=\sqrt{16+16/25}>1.
 \]
 
-A reader may begin broadly and zoom inward.
-
-Or begin with one exact derivation and zoom outward.
-
-Changing scale changes the amount of visible detail.
-
-It must not change the epistemic status of the underlying claim.
-
-A conjecture does not become established because it is drawn on a clean
-overview plate.
-
-A theorem does not become weaker because we first encounter it through
-intuition.
-
-\section{Stable identity}\label{stable-identity}
-
-The Atlas is expected to evolve.
-
-Chapters may move.
-
-Parts may be reorganized.
-
-A chapter may gain or lose neighbors.
-
-For that reason, identity is not carried primarily by final numbering.
-
-It is carried by stable IDs such as
-
-\[
-\texttt{ATLAS-CH-DYN-001}.
-\]
-
-The Atlas Map explicitly treats numbering and physical order as
-revisable while stable IDs survive reordering.
-
-This gives the book something like a coordinate grid.
-
-A citation to a stable object should remain meaningful even when the
-local page neighborhood changes.
-
-\section{The map is not the dependency
-graph}\label{the-map-is-not-the-dependency-graph}
-
-Two structures coexist.
-
-The \textbf{Atlas Map} answers:
-
-\begin{quote}
-What exists, and what role does it play in the book?
-\end{quote}
-
-The \textbf{Dependency Graph} answers:
-
-\begin{quote}
-What may this chapter assume without rebuilding it?
-\end{quote}
-
-They overlap.
-
-They are not identical.
-
-A chapter can appear nearby in the narrative without being a hard
-prerequisite.
-
-A concept can illuminate another chapter without authorizing it to
-assume the concept has already been established.
-
-\section{Hard dependency}\label{hard-dependency}
-
-Suppose chapter (A) is a hard dependency of chapter (B).
-
-Then (B) may consume the declared content of (A) without reconstructing
-it from first principles.
-
-Write this schematically as
-
-\[
-A \longrightarrow B.
-\]
-
-The arrow is permission.
-
-It says:
-
-\begin{quote}
-the downstream chapter may stand on this upstream object.
-\end{quote}
-
-That permission creates an authorial obligation.
-
-The upstream chapter must actually contain what the downstream chapter
-is entitled to assume.
-
-This is why dependency audits matter.
-
-\section{Soft cross-link}\label{soft-cross-link}
-
-A soft cross-link means something weaker.
-
-Two chapters may illuminate one another:
-
-\[
-A \leftrightarrow B.
-\]
-
-But neither is automatically permitted to assume the other has been
-read.
-
-A soft link is a conceptual bridge.
-
-It is not prerequisite authority.
-
-This distinction lets the Atlas remain richly cross-connected without
-turning every conceptual resonance into a cycle of mandatory reading.
-
-\section{Narrative is not mathematical
-authority}\label{narrative-is-not-mathematical-authority}
-
-The dependency graph states this explicitly:
-
-\begin{quote}
-the graph is a dependency structure, not the book's narrative.
-\end{quote}
-
-The converse is also true.
-
-Narrative order is not dependency authority.
-
-This gives the author freedom to place an accessible orientation chapter
-early while still exposing the technical mathematics that later chapters
-truly require.
-
-It gives the reader freedom to choose a route while still knowing when a
-detour is mathematically necessary.
-
-\section{The legend: epistemic
-labels}\label{the-legend-epistemic-labels}
-
-A mathematical atlas needs a legend.
-
-The Atlas legend is not primarily a color key.
-
-It is an epistemic vocabulary.
-
-Reader-facing claims may be labeled as:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Definition}
-\item
-  \textbf{Established Result}
-\item
-  \textbf{Atlas Derivation}
-\item
-  \textbf{Computational Witness}
-\item
-  \textbf{Observation}
-\item
-  \textbf{Interpretation}
-\item
-  \textbf{GCL Public Project Evidence}
-\item
-  \textbf{GCL Programme}
-\item
-  \textbf{Conjecture}
-\item
-  \textbf{Open Problem}
-\item
-  \textbf{Institutional Status}
-\end{itemize}
-
-These labels answer different questions.
-
-They must not be collapsed into ``true'' versus ``speculative.''
-
-\section{Definition}\label{definition}
-
-A \textbf{Definition} declares meaning.
-
-It may introduce:
-
-\begin{itemize}
-\tightlist
-\item
-  an object;
-\item
-  notation;
-\item
-  a relation;
-\item
-  a convention.
-\end{itemize}
-
-A definition is not an empirical observation.
-
-It is not a theorem.
-
-Its correctness is judged by coherence, usefulness, and compatibility
-with the surrounding theory.
-
-\section{Established Result}\label{established-result}
-
-An \textbf{Established Result} is externally established mathematics or
-science used within the scope of its source.
-
-The source matters.
-
-So do its assumptions.
-
-The Atlas should not cite a correct theorem and then quietly use it
-outside the conditions under which it was proved.
-
-A source lock exists partly to prevent that expansion of authority.
-
-\section{Atlas Derivation}\label{atlas-derivation}
-
-An \textbf{Atlas Derivation} is worked out within the Atlas from
-declared assumptions or previously established objects.
-
-It may be exact.
-
-It may be novel.
-
-Its status comes from the derivation itself and the premises it
-consumes.
-
-Calling it an Atlas Derivation distinguishes authorship and evidentiary
-route from externally established literature.
-
-\section{Computational Witness}\label{computational-witness}
-
-A \textbf{Computational Witness} is a reproducible symbolic, numerical,
-finite-search, or replay object supporting a bounded claim.
-
-A witness can establish much.
-
-It can show:
-
-\begin{itemize}
-\tightlist
-\item
-  an exact finite identity;
-\item
-  a counterexample;
-\item
-  a numerical regime;
-\item
-  a symbolic simplification;
-\item
-  a replayed result.
-\end{itemize}
-
-But reproducibility is not magic.
-
-The canonical rule is:
-
-\[
-\text{reproducible computation}
-\not\Rightarrow
-\text{proof by default}.
-\]
-
-Some exact computations can form part of a proof.
-
-The label still tells the reader which support route is being used.
-
-\section{Observation and
-interpretation}\label{observation-and-interpretation}
-
-An \textbf{Observation} records what was measured or seen in a declared
-setting.
-
-An \textbf{Interpretation} explains what established results,
-observations, or witnesses may mean.
-
-The separation matters.
-
-For example:
-
-\begin{itemize}
-\tightlist
-\item
-  ``the spectral norm increased by this measured amount'' can be an
-  observation;
-\item
-  ``this suggests transient amplification drove the instability'' is an
-  interpretation unless separately established.
-\end{itemize}
-
-Good scientific prose makes that boundary visible.
-
-\section{GCL project evidence and programme
-context}\label{gcl-project-evidence-and-programme-context}
-
-\textbf{GCL Public Project Evidence} means a claim is grounded in an
-exact public GCL repository object or other public artifact.
-
-That status says where the evidence came from.
-
-It does not make the object a theorem.
-
-\textbf{GCL Programme} labels a research direction, architecture
-programme, or project-local synthesis.
-
-Programme context can be technically serious without being mistaken for
-established external theory.
-
-This is how the Atlas can discuss live research without flattening
-maturity levels.
-
-\section{Conjecture and open
-problem}\label{conjecture-and-open-problem}
-
-A \textbf{Conjecture} is a substantive proposed claim without sufficient
-proof.
-
-An \textbf{Open Problem} states a question.
-
-A route toward an open problem is not evidence that the solution exists.
-
-A promising conjecture is not an established result because it fits the
-Atlas thesis well.
-
-These labels preserve room for ambition without spending rigor to buy
-it.
-
-\section{Institutional status}\label{institutional-status}
-
-\textbf{Institutional Status} records authority such as:
-
-\begin{itemize}
-\tightlist
-\item
-  approval;
-\item
-  certification state;
-\item
-  governance disposition.
-\end{itemize}
-
-Institutional authority and mathematical truth are different dimensions.
-
-A result can be mathematically correct before an institution certifies
-it.
-
-An institution can certify only within the scope of its procedure.
-
-The Atlas keeps these dimensions separate.
-
-\section{Presentation creates no epistemic
-status}\label{presentation-creates-no-epistemic-status}
-
-A clean diagram can be persuasive.
-
-A polished equation can look final.
-
-A replay log can look official.
-
-None of those visual properties creates epistemic status.
-
-The canonical rule is:
-
-\[
-\boxed{
-\text{presentation}
-\not\Rightarrow
-\text{epistemic promotion}.
-}
-\]
-
-The reader should always be able to ask:
-
-\begin{quote}
-What is the support route?
-\end{quote}
-
-\section{Proof, derivation, and
-witness}\label{proof-derivation-and-witness}
-
-The Atlas uses several support routes because no one form fits every
-claim.
-
-A proof may establish a theorem.
-
-A derivation may expose the consequences of declared assumptions.
-
-A computational witness may check an identity, exhibit a counterexample,
-or map a finite regime.
-
-An empirical observation may report measured behavior.
-
-A source may provide established external authority.
-
-These routes can cooperate.
-
-They should not impersonate one another.
-
-\section{Replay is not truth}\label{replay-is-not-truth}
-
-Replay matters greatly in this book.
-
-A replayable evidence object can preserve:
-
-\begin{itemize}
-\tightlist
-\item
-  source identity;
-\item
-  environment;
-\item
-  parameters;
-\item
-  commands;
-\item
-  outputs;
-\item
-  artifacts.
-\end{itemize}
-
-That makes scientific handoff stronger.
-
-But the epistemic protocol states a critical nonimplication:
-
-\[
-\boxed{
-\text{replay}
-\not\Rightarrow
-\text{truth, independent replication, formal verification, or certification}.
-}
-\]
-
-Replay answers:
-
-\begin{quote}
-Can we reconstruct what was done?
-\end{quote}
-
-Other processes answer:
-
-\begin{quote}
-Was the reasoning sound?
-\end{quote}
-
-\begin{quote}
-Was the result independently replicated?
-\end{quote}
-
-\begin{quote}
-Was the formal statement machine-checked?
-\end{quote}
-
-\begin{quote}
-Was it certified under a declared procedure?
-\end{quote}
-
-\section{Figures have representation
-classes}\label{figures-have-representation-classes}
-
-The Atlas Figure Register uses three principal representation classes:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{exact}
-\item
-  \textbf{data-derived}
-\item
-  \textbf{schematic}
-\end{itemize}
-
-This classification prevents a common visual error:
-
-treating every line on a technical figure as though it had the same
-evidentiary meaning.
-
-\section{Exact figures}\label{exact-figures}
-
-An exact figure renders an exact declared mathematical object or exact
-computed relation.
-
-Examples can include:
-
-\begin{itemize}
-\tightlist
-\item
-  a curve from a closed-form equation;
-\item
-  a finite exact matrix computation;
-\item
-  a declared geometric construction.
-\end{itemize}
-
-Rendering itself may use machine graphics.
-
-The underlying semantics can still be exact.
-
-The manifest tells us which parts are literal.
-
-\section{Data-derived figures}\label{data-derived-figures}
-
-A data-derived figure displays computed or measured values.
-
-Its authority depends on:
-
-\begin{itemize}
-\tightlist
-\item
-  data;
-\item
-  parameters;
-\item
-  computation;
-\item
-  precision;
-\item
-  environment;
-\item
-  scope.
-\end{itemize}
-
-A smooth plotted curve is not automatically an exact mathematical law.
-
-It may simply connect sampled values.
-
-The manifest and witness record tell us what was actually computed.
-
-\section{Schematic figures}\label{schematic-figures}
-
-A schematic figure explains structure.
-
-Its boxes, arrows, and placement can be pedagogical.
-
-They need not encode:
-
-\begin{itemize}
-\tightlist
-\item
-  metric distance;
-\item
-  probability;
-\item
-  causal strength;
-\item
-  measured effect size.
-\end{itemize}
-
-A schematic can be extremely useful.
-
-It becomes misleading only when presentation choices are mistaken for
-literal data.
-
-This is why governed manifests separate:
-
-\begin{itemize}
-\tightlist
-\item
-  literal semantics;
-\item
-  nonliteral semantics.
-\end{itemize}
-
-\section{The source lock}\label{the-source-lock}
-
-Every mature chapter should make its source boundary reconstructable.
-
-A source lock records the exact objects consumed by the chapter and the
-authority each object is allowed to carry.
-
-The operative principle is:
-
-\[
-\boxed{
-\text{citation}
-eq
-\text{unbounded authority}.
-}
-\]
-
-A paper cited for one theorem does not automatically authorize a broader
-empirical claim.
-
-A repository file cited as implementation context does not automatically
-certify an entire project.
-
-A project-internal document does not become external scientific evidence
-merely because it is version-controlled.
-
-\section{Documentary provenance}\label{documentary-provenance}
-
-The Atlas preserves documentary provenance because arguments evolve.
-
-A reader may need to know:
-
-\begin{itemize}
-\tightlist
-\item
-  which version of a source was read;
-\item
-  which blob supplied a definition;
-\item
-  which figure generator produced a render;
-\item
-  which audit repaired a defect;
-\item
-  which chapter state a later chapter consumed.
-\end{itemize}
-
-This makes revision compatible with accountability.
-
-The point is not bureaucracy.
-
-It is the ability to distinguish:
-
-\begin{quote}
-what we believe now
-\end{quote}
-
-from
-
-\begin{quote}
-what a particular claim actually depended on when it was made.
-\end{quote}
-
-\section{Audits}\label{audits}
-
-A post-draft audit asks adversarial questions about a bounded object.
-
-It may check:
-
-\begin{itemize}
-\tightlist
-\item
-  algebra;
-\item
-  assumptions;
-\item
-  source scope;
-\item
-  figure identity;
-\item
-  terminology;
-\item
-  dependency closure;
-\item
-  hidden overclaim.
-\end{itemize}
-
-An audit can repair a chapter.
-
-It can record that a chapter passed its declared checks.
-
-It does not turn every sentence into an externally certified theorem.
-
-The audit's own disposition and scope must be read.
-
-\section{Six ways through the
-Atlas}\label{six-ways-through-the-atlas}
-
-There is no single privileged route.
-
-The best route depends on what you are trying to do.
-
-\subsection{Route A --- linear
-foundations}\label{route-a-linear-foundations}
-
-Follow the editorial sequence.
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  broad learning;
-\item
-  conceptual continuity;
-\item
-  readers who want the argument to unfold gradually.
-\end{itemize}
-
-Risk:
-
-you may read more prerequisite material than a targeted question
-requires.
-
-\subsection{Route B ---
-dependency-first}\label{route-b-dependency-first}
-
-Choose a target chapter.
-
-Follow hard dependencies backward until the path closes.
-
-Then read forward.
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  technical work;
-\item
-  minimal prerequisite reconstruction;
-\item
-  verifying that a later result is actually supported.
-\end{itemize}
-
-Risk:
-
-the route can be mathematically efficient but narratively austere.
-
-\subsection{Route C --- concept/theme}\label{route-c-concepttheme}
-
-Choose a concept such as:
-
-\begin{itemize}
-\tightlist
-\item
-  geometry;
-\item
-  operators;
-\item
-  memory;
-\item
-  optimization;
-\item
-  coordination;
-\item
-  governance.
-\end{itemize}
-
-Follow soft cross-links and recurring objects across Parts.
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  synthesis;
-\item
-  comparative reading;
-\item
-  seeing one idea change form.
-\end{itemize}
-
-Risk:
-
-soft links do not replace hard prerequisites.
-
-\subsection{Route D ---
-research-frontier}\label{route-d-research-frontier}
-
-Start at an open problem, conjecture, or GCL programme chapter.
-
-Then descend.
-
-Read:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  the claim boundary;
-\item
-  the source lock;
-\item
-  the immediate mathematical prerequisites;
-\item
-  the computational witnesses;
-\item
-  the failure modes;
-\item
-  the relevant audit records.
-\end{enumerate}
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  evaluating a live research idea;
-\item
-  separating established substrate from programme ambition.
-\end{itemize}
-
-Risk:
-
-frontier prose can feel more mature than the evidence if the epistemic
-labels are ignored.
-
-\subsection{Route E --- proof/replay}\label{route-e-proofreplay}
-
-Begin with the result you want to trust.
-
-Trace:
-
-\[
-\text{claim}
-\to
-\text{derivation/proof}
-\to
-\text{witness}
-\to
-\text{source lock}
-\to
-\text{audit/replay record}.
-\]
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  reconstruction;
-\item
-  adjudication;
-\item
-  technical reuse.
-\end{itemize}
-
-Risk:
-
-replayability can be mistaken for correctness unless proof and authority
-are read separately.
-
-\subsection{Route F ---
-visual/Atlas-plate}\label{route-f-visualatlas-plate}
-
-Begin with a figure or conceptual plate.
-
-Read its:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  representation class;
-\item
-  literal semantics;
-\item
-  nonliteral semantics;
-\item
-  supporting derivation or witness;
-\item
-  claim boundary.
-\end{enumerate}
-
-Best for:
-
-\begin{itemize}
-\tightlist
-\item
-  geometric intuition;
-\item
-  operator intuition;
-\item
-  rapid orientation.
-\end{itemize}
-
-Risk:
-
-visual fluency can create false certainty if schematic elements are read
-literally.
-
-\section{Choosing a route}\label{choosing-a-route}
-
-A practical routing table is:
+Thus \(\|A\|_2\geq\|Ae_2\|_2>1\). Asymptotic eigenvalue stability and
+finite-step amplification are compatible. Neither calculation
+invalidates the other: they answer different mathematical questions.
+
+\textbf{How to travel through this example.} The chapter \textbf{Linear
+Maps and Decompositions} (ATLAS-CH-LINALG-001) supplies eigenvalues,
+singular values, and the induced norm. \textbf{Normality, Pseudospectra,
+and Transient Growth} supplies the exact powers of this triangular
+matrix, a normal comparison, and a pseudospectral interpretation. Its
+\textbf{ATLAS-FIG-PSPECTRUM-001} plate makes the competing descriptions
+visible. A reader who wishes to connect that mathematics to
+neural-network optimization must then consult the relevant dynamical
+model and empirical evidence. The matrix proves no claim about how
+frequently real training runs become unstable.
+
+This is an opinionated route: operator norms are more revealing than
+eigenvalues \emph{for the finite-time amplification question}. It does
+not imply that operator norms are always the best coordinates, or that a
+systems-level theory is required to answer every question.
+
+\section{Many maps, stable coordinates}\label{map-and-territory}
+
+A mathematical landscape can be mapped through objects, operations,
+questions, and dependencies. Geography offers a useful analogy only up
+to a point: a map legend explains how to read a mark; it does not turn a
+conjecture into a theorem.
+
+A reader may begin at the full Atlas, move to one Part or chapter, and
+then descend to a precise statement and its proof, derivation, or
+computational witness. The reverse journey is equally valuable: begin
+with a calculation, ask which mathematical concept it illustrates, and
+trace its uses elsewhere.
+
+\protect\phantomsection\label{read-at-several-resolutions}{}\protect\phantomsection\label{stable-identity}{}
+
+We maintain stable chapter and object identifiers because book order may
+change. A reference such as ATLAS-CH-NONNORMAL-001 is a coordinate, not
+an ordinal promise. This matters whenever a new chapter, an improved
+explanation, or an updated figure changes the physical pages without
+changing the identity of the mathematical object.
+
+\section{Paths and prerequisites are
+different}\label{the-map-is-not-the-dependency-graph}
+
+A \textbf{hard dependency} grants a downstream chapter permission to use
+an explicitly established upstream object. If \(A\) supplies a theorem
+needed by \(B\), the arrow \(A\to B\) must identify the precise result
+and its assumptions.
+
+A \textbf{soft cross-link} merely says that two regions illuminate one
+another. The reader may travel between them, but neither chapter
+acquires proof authority by proximity.
+
+\protect\phantomsection\label{hard-dependency}{}\protect\phantomsection\label{soft-cross-link}{}\protect\phantomsection\label{narrative-is-not-mathematical-authority}{}
+
+For our matrix example, the definition of an induced operator norm is a
+mathematical prerequisite. The visual comparison with a later discussion
+of optimizer transients may be a useful connection, but it is not
+evidence that an optimizer exhibits this same matrix mechanism.
+
+Neither the table of contents nor the dependency graph alone tells a
+complete mathematical story. One organizes reading; the other records
+what may be assumed. The Atlas retains both so that readers can explore
+without silently importing unproved statements.
+
+\section{A claim needs its own
+legend}\label{the-legend-epistemic-labels}
+
+A mathematical book contains definitions, established results, local
+derivations, exact computations, empirical observations,
+interpretations, conjectures, and open problems. They may look equally
+polished on the page while carrying very different obligations.
+
+The eleven canonical status labels in \textbf{Claims, Evidence, and
+Computational Witnesses} (ATLAS-CH-EVIDENCE-001) also cover GCL project
+provenance, programme context, and institutional review. They are
+\textbf{not eleven steps on a confidence ladder}. A statement can
+simultaneously be a derivation, have a computational witness, cite a
+public source, and carry a separately documented review status. None of
+these labels by itself authorizes an implication outside the support's
+scope.
+
+\protect\phantomsection\label{definition}{}\protect\phantomsection\label{established-result}{}\protect\phantomsection\label{atlas-derivation}{}\protect\phantomsection\label{computational-witness}{}\protect\phantomsection\label{observation-and-interpretation}{}\protect\phantomsection\label{gcl-project-evidence-and-programme-context}{}\protect\phantomsection\label{conjecture-and-open-problem}{}\protect\phantomsection\label{institutional-status}{}\protect\phantomsection\label{presentation-creates-no-epistemic-status}{}\protect\phantomsection\label{proof-derivation-and-witness}{}\protect\phantomsection\label{replay-is-not-truth}{}
+
+Here is how to use the distinction. For the matrix above, the claim
+\(\rho(A)<1\) but \(\|A\|_2>1\) is justified by a short exact
+calculation. It is not justified \emph{because a figure has been
+reproduced} or because a repository recorded successful CI. A plotted
+finite-horizon curve can illustrate further behavior, but any claim
+about a real training system would require different assumptions and
+observations.
+
+An exact finite computation can disprove a proposed universal claim by
+exhibiting a valid counterexample. Exhaustively checking finitely many
+examples does not, without an additional argument, prove a universal
+statement about all possible inputs. The Evidence chapter supplies
+complete claim-support packets for both kinds of inference.
+
+\section{Figures are mathematical statements
+too}\label{figures-have-representation-classes}
+
+A well-chosen figure can make an operator, trajectory, or geometric
+constraint more intelligible than a page of unmotivated notation. It
+still needs a declared interpretation.
+
+\protect\phantomsection\label{exact-figures}{}\protect\phantomsection\label{data-derived-figures}{}\protect\phantomsection\label{schematic-figures}{}
+
+The Atlas distinguishes three figure types. An \textbf{exact} figure
+draws an explicitly defined relation or construction. A
+\textbf{data-derived} figure displays computed or measured values with
+finite precision, parameters, and a stated method. A \textbf{schematic}
+figure represents a conceptual correspondence, not measured metric
+distance or causal strength. The image and its caption must make these
+distinctions clear.
+
+Return to the pseudospectrum plate. Its finite matrix and comparison
+have exact mathematical definitions; rendering, sampling, color, and
+resolution remain presentational choices. Readers should be able to
+follow the figure to the formulas and, where appropriate, its
+computational witness. A visually striking contour is a guide toward
+understanding, not an independent proof.
+
+\section{A source trail is not a theorem}\label{the-source-lock}
+
+Mathematical derivations, cited authority, and reproducible computation
+answer different questions. The Atlas keeps exact source locks,
+derivation packets, computational witnesses, and bounded audits so
+readers can reconstruct what supported a claim at a particular revision.
+
+\protect\phantomsection\label{documentary-provenance}{}\protect\phantomsection\label{audits}{}
+
+A source lock identifies what was used and what that source can
+legitimately support. A replay shows what procedure ran in a declared
+environment; it does not by itself establish that the model is correct,
+the mathematics is sound, another party replicated it independently, or
+a certifying body approved it. An audit asks whether specific claims,
+assumptions, figures, or sources withstand scrutiny. Its disposition
+applies only to its declared scope.
+
+These records are valuable, but the introductory chapter need not
+reproduce the entire institutional procedure. When more detail is
+needed, follow the chapter's source lock, Evidence chapter, or technical
+records. Readers should encounter the mathematics before its
+administrative history, not have to read a ledger to understand a
+matrix.
+
+\section{Choose a route suited to the
+question}\label{six-ways-through-the-atlas}
+
+The Atlas provides six useful reading patterns. None is privileged for
+all purposes.
+
+\protect\phantomsection\label{route-a-linear-foundations}{}\protect\phantomsection\label{route-b-dependency-first}{}\protect\phantomsection\label{route-c-concepttheme}{}\protect\phantomsection\label{route-d-research-frontier}{}\protect\phantomsection\label{route-e-proofreplay}{}\protect\phantomsection\label{route-f-visualatlas-plate}{}\protect\phantomsection\label{choosing-a-route}{}\protect\phantomsection\label{how-to-read-a-keystone}{}\protect\phantomsection\label{how-to-read-a-frontier-chapter}{}\protect\phantomsection\label{allegory-as-a-bounded-instrument}{}\protect\phantomsection\label{what-changed-in-our-picture}{}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
-Goal
+Your objective
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Start with
+Starting point
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Then follow
+Follow next
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Boundary to remember
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Learn the field systematically & editorial order & hard dependencies as
-they appear \\
-Understand one technical chapter & target chapter & hard dependencies
-backward \\
-Compare one concept across fields & theme & soft cross-links plus local
-prerequisites \\
-Evaluate a frontier proposal & open-problem/programme chapter & source
-lock, prerequisites, witnesses, failures \\
-Reproduce a result & claim/support object & derivation, witness,
-provenance, audit \\
-Build intuition first & figure/plate & manifest semantics, mathematics,
-source boundary \\
+Learn a mathematical region & Foundations and illustrative examples &
+The book's suggested sequence & Editorial order is not prerequisite
+authority \\
+Reconstruct one result & Target theorem or chapter & Hard dependencies
+back to needed definitions & Every hypothesis still matters \\
+Compare a mathematical concept & Operator, geometry, memory, or dynamics
+theme & Soft links with local prerequisites & Similar language need not
+imply identical objects \\
+Investigate open terrain & Open problem, conjecture, or programme
+chapter & Established results, assumptions, and failures & Research
+direction is not completed theorem \\
+Replay or audit a computation & Exact claim or witness & Derivation,
+source, environment, and results & Repeatability is not automatically
+proof \\
+Learn visually & Figure or mathematical plate & Legend, formulas, and
+scope & Schematic marks are not measurements \\
 \end{longtable}
 }
 
-The table chooses a route.
+Keystone chapters are high-leverage because many later chapters depend
+on them; that makes mathematical scrutiny more important, not less.
+Frontier chapters are best read in reverse: begin by asking what is
+already established and what remains uncertain. Metaphor or allegory can
+help motivate either journey, but its job ends where a mathematical
+definition, derivation, or limitation must take over.
 
-It does not choose what is true.
+\section{A compact reader's
+practice}\label{a-compact-reader-protocol}
 
-\textbf{Worked route --- stable eigenvalues, surprising growth.}
+Five reading errors recur across mathematical subjects: confusing
+chapter order with prerequisites, promoting a soft cross-link into a
+theorem, treating every exact computation as an unrestricted proof,
+mistaking replay for independent certification, and reading the geometry
+of a schematic plate as measured data.
 
-Suppose someone tells us that a matrix is stable because both of its
-eigenvalues lie inside the unit circle. Is that sufficient to rule out
-transient amplification?
+\protect\phantomsection\label{five-reading-errors-to-avoid}{}\protect\phantomsection\label{chapter-order-treated-as-dependency-order}{}\protect\phantomsection\label{soft-cross-link-treated-as-prerequisite}{}\protect\phantomsection\label{exact-computation-treated-as-proof-automatically}{}\protect\phantomsection\label{replay-treated-as-certification}{}\protect\phantomsection\label{schematic-figure-treated-as-measured-geometry}{}
 
-Begin with the actual matrix in \textbf{Normality, Pseudospectra, and
-Transient Growth} (ATLAS-CH-NONNORMAL-001):
+When entering an unfamiliar chapter, ask three linked questions.
+\textbf{What problem is being illuminated?} Identify the central object
+and try a small example before following additional notation.
+\textbf{What exactly is established?} Check hypotheses, proof or
+computation, and boundaries; note where a source supplies prior
+authority. \textbf{Where can I go next?} Follow true prerequisites for
+rigor and soft connections for insight, keeping the two visibly
+distinct.
 
-\[
-A=
-\begin{pmatrix}
-4/5&4\\
-0&4/5
-\end{pmatrix}.
-\]
-
-The eigenvalues are both \(4/5\); therefore the spectral radius is
-\(\rho(A)=4/5<1\). If we began with eigenvalues alone, we might expect
-every step to shrink every perturbation.
-
-\textbf{Start with the simplest test, not a large theory.} For the
-second coordinate vector \(e_2=(0,1)^\top\),
-
-\[
-Ae_2=(4,4/5)^\top,
-\qquad
-\|Ae_2\|_2=\sqrt{16+16/25}>1.
-\]
-
-Since \(\|e_2\|_2=1\), the operator norm satisfies \(\|A\|_2>1\). Thus
-the spectral-radius statement and a one-step amplification statement are
-both true. This is a finite-dimensional exact calculation, not a
-numerical observation about neural-network training.
-
-The reader can now choose a \textbf{real dependency-first route}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Linear Maps and Decompositions} (ATLAS-CH-LINALG-001) supplies
-  spectral radius, induced \(2\)-norm, and singular values.
-\item
-  \textbf{Normality, Pseudospectra, and Transient Growth}
-  (ATLAS-CH-NONNORMAL-001) supplies the triangular matrix, exact powers,
-  the finite-horizon gain calculation, and a matching normal comparison.
-\item
-  The chapter's \textbf{ATLAS-FIG-PSPECTRUM-001} figure offers a visual
-  route through the distinction; its manifest and derivation determine
-  which curves and contours are literal.
-\item
-  Only after that should the reader visit dynamics or optimization
-  chapters to ask whether non-normal amplification is relevant to some
-  \emph{specified} training model. The matrix alone cannot establish
-  prevalence or a causal mechanism in a real training run.
-\end{enumerate}
-
-The route has moved from a tempting generalization to an exact
-counterexample, the mathematical language that explains it, and the
-boundary of what follows. That is what a mathematical atlas should make
-easy.
-
-\section{How to read a keystone}\label{how-to-read-a-keystone}
-
-A keystone chapter has unusually large downstream reach.
-
-That makes it important.
-
-It does not make it infallible.
-
-When reading a keystone:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  identify the formal object it stabilizes;
-\item
-  inspect its exact derivations;
-\item
-  read its failure boundaries;
-\item
-  note which downstream chapters consume it;
-\item
-  inspect its audit disposition.
-\end{enumerate}
-
-A defect in a high-leverage chapter can propagate widely.
-
-That is why keystones deserve disproportionate scrutiny.
-
-\section{How to read a frontier
-chapter}\label{how-to-read-a-frontier-chapter}
-
-A frontier chapter should be read in the opposite direction from a
-theorem.
-
-Do not begin by asking:
-
-\begin{quote}
-Is this exciting?
-\end{quote}
-
-Begin by asking:
-
-\begin{quote}
-Which parts are already established?
-\end{quote}
-
-\begin{quote}
-Which parts are Atlas derivation?
-\end{quote}
-
-\begin{quote}
-Which parts are computational evidence?
-\end{quote}
-
-\begin{quote}
-Which parts are interpretation?
-\end{quote}
-
-\begin{quote}
-Which sentence is the actual conjecture or open problem?
-\end{quote}
-
-The Atlas is intentionally allowed to be imaginative.
-
-Its epistemic labels keep imagination from borrowing the authority of
-proof.
-
-\section{Allegory as a bounded
-instrument}\label{allegory-as-a-bounded-instrument}
-
-This book uses allegory deliberately.
-
-Examples include:
-
-\begin{itemize}
-\tightlist
-\item
-  maps and territories;
-\item
-  flows and film frames;
-\item
-  interfaces and engineering contracts;
-\item
-  memory and civic archives;
-\item
-  distributed intelligence and scientific institutions.
-\end{itemize}
-
-The rule is always:
-
-\[
-\text{allegory}
-\to
-\text{structural correspondence}
-\to
-\text{formal object}
-\to
-\text{limit}.
-\]
-
-An allegory is successful when it makes the formal structure easier to
-see.
-
-It has failed when the reader can no longer tell which part is metaphor.
-
-\section{What changed in our
-picture?}\label{what-changed-in-our-picture}
-
-The Atlas deliberately foregrounds geometry, operators, dynamics,
-memory, composition, coordination, diagnostics, and governed adaptation.
-These are valuable mathematical lenses rather than a compulsory theory
-of intelligence.
-
-This chapter adds a second-order lesson.
-
-The book itself has to be adaptive without becoming unstable.
-
-It needs:
-
-\begin{itemize}
-\tightlist
-\item
-  stable identity;
-\item
-  revisable architecture;
-\item
-  explicit dependencies;
-\item
-  bounded evidence;
-\item
-  recoverable provenance.
-\end{itemize}
-
-That is why the Atlas is versioned like a technical system rather than
-treated as a frozen sequence of pages.
-
-\section{Five reading errors to
-avoid}\label{five-reading-errors-to-avoid}
-
-\subsection{Chapter order treated as dependency
-order}\label{chapter-order-treated-as-dependency-order}
-
-Narrative placement does not authorize hidden assumptions.
-
-\subsection{Soft cross-link treated as
-prerequisite}\label{soft-cross-link-treated-as-prerequisite}
-
-Conceptual resonance is not a dependency edge.
-
-\subsection{Exact computation treated as proof
-automatically}\label{exact-computation-treated-as-proof-automatically}
-
-A witness establishes only its bounded claim.
-
-\subsection{Replay treated as
-certification}\label{replay-treated-as-certification}
-
-Reconstructability and authority are different dimensions.
-
-\subsection{Schematic figure treated as measured
-geometry}\label{schematic-figure-treated-as-measured-geometry}
-
-Layout is not data unless the manifest says it is.
-
-\section{A compact reader protocol}\label{a-compact-reader-protocol}
-
-When entering any unfamiliar Atlas chapter, ask:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  What problem is this chapter solving?
-\item
-  What are its hard prerequisites?
-\item
-  What formal or documentary object does it introduce?
-\item
-  What is established externally?
-\item
-  What is derived here?
-\item
-  What is only witnessed computationally?
-\item
-  What is interpretation or programme context?
-\item
-  What would falsify or limit the claim?
-\item
-  Which figures are literal, data-derived, or schematic?
-\item
-  What downstream chapter is allowed to assume this work?
-\end{enumerate}
-
-If those ten answers are visible, the chapter is doing its job.
+This reader's practice is deliberately shorter than a governance
+checklist. The detailed Evidence chapter explains how to populate a
+claim-support record when reconstruction or adjudication is necessary.
+The purpose here is to give the reader enough confidence to begin
+exploring.
 
 \section{Closing view}\label{closing-view-1}
 
-A mathematical atlas should make exploration possible without making
-rigor optional.
+A useful atlas need not reduce its subject to one thesis. Its
+mathematical commitments are more concrete: important questions should
+lead to revealing examples, definitions should make the right structures
+visible, proofs should respect their hypotheses, and connections should
+disclose their limitations.
 
-The reader is free to choose a route.
+The non-normal matrix supplies a small demonstration of what this book
+should repeatedly accomplish. A familiar description was true but
+incomplete for the question. An alternative viewpoint produced a direct,
+exact calculation and a better route through the subject.
 
-The author is not free to hide a dependency.
-
-The reader is free to begin from a figure.
-
-The figure is not free to conceal which marks are schematic.
-
-The book is free to propose conjectures and programmes.
-
-They are not free to masquerade as established results.
-
-That is the compact bargain of the Atlas:
-
-\begin{quote}
-many routes, stable coordinates, explicit legends, reconstructable
-evidence.
-\end{quote}
-
-The territory will remain larger than the book.
-
-The task of the Atlas is to help us move through it without confusing
-navigation for proof.
+The territory will remain larger than the book. Its purpose is to give
+readers clearer mathematics and the freedom to navigate among honest,
+overlapping maps.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-1}
@@ -3041,7 +2004,9 @@ the argument lies. If the same statement is later located in external
 literature, the source record can be enriched. The original derivation
 does not retroactively become someone else's result.
 
-\section{Computational witnesses}\label{computational-witnesses}
+\section{Computational witnesses}\label{computational-witness-1}
+
+\protect\phantomsection\label{computational-witnesses}{}
 
 A computational witness is one of the Atlas's most useful evidence forms
 because many structures become visible only when symbolic, numerical,
@@ -4146,7 +3111,7 @@ nonlinear system.
 The Boundary Contracts and optimizer-dynamics chapters both rely on this
 limitation.
 
-\section{Computational witness}\label{computational-witness-1}
+\section{Computational witness}\label{computational-witness}
 
 \begin{figure}
 \centering
