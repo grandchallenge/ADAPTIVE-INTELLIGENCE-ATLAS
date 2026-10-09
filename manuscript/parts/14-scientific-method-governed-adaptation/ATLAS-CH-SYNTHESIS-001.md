@@ -148,12 +148,16 @@ They persist in shared memory keyed by task.
 
 Later recall therefore has access to both accepted answer and provenance.
 
-For the full composition:
+For the full composition, distinguish the successive events:
 
-- task accuracy \(=2/2\);
-- validated commit coverage \(=2/2\);
-- persistent recall coverage \(=2/2\);
-- unauthorized commits \(=0\).
+- transient task accuracy \(=2/2\);
+- positive validator decisions \(=2/2\);
+- authorized commits \(=2/2\);
+- durable validated records \(=2/2\);
+- later validated recall coverage \(=2/2\);
+- validator-rejected writes \(=0\).
+
+The equality of these first five counts is a feature of **this full finite example**, not an identification of validation, authority, persistence, and recall as one metric.
 
 ## 8. Router ablation
 
@@ -167,7 +171,7 @@ Now beta receives answer \(0\).
 
 The validator rejects the beta candidate.
 
-Task accuracy and validated commit coverage each fall to
+Task accuracy, validator acceptance, authorization, and persisted validated record coverage each fall to
 
 \[
 \boxed{\frac12}.
@@ -183,7 +187,7 @@ The system can still produce correct transient answers on both tasks.
 
 But governance requires positive validation evidence.
 
-Without it, authorized commit coverage becomes
+Without positive validation evidence, governed authorization and durable writes become
 
 \[
 \boxed{0}.
@@ -203,9 +207,9 @@ Keep routing, validation, and governance.
 
 Remove persistent shared memory.
 
-Immediate answers can remain correct.
+Immediate answers can remain correct. Both validator acceptance and authorization also remain \(2/2\): removing the memory store does not retrospectively invalidate an accepted candidate.
 
-Later persistent recall coverage becomes
+No durable records can be written, and later persistent recall coverage becomes
 
 \[
 \boxed{0}.
@@ -231,7 +235,7 @@ c_{\mathrm{bad}}=(\beta,1,A_\alpha).
 
 The answer value looks correct but the source is wrong.
 
-The validator rejects it.
+The validator rejects it. This candidate is **externally injected**: the declared deterministic specialist satisfies \(A_\alpha(\beta)=0\) and cannot generate the forged value \(1\) through normal routing.
 
 With governance enforced, the rejected candidate cannot commit.
 
