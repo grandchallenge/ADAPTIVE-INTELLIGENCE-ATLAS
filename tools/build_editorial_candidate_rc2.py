@@ -72,10 +72,10 @@ def main():
     # replacing RC1's historically overlaid TeX.
     objects=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md").read_text(encoding="utf-8")
     evidence=(ROOT/"manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md").read_text(encoding="utf-8")
-    assert "global autonomous flow" in objects and "state-dependent range of times" in objects
+    assert "continuous global autonomous flow" in objects and "open time-state domain" in objects and "jointly continuous" in objects
     assert r"S \mathrel{\rightsquigarrow}_{\Omega,\tau}q." in evidence
     assert "global autonomous flow" in rc2[:rc2.index(r"\chapter{Linear Maps")]
-    assert "state-dependent range of times" in objects
+    assert "open time-state domain" in objects
     assert "separate agent roles" not in rc2, "governance note leaked into chapter math"
 
     if opts.check:
