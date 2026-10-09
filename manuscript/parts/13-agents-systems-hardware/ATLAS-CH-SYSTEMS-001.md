@@ -209,21 +209,9 @@ A stage count alone cannot determine it.
 
 ## 8. Expert parallelism
 
-MOE-001 established a chain:
+MOE-001 distinguishes several stages of routed computation. **Router probabilities** express preferences; a **capacity and overflow rule** filters them into **accepted dispatches**; the selected expert can then execute the assigned work. Those steps are logically distinct from the physical placement and network path that expert parallelism subsequently introduces.
 
-\[
-\text{router probabilities}
-\to
-\text{preferred routes}
-\to
-\text{capacity/overflow}
-\to
-\text{accepted dispatch}
-\to
-\text{expert execution}.
-\]
 
-Expert parallelism adds physical placement.
 
 Let:
 
