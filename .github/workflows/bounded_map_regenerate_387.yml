@@ -1,0 +1,46 @@
+name: Bounded MAP canonical RC2 regeneration
+on:
+  pull_request:
+    branches: [editorial/part01-corrections-20261008]
+permissions:
+  contents: write
+jobs:
+  regenerate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: editorial/map-pedagogy-387-001
+          persist-credentials: true
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Regenerate and guard exact 2971 prior labels and 18 figures
+        run: |
+          if ! python tools/build_editorial_candidate_rc2.py; then
+            python - <<'PY'
+          from pathlib import Path
+          import re
+          old=Path("manuscript/latex/atlas-v0.1.1-rc.1.tex").read_text()
+          fresh=Path("/tmp/atlas-editorial-rc2-pandoc.tex").read_text()
+          labels=lambda t:set(re.findall(r"\\label\{([^}]+)\}",t))
+          a,b=labels(old),labels(fresh)
+          print("LABEL_DIFF_MISSING",sorted(a-b))
+          print("LABEL_DIFF_EXTRA",sorted(b-a))
+          print("COUNT_OLD_NEW",len(a),len(b))
+          PY
+            exit 1
+          fi
+          python tools/build_editorial_candidate_rc2.py --check
+          python tools/validate_atlas.py
+      - name: Commit only generated TeX on isolated corrected-edition branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manuscript/latex/atlas-v0.1.1-rc.2.tex
+          if ! git diff --cached --quiet; then
+            git commit -m "build(editorial): recompose MAP concept-first section restructuring"
+            git push origin HEAD:refs/heads/editorial/map-pedagogy-387-001
+          fi
