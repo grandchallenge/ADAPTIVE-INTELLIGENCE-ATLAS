@@ -466,13 +466,9 @@ Such comparisons require declared tasks, metrics, costs, and failure models.
 
 ## 30. The durable synthesis
 
-The strongest justified statement is
+The strongest justified statement is a scoped synthesis, not a universal theorem:
 
-\[
-\boxed{
-\text{adaptive intelligence can be analyzed as a typed system of representations, dynamics, memory, tools, coordination, evidence, adaptation, and governance.}
-}
-\]
+**Adaptive intelligence can be analyzed as a typed system of representations, dynamics, memory, tools, coordination, evidence, adaptation, and governance.**
 
 When those interfaces are part of the mechanism, they belong inside the explanatory boundary.
 
