@@ -1,0 +1,56 @@
+name: Bounded editorial physical render
+on:
+  pull_request:
+    branches:
+      - editorial/part01-corrections-20261008
+permissions:
+  contents: read
+jobs:
+  physical-render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - name: Install LaTeX and PDF inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended ghostscript poppler-utils
+      - name: Exact-current-source RC2 recomposition
+        run: |
+          python tools/build_editorial_candidate_rc2.py --check
+          python tools/validate_atlas.py
+      - name: Three-pass complete physical PDF
+        run: |
+          mkdir -p /tmp/atlas-physical
+          for i in 1 2 3; do
+            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-physical manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-pass-stdout-$i.txt
+          done
+          pdfinfo /tmp/atlas-physical/atlas-v0.1.1-rc.2.pdf | grep -E 'Pages:|Page size:'
+      - name: Full embedded HTML and source figure alt
+        run: |
+          python tools/release_tex_for_html.py
+          python -c 'import pypandoc; pypandoc.convert_file("/tmp/atlas-rc-html-input.tex","html5",format="latex",outputfile="/tmp/atlas-physical.html",extra_args=["--standalone","--toc","--number-sections","--mathjax","--embed-resources","--resource-path=."])'
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-physical.html --write
+          python tools/editorial_export_figure_alts.py --html /tmp/atlas-physical.html --verify
+      - name: Exact-head physical QA metrics
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,hashlib
+          tex=Path('manuscript/latex/atlas-v0.1.1-rc.2.tex')
+          log=Path('/tmp/atlas-physical/atlas-v0.1.1-rc.2.log').read_text()
+          pdf=Path('/tmp/atlas-physical/atlas-v0.1.1-rc.2.pdf')
+          h=Path('/tmp/atlas-physical.html').read_text()
+          ids=re.findall(r'\bid="([^"]+)"',h)
+          boxes=[float(x) for x in re.findall(r'Overfull \\hbox \(([0-9.]+)pt too wide\)',log)]
+          print('ATLAS_QA',dict(tex_sha256=hashlib.sha256(tex.read_bytes()).hexdigest(),pdf_sha256=hashlib.sha256(pdf.read_bytes()).hexdigest(),overfull=len(boxes),max_overfull=max(boxes or [0]),html_images=h.count('<img '),html_anchor_total=len(ids),html_duplicate_ids=len(ids)-len(set(ids))))
+          assert h.count('<img ')==18
+          assert len(ids)==len(set(ids))
+          assert not re.search(r'LaTeX Warning: (Citation|Reference).*undefined',log)
+          PY
