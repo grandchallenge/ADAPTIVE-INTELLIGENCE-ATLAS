@@ -127,9 +127,7 @@ The distinction is not an insult to either class. It is provenance.
 
 A correct Atlas derivation may be entirely rigorous. Its label tells the reader where the derivation was performed and where responsibility for the argument lies. If the same statement is later located in external literature, the source record can be enriched. The original derivation does not retroactively become someone else's result.
 
-## 6. Computational witnesses {#computational-witness-1}
-
-[]{#computational-witnesses}
+## 6. Computational witnesses
 
 A computational witness is one of the Atlas's most useful evidence forms because many structures become visible only when symbolic, numerical, finite-search, graphical, simulation, or replay machinery is allowed to participate.
 
