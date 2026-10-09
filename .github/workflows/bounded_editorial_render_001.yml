@@ -29,7 +29,10 @@ jobs:
         run: |
           mkdir -p /tmp/atlas-physical
           for i in 1 2 3; do
-            pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-physical manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-pass-stdout-$i.txt
+            if ! pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/atlas-physical manuscript/latex/atlas-v0.1.1-rc.2.tex > /tmp/atlas-pass-stdout-$i.txt 2>&1; then
+              tail -n 100 /tmp/atlas-pass-stdout-$i.txt
+              exit 1
+            fi
           done
           pdfinfo /tmp/atlas-physical/atlas-v0.1.1-rc.2.pdf | grep -E 'Pages:|Page size:'
       - name: Full embedded HTML and source figure alt
