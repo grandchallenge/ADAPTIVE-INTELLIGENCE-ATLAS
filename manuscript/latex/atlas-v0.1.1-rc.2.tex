@@ -39309,19 +39309,11 @@ operator-call, memory, and latency tradeoffs.
 Neural Krylov Transport is not the claim that neural networks secretly
 run GMRES.
 
-It is a disciplined architecture pattern:
-
-\[
-\boxed{
-\text{declared local operator}
-+
-\text{few operator-generated directions}
-+
-\text{declared projection}
-+
-\text{declared representation update}.
-}
-\]
+Its \textbf{disciplined architecture pattern} begins with a declared
+local linear operator, constructs a few operator-generated directions,
+applies a declared projection, and uses the result for a declared
+representation update. This is a sequence of typed operations, not an
+algebraic sum or a general convergence theorem.
 
 The finite witness shows why this can matter.
 
@@ -53874,16 +53866,11 @@ The mandatory record can rank lower.
 
 A naive prefix can fit the budget and still be invalid.
 
-The correct conclusion is:
-
-\[
-\boxed{
-\text{context construction is a governed bounded transformation from candidate memory records to a replayable working set.}
-}
-\]
-
-That transformation deserves its own mathematics, provenance, and
-failure semantics.
+\textbf{Context construction is a governed, budget-bounded
+transformation} from candidate memory records into a replayable working
+set. The transformation deserves its own mathematical specification,
+provenance, and failure semantics; a high retrieval score alone does not
+establish admissibility.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-49}
@@ -64440,16 +64427,10 @@ we obtained:
 
 Nothing changed except dependence.
 
-The correct conclusion is:
-
-\[
-\boxed{
-\text{propagate the joint uncertainty of the declared decision object, not an assumed independent sum of marginal errors.}
-}
-\]
-
-And when the decision map is nonlinear, keep the local approximation
-boundary visible.
+\textbf{Propagate uncertainty for the declared joint decision object},
+not an independently summed set of marginal errors unless the dependence
+assumptions justify that simplification. For a nonlinear decision map,
+keep the local approximation boundary visible.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-60}
@@ -67152,11 +67133,10 @@ structure that scalar performance metrics can miss.
 They become misleading when their object is unnamed or their epistemic
 role is inflated.
 
-The durable rule is:
-
-\[
-\boxed{\text{a spectral signature is evidence about a declared operator; mechanistic meaning requires a separate functional bridge.}}
-\]
+\textbf{A spectral signature supplies evidence about a declared
+operator; mechanistic meaning requires a separate functional bridge.}
+Neither a striking spectrum nor a correlation alone supplies that
+missing bridge.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-64}
