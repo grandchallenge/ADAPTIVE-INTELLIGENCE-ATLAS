@@ -578,7 +578,7 @@ A Jacobian at one point does not automatically describe a global nonlinear syste
 
 The Boundary Contracts and optimizer-dynamics chapters both rely on this limitation.
 
-## 18. Computational witness
+## 18. Computational witness {#computational-witness-1}
 
 ![The unit circle mapped by a non-normal matrix into an ellipse beside an exact conditioning example with condition number 100.](../../figures/masters/ATLAS-FIG-LINALG-001.png)
 
