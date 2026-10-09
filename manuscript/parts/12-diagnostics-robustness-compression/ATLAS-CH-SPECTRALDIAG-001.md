@@ -530,7 +530,7 @@ They become misleading when their object is unnamed or their epistemic role is i
 
 **A spectral signature supplies evidence about a declared operator; mechanistic meaning requires a separate functional bridge.** Neither a striking spectrum nor a correlation alone supplies that missing bridge.
 
-
+## References used in this chapter
 
 - [@HornJohnson2012]
 - [@TrefethenEmbree2005]
