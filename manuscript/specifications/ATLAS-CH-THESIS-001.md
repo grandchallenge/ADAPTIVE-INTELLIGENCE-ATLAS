@@ -11,7 +11,7 @@
 
 Introduce the opinionated perspective of a mathematical atlas without presenting one editorial preference as an Atlas-wide theorem:
 
-> Adaptive intelligence is more usefully studied here as organized computation over states, operators, dynamics, memory, interfaces, evidence, and governance than as a catalogue of model classes.
+> The Atlas selects mathematical viewpoints for the questions they illuminate. Geometry, operators, dynamics, memory, interfaces, evidence, and governance are recurring routes, not a unified ontology or an obligatory proof objective.
 
 The chapter must make clear that chosen lenses illuminate different problems, and no later chapter owes a proof of the perspective.
 
