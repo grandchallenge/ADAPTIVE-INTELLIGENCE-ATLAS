@@ -155,17 +155,6 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\ifXeTeX
-\special{pdf:trailerid [ <a8420a94033497f38185a3cb7df471e5> <a8420a94033497f38185a3cb7df471e5> ]}
-\fi
-\ifPDFTeX
-\pdftrailerid{}
-\pdftrailer{/ID [ <a8420a94033497f38185a3cb7df471e5> <a8420a94033497f38185a3cb7df471e5> ]}
-\fi
-\ifLuaTeX
-\pdfvariable trailerid {[ <a8420a94033497f38185a3cb7df471e5> <a8420a94033497f38185a3cb7df471e5> ]}
-\fi
-
 \title{A Mathematical Atlas of Adaptive Intelligence}
 \author{Grand Challenge Labs}
 \date{2026-10-07}
@@ -179,7 +168,8 @@
 \tableofcontents
 }
 \mainmatter
-\chapter{The Adaptive-System Thesis}\label{the-adaptive-system-thesis}
+\chapter{A Mathematical Atlas, by
+Choice}\label{the-adaptive-system-thesis}
 
 \textbf{Epistemic status:} Atlas Synthesis\\
 \textbf{Specification:}
@@ -188,62 +178,39 @@ manuscript/specifications/ATLAS-CH-THESIS-001.md\\
 mathematics/derivations/ATLAS-CH-THESIS-001-DERIVATIONS.md\\
 \textbf{Source lock:} sources/source-locks/ATLAS-CH-THESIS-001.yaml
 
-\section{What this book is trying to
-explain}\label{what-this-book-is-trying-to-explain}
+\section{Why make an
+atlas?}\label{what-this-book-is-trying-to-explain}
 
-Machine learning is often introduced as a catalogue of model classes.
+A textbook may build a theory from its foundations. A survey may
+inventory a field. An atlas has a different task: reveal the shape of a
+mathematical landscape, give the reader several navigable routes, and
+identify where the maps overlap or remain incomplete.
 
-Linear models lead to multilayer networks. Convolutional networks lead
-to attention. Attention leads to Transformers. Transformers lead to
-mixture-of-experts systems, retrieval, tools, agents, and increasingly
-elaborate training pipelines.
+This book explores mathematical structures used to describe systems that
+represent, transform, learn, remember, coordinate, and adapt. It is
+deliberately \textbf{selective and opinionated}. We often prefer
+operators to bare parameter counts, dynamics to static layer diagrams,
+geometry to unconstrained coordinates, and explicit interfaces to
+treating a deployed model as an isolated function.
 
-That chronology is useful, but it hides a structural fact.
+These are editorial preferences, not a single proposition that the
+remaining chapters must prove.
 
-The objects that matter are no longer contained inside one function
-approximator.
+For example, eigenvalues inside the unit disk do not preclude
+finite-time amplification by powers of a non-normal matrix. Operator
+norms tell us something eigenvalues alone do not. The value of the
+second viewpoint comes from the question it illuminates and the
+mathematics that establishes the answer, not from its place in a
+universal theory of intelligence.
 
-A capable system may include:
+We will sometimes study individual models, sometimes composed systems,
+and sometimes a purely mathematical object without insisting on an AI
+analogy. One may follow different mathematical maps of the same
+territory. Each map should be judged by what it helps the reader
+understand and by the limits of its assumptions.
 
-\begin{itemize}
-\tightlist
-\item
-  learned states;
-\item
-  transformations acting on those states;
-\item
-  persistent or external memory;
-\item
-  numerical solvers;
-\item
-  routing and scheduling;
-\item
-  tools and other models;
-\item
-  interaction protocols;
-\item
-  evidence stores;
-\item
-  human or machine review;
-\item
-  mechanisms governing how the system may change itself.
-\end{itemize}
-
-The Atlas begins from that observation.
-
-Its governing thesis is:
-
-\begin{quote}
-Adaptive intelligence is more usefully studied here as organized
-computation over states, operators, dynamics, memory, interfaces,
-evidence, and governance than as a catalogue of model classes.
-\end{quote}
-
-This is the \textbf{Adaptive-System Thesis}.
-
-It is the thesis of this monograph.
-
-It is not introduced as an externally established theorem.
+\textbf{The ambition is to make the mathematics visible without making
+it smaller.}
 
 \section{An atlas, not a catalogue}\label{an-atlas-not-a-catalogue}
 
@@ -304,13 +271,9 @@ The map therefore has to be versioned.
 
 \section{The recurring shifts}\label{the-recurring-shifts}
 
-The source inventory that seeded this monograph records a recurring
-sequence of conceptual shifts.
-
-They are not presented as discoveries of this chapter.
-
-They are the programme-level pattern the Atlas is being built to
-examine.
+These changes of viewpoint guide the book's editorial selection. They
+are routes to mathematical questions, not new discoveries or mandatory
+steps in a unified proof.
 
 \subsection{Vectors to operators}\label{vectors-to-operators}
 
@@ -469,7 +432,8 @@ explicit object.
 \section{A provisional system
 decomposition}\label{a-provisional-system-decomposition}
 
-For orientation, the Atlas uses the explanatory decomposition
+For one systems-oriented route, we may use the provisional explanatory
+decomposition
 
 \[
 \mathcal A
@@ -523,15 +487,15 @@ and
 \text{governance}.
 \]
 
-This tuple is not a universal ontology.
-
-It is a map legend.
+This tuple is neither a universal ontology nor a theorem. It is one map
+legend. Later chapters may use other coordinates for different questions
+without proving those coordinates equivalent.
 
 Later chapters will refine each term and, where necessary, expose the
 places where the decomposition becomes inadequate.
 
-\section{Why the model boundary is too
-small}\label{why-the-model-boundary-is-too-small}
+\section{Choose the boundary to fit the
+question}\label{why-the-model-boundary-is-too-small}
 
 Consider a retrieval-augmented system.
 
@@ -569,7 +533,7 @@ understood entirely by inspecting the planner weights.
 
 Capability is partly distributed over the arrangement.
 
-This motivates a broader unit of analysis:
+For that question, a broader unit of analysis may be useful:
 
 \[
 \boxed{
@@ -579,42 +543,27 @@ This motivates a broader unit of analysis:
 }
 \]
 
-The inclusion can be strict.
+The inclusion can be strict. But an individual model may be the right
+boundary for a particular mathematical claim. The distinction is about
+useful explanation, not a compulsory systems ontology.
 
-\section{A useful thesis must be
-vulnerable}\label{a-useful-thesis-must-be-vulnerable}
+\section{What makes a chosen viewpoint
+worthwhile?}\label{a-useful-thesis-must-be-vulnerable}
 
-A thesis that explains everything after the fact explains very little.
+An opinionated atlas owes readers reasons rather than allegiance. A
+perspective earns its place by clarifying a concrete problem, exposing a
+useful invariant, resolving an apparent paradox, improving a
+calculation, or revealing a precise connection to another subject.
 
-The Adaptive-System Thesis therefore has pressure points.
+For each preferred lens, ask: What question does it answer? What small
+example reveals the need for it? Which theorem, calculation, or witness
+makes the insight exact? When would a competing lens work better?
 
-It should become less attractive if:
-
-\begin{itemize}
-\tightlist
-\item
-  the proposed object distinctions repeatedly obscure rather than
-  clarify important mechanisms;
-\item
-  memory, interfaces, or governance turn out to be accidental
-  implementation details rather than load-bearing computational
-  structure;
-\item
-  the operator/dynamics viewpoint adds no predictive or design value;
-\item
-  composition can be handled adequately by shape-level software
-  interfaces alone;
-\item
-  evidence provenance proves irrelevant to the reliability of adaptive
-  research systems;
-\item
-  later chapters require entirely different primitives that cannot be
-  expressed naturally through the Atlas roles.
-\end{itemize}
-
-The book is not arranged to prevent these outcomes.
-
-It is arranged to make them visible.
+Not every neural network is a discretized differential equation. Not
+every question about intelligent computation needs governance or
+persistent memory. Not every geometric analogy supports a theorem. The
+Atlas should show these limitations as openly as its successful
+connections.
 
 \section{Description versus
 programme}\label{description-versus-programme}
@@ -658,27 +607,38 @@ A research programme can be useful before it becomes established theory.
 
 It must still be labeled correctly.
 
-\section{Dependencies in the argument}\label{the-dependency-graph-is-part-of-the-argument}
+\section{Dependencies and connections are different
+maps}\label{the-dependency-graph-is-part-of-the-argument}
 
-The dependency graph is more than a way to navigate chapters: it records which
-mathematical or documentary objects a later argument is entitled to assume.
-An editorial reading order need not coincide with that dependency order.
-When a chapter borrows a definition, theorem, example, or evidence object,
-the relevant prerequisite must remain inspectable. That principle is part of
-the Atlas's method, not evidence that its broader thesis is true.
+The hard dependency graph records exactly which definitions and results
+later chapters may assume. Soft cross-links reveal possible routes
+through the terrain. Neither graph is a proof that the whole subject
+reduces to one sequence.
 
-\section{Tests the thesis must pass}\label{what-later-chapters-must-earn}
+The keystone chapters were written early to test a durable mathematical
+composition method. The remaining chapters extend the coverage. That
+production history does not itself validate an overall theory of
+adaptive intelligence.
 
-The decomposition is useful only where it changes the questions we can ask
-and the errors we can detect. Later chapters must put four propositions at risk:
-(1) geometry and operators expose behavior hidden by coordinate descriptions;
-(2) dynamics and optimization explain finite-time effects missed by static
-summaries; (3) explicit interfaces, memory and coordination expose system-level
-failure modes; and (4) evidence records delimit which conclusions can be
-reconstructed and reused.
+\section{What the chapters should give the
+reader}\label{what-later-chapters-must-earn}
 
-These are research obligations, not results proved by announcing a taxonomy.
-The counterexamples and limits in the chapters ahead are part of the test.
+A mature chapter should make a worthwhile mathematical object
+intelligible. It should motivate its definitions, develop the needed
+mathematics, supply an example or figure when useful, and state clearly
+what has been established.
+
+Geometry should explain how constraints change admissible motion.
+Operator theory should distinguish asymptotic eigenvalue claims from
+finite-horizon behavior. Numerical analysis should reveal when a
+time-stepping algorithm fails to respect a continuous law. Memory and
+coordination chapters should expose what they add to a particular
+system-level task. Scientific-method chapters should make the support
+for claims inspectable.
+
+None is required to establish a single Adaptive-System Thesis.
+Incomplete GCL investigations can be included as expressly unfinished
+terrain rather than evidence forced into a conclusion.
 
 \section{The map ahead}\label{the-map-ahead}
 
@@ -717,7 +677,7 @@ After that, the mathematical substrate develops:
 Only then does the Atlas move deeply into representation, architecture,
 optimization, memory, routing, agents, and governed adaptation.
 
-The recurring conceptual spine is:
+One useful itinerary is:
 
 \[
 \boxed{
@@ -741,26 +701,23 @@ The recurring conceptual spine is:
 }
 \]
 
-This is a route through the atlas.
-
-It is not the only possible route.
+This is a route through the atlas, not a deduction or an obligatory
+reading order.
 
 \section{Closing view}\label{closing-view}
 
-The central wager of this book is that the next useful abstraction
-boundary for machine intelligence is larger than the model.
+The Atlas is not neutral about which mathematical viewpoints are
+enlightening. It is equally unwilling to confuse its selection with a
+universal result.
 
-It includes the transformations the model performs, the geometry in
-which those transformations occur, the dynamics through which they
-accumulate, the memory they consult, the interfaces through which
-components compose, the evidence by which claims are supported, and the
-governance by which adaptation is constrained.
+The concluding chapters will revisit connections and unresolved
+boundaries rather than manufacture a theorem that all chapters were
+written to support.
 
-Whether that wager survives is the work of the chapters ahead.
-
-The Atlas begins by naming the territory.
-
-It will spend the rest of the book trying to deserve the map.
+An atlas succeeds when readers leave better equipped to recognize an
+important mathematical structure, ask a sharper question, choose the
+right formal tool, and know where an argument stops. That is the
+standard by which this book should be judged.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter}
@@ -818,17 +775,6 @@ The governing rule is simple:
 \begin{quote}
 reading order is flexible; dependency and claim boundaries are not.
 \end{quote}
-
-\section*{Start here: choose a reading route}
-
-Readers seeking a connected introduction can follow the printed order.
-For a technical target, follow its hard prerequisites backward before
-reading optional cross-links. For a conceptual question, trace the relevant
-theme across parts. For an open research question, inspect the chapter's
-claim boundary, exact sources, witnesses and failure modes. For formal or
-computational work, begin with the derivation and replay record. For visual
-learning, start with a figure and its declared literal and nonliteral meanings.
-The fuller route descriptions and a chapter-entry checklist appear below.
 
 \section{Map and territory}\label{map-and-territory}
 
@@ -1046,46 +992,526 @@ truly require.
 It gives the reader freedom to choose a route while still knowing when a
 detour is mathematically necessary.
 
-\section{A compact epistemic legend}\label{the-legend-epistemic-labels}
+\section{The legend: epistemic
+labels}\label{the-legend-epistemic-labels}
 
-The Atlas distinguishes definitions, established external results, Atlas
-derivations, bounded computational witnesses, observations, interpretations,
-public project evidence, programme context, conjectures, open problems, and
-institutional statuses. These are distinct roles, not steps on a single scale.
-A green audit, a reproducible computation, or polished typography does not
-by itself prove a theorem or upgrade the scope of a claim.
+A mathematical atlas needs a legend.
 
-An exact figure represents declared mathematics; a data-derived figure
-summarizes observations within a stated scope; a schematic figure makes a
-structural relationship legible without pretending to be measured geometry.
-The figure manifest determines what is literal and what is not.
+The Atlas legend is not primarily a color key.
 
-A source lock identifies the consumed source and what that source can actually
-support. Exact identity is not proof of adequate authority. A replay confirms
-reconstruction under stated conditions, not truth, independent replication
-or certification. For definitions, examples, promotion failures and the
-claim-support discipline, continue to the next chapter, \emph{Claims,
-Evidence, and Computational Witnesses}.
+It is an epistemic vocabulary.
 
-% Historical subsection anchors retained for links from the released text.
-\phantomsection\label{definition}
-\phantomsection\label{established-result}
-\phantomsection\label{atlas-derivation}
-\phantomsection\label{computational-witness}
-\phantomsection\label{observation-and-interpretation}
-\phantomsection\label{gcl-project-evidence-and-programme-context}
-\phantomsection\label{conjecture-and-open-problem}
-\phantomsection\label{institutional-status}
-\phantomsection\label{presentation-creates-no-epistemic-status}
-\phantomsection\label{proof-derivation-and-witness}
-\phantomsection\label{replay-is-not-truth}
-\phantomsection\label{figures-have-representation-classes}
-\phantomsection\label{exact-figures}
-\phantomsection\label{data-derived-figures}
-\phantomsection\label{schematic-figures}
-\phantomsection\label{the-source-lock}
-\phantomsection\label{documentary-provenance}
-\phantomsection\label{audits}
+Reader-facing claims may be labeled as:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Definition}
+\item
+  \textbf{Established Result}
+\item
+  \textbf{Atlas Derivation}
+\item
+  \textbf{Computational Witness}
+\item
+  \textbf{Observation}
+\item
+  \textbf{Interpretation}
+\item
+  \textbf{GCL Public Project Evidence}
+\item
+  \textbf{GCL Programme}
+\item
+  \textbf{Conjecture}
+\item
+  \textbf{Open Problem}
+\item
+  \textbf{Institutional Status}
+\end{itemize}
+
+These labels answer different questions.
+
+They must not be collapsed into ``true'' versus ``speculative.''
+
+\section{Definition}\label{definition}
+
+A \textbf{Definition} declares meaning.
+
+It may introduce:
+
+\begin{itemize}
+\tightlist
+\item
+  an object;
+\item
+  notation;
+\item
+  a relation;
+\item
+  a convention.
+\end{itemize}
+
+A definition is not an empirical observation.
+
+It is not a theorem.
+
+Its correctness is judged by coherence, usefulness, and compatibility
+with the surrounding theory.
+
+\section{Established Result}\label{established-result}
+
+An \textbf{Established Result} is externally established mathematics or
+science used within the scope of its source.
+
+The source matters.
+
+So do its assumptions.
+
+The Atlas should not cite a correct theorem and then quietly use it
+outside the conditions under which it was proved.
+
+A source lock exists partly to prevent that expansion of authority.
+
+\section{Atlas Derivation}\label{atlas-derivation}
+
+An \textbf{Atlas Derivation} is worked out within the Atlas from
+declared assumptions or previously established objects.
+
+It may be exact.
+
+It may be novel.
+
+Its status comes from the derivation itself and the premises it
+consumes.
+
+Calling it an Atlas Derivation distinguishes authorship and evidentiary
+route from externally established literature.
+
+\section{Computational Witness}\label{computational-witness}
+
+A \textbf{Computational Witness} is a reproducible symbolic, numerical,
+finite-search, or replay object supporting a bounded claim.
+
+A witness can establish much.
+
+It can show:
+
+\begin{itemize}
+\tightlist
+\item
+  an exact finite identity;
+\item
+  a counterexample;
+\item
+  a numerical regime;
+\item
+  a symbolic simplification;
+\item
+  a replayed result.
+\end{itemize}
+
+But reproducibility is not magic.
+
+The canonical rule is:
+
+\[
+\text{reproducible computation}
+\not\Rightarrow
+\text{proof by default}.
+\]
+
+Some exact computations can form part of a proof.
+
+The label still tells the reader which support route is being used.
+
+\section{Observation and
+interpretation}\label{observation-and-interpretation}
+
+An \textbf{Observation} records what was measured or seen in a declared
+setting.
+
+An \textbf{Interpretation} explains what established results,
+observations, or witnesses may mean.
+
+The separation matters.
+
+For example:
+
+\begin{itemize}
+\tightlist
+\item
+  ``the spectral norm increased by this measured amount'' can be an
+  observation;
+\item
+  ``this suggests transient amplification drove the instability'' is an
+  interpretation unless separately established.
+\end{itemize}
+
+Good scientific prose makes that boundary visible.
+
+\section{GCL project evidence and programme
+context}\label{gcl-project-evidence-and-programme-context}
+
+\textbf{GCL Public Project Evidence} means a claim is grounded in an
+exact public GCL repository object or other public artifact.
+
+That status says where the evidence came from.
+
+It does not make the object a theorem.
+
+\textbf{GCL Programme} labels a research direction, architecture
+programme, or project-local synthesis.
+
+Programme context can be technically serious without being mistaken for
+established external theory.
+
+This is how the Atlas can discuss live research without flattening
+maturity levels.
+
+\section{Conjecture and open
+problem}\label{conjecture-and-open-problem}
+
+A \textbf{Conjecture} is a substantive proposed claim without sufficient
+proof.
+
+An \textbf{Open Problem} states a question.
+
+A route toward an open problem is not evidence that the solution exists.
+
+A promising conjecture is not an established result because it fits the
+Atlas thesis well.
+
+These labels preserve room for ambition without spending rigor to buy
+it.
+
+\section{Institutional status}\label{institutional-status}
+
+\textbf{Institutional Status} records authority such as:
+
+\begin{itemize}
+\tightlist
+\item
+  approval;
+\item
+  certification state;
+\item
+  governance disposition.
+\end{itemize}
+
+Institutional authority and mathematical truth are different dimensions.
+
+A result can be mathematically correct before an institution certifies
+it.
+
+An institution can certify only within the scope of its procedure.
+
+The Atlas keeps these dimensions separate.
+
+\section{Presentation creates no epistemic
+status}\label{presentation-creates-no-epistemic-status}
+
+A clean diagram can be persuasive.
+
+A polished equation can look final.
+
+A replay log can look official.
+
+None of those visual properties creates epistemic status.
+
+The canonical rule is:
+
+\[
+\boxed{
+\text{presentation}
+\not\Rightarrow
+\text{epistemic promotion}.
+}
+\]
+
+The reader should always be able to ask:
+
+\begin{quote}
+What is the support route?
+\end{quote}
+
+\section{Proof, derivation, and
+witness}\label{proof-derivation-and-witness}
+
+The Atlas uses several support routes because no one form fits every
+claim.
+
+A proof may establish a theorem.
+
+A derivation may expose the consequences of declared assumptions.
+
+A computational witness may check an identity, exhibit a counterexample,
+or map a finite regime.
+
+An empirical observation may report measured behavior.
+
+A source may provide established external authority.
+
+These routes can cooperate.
+
+They should not impersonate one another.
+
+\section{Replay is not truth}\label{replay-is-not-truth}
+
+Replay matters greatly in this book.
+
+A replayable evidence object can preserve:
+
+\begin{itemize}
+\tightlist
+\item
+  source identity;
+\item
+  environment;
+\item
+  parameters;
+\item
+  commands;
+\item
+  outputs;
+\item
+  artifacts.
+\end{itemize}
+
+That makes scientific handoff stronger.
+
+But the epistemic protocol states a critical nonimplication:
+
+\[
+\boxed{
+\text{replay}
+\not\Rightarrow
+\text{truth, independent replication, formal verification, or certification}.
+}
+\]
+
+Replay answers:
+
+\begin{quote}
+Can we reconstruct what was done?
+\end{quote}
+
+Other processes answer:
+
+\begin{quote}
+Was the reasoning sound?
+\end{quote}
+
+\begin{quote}
+Was the result independently replicated?
+\end{quote}
+
+\begin{quote}
+Was the formal statement machine-checked?
+\end{quote}
+
+\begin{quote}
+Was it certified under a declared procedure?
+\end{quote}
+
+\section{Figures have representation
+classes}\label{figures-have-representation-classes}
+
+The Atlas Figure Register uses three principal representation classes:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{exact}
+\item
+  \textbf{data-derived}
+\item
+  \textbf{schematic}
+\end{itemize}
+
+This classification prevents a common visual error:
+
+treating every line on a technical figure as though it had the same
+evidentiary meaning.
+
+\section{Exact figures}\label{exact-figures}
+
+An exact figure renders an exact declared mathematical object or exact
+computed relation.
+
+Examples can include:
+
+\begin{itemize}
+\tightlist
+\item
+  a curve from a closed-form equation;
+\item
+  a finite exact matrix computation;
+\item
+  a declared geometric construction.
+\end{itemize}
+
+Rendering itself may use machine graphics.
+
+The underlying semantics can still be exact.
+
+The manifest tells us which parts are literal.
+
+\section{Data-derived figures}\label{data-derived-figures}
+
+A data-derived figure displays computed or measured values.
+
+Its authority depends on:
+
+\begin{itemize}
+\tightlist
+\item
+  data;
+\item
+  parameters;
+\item
+  computation;
+\item
+  precision;
+\item
+  environment;
+\item
+  scope.
+\end{itemize}
+
+A smooth plotted curve is not automatically an exact mathematical law.
+
+It may simply connect sampled values.
+
+The manifest and witness record tell us what was actually computed.
+
+\section{Schematic figures}\label{schematic-figures}
+
+A schematic figure explains structure.
+
+Its boxes, arrows, and placement can be pedagogical.
+
+They need not encode:
+
+\begin{itemize}
+\tightlist
+\item
+  metric distance;
+\item
+  probability;
+\item
+  causal strength;
+\item
+  measured effect size.
+\end{itemize}
+
+A schematic can be extremely useful.
+
+It becomes misleading only when presentation choices are mistaken for
+literal data.
+
+This is why governed manifests separate:
+
+\begin{itemize}
+\tightlist
+\item
+  literal semantics;
+\item
+  nonliteral semantics.
+\end{itemize}
+
+\section{The source lock}\label{the-source-lock}
+
+Every mature chapter should make its source boundary reconstructable.
+
+A source lock records the exact objects consumed by the chapter and the
+authority each object is allowed to carry.
+
+The operative principle is:
+
+\[
+\boxed{
+\text{citation}
+eq
+\text{unbounded authority}.
+}
+\]
+
+A paper cited for one theorem does not automatically authorize a broader
+empirical claim.
+
+A repository file cited as implementation context does not automatically
+certify an entire project.
+
+A project-internal document does not become external scientific evidence
+merely because it is version-controlled.
+
+\section{Documentary provenance}\label{documentary-provenance}
+
+The Atlas preserves documentary provenance because arguments evolve.
+
+A reader may need to know:
+
+\begin{itemize}
+\tightlist
+\item
+  which version of a source was read;
+\item
+  which blob supplied a definition;
+\item
+  which figure generator produced a render;
+\item
+  which audit repaired a defect;
+\item
+  which chapter state a later chapter consumed.
+\end{itemize}
+
+This makes revision compatible with accountability.
+
+The point is not bureaucracy.
+
+It is the ability to distinguish:
+
+\begin{quote}
+what we believe now
+\end{quote}
+
+from
+
+\begin{quote}
+what a particular claim actually depended on when it was made.
+\end{quote}
+
+\section{Audits}\label{audits}
+
+A post-draft audit asks adversarial questions about a bounded object.
+
+It may check:
+
+\begin{itemize}
+\tightlist
+\item
+  algebra;
+\item
+  assumptions;
+\item
+  source scope;
+\item
+  figure identity;
+\item
+  terminology;
+\item
+  dependency closure;
+\item
+  hidden overclaim.
+\end{itemize}
+
+An audit can repair a chapter.
+
+It can record that a chapter passed its declared checks.
+
+It does not turn every sentence into an externally certified theorem.
+
+The audit's own disposition and scope must be read.
 
 \section{Six ways through the
 Atlas}\label{six-ways-through-the-atlas}
@@ -1443,9 +1869,10 @@ It has failed when the reader can no longer tell which part is metaphor.
 \section{What changed in our
 picture?}\label{what-changed-in-our-picture}
 
-The Atlas thesis says adaptive intelligence is better understood as a
-system of geometry, operators, dynamics, memory, composition,
-coordination, diagnostics, and governed adaptation.
+The Atlas deliberately foregrounds geometry, operators, dynamics,
+memory, composition, coordination, diagnostics, and governed adaptation.
+These are valuable mathematical lenses rather than a compulsory theory
+of intelligence.
 
 This chapter adds a second-order lesson.
 
@@ -1791,7 +2218,7 @@ A matrix is not automatically an operator.
 
 It becomes an operator when the model assigns it a transformation role.
 
-\subsection{First category error: array equals
+\section{First category error: array equals
 role}\label{first-category-error-array-equals-role}
 
 Let
@@ -1828,21 +2255,25 @@ something basis-independent.
 
 \section{Flow and dynamics}\label{flow-and-dynamics}
 
-A global autonomous flow is a family of maps
-\(\Phi_t:\mathcal X\to\mathcal X\), indexed by \(t\in\mathbb R\), such that
-\(\Phi_0=\mathrm{id}_{\mathcal X}\) and
+A \textbf{global autonomous flow} is a family of maps
+
+\[
+\Phi_t:\mathcal X\to\mathcal X,
+\qquad t\in\mathbb R,
+\]
+
+with \(\Phi_0=\mathrm{id}_{\mathcal X}\) and
 
 \[
 \Phi_{t+s}=\Phi_t\circ\Phi_s
 \qquad (t,s\in\mathbb R).
 \]
 
-If only \(t,s\geq 0\) are admitted, with the same identity and
-composition law, the corresponding object is a \emph{semiflow}.
-A \emph{local flow} instead permits \(\Phi_t(x)\) only on a
-state-dependent time domain; the composition law is required only when
-both sides are defined. Existence for all real times must not be inferred
-from local existence.
+When only nonnegative \(t,s\) are available, with the corresponding
+identity and composition laws, the object is a \textbf{semiflow}. A
+\textbf{local flow} may be defined only for a state-dependent range of
+times: composition is asserted only where both sides exist. Local
+existence does not imply a global two-sided flow.
 
 If a differential equation
 
@@ -1870,7 +2301,7 @@ here is how transformations accumulate across an evolution parameter.
 This distinction becomes central when network depth is treated as
 computational time.
 
-\subsection{Second category error: one step equals
+\section{Second category error: one step equals
 dynamics}\label{second-category-error-one-step-equals-dynamics}
 
 Consider a residual update
@@ -1906,7 +2337,7 @@ application has different long-horizon behavior.
 Later chapters on numerical intelligence and non-normality make this
 distinction quantitative.
 
-\subsection{Flow-like is weaker than
+\section{Flow-like is weaker than
 flow}\label{flow-like-is-weaker-than-flow}
 
 Neural networks often invite continuous-time language.
@@ -1987,7 +2418,7 @@ boundary?
 The Boundary Contracts chapter later turns this question into a formal
 programme.
 
-\subsection{Third category error: matching shape equals
+\section{Third category error: matching shape equals
 composability}\label{third-category-error-matching-shape-equals-composability}
 
 Let
@@ -2028,7 +2459,7 @@ G(F(x))=1.
 
 The interface failed before any matrix multiplication failed.
 
-\subsection{Interfaces are not
+\section{Interfaces are not
 interiors}\label{interfaces-are-not-interiors}
 
 A contract can describe:
@@ -2109,7 +2540,7 @@ We can distinguish:
   the transformation applied to another part of the state.
 \end{itemize}
 
-\subsection{Operator-valued state}\label{operator-valued-state}
+\section{Operator-valued state}\label{operator-valued-state}
 
 Sometimes a state contains an object that later acts as an operator.
 
@@ -2134,7 +2565,7 @@ The rule is:
 state the role being used in the present argument.
 \end{quote}
 
-\subsection{Evidence is another object
+\section{Evidence is another object
 class}\label{evidence-is-another-object-class}
 
 Later in the Atlas, evidence records become explicit.
@@ -2187,7 +2618,7 @@ Scientific method distinguishes claims from their evidence paths.
 Without a small amount of object discipline, these chapters would reuse
 the same words for incompatible roles.
 
-\subsection{The four questions}\label{the-four-questions}
+\section{The four questions}\label{the-four-questions}
 
 When encountering a new object, ask four questions.
 
@@ -2249,7 +2680,7 @@ The important point is already in place:
 
 Linear algebra will now make that distinction precise.
 
-\subsection{Handoff to information}\label{handoff-to-information}
+\section{Handoff to information}\label{handoff-to-information}
 
 Probability introduces another kind of state.
 
@@ -2389,12 +2820,12 @@ silently strengthening the claim.
 We write
 
 \[
-S \mathrel{\rightsquigarrow}_{\Omega,\tau} q.
+S \mathrel{\rightsquigarrow}_{\Omega,\tau}q.
 \]
 
-This records a scoped evidentiary support judgment, not a logical entailment.
-The support relation must be assessed against the particular claim and scope.
-
+This means that \(S\) supports \(q\) within the declared scope
+\(\Omega\) and epistemic class \(\tau\). This is a scoped evidentiary
+judgment, not a logical entailment.
 
 The arrow is intentionally not a symbol for logical entailment.
 
@@ -81838,7 +82269,8 @@ Exact provenance and claim boundaries are locked in:
 
 `sources/source-locks/ATLAS-CH-FRONTIER-001.yaml`
 
-\chapter{Beyond the Monolithic Model}\label{beyond-the-monolithic-model}
+\chapter{Connections, Boundaries, and Open
+Terrain}\label{beyond-the-monolithic-model}
 
 \textbf{Epistemic status:} audited Frontier and Computational Polity
 prerequisites + Atlas-owned exact systems-composition witness.\\
@@ -81850,26 +82282,28 @@ mathematics/derivations/ATLAS-CH-SYNTHESIS-001-DERIVATIONS.md\\
 mathematics/computational-witnesses/ATLAS-CW-SYNTHESIS-001.md\\
 \textbf{Source lock:} sources/source-locks/ATLAS-CH-SYNTHESIS-001.yaml
 
-The Atlas does not end by declaring one universal model architecture.
+The Atlas does not close by declaring that one mathematical viewpoint
+has conquered all the others.
 
-It ends by making the system boundary explicit.
+Its purpose is to return to the landscape and ask what different tools
+have illuminated, which connections are exact, which are analogies, and
+which questions remain open. Operator theory, geometry, numerical
+analysis, memory, coordination and scientific evidence are not all
+instances of a single theorem about intelligence.
 
-A deployed capability can depend on representation, dynamics, memory,
-tools, coordination, evidence, adaptation, and governance at once. When
-those interfaces are part of the mechanism, they belong inside the
-explanatory object.
+A systems-level view is especially useful when the task depends on
+tools, shared state, validation or authority. A model-level view may be
+better suited to a question about a single transformation. These are
+choices of explanatory boundary.
 
-The governing rule is:
+The finite routing and governance example later in this chapter
+illustrates a few such boundaries. It does not justify an architecture
+ranking or a universal account of intelligence.
 
-\[
-\boxed{
-\text{system capability is a property of declared composition, not component count alone.}
-}
-\]
+\section{One possible systems map}\label{a-typed-synthesis-object}
 
-\section{A typed synthesis object}\label{a-typed-synthesis-object}
-
-Write
+For a deployed, composite-system question, we may use the descriptive
+signature
 
 \[
 \Sigma=(X,D,M,T,C,E,A,G,Q,K).
@@ -81901,8 +82335,17 @@ Here:
   \(K\) is the heterogeneous cost vector.
 \end{itemize}
 
-These are typed objects. They need not share a vector space, timescale,
-optimizer, or authority model.
+These names identify different roles, which need not share a vector
+space, timescale, optimizer or authority model. The tuple by itself does
+not specify domains, transition maps, invariants or contracts; it is a
+\textbf{legend for a possible formal model}, not a complete formal
+system or a universal ontology.
+
+The opening chapter offered a different seven-role legend: states,
+operators, dynamics, memory, interfaces, evidence and governance. The
+present example makes tools, coordination, adaptation, task contracts
+and costs explicit. Operators and interfaces can occur within or between
+these roles. The maps overlap; neither is required to derive the other.
 
 \section{Frontier status survives
 synthesis}\label{frontier-status-survives-synthesis}
@@ -81947,7 +82390,8 @@ Stored state is not truth.
 
 Component count is not composition quality.
 
-\section{Exact finite composition}\label{exact-finite-composition}
+\section{One deliberately small composition
+example}\label{exact-finite-composition}
 
 Let
 
@@ -82117,6 +82561,11 @@ Thus
 
 \section{Governance ablation}\label{governance-ablation}
 
+The following candidate represents \textbf{adversarial injection}, not
+ordinary output from the deterministic specialist defined above (which
+has \(A_\alpha(\beta)=0\)). This distinction must be included in any
+interpretation of the test:
+
 Consider
 
 \[
@@ -82129,7 +82578,10 @@ The validator rejects it.
 
 With governance enforced, the rejected candidate cannot commit.
 
-If the commit gate is bypassed, it can be written.
+If a commit gate is bypassed and a forged candidate enters through an
+external injection surface, it can be written. This example demonstrates
+an integrity boundary under its declared threat model; it is not a trace
+of ordinary routing.
 
 Therefore
 
@@ -82434,22 +82886,43 @@ or
 Such comparisons require declared tasks, metrics, costs, and failure
 models.
 
-\section{The durable synthesis}\label{the-durable-synthesis}
+\section{Three routes worth carrying
+forward}\label{the-durable-synthesis}
 
-The strongest justified statement is a scoped synthesis, not a universal
-theorem:
+\textbf{Operators and finite-time behavior.} In \textbf{Normality,
+Pseudospectra, and Transient Growth} (ATLAS-CH-NONNORMAL-001), a matrix
+can have spectral radius less than one while a finite power has norm
+greater than one. The eigenvalue description is not false; it answers a
+different question from transient amplification. This is an exact
+mathematical reason to change maps.
 
-\textbf{Adaptive intelligence can be analyzed as a typed system of
-representations, dynamics, memory, tools, coordination, evidence,
-adaptation, and governance.}
+\textbf{Continuous dynamics and computation.} In \textbf{Discretization,
+Stability, and Splitting} (ATLAS-CH-NUMERICS-001), the continuous scalar
+equation \(\dot x=\lambda x\) and explicit Euler iteration
+\(x_{n+1}=(1+h\lambda)x_n\) have different stability conditions.
+Continuous decay when \(\operatorname{Re}\lambda<0\) does not by itself
+ensure the discrete condition \(|1+h\lambda|\leq1\). Numerical analysis
+explains what a computational implementation must still earn. This does
+not mean every network is literally a differential equation.
 
-When those interfaces are part of the mechanism, they belong inside the
-explanatory boundary.
+\textbf{Composition and durable state.} In the finite routing example
+above, correct answers, positive validation, authorized writes and later
+recall are distinct properties. The example gives a small laboratory for
+those distinctions; its deterministic specialists, idealized validation
+and artificial injection surface are important limits. A realistic
+evaluation also requires task and cost comparisons. It proves no
+universal advantage for multi-agent systems.
 
-The final lesson is therefore not ``beyond models.''
+Other mathematical routes in the Atlas, including geometry, information
+and optimization, stand on their own merits. Their connections need not
+force a common ontology. The book's exact results are the particular
+source-bounded theorems and derivations of its chapters, not a new
+theorem manufactured by collecting them.
 
-It is beyond pretending that every consequential system property must
-live inside one undifferentiated model boundary.
+The Atlas is opinionated about useful maps. It remains open about what
+lies beyond them. The aim is to help the reader recognize structure and
+move between viewpoints without mistaking an attractive picture for an
+established fact.
 
 \section{References used in this
 chapter}\label{references-used-in-this-chapter-79}
