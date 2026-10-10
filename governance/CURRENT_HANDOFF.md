@@ -1,5 +1,11 @@
 # CURRENT HANDOFF — Adaptive Intelligence Atlas
 
+## 2026-10-10 — ACCEPTANCE LEDGER IS THE PRIMARY EDITORIAL FRONTIER
+
+[Issue #405](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/405) establishes the priority tranche: reconcile 16 returned reviews and correction PRs, seed/read back one row per canonical chapter, complete production plus independent critic-role acceptance across all 80, and run bounded mathematical/print/figure/accessibility repairs concurrently. This is **work activation and instruction**, not evidence that chapter acceptance or external worker pickup has occurred. Exact observed mutable candidate #320 head remains `07ea97f688bd8eab54f4d395aa2f6b1f1fa2c6ef` until a new head is verified. Chapter acceptance is **not certified**; no amended public v0.1.0 or v0.1.1 release authority. Read ACTIVE_TRANSACTION.yaml first. Never infer agent lease/queue activation from creation of issue #405.
+
+---
+
 ## ALL FOUR NATIVE WOLFRAM FIGURES CREATED AND ADMITTED — 2026-10-09
 
 The figure correction assignment in [issue #402](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/402) is **COMPLETED** for native asset creation, source provenance, PDF placement/resolution, and draft admission. Workbench PR #320 current exact head is `07ea97f688bd8eab54f4d395aa2f6b1f1fa2c6ef`. Protected main/public Atlas v0.1.0 is untouched.
