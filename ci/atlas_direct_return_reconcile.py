@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "ci"))
 from atlas_direct_return_projector import REPO, evaluate  # noqa: E402
 
 
-def reconcile(issue: dict, fields: list[dict], comments: list[dict]) -> dict:
+def reconcile(issue: dict, fields: list[dict], comments: list[dict], *, grant_history=None, require_grant=False) -> dict:
     if issue.get("state") != "open":
         return {"project": False, "reason": "not_open_issue"}
 
@@ -36,7 +36,7 @@ def reconcile(issue: dict, fields: list[dict], comments: list[dict]) -> dict:
                 "issue": issue,
                 "comment": comment,
             },
-            fields,
+            fields, grant_history=grant_history, require_grant=require_grant,
         )
         if result.get("project") is True:
             return {
@@ -62,12 +62,15 @@ def main() -> int:
     parser.add_argument("--issue-fields", type=Path, required=True)
     parser.add_argument("--comments", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--grant-history", type=Path, required=True)
     args = parser.parse_args()
 
     result = reconcile(
         json.loads(args.issue.read_text(encoding="utf-8")),
         json.loads(args.issue_fields.read_text(encoding="utf-8")),
         json.loads(args.comments.read_text(encoding="utf-8")),
+        grant_history=json.loads(args.grant_history.read_text(encoding="utf-8")),
+        require_grant=True,
     )
     args.output.write_text(json.dumps(result, sort_keys=True) + "\n", encoding="utf-8")
     return 0
