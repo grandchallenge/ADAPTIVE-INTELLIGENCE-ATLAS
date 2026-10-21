@@ -1,64 +1,77 @@
-"""Fail-closed chapter acceptance and role provenance (candidate-only)."""
+"""Exact-source, role-separated chapter acceptance ledger; no public certification."""
 import hashlib,json,subprocess,unittest
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 D=json.loads((R/'governance/editorial/v0.1.1/CHAPTER_ACCEPTANCE_EVIDENCE_080.json').read_text())
 P=json.loads((R/'governance/editorial/v0.1.1/P01_PRODUCER_001.json').read_text())
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def git(*args):return subprocess.check_output(['git',*args],cwd=R,text=True).strip()
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 class EditorialAcceptance(unittest.TestCase):
-    def test_exactly_80_and_two_accepted(self):
+    def test_exactly_80_three_accepted(self):
         self.assertEqual(len(D['chapters']),80)
         self.assertEqual(len({r['chapter_id'] for r in D['chapters']}),80)
-        self.assertEqual(sum(r['state']=='ACCEPTED' for r in D['chapters']),D['accepted_count'])
-        self.assertEqual(D['accepted_count'],2)
-        self.assertEqual([x['chapter_id'] for x in D['chapters'] if x['state']=='ACCEPTED'],['ATLAS-CH-MAP-001','ATLAS-CH-EVIDENCE-001'])
-    def test_source_hashes_exact(self):
+        accepted=[r['chapter_id'] for r in D['chapters'] if r['state']=='ACCEPTED']
+        self.assertEqual(accepted,['ATLAS-CH-THESIS-001','ATLAS-CH-MAP-001','ATLAS-CH-EVIDENCE-001'])
+        self.assertEqual(D['accepted_count'],len(accepted))
+    def test_all_80_source_blobs(self):
         for row in D['chapters']:
             with self.subTest(chapter=row['chapter_id']):
                 self.assertEqual(git('hash-object',row['source_path']),row['source_blob_sha1'])
-    def test_accepted_source_producer_critic_renderer(self):
-        accepted=[r for r in D['chapters'] if r['state']=='ACCEPTED']
-        self.assertEqual(len(accepted),2)
-        for r in accepted:
-            p=next(x for x in P['rows'] if x['chapter_id']==r['chapter_id'])
-            a=r['accepted_evidence']
-            with self.subTest(chapter=r['chapter_id']):
-                self.assertEqual(a['head'],D['candidate_head'])
+    def test_legacy_map_evidence_receipts_not_rewritten(self):
+        for tag in ('MAP','EVIDENCE'):
+            cid=f'ATLAS-CH-{tag}-001'
+            row=next(r for r in D['chapters'] if r['chapter_id']==cid)
+            p=next(x for x in P['rows'] if x['chapter_id']==cid)
+            a=row['accepted_evidence']; q=row['current_render_revalidation']
+            with self.subTest(chapter=cid):
+                self.assertEqual(row['state'],'ACCEPTED')
                 self.assertEqual(a['source_blob_sha1'],p['source_blob_sha1'])
-                self.assertNotEqual(a['producer_run'],a['critic_run'])
+                self.assertEqual(a['head'],D['legacy_candidate_head'])
                 self.assertEqual(a['pdf_sha256'],P['pdf_sha256'])
                 self.assertEqual(a['html_sha256'],P['html_sha256'])
-                self.assertEqual(a['pdf_pages'],p['pdf_pages'])
-                self.assertTrue(a['producer_url'].startswith('https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/'))
-                self.assertTrue(a['critic_url'].startswith('https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/'))
+                self.assertNotEqual(a['producer_run'],a['critic_run'])
+                self.assertEqual(q['head'],D['candidate_head'])
+                self.assertEqual(q['pdf_sha256'],D['current_render']['pdf_sha256'])
+                self.assertEqual(q['html_sha256'],D['current_render']['html_sha256'])
+                self.assertEqual(q['critic_run'],D['current_render']['revalidation_critic_run'])
+                self.assertIn('issues/421#issuecomment-',q['critic_url'])
+                self.assertTrue(q['source_blob_unchanged'])
                 self.assertFalse(a['mathematical_certification'])
-                self.assertFalse(a['public_release_authorization'])
-                self.assertFalse(p['findings'])
-                if r['chapter_id']=='ATLAS-CH-EVIDENCE-001':
-                    self.assertEqual(a['producer_run'],p['producer_run_id'])
-                    self.assertIn('issues/414#issuecomment-',a['critic_url'])
-                else:
-                    self.assertEqual(a['chapter_producer_run'],p['producer_run_id'])
-                    self.assertIn('issues/418#issuecomment-',a['critic_url'])
-                    doc=R/r['documentary_packet_path']
-                    self.assertEqual(git('hash-object',str(doc)),a['documentary_blob_sha1'])
-                    self.assertEqual(sha(doc),a['documentary_sha256'])
-                    self.assertEqual(a['documentary_blob_sha1'],'f7ea7a6912465ab2160e6f84645913e7eef2df2a')
-                    self.assertNotEqual(a['producer_run'],a['chapter_producer_run'])
-    def test_map_critic_signoff_is_not_old_revise(self):
-        r=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-MAP-001')
-        a=r['accepted_evidence']
-        self.assertEqual(a['prior_critic_revise_run'],'a0414e5cf0f04b2fb2c3d0e91a814e76')
-        self.assertEqual(a['critic_run'],'a0418e5cf0f04b2fb2c3d0e91a814e78')
-        self.assertEqual(r['resolved_findings'][0]['disposition'],'RESOLVED')
-    def test_no_source_change_since_real_render(self):
-        for folder,reviewed_tree in D['reviewed_source_tree_ids'].items():
-            with self.subTest(source_tree=folder):
-                self.assertEqual(git('rev-parse','HEAD:'+folder),reviewed_tree)
+                if tag=='MAP':
+                    self.assertEqual(git('hash-object',row['documentary_packet_path']),a['documentary_blob_sha1'])
+                    self.assertEqual(sha(R/row['documentary_packet_path']),a['documentary_sha256'])
+    def test_thesis_actual_producer_critic_acceptance(self):
+        row=next(r for r in D['chapters'] if r['chapter_id']=='ATLAS-CH-THESIS-001')
+        a=row['accepted_evidence']
+        self.assertEqual(a['head'],D['candidate_head'])
+        self.assertEqual(a['source_blob_sha1'],row['source_blob_sha1'])
+        self.assertEqual(a['source_blob_sha1'],'7c8fed7b3146ab906482486393cc7382a0b8aee3')
+        self.assertNotEqual(a['producer_run'],a['critic_run'])
+        self.assertEqual(a['producer_run'],row['producer_run_id'])
+        self.assertIn('issues/420#issuecomment-',a['producer_url'])
+        self.assertIn('issues/421#issuecomment-',a['critic_url'])
+        self.assertEqual(a['pdf_sha256'],D['current_render']['pdf_sha256'])
+        self.assertEqual(a['html_sha256'],D['current_render']['html_sha256'])
+        self.assertEqual(a['pdf_pages'],[69,76])
+        self.assertEqual(a['source_locks_checked'],4)
+        self.assertEqual(a['documentary_blob_sha1'],git('hash-object','mathematics/derivations/ATLAS-CH-THESIS-001-DERIVATIONS.md'))
+        self.assertEqual({e['status'] for e in row['resolved_findings']},{'RESOLVED'})
+        self.assertEqual({e['id'] for e in row['resolved_findings']},{'ER-P1-01','ER-P1-02'})
+        self.assertFalse(a['mathematical_certification'])
+        self.assertFalse(a['public_release_authorization'])
+    def test_exact_current_source_trees_shallow_ci(self):
+        for name,tree in D['reviewed_source_tree_ids'].items():
+            with self.subTest(name=name):
+                self.assertEqual(git('rev-parse','HEAD:'+name),tree)
+        self.assertNotEqual(D['original_reviewed_source_tree_ids']['manuscript'],
+                            D['reviewed_source_tree_ids']['manuscript'])
+        self.assertEqual(D['original_reviewed_source_tree_ids']['sources'],
+                         D['reviewed_source_tree_ids']['sources'])
+        self.assertEqual(D['original_reviewed_source_tree_ids']['figures'],
+                         D['reviewed_source_tree_ids']['figures'])
     def test_repair_required_not_inflated(self):
-        for tag in ('THESIS','OBJECTS'):
-            x=next(r for r in D['chapters'] if r['chapter_id']==f'ATLAS-CH-{tag}-001')
-            self.assertEqual(x['state'],'UNVERIFIED')
-            self.assertTrue(x['unresolved'])
+        objects=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-OBJECTS-001')
+        self.assertEqual(objects['state'],'UNVERIFIED')
+        self.assertIn('fragmentation',objects['unresolved'])
+        self.assertEqual(len([x for x in D['chapters'] if x['state']=='UNVERIFIED']),77)
 if __name__=='__main__':unittest.main()
