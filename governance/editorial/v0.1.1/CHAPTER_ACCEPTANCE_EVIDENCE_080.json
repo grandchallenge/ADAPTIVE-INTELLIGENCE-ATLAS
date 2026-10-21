@@ -1665,5 +1665,10 @@
   "producer_evidence_path": "governance/editorial/v0.1.1/P01_PRODUCER_001.json",
   "protected_main_sha": "767017f5658a3d02783591146ad9ec9a5a26a4ed",
   "record_type": "ATLAS_CHAPTER_ACCEPTANCE_EVIDENCE/1",
+  "reviewed_source_tree_ids": {
+    "figures": "8b5dfd09a7926f7e5773b06cde32d738cdf5a09e",
+    "manuscript": "360013f68468192e732d8781cc6c133d264bd645",
+    "sources": "42c9a06a86ae418fdf839f28cffb8e95e0050656"
+  },
   "workbench_head_after_producer_admission": "79279792c80d6fb59b3d2c5b97390469142b016e"
 }

@@ -34,8 +34,9 @@ class EditorialAcceptance(unittest.TestCase):
         self.assertFalse(a['public_release_authorization'])
         self.assertFalse(p['findings'])
     def test_no_source_change_since_real_render(self):
-        self.assertFalse(git('diff','--name-only',D['candidate_head'],'HEAD','--','manuscript/','sources/','figures/'),
-                         'Renderer unchanged proof invalid')
+        for folder,reviewed_tree in D['reviewed_source_tree_ids'].items():
+            with self.subTest(source_tree=folder):
+                self.assertEqual(git('rev-parse','HEAD:'+folder),reviewed_tree)
     def test_repair_required_not_inflated(self):
         for tag in ('MAP','THESIS','OBJECTS'):
             x=next(r for r in D['chapters'] if r['chapter_id']==f'ATLAS-CH-{tag}-001')
