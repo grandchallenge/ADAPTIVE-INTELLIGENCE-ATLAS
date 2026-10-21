@@ -59,117 +59,26 @@ The territory can change when new algorithms, new evidence, or new forms of comp
 
 The map therefore has to be versioned.
 
-## 3. The recurring shifts
+## 3. Questions that justify a change of viewpoint {#the-recurring-shifts}
 
-These changes of viewpoint guide the book's editorial selection. They are routes to mathematical questions, not new discoveries or mandatory steps in a unified proof.
+A mathematical viewpoint earns its place by resolving a question, not by belonging to an approved catalogue. The following routes are selective: each leads from a familiar description to an object a later chapter can examine more precisely.
 
-### 3.1 Vectors to operators
+[]{#vectors-to-operators}[]{#layers-to-flows}[]{#parameters-to-geometry}[]{#routing-to-decision-making}[]{#context-to-compiled-memory-access}[]{#agents-to-distributed-systems}[]{#training-to-dynamical-identification}[]{#interpretability-to-intervention}[]{#architecture-to-composition-of-contracts}[]{#result-to-evidence-object}
 
-A vector tells us where we are in a representation space.
+| Change of viewpoint | Question it makes precise | Chapter to consult |
+|---|---|---|
+| Vectors to operators | What transforms a representation, beyond the values it stores? | ATLAS-CH-LINALG-001 |
+| Layers to flows | When does network depth approximate evolution, and when does that analogy fail? | ATLAS-CH-DYN-001 |
+| Parameters to geometry | Which updates preserve constraints or respect equivalences? | ATLAS-CH-GEOM-001 |
+| Routing to decisions | How should limited computation be allocated under uncertainty? | ATLAS-CH-REGRETROUTE-001 |
+| Context to compiled memory | What is retrieved or assembled beyond model weights? | ATLAS-CH-CONTEXTCOMP-001 |
+| Agents to distributed systems | Which assumptions survive communication and shared state? | ATLAS-CH-COORD-001 |
+| Training to dynamical identification | What changes when optimizer state is part of the dynamics? | ATLAS-CH-OPTDYN-001 |
+| Interpretation to intervention | Can a proposed internal mechanism withstand substitution? | ATLAS-CH-MECHDIAG-001 |
+| Architecture to contracts | What must two components agree on besides tensor shape? | ATLAS-CH-BCONTRACT-001 |
+| Results to evidence objects | What does a recorded result actually license another chapter to claim? | ATLAS-CH-EVIDENCE-001 |
 
-An operator tells us how states are transformed.
-
-Many modern mechanisms become clearer when the transformation is treated as the central object rather than the stored vector alone.
-
-Attention is one example.
-
-Relative position may also be better understood as an operator acting on representation space rather than as an appended coordinate.
-
-### 3.2 Layers to flows
-
-A stack of layers is a discrete sequence.
-
-The same stack can sometimes be interpreted as an approximation to an evolution law.
-
-That viewpoint introduces questions of:
-
-- stability;
-- step size;
-- reversibility;
-- stiffness;
-- splitting;
-- error control.
-
-Depth can then be studied partly as computational time.
-
-This does not mean every network is literally a discretized differential equation.
-
-It means numerical dynamics can reveal structure that layer counting alone hides.
-
-### 3.3 Parameters to geometry
-
-Parameter values live in spaces with constraints, symmetries, scales, and equivalences.
-
-If a state or parameter is constrained to a sphere, Stiefel manifold, simplex, quotient space, or other structured domain, the geometry changes what constitutes a legal or meaningful update.
-
-The Geometry keystone develops this point formally.
-
-### 3.4 Routing to decision making
-
-A router does more than compute a score.
-
-It allocates scarce computation under uncertainty and capacity constraints.
-
-That opens the door to online decision theory, regret, optionality, and coordination costs.
-
-### 3.5 Context to compiled memory access
-
-A context window is one memory surface.
-
-It is not the only one.
-
-An adaptive system can combine:
-
-- parametric memory;
-- external retrieval;
-- associative stores;
-- symbolic records;
-- shared institutional memory;
-- compiled context.
-
-The Atlas therefore treats memory as infrastructure as well as model anatomy.
-
-### 3.6 Agents to distributed systems
-
-Once multiple models, tools, memories, humans, and validators interact, the relevant object is no longer a lone agent.
-
-It is a coordinated system.
-
-Questions of concurrency, communication, provenance, shared state, failure isolation, and authority become mathematically and operationally relevant.
-
-### 3.7 Training to dynamical identification
-
-An optimizer has state.
-
-A model has state.
-
-The data stream and scheduler can have state.
-
-The combined training process can therefore be studied as a dynamical system rather than only as repeated minimization of a scalar loss.
-
-### 3.8 Interpretability to intervention
-
-Description is weaker than controlled substitution.
-
-If a proposed internal object is said to matter, the stronger question is whether changing, replacing, suppressing, or preserving it changes behavior in the predicted way.
-
-The Atlas therefore treats intervention and substitution as important diagnostic standards.
-
-### 3.9 Architecture to composition of contracts
-
-A system can fail even when every tensor shape matches.
-
-Composition requires assumptions about meaning, geometry, perturbations, and numerical behavior.
-
-The Boundary Contracts keystone develops this as an interface problem.
-
-### 3.10 Result to evidence object
-
-A research conclusion is not only a sentence.
-
-It is supported by sources, methods, environments, artifacts, observations, interpretations, and review state.
-
-The Replayable Evidence Objects keystone turns that support path into an explicit object.
+These routes do not all have the same mathematical status. A residual stack can suggest a discretized differential equation without constituting an exact autonomous flow; a measured diagnostic can motivate an intervention without identifying a causal mechanism. A context window is one memory surface, not a proof that every system needs an external store. The chapters named above carry the definitions, hypotheses, calculations, and contrary cases; this table only directs the reader to them.
 
 ## 4. A provisional system decomposition
 
@@ -275,45 +184,27 @@ For each preferred lens, ask: What question does it answer? What small example r
 
 Not every neural network is a discretized differential equation. Not every question about intelligent computation needs governance or persistent memory. Not every geometric analogy supports a theorem. The Atlas should show these limitations as openly as its successful connections.
 
-## 7. Description versus programme
+## 7. Descriptions, proposals, and the evidence that separates them {#description-versus-programme}
 
-Some claims in the Atlas are descriptive.
+A description is accountable to a specific mathematical or observed object. Momentum adds optimizer state; a source hash identifies exact bytes; a Jacobian characterizes local first-order sensitivity where the derivative exists. Each statement still has hypotheses and a restricted scope.
 
-For example:
+A proposal asks whether a choice is useful, not merely whether it is already present. Treating adaptive depth as numerical error control, giving boundary contracts architectural status, or maintaining governed shared memory are programme directions. They become mathematical or empirical conclusions only through a specific definition, analysis, controlled comparison, or witness.
 
-- attention uses state-dependent mixing operators;
-- momentum introduces optimizer state;
-- a source hash identifies bytes;
-- a Jacobian describes local differential sensitivity.
-
-Other claims are programme-level.
-
-For example:
-
-- intelligent systems should externalize more world knowledge into governed shared memory;
-- adaptive depth should be treated as numerical error control;
-- boundary contracts should become first-class architectural objects;
-- research systems should preserve replayable evidence objects.
-
-The second class is not smuggled into the first.
-
-A research programme can be useful before it becomes established theory.
-
-It must still be labeled correctly.
+The distinction has an immediate test: **could the preferred lens fail the question for which we chose it?** An operator norm can answer a finite-step amplification question even when eigenvalues alone cannot; it need not be the best description for asymptotic spectral classification. A continuous-time analogy loses authority when its flow hypotheses fail. An exact log proves that an action occurred; it does not by itself validate the asserted theorem or causal explanation.
 
 ## 8. Dependencies and connections are different maps {#the-dependency-graph-is-part-of-the-argument}
 
-The hard dependency graph records exactly which definitions and results later chapters may assume. Soft cross-links reveal possible routes through the terrain. Neither graph is a proof that the whole subject reduces to one sequence.
+A **hard dependency** records a definition or result that a later chapter may actually assume, together with the conditions under which it holds. A **soft connection** offers another way of reading the terrain, without importing proof authority. Chapter order is neither kind of mathematical license. The MAP and EVIDENCE chapters explain how a reader can distinguish these three relations.
 
-The keystone chapters were written early to test a durable mathematical composition method. The remaining chapters extend the coverage. That production history does not itself validate an overall theory of adaptive intelligence.
+For example, the definition of an induced operator norm is a prerequisite for the matrix-amplification calculation. Connecting that calculation to optimizer instability may suggest a useful experiment; it does not establish that a real optimizer has the same mechanism. Good navigation makes both the formal prerequisite and the missing empirical bridge visible.
 
-## 9. What the chapters should give the reader {#what-later-chapters-must-earn}
+## 9. How the Atlas's choices can fail {#what-later-chapters-must-earn}
 
-A mature chapter should make a worthwhile mathematical object intelligible. It should motivate its definitions, develop the needed mathematics, supply an example or figure when useful, and state clearly what has been established.
+A lens is useful when it identifies the right mathematical object, gives a testable consequence, or makes a previously hidden assumption visible. It is less useful when it merely renames a process, hides a relevant scale, or loses a counterexample. Later chapters must say which situation obtains; they are **not** obliged to validate a universal Adaptive-System Thesis.
 
-Geometry should explain how constraints change admissible motion. Operator theory should distinguish asymptotic eigenvalue claims from finite-horizon behavior. Numerical analysis should reveal when a time-stepping algorithm fails to respect a continuous law. Memory and coordination chapters should expose what they add to a particular system-level task. Scientific-method chapters should make the support for claims inspectable.
+Three common failures matter. A layer sequence may not obey the composition law of one autonomous flow. Two equal-shaped tensors may have incompatible semantic or geometric contracts. A reproducible computation may support a finite claim but not the stronger universal statement suggested by its presentation. The appropriate response is to state the failed hypothesis or insufficient support, not to insist on the original analogy.
 
-None is required to establish a single Adaptive-System Thesis. Incomplete GCL investigations can be included as expressly unfinished terrain rather than evidence forced into a conclusion.
+The seven-role system decomposition is provisional. If another boundary, set of variables, or abstraction explains a problem with fewer hidden assumptions, the reader should prefer it. Incomplete research may appear as explicitly open terrain; its inclusion is not evidence that the proposed explanation has been confirmed.
 
 ## 10. The map ahead
 
