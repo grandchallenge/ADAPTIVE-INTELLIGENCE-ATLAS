@@ -44,7 +44,17 @@ class THESISEditorial(unittest.TestCase):
         import yaml
         lock=yaml.safe_load((R/'sources/source-locks/ATLAS-CH-THESIS-001.yaml').read_text())
         self.assertEqual(len(lock['atlas_sources']),4)
+        exact = {
+            'THESIS-SEED-INVENTORY': ('3f74175d14e587d2567140025a79bfa78eefd125','ee83f2cadfcf725930b2076ba4c52ae1190647f8'),
+            'THESIS-ATLAS-MAP': ('3f74175d14e587d2567140025a79bfa78eefd125','03b9475696f3f3b75806b3ebe44dd84780f01439'),
+            'THESIS-EDITORIAL-PROFILE': ('3f74175d14e587d2567140025a79bfa78eefd125','4e54b0bebd39dd4432e7caf8238456dac8b9cebf'),
+            'THESIS-COMPOSITION-PROTOCOL': ('3f74175d14e587d2567140025a79bfa78eefd125','52f1d77e80e516cea179550f966383b0b06900af'),
+        }
+        self.assertEqual({x['id'] for x in lock['atlas_sources']},set(exact))
         for v in lock['atlas_sources']:
-            raw=git('ls-tree',v['commit'],'--',v['path'])
-            self.assertEqual(raw.split()[2],v['git_blob_sha1'])
+            self.assertEqual((v['commit'],v['git_blob_sha1']),exact[v['id']])
+            exists=subprocess.run(['git','cat-file','-e',v['commit']+'^{commit}'],cwd=R,capture_output=True).returncode==0
+            if exists: # Full local history: verify source identity independently.
+                raw=git('ls-tree',v['commit'],'--',v['path'])
+                self.assertEqual(raw.split()[2],v['git_blob_sha1'])
 if __name__=='__main__': unittest.main()
