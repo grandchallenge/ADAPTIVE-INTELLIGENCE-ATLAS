@@ -9,7 +9,7 @@ Immutable public v0.1.0, its manifest and tag remain untouched.
 
 - Parent editorial PR #320 base: 07ea97f688bd8eab54f4d395aa2f6b1f1fa2c6ef.
 - Original P02-A PR #349 is an actual ancestor of that head.
-- **New producer correction:** 48 standalone mathematical expressions and seven inline spans
+- **New producer correction:** 48 standalone mathematical expressions and eight inline spans
   in ATLAS-CH-KRYLOV-001.md; the corresponding full-book RC2 TeX regenerated
   from canonical Markdown. No chapter identity, theorem scope, input matrices,
   proof, algorithms, reference citekeys, or original figure source was altered.
@@ -19,7 +19,7 @@ Immutable public v0.1.0, its manifest and tag remain untouched.
   systems. Previously these printed in unformatted ASCII as
   'A V_m = V_(m+1) Hbar_m.' and similar.
 - Final RC2 TeX SHA-256:
-  af4570a476c74694cf2bb54736c70938bfc874826be2a8b927e334a251d85429.
+  ba69c91022ff8ab8a92a9c0daa4cd1e2046d7ec62f521b4020e9cb6fb15505cd.
 
 ## Exact rendered book; producer evidence
 
@@ -31,9 +31,9 @@ d0436f2a183211918f6b575a2c00913880cb0ab3d9278f19e37d8c76054b0772.
 No global TeX installation or repo vendoring was performed.
 
 - PDF: 1,426 physical pages; SHA-256
-  b5d1b627fd5f7c3d1701586cc55bb80807596ebba8a61f050a29b2cdee0441e3.
+  edf7d49e3698d294db77c4b4e8b43b13b4d64c550f38226f4884cbf661555420.
 - Embedded standalone MathJax HTML SHA-256
-  99003afa2d9c63e75db973194460f358d0a67e391be21f0b837f7504b47d98d9.
+  3f4c6ce90f9db056c8b92cf5b81f5ac1f04395cadefa75bff802901efa9eef3a.
 - HTML: 5,908 IDs, all unique; 18 figure embeddings; all 18 source-semantic
   descriptions verified by content digest and figure identity.
 - RC2 recomposition: 80 chapter boundaries, 2,971 original LaTeX labels
@@ -67,3 +67,7 @@ source head invalidates critic approval; a new exact-head replay is required.
 Original issue #326 stays historically returned; do not reopen as a new job.
 The companion reconciliation JSON maps all twenty historical review packets
 and source-correction PR merges to their seventy-six assigned chapters.
+
+## Critic-driven correction
+
+The separate-role CRITIC pass on original head 17aa3e8 found one additional raw Hbar_m on physical PDF page 139 (chapter section 5). See #409. Canonical Markdown now uses inline barred-H math; source and TeX regression reject raw Hbar_m. Updated three-pass PDF and HTML digests belong to corrected source. A new role pass must adjudicate changed head; no certification implied.

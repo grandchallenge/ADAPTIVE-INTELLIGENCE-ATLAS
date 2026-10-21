@@ -30,6 +30,7 @@ class KrylovMathContract(unittest.TestCase):
         self.assertIn(r'\overline H_m',tex)
         self.assertIn(r'\begin{bmatrix}',tex)
         self.assertNotIn('Hbar_m',tex)
+        self.assertNotIn('Hbar_m',SOURCE.read_text())
         self.assertEqual(tex.count(r'\includegraphics'),18)
         self.assertEqual(tex.count(r'\chapter{'),80)
     def test_galerkin_exact_rational(self):

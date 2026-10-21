@@ -108,7 +108,7 @@ A minimum-residual method instead chooses y to minimize
 \lVert r_0-AV_my\rVert_2.
 \]
 
-With an Arnoldi basis, this becomes a small least-squares problem involving Hbar_m.
+With an Arnoldi basis, this becomes a small least-squares problem involving $\overline H_m$.
 
 The distinction is important:
 
