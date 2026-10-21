@@ -1,5 +1,5 @@
 {
-  "accepted_count": 1,
+  "accepted_count": 2,
   "candidate_head": "9b7206c4a59583e3099abbcda310ebaa962aad0e",
   "candidate_pr": 320,
   "chapters": [
@@ -40,13 +40,41 @@
       "unresolved": "ER-P1-01 production-history text at section 8, plus ER-P1-02 repeated framing"
     },
     {
-      "accepted_evidence": null,
+      "accepted_evidence": {
+        "chapter_producer_run": "a0412e5cf0f04b2fb2c3d0e91a814e75",
+        "chapter_producer_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/412#issuecomment-6317205868",
+        "critic_disposition": "ACCEPT_EDITORIAL_SCOPE",
+        "critic_run": "a0418e5cf0f04b2fb2c3d0e91a814e78",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/418#issuecomment-6327668293",
+        "documentary_blob_sha1": "f7ea7a6912465ab2160e6f84645913e7eef2df2a",
+        "documentary_html_sha256": "30d18262d34be8a1e646b84b059449f54c0ba6b876e8354a380443f88476639c",
+        "documentary_pdf_sha256": "0cbbb92cec3cbb30a49b2b309409d8a1fae5fc6c09e38f35c64b4718c5568bdc",
+        "documentary_sha256": "444ef5f1e2e7ee9e741dec20cfd658aa23edb1833f0a7121706dafafbbc4f38d",
+        "head": "9b7206c4a59583e3099abbcda310ebaa962aad0e",
+        "html_sha256": "e87002479a3f10fbda4ed549d93a809270e91bb4fe6736e36f587508356b0719",
+        "mathematical_certification": false,
+        "packet_admitted_workbench_head": "9ad069eab6d5e740e3ff0ca01bb5c6eb0930dffc",
+        "packet_reviewed_head": "4688f2bbe78b643d93d8b33b467dac0cfeb68b70",
+        "pdf_pages": [
+          79,
+          84
+        ],
+        "pdf_sha256": "bdc949ce5e213008a10838d1e6ba8fdf2f9bb69bbe4d6de8d19b1e754f028cdf",
+        "previous_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/414#issuecomment-6317355610",
+        "prior_critic_revise_run": "a0414e5cf0f04b2fb2c3d0e91a814e76",
+        "producer_run": "a0416e5cf0f04b2fb2c3d0e91a814e77",
+        "producer_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/416#issuecomment-6327610925",
+        "public_release_authorization": false,
+        "source_blob_sha1": "d4073139ad9cad95fa25415a4e74a5ff733b1475"
+      },
       "actual_reviewed_pdf_pages": [
         79,
         84
       ],
       "assignment_id": "PART-I-EDITORIAL",
       "chapter_id": "ATLAS-CH-MAP-001",
+      "documentary_packet_blob_sha1": "f7ea7a6912465ab2160e6f84645913e7eef2df2a",
+      "documentary_packet_path": "mathematics/derivations/ATLAS-CH-MAP-001-DOCUMENTARY.md",
       "historical_findings": [],
       "issue_bound_return_evidence": [],
       "part_id": "ATLAS-PART-ORIENTATION",
@@ -54,11 +82,20 @@
       "producer_issue": 412,
       "producer_run_id": "a0412e5cf0f04b2fb2c3d0e91a814e75",
       "producer_state": "CRITIC_PENDING",
+      "resolved_findings": [
+        {
+          "critic": "#418",
+          "detail": "Seven display equations, two non-entailment symbols and one source-identity inequality repaired; no substantive text changed",
+          "disposition": "RESOLVED",
+          "id": "MAP-REVISE-D5-D7",
+          "source": "#414"
+        }
+      ],
       "review_issue": 318,
       "source_blob_sha1": "d4073139ad9cad95fa25415a4e74a5ff733b1475",
       "source_path": "manuscript/parts/01-orientation/ATLAS-CH-MAP-001.md",
-      "state": "UNVERIFIED",
-      "unresolved": "CRITIC REVISE: unformatted math in supporting MAP documentary derivation (D5/D7)."
+      "state": "ACCEPTED",
+      "unresolved": null
     },
     {
       "accepted_evidence": null,
@@ -1670,5 +1707,6 @@
     "manuscript": "360013f68468192e732d8781cc6c133d264bd645",
     "sources": "42c9a06a86ae418fdf839f28cffb8e95e0050656"
   },
+  "workbench_head_after_map_packet_admission": "9ad069eab6d5e740e3ff0ca01bb5c6eb0930dffc",
   "workbench_head_after_producer_admission": "79279792c80d6fb59b3d2c5b97390469142b016e"
 }
