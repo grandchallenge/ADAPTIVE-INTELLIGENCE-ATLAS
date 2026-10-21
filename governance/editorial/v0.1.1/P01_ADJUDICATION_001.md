@@ -42,3 +42,8 @@ by a change in its accepted chapter source, or rendering changes that
 invalidate the recorded physical PDF/HTML evidence. Whole-book PDF/UA,
 other chapters and corrected public release remain independently gated.
 The immutable published v0.1.0 tag/assets are untouched.
+
+*Historical note:* This packet records the first admission (1/80) at that
+revision. The current canonical acceptance ledger advances to 2/80 after
+MAP packet correction and GCL critical adjudication; see
+`governance/editorial/v0.1.1/MAP_ADJUDICATION_002.md`.
