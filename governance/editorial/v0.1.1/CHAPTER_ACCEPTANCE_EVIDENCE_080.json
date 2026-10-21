@@ -1,0 +1,1585 @@
+{
+  "accepted_count": 0,
+  "candidate_head": "07ea97f688bd8eab54f4d395aa2f6b1f1fa2c6ef",
+  "candidate_pr": 320,
+  "chapters": [
+    {
+      "accepted_evidence": null,
+      "assignment_id": "PART-I-EDITORIAL",
+      "chapter_id": "ATLAS-CH-THESIS-001",
+      "issue_bound_return_evidence": [],
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "review_issue": 318,
+      "source_blob_sha1": "849c5f7fc27ffc3fa0334a85fd681f9d09fe080f",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-THESIS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "PART-I-EDITORIAL",
+      "chapter_id": "ATLAS-CH-MAP-001",
+      "issue_bound_return_evidence": [],
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "review_issue": 318,
+      "source_blob_sha1": "d4073139ad9cad95fa25415a4e74a5ff733b1475",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-MAP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "PART-I-EDITORIAL",
+      "chapter_id": "ATLAS-CH-OBJECTS-001",
+      "issue_bound_return_evidence": [],
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "review_issue": 318,
+      "source_blob_sha1": "be9761409e4136e8f17ab781df3f21fa14cb1cb0",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "PART-I-EDITORIAL",
+      "chapter_id": "ATLAS-CH-EVIDENCE-001",
+      "issue_bound_return_evidence": [],
+      "part_id": "ATLAS-PART-ORIENTATION",
+      "review_issue": 318,
+      "source_blob_sha1": "64b7ea7a251ccc13e835461ca42bc277412e6f06",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-A",
+      "chapter_id": "ATLAS-CH-LINALG-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "934c31c3e22d4f8efea0dfa662fac3c7ce2319487e2c1e5a70692aeed51b0708",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058138109,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/326#issuecomment-6058138109"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 326,
+      "source_blob_sha1": "ee19bb8abe978c78e34120349206e45f3a70d662",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LINALG-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-A",
+      "chapter_id": "ATLAS-CH-NONNORMAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "934c31c3e22d4f8efea0dfa662fac3c7ce2319487e2c1e5a70692aeed51b0708",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058138109,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/326#issuecomment-6058138109"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 326,
+      "source_blob_sha1": "785173d0b8e17ebe30a91db41e7bc6fb106043fd",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NONNORMAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-A",
+      "chapter_id": "ATLAS-CH-KRYLOV-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "934c31c3e22d4f8efea0dfa662fac3c7ce2319487e2c1e5a70692aeed51b0708",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058138109,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/326#issuecomment-6058138109"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 326,
+      "source_blob_sha1": "9f6cec1537fb573cb641a13e9a685fe8f6bd6dc1",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-KRYLOV-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-A",
+      "chapter_id": "ATLAS-CH-INFO-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "934c31c3e22d4f8efea0dfa662fac3c7ce2319487e2c1e5a70692aeed51b0708",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058138109,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/326#issuecomment-6058138109"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 326,
+      "source_blob_sha1": "663aa492bdbe2645526532838cd3be9de5f6e0bd",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-INFO-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-B",
+      "chapter_id": "ATLAS-CH-GEOM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "b91171f33c545c777d33ca583b1407b961398e14dbcf293f288ac06a033e71a8",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057807495,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/327#issuecomment-6057807495"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 327,
+      "source_blob_sha1": "166a9309bd6444f191bb6dbd1ef4abe6ba8ae57c",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-B",
+      "chapter_id": "ATLAS-CH-DYN-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "b91171f33c545c777d33ca583b1407b961398e14dbcf293f288ac06a033e71a8",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057807495,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/327#issuecomment-6057807495"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 327,
+      "source_blob_sha1": "8515030f486cfc5ee328f33167d89dc6bd10db9d",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-B",
+      "chapter_id": "ATLAS-CH-NUMERICS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "b91171f33c545c777d33ca583b1407b961398e14dbcf293f288ac06a033e71a8",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057807495,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/327#issuecomment-6057807495"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 327,
+      "source_blob_sha1": "a719a16e86d1feb76679e1f1cda2d9d3393d2e42",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NUMERICS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P02-B",
+      "chapter_id": "ATLAS-CH-LOCALGLOBAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "b91171f33c545c777d33ca583b1407b961398e14dbcf293f288ac06a033e71a8",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057807495,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/327#issuecomment-6057807495"
+        }
+      ],
+      "part_id": "ATLAS-PART-MATH",
+      "review_issue": 327,
+      "source_blob_sha1": "95ee828cd0d32e87cab97cebf91178aec5e2e478",
+      "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-LOCALGLOBAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P03",
+      "chapter_id": "ATLAS-CH-REP-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe307a18a19c412f25df9cab593928cf1ea999c7218fb92b1a3bb8ef68adf905",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057980533,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328#issuecomment-6057980533"
+        }
+      ],
+      "part_id": "ATLAS-PART-REP",
+      "review_issue": 328,
+      "source_blob_sha1": "6ad1bfb8426967d7691e68f7e5e35d5ef8e8e3fc",
+      "source_path": "manuscript/parts/03-representation-learning/ATLAS-CH-REP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P03",
+      "chapter_id": "ATLAS-CH-NORMREP-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe307a18a19c412f25df9cab593928cf1ea999c7218fb92b1a3bb8ef68adf905",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057980533,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328#issuecomment-6057980533"
+        }
+      ],
+      "part_id": "ATLAS-PART-REP",
+      "review_issue": 328,
+      "source_blob_sha1": "7a70da98f16d4ec5deaadc3e394fbce902dab4b5",
+      "source_path": "manuscript/parts/03-representation-learning/ATLAS-CH-NORMREP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P03",
+      "chapter_id": "ATLAS-CH-QUOTIENT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe307a18a19c412f25df9cab593928cf1ea999c7218fb92b1a3bb8ef68adf905",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057980533,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328#issuecomment-6057980533"
+        }
+      ],
+      "part_id": "ATLAS-PART-REP",
+      "review_issue": 328,
+      "source_blob_sha1": "3b372f76765996bf24dac39aec70aa39dc401553",
+      "source_path": "manuscript/parts/03-representation-learning/ATLAS-CH-QUOTIENT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P03",
+      "chapter_id": "ATLAS-CH-RESIDUAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe307a18a19c412f25df9cab593928cf1ea999c7218fb92b1a3bb8ef68adf905",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057980533,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328#issuecomment-6057980533"
+        }
+      ],
+      "part_id": "ATLAS-PART-REP",
+      "review_issue": 328,
+      "source_blob_sha1": "e6ed5fa38bac988278c85df043129d02fc672685",
+      "source_path": "manuscript/parts/03-representation-learning/ATLAS-CH-RESIDUAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P03",
+      "chapter_id": "ATLAS-CH-TRANSFER-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe307a18a19c412f25df9cab593928cf1ea999c7218fb92b1a3bb8ef68adf905",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6057980533,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/328#issuecomment-6057980533"
+        }
+      ],
+      "part_id": "ATLAS-PART-REP",
+      "review_issue": 328,
+      "source_blob_sha1": "907768964a5e09d6d4fefcf84debb677de5caeb5",
+      "source_path": "manuscript/parts/03-representation-learning/ATLAS-CH-TRANSFER-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P04",
+      "chapter_id": "ATLAS-CH-ARCHHIST-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d5e6379ad244c5b3e777abaa120efc9d3f7cc3b021f82758e0e0e3b02c16f165",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058069115,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329#issuecomment-6058069115"
+        }
+      ],
+      "part_id": "ATLAS-PART-ARCH",
+      "review_issue": 329,
+      "source_blob_sha1": "91b2dabb0c92790717872cb857aa1f7db2cb5366",
+      "source_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-ARCHHIST-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P04",
+      "chapter_id": "ATLAS-CH-TRANSFORMER-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d5e6379ad244c5b3e777abaa120efc9d3f7cc3b021f82758e0e0e3b02c16f165",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058069115,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329#issuecomment-6058069115"
+        }
+      ],
+      "part_id": "ATLAS-PART-ARCH",
+      "review_issue": 329,
+      "source_blob_sha1": "197b74ffd40fe54b79ca15ab731b73538aada494",
+      "source_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSFORMER-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P04",
+      "chapter_id": "ATLAS-CH-DEPTH-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d5e6379ad244c5b3e777abaa120efc9d3f7cc3b021f82758e0e0e3b02c16f165",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058069115,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329#issuecomment-6058069115"
+        }
+      ],
+      "part_id": "ATLAS-PART-ARCH",
+      "review_issue": 329,
+      "source_blob_sha1": "234cbf37bab22491f37e094860d1f285cc79841b",
+      "source_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-DEPTH-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P04",
+      "chapter_id": "ATLAS-CH-SPLIT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d5e6379ad244c5b3e777abaa120efc9d3f7cc3b021f82758e0e0e3b02c16f165",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058069115,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329#issuecomment-6058069115"
+        }
+      ],
+      "part_id": "ATLAS-PART-ARCH",
+      "review_issue": 329,
+      "source_blob_sha1": "f3f2f5a36ade41493dea2f7343a37a197887765f",
+      "source_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-SPLIT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P04",
+      "chapter_id": "ATLAS-CH-TRANSPORT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d5e6379ad244c5b3e777abaa120efc9d3f7cc3b021f82758e0e0e3b02c16f165",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058069115,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/329#issuecomment-6058069115"
+        }
+      ],
+      "part_id": "ATLAS-PART-ARCH",
+      "review_issue": 329,
+      "source_blob_sha1": "67d7bb45660023ed714d8b96ac5bb001356e037d",
+      "source_path": "manuscript/parts/04-neural-architectures/ATLAS-CH-TRANSPORT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P05",
+      "chapter_id": "ATLAS-CH-ATTNOP-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "f2048b917d05ed07a4324bb715ba9fda60b4a9e60f95b9b40421be6bd77fa61b",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058433117,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330#issuecomment-6058433117"
+        }
+      ],
+      "part_id": "ATLAS-PART-ATTN",
+      "review_issue": 330,
+      "source_blob_sha1": "d6fa97fbbd1a2410055ca2cd4bc034ca54ccd26c",
+      "source_path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNOP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P05",
+      "chapter_id": "ATLAS-CH-ATTNAPPROX-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "f2048b917d05ed07a4324bb715ba9fda60b4a9e60f95b9b40421be6bd77fa61b",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058433117,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330#issuecomment-6058433117"
+        }
+      ],
+      "part_id": "ATLAS-PART-ATTN",
+      "review_issue": 330,
+      "source_blob_sha1": "bbe8a1fea6d42e266847551c9cfeb55ab0caecf6",
+      "source_path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-ATTNAPPROX-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P05",
+      "chapter_id": "ATLAS-CH-POSGEOM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "f2048b917d05ed07a4324bb715ba9fda60b4a9e60f95b9b40421be6bd77fa61b",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058433117,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330#issuecomment-6058433117"
+        }
+      ],
+      "part_id": "ATLAS-PART-ATTN",
+      "review_issue": 330,
+      "source_blob_sha1": "841bc96c696e58fb7914c851c7c13f2e5d076b53",
+      "source_path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-POSGEOM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P05",
+      "chapter_id": "ATLAS-CH-RPO-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "f2048b917d05ed07a4324bb715ba9fda60b4a9e60f95b9b40421be6bd77fa61b",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058433117,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330#issuecomment-6058433117"
+        }
+      ],
+      "part_id": "ATLAS-PART-ATTN",
+      "review_issue": 330,
+      "source_blob_sha1": "6cd86e4e65fa0935500af5883efb61542d51712c",
+      "source_path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-RPO-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P05",
+      "chapter_id": "ATLAS-CH-LATENTTIME-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "f2048b917d05ed07a4324bb715ba9fda60b4a9e60f95b9b40421be6bd77fa61b",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058433117,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/330#issuecomment-6058433117"
+        }
+      ],
+      "part_id": "ATLAS-PART-ATTN",
+      "review_issue": 330,
+      "source_blob_sha1": "65b175e7bd64d69dd51d787a87d8f24ea5b3bd96",
+      "source_path": "manuscript/parts/05-attention-sequence-position/ATLAS-CH-LATENTTIME-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-A",
+      "chapter_id": "ATLAS-CH-OPTBASE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "9289b761eeefb315673468b92044fadd0b26ed19a1fe79dd0efa65c4bd71f2ff",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058575276,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/331#issuecomment-6058575276"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 331,
+      "source_blob_sha1": "15c402d493ac040ef55aa2272b1aee31a44298a8",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-A",
+      "chapter_id": "ATLAS-CH-SECOND-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "9289b761eeefb315673468b92044fadd0b26ed19a1fe79dd0efa65c4bd71f2ff",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058575276,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/331#issuecomment-6058575276"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 331,
+      "source_blob_sha1": "10ee7db734df519e886e335301bf107d01d27f5c",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-SECOND-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-A",
+      "chapter_id": "ATLAS-CH-MATRIXOPT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "9289b761eeefb315673468b92044fadd0b26ed19a1fe79dd0efa65c4bd71f2ff",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058575276,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/331#issuecomment-6058575276"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 331,
+      "source_blob_sha1": "f9aba7f1912cf4916c2f42855519d55fb5b49ccb",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-MATRIXOPT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-A",
+      "chapter_id": "ATLAS-CH-MANOPT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "9289b761eeefb315673468b92044fadd0b26ed19a1fe79dd0efa65c4bd71f2ff",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058575276,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/331#issuecomment-6058575276"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 331,
+      "source_blob_sha1": "069cfc68f90e9bc09645dc1fac7ebdfbe85e3c6b",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-MANOPT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-B",
+      "chapter_id": "ATLAS-CH-SPECTRALSHAPE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d6c307e5f88a0094ce9e13f2a156e4ca074b396461e9113167b53df30a7db625",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058667359,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/332#issuecomment-6058667359"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 332,
+      "source_blob_sha1": "2c4e490f8e2a30910183b17204cf57e1c0a48129",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-SPECTRALSHAPE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-B",
+      "chapter_id": "ATLAS-CH-OPTDYN-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d6c307e5f88a0094ce9e13f2a156e4ca074b396461e9113167b53df30a7db625",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058667359,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/332#issuecomment-6058667359"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 332,
+      "source_blob_sha1": "0ee5f54ad15672d334c3d8909e89f281aebc9c4e",
+      "source_path": "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-OPTDYN-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-B",
+      "chapter_id": "ATLAS-CH-CPS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d6c307e5f88a0094ce9e13f2a156e4ca074b396461e9113167b53df30a7db625",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058667359,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/332#issuecomment-6058667359"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 332,
+      "source_blob_sha1": "c07337d1bdf013ad5ac5a2caa69c4efbb45eea50",
+      "source_path": "manuscript/parts/06-optimization-geometry-dynamics/ATLAS-CH-CPS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P06-B",
+      "chapter_id": "ATLAS-CH-VARIOPT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "d6c307e5f88a0094ce9e13f2a156e4ca074b396461e9113167b53df30a7db625",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6058667359,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/332#issuecomment-6058667359"
+        }
+      ],
+      "part_id": "ATLAS-PART-OPT",
+      "review_issue": 332,
+      "source_blob_sha1": "f38b5ddeaaaec251743ac00fbe2c6eac0f3559db",
+      "source_path": "manuscript/parts/05-optimization/ATLAS-CH-VARIOPT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-A",
+      "chapter_id": "ATLAS-CH-NETNUM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "a1589cb04a9c995fc187ab84368bd3993580ac3d1525eb888b863f055a1a5bc9",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059088272,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/333#issuecomment-6059088272"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 333,
+      "source_blob_sha1": "121acfa99585295dbe8b72693df3117f9da5a9e6",
+      "source_path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NETNUM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-A",
+      "chapter_id": "ATLAS-CH-ADAPTDEPTH-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "a1589cb04a9c995fc187ab84368bd3993580ac3d1525eb888b863f055a1a5bc9",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059088272,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/333#issuecomment-6059088272"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 333,
+      "source_blob_sha1": "cad570c2f7102d124cde519489990c6662c5c294",
+      "source_path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-ADAPTDEPTH-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-A",
+      "chapter_id": "ATLAS-CH-NEURALKRYLOV-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "a1589cb04a9c995fc187ab84368bd3993580ac3d1525eb888b863f055a1a5bc9",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059088272,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/333#issuecomment-6059088272"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 333,
+      "source_blob_sha1": "6e31a6aa3a15ec899d749d9b0703fe0cde8703d7",
+      "source_path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-NEURALKRYLOV-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-B",
+      "chapter_id": "ATLAS-CH-BOUNDARYPROBE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe58cd82e2786fc531bdb9430a2926e151fbc24a2864b5852b6b43b42b665efb",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059219309,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/334#issuecomment-6059219309"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 334,
+      "source_blob_sha1": "8629c6d23e5d92d4cabaffe969b55e483b07b60b",
+      "source_path": "manuscript/parts/07-numerical-intelligence/ATLAS-CH-BOUNDARYPROBE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-B",
+      "chapter_id": "ATLAS-CH-BCONTRACT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe58cd82e2786fc531bdb9430a2926e151fbc24a2864b5852b6b43b42b665efb",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059219309,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/334#issuecomment-6059219309"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 334,
+      "source_blob_sha1": "cf6c56fac430b3f04a3c7ed697e523b490aab2d5",
+      "source_path": "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-BCONTRACT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P07-B",
+      "chapter_id": "ATLAS-CH-COMPOSE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "fe58cd82e2786fc531bdb9430a2926e151fbc24a2864b5852b6b43b42b665efb",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059219309,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/334#issuecomment-6059219309"
+        }
+      ],
+      "part_id": "ATLAS-PART-NUMINT",
+      "review_issue": 334,
+      "source_blob_sha1": "3011840100797d72a3d992cf4a05d3fe855a6cc7",
+      "source_path": "manuscript/parts/07-numerical-intelligence-composition/ATLAS-CH-COMPOSE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P08",
+      "chapter_id": "ATLAS-CH-SPARSE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "c8be94aaab56eec5b882ea364efb9a0c2f26d2f597e2e79a1f3c9c5500ab8296",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059431186,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335#issuecomment-6059431186"
+        }
+      ],
+      "part_id": "ATLAS-PART-SPARSE",
+      "review_issue": 335,
+      "source_blob_sha1": "9ddd74ac449724631fb92e0af7d6b0114ce6e3b0",
+      "source_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-SPARSE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P08",
+      "chapter_id": "ATLAS-CH-MOE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "c8be94aaab56eec5b882ea364efb9a0c2f26d2f597e2e79a1f3c9c5500ab8296",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059431186,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335#issuecomment-6059431186"
+        }
+      ],
+      "part_id": "ATLAS-PART-SPARSE",
+      "review_issue": 335,
+      "source_blob_sha1": "7c3ce5a9194c96f1372b6027c6987f0f0cf5058b",
+      "source_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-MOE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P08",
+      "chapter_id": "ATLAS-CH-ROUTERDYN-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "c8be94aaab56eec5b882ea364efb9a0c2f26d2f597e2e79a1f3c9c5500ab8296",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059431186,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335#issuecomment-6059431186"
+        }
+      ],
+      "part_id": "ATLAS-PART-SPARSE",
+      "review_issue": 335,
+      "source_blob_sha1": "0d6edcb8591708993e8029ace08873b5798b6703",
+      "source_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-ROUTERDYN-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P08",
+      "chapter_id": "ATLAS-CH-REGRETROUTE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "c8be94aaab56eec5b882ea364efb9a0c2f26d2f597e2e79a1f3c9c5500ab8296",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059431186,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/335#issuecomment-6059431186"
+        }
+      ],
+      "part_id": "ATLAS-PART-SPARSE",
+      "review_issue": 335,
+      "source_blob_sha1": "7541435e7d231ee907d28b1fcfc6a509ce8d5cb4",
+      "source_path": "manuscript/parts/08-sparse-conditional-computation/ATLAS-CH-REGRETROUTE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P09",
+      "chapter_id": "ATLAS-CH-MEMTAX-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "0cdcc6d484a1f5270ed3e55aa5a0c2985427b4a7e7daee48358ac35bb2fadc4c",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059816123,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336#issuecomment-6059816123"
+        }
+      ],
+      "part_id": "ATLAS-PART-MEM",
+      "review_issue": 336,
+      "source_blob_sha1": "3c058dd7a564fd616a95ce90775648b33f62b994",
+      "source_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-MEMTAX-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P09",
+      "chapter_id": "ATLAS-CH-RETRIEVAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "0cdcc6d484a1f5270ed3e55aa5a0c2985427b4a7e7daee48358ac35bb2fadc4c",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059816123,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336#issuecomment-6059816123"
+        }
+      ],
+      "part_id": "ATLAS-PART-MEM",
+      "review_issue": 336,
+      "source_blob_sha1": "afd1a1f73cba67e8d0a11894d58dd9bcea040546",
+      "source_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-RETRIEVAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P09",
+      "chapter_id": "ATLAS-CH-CONTINUAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "0cdcc6d484a1f5270ed3e55aa5a0c2985427b4a7e7daee48358ac35bb2fadc4c",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059816123,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336#issuecomment-6059816123"
+        }
+      ],
+      "part_id": "ATLAS-PART-MEM",
+      "review_issue": 336,
+      "source_blob_sha1": "9dd7e9d7088a2fb40a7ab1f60376b1d660e8fd6f",
+      "source_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-CONTINUAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P09",
+      "chapter_id": "ATLAS-CH-EXTMEM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "0cdcc6d484a1f5270ed3e55aa5a0c2985427b4a7e7daee48358ac35bb2fadc4c",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059816123,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336#issuecomment-6059816123"
+        }
+      ],
+      "part_id": "ATLAS-PART-MEM",
+      "review_issue": 336,
+      "source_blob_sha1": "0f1861868fcc0cd0cb0f60d5957bb1f4350a1fd6",
+      "source_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-EXTMEM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P09",
+      "chapter_id": "ATLAS-CH-CONTEXTCOMP-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "0cdcc6d484a1f5270ed3e55aa5a0c2985427b4a7e7daee48358ac35bb2fadc4c",
+          "declared_head": "ff3ed0972e3637350c9140eaa85de7169fe6ca76",
+          "id": 6059816123,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/336#issuecomment-6059816123"
+        }
+      ],
+      "part_id": "ATLAS-PART-MEM",
+      "review_issue": 336,
+      "source_blob_sha1": "e803b7cdcb49ce30d81b65ab225a1f877594cd34",
+      "source_path": "manuscript/parts/09-memory-beyond-weights/ATLAS-CH-CONTEXTCOMP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-A",
+      "chapter_id": "ATLAS-CH-TOKEN-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "754f11c01fc8a5ef702a4625842d16bf9ed253ec870a19d0a721877e6298d049",
+          "declared_head": "b3a966d0a5c710f04de509a9c34b6f6d6006a143",
+          "id": 6060637843,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/337#issuecomment-6060637843"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 337,
+      "source_blob_sha1": "f2d76a79810b0cd37b21ee1d88b4845461bc4e32",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-TOKEN-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-A",
+      "chapter_id": "ATLAS-CH-TOKENCOMP-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "754f11c01fc8a5ef702a4625842d16bf9ed253ec870a19d0a721877e6298d049",
+          "declared_head": "b3a966d0a5c710f04de509a9c34b6f6d6006a143",
+          "id": 6060637843,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/337#issuecomment-6060637843"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 337,
+      "source_blob_sha1": "59cd3d63baa653975b0398f1fbdb635b54667cc4",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-TOKENCOMP-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-A",
+      "chapter_id": "ATLAS-CH-DATA-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "754f11c01fc8a5ef702a4625842d16bf9ed253ec870a19d0a721877e6298d049",
+          "declared_head": "b3a966d0a5c710f04de509a9c34b6f6d6006a143",
+          "id": 6060637843,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/337#issuecomment-6060637843"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 337,
+      "source_blob_sha1": "ccf5ede6eeac6a35a42fbf8c6128140a75550af6",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-DATA-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-B",
+      "chapter_id": "ATLAS-CH-CURRICULUM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3a480dcf3d5b01056248450f93713bcc4b92924377563aca9948b126f935fdc4",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6059975670,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/338#issuecomment-6059975670"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 338,
+      "source_blob_sha1": "b65f88c07ad5e523cff5d0ca3bd8a28c9bed41cc",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-CURRICULUM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-B",
+      "chapter_id": "ATLAS-CH-PROGRESSSEARCH-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3a480dcf3d5b01056248450f93713bcc4b92924377563aca9948b126f935fdc4",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6059975670,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/338#issuecomment-6059975670"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 338,
+      "source_blob_sha1": "30e988200933dbba8ad53f069acacf131b0944ee",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-PROGRESSSEARCH-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P10-B",
+      "chapter_id": "ATLAS-CH-MINCURR-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3a480dcf3d5b01056248450f93713bcc4b92924377563aca9948b126f935fdc4",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6059975670,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/338#issuecomment-6059975670"
+        }
+      ],
+      "part_id": "ATLAS-PART-DATA",
+      "review_issue": 338,
+      "source_blob_sha1": "1417e8e38589202a7fe4a586aaea1880c4ac691c",
+      "source_path": "manuscript/parts/10-tokenization-data-curriculum/ATLAS-CH-MINCURR-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P11",
+      "chapter_id": "ATLAS-CH-RLBASE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "7006943a8f5b4f69af0cbf2ebdc93a9a3b356abe01fcd01bacd454e6be451815",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6071188143,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339#issuecomment-6071188143"
+        }
+      ],
+      "part_id": "ATLAS-PART-DECISION",
+      "review_issue": 339,
+      "source_blob_sha1": "a99f78b788b97bc1bb3346ca1f1b97802c0f84db",
+      "source_path": "manuscript/parts/11-decision-making/ATLAS-CH-RLBASE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P11",
+      "chapter_id": "ATLAS-CH-EXPLORE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "7006943a8f5b4f69af0cbf2ebdc93a9a3b356abe01fcd01bacd454e6be451815",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6071188143,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339#issuecomment-6071188143"
+        }
+      ],
+      "part_id": "ATLAS-PART-DECISION",
+      "review_issue": 339,
+      "source_blob_sha1": "d358ec986bb1baa604668707ae0d598856247d89",
+      "source_path": "manuscript/parts/11-decision-making/ATLAS-CH-EXPLORE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P11",
+      "chapter_id": "ATLAS-CH-REGRET-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "7006943a8f5b4f69af0cbf2ebdc93a9a3b356abe01fcd01bacd454e6be451815",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6071188143,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339#issuecomment-6071188143"
+        }
+      ],
+      "part_id": "ATLAS-PART-DECISION",
+      "review_issue": 339,
+      "source_blob_sha1": "6c842b5bd41eef31891d8ce99734109aa344e0a4",
+      "source_path": "manuscript/parts/11-decision-making/ATLAS-CH-REGRET-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P11",
+      "chapter_id": "ATLAS-CH-OPTIONALITY-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "7006943a8f5b4f69af0cbf2ebdc93a9a3b356abe01fcd01bacd454e6be451815",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6071188143,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339#issuecomment-6071188143"
+        }
+      ],
+      "part_id": "ATLAS-PART-DECISION",
+      "review_issue": 339,
+      "source_blob_sha1": "a202d82ad9f2242fd17117cf6faa6eaa30227369",
+      "source_path": "manuscript/parts/11-decision-making/ATLAS-CH-OPTIONALITY-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P11",
+      "chapter_id": "ATLAS-CH-JOINTUNC-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "7006943a8f5b4f69af0cbf2ebdc93a9a3b356abe01fcd01bacd454e6be451815",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6071188143,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/339#issuecomment-6071188143"
+        }
+      ],
+      "part_id": "ATLAS-PART-DECISION",
+      "review_issue": 339,
+      "source_blob_sha1": "6f041a6371265ca0b6b5e9cc1a83119909cc315d",
+      "source_path": "manuscript/parts/11-decision-making/ATLAS-CH-JOINTUNC-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-A",
+      "chapter_id": "ATLAS-CH-UNCERTAINTY-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "e9e3cfe3826453a5c0ba736919e348c84001b8e142829adfc6aa03825d1e4641",
+          "declared_head": "21712c24955cbcbff86f11b2eb929563dca7411b",
+          "id": 6063520753,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/340#issuecomment-6063520753"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 340,
+      "source_blob_sha1": "f387d250422a3f52ede6c56a9e4f6e46b6e45d67",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-UNCERTAINTY-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-A",
+      "chapter_id": "ATLAS-CH-SHIFT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "e9e3cfe3826453a5c0ba736919e348c84001b8e142829adfc6aa03825d1e4641",
+          "declared_head": "21712c24955cbcbff86f11b2eb929563dca7411b",
+          "id": 6063520753,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/340#issuecomment-6063520753"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 340,
+      "source_blob_sha1": "064b7f05068eb212eacbb64228e51b6069d2728f",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-SHIFT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-A",
+      "chapter_id": "ATLAS-CH-MECHDIAG-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "e9e3cfe3826453a5c0ba736919e348c84001b8e142829adfc6aa03825d1e4641",
+          "declared_head": "21712c24955cbcbff86f11b2eb929563dca7411b",
+          "id": 6063520753,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/340#issuecomment-6063520753"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 340,
+      "source_blob_sha1": "481a10d0045723f6bb10f99e355ebe94e451d9fe",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-MECHDIAG-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-B",
+      "chapter_id": "ATLAS-CH-SPECTRALDIAG-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "515eb0b04c682892bef8848ee5a67097d13e4969db6a2018003594e944e8f6d9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070602379,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/341#issuecomment-6070602379"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 341,
+      "source_blob_sha1": "186e800f3e902b2efd013769f71ef0f652b65efa",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-SPECTRALDIAG-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-B",
+      "chapter_id": "ATLAS-CH-COMPRESS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "515eb0b04c682892bef8848ee5a67097d13e4969db6a2018003594e944e8f6d9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070602379,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/341#issuecomment-6070602379"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 341,
+      "source_blob_sha1": "e8db79df51b64cfd4d5ef6957d4d10313886b6f4",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-COMPRESS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P12-B",
+      "chapter_id": "ATLAS-CH-COMPINTEL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "515eb0b04c682892bef8848ee5a67097d13e4969db6a2018003594e944e8f6d9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070602379,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/341#issuecomment-6070602379"
+        }
+      ],
+      "part_id": "ATLAS-PART-DIAG",
+      "review_issue": 341,
+      "source_blob_sha1": "53d5711a7fa00f07ab7a7bf58c4d28b115d92d53",
+      "source_path": "manuscript/parts/12-diagnostics-robustness-compression/ATLAS-CH-COMPINTEL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-A",
+      "chapter_id": "ATLAS-CH-AGENTS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "896d1aac42886c027aebaca5e298bc62d394d776c1b800afe2024288a3b7d5f9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070666760,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/342#issuecomment-6070666760"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 342,
+      "source_blob_sha1": "decd7d7eb6404d54aa94905000f24d9bf068ca6f",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-AGENTS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-A",
+      "chapter_id": "ATLAS-CH-COORD-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "896d1aac42886c027aebaca5e298bc62d394d776c1b800afe2024288a3b7d5f9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070666760,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/342#issuecomment-6070666760"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 342,
+      "source_blob_sha1": "f9c5e9353e59525dce2e18c8b164ce85532be283",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-COORD-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-A",
+      "chapter_id": "ATLAS-CH-EVIDEX-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "896d1aac42886c027aebaca5e298bc62d394d776c1b800afe2024288a3b7d5f9",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070666760,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/342#issuecomment-6070666760"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 342,
+      "source_blob_sha1": "f4e0a10d5a4298d0738d10f133d2cf5ada7215d5",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-EVIDEX-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-B",
+      "chapter_id": "ATLAS-CH-POLITY-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3e111701427aebf5d63370bbfbc2078d1ac1ad8b7d62fb9539a6cb76a78f7c3d",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070811726,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/343#issuecomment-6070811726"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 343,
+      "source_blob_sha1": "fa1cb3dad381ddbcbd7e4725a87ce42c77a03948",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-POLITY-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-B",
+      "chapter_id": "ATLAS-CH-HARDWARE-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3e111701427aebf5d63370bbfbc2078d1ac1ad8b7d62fb9539a6cb76a78f7c3d",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070811726,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/343#issuecomment-6070811726"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 343,
+      "source_blob_sha1": "2ce486d4cce53a5f5194241ce3bb1c0f40c7c895",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-HARDWARE-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P13-B",
+      "chapter_id": "ATLAS-CH-SYSTEMS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "3e111701427aebf5d63370bbfbc2078d1ac1ad8b7d62fb9539a6cb76a78f7c3d",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070811726,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/343#issuecomment-6070811726"
+        }
+      ],
+      "part_id": "ATLAS-PART-POLITY",
+      "review_issue": 343,
+      "source_blob_sha1": "f47373a36cd8689ec1e5843d4531fd509775c0b3",
+      "source_path": "manuscript/parts/13-agents-systems-hardware/ATLAS-CH-SYSTEMS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-A",
+      "chapter_id": "ATLAS-CH-EXPERIMENT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "ecdbc2734a9ebb45c6fcbdeb4461a3f906da55451ab325fb9ee497d88b837ac7",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070966039,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344#issuecomment-6070966039"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 344,
+      "source_blob_sha1": "3fd090fbcd7a55571fcdb3d79366f2e43684003d",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-EXPERIMENT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-A",
+      "chapter_id": "ATLAS-CH-REPLAY-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "ecdbc2734a9ebb45c6fcbdeb4461a3f906da55451ab325fb9ee497d88b837ac7",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070966039,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344#issuecomment-6070966039"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 344,
+      "source_blob_sha1": "4d95568d12ec0b27bcace910d8573f4a22e8b161",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-REPLAY-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-A",
+      "chapter_id": "ATLAS-CH-FORMAL-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "ecdbc2734a9ebb45c6fcbdeb4461a3f906da55451ab325fb9ee497d88b837ac7",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070966039,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344#issuecomment-6070966039"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 344,
+      "source_blob_sha1": "c3e8933a773e0f34a6d38ab23a056fd84408ccbf",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FORMAL-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-A",
+      "chapter_id": "ATLAS-CH-RESEARCHSM-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "ecdbc2734a9ebb45c6fcbdeb4461a3f906da55451ab325fb9ee497d88b837ac7",
+          "declared_head": "b0b7d03705c3a1a312d4907f2f4359c89b2108e6",
+          "id": 6070966039,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/344#issuecomment-6070966039"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 344,
+      "source_blob_sha1": "2b6396085759a494c68ca7b4cf702b6cfe1cbabc",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-RESEARCHSM-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-B",
+      "chapter_id": "ATLAS-CH-GOVADAPT-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "2333cc40d2f777cf394be84e05bd68b735cd84d6ebb891222e6442496cff01be",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6060085397,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/345#issuecomment-6060085397"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 345,
+      "source_blob_sha1": "5d7d87a1918edebc2487359a5dfea15cfa157b47",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-GOVADAPT-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-B",
+      "chapter_id": "ATLAS-CH-FRONTIER-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "2333cc40d2f777cf394be84e05bd68b735cd84d6ebb891222e6442496cff01be",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6060085397,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/345#issuecomment-6060085397"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 345,
+      "source_blob_sha1": "e1a692a7e6406041a6e4395c0e23a0732fb5b4e3",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-FRONTIER-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    },
+    {
+      "accepted_evidence": null,
+      "assignment_id": "ATLAS-EDITORIAL-P14-B",
+      "chapter_id": "ATLAS-CH-SYNTHESIS-001",
+      "issue_bound_return_evidence": [
+        {
+          "actor": "fyremael",
+          "body_sha256": "2333cc40d2f777cf394be84e05bd68b735cd84d6ebb891222e6442496cff01be",
+          "declared_head": "aeecbb454b5599f74554e6d80e3f91f7bd01e813",
+          "id": 6060085397,
+          "url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/345#issuecomment-6060085397"
+        }
+      ],
+      "part_id": "ATLAS-PART-GOV",
+      "review_issue": 345,
+      "source_blob_sha1": "95ab10c9e7a68442969bfe82b537d5b05d5d2514",
+      "source_path": "manuscript/parts/14-scientific-method-governed-adaptation/ATLAS-CH-SYNTHESIS-001.md",
+      "state": "UNVERIFIED",
+      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+    }
+  ],
+  "immutable_release_unchanged": true,
+  "issue_inventory": {
+    "authentic_RESULT_1_comments": 29,
+    "closed_returned": 28,
+    "live_open": 0,
+    "synthetic_test_issue_excluded_from_chapter_evidence": 359,
+    "total": 28
+  },
+  "protected_main_sha": "767017f5658a3d02783591146ad9ec9a5a26a4ed",
+  "record_type": "ATLAS_CHAPTER_ACCEPTANCE_EVIDENCE/1"
+}
