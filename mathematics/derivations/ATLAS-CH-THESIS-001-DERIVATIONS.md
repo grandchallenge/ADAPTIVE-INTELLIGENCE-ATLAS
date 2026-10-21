@@ -38,11 +38,11 @@ The stronger ontological claim is not made.
 
 The Atlas uses the explanatory decomposition
 
-[
-mathcal A
+$$
+\mathcal A
 =
-(mathcal S,mathcal O,mathcal D,mathcal M,mathcal I,mathcal E,mathcal G),
-]
+(\mathcal S,\mathcal O,\mathcal D,\mathcal M,\mathcal I,\mathcal E,\mathcal G).
+$$
 
 where the symbols denote state, operators, dynamics, memory, interfaces, evidence, and governance roles.
 
