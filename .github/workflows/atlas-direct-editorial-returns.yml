@@ -36,12 +36,19 @@ jobs:
           gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/issue-field-values" \
             > "$RUNNER_TEMP/issue-fields.json"
 
+      - name: Read complete global Editorial grant register
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp 'repos/grandchallenge/MATHSOLVE/issues/1096/comments?per_page=100' | jq 'add // []' > "$RUNNER_TEMP/editorial-grants.json"
+
       - name: Evaluate direct-return projection
         run: |
           python ci/atlas_direct_return_projector.py \
             --event "$GITHUB_EVENT_PATH" \
             --issue-fields "$RUNNER_TEMP/issue-fields.json" \
-            --output "$RUNNER_TEMP/projection.json"
+            --output "$RUNNER_TEMP/projection.json" --grant-history "$RUNNER_TEMP/editorial-grants.json"
           cat "$RUNNER_TEMP/projection.json"
 
       - name: Reconcile operational RETURNED state

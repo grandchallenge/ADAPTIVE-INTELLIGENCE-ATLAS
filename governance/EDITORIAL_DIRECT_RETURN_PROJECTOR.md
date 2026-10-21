@@ -44,3 +44,25 @@ chapter, merge a PR, or create publication/certification authority.
 
 This makes the durable issue comment the recovery substrate when GitHub event
 delivery is missed.
+
+## 2026-10-21 authenticated active-worker gate
+
+For newly created RESULT/1 comments at or after 2026-10-21 00:00 UTC, the
+protected issue-comment projector **and** scheduled missed-event replay
+require a prior genuine MATHSOLVE #1096 global Editorial active-worker
+`GRANTED` receipt. The GitHub actor, exact Atlas issue, 32-digit
+`agent_run_id`, and `reviewed_head` must match the original source-locked
+`EDITORIAL-START/1` and its separately authenticated
+`github-actions[bot]` decision. The return must occur after controller
+acknowledgement, before four-hour expiry and before a valid END. Controller
+records are read from all comment pages (fail closed if unreadable).
+This enforces only the operational RETURNED projection; it does not
+establish substantive editorial approval or agent independence.
+
+Existing valid pre-cutover issue-bound returns remain historical evidence
+without retroactively inventing a START. The 28 closed Atlas jobs are
+preserved; no class, Project item, lease or publication mutation is inferred.
+A worker needing new work must obtain a distinct valid editorial job and
+start grant, not reopen returned assignments by assumption.
+This Atlas-specific gate does not by itself establish universal enforcement
+across other direct-editorial repositories.

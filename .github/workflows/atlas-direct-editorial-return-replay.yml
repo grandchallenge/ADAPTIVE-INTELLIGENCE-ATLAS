@@ -34,6 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           repaired=0
+          gh api --paginate --slurp 'repos/grandchallenge/MATHSOLVE/issues/1096/comments?per_page=100' | jq 'add // []' > "$RUNNER_TEMP/editorial-grants.json"
 
           gh api --paginate \
             "repos/$GITHUB_REPOSITORY/issues?state=open&labels=gcl-pickup%3Adirect-editorial&per_page=100" \
@@ -60,7 +61,7 @@ jobs:
               --issue "$issue_json" \
               --issue-fields "$fields_json" \
               --comments "$comments_json" \
-              --output "$projection_json"
+              --output "$projection_json" --grant-history "$RUNNER_TEMP/editorial-grants.json"
 
             if [ "$(jq -r '.project' "$projection_json")" != true ]; then
               continue

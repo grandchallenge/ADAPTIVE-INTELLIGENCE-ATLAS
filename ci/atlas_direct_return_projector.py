@@ -21,7 +21,7 @@ TITLE_PREFIX = re.compile(r"^([A-Z][A-Z0-9_-]+)\s+—\s+")
 RETURN_FIELD = re.compile(r"^([a-z_]+):[ \t]*(.*)$", re.M)
 STATES = {"completed", "partial", "blocked"}
 
-def evaluate(event: dict, fields: list[dict]) -> dict:
+def evaluate(event: dict, fields: list[dict], *, grant_history=None, require_grant=False) -> dict:
     def skip(reason: str) -> dict:
         return {"project": False, "reason": reason}
     issue = event.get("issue") or {}
@@ -83,6 +83,13 @@ def evaluate(event: dict, fields: list[dict]) -> dict:
     status = matches["status"].strip()
     if status not in STATES:
         return skip("invalid_result_status")
+    if require_grant:
+        if not isinstance(grant_history, list):
+            return skip("grant_history_missing")
+        from atlas_editorial_grant import check
+        proof=check(event,grant_history,(matches.get("agent_run_id") or "").strip(),head)
+        if proof not in ("granted","legacy_before_cutover"):
+            return skip("grant_" + proof)
     # Projection is a receipt, NOT a verdict; no inference of independent review.
     return {
         "project": True,
@@ -104,8 +111,10 @@ def main() -> None:
     parser.add_argument("--event", type=Path, required=True)
     parser.add_argument("--issue-fields", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--grant-history", type=Path, required=True)
     args = parser.parse_args()
-    result = evaluate(json.loads(args.event.read_text()), json.loads(args.issue_fields.read_text()))
+    result = evaluate(json.loads(args.event.read_text()), json.loads(args.issue_fields.read_text()),
+        grant_history=json.loads(args.grant_history.read_text()), require_grant=True)
     args.output.write_text(json.dumps(result, sort_keys=True) + "\n")
 
 if __name__ == "__main__":
