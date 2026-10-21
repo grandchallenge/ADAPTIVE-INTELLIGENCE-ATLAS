@@ -25,6 +25,7 @@ jobs:
       - run: python -m unittest discover -s tests -p test_atlas_acceptance_current_001.py
       - run: python -m unittest discover -s tests -p test_map_documentary_405.py
       - run: python -m unittest discover -s tests -p test_thesis_editorial_405.py
+      - run: python -m unittest discover -s tests -p test_objects_editorial_405.py
       - run: python -m unittest discover -s tests -p test_atlas_direct_return_projector.py
       - run: |
           if [ -f manuscript/latex/atlas-v0.1.1-rc.1.tex ]; then
