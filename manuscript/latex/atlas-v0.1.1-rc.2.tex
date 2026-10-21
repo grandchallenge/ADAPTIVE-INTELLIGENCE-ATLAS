@@ -9007,13 +9007,17 @@ Before assigning data, we need to know which pieces touch.
 
 A graph:
 
-\texttt{G=(V,E)}
+\[
+G=(V,E)
+\]
 
 can record pairwise incidence.
 
 A cover:
 
-\texttt{U=union\_i\ U\_i}
+\[
+U=\bigcup_i U_i
+\]
 
 can record which local regions together describe a larger region.
 
@@ -9054,15 +9058,19 @@ This is why graph topology and carried algebra must remain distinct.
 
 \section{Local sections}\label{local-sections}
 
-For a region \texttt{U}, let:
+For a region \(U\), let:
 
-\texttt{F(U)}
+\[
+\mathcal F(U)
+\]
 
 denote the allowable data on that region.
 
 An element:
 
-\texttt{s\ in\ F(U)}
+\[
+s\in\mathcal F(U)
+\]
 
 is called a local section.
 
@@ -9076,11 +9084,15 @@ well-typed on another.
 
 If:
 
-\texttt{V\ subseteq\ U},
+\[
+V\subseteq U,
+\]
 
 a restriction map:
 
-\texttt{rho\^{}U\_V:F(U)-\textgreater{}F(V)}
+\[
+\rho^U_V:\mathcal F(U)\to\mathcal F(V)
+\]
 
 asks:
 
@@ -9092,15 +9104,21 @@ Restriction must be coherent.
 
 Restricting to the same region does nothing:
 
-\texttt{rho\^{}U\_U=id}.
+\[
+\rho^U_U=\operatorname{id}.
+\]
 
 Restricting in stages must agree with restricting directly:
 
-\texttt{rho\^{}V\_W\ o\ rho\^{}U\_V\ =\ rho\^{}U\_W}
+\[
+\rho^V_W\circ\rho^U_V=\rho^U_W
+\]
 
 for:
 
-\texttt{W\ subseteq\ V\ subseteq\ U}.
+\[
+W\subseteq V\subseteq U.
+\]
 
 \section{Why restriction is an interface
 map}\label{why-restriction-is-an-interface-map}
@@ -9120,20 +9138,26 @@ The shared region is the comparison interface.
 
 Let:
 
-\texttt{\{U\_i\}}
+\[
+\{U_i\}
+\]
 
 cover U.
 
 Choose one local section:
 
-\texttt{s\_i\ in\ F(U\_i)}
+\[
+s_i\in\mathcal F(U_i)
+\]
 
 for each region.
 
 The family is matching when every pair agrees after restriction to its
 overlap:
 
-\texttt{rho\^{}\{U\_i\}\_\{U\_i\ intersect\ U\_j\}(s\_i)\ =\ rho\^{}\{U\_j\}\_\{U\_i\ intersect\ U\_j\}(s\_j)}.
+\[
+\rho^{U_i}_{U_i\cap U_j}(s_i)=\rho^{U_j}_{U_i\cap U_j}(s_j).
+\]
 
 This is exact compatibility.
 
@@ -9141,15 +9165,21 @@ This is exact compatibility.
 
 The two local sections may live in different spaces:
 
-\texttt{F(U\_i)}
+\[
+\mathcal F(U_i)
+\]
 
 and:
 
-\texttt{F(U\_j)}.
+\[
+\mathcal F(U_j).
+\]
 
 They become comparable only after both are mapped into:
 
-\texttt{F(U\_i\ intersect\ U\_j)}.
+\[
+\mathcal F(U_i\cap U_j).
+\]
 
 This prevents a common category error:
 
@@ -9187,9 +9217,11 @@ A sheaf adds the local-to-global property.
 
 For every matching family over a cover, there must exist a unique:
 
-\texttt{s\ in\ F(U)}
+\[
+s\in\mathcal F(U)
+\]
 
-whose restriction to each \texttt{U\_i} is \texttt{s\_i}.
+whose restriction to each \(U_i\) is \(s_i\).
 
 The word \textbf{unique} matters.
 
@@ -9227,15 +9259,21 @@ Keeping these clauses separate is useful far beyond sheaf theory.
 
 For a finite cover, gather all local restrictions into a map:
 
-\texttt{R:F(U)-\textgreater{}prod\_i\ F(U\_i)}.
+\[
+R:\mathcal F(U)\to\prod_i\mathcal F(U_i).
+\]
 
 Gather all overlap discrepancies into a map:
 
-\texttt{Delta:prod\_i\ F(U\_i)-\textgreater{}prod\_\{i\textless{}j\}F(U\_i\ intersect\ U\_j)}.
+\[
+\Delta:\prod_i\mathcal F(U_i)\to\prod_{i<j}\mathcal F(U_i\cap U_j).
+\]
 
 Matching families satisfy:
 
-\texttt{Delta=0}.
+\[
+\Delta=0.
+\]
 
 The sheaf condition says, informally:
 
@@ -9246,7 +9284,9 @@ the matching families, and the global source is unique.
 
 For vector-space-valued examples:
 
-\texttt{im(R)=ker(Delta)}
+\[
+\operatorname{im}(R)=\ker(\Delta)
+\]
 
 with R injective.
 
@@ -9278,19 +9318,27 @@ points}\label{exact-witness-three-points}
 
 Let:
 
-\texttt{X=\{a,b,c\}}.
+\[
+X=\{a,b,c\}.
+\]
 
 Use the cover:
 
-\texttt{U=\{a,b\}}
+\[
+U=\{a,b\}
+\]
 
 and:
 
-\texttt{V=\{b,c\}}.
+\[
+V=\{b,c\}.
+\]
 
 Their overlap is:
 
-\texttt{W=\{b\}}.
+\[
+W=\{b\}.
+\]
 
 This is the smallest example that has:
 
@@ -9306,9 +9354,11 @@ This is the smallest example that has:
 
 \section{Sections are functions}\label{sections-are-functions}
 
-For every subset \texttt{S} of X, define:
+For every subset \(S\) of X, define:
 
-\texttt{F(S)=R\^{}S}.
+\[
+\mathcal F(S)=\mathbb R^S.
+\]
 
 A section is simply a real-valued function on S.
 
@@ -9320,21 +9370,29 @@ Nothing abstract is hidden.
 
 Write a global section as:
 
-\texttt{(x,y,z)}.
+\[
+(x,y,z).
+\]
 
 Its restrictions are:
 
-\texttt{(x,y)}
+\[
+(x,y)
+\]
 
 on U and:
 
-\texttt{(y,z)}
+\[
+(y,z)
+\]
 
 on V.
 
 So:
 
-\texttt{R(x,y,z)=(x,y,y,z)}.
+\[
+R(x,y,z)=(x,y,y,z).
+\]
 
 \section{Uniqueness is injectivity}\label{uniqueness-is-injectivity}
 
@@ -9363,15 +9421,21 @@ map}\label{the-overlap-discrepancy-map}
 
 A general pair of local sections is:
 
-\texttt{((u\_a,u\_b),(v\_b,v\_c))}.
+\[
+((u_a,u_b),(v_b,v_c)).
+\]
 
 Define:
 
-\texttt{Delta(u\_a,u\_b,v\_b,v\_c)\ =\ u\_b-v\_b}.
+\[
+\Delta(u_a,u_b,v_b,v_c)=u_b-v_b.
+\]
 
 The pair is compatible exactly when:
 
-\texttt{Delta=0}.
+\[
+\Delta=0.
+\]
 
 The discrepancy lives precisely on the overlap coordinate b.
 
@@ -9379,17 +9443,23 @@ The discrepancy lives precisely on the overlap coordinate b.
 
 The image of R consists of vectors:
 
-\texttt{(x,y,y,z)}.
+\[
+(x,y,y,z).
+\]
 
 The kernel of Delta consists of vectors satisfying:
 
-\texttt{u\_b=v\_b}.
+\[
+u_b=v_b.
+\]
 
 These are the same set.
 
 Therefore:
 
-\texttt{im(R)=ker(Delta)}.
+\[
+\operatorname{im}(R)=\ker(\Delta).
+\]
 
 This is the exact gluing statement in the finite witness.
 
@@ -9397,35 +9467,49 @@ This is the exact gluing statement in the finite witness.
 
 Choose:
 
-\texttt{s\_U=(1,2)}
+\[
+s_U=(1,2)
+\]
 
 and:
 
-\texttt{s\_V=(2,4)}.
+\[
+s_V=(2,4).
+\]
 
 The overlap values both equal 2.
 
 So:
 
-\texttt{Delta=0}.
+\[
+\Delta=0.
+\]
 
 The unique global glue is:
 
-\texttt{s=(1,2,4)}.
+\[
+s=(1,2,4).
+\]
 
 \section{An incompatible family}\label{an-incompatible-family}
 
 Now choose:
 
-\texttt{q\_U=(1,2)}
+\[
+q_U=(1,2)
+\]
 
 and:
 
-\texttt{q\_V=(3,4)}.
+\[
+q_V=(3,4).
+\]
 
 The overlap discrepancy is:
 
-\texttt{Delta=2-3=-1}.
+\[
+\Delta=2-3=-1.
+\]
 
 It is nonzero.
 
@@ -9452,7 +9536,9 @@ aggregation}\label{gluing-is-stronger-than-aggregation}
 
 Suppose we simply concatenate the two local records:
 
-\texttt{(1,2,3,4)}.
+\[
+(1,2,3,4).
+\]
 
 We have stored all the data.
 
@@ -9471,8 +9557,7 @@ Connect them by an edge because their overlap is nonempty.
 
 That graph records interaction.
 
-But the numerical obstruction \texttt{-1} does not come from the graph
-alone.
+But the numerical obstruction \(-1\) does not come from the graph alone.
 
 It comes from:
 
@@ -9615,15 +9700,15 @@ equality}\label{an-approximate-glue-is-not-a-sheaf-theoretic-equality}
 
 Suppose the overlap values are:
 
-\texttt{2}
+\(2\)
 
 and:
 
-\texttt{2.1}.
+\(2.1\).
 
 A least-squares procedure might replace both with:
 
-\texttt{2.05}.
+\(2.05\).
 
 That can be sensible.
 
@@ -9718,13 +9803,17 @@ graph-first.
 
 A collection:
 
-\texttt{\{U\_i\}}
+\[
+\{U_i\}
+\]
 
 covers a larger domain.
 
 Overlaps:
 
-\texttt{U\_i\ intersect\ U\_j}
+\[
+U_i\cap U_j
+\]
 
 become the places where local descriptions must agree.
 
@@ -9751,7 +9840,9 @@ They need not expose all internal state.
 
 Restriction maps formalize this compression:
 
-\texttt{F(U\_i)-\textgreater{}F(U\_i\ intersect\ U\_j)}.
+\[
+\mathcal F(U_i)\to\mathcal F(U_i\cap U_j).
+\]
 
 The local-to-global problem can therefore be much smaller than comparing
 whole subsystem states.
@@ -9844,7 +9935,9 @@ A useful system should expose:
 
 In the witness, the certificate is:
 
-\texttt{Delta=-1}
+\[
+\Delta=-1
+\]
 
 at b.
 
@@ -9855,11 +9948,15 @@ vector}\label{a-larger-graph-produces-a-discrepancy-vector}
 
 For many overlaps, collect all boundary disagreements into:
 
-\texttt{Delta(s)}.
+\[
+\Delta(s).
+\]
 
 Then:
 
-\texttt{Delta(s)=0}
+\[
+\Delta(s)=0
+\]
 
 means exact compatibility.
 
@@ -9967,8 +10064,8 @@ Question
 domain & What is the global object/space? \\
 local regions & Which pieces cover or compose it? \\
 incidence & Which pieces overlap or meet? \\
-local data & What is \texttt{F(U\_i)}? \\
-overlap data & What is \texttt{F(U\_i\ intersect\ U\_j)}? \\
+local data & What is \(\mathcal F(U_i)\)? \\
+overlap data & What is \(\mathcal F(U_i\cap U_j)\)? \\
 restrictions & How is local data mapped to the overlap? \\
 compatibility & Which equalities must hold? \\
 existence & Does every matching family considered have a glue? \\
@@ -10022,19 +10119,16 @@ The companion witness proves:
 \begin{itemize}
 \tightlist
 \item
-  the global-to-local map \texttt{R:R\^{}3-\textgreater{}R\^{}4} is
-  injective;
+  the global-to-local map \(R:\mathbb R^3\to\mathbb R^4\) is injective;
 \item
-  the overlap discrepancy is
-  \texttt{Delta(u\_a,u\_b,v\_b,v\_c)=u\_b-v\_b};
+  the overlap discrepancy is \(\Delta(u_a,u_b,v_b,v_c)=u_b-v_b\);
 \item
-  \texttt{im(R)=ker(Delta)};
+  \(\operatorname{im}(R)=\ker(\Delta)\);
 \item
-  \texttt{(1,2)} on U and \texttt{(2,4)} on V glue uniquely to
-  \texttt{(1,2,4)};
+  \((1,2)\) on U and \((2,4)\) on V glue uniquely to \((1,2,4)\);
 \item
-  \texttt{(1,2)} on U and \texttt{(3,4)} on V have discrepancy
-  \texttt{-1} and cannot glue;
+  \((1,2)\) on U and \((3,4)\) on V have discrepancy \(-1\) and cannot
+  glue;
 \item
   the obstruction is localized to the shared coordinate b.
 \end{itemize}

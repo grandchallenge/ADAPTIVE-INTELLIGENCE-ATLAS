@@ -51,13 +51,17 @@ Before assigning data, we need to know which pieces touch.
 
 A graph:
 
-`G=(V,E)`
+\[
+G=(V,E)
+\]
 
 can record pairwise incidence.
 
 A cover:
 
-`U=union_i U_i`
+\[
+U=\bigcup_i U_i
+\]
 
 can record which local regions together describe a larger region.
 
@@ -85,15 +89,19 @@ This is why graph topology and carried algebra must remain distinct.
 
 ## 4. Local sections
 
-For a region `U`, let:
+For a region $U$, let:
 
-`F(U)`
+\[
+\mathcal F(U)
+\]
 
 denote the allowable data on that region.
 
 An element:
 
-`s in F(U)`
+\[
+s\in\mathcal F(U)
+\]
 
 is called a local section.
 
@@ -105,11 +113,15 @@ The same numerical vector can be a section on one region and not even be well-ty
 
 If:
 
-`V subseteq U`,
+\[
+V\subseteq U,
+\]
 
 a restriction map:
 
-`rho^U_V:F(U)->F(V)`
+\[
+\rho^U_V:\mathcal F(U)\to\mathcal F(V)
+\]
 
 asks:
 
@@ -119,17 +131,21 @@ Restriction must be coherent.
 
 Restricting to the same region does nothing:
 
-`rho^U_U=id`.
+\[
+\rho^U_U=\operatorname{id}.
+\]
 
 Restricting in stages must agree with restricting directly:
 
-`rho^V_W o rho^U_V
-=
-rho^U_W`
+\[
+\rho^V_W\circ\rho^U_V=\rho^U_W
+\]
 
 for:
 
-`W subseteq V subseteq U`.
+\[
+W\subseteq V\subseteq U.
+\]
 
 ## 6. Why restriction is an interface map
 
@@ -147,21 +163,25 @@ The shared region is the comparison interface.
 
 Let:
 
-`{U_i}`
+\[
+\{U_i\}
+\]
 
 cover U.
 
 Choose one local section:
 
-`s_i in F(U_i)`
+\[
+s_i\in\mathcal F(U_i)
+\]
 
 for each region.
 
 The family is matching when every pair agrees after restriction to its overlap:
 
-`rho^{U_i}_{U_i intersect U_j}(s_i)
-=
-rho^{U_j}_{U_i intersect U_j}(s_j)`.
+\[
+\rho^{U_i}_{U_i\cap U_j}(s_i)=\rho^{U_j}_{U_i\cap U_j}(s_j).
+\]
 
 This is exact compatibility.
 
@@ -169,15 +189,21 @@ This is exact compatibility.
 
 The two local sections may live in different spaces:
 
-`F(U_i)`
+\[
+\mathcal F(U_i)
+\]
 
 and:
 
-`F(U_j)`.
+\[
+\mathcal F(U_j).
+\]
 
 They become comparable only after both are mapped into:
 
-`F(U_i intersect U_j)`.
+\[
+\mathcal F(U_i\cap U_j).
+\]
 
 This prevents a common category error:
 
@@ -203,9 +229,11 @@ A sheaf adds the local-to-global property.
 
 For every matching family over a cover, there must exist a unique:
 
-`s in F(U)`
+\[
+s\in\mathcal F(U)
+\]
 
-whose restriction to each `U_i` is `s_i`.
+whose restriction to each $U_i$ is $s_i$.
 
 The word **unique** matters.
 
@@ -232,15 +260,21 @@ Keeping these clauses separate is useful far beyond sheaf theory.
 
 For a finite cover, gather all local restrictions into a map:
 
-`R:F(U)->prod_i F(U_i)`.
+\[
+R:\mathcal F(U)\to\prod_i\mathcal F(U_i).
+\]
 
 Gather all overlap discrepancies into a map:
 
-`Delta:prod_i F(U_i)->prod_{i<j}F(U_i intersect U_j)`.
+\[
+\Delta:\prod_i\mathcal F(U_i)\to\prod_{i<j}\mathcal F(U_i\cap U_j).
+\]
 
 Matching families satisfy:
 
-`Delta=0`.
+\[
+\Delta=0.
+\]
 
 The sheaf condition says, informally:
 
@@ -248,7 +282,9 @@ The sheaf condition says, informally:
 
 For vector-space-valued examples:
 
-`im(R)=ker(Delta)`
+\[
+\operatorname{im}(R)=\ker(\Delta)
+\]
 
 with R injective.
 
@@ -269,19 +305,27 @@ The deeper theory remains available later if needed.
 
 Let:
 
-`X={a,b,c}`.
+\[
+X=\{a,b,c\}.
+\]
 
 Use the cover:
 
-`U={a,b}`
+\[
+U=\{a,b\}
+\]
 
 and:
 
-`V={b,c}`.
+\[
+V=\{b,c\}.
+\]
 
 Their overlap is:
 
-`W={b}`.
+\[
+W=\{b\}.
+\]
 
 This is the smallest example that has:
 
@@ -291,9 +335,11 @@ This is the smallest example that has:
 
 ## 15. Sections are functions
 
-For every subset `S` of X, define:
+For every subset $S$ of X, define:
 
-`F(S)=R^S`.
+\[
+\mathcal F(S)=\mathbb R^S.
+\]
 
 A section is simply a real-valued function on S.
 
@@ -305,21 +351,29 @@ Nothing abstract is hidden.
 
 Write a global section as:
 
-`(x,y,z)`.
+\[
+(x,y,z).
+\]
 
 Its restrictions are:
 
-`(x,y)`
+\[
+(x,y)
+\]
 
 on U and:
 
-`(y,z)`
+\[
+(y,z)
+\]
 
 on V.
 
 So:
 
-`R(x,y,z)=(x,y,y,z)`.
+\[
+R(x,y,z)=(x,y,y,z).
+\]
 
 ## 17. Uniqueness is injectivity
 
@@ -341,17 +395,21 @@ The local restrictions determine at most one global function.
 
 A general pair of local sections is:
 
-`((u_a,u_b),(v_b,v_c))`.
+\[
+((u_a,u_b),(v_b,v_c)).
+\]
 
 Define:
 
-`Delta(u_a,u_b,v_b,v_c)
-=
-u_b-v_b`.
+\[
+\Delta(u_a,u_b,v_b,v_c)=u_b-v_b.
+\]
 
 The pair is compatible exactly when:
 
-`Delta=0`.
+\[
+\Delta=0.
+\]
 
 The discrepancy lives precisely on the overlap coordinate b.
 
@@ -359,17 +417,23 @@ The discrepancy lives precisely on the overlap coordinate b.
 
 The image of R consists of vectors:
 
-`(x,y,y,z)`.
+\[
+(x,y,y,z).
+\]
 
 The kernel of Delta consists of vectors satisfying:
 
-`u_b=v_b`.
+\[
+u_b=v_b.
+\]
 
 These are the same set.
 
 Therefore:
 
-`im(R)=ker(Delta)`.
+\[
+\operatorname{im}(R)=\ker(\Delta).
+\]
 
 This is the exact gluing statement in the finite witness.
 
@@ -377,35 +441,49 @@ This is the exact gluing statement in the finite witness.
 
 Choose:
 
-`s_U=(1,2)`
+\[
+s_U=(1,2)
+\]
 
 and:
 
-`s_V=(2,4)`.
+\[
+s_V=(2,4).
+\]
 
 The overlap values both equal 2.
 
 So:
 
-`Delta=0`.
+\[
+\Delta=0.
+\]
 
 The unique global glue is:
 
-`s=(1,2,4)`.
+\[
+s=(1,2,4).
+\]
 
 ## 21. An incompatible family
 
 Now choose:
 
-`q_U=(1,2)`
+\[
+q_U=(1,2)
+\]
 
 and:
 
-`q_V=(3,4)`.
+\[
+q_V=(3,4).
+\]
 
 The overlap discrepancy is:
 
-`Delta=2-3=-1`.
+\[
+\Delta=2-3=-1.
+\]
 
 It is nonzero.
 
@@ -429,7 +507,9 @@ This is one practical virtue of explicit overlap maps:
 
 Suppose we simply concatenate the two local records:
 
-`(1,2,3,4)`.
+\[
+(1,2,3,4).
+\]
 
 We have stored all the data.
 
@@ -447,7 +527,7 @@ Connect them by an edge because their overlap is nonempty.
 
 That graph records interaction.
 
-But the numerical obstruction `-1` does not come from the graph alone.
+But the numerical obstruction $-1$ does not come from the graph alone.
 
 It comes from:
 
@@ -543,15 +623,15 @@ The Atlas keeps the layers separate:
 
 Suppose the overlap values are:
 
-`2`
+$2$
 
 and:
 
-`2.1`.
+$2.1$.
 
 A least-squares procedure might replace both with:
 
-`2.05`.
+$2.05$.
 
 That can be sensible.
 
@@ -619,13 +699,17 @@ Sometimes the natural structure is spatial or semantic rather than graph-first.
 
 A collection:
 
-`{U_i}`
+\[
+\{U_i\}
+\]
 
 covers a larger domain.
 
 Overlaps:
 
-`U_i intersect U_j`
+\[
+U_i\cap U_j
+\]
 
 become the places where local descriptions must agree.
 
@@ -644,7 +728,9 @@ They need not expose all internal state.
 
 Restriction maps formalize this compression:
 
-`F(U_i)->F(U_i intersect U_j)`.
+\[
+\mathcal F(U_i)\to\mathcal F(U_i\cap U_j).
+\]
 
 The local-to-global problem can therefore be much smaller than comparing whole subsystem states.
 
@@ -704,7 +790,9 @@ A useful system should expose:
 
 In the witness, the certificate is:
 
-`Delta=-1`
+\[
+\Delta=-1
+\]
 
 at b.
 
@@ -714,11 +802,15 @@ That is already actionable.
 
 For many overlaps, collect all boundary disagreements into:
 
-`Delta(s)`.
+\[
+\Delta(s).
+\]
 
 Then:
 
-`Delta(s)=0`
+\[
+\Delta(s)=0
+\]
 
 means exact compatibility.
 
@@ -782,8 +874,8 @@ Before accepting a gluing claim, record:
 | domain | What is the global object/space? |
 | local regions | Which pieces cover or compose it? |
 | incidence | Which pieces overlap or meet? |
-| local data | What is `F(U_i)`? |
-| overlap data | What is `F(U_i intersect U_j)`? |
+| local data | What is $\mathcal F(U_i)$? |
+| overlap data | What is $\mathcal F(U_i\cap U_j)$? |
 | restrictions | How is local data mapped to the overlap? |
 | compatibility | Which equalities must hold? |
 | existence | Does every matching family considered have a glue? |
@@ -829,11 +921,11 @@ The terminology is used without explicit section spaces or restriction maps.
 
 The companion witness proves:
 
-- the global-to-local map `R:R^3->R^4` is injective;
-- the overlap discrepancy is `Delta(u_a,u_b,v_b,v_c)=u_b-v_b`;
-- `im(R)=ker(Delta)`;
-- `(1,2)` on U and `(2,4)` on V glue uniquely to `(1,2,4)`;
-- `(1,2)` on U and `(3,4)` on V have discrepancy `-1` and cannot glue;
+- the global-to-local map $R:\mathbb R^3\to\mathbb R^4$ is injective;
+- the overlap discrepancy is $\Delta(u_a,u_b,v_b,v_c)=u_b-v_b$;
+- $\operatorname{im}(R)=\ker(\Delta)$;
+- $(1,2)$ on U and $(2,4)$ on V glue uniquely to $(1,2,4)$;
+- $(1,2)$ on U and $(3,4)$ on V have discrepancy $-1$ and cannot glue;
 - the obstruction is localized to the shared coordinate b.
 
 Nothing about noisy fusion, semantic truth, or global system stability is inferred.
