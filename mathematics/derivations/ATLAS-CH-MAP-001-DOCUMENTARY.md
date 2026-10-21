@@ -28,11 +28,11 @@ The map states that it records purpose and hard dependency rather than final num
 
 Therefore the chapter may teach:
 
-[
+$$
 \text{chapter identity}
 =
 \text{stable ATLAS ID},
-]
+$$
 
 not final ordinal position.
 
@@ -51,9 +51,9 @@ Canonical semantics:
 
 Therefore:
 
-[
+$$
 A\to B
-]
+$$
 
 in the hard dependency graph is not equivalent to a thematic cross-reference.
 
@@ -93,7 +93,7 @@ Sources:
 
 Canonical discipline:
 
-[
+$$
 \text{allegory}
 \to
 \text{structural correspondence}
@@ -101,7 +101,7 @@ Canonical discipline:
 \text{mathematics}
 \to
 \text{limit of allegory}.
-]
+$$
 
 An allegory cannot carry a claim not supported by the mathematics/documentary object.
 
@@ -131,21 +131,19 @@ Reader-facing classes include:
 
 Two canonical nonpromotion rules are load-bearing:
 
-[
+$$
 \text{presentation}
-
-otRightarrow
+\not\Rightarrow
 \text{epistemic status},
-]
+$$
 
 and
 
-[
+$$
 \text{replay}
-
-otRightarrow
+\not\Rightarrow
 \text{truth, independent replication, formal verification, or certification}.
-]
+$$
 
 A reproducible or exact computational witness also does not become proof merely through reproducibility.
 
@@ -182,12 +180,11 @@ A source lock binds the exact source objects consumed by a chapter and states th
 
 Therefore:
 
-[
+$$
 \text{citation}
-
-eq
+\neq
 \text{unbounded authority}.
-]
+$$
 
 A chapter may only use a source for the role declared in the lock.
 
@@ -217,7 +214,7 @@ Source locks and audit records provide evidentiary resolution.
 
 Therefore a reader can legitimately move among scales:
 
-[
+$$
 \text{Atlas}
 \to
 \text{Part}
@@ -227,7 +224,7 @@ Therefore a reader can legitimately move among scales:
 \text{claim}
 \to
 \text{support object}.
-]
+$$
 
 Changing scale changes detail.
 
