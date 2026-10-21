@@ -43,6 +43,6 @@ class MAPDocumentaryMath(unittest.TestCase):
         actual=subprocess.check_output(['git','hash-object',str(ROOT/row['source_path'])],text=True).strip()
         self.assertEqual(actual,row['source_blob_sha1'])
         self.assertEqual(actual,'d4073139ad9cad95fa25415a4e74a5ff733b1475')
-        self.assertEqual(d['accepted_count'],3)
+        self.assertEqual(d['accepted_count'],4)
 
 if __name__=='__main__': unittest.main()
