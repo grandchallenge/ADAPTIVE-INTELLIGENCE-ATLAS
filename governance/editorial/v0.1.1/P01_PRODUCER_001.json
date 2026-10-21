@@ -1,0 +1,493 @@
+{
+  "example_witnesses": {
+    "map_exact_norm_squared": "416/25",
+    "objects_norm_input": 5,
+    "objects_norm_output": 1,
+    "parity_finite_cases": 21
+  },
+  "final_accept_count": 0,
+  "html_sha256": "e87002479a3f10fbda4ed549d93a809270e91bb4fe6736e36f587508356b0719",
+  "pdf_page_count": 1426,
+  "pdf_sha256": "bdc949ce5e213008a10838d1e6ba8fdf2f9bb69bbe4d6de8d19b1e754f028cdf",
+  "role": "PRODUCER",
+  "rows": [
+    {
+      "chapter_id": "ATLAS-CH-THESIS-001",
+      "critically_accepted": false,
+      "findings": [
+        {
+          "finding": "Keystone drafting history remains reader-facing prose.",
+          "id": "ER-P1-01",
+          "location": "\u00a78",
+          "severity": "P1",
+          "status": "UNRESOLVED"
+        },
+        {
+          "finding": "Repeated editorial-shift guidance; compress.",
+          "id": "ER-P1-02",
+          "location": "\u00a73,7,9",
+          "severity": "P2",
+          "status": "PARTIAL"
+        }
+      ],
+      "historical_source_lock_checks": [
+        {
+          "blob": "ee83f2cadfcf725930b2076ba4c52ae1190647f8",
+          "matches_lock": true,
+          "source_id": "THESIS-SEED-INVENTORY"
+        },
+        {
+          "blob": "03b9475696f3f3b75806b3ebe44dd84780f01439",
+          "matches_lock": true,
+          "source_id": "THESIS-ATLAS-MAP"
+        },
+        {
+          "blob": "4e54b0bebd39dd4432e7caf8238456dac8b9cebf",
+          "matches_lock": true,
+          "source_id": "THESIS-EDITORIAL-PROFILE"
+        },
+        {
+          "blob": "52f1d77e80e516cea179550f966383b0b06900af",
+          "matches_lock": true,
+          "source_id": "THESIS-COMPOSITION-PROTOCOL"
+        }
+      ],
+      "html_h2": 12,
+      "html_heading_id": "the-adaptive-system-thesis",
+      "pdf_page_checks": [
+        {
+          "near_edge": 0,
+          "physical_page": 69,
+          "spans": 173,
+          "text_chars": 1411
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 70,
+          "spans": 223,
+          "text_chars": 1498
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 71,
+          "spans": 190,
+          "text_chars": 1299
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 72,
+          "spans": 223,
+          "text_chars": 1486
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 73,
+          "spans": 174,
+          "text_chars": 1152
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 74,
+          "spans": 186,
+          "text_chars": 1136
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 75,
+          "spans": 249,
+          "text_chars": 1849
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 76,
+          "spans": 267,
+          "text_chars": 1889
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 77,
+          "spans": 174,
+          "text_chars": 1237
+        }
+      ],
+      "pdf_pages": [
+        69,
+        77
+      ],
+      "producer_issue": 412,
+      "producer_run_id": "a0412e5cf0f04b2fb2c3d0e91a814e75",
+      "producer_status": "REPAIR_REQUIRED",
+      "source_blob_sha1": "849c5f7fc27ffc3fa0334a85fd681f9d09fe080f",
+      "source_h2": 12,
+      "source_lock": "sources/source-locks/ATLAS-CH-THESIS-001.yaml",
+      "source_lock_sha256": "23ccb87536de8a32ca1eeddc0c4045a3713a622be562dabea82b65c7d6798ec8",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-THESIS-001.md"
+    },
+    {
+      "chapter_id": "ATLAS-CH-MAP-001",
+      "critically_accepted": false,
+      "findings": [],
+      "historical_source_lock_checks": [
+        {
+          "blob": "03b9475696f3f3b75806b3ebe44dd84780f01439",
+          "matches_lock": true,
+          "source_id": "MAP-ATLAS-MAP"
+        },
+        {
+          "blob": "e4a460e2e9cb37a2a01ea34996c471668670eaa6",
+          "matches_lock": true,
+          "source_id": "MAP-DEPENDENCY-GRAPH"
+        },
+        {
+          "blob": "52f1d77e80e516cea179550f966383b0b06900af",
+          "matches_lock": true,
+          "source_id": "MAP-COMPOSITION-PROTOCOL"
+        },
+        {
+          "blob": "c64f7376bf21447d73c277ba3758be7490bcdaf8",
+          "matches_lock": true,
+          "source_id": "MAP-EPISTEMIC-STATUS"
+        },
+        {
+          "blob": "4e54b0bebd39dd4432e7caf8238456dac8b9cebf",
+          "matches_lock": true,
+          "source_id": "MAP-EDITORIAL-PROFILE"
+        },
+        {
+          "blob": "347ff6214dcc2246dfb1928640c7dc611b0e35b2",
+          "matches_lock": true,
+          "source_id": "MAP-FIGURE-REGISTER"
+        },
+        {
+          "blob": "44ad0204c267ca9e598eaacb8de6f2e7981298a5",
+          "matches_lock": true,
+          "source_id": "MAP-SOURCE-REGISTER"
+        },
+        {
+          "blob": "ae89cf78b1bed99dc8d0f4c64b3c1c6553548544",
+          "matches_lock": true,
+          "source_id": "MAP-THESIS-PREREQUISITE"
+        }
+      ],
+      "html_h2": 10,
+      "html_heading_id": "how-to-read-a-mathematical-atlas",
+      "pdf_page_checks": [
+        {
+          "near_edge": 0,
+          "physical_page": 79,
+          "spans": 167,
+          "text_chars": 1146
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 80,
+          "spans": 338,
+          "text_chars": 2407
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 81,
+          "spans": 359,
+          "text_chars": 2463
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 82,
+          "spans": 314,
+          "text_chars": 2386
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 83,
+          "spans": 282,
+          "text_chars": 2149
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 84,
+          "spans": 169,
+          "text_chars": 1294
+        }
+      ],
+      "pdf_pages": [
+        79,
+        84
+      ],
+      "producer_issue": 412,
+      "producer_run_id": "a0412e5cf0f04b2fb2c3d0e91a814e75",
+      "producer_status": "CRITIC_PENDING",
+      "source_blob_sha1": "d4073139ad9cad95fa25415a4e74a5ff733b1475",
+      "source_h2": 10,
+      "source_lock": "sources/source-locks/ATLAS-CH-MAP-001.yaml",
+      "source_lock_sha256": "6e4e62b01a9687d6f6c949ea382b3fea7a12d03f965e4ae5de8a19d489017f10",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-MAP-001.md"
+    },
+    {
+      "chapter_id": "ATLAS-CH-OBJECTS-001",
+      "critically_accepted": false,
+      "findings": [
+        {
+          "finding": "19 sections fragment four role definitions and examples.",
+          "id": "ER-P1-06",
+          "location": "\u00a73\u201319",
+          "severity": "P1",
+          "status": "UNRESOLVED"
+        },
+        {
+          "finding": "Global flow/semiflow/local-flow domains now differentiated.",
+          "id": "ER-P1-07",
+          "location": "\u00a76,8",
+          "severity": "P2",
+          "status": "RESOLVED"
+        }
+      ],
+      "historical_source_lock_checks": [
+        {
+          "blob": "ee83f2cadfcf725930b2076ba4c52ae1190647f8",
+          "matches_lock": true,
+          "source_id": "OBJECTS-SEED-INVENTORY"
+        },
+        {
+          "blob": "b425518b4a5a20cbd90eb6979df3bf57ca1c9043",
+          "matches_lock": true,
+          "source_id": "OBJECTS-LEXICON"
+        },
+        {
+          "blob": "03b9475696f3f3b75806b3ebe44dd84780f01439",
+          "matches_lock": true,
+          "source_id": "OBJECTS-ATLAS-MAP"
+        }
+      ],
+      "html_h2": 20,
+      "html_heading_id": "states-operators-flows-and-interfaces",
+      "pdf_page_checks": [
+        {
+          "near_edge": 0,
+          "physical_page": 85,
+          "spans": 95,
+          "text_chars": 680
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 86,
+          "spans": 194,
+          "text_chars": 1164
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 87,
+          "spans": 138,
+          "text_chars": 825
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 88,
+          "spans": 224,
+          "text_chars": 1187
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 89,
+          "spans": 185,
+          "text_chars": 1063
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 90,
+          "spans": 170,
+          "text_chars": 1033
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 91,
+          "spans": 147,
+          "text_chars": 784
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 92,
+          "spans": 165,
+          "text_chars": 1000
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 93,
+          "spans": 207,
+          "text_chars": 1305
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 94,
+          "spans": 161,
+          "text_chars": 1242
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 95,
+          "spans": 185,
+          "text_chars": 1230
+        }
+      ],
+      "pdf_pages": [
+        85,
+        95
+      ],
+      "producer_issue": 412,
+      "producer_run_id": "a0412e5cf0f04b2fb2c3d0e91a814e75",
+      "producer_status": "REPAIR_REQUIRED",
+      "source_blob_sha1": "be9761409e4136e8f17ab781df3f21fa14cb1cb0",
+      "source_h2": 20,
+      "source_lock": "sources/source-locks/ATLAS-CH-OBJECTS-001.yaml",
+      "source_lock_sha256": "ec394e474138b2742458bb5f5cf8715dc13a585f45a199aadbea1390d03742df",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-OBJECTS-001.md"
+    },
+    {
+      "chapter_id": "ATLAS-CH-EVIDENCE-001",
+      "critically_accepted": false,
+      "findings": [],
+      "historical_source_lock_checks": [
+        {
+          "blob": "c64f7376bf21447d73c277ba3758be7490bcdaf8",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-EPISTEMIC-STATUS"
+        },
+        {
+          "blob": "52f1d77e80e516cea179550f966383b0b06900af",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-COMPOSITION-PROTOCOL"
+        },
+        {
+          "blob": "1d9c71c5e720ebe421ebb4943f97541635a4bd76",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-WITNESS-STANDARD"
+        },
+        {
+          "blob": "df1384f164133a58d430af9934b1609ea2dbc857",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-SOURCE-LOCK-STANDARD"
+        },
+        {
+          "blob": "4e54b0bebd39dd4432e7caf8238456dac8b9cebf",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-EDITORIAL-PROFILE"
+        },
+        {
+          "blob": "1b4320b3ecc44d2120753d583b8f12cfee3a610b",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-LEDGER"
+        },
+        {
+          "blob": "03b9475696f3f3b75806b3ebe44dd84780f01439",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-ATLAS-MAP"
+        },
+        {
+          "blob": "c14d9f1e4e9a105a5cf2c5083f8b8ca83182a43b",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-MAP-PREREQUISITE"
+        },
+        {
+          "blob": "a5db63d67b64bdea18d538253d900aecc67e8d1c",
+          "matches_lock": true,
+          "source_id": "EVIDENCE-MAP-AUDIT"
+        }
+      ],
+      "html_h2": 16,
+      "html_heading_id": "claims-evidence-and-computational-witnesses",
+      "pdf_page_checks": [
+        {
+          "near_edge": 0,
+          "physical_page": 97,
+          "spans": 186,
+          "text_chars": 1388
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 98,
+          "spans": 222,
+          "text_chars": 1544
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 99,
+          "spans": 250,
+          "text_chars": 1724
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 100,
+          "spans": 349,
+          "text_chars": 2277
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 101,
+          "spans": 288,
+          "text_chars": 2037
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 102,
+          "spans": 283,
+          "text_chars": 1894
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 103,
+          "spans": 249,
+          "text_chars": 1314
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 104,
+          "spans": 242,
+          "text_chars": 1706
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 105,
+          "spans": 276,
+          "text_chars": 1898
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 106,
+          "spans": 272,
+          "text_chars": 1955
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 107,
+          "spans": 263,
+          "text_chars": 1755
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 108,
+          "spans": 212,
+          "text_chars": 1554
+        },
+        {
+          "near_edge": 0,
+          "physical_page": 109,
+          "spans": 77,
+          "text_chars": 580
+        }
+      ],
+      "pdf_pages": [
+        97,
+        109
+      ],
+      "producer_issue": 412,
+      "producer_run_id": "a0412e5cf0f04b2fb2c3d0e91a814e75",
+      "producer_status": "CRITIC_PENDING",
+      "source_blob_sha1": "64b7ea7a251ccc13e835461ca42bc277412e6f06",
+      "source_h2": 16,
+      "source_lock": "sources/source-locks/ATLAS-CH-EVIDENCE-001.yaml",
+      "source_lock_sha256": "a74ebebed9efa946284a1f51a051f66b313ea3414573b1d6aefe1056cd87d85b",
+      "source_path": "manuscript/parts/01-orientation/ATLAS-CH-EVIDENCE-001.md"
+    }
+  ],
+  "source_head": "9b7206c4a59583e3099abbcda310ebaa962aad0e",
+  "type": "ATLAS_P01_PRODUCER/1"
+}
