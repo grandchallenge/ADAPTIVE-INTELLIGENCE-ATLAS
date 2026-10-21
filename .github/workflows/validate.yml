@@ -20,6 +20,8 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt
       - run: python tools/validate_atlas.py
+      - run: python -m unittest discover -s tests -p test_krylov_math_typesetting_405.py
+      - run: python -m unittest discover -s tests -p test_localglobal_math_typesetting_405.py
       - run: python -m unittest discover -s tests -p test_atlas_direct_return_projector.py
       - run: |
           if [ -f manuscript/latex/atlas-v0.1.1-rc.1.tex ]; then
