@@ -4,9 +4,9 @@
 
 A state is an information-bearing value
 
-[
-xinmathcal X.
-]
+$$
+x\in\mathcal X.
+$$
 
 Its array representation does not determine its semantic role.
 
@@ -14,14 +14,14 @@ Its array representation does not determine its semantic role.
 
 An operator is a transformation
 
-[
-F:mathcal X\tomathcal Y.
-]
+$$
+F:\mathcal X\to\mathcal Y.
+$$
 
-If (Ainmathbb R^{n\times n}), the same stored array may represent:
+If $A\in\mathbb R^{n\times n}$, the same stored array may represent:
 
 - a state whose entries are data;
-- a linear operator (xmapsto Ax).
+- a linear operator $x\mapsto Ax$.
 
 The distinction is semantic and operational.
 
@@ -29,15 +29,15 @@ The distinction is semantic and operational.
 
 A flow is a parameterized family
 
-[
-Phi_t:mathcal X\tomathcal X
-]
+$$
+\Phi_t:\mathcal X\to\mathcal X
+$$
 
 with composition law
 
-[
-Phi_{t+s}=Phi_tcircPhi_s
-]
+$$
+\Phi_{t+s}=\Phi_t\circ\Phi_s
+$$
 
 when a true flow structure is present.
 
