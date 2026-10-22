@@ -84,7 +84,7 @@ hence
 \kappa_2(D)=100.
 \]
 
-## Replay expression
+## Original replay expression
 
 ```wolfram
 aa={{1,1},{0,1}};
@@ -100,3 +100,46 @@ dd={{1,0},{0,1/100}};
 ## Claim boundary
 
 This witness checks exact finite-dimensional identities and one conditioning example. It does not establish claims about optimization dynamics, model training, or empirical representation geometry.
+
+## Witness D — minimum-norm least squares under rank deficiency
+
+With $A_0=\operatorname{diag}(1,0)$ and $b_0=(2,3)^\top$, the entire
+minimizer set is $\{(2,t)^\top:t\in\mathbb R\}$ because
+
+$$
+\|A_0x-b_0\|_2^2=(x_1-2)^2+9.
+$$
+
+The pseudoinverse chooses $A_0^+b_0=(2,0)^\top$, giving residual norm
+$3$ and zero null-space component. This was missing from the earlier
+three-case replay despite the acceptance specification explicitly
+requiring a pseudoinverse least-squares witness.
+
+## Witness E — real normal need not mean real eigenvectors
+
+For $R=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$,
+$R^\top R=RR^\top=I$ and
+$\det(\lambda I-R)=\lambda^2+1$. Its eigenvalues are $\pm i$;
+there is no nonzero real eigenvector. Complex unitary diagonalization
+is still valid.
+
+## Extended exact replay
+
+The following self-contained Wolfram expressions add both obligations:
+
+```wolfram
+a0={{1,0},{0,0}};
+b0={2,3};
+x0=PseudoInverse[a0].b0;
+r0=a0.x0-b0;
+rot={{0,-1},{1,0}};
+{
+ x0, r0, r0.r0,
+ FullSimplify[(a0.{2,t}-b0).(a0.{2,t}-b0)],
+ Transpose[rot].rot==rot.Transpose[rot],
+ Eigenvalues[rot]
+}
+(* Expected: {{2,0},{0,-3},9,9,True,{-I,I}} up to order *)
+```
+
+These finite identities do not certify any nonlinear-system property.
