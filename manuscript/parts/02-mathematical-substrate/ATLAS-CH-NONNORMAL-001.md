@@ -61,7 +61,7 @@ A^\top A=AA^\top.
 
 For complex matrices, transpose is replaced by conjugate transpose.
 
-Normal matrices admit an orthogonal/unitary eigenbasis. In the real symmetric or complex normal setting,
+Every complex normal matrix has a unitary eigenbasis. A real normal matrix also admits a unitary diagonalization after complexification; a real *orthogonal* eigenbasis is guaranteed for real symmetric matrices, but not for every real normal matrix. Accordingly,
 
 \[
 A=U\Lambda U^*,
@@ -158,7 +158,7 @@ a&K\\
 0&a
 \end{pmatrix},
 \qquad
-|a|<1.
+a\in\mathbb R,\quad K>0,\quad |a|<1.
 \]
 
 Write
@@ -359,7 +359,7 @@ The plate is not merely numerical decoration. For this \(2\times2\) example, the
 
 ## 8. The pseudospectrum
 
-We use the closed \(2\)-norm convention
+For \(\varepsilon>0\), we use the closed \(2\)-norm convention
 
 \[
 \boxed{
@@ -498,7 +498,7 @@ Hence
 K^2\varepsilon^2.
 \]
 
-The admissible boundary branch is
+Since \(r^2=\sigma_{\max}\sigma_{\min}\ge\varepsilon^2\) on the boundary, the negative algebraic branch \(r^2=\varepsilon(\varepsilon-K)\) is extraneous. The admissible boundary branch is
 
 \[
 \boxed{
