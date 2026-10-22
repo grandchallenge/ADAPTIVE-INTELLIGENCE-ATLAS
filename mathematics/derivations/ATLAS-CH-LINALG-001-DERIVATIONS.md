@@ -143,3 +143,40 @@ is the minimum-norm least-squares solution when the standard finite-dimensional 
 ## Claim boundary
 
 This packet establishes standard finite-dimensional identities and one exact witness. It does not claim that spectral structure alone determines neural training behavior.
+
+## D7. Basis covariance and a non-real normal spectrum
+
+Let $S_V$ and $S_W$ be invertible coordinate transforms from a new
+domain and codomain basis respectively to old coordinates. The new
+matrix describing the **same** linear map is
+
+$$
+[T]_{\widetilde C\leftarrow\widetilde B}
+=
+S_W^{-1}[T]_{C\leftarrow B}S_V.
+$$
+
+Only an endomorphism described with the same change of basis in its
+domain and codomain gives a similarity $S^{-1}AS$. A general two-sided
+basis change need not preserve the matrix eigenvalues.
+
+For $R=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$,
+$R^\top R=RR^\top=I$, yet its characteristic polynomial is
+$\lambda^2+1$. The complex spectral theorem is applicable, but no
+nonzero real eigenvector exists. This limits the loose claim that all
+real normal matrices have a real orthonormal eigenbasis.
+
+## D8. Rank-deficient least squares and pseudoinverse
+
+With $A=\operatorname{diag}(1,0)$ and $b=(2,3)^\top$, the squared
+residual is
+
+$$
+\|Ax-b\|_2^2=(x_1-2)^2+9.
+$$
+
+Every vector $(2,t)^\top$ minimizes the residual; the Moore--Penrose
+solution $A^+b=(2,0)^\top$ is the unique **minimum norm** minimizer.
+It leaves residual $(0,-3)^\top$, whose Euclidean norm is $3$.
+This separates least-squares optimality, exact solvability, and
+identifiability of the unconstrained null-space component.
