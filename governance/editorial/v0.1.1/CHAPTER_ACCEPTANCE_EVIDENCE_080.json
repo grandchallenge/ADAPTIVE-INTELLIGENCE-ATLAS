@@ -1,6 +1,6 @@
 {
-  "accepted_count": 5,
-  "candidate_head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+  "accepted_count": 6,
+  "candidate_head": "8f163c07a095aac6e3e07d1157981745970ae79b",
   "candidate_pr": 320,
   "chapters": [
     {
@@ -31,16 +31,16 @@
       "assignment_id": "PART-I-EDITORIAL",
       "chapter_id": "ATLAS-CH-THESIS-001",
       "current_render_revalidation": {
-        "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
-        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
-        "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
-        "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
-        "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
         "physical_pages": [
           69,
           76
         ],
-        "scope": "render-only; previous source and mathematical acceptances retained",
+        "scope": "render-only; original scientific/editorial source critics remain historic and unchanged",
         "source_blob_unchanged": true
       },
       "historical_findings": [
@@ -77,6 +77,19 @@
             76
           ],
           "scope": "render-only: original producer and mathematical critic record preserved",
+          "source_blob_unchanged": true
+        },
+        {
+          "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
+          "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
+          "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+          "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+          "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+          "physical_pages": [
+            69,
+            76
+          ],
+          "scope": "render-only; previous source and mathematical acceptances retained",
           "source_blob_unchanged": true
         }
       ],
@@ -133,16 +146,16 @@
       "assignment_id": "PART-I-EDITORIAL",
       "chapter_id": "ATLAS-CH-MAP-001",
       "current_render_revalidation": {
-        "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
-        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
-        "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
-        "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
-        "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
         "physical_pages": [
           77,
           82
         ],
-        "scope": "render-only; previous source and mathematical acceptances retained",
+        "scope": "render-only; original scientific/editorial source critics remain historic and unchanged",
         "source_blob_unchanged": true
       },
       "documentary_packet_blob_sha1": "f7ea7a6912465ab2160e6f84645913e7eef2df2a",
@@ -179,6 +192,19 @@
             82
           ],
           "scope": "render-only: original producer and mathematical critic record preserved",
+          "source_blob_unchanged": true
+        },
+        {
+          "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
+          "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
+          "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+          "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+          "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+          "physical_pages": [
+            77,
+            82
+          ],
+          "scope": "render-only; previous source and mathematical acceptances retained",
           "source_blob_unchanged": true
         }
       ],
@@ -228,16 +254,16 @@
       "assignment_id": "PART-I-EDITORIAL",
       "chapter_id": "ATLAS-CH-OBJECTS-001",
       "current_render_revalidation": {
-        "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
-        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
-        "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
-        "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
-        "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
         "physical_pages": [
           83,
           93
         ],
-        "scope": "render-only; previous source and mathematical acceptances retained",
+        "scope": "render-only; original scientific/editorial source critics remain historic and unchanged",
         "source_blob_unchanged": true
       },
       "historical_findings": [
@@ -262,6 +288,21 @@
       "producer_issue": 423,
       "producer_run_id": "a0423e5cf0f04b2fb2c3d0e91a814e81",
       "producer_state": "REPAIR_REQUIRED",
+      "render_revalidation_history": [
+        {
+          "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
+          "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
+          "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+          "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+          "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+          "physical_pages": [
+            83,
+            93
+          ],
+          "scope": "render-only; previous source and mathematical acceptances retained",
+          "source_blob_unchanged": true
+        }
+      ],
       "resolved_findings": [
         {
           "disposition": "RESOLVED",
@@ -305,16 +346,16 @@
       "assignment_id": "PART-I-EDITORIAL",
       "chapter_id": "ATLAS-CH-EVIDENCE-001",
       "current_render_revalidation": {
-        "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
-        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
-        "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
-        "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
-        "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
         "physical_pages": [
           95,
           107
         ],
-        "scope": "render-only; previous source and mathematical acceptances retained",
+        "scope": "render-only; original scientific/editorial source critics remain historic and unchanged",
         "source_blob_unchanged": true
       },
       "historical_findings": [],
@@ -350,6 +391,19 @@
           ],
           "scope": "render-only: original producer and mathematical critic record preserved",
           "source_blob_unchanged": true
+        },
+        {
+          "critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
+          "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300",
+          "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+          "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+          "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+          "physical_pages": [
+            95,
+            107
+          ],
+          "scope": "render-only; previous source and mathematical acceptances retained",
+          "source_blob_unchanged": true
         }
       ],
       "review_issue": 318,
@@ -383,6 +437,19 @@
       },
       "assignment_id": "ATLAS-EDITORIAL-P02-A",
       "chapter_id": "ATLAS-CH-LINALG-001",
+      "current_render_revalidation": {
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
+        "physical_pages": [
+          109,
+          123
+        ],
+        "scope": "render-only; original scientific/editorial source critics remain historic and unchanged",
+        "source_blob_unchanged": true
+      },
       "issue_bound_return_evidence": [
         {
           "actor": "fyremael",
@@ -424,7 +491,31 @@
       "unresolved": null
     },
     {
-      "accepted_evidence": null,
+      "accepted_evidence": {
+        "critic_disposition": "ACCEPT_EDITORIAL_SCOPE",
+        "critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+        "derivation_blob_sha1": "9bcdc4cf0a9297407d50ea71077a7ecf5fdb3ecc",
+        "figure_effective_dpi": 230.4,
+        "figure_physical_page": 130,
+        "figure_source_sha256": "98e7228b577c1dea820ee94b8ad71d1da51114068f0d0f0495f861013635c6be",
+        "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
+        "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
+        "mathematical_certification": false,
+        "pdf_pages": [
+          125,
+          136
+        ],
+        "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
+        "producer_run": "a0432e5cf0f04b2fb2c3d0e91a814e83",
+        "producer_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/432#issuecomment-6337852408",
+        "public_release_authorization": false,
+        "source_blob_sha1": "c25d2fe874eae5933c55b43919bda3cab8733345",
+        "source_lock_entries_checked": 4,
+        "witness_blob_sha1": "43e53119709db23cea2aca5cf49397a92763c4d2",
+        "witness_gain_peak": "8.212429054411118",
+        "witness_peak_step": 4
+      },
       "assignment_id": "ATLAS-EDITORIAL-P02-A",
       "chapter_id": "ATLAS-CH-NONNORMAL-001",
       "issue_bound_return_evidence": [
@@ -437,11 +528,30 @@
         }
       ],
       "part_id": "ATLAS-PART-MATH",
+      "producer_issue": 432,
+      "producer_run_id": "a0432e5cf0f04b2fb2c3d0e91a814e83",
+      "resolved_findings": [
+        {
+          "id": "NORM-REAL-COMPLEX",
+          "status": "RESOLVED",
+          "summary": "real normal rotation may have only complex eigenbasis"
+        },
+        {
+          "id": "JORDAN-PARAMETER-DOMAIN",
+          "status": "RESOLVED",
+          "summary": "real a, positive K, epsilon>0 and n=0/1 edge conventions"
+        },
+        {
+          "id": "PSEUDO-EXTRANEOUS-BRANCH",
+          "status": "RESOLVED",
+          "summary": "negative r\u00b2 algebraic branch excluded by singular-value ordering"
+        }
+      ],
       "review_issue": 326,
-      "source_blob_sha1": "785173d0b8e17ebe30a91db41e7bc6fb106043fd",
+      "source_blob_sha1": "c25d2fe874eae5933c55b43919bda3cab8733345",
       "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-NONNORMAL-001.md",
-      "state": "UNVERIFIED",
-      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+      "state": "ACCEPTED",
+      "unresolved": null
     },
     {
       "accepted_evidence": null,
@@ -1926,14 +2036,14 @@
   ],
   "current_render": {
     "figures": 18,
-    "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+    "head": "8f163c07a095aac6e3e07d1157981745970ae79b",
     "historical_latex_labels": 2971,
-    "html_ids": 5883,
-    "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+    "html_sha256": "e45bb3afcb4d212b5db22441197bf883324e3e2d10bde0d943749d78c36b9ed6",
     "pdf_page_count": 1426,
-    "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
-    "revalidation_critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
-    "revalidation_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300"
+    "pdf_sha256": "a9710b643e5cc744ecfffde045964bd18f185d8a261f6e38a8114a57f8689f58",
+    "revalidation_critic_run": "a0433e5cf0f04b2fb2c3d0e91a814e85",
+    "revalidation_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/433#issuecomment-6337906653",
+    "tex_sha256": "29bfa30b565d74849c4598685b46133e16294b4c812b8ead26bcc8c27777c858"
   },
   "immutable_release_unchanged": true,
   "issue_inventory": {
@@ -1949,7 +2059,7 @@
     "manuscript": "360013f68468192e732d8781cc6c133d264bd645",
     "sources": "42c9a06a86ae418fdf839f28cffb8e95e0050656"
   },
-  "previous_candidate_head": "5295418f21bdf628a42ebe53b2f3dde448ec57d7",
+  "previous_candidate_head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
   "prior_render_snapshots": [
     {
       "figures": 18,
@@ -1972,6 +2082,17 @@
       "pdf_sha256": "08da9052e506d545572876dc332684c82d869e67db4f897b3ccb09b46a321a0b",
       "revalidation_critic_run": "a0424e5cf0f04b2fb2c3d0e91a814e82",
       "revalidation_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/424#issuecomment-6329088111"
+    },
+    {
+      "figures": 18,
+      "head": "8e4ebce996f116f4fcabd9a73b3901845bea813c",
+      "historical_latex_labels": 2971,
+      "html_ids": 5883,
+      "html_sha256": "9d6c9bcd5d339af49b8b049f656a613e2119021e51d60fe81baa35b7be91ca01",
+      "pdf_page_count": 1426,
+      "pdf_sha256": "6c430c1acc4eb2b91106847aba4ac6e456a09906972e6535ab3cee88f813b7e2",
+      "revalidation_critic_run": "a0430e5cf0f04b2fb2c3d0e91a814e84",
+      "revalidation_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/430#issuecomment-6330288300"
     }
   ],
   "producer_evidence_path": "governance/editorial/v0.1.1/P01_PRODUCER_001.json",
@@ -1979,7 +2100,7 @@
   "record_type": "ATLAS_CHAPTER_ACCEPTANCE_EVIDENCE/1",
   "reviewed_source_tree_ids": {
     "figures": "8b5dfd09a7926f7e5773b06cde32d738cdf5a09e",
-    "manuscript": "5260dc8e1b50c59e9759db77b64d1c9ffb3acaa9",
+    "manuscript": "35ece8634ee3aefb735ecb97d2f67e985bb182e6",
     "sources": "42c9a06a86ae418fdf839f28cffb8e95e0050656"
   },
   "workbench_head_after_map_packet_admission": "9ad069eab6d5e740e3ff0ca01bb5c6eb0930dffc",
