@@ -14,11 +14,11 @@ Every correction in this space has the form q_(m-1)(A)r0. Therefore a correspond
 
 ## D2. Arnoldi relation
 
-Starting from v1=r0/||r0||_2, exact Arnoldi repeatedly applies A and orthogonalizes against the current basis. It yields orthonormal V_m and upper-Hessenberg Hbar_m satisfying
+Assume r0 is nonzero; if r0=0, x0 already solves Ax=b. Krylov dimension is at most m, and can be lower if dependent directions arise. In the absence of early breakdown, starting from v1=r0/||r0||_2, exact Arnoldi repeatedly applies A and orthogonalizes against the current basis. It yields orthonormal V_m and upper-Hessenberg Hbar_m satisfying
 
 A V_m = V_(m+1) Hbar_m.
 
-Basis construction and the reduced projected solve are distinct steps.
+If the next orthogonalized direction vanishes, the current Krylov subspace is A-invariant and Arnoldi terminates with a square reduced relation; V_(m+1) cannot be asserted in that case. Basis construction and the reduced projected solve are distinct steps.
 
 ## D3. Lanczos specialization
 
@@ -32,7 +32,7 @@ This short recurrence is an exact-arithmetic structural consequence, not a finit
 
 ## D4. Galerkin projection
 
-Let xm=x0+V_m y and rm=r0-A V_m y.
+For real systems, the inner-product adjoint is transpose; for complex systems it is conjugate transpose. Let xm=x0+V_m y and rm=r0-A V_m y.
 
 The Galerkin condition
 
@@ -41,6 +41,8 @@ V_m^T rm=0
 gives
 
 (V_m^T A V_m)y=V_m^T r0.
+
+For general nonsymmetric invertible A the projected matrix may be singular. Its invertibility is an additional solvability condition; when A is SPD and V_m has full column rank, the projected matrix is SPD and the solution is unique.
 
 ## D5. Minimum residual
 
@@ -181,7 +183,7 @@ The correct minimization statement concerns the Ac-norm of the error. The initia
 
 ## D10. Preconditioning
 
-Left preconditioning replaces A by M^(-1)A and b by M^(-1)b.
+For these fixed linear-system equivalences M must be invertible and held fixed. Left preconditioning replaces A by M^(-1)A and b by M^(-1)b.
 
 Right preconditioning solves A M^(-1)y=b and recovers x=M^(-1)y.
 

@@ -23,7 +23,9 @@ For $Ax=b$ with starting point $x_0$ and $r_0=b-Ax_0$, an iterative subspace met
 x_m\in x_0+\mathcal{K}_m(A,r_0).
 \]
 
-This chapter develops the classical structure behind that idea.
+This chapter develops the classical structure behind that idea. The displayed transpose-based linear-system formulas below use **real** finite-dimensional spaces. For complex systems, orthogonality and Galerkin projection use conjugate transposes instead. The complex Hermitian Lanczos statement is read with that convention.
+
+If $r_0=0$, the initial iterate already solves the system. Otherwise, $\dim\mathcal K_m\le m$; directions can become dependent before step $m$, so the number of requested iterations need not equal the number of available basis vectors.
 
 ## 1. Why operator-generated directions matter
 
@@ -53,6 +55,8 @@ Three objects must remain distinct:
 - the generated trial space;
 - the orthonormal basis used to represent it;
 - the reduced projected problem solved in that basis.
+
+This displayed $(m+1)\times m$ relation assumes $r_0\ne0$ and that Arnoldi has not encountered *happy breakdown* before the extra basis vector is constructed. If the newly orthogonalized vector vanishes, the current Krylov space is $A$-invariant; the process terminates with a square reduced relation instead of inventing an undefined $v_{m+1}$.
 
 The Arnoldi relation is general for square matrices. It does not require symmetry.
 
@@ -98,7 +102,9 @@ This gives the reduced system
 (V_m^{\mathsf T}AV_m)y=V_m^{\mathsf T}r_0.
 \]
 
-The method therefore solves a smaller problem whose dimension is m rather than the ambient dimension.
+When this reduced matrix is invertible, the Galerkin coefficients follow from the smaller system. For a general nonsymmetric $A$, the projected matrix can instead be singular even when $A$ itself is nonsingular, so an $m$-step Galerkin correction need not be uniquely defined. For symmetric positive-definite $A$ and full-column-rank $V_m$, the projected matrix is positive definite.
+
+The reduced problem has dimension at most $m$, rather than the ambient dimension; early subspace dependence may reduce it further.
 
 ## 5. Minimum residual is a different projection rule
 
@@ -381,6 +387,8 @@ The real cost then includes:
 - restarts.
 
 ## 12. Preconditioning changes the problem seen by the iteration
+
+For the stated equivalences, assume a **fixed invertible** preconditioner $M$; a singular or varying preconditioner requires a different formulation and cannot be substituted into these identities without additional assumptions.
 
 A left-preconditioned system uses
 
