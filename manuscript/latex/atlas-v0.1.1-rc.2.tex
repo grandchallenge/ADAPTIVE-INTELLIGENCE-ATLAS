@@ -2490,6 +2490,34 @@ such that
 This equation is the bridge between abstract linear maps and matrix
 computation.
 
+For a second pair of bases \(\widetilde B,\widetilde C\), let \(S_V\)
+and \(S_W\) convert their coordinates to the original bases:
+
+\[
+[x]_B=S_V[x]_{\widetilde B},
+\qquad
+[y]_C=S_W[y]_{\widetilde C}.
+\]
+
+The same linear map is represented in the new bases by
+
+\[
+\boxed{
+[T]_{\widetilde C\leftarrow\widetilde B}
+=
+S_W^{-1}[T]_{C\leftarrow B}S_V.
+}
+\]
+
+Only when domain and codomain are the same vector space and the same
+basis change is used on both sides does this reduce to a similarity
+transformation \(S^{-1}AS\). A general change of input and output bases
+is not necessarily a similarity and need not preserve matrix
+eigenvalues.
+
+This is an exact statement about coordinates, not a claim that every
+learned nonlinear layer is a fixed linear map.
+
 The Atlas will often work directly with matrices.
 
 But the operator viewpoint remains useful because it prevents
@@ -2636,7 +2664,19 @@ AA^\top.
 
 In complex spaces the transpose is replaced by the adjoint.
 
-Normal matrices admit orthonormal eigenvector bases.
+Over \(\mathbb C\), normal matrices admit orthonormal eigenvector bases
+and unitary diagonalization. For real normal matrices the corresponding
+diagonalization may require complex eigenvectors. For example,
+
+\[
+R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+\]
+
+satisfies \(R^\top R=RR^\top=I\) but has eigenvalues \(i\) and \(-i\),
+and no nonzero real eigenvectors.
+
+Thus normality does not, by itself, promise an orthonormal \textbf{real}
+eigenbasis.
 
 This property greatly simplifies spectral reasoning.
 
@@ -2665,8 +2705,26 @@ A=U\Sigma V^\top
 }
 \]
 
-with orthonormal columns in \(U\) and \(V\), and nonnegative singular
-values in \(\Sigma\).
+where the \textbf{full SVD} uses orthogonal matrices
+\(U\in\mathbb R^{m\times m}\) and \(V\in\mathbb R^{n\times n}\) and
+rectangular diagonal \(\Sigma\in\mathbb R^{m\times n}\) with nonnegative
+singular values.
+
+Equivalently, if \(r=\operatorname{rank}(A)\), its compact form is
+
+\[
+A=U_r\Sigma_rV_r^\top,
+\quad
+U_r\in\mathbb R^{m\times r},
+\quad
+\Sigma_r\in\mathbb R^{r\times r},
+\quad
+V_r\in\mathbb R^{n\times r},
+\]
+
+where \(U_r\) and \(V_r\) have orthonormal columns and \(\Sigma_r\)
+lists the positive singular values. The zero matrix has rank \(r=0\) and
+is covered by the full SVD.
 
 The right singular vectors identify input directions.
 
@@ -2764,6 +2822,19 @@ Therefore
 A unit vector can be amplified in one step even though every eigenvalue
 has modulus \(1\).
 
+The same matrix is a Jordan block, not diagonalizable: its only
+eigenvector direction is \(e_1\). For every integer \(k\ge0\),
+
+\[
+A^k=\begin{pmatrix}1&k\\0&1\end{pmatrix}.
+\]
+
+Thus repeated application can amplify particular vectors by a factor
+growing with \(k\), despite a spectral radius of one. This is an exact
+finite-dimensional counterexample; it does not license an analogous
+claim about a trained network without identifying its actual update
+operator.
+
 This is the smallest important lesson:
 
 \[
@@ -2781,19 +2852,9 @@ The Non-normality chapter develops the consequences.
 \section{Pseudoinverse and least
 squares}\label{pseudoinverse-and-least-squares}
 
-If a linear system
-
-\[
-Ax=b
-\]
-
-has no exact solution, one may seek
-
-\[
-x_\star
-=
-\arg\min_x \|Ax-b\|_2.
-\]
+For a linear system \(Ax=b\), least squares minimizes \(\|Ax-b\|_2\),
+including when no exact solution exists. For rank-deficient matrices,
+the set of minimizers need not contain only one point.
 
 Using
 
@@ -2817,8 +2878,25 @@ Then
 x_\star=A^+b
 \]
 
-gives the minimum-norm least-squares solution under the standard
-finite-dimensional assumptions.
+selects the \textbf{unique minimum-Euclidean-norm member} of the set of
+least-squares minimizers; it does not assert that every least-squares
+minimizer is unique.
+
+For example, \(A=\operatorname{diag}(1,0)\) and \(b=(2,3)^\top\) give
+
+\[
+\arg\min_x\|Ax-b\|_2
+=
+\{(2,t)^\top:t\in\mathbb R\},
+\qquad
+A^+b=(2,0)^\top,
+\qquad
+\|AA^+b-b\|_2=3.
+\]
+
+The surviving residual is unavoidable; choosing the pseudoinverse also
+sets the undetermined second component to zero. A new exact witness
+below replays this distinction.
 
 This object recurs in inverse problems, linear probes, regression, and
 local approximations.
@@ -3105,6 +3183,10 @@ it verifies
 \[
 \kappa_2(D)=100.
 \]
+
+The expanded witness also replays the rank-deficient pseudoinverse case
+and the real-normal rotation counterexample. It keeps algebraic
+identities distinct from any downstream machine-learning interpretation.
 
 The witness is exact finite-dimensional mathematics.
 
