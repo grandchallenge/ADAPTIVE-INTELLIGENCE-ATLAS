@@ -7,13 +7,13 @@ P=json.loads((R/'governance/editorial/v0.1.1/P01_PRODUCER_001.json').read_text()
 def git(*args):return subprocess.check_output(['git',*args],text=True,cwd=R).strip()
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 class EditorialAcceptance(unittest.TestCase):
- def test_80_rows_six_accepted(self):
+ def test_80_rows_seven_accepted(self):
   self.assertEqual(len(D['chapters']),80)
   self.assertEqual(len({x['chapter_id'] for x in D['chapters']}),80)
   accepted=[x['chapter_id'] for x in D['chapters'] if x['state']=='ACCEPTED']
-  self.assertEqual(accepted,[f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL')])
-  self.assertEqual(D['accepted_count'],6)
-  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),74)
+  self.assertEqual(accepted,[f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV')])
+  self.assertEqual(D['accepted_count'],7)
+  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),73)
  def test_all_80_chapter_blobs(self):
   for row in D['chapters']:
    with self.subTest(chapter=row['chapter_id']):
@@ -23,8 +23,8 @@ class EditorialAcceptance(unittest.TestCase):
    with self.subTest(source=name):self.assertEqual(git('rev-parse','HEAD:'+name),expected)
   self.assertEqual(D['reviewed_source_tree_ids']['sources'],D['original_reviewed_source_tree_ids']['sources'])
   self.assertEqual(D['reviewed_source_tree_ids']['figures'],D['original_reviewed_source_tree_ids']['figures'])
- def test_five_existing_acceptances_not_rewritten(self):
-  for tag in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG'):
+ def test_six_existing_acceptances_not_rewritten(self):
+  for tag in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL'):
    row=next(x for x in D['chapters'] if x['chapter_id']==f'ATLAS-CH-{tag}-001')
    a=row['accepted_evidence']
    q=row['current_render_revalidation']
@@ -36,8 +36,8 @@ class EditorialAcceptance(unittest.TestCase):
     self.assertEqual(q['head'],D['candidate_head'])
     self.assertEqual(q['pdf_sha256'],D['current_render']['pdf_sha256'])
     self.assertEqual(q['html_sha256'],D['current_render']['html_sha256'])
-    self.assertEqual(q['critic_run'],'a0433e5cf0f04b2fb2c3d0e91a814e85')
-    self.assertIn('issues/433#issuecomment-',q['critic_url'])
+    self.assertEqual(q['critic_run'],'a0436e5cf0f04b2fb2c3d0e91a814e87')
+    self.assertIn('issues/436#issuecomment-',q['critic_url'])
     self.assertTrue(q['source_blob_unchanged'])
     self.assertNotEqual(a['pdf_sha256'],q['pdf_sha256'])
     if tag=='MAP':
@@ -46,7 +46,7 @@ class EditorialAcceptance(unittest.TestCase):
  def test_new_linalg_real_critic_provenance(self):
   row=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-LINALG-001')
   a=row['accepted_evidence']
-  self.assertEqual(a['head'],D['previous_candidate_head'])
+  self.assertEqual(a['head'],'8e4ebce996f116f4fcabd9a73b3901845bea813c')
   self.assertEqual(row['state'],'ACCEPTED')
   self.assertEqual(a['source_blob_sha1'],git('hash-object',row['source_path']))
   self.assertEqual(a['source_blob_sha1'],'9d74b3f4e2939cf4362a050b0851cd47f822788d')
@@ -54,8 +54,8 @@ class EditorialAcceptance(unittest.TestCase):
   self.assertEqual(a['producer_run'],row['producer_run_id'])
   self.assertIn('issues/426#issuecomment-',a['producer_url'])
   self.assertIn('issues/430#issuecomment-',a['critic_url'])
-  self.assertEqual(a['pdf_sha256'],D['prior_render_snapshots'][-1]['pdf_sha256'])
-  self.assertEqual(a['html_sha256'],D['prior_render_snapshots'][-1]['html_sha256'])
+  self.assertEqual(a['pdf_sha256'],next(x['pdf_sha256'] for x in D['prior_render_snapshots'] if x['head']==a['head']))
+  self.assertEqual(a['html_sha256'],next(x['html_sha256'] for x in D['prior_render_snapshots'] if x['head']==a['head']))
   self.assertEqual(a['pdf_pages'],[109,123])
   self.assertEqual(a['derivation_blob_sha1'],git('hash-object','mathematics/derivations/ATLAS-CH-LINALG-001-DERIVATIONS.md'))
   self.assertEqual(a['witness_blob_sha1'],git('hash-object','mathematics/computational-witnesses/ATLAS-CW-LINALG-001.md'))
@@ -66,15 +66,15 @@ class EditorialAcceptance(unittest.TestCase):
   row=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-NONNORMAL-001')
   a=row['accepted_evidence']
   self.assertEqual(row['state'],'ACCEPTED')
-  self.assertEqual(a['head'],D['candidate_head'])
+  self.assertEqual(a['head'],D['previous_candidate_head'])
   self.assertEqual(a['source_blob_sha1'],git('hash-object',row['source_path']))
   self.assertEqual(a['source_blob_sha1'],'c25d2fe874eae5933c55b43919bda3cab8733345')
   self.assertNotEqual(a['producer_run'],a['critic_run'])
   self.assertEqual(a['producer_run'],row['producer_run_id'])
   self.assertIn('issues/432#issuecomment-',a['producer_url'])
   self.assertIn('issues/433#issuecomment-',a['critic_url'])
-  self.assertEqual(a['pdf_sha256'],D['current_render']['pdf_sha256'])
-  self.assertEqual(a['html_sha256'],D['current_render']['html_sha256'])
+  self.assertEqual(a['pdf_sha256'],D['prior_render_snapshots'][-1]['pdf_sha256'])
+  self.assertEqual(a['html_sha256'],D['prior_render_snapshots'][-1]['html_sha256'])
   self.assertEqual(a['pdf_pages'],[125,136])
   self.assertEqual(a['derivation_blob_sha1'],git('hash-object','mathematics/derivations/ATLAS-CH-NONNORMAL-001-DERIVATIONS.md'))
   self.assertEqual(a['witness_blob_sha1'],git('hash-object','mathematics/computational-witnesses/ATLAS-CW-NONNORMAL-001.md'))
@@ -82,6 +82,27 @@ class EditorialAcceptance(unittest.TestCase):
   self.assertEqual(a['figure_physical_page'],130)
   self.assertGreaterEqual(a['figure_effective_dpi'],200)
   self.assertEqual({x['status'] for x in row['resolved_findings']},{'RESOLVED'})
+  self.assertFalse(a['mathematical_certification'])
+  self.assertFalse(a['public_release_authorization'])
+ def test_krylov_math_critic_and_source_replay(self):
+  row=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-KRYLOV-001')
+  a=row['accepted_evidence']
+  self.assertEqual(row['state'],'ACCEPTED')
+  self.assertEqual(a['head'],D['candidate_head'])
+  self.assertEqual(a['source_blob_sha1'],git('hash-object',row['source_path']))
+  self.assertEqual(a['source_blob_sha1'],'405fbe3f462998b3950b232309d811763108f3c7')
+  self.assertNotEqual(a['producer_run'],a['critic_run'])
+  self.assertEqual(a['producer_run'],row['producer_run_id'])
+  self.assertIn('issues/435#issuecomment-',a['producer_url'])
+  self.assertIn('issues/436#issuecomment-',a['critic_url'])
+  self.assertEqual(a['pdf_sha256'],D['current_render']['pdf_sha256'])
+  self.assertEqual(a['html_sha256'],D['current_render']['html_sha256'])
+  self.assertEqual(a['pdf_pages'],[137,148])
+  self.assertEqual(a['derivation_blob_sha1'],git('hash-object','mathematics/derivations/ATLAS-CH-KRYLOV-001-DERIVATIONS.md'))
+  self.assertEqual(a['witness_blob_sha1'],git('hash-object','mathematics/computational-witnesses/ATLAS-CW-KRYLOV-001.md'))
+  self.assertEqual(a['historical_pinned_git_source_locks_checked'],3)
+  self.assertEqual(len(row['resolved_findings']),4)
+  self.assertTrue(all(v['status']=='RESOLVED' for v in row['resolved_findings']))
   self.assertFalse(a['mathematical_certification'])
   self.assertFalse(a['public_release_authorization'])
  def test_preserve_all_producer_and_critic_run_logs(self):
