@@ -81,7 +81,7 @@ That distinction will later let us separate “what direction should the optimiz
 
 ## 3. The unit sphere
 
-Consider
+Consider an integer \(d\ge2\), ensuring the sphere has nontrivial tangent directions:
 
 \[
 S^{d-1}
@@ -121,7 +121,7 @@ T_xS^{d-1}
 
 The tangent space is the hyperplane orthogonal to \(x\).
 
-If \(g\in\mathbb R^d\) is an arbitrary ambient direction, its tangent component is
+For the induced Euclidean metric, if \(g\in\mathbb R^d\) is an arbitrary ambient direction, its orthogonal tangent component is
 
 \[
 g_{\rm tan}
@@ -133,7 +133,7 @@ The geometry has already changed the update rule. The radial component is not a 
 
 ## 4. Retractions: step locally, return legally
 
-A retraction \(R_x:T_xM\to M\) is a smooth local map satisfying, at minimum,
+A retraction \(R_x\) is a smooth map defined on at least a neighborhood of zero in \(T_xM\), with values in \(M\), satisfying
 
 \[
 R_x(0)=x
@@ -222,7 +222,15 @@ R_x(v)
 x+v-\frac{\|v\|^2}{2}x+O(\|v\|^3).
 \]
 
-They agree through the first-order retraction requirement and share the same quadratic radial correction, but differ at higher order.
+They satisfy the first-order retraction requirement and have the same quadratic radial correction, but differ at higher order. Writing \(r=\|v\|\), their leading discrepancy is
+
+\[
+\operatorname{Exp}_x(v)-R_x(v)
+=\frac{r^2}{3}v+O(r^4)
+\qquad(v\to0,\;x^\top v=0).
+\]
+
+This cubic tangent discrepancy explains why a retraction can be second-order accurate as a curve without being the exact exponential map.
 
 This distinction matters later. “Geometry-aware” should not become a vague synonym for “normalize after every step.”
 
@@ -275,11 +283,13 @@ For unit vectors \(x,y\in S^{d-1}\), define their angle
 0\le\theta\le\pi.
 \]
 
-For non-antipodal endpoints, the shorter great-circle distance is
+For every pair of endpoints, including antipodal points, the spherical geodesic distance is
 
 \[
 d_{S}(x,y)=\theta.
 \]
+
+At antipodal points \(\theta=\pi\), this distance remains \(\pi\), although a minimizing geodesic is not unique. The SLERP formula below excludes antipodal endpoints because the interpolation direction is ambiguous, not because geodesic distance is undefined.
 
 The ambient chord distance is
 
@@ -362,7 +372,7 @@ The antipodal singularity is geometric information, not merely a numerical nuisa
 
 ## 9. Stiefel geometry: orthonormal frames
 
-For \(X\in\mathbb R^{n\times p}\), the Stiefel manifold is
+For integers \(1\le p\le n\) and \(X\in\mathbb R^{n\times p}\), the real Stiefel manifold is
 
 \[
 \operatorname{St}(n,p)
@@ -426,7 +436,7 @@ Q\in O(p),
 
 represent the same subspace.
 
-The Grassmann manifold identifies all such frames:
+The real Grassmann manifold identifies all such frames for \(1\le p\le n\); when \(p=n\), it consists of a single full-space point:
 
 \[
 \boxed{
@@ -450,7 +460,7 @@ The Grassmannian gives a clean finite-dimensional case where the answer is no.
 
 Suppose \(f:M\to\mathbb R\).
 
-In ambient coordinates, automatic differentiation may give an ordinary gradient \(\nabla f\). A manifold-aware method must convert that ambient information into a tangent direction and then map a finite step back to \(M\).
+An ambient extension \(\widetilde f\) of \(f:M\to\mathbb R\) can yield a Euclidean gradient \(\nabla\widetilde f\). Under the induced Euclidean metric, orthogonal tangent projection yields the Riemannian gradient. With a different Riemannian metric, this conversion depends on that metric; it is not generally Euclidean projection. A manifold-aware method computes a tangent direction according to the chosen metric and then maps a finite step back to \(M\).
 
 Schematically,
 
