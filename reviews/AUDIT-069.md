@@ -2,7 +2,7 @@
 
 ## Disposition
 
-**PASS AFTER DOCUMENTARY REPAIR** (candidate; admission and readback pending)
+**PASS AFTER DOCUMENTARY REPAIR** (source-notation repair protected-admitted; not a mathematical certification)
 
 ATLAS-CH-SYNTHESIS-001 remains at draft-v0.1.
 
@@ -199,19 +199,19 @@ The audit's original mathematical witness and historical artifact hashes above a
 
 For this source repair, compare the historically corrected PR #360 merge `a810c4b5f8e9803a54fcfeab434212e62622f2b3` against the protected defective blobs. The correction restores the original two-task mathematics with renderer-safe dollar delimiters, corrects the malformed bad-candidate subscript, and leaves the executable witness code and chapter scientific claims unchanged.
 
-| Artifact | Defective protected blob | Candidate correction blob |
+| Artifact | Defective protected blob | Admitted corrected blob |
 | --- | --- | --- |
 | `mathematics/derivations/ATLAS-CH-SYNTHESIS-001-DERIVATIONS.md` | `f2b0fed22d025ba33c3e10e61cd61887da7d9452` | `aecd9fcd8f4a208e2517326ad773f8418d0ab5cf` |
 | `mathematics/computational-witnesses/ATLAS-CW-SYNTHESIS-001.md` | `e9ffd717f2568259aca8fdc3bd3913d11fb814ec` | `0541ab6dfb65eeb86b43f7b0e38d46810321a8b2` |
-| `governance/tranches/ATLAS-CH-SYNTHESIS-001.md` | `4bd44862c5b942d50aa5509b29f24a03f3ec6d4c` | `8d68a71769ee7521747f6eef8a9abf7ca12683c5` |
+| `governance/tranches/ATLAS-CH-SYNTHESIS-001.md` | `4bd44862c5b942d50aa5509b29f24a03f3ec6d4c` | `aa454d7526d06f8ddefa60948f7c2c1b0ab97a19` |
 
 A targeted second renderer pass on the final corrected source found 33 derivation and four witness display blocks in Arithmatex HTML without raw delimiters; all 37 formulas compiled in the formula-only PDF proof SHA-256 `0f2ce7eb979513b026af9ebf814100d4404e9db3a85ede647e71ca4769f76628`. Four internal blank math paragraphs and one unescaped identifier underscore were corrected before this result. It does not certify physical rendering of the *full* published Atlas edition.
 
-This issue-specific audit disposition is **documentary repair only**. Before closing #280, replay the source-contained finite witness, run the current repository validator on the exact candidate, check current HTML/PDF rendering as applicable, admit via ordinary protected PR and read back the corrected blobs on protected `main`. The new artifact identities are authoritative only once protected-admitted; no global Atlas chapter acceptance or new mathematical certification follows.
+This issue-specific audit disposition is **documentary repair only**. The source-contained finite witness replayed successfully (`SYNTHESIS_EXACT_WITNESS_OK`); exact-head candidate `validate` passed at [run 39912672168](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/39912672168/job/120279018370). [PR #441](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/441) was squash-merged on protected `main` as `75666f7c2fc0ea438eac2b7048496b470b40ff5c`; protected-main `validate` passed at [run 39912728384](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/39912728384/job/120279194027). All four material corrected blobs were read back on protected `main`; issue #280 is closed `completed` with an [issue-bound RESULT/1](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/280#issuecomment-6359082697). This does not confer global Atlas chapter acceptance, PDF/UA status, mathematical certification, or publication approval.
 
 ## Final disposition
 
-AUDIT-069 passes after the documented mathematical-notation repair in issue #280, subject to fresh exact-candidate-head validation, independent computational-witness replay, protected admission and readback. The pre-repair no-defect claim is superseded for documentary integrity only.
+AUDIT-069 passes after the documented mathematical-notation repair in issue #280. The required finite witness, exact-head validation, protected admission and readback have been recorded above. The historical pre-repair no-defect claim is superseded for documentary integrity only.
 
 The durable synthesis rule is:
 
