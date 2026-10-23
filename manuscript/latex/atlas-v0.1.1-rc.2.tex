@@ -4761,9 +4761,15 @@ and
 \]
 
 For continuous variables, probability is described relative to a measure
-through a density where one exists.
+through a density where one exists. A density is not itself a
+probability mass; probabilities arise by integrating it over measurable
+sets.
 
-This distinction matters.
+This distinction matters. Discrete Shannon entropy and differential
+entropy are not interchangeable: differential entropy can be negative
+and changes under a rescaling of coordinates. For general measures,
+relative entropy requires absolute continuity and a Radon--Nikodym
+density, rather than a ratio of arbitrary point probabilities.
 
 Expressions such as entropy and KL divergence behave differently in
 discrete and continuous settings.
@@ -4801,11 +4807,26 @@ This is the foundation for:
 
 Conditional probability is not a causal operator by itself.
 
-It is a relation inside a probability model.
+It is a relation inside a probability model. For an integrable discrete
+random variable, conditional expectation is the conditional average
+
+\[
+\mathbb E[X\mid Y=y]
+=\sum_x x\,p(x\mid y),\qquad p_Y(y)>0.
+\]
+
+For integrable \(X\), the tower identity is
+
+\[
+\mathbb E[\mathbb E[X\mid Y]]=\mathbb E[X].
+\]
+
+These formulas are statements about a joint probability model; in
+general they do not determine an intervention.
 
 \section{Expectation}\label{expectation}
 
-For discrete \(X\),
+For discrete integrable \(X\),
 
 \[
 \mathbb E[X]
@@ -4898,22 +4919,21 @@ to conditional structure.
 
 \section{Cross-entropy}\label{cross-entropy}
 
-If data are distributed as \(P\) but a model assigns distribution \(Q\),
-the cross-entropy is
+For discrete data distribution \(P\) and model \(Q\), we use
+\textbf{base-2 logarithms throughout this chapter's discrete entropy,
+cross-entropy, KL and mutual-information formulas}. Thus all these
+quantities are measured in bits:
 
 \[
-H(P,Q)
-=
--\mathbb E_{x\sim P}\log q(x).
+H_2(P,Q)=-\mathbb E_{x\sim P}\log_2 q(x)
+       =-\sum_x p(x)\log_2 q(x).
 \]
 
-In the discrete case,
-
-\[
-H(P,Q)
-=
--\sum_x p(x)\log q(x).
-\]
+The convention is \(0\log_2(0/q)=0\) for \(q>0\); if \(p(x)>0\) and
+\(q(x)=0\), cross-entropy is infinite. The value in nats equals the
+value in bits multiplied by ln 2; conversion from nats to bits requires
+division by \(\ln 2\); mixing logarithm bases invalidates their
+numerical equality.
 
 Cross-entropy is therefore a model-relative quantity.
 
@@ -4926,22 +4946,25 @@ The Kullback--Leibler divergence is
 
 \[
 \boxed{
-D_{\rm KL}(P\|Q)
+D_{\rm KL,2}(P\|Q)
 =
-\sum_x p(x)\log\frac{p(x)}{q(x)}
+\sum_x p(x)\log_2\frac{p(x)}{q(x)}
 }
 \]
 
-when the support conditions make the expression well defined.
+with the usual \(0\log_2(0/q)=0\) convention and extended value
+\(+\infty\) when \(P\) is not absolutely continuous with respect to
+\(Q\), written \(P\not\ll Q\). In the finite-valued case we require
+\(q(x)>0\) whenever \(p(x)>0\).
 
 KL divergence is nonnegative.
 
 It is not symmetric:
 
 \[
-D_{\rm KL}(P\|Q)
+D_{\rm KL,2}(P\|Q)
 \neq
-D_{\rm KL}(Q\|P)
+D_{\rm KL,2}(Q\|P)
 \]
 
 in general.
@@ -4953,7 +4976,7 @@ It also can be infinite.
 If \(P\) places positive mass where \(Q\) assigns zero mass, then
 
 \[
-D_{\rm KL}(P\|Q)=\infty.
+D_{\rm KL,2}(P\|Q)=\infty.
 \]
 
 The direction matters.
@@ -4964,18 +4987,18 @@ decomposition}\label{cross-entropy-decomposition}
 For discrete distributions,
 
 \[
-H(P,Q)
+H_2(P,Q)
 =
-H(P)
+H_2(P)
 +
-D_{\rm KL}(P\|Q).
+D_{\rm KL,2}(P\|Q).
 \]
 
-If \(P\) is fixed, minimizing cross-entropy with respect to \(Q\) is
-equivalent to minimizing
+For a fixed target \(P\), minimizing cross-entropy over distributions
+\(Q\) is equivalent to minimizing
 
 \[
-D_{\rm KL}(P\|Q).
+D_{\rm KL,2}(P\|Q).
 \]
 
 This identity is simple and widely used.
@@ -4993,7 +5016,7 @@ Mutual information is
 \boxed{
 I(X;Y)
 =
-D_{\rm KL}(P_{XY}\|P_XP_Y).
+D_{\rm KL,2}(P_{XY}\|P_XP_Y).
 }
 \]
 
@@ -5160,6 +5183,21 @@ Concentration appears in:
   high-dimensional geometry.
 \end{itemize}
 
+For example, if \(Z_1,\ldots,Z_n\) are \textbf{independent} random
+variables with \(a_i\le Z_i\le b_i\) almost surely, Hoeffding's
+inequality implies for \(t>0\)
+
+\[
+\Pr\!\left(\left|\sum_{i=1}^n (Z_i-\mathbb E Z_i)\right|\ge t\right)
+\le 2\exp\!\left(-\frac{2t^2}{\sum_{i=1}^n(b_i-a_i)^2}\right).
+\]
+
+As an explicit example, for \(100\) independent Bernoulli trials,
+irrespective of their individual success probabilities, the chance that
+their sample average differs from its expectation by at least \(0.2\) is
+at most \(2e^{-8}<0.001\). Independence and boundedness are essential
+here; the inequality is not a distribution-shift guarantee.
+
 A concentration bound is an uncertainty statement about a random object.
 
 It is not a guarantee that a learned system behaves well under
@@ -5177,9 +5215,17 @@ T(X)
 
 compresses observed data.
 
-It is sufficient for a parameter \(\theta\) in a statistical family
-when, informally, it retains all information in the sample relevant to
-\(\theta\).
+It is sufficient for a parameter \(\theta\) in a statistical family when
+the conditional distribution of the full sample given the statistic does
+\textbf{not depend on \(\theta\)} (with suitable regular conditional
+distributions). Equivalently, in a dominated family, the factorization
+criterion characterizes sufficiency under its usual hypotheses.
+
+For an iid Bernoulli sample \(X_1,\ldots,X_n\), the count
+\(T=\sum_i X_i\) is sufficient for the common success probability \(p\),
+since its likelihood factors as \(p^T(1-p)^{n-T}\). A statistic
+sufficient for that family need not be sufficient for a different
+dependence or heterogeneity model.
 
 Sufficiency is therefore relative to a model.
 
@@ -5238,7 +5284,7 @@ and Jordan 2008).
 \section{Bernoulli as an exponential
 family}\label{bernoulli-as-an-exponential-family}
 
-For \(x\in\{0,1\}\),
+For \(x\in\{0,1\}\) and \textbf{\(0<p<1\)},
 
 \[
 p(x)
@@ -5278,7 +5324,10 @@ Thus
 T(x)=x
 \]
 
-is the natural sufficient statistic in this representation.
+is the natural sufficient statistic for one observation. For an iid
+sample the sufficient statistic is \(\sum_i X_i\), as above. The
+endpoints \(p=0\) and \(p=1\) arise only as limits of the finite natural
+parameter \(\eta\); they do not have finite values of \(\log(p/(1-p))\).
 
 This small example is useful because it connects probability, sufficient
 statistics, and convex log-partition structure in one line.
