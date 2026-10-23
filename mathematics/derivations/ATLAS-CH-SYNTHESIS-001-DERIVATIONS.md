@@ -121,7 +121,7 @@ $$
 Keep correct routing and unchanged governance rule:
 
 $$
-\text{commit iff validator_accept=true}.
+\text{commit iff validator\_accept=true}.
 $$
 
 If the validator/evidence channel is absent, no positive validation evidence exists.
