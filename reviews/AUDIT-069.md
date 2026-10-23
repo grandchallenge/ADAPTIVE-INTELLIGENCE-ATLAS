@@ -203,7 +203,7 @@ For this source repair, compare the historically corrected PR #360 merge `a810c4
 | --- | --- | --- |
 | `mathematics/derivations/ATLAS-CH-SYNTHESIS-001-DERIVATIONS.md` | `f2b0fed22d025ba33c3e10e61cd61887da7d9452` | `aecd9fcd8f4a208e2517326ad773f8418d0ab5cf` |
 | `mathematics/computational-witnesses/ATLAS-CW-SYNTHESIS-001.md` | `e9ffd717f2568259aca8fdc3bd3913d11fb814ec` | `0541ab6dfb65eeb86b43f7b0e38d46810321a8b2` |
-| `governance/tranches/ATLAS-CH-SYNTHESIS-001.md` | `4bd44862c5b942d50aa5509b29f24a03f3ec6d4c` | `486151ab9a8b3db426b3d924838e23a972fa0bff` |
+| `governance/tranches/ATLAS-CH-SYNTHESIS-001.md` | `4bd44862c5b942d50aa5509b29f24a03f3ec6d4c` | `8d68a71769ee7521747f6eef8a9abf7ca12683c5` |
 
 A targeted second renderer pass on the final corrected source found 33 derivation and four witness display blocks in Arithmatex HTML without raw delimiters; all 37 formulas compiled in the formula-only PDF proof SHA-256 `0f2ce7eb979513b026af9ebf814100d4404e9db3a85ede647e71ca4769f76628`. Four internal blank math paragraphs and one unescaped identifier underscore were corrected before this result. It does not certify physical rendering of the *full* published Atlas edition.
 
