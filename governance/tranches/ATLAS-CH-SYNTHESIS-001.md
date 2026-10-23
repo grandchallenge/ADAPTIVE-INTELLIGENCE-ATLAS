@@ -29,7 +29,7 @@ No new external academic source added. New systems witness is Atlas-owned exact 
 - Chapter Ledger 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
 - Source Register 36b5c66c314f7f792e9053dfd6d9016573b70acd
 
-## Notation regression correction: issue #280 (current candidate)
+## Notation regression correction: issue #280 (protected-admitted)
 
 The identities in **Implementation artifacts** above describe the original historical implementation; preserve them for provenance. The current correction restores the damaged mathematical display on the then-protected baseline `49d576a4b89ab671fdb6d8e6b3d49cfe05146294` by comparing it with the already-merged historical source repair [PR #360](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/360), merge `a810c4b5f8e9803a54fcfeab434212e62622f2b3`.
 
@@ -41,7 +41,9 @@ The identities in **Implementation artifacts** above describe the original histo
 - correction preserves the original Python witness source and its claim boundary; it restores paired display mathematics and legible source/task notation and corrects `V(c_{\\mathrm{bad}})`.
 - original manuscript, computational model, seven-category status grammar and source locks remain unaffected.
 
-The candidate remains subject to fresh repository validation, independent witness replay, review and protected-main readback. A successful typesetting repair does not constitute an Atlas-wide chapter acceptance or mathematical certification.
+**Protected completion readback:** [PR #441](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/441) merged at `75666f7c2fc0ea438eac2b7048496b470b40ff5c` from exact candidate head `14bd2c4812243fd12e0494cc4645673a4693d5e7`. The source-locked finite Python witness returned `SYNTHESIS_EXACT_WITNESS_OK`; exact-head [candidate validation](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/39912672168/job/120279018370) and [protected-main validation](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/39912728384/job/120279194027) both passed. All four changed file identities were read back from protected `main`; [issue #280](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/280) was closed as completed with [issue-bound `RESULT/1`](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/280#issuecomment-6359082697).
+
+This is terminal documentary closure of the bounded source-notation repair only. The successful formula-only rendering proof does **not** certify the complete published Atlas PDF/HTML, the 80-chapter editorial ledger, or any new mathematical claim.
 
 ## Full witness
 - task accuracy 2/2
