@@ -138,7 +138,7 @@ R_x(v)
 
 Both satisfy the same first-order condition at \(v=0\), but they are different finite maps.
 
-Their small-\(v\) expansions begin
+For \(v\to0\) tangent at \(x\), their small-\(v\) expansions begin
 
 \[
 \operatorname{Exp}_x(v)
@@ -152,7 +152,19 @@ R_x(v)
 x+v-\frac{\|v\|^2}{2}x+O(\|v\|^3).
 \]
 
-Agreement to first order is the retraction requirement; equality of the two maps is not.
+Subtracting one order further, with \(r=\|v\|\),
+
+\[
+\operatorname{Exp}_x(v)=x+v-\frac{r^2}{2}x-\frac{r^2}{6}v
++\frac{r^4}{24}x+O(r^5),
+\]
+
+\[
+R_x(v)=x+v-\frac{r^2}{2}x-\frac{r^2}{2}v
++\frac{3r^4}{8}x+O(r^5).
+\]
+
+Therefore \(\operatorname{Exp}_x(v)-R_x(v)=\frac{r^2}{3}v+O(r^4)\). Agreement to first order is the retraction requirement; even a shared quadratic radial term does not make the maps identical.
 
 ## D4. SLERP remains on the sphere
 
@@ -221,7 +233,7 @@ Boundary cases:
 
 ## D5. Tangent space of the Stiefel manifold
 
-For
+Require \(1\le p\le n\) so real orthonormal frames exist. For
 
 \[
 \operatorname{St}(n,p)
