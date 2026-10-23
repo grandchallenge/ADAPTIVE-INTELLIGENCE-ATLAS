@@ -2,7 +2,7 @@
 
 ## Disposition
 
-**PASS — NO REPAIR**
+**PASS AFTER DOCUMENTARY REPAIR** (candidate; admission and readback pending)
 
 ATLAS-CH-SYNTHESIS-001 remains at draft-v0.1.
 
@@ -193,9 +193,25 @@ The protected merge tree is byte-equivalent to the validated implementation tree
 
 Independent audit replay returned SYNTHESIS_AUDIT_WITNESS_OK.
 
+## Issue #280: post-audit notation regression and correction
+
+The audit's original mathematical witness and historical artifact hashes above are retained as evidence of what was reviewed in October 2026; they are not relabeled as corrected files. Despite the completed historical [PR #360](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/360), the subsequently protected source at `49d576a4b89ab671fdb6d8e6b3d49cfe05146294` again contains damaged standalone bracket displays and lost TeX commands. This is a real source defect, not an HTML-only rendering artifact.
+
+For this source repair, compare the historically corrected PR #360 merge `a810c4b5f8e9803a54fcfeab434212e62622f2b3` against the protected defective blobs. The correction restores the original two-task mathematics with renderer-safe dollar delimiters, corrects the malformed bad-candidate subscript, and leaves the executable witness code and chapter scientific claims unchanged.
+
+| Artifact | Defective protected blob | Candidate correction blob |
+| --- | --- | --- |
+| `mathematics/derivations/ATLAS-CH-SYNTHESIS-001-DERIVATIONS.md` | `f2b0fed22d025ba33c3e10e61cd61887da7d9452` | `aecd9fcd8f4a208e2517326ad773f8418d0ab5cf` |
+| `mathematics/computational-witnesses/ATLAS-CW-SYNTHESIS-001.md` | `e9ffd717f2568259aca8fdc3bd3913d11fb814ec` | `0541ab6dfb65eeb86b43f7b0e38d46810321a8b2` |
+| `governance/tranches/ATLAS-CH-SYNTHESIS-001.md` | `4bd44862c5b942d50aa5509b29f24a03f3ec6d4c` | `8d68a71769ee7521747f6eef8a9abf7ca12683c5` |
+
+A targeted second renderer pass on the final corrected source found 33 derivation and four witness display blocks in Arithmatex HTML without raw delimiters; all 37 formulas compiled in the formula-only PDF proof SHA-256 `0f2ce7eb979513b026af9ebf814100d4404e9db3a85ede647e71ca4769f76628`. Four internal blank math paragraphs and one unescaped identifier underscore were corrected before this result. It does not certify physical rendering of the *full* published Atlas edition.
+
+This issue-specific audit disposition is **documentary repair only**. Before closing #280, replay the source-contained finite witness, run the current repository validator on the exact candidate, check current HTML/PDF rendering as applicable, admit via ordinary protected PR and read back the corrected blobs on protected `main`. The new artifact identities are authoritative only once protected-admitted; no global Atlas chapter acceptance or new mathematical certification follows.
+
 ## Final disposition
 
-AUDIT-069 passes with no repair.
+AUDIT-069 passes after the documented mathematical-notation repair in issue #280, subject to fresh exact-candidate-head validation, independent computational-witness replay, protected admission and readback. The pre-repair no-defect claim is superseded for documentary integrity only.
 
 The durable synthesis rule is:
 
