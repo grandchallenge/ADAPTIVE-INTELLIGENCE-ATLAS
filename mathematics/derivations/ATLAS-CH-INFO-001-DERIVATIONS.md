@@ -17,21 +17,21 @@ Entropy is defined relative to a probability model. It is not semantic meaning.
 For discrete distributions \(P,Q\),
 
 \[
-D_{\mathrm{KL}}(P\|Q)
+D_{\mathrm{KL},2}(P\|Q)
 =
-\sum_x p(x)\log\frac{p(x)}{q(x)}
+\sum_x p(x)\log_2\frac{p(x)}{q(x)}
 \]
 
 when \(P\) is absolutely continuous with respect to \(Q\) on the relevant support.
 
-KL is generally asymmetric and can be infinite.
+The discrete logarithm is base 2, matching the chapter's bits convention and cross-entropy decomposition. The zero-mass contribution is zero; support failure gives positive infinity. KL is generally asymmetric and can be infinite.
 
 ## D3. Mutual information
 
 \[
 I(X;Y)
 =
-D_{\mathrm{KL}}(P_{XY}\|P_X P_Y).
+D_{\mathrm{KL},2}(P_{XY}\|P_X P_Y).
 \]
 
 For the exact witness
@@ -77,7 +77,7 @@ p_\eta(x)
 h(x)\exp\{\eta^\top T(x)-A(\eta)\}.
 \]
 
-For Bernoulli \(x\in\{0,1\}\),
+For Bernoulli \(x\in\{0,1\}\) with \(0<p<1\),
 
 \[
 p(x)
@@ -93,13 +93,20 @@ with
 A(\eta)=\log(1+e^\eta).
 \]
 
-The statistic \(T(x)=x\) is sufficient for the Bernoulli family in the standard iid setting.
+For one Bernoulli observation \(T(x)=x\) is sufficient. For iid Bernoulli observations the statistic \(T(X_1,\dots,X_n)=\sum_i X_i\) is sufficient for the common parameter \(p\); the endpoint distributions \(p=0,1\) are limits of finite natural parameters.
 
 ## D5. Concentration scope
 
 A concentration inequality is meaningful only with its assumptions.
 
-For example, Hoeffding-style concentration requires bounded independent variables in its standard form. The Atlas will not quote an exponential tail bound while hiding the independence/boundedness hypotheses.
+For example, Hoeffding-style concentration requires bounded independent variables in its standard form. The Atlas will not quote an exponential tail bound while hiding the independence/boundedness hypotheses. For independent \(Z_i\in[a_i,b_i]\), the two-sided Hoeffding bound is
+
+\[
+\Pr\!\left(\left|\sum_{i=1}^n(Z_i-\mathbb EZ_i)\right|\ge t\right)
+\le 2\exp\!\left(-\frac{2t^2}{\sum_i(b_i-a_i)^2}\right).
+\]
+
+For 100 independent Bernoulli trials and deviation \(0.2\) of the sample mean, this gives \(2e^{-8}<0.001\).
 
 ## Claim boundary
 

@@ -36,21 +36,17 @@ Use discrete and density-based cases carefully.
 
 Core objects:
 
-[
-H(X),
-qquad
-D_{mathrm{KL}}(P|Q),
-qquad
-I(X;Y),
-]
+\[
+H_2(X),\qquad D_{\mathrm{KL},2}(P\|Q),\qquad I_2(X;Y).
+\]
 
-and exponential family
+The discrete information quantities use base-2 logarithms and bits; differential entropy requires a separate measure convention.
 
-[
-p_eta(x)
-=
-h(x)exp{eta^\top T(x)-A(eta)}.
-]
+An exponential-family model is
+
+\[
+p_\eta(x)=h(x)\exp\{\eta^\top T(x)-A(\eta)\}.
+\]
 
 Include an explicit support/absolute-continuity warning for KL.
 
