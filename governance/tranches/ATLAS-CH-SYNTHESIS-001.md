@@ -29,6 +29,19 @@ No new external academic source added. New systems witness is Atlas-owned exact 
 - Chapter Ledger 112d7e3ecc4ce9e1e6ba1c033c05ad98f8d8b65a
 - Source Register 36b5c66c314f7f792e9053dfd6d9016573b70acd
 
+## Notation regression correction: issue #280 (current candidate)
+
+The identities in **Implementation artifacts** above describe the original historical implementation; preserve them for provenance. The current correction restores the damaged mathematical display on the then-protected baseline `49d576a4b89ab671fdb6d8e6b3d49cfe05146294` by comparing it with the already-merged historical source repair [PR #360](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/360), merge `a810c4b5f8e9803a54fcfeab434212e62622f2b3`.
+
+- historical damaged derivation blob: `f2b0fed22d025ba33c3e10e61cd61887da7d9452`;
+- current corrected derivation blob: `5edfc4409bd1e58a7597c5eb5472e8d3a1f7fb1c`;
+- historical damaged computational-witness blob: `e9ffd717f2568259aca8fdc3bd3913d11fb814ec`;
+- current corrected computational-witness blob: `0541ab6dfb65eeb86b43f7b0e38d46810321a8b2`;
+- correction preserves the original Python witness source and its claim boundary; it restores paired display mathematics and legible source/task notation and corrects `V(c_{\\mathrm{bad}})`.
+- original manuscript, computational model, seven-category status grammar and source locks remain unaffected.
+
+The candidate remains subject to fresh repository validation, independent witness replay, review and protected-main readback. A successful typesetting repair does not constitute an Atlas-wide chapter acceptance or mathematical certification.
+
 ## Full witness
 - task accuracy 2/2
 - validated commit coverage 2/2
