@@ -34,9 +34,10 @@ No new external academic source added. New systems witness is Atlas-owned exact 
 The identities in **Implementation artifacts** above describe the original historical implementation; preserve them for provenance. The current correction restores the damaged mathematical display on the then-protected baseline `49d576a4b89ab671fdb6d8e6b3d49cfe05146294` by comparing it with the already-merged historical source repair [PR #360](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/360), merge `a810c4b5f8e9803a54fcfeab434212e62622f2b3`.
 
 - historical damaged derivation blob: `f2b0fed22d025ba33c3e10e61cd61887da7d9452`;
-- current corrected derivation blob: `5edfc4409bd1e58a7597c5eb5472e8d3a1f7fb1c`;
+- current corrected derivation blob: `aecd9fcd8f4a208e2517326ad773f8418d0ab5cf`;
 - historical damaged computational-witness blob: `e9ffd717f2568259aca8fdc3bd3913d11fb814ec`;
 - current corrected computational-witness blob: `0541ab6dfb65eeb86b43f7b0e38d46810321a8b2`;
+- **Renderer replay:** 33 derivation and four witness display blocks round-trip through Arithmatex HTML with no leaked delimiters; all 37 source formulas compile under `pdflatex` (`amsmath,amssymb`) into formula-only PDF SHA-256 `0f2ce7eb979513b026af9ebf814100d4404e9db3a85ede647e71ca4769f76628`. This is source-document proof, **not** inspection of the whole published Atlas PDF or HTML. The PDF replay exposed and fixed four internal paragraph breaks and one unescaped `validator\_accept` identifier.
 - correction preserves the original Python witness source and its claim boundary; it restores paired display mathematics and legible source/task notation and corrects `V(c_{\\mathrm{bad}})`.
 - original manuscript, computational model, seven-category status grammar and source locks remain unaffected.
 
