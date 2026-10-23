@@ -143,7 +143,6 @@ Therefore:
 $$
 \boxed{
 \text{answer capability}
-
 \not\Rightarrow
 \text{authorized durable state}.
 }
@@ -166,7 +165,6 @@ Therefore:
 $$
 \boxed{
 \text{transient success}
-
 \not\Rightarrow
 \text{persistent shared recall}.
 }
@@ -207,7 +205,6 @@ Therefore:
 $$
 \boxed{
 \text{content correctness alone}
-
 \not\Rightarrow
 \text{authorized transition}.
 }
@@ -240,7 +237,6 @@ Hence:
 $$
 \boxed{
 \text{component set}
-
 \not\Rightarrow
 \text{system capability}.
 }
