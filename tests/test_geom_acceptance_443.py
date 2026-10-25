@@ -49,10 +49,10 @@ class GeomProducerWitness(unittest.TestCase):
         self.assertIn("Euclidean projection alone",DER)
 
     def test_domain_source_and_equations(self):
-        self.assertIn(r"d\\ge 2",SRC)
-        self.assertIn(r"n\\ge p\\ge1",SRC)
+        self.assertIn(r"d\ge 2",SRC)
+        self.assertIn(r"n\ge p\ge1",SRC)
         self.assertIn(r"p(n-p)",SRC)
-        self.assertIn(r"\theta=\\pi",DER)
+        self.assertIn(r"\theta=\pi",DER)
         for text in (SRC,DER):
             self.assertEqual(text.count(r"\["),text.count(r"\]"))
             self.assertFalse(any(ord(ch)<32 and ch not in "\n\t" for ch in text))
