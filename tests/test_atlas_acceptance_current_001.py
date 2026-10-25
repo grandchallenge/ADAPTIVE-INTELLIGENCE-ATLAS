@@ -15,12 +15,35 @@ class EditorialAcceptance(unittest.TestCase):
   self.assertEqual(D['accepted_count'],8)
   self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),72)
  def test_all_80_chapter_blobs(self):
+  pending=D.get('pending_producer')
   for row in D['chapters']:
    with self.subTest(chapter=row['chapter_id']):
-    self.assertEqual(git('hash-object',row['source_path']),row['source_blob_sha1'])
+    current=git('hash-object',row['source_path'])
+    if pending and row['chapter_id']==pending['chapter_id']:
+     self.assertEqual(row['state'],'UNVERIFIED')
+     self.assertIsNone(row['accepted_evidence'])
+     self.assertEqual(row['source_path'],pending['source_path'])
+     self.assertNotEqual(row['source_blob_sha1'],pending['proposed_source_blob_sha1'])
+     self.assertEqual(current,pending['proposed_source_blob_sha1'])
+    else:
+     self.assertEqual(current,row['source_blob_sha1'])
  def test_source_tree_exact_in_shallow_ci(self):
+  pending=D.get('pending_producer')
+  if pending:
+   self.assertEqual(pending['chapter_id'],'ATLAS-CH-GEOM-001')
+   self.assertEqual(pending['issue'],443)
+   self.assertEqual(pending['pull_request'],445)
+   self.assertEqual(pending['state'],'PRODUCED_PENDING_CRITIC')
+   self.assertEqual(pending['acceptance_count_change'],0)
+   self.assertEqual(D['accepted_count'],8)
+   self.assertNotEqual(D['reviewed_source_tree_ids']['manuscript'],pending['proposed_manuscript_tree_sha1'])
   for name,expected in D['reviewed_source_tree_ids'].items():
-   with self.subTest(source=name):self.assertEqual(git('rev-parse','HEAD:'+name),expected)
+   actual=git('rev-parse','HEAD:'+name)
+   with self.subTest(source=name):
+    if pending and name=='manuscript':
+     self.assertEqual(actual,pending['proposed_manuscript_tree_sha1'])
+    else:
+     self.assertEqual(actual,expected)
   self.assertEqual(D['reviewed_source_tree_ids']['sources'],D['original_reviewed_source_tree_ids']['sources'])
   self.assertEqual(D['reviewed_source_tree_ids']['figures'],D['original_reviewed_source_tree_ids']['figures'])
  def test_seven_existing_acceptances_not_rewritten(self):

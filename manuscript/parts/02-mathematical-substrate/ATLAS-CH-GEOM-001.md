@@ -81,7 +81,7 @@ That distinction will later let us separate “what direction should the optimiz
 
 ## 3. The unit sphere
 
-Consider
+For \(d\ge 2\), consider
 
 \[
 S^{d-1}
@@ -224,6 +224,27 @@ x+v-\frac{\|v\|^2}{2}x+O(\|v\|^3).
 
 They agree through the first-order retraction requirement and share the same quadratic radial correction, but differ at higher order.
 
+The difference is explicit. Choose any unit tangent vector \(u\perp x\) and put \(v=tu\), \(t>0\). The exponential follows the great circle through spherical angle \(t\), whereas normalization follows angle \(\arctan t\). Since \(0<\arctan t<t\), these endpoints are distinct for \(0<t<\pi\). Taylor expansion gives the sharper, exact third-order discrepancy
+
+\[
+\operatorname{Exp}_x(tu)-R_x(tu)
+=\frac{t^3}{3}u-\frac{t^4}{3}x+O(t^5),
+\qquad t\longrightarrow0.
+\]
+
+In particular, \(\lim_{t\to0}t^{-3}u^\top(\operatorname{Exp}_x(tu)-R_x(tu))=1/3\). This is an identity about the maps, not an empirical optimizer comparison.
+
+For the figure's exact \(x=(0,0,1)\) and \(v=(4/5,0,0)\),
+
+\[
+R_x(v)=\frac{(4,0,5)}{\sqrt{41}},
+\qquad
+\operatorname{Exp}_x(v)
+=\bigl(\sin(4/5),0,\cos(4/5)\bigr).
+\]
+
+Their angular separation is \(4/5-\arctan(4/5)>0\) radians. Neither the figure nor this algebra licenses conflating retraction with the exponential.
+
 This distinction matters later. “Geometry-aware” should not become a vague synonym for “normalize after every step.”
 
 ## 6. The primary geometric plate
@@ -275,11 +296,13 @@ For unit vectors \(x,y\in S^{d-1}\), define their angle
 0\le\theta\le\pi.
 \]
 
-For non-antipodal endpoints, the shorter great-circle distance is
+The intrinsic geodesic distance is
 
 \[
 d_{S}(x,y)=\theta.
 \]
+
+This includes antipodal endpoints, whose distance is \(\pi\), although multiple minimizing geodesics connect them. Non-antipodality is needed for the uniqueness of the shortest great-circle arc, not for the distance formula.
 
 The ambient chord distance is
 
@@ -362,7 +385,7 @@ The antipodal singularity is geometric information, not merely a numerical nuisa
 
 ## 9. Stiefel geometry: orthonormal frames
 
-For \(X\in\mathbb R^{n\times p}\), the Stiefel manifold is
+For integers \(n\ge p\ge1\) and \(X\in\mathbb R^{n\times p}\), the Stiefel manifold is
 
 \[
 \operatorname{St}(n,p)
@@ -402,7 +425,13 @@ T_X\operatorname{St}(n,p)
 }
 \]
 
-This is the matrix analogue of the sphere condition \(x^\top v=0\).
+This is the matrix analogue of the sphere condition \(x^\top v=0\). The independent symmetric constraints number \(p(p+1)/2\); hence
+
+\[
+\dim\operatorname{St}(n,p)=np-\frac{p(p+1)}{2}.
+\]
+
+For example, \(\operatorname{St}(3,1)=S^2\) has dimension \(2\).
 
 The Stiefel manifold is especially important in optimization with orthogonality constraints; Edelman, Arias, and Smith provide a canonical geometric treatment [@EdelmanAriasSmith1998].
 
@@ -436,7 +465,13 @@ The Grassmann manifold identifies all such frames:
 }
 \]
 
-This is the first important quotient-geometry example in the Atlas.
+The right action by \(O(p)\) removes \(p(p-1)/2\) frame-orientation degrees of freedom. Accordingly,
+
+\[
+\dim\operatorname{Gr}(n,p)=p(n-p).
+\]
+
+The quotient is a single point when \(p=n\); for \(1\le p<n\) it has positive dimension. This is the first important quotient-geometry example in the Atlas.
 
 A parameterization can contain distinctions that the represented object does not.
 
@@ -464,7 +499,7 @@ v
 R_x(v).
 \]
 
-The exact Riemannian gradient depends on the chosen metric, and later chapters will treat that carefully.
+For an embedded manifold equipped with the **induced Euclidean metric**, orthogonal projection of an ambient Euclidean gradient gives the Riemannian gradient. With a different metric, this projection alone is generally insufficient; one must use that metric to represent the differential as a tangent gradient. Later chapters treat the distinction carefully.
 
 The present chapter establishes the more basic point:
 
