@@ -1014,7 +1014,23 @@ This discrete update is stable only when
 |1-h\lambda|<1.
 \]
 
-So the continuous system can be stable while the discretization explodes.
+For a positive step size \(h\), asymptotic stability of the Euler iterates is equivalent to
+
+\[
+0<h\lambda<2.
+\]
+
+The endpoints do not give asymptotic decay: at \(h\lambda=2\), Euler alternates with multiplier \(-1\); at \(h=0\), it does not advance.
+
+A concrete contrast takes \(\lambda=2\), \(h=3/2\), and \(x_0=1\). The true time-\(h\) map and the discrete update are
+
+\[
+\Phi_h(1)=e^{-3},
+\qquad
+\Psi_h(1)=1-3=-2.
+\]
+
+After \(n\) steps, the exact solution is \(e^{-3n}\to0\), whereas the Euler sequence is \((-2)^n\), whose magnitude diverges. This compares the same equation and initial state; the numerical instability comes from the choice of step size, not from the continuous dynamics. The example is intentionally outside Euler's stability range, not an assertion that Euler is inaccurate for all small steps.
 
 This is the bridge to numerical stability.
 
