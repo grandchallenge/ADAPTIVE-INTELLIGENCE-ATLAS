@@ -26,8 +26,8 @@ class GeomProducerWitness(unittest.TestCase):
         radial_quartic = F(1,24) - F(3,8)
         self.assertEqual(tangential_cubic, F(1,3))
         self.assertEqual(radial_quartic, F(-1,3))
-        self.assertIn(r"\\frac{t^3}{3}u", SRC)
-        self.assertIn(r"\\frac{t^4}{3}x", DER)
+        self.assertIn(r"\frac{t^3}{3}u", SRC)
+        self.assertIn(r"\frac{t^4}{3}x", DER)
 
     def test_stiefel_quotient_dimensions(self):
         for n in range(2,9):
@@ -52,10 +52,10 @@ class GeomProducerWitness(unittest.TestCase):
         self.assertIn(r"d\\ge 2",SRC)
         self.assertIn(r"n\\ge p\\ge1",SRC)
         self.assertIn(r"p(n-p)",SRC)
-        self.assertIn(r"\\theta=\\pi",DER)
+        self.assertIn(r"\theta=\\pi",DER)
         for text in (SRC,DER):
-            self.assertEqual(text.count(r"\\["),text.count(r"\\]"))
-            self.assertFalse(any(ord(ch)<32 and ch not in "\\n\\t" for ch in text))
+            self.assertEqual(text.count(r"\["),text.count(r"\]"))
+            self.assertFalse(any(ord(ch)<32 and ch not in "\n\t" for ch in text))
         for ref in ("Lee2018Riemannian","AbsilMahonySepulchre2008",
                     "EdelmanAriasSmith1998","Shoemake1985"):
             self.assertIn(ref,SRC)
