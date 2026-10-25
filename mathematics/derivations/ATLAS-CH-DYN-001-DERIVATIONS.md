@@ -586,6 +586,20 @@ It can have different:
 
 This distinction is the entry point to \`ATLAS-CH-NUMERICS-001\`.
 
+### D11a. Exact scalar Euler stability defect
+
+Take the dissipative equation \(\dot x=-\lambda x\) with \(\lambda>0\). Its exact time-\(h\) map is \(\Phi_h(x)=e^{-h\lambda}x\), whereas explicit Euler gives \(\Psi_h(x)=(1-h\lambda)x\). For \(h>0\), strict asymptotic stability of the discrete fixed point requires \(|1-h\lambda|<1\), equivalently \(0<h\lambda<2\).
+
+Set \(\lambda=2\) and \(h=3/2\). The exact and discrete \(n\)-step maps at \(x_0=1\) are
+
+\[
+\Phi_{nh}(1)=e^{-3n},\qquad \Psi_h^n(1)=(-2)^n.
+\]
+
+Thus \(\lim_{n\to\infty}\Phi_{nh}(1)=0\) but \(|\Psi_h^n(1)|=2^n\to\infty\). The defect arises solely from discretization: both systems start from the same scalar ODE and state. At the strict boundary \(h\lambda=2\), the multiplier is \(-1\), which is neutral oscillation, not asymptotic attraction.
+
+The general \(O(h^{p+1})\) local-error statement is an asymptotic claim as \(h\to0\); it does not contradict this fixed, too-large-step instability example.
+
 ## D12. Relevance to neural computation
 
 A depth-indexed residual architecture may admit the heuristic form

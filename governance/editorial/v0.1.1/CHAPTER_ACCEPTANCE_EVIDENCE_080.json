@@ -2411,5 +2411,15 @@
     "state": "PRODUCED_PENDING_CRITIC",
     "acceptance_count_change": 0,
     "note": "Only GEOM source and generated RC2 changed; eight previously accepted sources and their exact historical reviews remain frozen. This candidate is not accepted or publication authorized."
-  }
+  },
+  "pending_additional_producer": {
+  "chapter_id": "ATLAS-CH-DYN-001",
+  "state": "PRODUCED_PENDING_CRITIC",
+  "baseline_workbench_head": "e0ce91c4d6e6f1eac2b17b4223d9981852860c02",
+  "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
+  "proposed_source_blob_sha1": "0eb7e56b559f5ee31e6119bf2596beba1cb75afe",
+  "proposed_manuscript_tree_sha1": "183e5b55d46fdb8ff4ad374160542972594b6ac4",
+  "acceptance_count_change": 0,
+  "scope": "Euler stability exact numerical witness; PDF, HTML, and independent editorial critic pending"
+}
 }

@@ -15,33 +15,39 @@ class EditorialAcceptance(unittest.TestCase):
   self.assertEqual(D['accepted_count'],8)
   self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),72)
  def test_all_80_chapter_blobs(self):
-  pending=D.get('pending_producer')
+  pending=[v for v in (D.get('pending_producer'),D.get('pending_additional_producer')) if v]
+  self.assertEqual({p['chapter_id'] for p in pending},{'ATLAS-CH-GEOM-001','ATLAS-CH-DYN-001'})
   for row in D['chapters']:
    with self.subTest(chapter=row['chapter_id']):
     current=git('hash-object',row['source_path'])
-    if pending and row['chapter_id']==pending['chapter_id']:
+    found=next((p for p in pending if p['chapter_id']==row['chapter_id']),None)
+    if found:
      self.assertEqual(row['state'],'UNVERIFIED')
      self.assertIsNone(row['accepted_evidence'])
-     self.assertEqual(row['source_path'],pending['source_path'])
-     self.assertNotEqual(row['source_blob_sha1'],pending['proposed_source_blob_sha1'])
-     self.assertEqual(current,pending['proposed_source_blob_sha1'])
+     self.assertEqual(row['source_path'],found['source_path'])
+     self.assertNotEqual(row['source_blob_sha1'],found['proposed_source_blob_sha1'])
+     self.assertEqual(current,found['proposed_source_blob_sha1'])
+     self.assertEqual(found['acceptance_count_change'],0)
     else:
      self.assertEqual(current,row['source_blob_sha1'])
  def test_source_tree_exact_in_shallow_ci(self):
-  pending=D.get('pending_producer')
-  if pending:
-   self.assertEqual(pending['chapter_id'],'ATLAS-CH-GEOM-001')
-   self.assertEqual(pending['issue'],443)
-   self.assertEqual(pending['pull_request'],445)
-   self.assertEqual(pending['state'],'PRODUCED_PENDING_CRITIC')
-   self.assertEqual(pending['acceptance_count_change'],0)
-   self.assertEqual(D['accepted_count'],8)
-   self.assertNotEqual(D['reviewed_source_tree_ids']['manuscript'],pending['proposed_manuscript_tree_sha1'])
+  geom=D['pending_producer']; dyn=D['pending_additional_producer']
+  self.assertEqual(geom['chapter_id'],'ATLAS-CH-GEOM-001')
+  self.assertEqual(geom['issue'],443)
+  self.assertEqual(geom['pull_request'],445)
+  self.assertEqual(geom['state'],'PRODUCED_PENDING_CRITIC')
+  self.assertEqual(geom['proposed_manuscript_tree_sha1'],'c0e089305c86c057b6f0ca031df5c8cfec9b79fa')
+  self.assertEqual(dyn['chapter_id'],'ATLAS-CH-DYN-001')
+  self.assertEqual(dyn['state'],'PRODUCED_PENDING_CRITIC')
+  self.assertEqual(dyn['baseline_workbench_head'],'e0ce91c4d6e6f1eac2b17b4223d9981852860c02')
+  self.assertEqual(dyn['proposed_source_blob_sha1'],'0eb7e56b559f5ee31e6119bf2596beba1cb75afe')
+  self.assertEqual(D['accepted_count'],8)
   for name,expected in D['reviewed_source_tree_ids'].items():
    actual=git('rev-parse','HEAD:'+name)
    with self.subTest(source=name):
-    if pending and name=='manuscript':
-     self.assertEqual(actual,pending['proposed_manuscript_tree_sha1'])
+    if name=='manuscript':
+     self.assertEqual(actual,dyn['proposed_manuscript_tree_sha1'])
+     self.assertNotEqual(actual,geom['proposed_manuscript_tree_sha1'])
     else:
      self.assertEqual(actual,expected)
   self.assertEqual(D['reviewed_source_tree_ids']['sources'],D['original_reviewed_source_tree_ids']['sources'])
