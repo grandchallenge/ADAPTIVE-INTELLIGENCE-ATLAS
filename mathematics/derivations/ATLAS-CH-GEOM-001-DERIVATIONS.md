@@ -50,7 +50,7 @@ T_xS^{d-1}
 }
 \]
 
-Conversely, every \(v\perp x\) is realized as the initial velocity of the great-circle curve
+Conversely, each nonzero \(v\perp x\) is realized as the initial velocity of the great-circle curve
 
 \[
 \gamma(t)
@@ -59,6 +59,8 @@ Conversely, every \(v\perp x\) is realized as the initial velocity of the great-
 +
 \sin(\|v\|t)\frac{v}{\|v\|}.
 \]
+
+When \(v=0\), the constant curve \(\gamma(t)=x\) realizes the zero tangent velocity; the displayed quotient is only used for nonzero \(v\).
 
 ## D2. Normalized sphere retraction
 
