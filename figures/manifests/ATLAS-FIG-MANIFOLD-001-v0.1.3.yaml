@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-MANIFOLD-001"
+edition_derivative: "v0.1.3"
+state: "source_native_candidate_pending_exact_print_critic"
+original_source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001.wl"
+original_source_git_blob_sha1: "16cfefd6fe09a01b425dd463a75ed08dd47379f1"
+original_locked_master_unchanged: true
+predecessor_derivative: "figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.2.png"
+predecessor_derivative_git_blob_sha1: "f71d0da791b4661a929c17403d5c04c145783787"
+successor_source: "figures/wolfram/ATLAS-FIG-MANIFOLD-001-print-v0.1.3.wl"
+successor_source_git_blob_sha1: "670cbfb25df6e2e3c59562c45dcbf8a520f4251f"
+rendered_derivative: "figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.3.png"
+rendered_derivative_git_blob_sha1: "2d6b4c8f25b994736d13b10da9bb35bac16e6866"
+rendered_derivative_raw_sha256: "0176353ed25ad658a5684c445ce06fdfb97ffce1635e1d21785a1eff74187b58"
+rendered_derivative_bytes: 192175
+rendered_derivative_dimensions_px: [1267, 1320]
+generator:
+  system: "Wolfram Language"
+  source_version: "versioned Wolfram-language source; native regeneration not independently attested in this record"
+  command_intent: 'Evaluate fig; export print PNG with original source-preserving pixel normalization'
+literal_semantics: >-
+  Unit sphere x=(0,0,1), tangent v=(4/5,0,0), Exp_x(v)=(sin(4/5),0,cos(4/5)), R_x(v)=(4/sqrt(41),0,5/sqrt(41)), and g(t)=(sin(4t/5),0,cos(4t/5)); Exp/R endpoint separation approximately 0.1251771866050225 in Euclidean 3-space.
+nonliteral_semantics: >-
+  Perspective, opacity, tangent plane, white-background labels, leader lines and their lateral offsets are illustrative print callouts.
+claim_boundary: "Exact finite mathematical witness only; not an empirical neural geometry or optimization claim."
+required_acceptance:
+  - "Verify raw PNG SHA256, native dimensions and source Git blob"
+  - "Verify preserved original and v0.1.2 derivative identities"
+  - "Recompose RC2 from canonical chapter source; 18 figures and 2971 historical labels"
+  - "Three-pass exact-head PDF, HTML with 18 semantic alt descriptions"
+  - "Independently inspect actual printed PDF page 168 at normal reading size"
+  - "Fresh distinct role-scoped GEOM critic verdict and protected ledger admission only if warranted"
+  - "Do not modify immutable public v0.1.0 or publish v0.1.1"
