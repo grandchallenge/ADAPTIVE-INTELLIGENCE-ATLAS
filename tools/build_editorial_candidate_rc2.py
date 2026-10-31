@@ -70,7 +70,7 @@ def main():
     # preserve its earlier derivative in Git history, not in this RC2 book.
     assert rc2.count("figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.3.png")==1
     assert rc2.count("figures/derivatives/ATLAS-FIG-OPTBASE-001-v0.1.2.png")==0
-    assert rc2.count("figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.2.png")==1
+    assert rc2.count("figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.3.png")==1
     assert rc2.count("figures/derivatives/ATLAS-FIG-TRANSFER-001-v0.1.2.png")==1
     assert not normalize(rc2)[1], "redundant heading ordinals remain"
     # Explicit source contracts now guard the canonical Part I content
