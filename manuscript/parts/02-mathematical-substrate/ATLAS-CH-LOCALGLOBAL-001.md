@@ -333,7 +333,7 @@ This is the smallest example that has:
 - one genuine overlap;
 - one global union.
 
-## 15. Sections are functions
+### 15. Sections are functions
 
 For every subset $S$ of X, define:
 
@@ -347,7 +347,7 @@ Restriction means forgetting coordinates outside the smaller subset.
 
 Nothing abstract is hidden.
 
-## 16. The global-to-local map
+### 16. The global-to-local map
 
 Write a global section as:
 
@@ -375,7 +375,7 @@ So:
 R(x,y,z)=(x,y,y,z).
 \]
 
-## 17. Uniqueness is injectivity
+### 17. Uniqueness is injectivity
 
 Suppose two global sections have the same restrictions to U and V.
 
@@ -391,7 +391,7 @@ In matrix language, R has rank 3.
 
 The local restrictions determine at most one global function.
 
-## 18. The overlap-discrepancy map
+### 18. The overlap-discrepancy map
 
 A general pair of local sections is:
 
@@ -413,7 +413,7 @@ The pair is compatible exactly when:
 
 The discrepancy lives precisely on the overlap coordinate b.
 
-## 19. Image equals kernel
+### 19. Image equals kernel
 
 The image of R consists of vectors:
 
@@ -437,7 +437,7 @@ Therefore:
 
 This is the exact gluing statement in the finite witness.
 
-## 20. A compatible family
+### 20. A compatible family
 
 Choose:
 
@@ -465,7 +465,7 @@ The unique global glue is:
 s=(1,2,4).
 \]
 
-## 21. An incompatible family
+### 21. An incompatible family
 
 Now choose:
 
@@ -491,7 +491,7 @@ Therefore the pair is not in the image of R.
 
 No global function can restrict to both local sections.
 
-## 22. The failure is localized
+### 22. The failure is localized
 
 The value at a is not a problem.
 
