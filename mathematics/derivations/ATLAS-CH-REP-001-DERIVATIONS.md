@@ -4,121 +4,94 @@
 
 A representation is modeled as
 
-[
-r:mathcal X\tomathcal Z.
-]
+$$
+r:\mathcal X\to\mathcal Z.
+$$
 
-The coordinates in (mathcal Z) are not themselves the semantics.
+The coordinates in $\mathcal Z$ are not themselves the semantics.
 
 ## D2. Invariance and equivariance
 
-Let a group element (g) act on inputs and let (\rho(g)) act on the representation space.
+Let a group element $g$ act on inputs and let $\rho(g)$ act on the representation space.
 
 Invariance:
 
-[
-r(gcdot x)=r(x).
-]
+$$
+r(g\cdot x)=r(x).
+$$
 
 Equivariance:
 
-[
-r(gcdot x)=\rho(g)r(x).
-]
+$$
+r(g\cdot x)=\rho(g)r(x).
+$$
 
-For reflection
+For reflection,
 
-[
+$$
 G=
 \begin{pmatrix}
--1&0\
+-1&0\\
 0&1
-end{pmatrix},
-]
+\end{pmatrix},
+$$
 
-the identity representation (r(x)=x) is equivariant under (\rho(G)=G).
+the identity representation $r(x)=x$ is equivariant under $\rho(G)=G$.
 
 The scalar representation
 
-[
-r_{\rm inv}(x)=|x|_2^2
-]
+$$
+r_{\mathrm{inv}}(x)=\lVert x\rVert_2^2
+$$
 
-is invariant under this reflection.
-
-For
-
-[
-x=(2,3),
-]
-
-both (x) and (Gx=(-2,3)) have invariant value (13).
+is invariant under this reflection. For $x=(2,3)$, both $x$ and $Gx=(-2,3)$ have invariant value $13$.
 
 ## D3. Equivalent recoding with transformed readout
 
 Let
 
-[
-zinmathbb R^2,
-qquad
-\tilde z=Tz,
-]
+$$
+z\in\mathbb R^2,\qquad \tilde z=Tz,
+$$
 
 with invertible
 
-[
+$$
 T=
 \begin{pmatrix}
-1&1\
+1&1\\
 0&1
-end{pmatrix}.
-]
+\end{pmatrix}.
+$$
 
 A linear readout
 
-[
+$$
 y=w^\top z
-]
+$$
 
 is preserved by choosing
 
-[
+$$
 \tilde w=T^{-\top}w.
-]
+$$
 
-Then
+Indeed,
 
-[
+$$
 \tilde w^\top\tilde z
-=
-w^\top z.
-]
+=(T^{-\top}w)^\top(Tz)
+=w^\top T^{-1}Tz
+=w^\top z.
+$$
 
-For
-
-[
-z=(2,3),
-qquad
-w=(4,-1),
-]
-
-the original output is (5).
-
-The transformed objects are
-
-[
-\tilde z=(5,3),
-qquad
-\tilde w=(4,-5),
-]
-
-and the output remains (5).
+For $z=(2,3)$ and $w=(4,-1)$, the original output is $5$. The transformed objects are $\tilde z=(5,3)$ and $\tilde w=(4,-5)$, and the output remains $5$.
 
 Thus coordinate identity is not required for task-preserving equivalence.
 
 ## D4. Identifiability warning
 
-If latent variables are transformed by an invertible mixing (T) and the decoder is transformed by (T^{-1}), observable data can remain unchanged.
+If latent variables are transformed by invertible mixing $T$ and the decoder is transformed by $T^{-1}$, observable data can remain unchanged.
 
 Additional assumptions are therefore needed to identify a preferred latent coordinate system. This is consistent with the unsupervised-disentanglement limitations discussed by Locatello et al. [@LocatelloEtAl2019].
 
