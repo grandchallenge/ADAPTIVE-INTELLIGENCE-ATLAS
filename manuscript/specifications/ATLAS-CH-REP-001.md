@@ -41,29 +41,27 @@ A reader should be able to:
 
 Let a representation map be
 
-[
-r:mathcal X\tomathcal Z.
-]
+$$
+r:\mathcal X\to\mathcal Z.
+$$
 
-For group (G) acting on inputs and representation space, define:
+For a group $G$ acting on the inputs and representation space, define invariance by
 
-invariance
+$$
+r(g\cdot x)=r(x),
+$$
 
-[
-r(gcdot x)=r(x),
-]
+and equivariance by
 
-and equivariance
-
-[
-r(gcdot x)=\rho(g)r(x).
-]
+$$
+r(g\cdot x)=\rho(g)r(x).
+$$
 
 Introduce representation equivalence through an invertible recoding
 
-[
-\tilde r = Tcirc r
-]
+$$
+\tilde r=T\circ r
+$$
 
 when downstream maps transform compatibly.
 
