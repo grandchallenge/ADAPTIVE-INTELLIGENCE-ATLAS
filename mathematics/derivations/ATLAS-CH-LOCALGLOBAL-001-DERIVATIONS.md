@@ -20,7 +20,7 @@ The answer depends on the restriction structure carried by `F`.
 
 ## 2. Presheaf restriction structure
 
-For every region `U), assign a set/vector space:
+For every region `U`, assign a set or vector space:
 
 `F(U)`.
 
