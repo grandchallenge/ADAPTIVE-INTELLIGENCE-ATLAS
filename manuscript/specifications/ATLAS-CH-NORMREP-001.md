@@ -56,54 +56,54 @@ A reader should be able to:
 
 For \(x\neq0\), define
 
-$
+$$
 N(x)=\frac{x}{\|x\|_2}.
-$
+$$
 
 Let
 
-$
+$$
 u=N(x).
-$
+$$
 
 Derive
 
-$
+$$
 J_N(x)
 =
 \frac{1}{\|x\|_2}
 \left(I-uu^\top\right).
-$
+$$
 
 Use the radial/tangential decomposition
 
-$
+$$
 \delta
 =
 (uu^\top)\delta
 +
 (I-uu^\top)\delta.
-$
+$$
 
 For unit \(u,v\),
 
-$
+$$
 \|u-v\|_2^2
 =
 2-2u^\top v
 =
 2-2\cos\theta.
-$
+$$
 
 Reintroduce the sphere retraction
 
-$
+$$
 R_u(\xi)
 =
 \frac{u+\xi}{\|u+\xi\|_2},
 \qquad
 u^\top\xi=0,
-$
+$$
 
 and SLERP from the Geometry chapter without duplicating its full derivation.
 
@@ -128,32 +128,32 @@ Radial information is not “noise” by definition. A task can depend essential
 
 Use \(x=(3,4)\):
 
-$
+$$
 u=(3/5,4/5),
-$
+$$
 
-$
+$$
 J_N(x)
 =
 \begin{pmatrix}
 16/125&-12/125\\
 -12/125&9/125
 \end{pmatrix}.
-$
+$$
 
 Verify:
 
-$
+$$
 J_N(x)x=0,
-$
+$$
 
 and for tangent direction \((-4,3)\),
 
-$
+$$
 J_N(x)(-4,3)^\top
 =
 (-4/5,3/5)^\top.
-$
+$$
 
 Use a 60-degree unit-vector pair to compare:
 
