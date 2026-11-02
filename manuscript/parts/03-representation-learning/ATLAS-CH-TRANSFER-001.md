@@ -413,7 +413,7 @@ C_t=A_t^{-1}.
 
 Both recover the same \(r\).
 
-## 12. Exact numeric reconstruction
+### 12. Exact numeric reconstruction
 
 Take
 
@@ -457,7 +457,7 @@ Different coordinates.
 
 Same reconstructive core.
 
-## 13. Two target tasks
+### 13. Two target tasks
 
 Now define two target tasks:
 
@@ -537,7 +537,7 @@ can be reconstructed from \(P\).
 
 But the same bottleneck can fail for another task.
 
-## 16. Exact bottleneck failure
+### 16. Exact bottleneck failure
 
 Take
 
@@ -633,7 +633,7 @@ B(x_1)=B(x_2).
 
 This is the exact reconstruction test.
 
-## 18. Why the fiber criterion is necessary
+### 18. Why the fiber criterion is necessary
 
 Suppose
 
@@ -663,7 +663,7 @@ So any representation that merges capability-distinct states cannot support exac
 
 This is information loss in the most concrete possible sense.
 
-## 19. Why the fiber criterion is sufficient
+### 19. Why the fiber criterion is sufficient
 
 Now suppose \(B\) is constant on each realized fiber of \(Z\).
 
