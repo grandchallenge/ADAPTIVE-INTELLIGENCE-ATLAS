@@ -1,6 +1,6 @@
 # ATLAS-CW-REP-001 — Representation Witness
 
-**Chapter:** `ATLAS-CH-REP-001`  
+**Chapter:** ATLAS-CH-REP-001  
 **Runtime:** Wolfram Language service, 2026-10-02
 
 ## Purpose
@@ -11,43 +11,32 @@ Replay one exact invariance example, one exact equivariance example, and one inv
 
 Let
 
-[
+$$
 G=
 \begin{pmatrix}
--1&0\
+-1&0\\
 0&1
-end{pmatrix},
-qquad
-x=(2,3).
-]
+\end{pmatrix},
+\qquad x=(2,3).
+$$
 
-Then
+Then $Gx=(-2,3)$. For the scalar representation
 
-[
-Gx=(-2,3).
-]
+$$
+r_{\mathrm{inv}}(x)=\lVert x\rVert_2^2,
+$$
 
-For the scalar representation
+the exact values agree:
 
-[
-r_{\rm inv}(x)=|x|_2^2,
-]
+$$
+r_{\mathrm{inv}}(x)=r_{\mathrm{inv}}(Gx)=13.
+$$
 
-Wolfram gives
+For the identity representation $r(x)=x$,
 
-[
-r_{\rm inv}(x)
-=
-r_{\rm inv}(Gx)
-=
-13.
-]
-
-For the identity representation (r(x)=x),
-
-[
-r(Gx)=G,r(x),
-]
+$$
+r(Gx)=G\,r(x),
+$$
 
 so it is equivariant under the declared reflection representation.
 
@@ -55,41 +44,32 @@ so it is equivariant under the declared reflection representation.
 
 Let
 
-[
+$$
 T=
 \begin{pmatrix}
-1&1\
+1&1\\
 0&1
-end{pmatrix},
-qquad
-z=(2,3),
-qquad
-w=(4,-1).
-]
+\end{pmatrix},
+\qquad z=(2,3),\qquad w=(4,-1).
+$$
 
-The original readout is
+The original readout is $w^\top z=5$. Define
 
-[
-w^\top z=5.
-]
-
-Define
-
-[
-\tilde z=Tz=(5,3),
-]
+$$
+\tilde z=Tz=(5,3)
+$$
 
 and
 
-[
+$$
 \tilde w=T^{-\top}w=(4,-5).
-]
+$$
 
 Then
 
-[
+$$
 \tilde w^\top\tilde z=5.
-]
+$$
 
 This demonstrates exact task-preserving recoding for this declared linear readout.
 
