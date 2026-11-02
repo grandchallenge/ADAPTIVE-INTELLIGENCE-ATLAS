@@ -271,7 +271,7 @@ The hidden units were relabeled.
 
 The function did not change.
 
-## 8. Exact two-unit example
+### 8. Exact two-unit example
 
 Take scalar input and
 
@@ -333,7 +333,7 @@ The function remains
 f(x)=11\max(0,x).
 \]
 
-## 9. Positive-rescaling symmetry
+### 9. Positive-rescaling symmetry
 
 ReLU is positively homogeneous:
 
@@ -400,7 +400,7 @@ They still compute the same function.
 
 ![Three distinct parameter representatives, original, hidden-unit permuted, and positively rescaled, all mapping to the exact same ReLU function f(x)=11 max(0,x).](../../figures/masters/ATLAS-FIG-QUOTIENT-001.png)
 
-## 10. Exact replay
+### 10. Exact replay
 
 The computational witness evaluates all three parameterizations on
 
