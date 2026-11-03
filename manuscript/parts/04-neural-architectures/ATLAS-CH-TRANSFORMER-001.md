@@ -503,7 +503,7 @@ R(H)=H.
 }
 \]
 
-The exact identity path from the Architecture History chapter survives here.
+The exact identity path from the Architecture History chapter survives **at the residual-addition node**. In a pre-LN block, a zero residual branch leaves the block state unchanged at this sublayer. In a post-LN block, however, a zero branch produces $\operatorname{LN}(H)$ after the addition, which need not equal $H$. Thus the additive skip path is not a claim that the entire normalized block is the identity.
 
 The sublayer adds a correction to the evolving residual-stream state.
 
