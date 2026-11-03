@@ -41,31 +41,42 @@ A reader should be able to:
 
 Fixed depth:
 
-x_{k+1} = F_k(x_k),  k=0,...,L-1.
+$$
+x_{k+1}=F_k(x_k),\qquad k=0,\ldots,L-1.
+$$
 
 Tied recurrent depth:
 
-x_{k+1} = F(x_k).
+$$
+x_{k+1}=F(x_k).
+$$
 
-Adaptive depth:
+Adaptive depth with a finite cap $K_{\max}$ and declared halting signal $h_k$:
 
-tau(x_0, epsilon, B)
+$$
+\tau(x_0,\varepsilon,K_{\max})
 =
-inf{k >= 0 : h_k <= epsilon or budget B is exhausted},
+\min\left(
+\{k\in\{0,\ldots,K_{\max}\}:h_k\le\varepsilon\}
+\cup\{K_{\max}\}
+\right).
+$$
 
-where h_k is a declared halting/error/progress signal.
+Record the termination status separately as **criterion_met** if $h_\tau\le\varepsilon$ and **budget_exhausted** otherwise. Reaching the cap does not certify meeting the criterion; neither does a learned halting signal automatically estimate task error.
 
 Equilibrium depth:
 
-x* = F(x*).
+$$
+x_\star=F(x_\star).
+$$
 
 Conditional execution:
 
-x_{k+1}
-=
-x_k + g_k(x_k) Delta_k(x_k),
+$$
+x_{k+1}=x_k+g_k(x_k)\,\Delta_k(x_k),
+$$
 
-with g_k in {0,1} for hard execution and a declared relaxation when g_k is continuous.
+with $g_k\in\{0,1\}$ for hard execution and a declared relaxation when $g_k$ is continuous. A soft gate does not establish that the gated operation was skipped.
 
 ## Computational-time accounting
 
