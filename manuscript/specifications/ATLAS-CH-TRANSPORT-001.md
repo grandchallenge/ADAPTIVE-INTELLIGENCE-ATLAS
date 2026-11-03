@@ -55,7 +55,7 @@ A general stage map is
 z_{k+1}=\Phi_k(z_k).
 \]
 
-When all stages share one state space \(\mathcal Z\), the depth-\(K\) representation is
+For compatible stage maps \(\Phi_k:\mathcal Z_k\to\mathcal Z_{k+1}\), even when the state spaces differ, the depth-\(K\) representation is
 
 \[
 z_K=(\Phi_{K-1}\circ\cdots\circ\Phi_0)(z_0).
