@@ -506,7 +506,7 @@ k(q,k)
 \right),
 \]
 
-this recovers ordinary softmax attention.
+this recovers ordinary unmasked softmax attention for finite scores. More generally, the normalized kernel expression requires a **nonzero denominator**, and its convex-mixing interpretation requires nonnegative similarities on the allowed support. Causal masking must be represented by restricting that support (or explicitly zeroing forbidden kernel terms), not by silently applying an unmasked sum.
 
 The lens is useful because it isolates the similarity function. But it does not erase the rest of the architecture. Queries and keys are learned and state-dependent; masks and position alter interactions; multihead attention constructs several such operators and recombines them.
 
@@ -538,7 +538,7 @@ can be reassociated:
 \right).
 \]
 
-This is the algebraic move exploited by linear-attention constructions such as Katharopoulos et al. [@KatharopoulosEtAl2020].
+This is the algebraic move exploited by linear-attention constructions such as Katharopoulos et al. [@KatharopoulosEtAl2020]. To obtain **normalized** attention, the denominator $\phi(q_i)^\top\sum_j\phi(k_j)$ must also be computed and must be nonzero. The displayed numerator reassociation alone is not a complete normalized attention formula; exact causal implementations additionally require prefix-restricted accumulators.
 
 From the Atlas viewpoint, the interesting fact is not merely lower asymptotic cost. The representation of the operator action has changed.
 
