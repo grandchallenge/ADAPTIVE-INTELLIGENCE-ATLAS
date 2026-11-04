@@ -1,6 +1,6 @@
 {
-  "accepted_count": 8,
-  "candidate_head": "4ed74fa5dc871f7645b5825cd75319eb818ddc8e",
+  "accepted_count": 9,
+  "candidate_head": "22c5fd9a870f75ff21230af13884ec3bb2cadfb2",
   "candidate_pr": 320,
   "chapters": [
     {
@@ -866,7 +866,32 @@
       "unresolved": null
     },
     {
-      "accepted_evidence": null,
+      "accepted_evidence": {
+        "critic_disposition": "ACCEPT_EDITORIAL_SCOPE",
+        "critic_run": "geom-critic-22c5-20261104",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/444#issuecomment-6627604864",
+        "head": "22c5fd9a870f75ff21230af13884ec3bb2cadfb2",
+        "html_sha256": "c20e0b505df4dcd8fcd34d0a0f49537b1ab9e85919d86234932de837949af492",
+        "mathematical_certification": false,
+        "pdf_pages": [
+          163,
+          174
+        ],
+        "actual_reviewed_pdf_pages": [
+          168
+        ],
+        "pdf_sha256": "844199ce8839941438e92bf0142459c3b1b5d5d85b023c50bd85ed45718c2f6b",
+        "preserved_historical_anchors": 2971,
+        "producer_run": "geom-producer-22c5-20261104",
+        "producer_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/443#issuecomment-6627595656",
+        "public_release_authorization": false,
+        "source_blob_sha1": "8895c3a0b7e93339f16a311ba831252b017b91e4",
+        "derivation_blob_sha1": "ae4059359b3462c4f67722687e99b166a05726a4",
+        "figure_derivative_blob_sha1": "2d6b4c8f25b994736d13b10da9bb35bac16e6866",
+        "figure_print_critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/444#issuecomment-6627433494",
+        "source_locks_checked": 4,
+        "nonblocking_followup": "Add an explicit Exp_x(0)=x sentence in D3 if the previously denied source edit is independently remediated; D1 constant curve already defines the zero case. Full-edition PDF/UA remains a separate release gate."
+      },
       "assignment_id": "ATLAS-EDITORIAL-P02-B",
       "chapter_id": "ATLAS-CH-GEOM-001",
       "issue_bound_return_evidence": [
@@ -880,10 +905,13 @@
       ],
       "part_id": "ATLAS-PART-MATH",
       "review_issue": 327,
-      "source_blob_sha1": "166a9309bd6444f191bb6dbd1ef4abe6ba8ae57c",
+      "source_blob_sha1": "8895c3a0b7e93339f16a311ba831252b017b91e4",
       "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md",
-      "state": "UNVERIFIED",
-      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+      "state": "ACCEPTED",
+      "unresolved": null,
+      "producer_state": "COMPLETED",
+      "producer_issue": 443,
+      "critic_issue": 444
     },
     {
       "accepted_evidence": null,
@@ -2413,13 +2441,13 @@
     "note": "Only GEOM source and generated RC2 changed; eight previously accepted sources and their exact historical reviews remain frozen. This candidate is not accepted or publication authorized."
   },
   "pending_additional_producer": {
-  "chapter_id": "ATLAS-CH-DYN-001",
-  "state": "PRODUCED_PENDING_CRITIC",
-  "baseline_workbench_head": "e0ce91c4d6e6f1eac2b17b4223d9981852860c02",
-  "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
-  "proposed_source_blob_sha1": "0eb7e56b559f5ee31e6119bf2596beba1cb75afe",
-  "proposed_manuscript_tree_sha1": "183e5b55d46fdb8ff4ad374160542972594b6ac4",
-  "acceptance_count_change": 0,
-  "scope": "Euler stability exact numerical witness; PDF, HTML, and independent editorial critic pending"
-}
+    "chapter_id": "ATLAS-CH-DYN-001",
+    "state": "PRODUCED_PENDING_CRITIC",
+    "baseline_workbench_head": "e0ce91c4d6e6f1eac2b17b4223d9981852860c02",
+    "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
+    "proposed_source_blob_sha1": "0eb7e56b559f5ee31e6119bf2596beba1cb75afe",
+    "proposed_manuscript_tree_sha1": "183e5b55d46fdb8ff4ad374160542972594b6ac4",
+    "acceptance_count_change": 0,
+    "scope": "Euler stability exact numerical witness; PDF, HTML, and independent editorial critic pending"
+  }
 }
