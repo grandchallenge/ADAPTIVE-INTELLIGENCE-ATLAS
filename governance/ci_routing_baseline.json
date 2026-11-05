@@ -1,0 +1,20 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "repository": "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS",
+  "mode": "ENFORCE_DISCOVERY_PRESERVE_EXISTING_CI",
+  "checks": [
+    {
+      "id": "atlas-repository-validation",
+      "test_globs": [
+        "tests/test_*.py"
+      ]
+    }
+  ],
+  "legacy_test_paths": [
+    "tests/test_atlas_acceptance_evidence.py",
+    "tests/test_atlas_direct_return_projector.py",
+    "tests/test_atlas_direct_return_reconcile.py",
+    "tests/test_atlas_editorial_grant.py"
+  ]
+}
