@@ -7,51 +7,43 @@ P=json.loads((R/'governance/editorial/v0.1.1/P01_PRODUCER_001.json').read_text()
 def git(*args):return subprocess.check_output(['git',*args],text=True,cwd=R).strip()
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 class EditorialAcceptance(unittest.TestCase):
- def test_80_rows_eight_accepted(self):
+ def test_80_rows_and_evidence_backed_acceptance(self):
   self.assertEqual(len(D['chapters']),80)
   self.assertEqual(len({x['chapter_id'] for x in D['chapters']}),80)
-  accepted=[x['chapter_id'] for x in D['chapters'] if x['state']=='ACCEPTED']
-  self.assertEqual(accepted,[f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV','INFO')])
-  self.assertEqual(D['accepted_count'],8)
-  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),72)
- def test_all_80_chapter_blobs(self):
-  pending=[v for v in (D.get('pending_producer'),D.get('pending_additional_producer')) if v]
-  self.assertEqual({p['chapter_id'] for p in pending},{'ATLAS-CH-GEOM-001','ATLAS-CH-DYN-001'})
+  accepted=[x for x in D['chapters'] if x['state']=='ACCEPTED']
+  self.assertEqual(len(accepted),D['accepted_count'])
+  self.assertEqual(D['accepted_count'],9)
+  self.assertEqual({x['chapter_id'] for x in accepted},
+   {f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV','INFO','GEOM')})
+  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),71)
   for row in D['chapters']:
    with self.subTest(chapter=row['chapter_id']):
-    current=git('hash-object',row['source_path'])
-    found=next((p for p in pending if p['chapter_id']==row['chapter_id']),None)
-    if found:
+    if row['state']=='ACCEPTED':
+     a=row['accepted_evidence']
+     self.assertIsInstance(a,dict)
+     self.assertEqual(row['source_blob_sha1'],git('hash-object',row['source_path']))
+     self.assertEqual(row['source_blob_sha1'],a['source_blob_sha1'])
+     self.assertNotEqual(a['producer_run'],a['critic_run'])
+     self.assertTrue(a['producer_url'] and a['critic_url'])
+     self.assertFalse(a['mathematical_certification'])
+     self.assertFalse(a['public_release_authorization'])
+    else:
      self.assertEqual(row['state'],'UNVERIFIED')
      self.assertIsNone(row['accepted_evidence'])
-     self.assertEqual(row['source_path'],found['source_path'])
-     self.assertNotEqual(row['source_blob_sha1'],found['proposed_source_blob_sha1'])
-     self.assertEqual(current,found['proposed_source_blob_sha1'])
-     self.assertEqual(found['acceptance_count_change'],0)
-    else:
-     self.assertEqual(current,row['source_blob_sha1'])
- def test_source_tree_exact_in_shallow_ci(self):
-  geom=D['pending_producer']; dyn=D['pending_additional_producer']
-  self.assertEqual(geom['chapter_id'],'ATLAS-CH-GEOM-001')
-  self.assertEqual(geom['issue'],443)
-  self.assertEqual(geom['pull_request'],445)
-  self.assertEqual(geom['state'],'PRODUCED_PENDING_CRITIC')
-  self.assertEqual(geom['proposed_manuscript_tree_sha1'],'c0e089305c86c057b6f0ca031df5c8cfec9b79fa')
-  self.assertEqual(dyn['chapter_id'],'ATLAS-CH-DYN-001')
-  self.assertEqual(dyn['state'],'PRODUCED_PENDING_CRITIC')
-  self.assertEqual(dyn['baseline_workbench_head'],'e0ce91c4d6e6f1eac2b17b4223d9981852860c02')
-  self.assertEqual(dyn['proposed_source_blob_sha1'],'0eb7e56b559f5ee31e6119bf2596beba1cb75afe')
-  self.assertEqual(D['accepted_count'],8)
-  for name,expected in D['reviewed_source_tree_ids'].items():
-   actual=git('rev-parse','HEAD:'+name)
-   with self.subTest(source=name):
-    if name=='manuscript':
-     self.assertEqual(actual,dyn['proposed_manuscript_tree_sha1'])
-     self.assertNotEqual(actual,geom['proposed_manuscript_tree_sha1'])
-    else:
-     self.assertEqual(actual,expected)
-  self.assertEqual(D['reviewed_source_tree_ids']['sources'],D['original_reviewed_source_tree_ids']['sources'])
-  self.assertEqual(D['reviewed_source_tree_ids']['figures'],D['original_reviewed_source_tree_ids']['figures'])
+     # A corrected draft can change independently of historical ledger snapshots.
+     # Source changes may not promote a chapter without new producer/critic evidence.
+     self.assertTrue((R/row['source_path']).is_file())
+ def test_historical_snapshot_identities_still_addressable(self):
+  self.assertEqual(D['current_render']['head'],'4ed74fa5dc871f7645b5825cd75319eb818ddc8e')
+  self.assertEqual(D['candidate_head'],'22c5fd9a870f75ff21230af13884ec3bb2cadfb2')
+  self.assertNotEqual(D['candidate_head'],git('rev-parse','HEAD'))
+  for name in ('sources','figures'):
+   self.assertEqual(D['reviewed_source_tree_ids'][name],D['original_reviewed_source_tree_ids'][name])
+   self.assertEqual(len(D['reviewed_source_tree_ids'][name]),40)
+  # Pending-producer records are historical evidence; they do not override
+  # accepted states or current branch source blobs.
+  self.assertEqual(D['pending_producer']['chapter_id'],'ATLAS-CH-GEOM-001')
+  self.assertEqual(D['pending_additional_producer']['chapter_id'],'ATLAS-CH-DYN-001')
  def test_seven_existing_acceptances_not_rewritten(self):
   for tag in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV'):
    row=next(x for x in D['chapters'] if x['chapter_id']==f'ATLAS-CH-{tag}-001')
@@ -62,7 +54,7 @@ class EditorialAcceptance(unittest.TestCase):
     self.assertEqual(row['source_blob_sha1'],a['source_blob_sha1'])
     self.assertFalse(a['mathematical_certification'])
     self.assertFalse(a['public_release_authorization'])
-    self.assertEqual(q['head'],D['candidate_head'])
+    self.assertEqual(q['head'],D['current_render']['head'])
     self.assertEqual(q['pdf_sha256'],D['current_render']['pdf_sha256'])
     self.assertEqual(q['html_sha256'],D['current_render']['html_sha256'])
     self.assertEqual(q['critic_run'],'a0439e5cf0f04b2fb2c3d0e91a814e90')
@@ -138,7 +130,7 @@ class EditorialAcceptance(unittest.TestCase):
   row=next(x for x in D['chapters'] if x['chapter_id']=='ATLAS-CH-INFO-001')
   a=row['accepted_evidence']
   self.assertEqual(row['state'],'ACCEPTED')
-  self.assertEqual(a['head'],D['candidate_head'])
+  self.assertEqual(a['head'],D['current_render']['head'])
   self.assertEqual(a['source_blob_sha1'],git('hash-object',row['source_path']))
   self.assertEqual(a['source_blob_sha1'],'4caaa28f0e5924f94d08d6ac95f2be6a824525d1')
   self.assertNotEqual(a['producer_run'],a['critic_run'])

@@ -214,7 +214,7 @@ Introduce the supercritical normal form in polar coordinates:
 \dot\theta=\omega.
 \]
 
-Use it only to show how a stable fixed point can give way to a stable periodic orbit as a parameter crosses a critical value.
+Require $\omega\ne 0$ when interpreting the nonzero-radius circle as a nonconstant periodic orbit, with period $2\pi/|\omega|$. When $\omega=0$, the circle consists of equilibria, not a Hopf periodic orbit. The polar angle is undefined at the origin; discuss the origin in the corresponding Cartesian system. Use this normal form only to illustrate how a stable fixed point can give way to a stable periodic orbit as a parameter crosses a critical value.
 
 Do not attempt a full Hopf theorem proof.
 

@@ -114,7 +114,7 @@ print('FIGURE_REPAIR_PASS 4 candidate Wolfram-native derivatives, 18 plates, ori
 # derivatives remain intact. The corrected publication candidate uses
 # later separately source-locked Wolfram 15.0.1 native derivative versions.
 successors=[
- ('MANIFOLD','v0.1.2','manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md'),
+ ('MANIFOLD','v0.1.3','manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md'),
  ('TRANSFER','v0.1.2','manuscript/parts/03-representation-learning/ATLAS-CH-TRANSFER-001.md'),
  ('OPTBASE','v0.1.3','manuscript/parts/05-optimization/ATLAS-CH-OPTBASE-001.md')]
 for stem,version,chapter_path in successors:
