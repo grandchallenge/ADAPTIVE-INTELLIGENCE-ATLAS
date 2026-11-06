@@ -34,13 +34,13 @@ class HopfFrequencyScopeTests(unittest.TestCase):
         for source in (CHAPTER, SPEC):
             with self.subTest(source=source):
                 text = source.read_text(encoding="utf-8")
-                self.assertIn(r"$\omega\\ne 0$", text)
+                self.assertIn(r"$\omega\ne 0$", text)
                 self.assertIn("period", text)
                 self.assertIn("origin", text)
 
     def test_derivation_already_has_frequency_hypothesis(self):
         text = DERIVATION.read_text(encoding="utf-8")
-        self.assertIn(r"\omega\\neq0", text)
+        self.assertIn(r"\omega\neq0", text)
 
 
 if __name__ == "__main__":
