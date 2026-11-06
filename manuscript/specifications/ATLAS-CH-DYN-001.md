@@ -92,8 +92,10 @@ For perturbation \(\delta=x-x_\star\),
 =
 J_f(x_\star)\delta
 +
-O(\|\delta\|^2).
+o(\|\delta\|).
 \]
+
+The little-$o$ remainder follows from differentiability of $f$ at $x_\star$. The stronger quadratic $O(\|\delta\|^2)$ bound requires additional regularity, for example a locally Lipschitz Jacobian. The differentiable scalar field $f(x)=|x|^{3/2}$ at $x_\star=0$ has $J_f(0)=0$ and remainder $|x|^{3/2}$, which is not $O(|x|^2)$.
 
 State the standard hyperbolic local result carefully:
 
