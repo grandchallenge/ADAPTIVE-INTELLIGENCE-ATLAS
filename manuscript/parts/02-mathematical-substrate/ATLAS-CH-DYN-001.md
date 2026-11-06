@@ -713,7 +713,7 @@ r_\star
 \sqrt{\mu}.
 \]
 
-The angular equation turns that radius into a periodic orbit.
+When the angular frequency $\omega\ne 0$, the nonzero-radius circle is a nonconstant periodic orbit with period $2\pi/|\omega|$. If $\omega=0$, every point on that circle is stationary instead, so this is not a Hopf periodic orbit. The polar angle is undefined at the origin; the origin's stability is understood in the corresponding Cartesian system.
 
 This is the qualitative picture.
 
