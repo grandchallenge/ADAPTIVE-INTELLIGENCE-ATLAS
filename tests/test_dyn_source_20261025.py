@@ -31,6 +31,12 @@ class DynWitness(unittest.TestCase):
   from fractions import Fraction as Q
   ratios=[(Q(1,n*n)**Q(3,2))/(Q(1,n*n)**2) for n in (2,4,8)]
   self.assertEqual([float(q) for q in ratios],[2.0,4.0,8.0])
+ def test_figure_energy_semantics_448(self):
+  manifest=(R/'figures/manifests/ATLAS-FIG-DYN-001.yaml').read_text()
+  self.assertIn('unit-radius, energy-1/2 harmonic-oscillator orbit',manifest)
+  self.assertIn('oscillator_energy: "H=1/2"',manifest)
+  self.assertNotIn('unit-energy harmonic-oscillator orbit',manifest)
+  self.assertEqual(F(1,2)*(1*1+0*0),F(1,2))
  def test_source_and_derivation(self):
   for x in ['0<h', 'e^{-3n}', '(-2)^n']:self.assertIn(x,S)
   for x in ['D11a. Exact scalar Euler stability defect','e^{-3n}']:self.assertIn(x,D)

@@ -20,7 +20,7 @@ literal_semantics: >
   The left panel plots exact scalar solutions of x'=-2x. The middle panel plots the
   exact real saddle-node equilibrium branches x*=±sqrt(mu), with the positive branch
   stable and the negative branch unstable for mu>0. The right panel plots the exact
-  unit-energy harmonic-oscillator orbit from initial state (1,0).
+  unit-radius, energy-1/2 harmonic-oscillator orbit from initial state (1,0).
 nonliteral_semantics: >
   Line thickness, grayscale, labels, arrow placement, panel spacing, and displayed
   parameter range are pedagogical choices.
