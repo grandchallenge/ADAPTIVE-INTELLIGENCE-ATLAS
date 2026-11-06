@@ -5758,7 +5758,7 @@ The figure shows:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio,alt={Unit sphere with the tangent plane at x, a tangent vector v, and separate exponential-map and normalized-retraction endpoints.}]{figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.2.png}}
+\pandocbounded{\includegraphics[keepaspectratio,alt={Unit sphere with the tangent plane at x, a tangent vector v, and separate exponential-map and normalized-retraction endpoints.}]{figures/derivatives/ATLAS-FIG-MANIFOLD-001-v0.1.3.png}}
 \caption{Unit sphere with the tangent plane at x, a tangent vector v,
 and separate exponential-map and normalized-retraction endpoints.}
 \end{figure}
@@ -9527,7 +9527,7 @@ This is the smallest example that has:
   one global union.
 \end{itemize}
 
-\section{Sections are functions}\label{sections-are-functions}
+\subsection{Sections are functions}\label{sections-are-functions}
 
 For every subset \(S\) of X, define:
 
@@ -9541,7 +9541,7 @@ Restriction means forgetting coordinates outside the smaller subset.
 
 Nothing abstract is hidden.
 
-\section{The global-to-local map}\label{the-global-to-local-map}
+\subsection{The global-to-local map}\label{the-global-to-local-map}
 
 Write a global section as:
 
@@ -9569,7 +9569,8 @@ So:
 R(x,y,z)=(x,y,y,z).
 \]
 
-\section{Uniqueness is injectivity}\label{uniqueness-is-injectivity}
+\subsection{Uniqueness is
+injectivity}\label{uniqueness-is-injectivity}
 
 Suppose two global sections have the same restrictions to U and V.
 
@@ -9591,7 +9592,7 @@ In matrix language, R has rank 3.
 
 The local restrictions determine at most one global function.
 
-\section{The overlap-discrepancy
+\subsection{The overlap-discrepancy
 map}\label{the-overlap-discrepancy-map}
 
 A general pair of local sections is:
@@ -9614,7 +9615,7 @@ The pair is compatible exactly when:
 
 The discrepancy lives precisely on the overlap coordinate b.
 
-\section{Image equals kernel}\label{image-equals-kernel}
+\subsection{Image equals kernel}\label{image-equals-kernel}
 
 The image of R consists of vectors:
 
@@ -9638,7 +9639,7 @@ Therefore:
 
 This is the exact gluing statement in the finite witness.
 
-\section{A compatible family}\label{a-compatible-family}
+\subsection{A compatible family}\label{a-compatible-family}
 
 Choose:
 
@@ -9666,7 +9667,7 @@ The unique global glue is:
 s=(1,2,4).
 \]
 
-\section{An incompatible family}\label{an-incompatible-family}
+\subsection{An incompatible family}\label{an-incompatible-family}
 
 Now choose:
 
@@ -9692,7 +9693,8 @@ Therefore the pair is not in the image of R.
 
 No global function can restrict to both local sections.
 
-\section{The failure is localized}\label{the-failure-is-localized}
+\subsection{The failure is
+localized}\label{the-failure-is-localized}
 
 The value at a is not a problem.
 
@@ -12402,7 +12404,7 @@ The hidden units were relabeled.
 
 The function did not change.
 
-\section{Exact two-unit example}\label{exact-two-unit-example}
+\subsection{Exact two-unit example}\label{exact-two-unit-example}
 
 Take scalar input and
 
@@ -12464,7 +12466,7 @@ The function remains
 f(x)=11\max(0,x).
 \]
 
-\section{Positive-rescaling
+\subsection{Positive-rescaling
 symmetry}\label{positive-rescaling-symmetry}
 
 ReLU is positively homogeneous:
@@ -12538,7 +12540,7 @@ permuted, and positively rescaled, all mapping to the exact same ReLU
 function f(x)=11 max(0,x).}
 \end{figure}
 
-\section{Exact replay}\label{exact-replay}
+\subsection{Exact replay}\label{exact-replay}
 
 The computational witness evaluates all three parameterizations on
 
@@ -15121,7 +15123,7 @@ C_t=A_t^{-1}.
 
 Both recover the same \(r\).
 
-\section{Exact numeric
+\subsection{Exact numeric
 reconstruction}\label{exact-numeric-reconstruction}
 
 Take
@@ -15166,7 +15168,7 @@ Different coordinates.
 
 Same reconstructive core.
 
-\section{Two target tasks}\label{two-target-tasks}
+\subsection{Two target tasks}\label{two-target-tasks}
 
 Now define two target tasks:
 
@@ -15257,7 +15259,8 @@ can be reconstructed from \(P\).
 
 But the same bottleneck can fail for another task.
 
-\section{Exact bottleneck failure}\label{exact-bottleneck-failure}
+\subsection{Exact bottleneck
+failure}\label{exact-bottleneck-failure}
 
 Take
 
@@ -15353,7 +15356,7 @@ B(x_1)=B(x_2).
 
 This is the exact reconstruction test.
 
-\section{Why the fiber criterion is
+\subsection{Why the fiber criterion is
 necessary}\label{why-the-fiber-criterion-is-necessary}
 
 Suppose
@@ -15385,7 +15388,7 @@ support exact deterministic reconstruction.
 
 This is information loss in the most concrete possible sense.
 
-\section{Why the fiber criterion is
+\subsection{Why the fiber criterion is
 sufficient}\label{why-the-fiber-criterion-is-sufficient}
 
 Now suppose \(B\) is constant on each realized fiber of \(Z\).
@@ -18077,7 +18080,11 @@ R(H)=H.
 \]
 
 The exact identity path from the Architecture History chapter survives
-here.
+\textbf{at the residual-addition node}. In a pre-LN block, a zero
+residual branch leaves the block state unchanged at this sublayer. In a
+post-LN block, however, a zero branch produces \(\operatorname{LN}(H)\)
+after the addition, which need not equal \(H\). Thus the additive skip
+path is not a claim that the entire normalized block is the identity.
 
 The sublayer adds a correction to the evolving residual-stream state.
 
@@ -22856,7 +22863,12 @@ k(q,k)
 \right),
 \]
 
-this recovers ordinary softmax attention.
+this recovers ordinary unmasked softmax attention for finite scores.
+More generally, the normalized kernel expression requires a
+\textbf{nonzero denominator}, and its convex-mixing interpretation
+requires nonnegative similarities on the allowed support. Causal masking
+must be represented by restricting that support (or explicitly zeroing
+forbidden kernel terms), not by silently applying an unmasked sum.
 
 The lens is useful because it isolates the similarity function. But it
 does not erase the rest of the architecture. Queries and keys are
@@ -22898,7 +22910,12 @@ can be reassociated:
 \]
 
 This is the algebraic move exploited by linear-attention constructions
-such as Katharopoulos et al. (Katharopoulos et al. 2020).
+such as Katharopoulos et al. (Katharopoulos et al. 2020). To obtain
+\textbf{normalized} attention, the denominator
+\(\phi(q_i)^\top\sum_j\phi(k_j)\) must also be computed and must be
+nonzero. The displayed numerator reassociation alone is not a complete
+normalized attention formula; exact causal implementations additionally
+require prefix-restricted accumulators.
 
 From the Atlas viewpoint, the interesting fact is not merely lower
 asymptotic cost. The representation of the operator action has changed.
