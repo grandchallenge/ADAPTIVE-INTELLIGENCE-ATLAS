@@ -43,6 +43,13 @@ class DynWitness(unittest.TestCase):
   self.assertIn(r'f:\mathcal X\to T\mathcal X',S)
   self.assertIn(r'\pi\circ f=\operatorname{id}_{\mathcal X}',S)
   self.assertIn(r'f(x)\in T_x\mathcal X',S)
+ def test_three_panel_figure_reader_key(self):
+  self.assertIn('**Reading the three panels.**',S)
+  for token in (
+      r'x_0e^{-2t}',r'+\sqrt{\mu}',r'-\sqrt{\mu}',
+      r'H(q,p)=(q^2+p^2)/2',r'H=1/2',
+      'clockwise unit circle','normal print size'):
+   self.assertIn(token,S)
  def test_source_and_derivation(self):
   for x in ['0<h', 'e^{-3n}', '(-2)^n']:self.assertIn(x,S)
   for x in ['D11a. Exact scalar Euler stability defect','e^{-3n}']:self.assertIn(x,D)
