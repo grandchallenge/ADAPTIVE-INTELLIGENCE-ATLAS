@@ -70,13 +70,21 @@ with initial condition
 x(0)=x_0.
 \]
 
-The function
+For a state domain $\mathcal X\subseteq\mathbb R^d$, an ordinary Euclidean vector field is a map
 
 \[
-f:\mathcal X\to T\mathcal X
+f:\mathcal X\to\mathbb R^d.
 \]
 
-is the vector field, written here in Euclidean notation.
+When $\mathcal X$ is a smooth manifold, a vector field is instead a section of its tangent bundle:
+
+\[
+f:\mathcal X\to T\mathcal X,
+\qquad
+\pi\circ f=\operatorname{id}_{\mathcal X},
+\]
+
+where $\pi:T\mathcal X\to\mathcal X$ is the bundle projection. Thus $f(x)\in T_x\mathcal X$ is a tangent vector **at the same state** $x$, not an arbitrary vector in the total tangent bundle. The elementary examples in this chapter use Euclidean coordinates.
 
 At a state \(x\), the vector
 
