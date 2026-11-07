@@ -37,6 +37,12 @@ class DynWitness(unittest.TestCase):
   self.assertIn('oscillator_energy: "H=1/2"',manifest)
   self.assertNotIn('unit-energy harmonic-oscillator orbit',manifest)
   self.assertEqual(F(1,2)*(1*1+0*0),F(1,2))
+ def test_vector_field_type_scope_448(self):
+  # A section of TX must send x to a tangent vector based at x.
+  self.assertIn(r'f:\mathcal X\to\mathbb R^d',S)
+  self.assertIn(r'f:\mathcal X\to T\mathcal X',S)
+  self.assertIn(r'\pi\circ f=\operatorname{id}_{\mathcal X}',S)
+  self.assertIn(r'f(x)\in T_x\mathcal X',S)
  def test_source_and_derivation(self):
   for x in ['0<h', 'e^{-3n}', '(-2)^n']:self.assertIn(x,S)
   for x in ['D11a. Exact scalar Euler stability defect','e^{-3n}']:self.assertIn(x,D)
