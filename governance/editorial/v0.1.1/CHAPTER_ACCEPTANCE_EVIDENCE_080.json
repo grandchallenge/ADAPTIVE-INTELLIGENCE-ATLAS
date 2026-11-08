@@ -1,5 +1,5 @@
 {
-  "accepted_count": 9,
+  "accepted_count": 10,
   "candidate_head": "22c5fd9a870f75ff21230af13884ec3bb2cadfb2",
   "candidate_pr": 320,
   "chapters": [
@@ -914,7 +914,36 @@
       "critic_issue": 444
     },
     {
-      "accepted_evidence": null,
+      "accepted_evidence": {
+        "head": "be2dbfc1283e9d4de3b0afe73c5054b50dcf8440",
+        "source_blob_sha1": "2e658d208ba1b9790bf2634b471a3de8a00988c3",
+        "specification_blob_sha1": "b6f7cc07144edb1390d3d326c0cffa5a62f27d9b",
+        "derivation_blob_sha1": "ddb844173d2e320276dc697f607104707d6b3946",
+        "witness_blob_sha1": "44dbd1110458741410fba7c01f7bcd3e7bf70bc3",
+        "source_lock_blob_sha1": "217d1e4e74c00c1d83a3e769d6437786197d4383",
+        "figure_derivative_manifest_blob_sha1": "361fa01039bbf7723eba8279f60689baf3795719",
+        "figure_derivative_sha256": "05ae0c574e5f66e6223e4e2762537efc574f6aecb19bb9055212e0efbe5073fe",
+        "pdf_pages": [
+          175,
+          200
+        ],
+        "actual_reviewed_pdf_pages": [
+          183
+        ],
+        "pdf_sha256": "d6d9604f9b57982a66e28fc64af41c01bdca328a96c4a385c382e09c6eb217d9",
+        "html_sha256": "53f7c950881ee122c3cef2429df709abaf7a95c42ca98e50192a224b5c828de4",
+        "producer_run": "dyn-figure-producer-5aedc2b-20261108",
+        "producer_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/455#issuecomment-6722715956",
+        "critic_run": "dyn-critic-be2dbfc-20261108",
+        "critic_url": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/448#issuecomment-6722730613",
+        "critic_disposition": "ACCEPT_EDITORIAL_SCOPE",
+        "source_locks_checked": 3,
+        "figure_physical_page": 183,
+        "figure_effective_dpi": 250,
+        "mathematical_certification": false,
+        "public_release_authorization": false,
+        "nonblocking_followup": "Full-edition PDF/UA, overfull boxes and later narrative consolidation remain release-level obligations."
+      },
       "assignment_id": "ATLAS-EDITORIAL-P02-B",
       "chapter_id": "ATLAS-CH-DYN-001",
       "issue_bound_return_evidence": [
@@ -928,10 +957,13 @@
       ],
       "part_id": "ATLAS-PART-MATH",
       "review_issue": 327,
-      "source_blob_sha1": "8515030f486cfc5ee328f33167d89dc6bd10db9d",
+      "source_blob_sha1": "2e658d208ba1b9790bf2634b471a3de8a00988c3",
       "source_path": "manuscript/parts/02-mathematical-substrate/ATLAS-CH-DYN-001.md",
-      "state": "UNVERIFIED",
-      "unresolved": "Exact-head substantive critic, findings disposition and rendered PDF/HTML readback"
+      "state": "ACCEPTED",
+      "unresolved": null,
+      "producer_issue": 455,
+      "critic_issue": 448,
+      "producer_run_id": "dyn-figure-producer-5aedc2b-20261108"
     },
     {
       "accepted_evidence": null,

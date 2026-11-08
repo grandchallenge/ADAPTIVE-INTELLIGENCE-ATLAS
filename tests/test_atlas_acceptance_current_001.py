@@ -12,10 +12,10 @@ class EditorialAcceptance(unittest.TestCase):
   self.assertEqual(len({x['chapter_id'] for x in D['chapters']}),80)
   accepted=[x for x in D['chapters'] if x['state']=='ACCEPTED']
   self.assertEqual(len(accepted),D['accepted_count'])
-  self.assertEqual(D['accepted_count'],9)
+  self.assertEqual(D['accepted_count'],10)
   self.assertEqual({x['chapter_id'] for x in accepted},
-   {f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV','INFO','GEOM')})
-  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),71)
+   {f'ATLAS-CH-{x}-001' for x in ('THESIS','MAP','OBJECTS','EVIDENCE','LINALG','NONNORMAL','KRYLOV','INFO','GEOM','DYN')})
+  self.assertEqual(sum(x['state']=='UNVERIFIED' for x in D['chapters']),70)
   for row in D['chapters']:
    with self.subTest(chapter=row['chapter_id']):
     if row['state']=='ACCEPTED':
