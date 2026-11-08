@@ -8161,6 +8161,22 @@ log-log Lie-Trotter and Strang local-defect scaling for the exact split
 witness.}
 \end{figure}
 
+\textbf{How to read the three panels at print size.} In the
+explicit-Euler panel, write \(z=u+iv\); the non-growth region is the
+closed disk \((u+1)^2+v^2\le1\), centered at \((-1,0)\), and strictly
+decaying modes lie in its open interior. In the implicit-Euler panel,
+non-growth is the \emph{exterior}, including the boundary, of
+\((u-1)^2+v^2=1\); the entire closed left half-plane lies within that
+exterior, while strict numerical decay holds in the corresponding open
+exterior. The singular point \(z=1\) is not a valid implicit step, and
+is outside the stable region. The third panel plots the Frobenius norm
+of the \textbf{one-step local defect}, not global trajectory error,
+against positive step size \(h\) on logarithmic axes. For the stated
+noncommuting matrices, the leading Lie--Trotter defect is proportional
+to \(h^2\) and the leading Strang defect to \(h^3\); the indicated
+slopes describe the small-\(h\) regime, not an exact power law at every
+plotted step size.
+
 \section{Implicit Euler stability
 function}\label{implicit-euler-stability-function}
 
