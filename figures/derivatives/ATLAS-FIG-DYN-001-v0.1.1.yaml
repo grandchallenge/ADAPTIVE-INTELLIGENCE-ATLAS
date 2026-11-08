@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+figure_id: "ATLAS-FIG-DYN-001"
+chapter_id: "ATLAS-CH-DYN-001"
+status: "source-native-print-successor-candidate"
+representation_class: "exact-analytic-curves-sampled-for-plot"
+original_master_git_blob_sha1: "4b1215889f85c29f36fa7e5f419f755068ba19e5"
+original_wolfram_git_blob_sha1: "7ebe6417e356defc326e60c4bb0c95f4458a406e"
+source_path: "figures/wolfram/ATLAS-FIG-DYN-001-v0.1.1.wl"
+source_git_blob_sha1: "880aeff7053efd4ed4cd250d907bcb4d736a9aa6"
+generator: "Wolfram Language vector-PDF exports; Ghostscript 240 DPI; Pillow compositor"
+wolfram_kernel_version: "not-attested-by-return"
+vector_panels:
+  - path: "figures/derivatives/ATLAS-FIG-DYN-001-v0.1.1-panel-1.pdf"
+    sha256: "7396e7954b329cc1317cb6c3f3ca7e18196f88b23d2849c6ce81110a8343283d"
+  - path: "figures/derivatives/ATLAS-FIG-DYN-001-v0.1.1-panel-2.pdf"
+    sha256: "8149c776fa043daae94f795cbf8adad22e5e1e45bdc17c0ad3ab3e0b3c9d46d4"
+  - path: "figures/derivatives/ATLAS-FIG-DYN-001-v0.1.1-panel-3.pdf"
+    sha256: "af169b5c4b85216b1730847424a57319eb1f560c39b9b988e2103305f966476e"
+rendered_path: "figures/derivatives/ATLAS-FIG-DYN-001-v0.1.1.png"
+rendered_pixels: [1200, 1866]
+rendered_sha256: "05ae0c574e5f66e6223e4e2762537efc574f6aecb19bb9055212e0efbe5073fe"
+literal_semantics: >
+  Scalar trajectories x0 exp(-2t) for x0 in {-3,-1,1,3};
+  saddle-node equilibria +/-sqrt(mu), positive stable and negative unstable
+  for mu>0; oscillator orbit (cos(t),-sin(t)) with H=(q^2+p^2)/2=1/2.
+nonliteral_semantics: >
+  Finite curve sampling, line styles, arrow position, axis fonts and
+  vertical spacing are presentation choices.
+claim_boundary: >
+  Exact illustrative systems, not observed machine-learning dynamics.
+  Versioned successor leaves original Wolfram source/master and release unchanged.
+evidence_issue: 455
