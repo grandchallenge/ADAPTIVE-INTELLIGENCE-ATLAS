@@ -1,0 +1,26 @@
+schema_version: "1.0.0"
+source_figure_id: ATLAS-FIG-NUMERICS-001
+chapter_id: ATLAS-CH-NUMERICS-001
+status: versioned-source-native-print-candidate
+original_wolfram_sha1: c7095b46e2ab622eba1e06cc2a19fa6d83e7fa84
+original_master_sha1: 7f23da82f51ac006cccf1be2e055b06ac8a2b715
+source_path: figures/wolfram/ATLAS-FIG-NUMERICS-001-v0.1.1.wl
+source_git_blob_sha1: b6809f0da677afa9b331f8fe762f6c0cbc290c95
+vector_panels:
+  - path: figures/derivatives/ATLAS-FIG-NUMERICS-001-v0.1.1-panel-1.pdf
+    sha256: b8f2653bcb3a21ee05cadb9e37a002909e7b45187802439b96b47eb014d49087
+  - path: figures/derivatives/ATLAS-FIG-NUMERICS-001-v0.1.1-panel-2.pdf
+    sha256: 6659378caebc9b67d4634f635a06903cb33dda94fb6f64d3fc1bd025a1582265
+  - path: figures/derivatives/ATLAS-FIG-NUMERICS-001-v0.1.1-panel-3.pdf
+    sha256: 9a508d0a200b3bbf2b6b1d74673ce422ab3bbdafc22986d49998e0b681a67eab
+rendered_path: figures/derivatives/ATLAS-FIG-NUMERICS-001-v0.1.1.png
+rendered_pixels: [1200, 1282]
+rendered_sha256: 919810c090af773e469a11f6bb9da03a31c70d140a9dd50efa561e13dcee8e9e
+layout: two large stability discs above one full-width local-defect plot
+panel_semantics:
+  - explicit Euler strict decay disk |1+z|<1; boundary is non-growth
+  - implicit Euler strict decay exterior |1-z|>1; pole at z=1 excluded
+  - logarithms of Frobenius one-step local defects for A and B matrices in source
+claim_boundary: finite-dimensional linear scalar/matrix examples only; no universal nonlinear solver or neural-network certification
+original_release_unchanged: true
+issue: 459
