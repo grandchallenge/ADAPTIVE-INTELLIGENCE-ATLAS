@@ -1,4 +1,4 @@
-"""Physical PDF placement audit for the non-Wolfram NUMERICS fallback.
+"""Physical PDF placement audit for the Wolfram-native NUMERICS candidate.
 
 Usage: python3 tests/audit_atlas_numerics_459_print.py PDF
 Requires pypdf and Pillow. Verifies geometry, raster identity, and resolution;
@@ -11,7 +11,7 @@ from pathlib import Path
 from PIL import Image
 from pypdf import PdfReader
 
-EXPECTED_SHA256 = "05b652b7d865f4780325c1c0c6fc2e67b1389bec28c4ac91e6105605e4193062"
+EXPECTED_SHA256 = "9c0924b55d1493c719c79bfdc6c580201abf2c3e0150b1cb97d3aeee028e707c"
 PAGE = 208
 
 
@@ -38,7 +38,7 @@ def main(pdf):
     assert 4.5 < width_in < 5.2, width_in
     assert height_in < 7, height_in
     assert min(dpi_x, dpi_y) >= 300, (dpi_x, dpi_y)
-    source = Path("figures/derivatives/ATLAS-FIG-NUMERICS-001-fallback-v0.1.2.png")
+    source = Path("figures/derivatives/ATLAS-FIG-NUMERICS-001-wolfram-v0.1.2.png")
     assert hashlib.sha256(source.read_bytes()).hexdigest() == EXPECTED_SHA256
     with Image.open(source) as im:
         with Image.open(__import__("io").BytesIO(image.data)) as embedded:
