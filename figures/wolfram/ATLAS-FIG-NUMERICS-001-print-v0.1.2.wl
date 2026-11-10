@@ -43,4 +43,4 @@ err=ListLogLogPlot[{lieData,strangData},Joined->True,
  Epilog->{Text[Style["~ h^2",19,Bold],Scaled[{.34,.48}]],
  Text[Style["~ h^3",19,Bold],Scaled[{.52,.25}]]}];
 (* A vertically composed master; export only after Wolfram-native replay. *)
-GraphicsColumn[{ee,ie,err},Spacings->20,ImageSize->1160]
+GraphicsColumn[{ee,ie,err},Spacings->12,ImageSize->{1740,2280}]
