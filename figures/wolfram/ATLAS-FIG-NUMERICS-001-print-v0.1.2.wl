@@ -3,7 +3,7 @@
    Candidate only: no rendered binary or physical print certification implied.
    Each panel spans the same 1160px output width, stacked vertically.
 *)
-ClearAll[x,y,h,A,B,ee,ie,err,lie,strang,exact,hs,lieData,strangData];
+ClearAll[x,y,h,A,B,ee,ie,err,lie,strang,exact,hs,lieData,strangData,lieSeries];
 A={{0,1},{0,0}}; B={{0,0},{1,0}};
 lie[t_?NumericQ]:=MatrixExp[t A].MatrixExp[t B];
 strang[t_?NumericQ]:=MatrixExp[(t/2) A].MatrixExp[t B].MatrixExp[(t/2) A];
@@ -14,9 +14,10 @@ strangData=Table[{t,Norm[strang[t]-exact[t],"Frobenius"]},{t,hs}];
 (* Symbolic leading-order witnesses, independent of the plot raster. *)
 If[!TrueQ[Simplify[A.B-B.A=={{1,0},{0,-1}}]],
  Print["FAIL: commutator"]; Abort[]];
-If[!TrueQ[Simplify[Series[
- MatrixExp[h A].MatrixExp[h B]-MatrixExp[h(A+B)],{h,0,2}]
- == (h^2/2) (A.B-B.A)+O[h]^3]],
+lieSeries=Normal[Series[
+ MatrixExp[h A].MatrixExp[h B]-MatrixExp[h (A+B)],{h,0,2}]];
+If[!TrueQ[And@@Flatten[Map[TrueQ[Simplify[#==0]]&,
+ lieSeries-(h^2/2)(A.B-B.A),{2}]]]],
  Print["FAIL: Lie series"]; Abort[]];
 ee=RegionPlot[(x+1)^2+y^2<1,{x,-4,2},{y,-3,3},
  Frame->True,FrameLabel->{"Re(z)","Im(z)"},PlotPoints->70,
