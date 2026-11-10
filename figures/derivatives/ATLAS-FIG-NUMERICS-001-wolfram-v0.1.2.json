@@ -1,0 +1,13 @@
+{
+  "record_type": "ATLAS_NUMERICS_WOLFRAM_NATIVE_RENDER/1",
+  "status": "NATIVE_KERNEL_RENDERED_PENDING_INDEPENDENT_PRINT_CRITIC",
+  "source": "figures/wolfram/ATLAS-FIG-NUMERICS-001-print-v0.1.2.wl",
+  "source_blob_sha1": "dafbcc6f10c181122b75b770f1ac05d5124b2c44",
+  "output": "ATLAS-FIG-NUMERICS-001-wolfram-v0.1.2.png",
+  "sha256": "9c0924b55d1493c719c79bfdc6c580201abf2c3e0150b1cb97d3aeee028e707c",
+  "width": 1740,
+  "height": 2280,
+  "renderer": "WolframLanguageEvaluator",
+  "warnings": "Evaluator emitted Symbol::undefined2 global-symbol diagnostic; no native runtime abort; critical review required",
+  "fallback_preserved": "ATLAS-FIG-NUMERICS-001-fallback-v0.1.2.png"
+}
