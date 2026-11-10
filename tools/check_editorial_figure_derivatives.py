@@ -133,8 +133,31 @@ for stem,version,chapter_path in successors:
  assert hashlib.sha256(b).hexdigest()==m['rendered_derivative_raw_sha256']
  wh=list(struct.unpack('>II',b[16:24]))
  assert wh==m['rendered_derivative_dimensions_px']
- assert rc2.count('figures/derivatives/'+fid+'-'+version+'.png')==1
- assert (root/chapter_path).read_text().count('../../../figures/derivatives/'+fid+'-'+version+'.png')==1
+ # The prior v0.1.2 figure remains immutable but GEOM typesets v0.1.3.
+ placements = 0 if stem == 'MANIFOLD' else 1
+ assert rc2.count('figures/derivatives/'+fid+'-'+version+'.png')==placements
+ assert (root/chapter_path).read_text().count('../../../figures/derivatives/'+fid+'-'+version+'.png')==placements
  print('NATIVE_PRINT_SUCCESSOR_PASS',fid,version,wh,m['rendered_derivative_raw_sha256'])
 assert rc2.count(r'\includegraphics')==18
 print('FIGURE_REPAIR_PASS: old masters locked; 18 placements; three source-native print successors; no predecessor alias overwrite')
+
+# MANIFOLD v0.1.3 is the active source-native GEOM print successor.
+fid='ATLAS-FIG-MANIFOLD-001'
+m=yaml.safe_load((root/'figures/manifests'/f'{fid}-v0.1.3.yaml').read_text())
+previous=yaml.safe_load((root/'figures/manifests'/f'{fid}-v0.1.2.yaml').read_text())
+assert m['figure_id']==fid and m['edition_derivative']=='v0.1.3'
+assert m['original_source_git_blob_sha1']==previous['original_source_git_blob_sha1']
+assert m['predecessor_derivative_git_blob_sha1']==previous['rendered_derivative_git_blob_sha1']
+for path,digest in ((m['original_source'],m['original_source_git_blob_sha1']),
+                    (m['successor_source'],m['successor_source_git_blob_sha1']),
+                    (m['rendered_derivative'],m['rendered_derivative_git_blob_sha1'])):
+ assert subprocess.check_output(['git','hash-object',str(root/path)],text=True).strip()==digest
+data=(root/m['rendered_derivative']).read_bytes()
+assert data[:8]==bytes.fromhex('89504e470d0a1a0a')
+assert len(data)==m['rendered_derivative_bytes']
+assert hashlib.sha256(data).hexdigest()==m['rendered_derivative_raw_sha256']
+assert list(struct.unpack('>II',data[16:24]))==m['rendered_derivative_dimensions_px']
+assert rc2.count(m['rendered_derivative'])==1
+assert (root/'manuscript/parts/02-mathematical-substrate/ATLAS-CH-GEOM-001.md').read_text().count('../../../'+m['rendered_derivative'])==1
+assert rc2.count(r'\includegraphics')==18
+print('MANIFOLD_ACTIVE_SUCCESSOR_PASS: v0.1.3; prior derivative preserved')
