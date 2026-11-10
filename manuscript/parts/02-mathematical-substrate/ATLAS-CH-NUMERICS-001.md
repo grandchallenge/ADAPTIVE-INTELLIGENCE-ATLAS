@@ -391,7 +391,9 @@ The differential equation did not become unstable.
 
 The discretization did.
 
-![Explicit and implicit Euler absolute-stability regions beside log-log Lie-Trotter and Strang local-defect scaling for the exact split witness.](../../figures/derivatives/ATLAS-FIG-NUMERICS-001-v0.1.1.png)
+![Explicit and implicit Euler absolute-stability regions beside log-log Lie-Trotter and Strang local-defect scaling for the exact split witness.](../../figures/derivatives/ATLAS-FIG-NUMERICS-001-wolfram-v0.1.2.png)
+
+**Figure provenance:** This vertically composed candidate was rendered from the Wolfram Language master (`figures/wolfram/ATLAS-FIG-NUMERICS-001-print-v0.1.2.wl`) using a Wolfram kernel. Its SHA-256 and output dimensions are recorded in `figures/derivatives/ATLAS-FIG-NUMERICS-001-wolfram-v0.1.2.json`. Independent critical review and final print certification remain open.
 
 **How to read the three panels at print size.** In the explicit-Euler panel, write $z=u+iv$; the non-growth region is the closed disk $(u+1)^2+v^2\le1$, centered at $(-1,0)$, and strictly decaying modes lie in its open interior. In the implicit-Euler panel, non-growth is the *exterior*, including the boundary, of $(u-1)^2+v^2=1$; the entire closed left half-plane lies within that exterior, while strict numerical decay holds in the corresponding open exterior. The singular point $z=1$ is not a valid implicit step, and is outside the stable region. The third (lower, full-width) panel plots the Frobenius norm of the **one-step local defect**, not global trajectory error, against positive step size $h$ on logarithmic axes. For the stated noncommuting matrices, the leading Lie–Trotter defect is proportional to $h^2$ and the leading Strang defect to $h^3$; the indicated slopes describe the small-$h$ regime, not an exact power law at every plotted step size.
 

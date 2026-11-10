@@ -1,0 +1,13 @@
+{
+  "record_type": "ATLAS_NUMERICS_FALLBACK_RENDER/1",
+  "status": "NON_WOLFRAM_FALLBACK_NOT_NATIVE_CERTIFICATION",
+  "source": "figures/scripts/render_atlas_numerics_459.py",
+  "output": "ATLAS-FIG-NUMERICS-001-fallback-v0.1.2.png",
+  "sha256": "05b652b7d865f4780325c1c0c6fc2e67b1389bec28c4ac91e6105605e4193062",
+  "width": 1740,
+  "height": 2280,
+  "hs_count": 14,
+  "lie_small_h_slope": 2.000001097338824,
+  "strang_small_h_slope": 3.0000013825604834,
+  "chad_execution_capture_id": "3a2c8bf15c0a4cda88e5db060c51d84f"
+}
