@@ -17,7 +17,7 @@ If[!TrueQ[Simplify[A.B-B.A=={{1,0},{0,-1}}]],
 lieSeries=Normal[Series[
  MatrixExp[h A].MatrixExp[h B]-MatrixExp[h (A+B)],{h,0,2}]];
 If[!TrueQ[And@@Flatten[Map[TrueQ[Simplify[#==0]]&,
- lieSeries-(h^2/2)*(A.B-B.A),{2}]]]],
+ lieSeries-(h^2/2)*(A.B-B.A),{2}]]],
  Print["FAIL: Lie series"]; Abort[]];
 ee=RegionPlot[(x+1)^2+y^2<1,{x,-4,2},{y,-3,3},
  Frame->True,FrameLabel->{"Re(z)","Im(z)"},PlotPoints->70,
