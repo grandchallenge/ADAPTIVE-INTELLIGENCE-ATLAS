@@ -44,3 +44,5 @@ jobs:
       - name: Read only verified public descriptions from three train families
         run: |
           python experiments/owi_ec005_realtools_postprobe_discover.py --limit 16
+      - name: Diagnose only bounded targeted initial-state schema for controlled variants
+        run: python experiments/owi_ec005_realtools_postprobe_status_audit.py
