@@ -75,7 +75,10 @@ def one_episode(public, environment_path, verifier_path, worker, checker,
     rows, env_elapsed = call_child(image, worker, environment_path,
                                    input_text=transcript)
     if len(rows) != calls + 2 or rows[0].get("kind") != "ready":
-        raise RuntimeError("environment IPC protocol drift")
+        kinds = [(x.get("kind") if x.get("kind") in (
+            "ready", "observation", "private_final_state") else "UNTRUSTED")
+            for x in rows if isinstance(x, dict)]
+        raise RuntimeError(f"environment IPC protocol drift: n={len(rows)}, kinds={kinds}")
     if rows[0].get("verifier_present") is not False:
         raise RuntimeError("verifier contaminated environment child")
     obs = rows[1:-1]
