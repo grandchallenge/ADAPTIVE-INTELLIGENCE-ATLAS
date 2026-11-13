@@ -30,7 +30,8 @@ def public_contract(public):
         if key not in task:
             raise ValueError("changed publicly assigned allergy task")
     tools={t["name"]:t["parameters"] for t in public["tools"]}
-    names={"get_patient_allergy_by_substance":{
+    names={"get_authorized_user_info":{"user_id"},
+           "get_patient_allergy_by_substance":{
             "user_id","patient_id","substance"},
            "get_allergy_details":{
             "user_id","patient_id","substance"},
@@ -77,10 +78,11 @@ def run(input_dir):
     public=json.loads((folder/"public.json").read_text())
     public_contract(public)
     args={"user_id":USER,"patient_id":PATIENT,"substance":SUBSTANCE}
-    commands=[
-        {"action":"call","tool":tool,"arguments":args}
-        for tool in ("get_patient_allergy_by_substance","get_allergy_details")
-    ]+[{"action":"finish"}]
+    selected_tools=("get_patient_allergy_by_substance","get_allergy_details",
+                    "get_authorized_user_info")
+    commands=[{"action":"call","tool":tool,
+               "arguments":args if tool!="get_authorized_user_info" else {"user_id":USER}}
+              for tool in selected_tools]+[{"action":"finish"}]
     messages,wall=call_child(
         IMAGE,WORKER,folder/"environment.json",
         input_text="".join(json.dumps(x)+"\n" for x in commands))
@@ -90,22 +92,34 @@ def run(input_dir):
         messages[-1].get("kind")!="private_final_state"):
         raise RuntimeError("external source public-only worker contract drift")
     replies={}
-    for tool,msg in zip(("get_patient_allergy_by_substance",
-                          "get_allergy_details"),messages[1:-1]):
+    for tool,msg in zip(selected_tools,messages[1:-1]):
         if (msg.get("kind")!="observation" or msg.get("tool")!=tool
             or msg.get("truncated") is True or msg.get("ok") is not True):
             raise RuntimeError("selected public read failed")
-        replies[tool]={
-            "response_public_sha256":fingerprint(msg.get("content","")),
-            **summarize_observed(unpack_reply(msg.get("content","")))
-        }
+        decoded=unpack_reply(msg.get("content",""))
+        if tool=="get_authorized_user_info":
+            info=decoded.get("data") if isinstance(decoded,dict) else None
+            if not isinstance(info,dict):info={}
+            replies[tool]={
+                "response_public_sha256":fingerprint(msg.get("content","")),
+                "public_success":decoded.get("success") if isinstance(decoded,dict) else None,
+                "public_data_keys":sorted(info),
+                "public_role":info.get("role"),
+                "public_access_rights":info.get("access_rights"),
+                "public_permissions":info.get("permissions"),
+                "user_id_match":info.get("user_id")==USER,
+            }
+        else:
+            replies[tool]={
+                "response_public_sha256":fingerprint(msg.get("content","")),
+                **summarize_observed(decoded)} 
     return {
         "contract":CONTRACT,
         "source_original_training_row":ROW,
         "public_action_user":USER,
         "public_action_patient":PATIENT,
         "public_allergy_substance":SUBSTANCE,
-        "actual_selected_public_read_calls":2,
+        "actual_selected_public_read_calls":3,
         "original_native_private_checker_loaded":False,
         "original_private_terminal_state_discarded":True,
         "external_code_run_on_host":False,
