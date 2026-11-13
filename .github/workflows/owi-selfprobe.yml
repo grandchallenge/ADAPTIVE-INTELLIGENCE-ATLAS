@@ -1,0 +1,26 @@
+name: OWI active self-probing witness
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_selfprobe.py'
+      - 'mathematics/research-notes/OWI-ACTIVE-SELF-PROBING-20261112.md'
+      - '.github/workflows/owi-selfprobe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-witness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Execute deterministic and five-seed finite witness
+        run: |
+          python experiments/owi_selfprobe.py --self-test
+          python experiments/owi_selfprobe.py --seeds 1,2,3,4,5 --train 100000 --eval 70000 --output owi-results.json > /dev/null
+          python -c "import json; d=json.load(open('owi-results.json')); assert all(r['guaranteed_gain_vs_fixed_if_positive']>0 for r in d['runs']); print(d['summary'])"
