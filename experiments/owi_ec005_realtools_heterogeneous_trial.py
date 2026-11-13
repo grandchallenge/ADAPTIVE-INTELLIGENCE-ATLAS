@@ -188,6 +188,10 @@ class Policy:
         if obj is True:
             return True
         if isinstance(obj,dict):
+            # Real public API: user_linked AND product_linked are separate
+            # requirements. Never accept one valid link as sufficient.
+            if "user_linked" in obj or "product_linked" in obj:
+                return obj.get("user_linked") is True and obj.get("product_linked") is True
             return any(obj.get(k) is True for k in
                        ("valid","links_valid","is_valid","are_links_valid"))
         return False
