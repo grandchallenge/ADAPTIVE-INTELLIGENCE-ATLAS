@@ -8,15 +8,18 @@
       "experiments/owi_ec005_actor_critic.py",
       "experiments/owi_ec005_conditional.py",
       "experiments/owi_ec005_identify.py",
-    "experiments/owi_ec005_privileged.py",
+      "experiments/owi_ec005_privileged.py",
+      "experiments/owi_ec005_realtools_intake.py",
       "experiments/owi_ec005_summarize.py",
-      "tests/test_owi_ec005.py"
+      "tests/test_owi_ec005.py",
+      "tests/test_owi_ec005_realtools_intake.py"
     ],
     "prefixes": [],
     "test_prefixes": []
   },
   "depends_on": [],
   "checks": [
-    "owi-ec005-conditional-invariants"
+    "owi-ec005-conditional-invariants",
+    "owi-ec005-realtools-source-isolation"
   ]
 }
