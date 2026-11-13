@@ -101,7 +101,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        seed: [11]
+        seed: [11, 23, 37, 41, 53]
     runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
