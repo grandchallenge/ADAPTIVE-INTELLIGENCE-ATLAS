@@ -87,7 +87,7 @@ def run(input_dir):
         ("verify_user_authorization",{
             "user_id":USER,"patient_id":PATIENT,"action":action},
          "authorization_for_"+action)
-        for action in ("modify_allergy","update_patient_allergy","delete_patient_allergy")
+        for action in ("view","modify")
     ]
     commands=[{"action":"call","tool":tool,"arguments":arguments}
               for tool,arguments,_ in selected_tools]+[{"action":"finish"}]
@@ -153,7 +153,7 @@ def run(input_dir):
         "public_action_user":USER,
         "public_action_patient":PATIENT,
         "public_allergy_substance":SUBSTANCE,
-        "actual_selected_public_read_calls":6,
+        "actual_selected_public_read_calls":5,
         "original_native_private_checker_loaded":False,
         "original_private_terminal_state_discarded":True,
         "external_code_run_on_host":False,
