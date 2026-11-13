@@ -29,7 +29,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_allergy_probe.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_allergy_canary.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_allergy_probe.py experiments/owi_ec005_realtools_native_allergy_canary.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_allergy_gate.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_allergy_probe.py experiments/owi_ec005_realtools_native_allergy_canary.py experiments/owi_ec005_realtools_native_allergy_gate.py
 
   pinned-public-allergy-observation:
     needs: source-and-privacy-tests
@@ -85,9 +86,37 @@ jobs:
                             if k!="real_original_selected_action_episodes"},
                             sort_keys=True))
           PY
+      - name: Adjudicate original clinical action authorization against unchanged native terminal checker
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_allergy_gate.py \
+            --public "build/owi_ec005_realtools/native_allergy_public_auth.json" \
+            --trial "build/owi_ec005_realtools/native_allergy_contrast.json" \
+            --output "build/owi_ec005_realtools/native_allergy_gate.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("build/owi_ec005_realtools/native_allergy_gate.json")
+          r=json.loads(p.read_text())
+          assert r["contract"]=="OWI-EC005L-NATIVE-AUTH-REWARD-COHERENCE/1"
+          assert r["original_verifier_byte_unchanged"]
+          assert not r["new_terminal_reward_added"]
+          assert r["actual_independent_original_tool_episodes"]==8
+          assert r["source_mutation_auth_unusable_for_prescribed_correction"]
+          assert r["same_patient_allergy_publicly_read_despite_view_denial"]
+          assert not r["selective_harmful_action_prevention_established"]
+          assert not r["original_native_reward_penalized_actual_harmful_state"]
+          assert not r["outcome_only_learning_or_out_of_family_transfer_established"]
+          print("EC005L_SOURCE_NATIVE_AUTHORIZATION_DISPOSITION",
+                json.dumps(r,sort_keys=True))
+          PY
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ec005l-original-clinical-allergy-checker-contrast
-          path: build/owi_ec005_realtools/native_allergy_contrast.json
+          path: |
+            build/owi_ec005_realtools/native_allergy_public_auth.json
+            build/owi_ec005_realtools/native_allergy_contrast.json
+            build/owi_ec005_realtools/native_allergy_gate.json
           retention-days: 30
