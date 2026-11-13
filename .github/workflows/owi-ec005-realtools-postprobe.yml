@@ -54,7 +54,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        seed: [11]
+        seed: [11, 23, 37, 41, 53]
     runs-on: ubuntu-24.04
     timeout-minutes: 50
     steps:
@@ -78,7 +78,7 @@ jobs:
           docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
           python experiments/owi_ec005_realtools_postprobe_learner.py \
             --input-dir "$RUNNER_TEMP/owi_ec005h_postprobe" \
-            --seed "${{ matrix.seed }}" --episodes 40 --eval-episodes 2 \
+            --seed "${{ matrix.seed }}" --episodes 72 --eval-episodes 2 \
             --output "build/owi_ec005_realtools/postprobe_seed${{ matrix.seed }}.json"
           python - <<'PY'
           import json
@@ -87,18 +87,20 @@ jobs:
           assert len(files)==1
           x=json.loads(files[0].read_text())
           assert x["contract"]=="OWI-EC005H-REAL-POSTPROBE-CHOSEN-OUTCOME/1"
-          assert x["training_episodes"]==40
+          assert x["training_episodes"]==72
           assert x["training_statuses"]==["suspended","active"]
           assert x["withheld_status"]=="closed"
           assert x["private_initial_final_state_never_in_actor"]
           assert not x["unseen_counterfactual_actions_in_training"]
           assert x["heldout_original_dev_or_test_family_evaluated"] is False
-          assert len(x["training_trace"])==40
+          assert len(x["training_trace"])==72
           assert all(row["private_state_or_check_in_actor"] is False
                      and row["unexecuted_action_result_observed"] is False
                      and row["chosen_propensity"]>0
                      for row in x["training_trace"])
           assert set(x["evaluation"])=={"suspended","active","closed"}
+          assert x["strongest_no_probe_fixed_policy_evaluated"]
+          assert all("posttraining_no_probe_fixed_controls" in y for y in x["evaluation"].values())
           print("POSTPROBE_SOURCE_LOCKED_FINAL_EVIDENCE",json.dumps({
             k:v for k,v in x.items() if k not in ("training_trace","variant_manifest")},
             sort_keys=True))
