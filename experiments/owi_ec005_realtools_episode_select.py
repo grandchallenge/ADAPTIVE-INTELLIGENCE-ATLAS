@@ -53,7 +53,7 @@ def split_selected(row):
         raise DatasetBoundaryError("no declared compatible read-only tool")
     environment = {k: env[k] for k in
                    ("class_code", "class_name", "initial_state", "tools")}
-    private = {"initial_state": env["initial_state"], "verifier": verifier}
+    private = {"verifier": verifier}
     names = [t["function"]["name"] for t in env["tools"]
              if isinstance(t, dict) and t.get("type") == "function"]
     tools = []
