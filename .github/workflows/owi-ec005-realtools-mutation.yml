@@ -50,7 +50,6 @@ jobs:
           python experiments/owi_ec005_realtools_goal_probe.py --environment "$RUNNER_TEMP/owi_ec005d/environment.json" --public "$RUNNER_TEMP/owi_ec005d/public.json"
 
   real-goal-mutation-vs-stop:
-    needs: public-real-tool-observations
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
