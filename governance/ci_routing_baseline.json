@@ -15,6 +15,12 @@
       "test_globs": [
         "tests/test_owi_ec005.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-source-isolation",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_*.py"
+      ]
     }
   ],
   "legacy_test_paths": [
