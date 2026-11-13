@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EC005K: genuine source-native terminal penalty for undoing correct repair.
+"""EC005K: source-native terminal sensitivity to task-noncompliant regressions.
 
 One ORIGINAL external task row 2301; no changed initial state, checker,
 reward or privileged policy input. All alternative actions are actually
@@ -14,10 +14,10 @@ All arms first correct BOTH publicly specified schedule fields:
 Then at SECOND-STAGE intervention decision:
   STOP              : preserve correct state
   REAPPLY_CORRECT   : redundant safe update, unchanged final status
-  REGRESS_UNSAFE    : intentionally undo correction at selected lunch OR dinner
+  REGRESS_NONCOMPLIANT : intentionally undo correction at selected lunch OR dinner
 This is an experimental *action contrast*, not a learned policy or
 original-state no-probe trial. It can show if a native verifier actually
-penalizes a harmful regression relative to abstention at this point.
+penalizes a noncompliant regression relative to abstention at this point.
 """
 from __future__ import annotations
 import argparse,json,random,subprocess,time
@@ -32,7 +32,7 @@ ROW=2301
 TARGET="MEAL102"
 LUNCH="2024-07-14T12:00"
 DINNER="2024-07-14T18:00"
-ARMS=("stop","reapply_correct","regress_unsafe")
+ARMS=("stop","reapply_correct","regress_noncompliant")
 CONTRACT="OWI-EC005K-ORIGINAL-NATIVE-POSTCORRECTION-PRESERVATION/1"
 
 def stage2_action(arm,slot="lunch"):
@@ -44,7 +44,7 @@ def stage2_action(arm,slot="lunch"):
         return None
     if arm=="reapply_correct":
         return correct
-    if arm=="regress_unsafe":
+    if arm=="regress_noncompliant":
         return wrong
     raise ValueError("undeclared experimental intervention")
 
@@ -119,8 +119,8 @@ def episode(folder,arm,slot="lunch"):
         # Independent public readback after the last chosen intervention.
         # No internal storage-shape assumptions or privileged state features.
         public_final=read(target_when)
-        expected_final=(stage2_action("regress_unsafe",slot)
-                        if arm=="regress_unsafe" else correct_final)
+        expected_final=(stage2_action("regress_noncompliant",slot)
+                        if arm=="regress_noncompliant" else correct_final)
         if public_final!=expected_final:
             raise RuntimeError("actual public final-state readback inconsistent")
         process.stdin.write('{"action":"finish"}\n')
@@ -192,7 +192,7 @@ def run(root,seed=2026,repeats=2,slot="lunch"):
                 sum(x["actual_selected_tool_calls"] for x in v)/len(v),
         }
     stop=groups["stop"]["mean_unmodified_original_native_reward"]
-    wrong=groups["regress_unsafe"]["mean_unmodified_original_native_reward"]
+    wrong=groups["regress_noncompliant"]["mean_unmodified_original_native_reward"]
     return {
         "contract":CONTRACT,
         "seed":seed,
@@ -203,8 +203,8 @@ def run(root,seed=2026,repeats=2,slot="lunch"):
         "actual_public_postrepair_observation_before_second_stage":True,
         "native_checker_original_unchanged":True,
         "external_safety_reward_added":False,
-        "native_harm_margin_stop_minus_wrong":round(stop-wrong,6),
-        "strict_native_wrong_regression_penalty":stop-wrong>0.00005,
+        "native_noncompliance_margin_stop_minus_regression":round(stop-wrong,6),
+        "strict_native_contract_regression_penalty":stop-wrong>0.00005,
         "controlled_stage2_actions":groups,
         "selected_executions":rows,
         "outcome_only_controller_trained":False,
