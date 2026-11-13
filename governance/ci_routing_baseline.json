@@ -57,6 +57,12 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_contextual_learner.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-contextual-bandit",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_contextual_bandit.py"
+      ]
     }
   ],
   "legacy_test_paths": [
