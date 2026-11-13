@@ -35,7 +35,8 @@ class TestPublicHeterogeneousSurvey(unittest.TestCase):
         self.assertEqual(report["train_families"],4)
         self.assertEqual(report["dev_families"],1)
         self.assertEqual(report["sealed_test_families"],3)
-        self.assertFalse(report["test_prompts_or_tools_inspected"])
+        self.assertFalse(report["test_prompts_or_tools_exposed"])
+        self.assertTrue(report["test_public_prompt_fingerprints_hashed_for_deduplication"])
         self.assertEqual(set(g["partition"] for g in report["families"]),
                          {"train","dev"})
         exported=json.dumps(report)
