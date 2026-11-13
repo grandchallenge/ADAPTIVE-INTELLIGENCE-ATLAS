@@ -15,15 +15,18 @@ def present(public):
     prompts = [{"role": m["role"], "content": m["content"][:3500]}
                for m in public["messages"] if m["role"] == "user"]
     signatures = []
+    readers = []
     for tool in public["tools"]:
         name = tool["name"]
         if name.startswith(("list_", "get_", "find_", "search_")):
+            readers.append({"name": name, "parameters": tool["parameters"]})
             continue
         signatures.append({"name": name, "parameters": tool["parameters"]})
     return {
         "contract": "OWI-EC005-PUBLIC-GOAL-DISCOVERY/1",
         "user_prompts": prompts[:2],
         "mutating_or_other_public_signatures": signatures[:24],
+        "public_read_signatures": readers[:32],
         "candidate_read_tool": public["candidate_read_tool"],
         "private_verifier_exposed": False,
         "private_state_exposed": False,
