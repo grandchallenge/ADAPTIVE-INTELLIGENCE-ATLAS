@@ -25,7 +25,7 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
-from owi_ec005_realtools_heterogeneous_trial import PRICE, user_text
+from owi_ec005_realtools_heterogeneous_trial import PRICE, user_text, trial as no_probe_trial
 from owi_ec005_realtools_goal_policy import (
     docker_worker_args, receive, WORKER, CHECKER, unpack_reply
 )
@@ -332,7 +332,31 @@ def train(cfg):
                 "peak_worker_rss_kib":max(x["peak_worker_rss_kib"] for x in samples),
                 "episodes":len(samples),
             }
-        results[scenario]=modes
+        # Stronger option-stage comparator: update WITHOUT paying for the
+        # information-gathering call. These live fixed controls run strictly
+        # AFTER freezing. They are NOT counterfactual training labels.
+        public=json.loads((root/scenario/"public.json").read_text())
+        no_probe={}
+        for arm in ("direct","stop"):
+            baselines=[no_probe_trial(
+                public,root/scenario/"environment.json",
+                root/scenario/"verifier.json",2,arm)
+                for _ in range(cfg.eval_episodes)]
+            no_probe[arm]={
+                "mean_terminal_reward":round(sum(x["private_terminal_reward"]
+                                      for x in baselines)/len(baselines),6),
+                "mean_designed_utility":round(sum(x["designed_utility"]
+                                      for x in baselines)/len(baselines),6),
+                "mean_actual_tool_calls":sum(x["chosen_calls"]
+                                      for x in baselines)/len(baselines),
+                "mean_env_container_wall_seconds":sum(x["env_container_seconds"]
+                                      for x in baselines)/len(baselines),
+                "mean_checker_container_wall_seconds":sum(x["checker_container_seconds"]
+                                      for x in baselines)/len(baselines),
+                "evaluation_episodes":len(baselines),
+            }
+        results[scenario]={"one_probe_then_decide":modes,
+                           "posttraining_no_probe_fixed_controls":no_probe}
     report={
         "contract":CONTRACT,
         "seed":cfg.seed,
@@ -359,6 +383,8 @@ def train(cfg):
         "claim":"BOUNDED_POSTPROBE_OUTCOME_ONLY_LEARNING; NOT_GENERAL_REFLECTIVE_CONTROL",
         "designed_call_price":PRICE,
         "designed_call_price_is_physical_compute":False,
+        "strongest_no_probe_fixed_policy_evaluated":True,
+        "training_has_no_access_to_evaluation_fixed_policy_results":True,
         "training_trace":trace,
     }
     path=Path(cfg.output)
