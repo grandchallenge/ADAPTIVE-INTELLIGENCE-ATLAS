@@ -21,6 +21,12 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_*.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-outcome",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_episode.py"
+      ]
     }
   ],
   "legacy_test_paths": [
