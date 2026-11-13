@@ -164,9 +164,14 @@ def run(input_dir):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input-dir",type=Path,required=True)
+    p.add_argument("--output",type=Path)
     args=p.parse_args()
+    report=run(args.input_dir)
+    if args.output is not None:
+        args.output.parent.mkdir(parents=True,exist_ok=True)
+        args.output.write_text(json.dumps(report,indent=2,sort_keys=True)+"\n")
     print("EC005L_PUBLIC_ALLERGY_REAL_SOURCE_READ",
-          json.dumps(run(args.input_dir),sort_keys=True))
+          json.dumps(report,sort_keys=True))
 
 if __name__=="__main__":
     main()
