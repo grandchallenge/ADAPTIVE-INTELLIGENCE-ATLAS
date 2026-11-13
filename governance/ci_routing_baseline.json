@@ -39,6 +39,18 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_learner.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-family-survey",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_family_survey.py"
+      ]
+    },
+    {
+      "id": "owi-ec005-realtools-heterogeneous-intervention",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_heterogeneous_trial.py"
+      ]
     }
   ],
   "legacy_test_paths": [

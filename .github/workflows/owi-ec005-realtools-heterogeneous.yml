@@ -1,0 +1,138 @@
+name: OWI-EC005F sealed heterogeneous task-family audit
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_family_survey.py'
+      - 'experiments/owi_ec005_realtools_family_public_specs.py'
+      - 'experiments/owi_ec005_realtools_family_prepare.py'
+      - 'experiments/owi_ec005_realtools_family_public_probe.py'
+      - 'experiments/owi_ec005_realtools_heterogeneous_trial.py'
+      - 'tests/test_owi_ec005_realtools_heterogeneous_trial.py'
+      - 'tests/test_owi_ec005_realtools_family_survey.py'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+      - '.github/workflows/owi-ec005-realtools-heterogeneous.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sealed-family-split-and-leakage-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify survey source syntax and held-out-test privacy invariants
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_family_survey.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_family_survey.py experiments/owi_ec005_realtools_family_public_specs.py
+
+  pinned-real-train-dev-survey:
+    needs: sealed-family-split-and-leakage-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Full pinned 2,550 task digest, sealed family split, public train/dev survey
+        run: |
+          python experiments/owi_ec005_realtools_family_survey.py \
+            --examples-per-family 2 \
+            --output build/owi_ec005_realtools/heterogeneous_survey.json
+      - name: Inspect three preselected training families without private code/verification
+        run: python experiments/owi_ec005_realtools_family_public_specs.py --indices 0,2,3
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005f-public-train-dev-survey
+          path: build/owi_ec005_realtools/heterogeneous_survey.json
+          retention-days: 30
+
+  public-real-family-lookup:
+    needs: pinned-real-train-dev-survey
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify source bytes, family lock, public/private bundle separation
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 0,2,3 --output-dir "$RUNNER_TEMP/owi_ec005f_three_families"
+      - name: Run three actual public read tools under existing no-network Docker policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_family_public_probe.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005f_three_families"
+
+  actual-three-family-interventions:
+    needs: public-real-family-lookup
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Adversarial public policy and no-illegal-cancellation tests
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_heterogeneous_trial.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_heterogeneous_trial.py
+      - name: Select only pinned disjoint source training families
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 0,2,3 --output-dir "$RUNNER_TEMP/owi_ec005f_trials"
+      - name: Execute actual randomized stop/direct/probe-conditional interventions
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_heterogeneous_trial.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005f_trials" \
+            --seed 2026 --repeats 3 \
+            --output build/owi_ec005_realtools/heterogeneous_outcomes.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("build/owi_ec005_realtools/heterogeneous_outcomes.json").read_text())
+          assert x["contract"]=="OWI-EC005F-MULTI-FAMILY-ACTUAL-INTERVENTION/1"
+          assert x["independent_training_family_count"]==3
+          assert x["episodes"]==27
+          assert not x["heldout_test_family_evaluated"]
+          assert x["outcome_only_policy_learning"]=="NOT_PERFORMED"
+          assert all(len(a)==3 for a in x["family_results"].values())
+          assert all(row["private_fields_in_policy"] is False for row in x["episodes_data"])
+          assert all(row["unchosen_counterfactual_tools_executed"] is False for row in x["episodes_data"])
+          print("ACTUAL_THREE_FAMILY_TRIAL_EVIDENCE",json.dumps({
+            k:v for k,v in x.items() if k!="episodes_data"},sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005f-three-family-actual-causal-trials
+          path: build/owi_ec005_realtools/heterogeneous_outcomes.json
+          retention-days: 30
