@@ -49,6 +49,7 @@ class Bandit:
         self.n=defaultdict(lambda:[0,0,0])
         self.sum=defaultdict(lambda:[0.0,0.0,0.0])
         self.history=[]
+        self._permutations={}
 
     def choose(self,key,step,rng):
         # At each exploration-block start, permute all three arms
@@ -57,9 +58,9 @@ class Bandit:
         if step < EXPLORE_ROUNDS*len(ARMS):
             position=step%len(ARMS)
             if position==0:
-                self._permutation=list(range(len(ARMS)))
-                rng.shuffle(self._permutation)
-            action=self._permutation[position]
+                self._permutations[key]=list(range(len(ARMS)))
+                rng.shuffle(self._permutations[key])
+            action=self._permutations[key][position]
             propensity=1/(len(ARMS)-position)
             mode="without_replacement_exploration"
         else:
