@@ -31,6 +31,9 @@ def summarize(folder, seeds):
                         and math.isfinite(data["elapsed_seconds_batch"])
                         and data["executed_dense_macs"]["total"] >= 0):
                     raise ValueError(f"invalid datum {seed} {mode} {kind}")
+        audit = rec["results"]["privileged_oracle"]
+        if abs(audit["fixed_both"] - rec["results"]["fixed_both"]["gaussian"]["objective"]) > 1e-6:
+            raise ValueError(f"mismatched oracle evaluation cohort: seed {seed}")
         for kind in ("zero_probe", "shuffle_probe"):
             if kind not in rec["results"]["active"]:
                 raise ValueError(f"missing {kind} ablation: seed {seed}")
@@ -83,6 +86,9 @@ def summarize(folder, seeds):
             "new_task_semantics_validated": False,
         },
         "comparisons": comparisons, "ablations_vs_normal": ablations,
+        "mean_matched_privileged_oracle": statistics.mean(
+            r["results"]["privileged_oracle"]["omniscient_repair_lower_bound"]
+            for r in records),
         "mean_gaussian": {
             mode: statistics.mean(
                 r["results"][mode]["gaussian"]["objective"] for r in records)
