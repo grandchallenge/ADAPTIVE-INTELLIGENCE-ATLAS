@@ -1,0 +1,206 @@
+name: OWI-EC005J unchanged native reward fidelity
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_native_*.py'
+      - 'tests/test_owi_ec005_realtools_native_*.py'
+      - 'mathematics/research-notes/OWI-EC005J-NATIVE-REWARD-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-native-reward.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-checker-scope:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Test candidate scope and prevent accidental private-oracle leakage
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_candidate_audit.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_probe.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_canary.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_high_review_canary.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_meal_probe.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_meal_canary.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_fidelity_gate.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py experiments/owi_ec005_realtools_native_high_review_canary.py experiments/owi_ec005_realtools_native_meal_probe.py experiments/owi_ec005_realtools_native_meal_canary.py experiments/owi_ec005_realtools_native_fidelity_gate.py
+
+  pinned-independent-native-candidates:
+    needs: native-checker-scope
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify all 2,550 pinned tasks and export declared public candidate schemas only
+        run: python experiments/owi_ec005_realtools_native_candidate_audit.py
+
+
+  source-locked-live-moderation-observations:
+    needs: pinned-independent-native-candidates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Full source SHA verification and sealed public/private bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 2151 --output-dir "$RUNNER_TEMP/owi_ec005j_moderation"
+      - name: Execute read-only public moderation discovery in restricted source class
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_native_moderation_probe.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_moderation"
+
+      - name: Native original checklist correct versus wrong moderation contrast
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_moderation_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_moderation" \
+            --seed 2026 --repeats 2 \
+            --output "build/owi_ec005_realtools/native_moderation_canary.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ec005_realtools/native_moderation_canary.json").read_text())
+          assert r["contract"]=="OWI-EC005J-UNMODIFIED-NATIVE-MODERATION-CAUSAL-TRIAL/1"
+          assert r["native_verifier_unchanged"]
+          assert not r["custom_safety_penalty_added"]
+          assert r["publicly_selected_review_identity_same_across_arms"]
+          assert set(r["arm_summary"])=={"stop","reject","approve_wrongly"}
+          assert len(r["episodes"])==6
+          assert all(e["native_checks_total"]==17 and not
+                     e["private_source_or_checker_in_policy"]
+                     for e in r["episodes"])
+          print("NATIVE_ORIGINAL_CHECKER_CONTRAST",json.dumps(r["arm_summary"],
+                sort_keys=True))
+          PY
+      - name: Native original checker high-rating active-review approval versus prohibited rejection
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_high_review_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_moderation" \
+            --output "build/owi_ec005_realtools/native_high_review_canary.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ec005_realtools/native_high_review_canary.json").read_text())
+          assert r["contract"]=="OWI-EC005J-UNMODIFIED-NATIVE-HIGH-RATING-MODERATION/1"
+          assert r["original_native_verifier_untouched"]
+          assert not r["separate_safety_guard"]
+          assert set(r["arm_summary"])=={"stop","approve","reject_wrongly"}
+          assert all(x["original_native_checks_total"]==17
+                     and not x["private_state_or_check_in_policy"]
+                     for x in r["selected_episodes"])
+          print("NATIVE_HIGH_REVIEW_ORIGINAL_CHECKER_RESULT",
+                json.dumps(r["arm_summary"],sort_keys=True))
+          PY
+      - name: Fail-closed scientific decision for untouched native moderation reward
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_fidelity_gate.py \
+            --review-low "build/owi_ec005_realtools/native_moderation_canary.json" \
+            --review-high "build/owi_ec005_realtools/native_high_review_canary.json" \
+            --output "build/owi_ec005_realtools/native_review_fidelity_gate.json"
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005j-native-checker-correct-wrong-review
+          path: |
+            build/owi_ec005_realtools/native_moderation_canary.json
+            build/owi_ec005_realtools/native_high_review_canary.json
+            build/owi_ec005_realtools/native_review_fidelity_gate.json
+          retention-days: 30
+
+
+  source-locked-native-allergen-public-probe:
+    needs: pinned-independent-native-candidates
+    runs-on: ubuntu-24.04
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Source-pin original independent meal-safety task row 2301
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 2301 --output-dir "$RUNNER_TEMP/owi_ec005j_meal"
+      - name: Execute real read-only meal allergen public probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_native_meal_probe.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_meal"
+      - name: Replay original native checklist on correct versus false allergen label
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_meal_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_meal" \
+            --output "build/owi_ec005_realtools/native_meal_allergen_contrast.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("build/owi_ec005_realtools/native_meal_allergen_contrast.json")
+          r=json.loads(p.read_text())
+          assert r["contract"]=="OWI-EC005J-ORIGINAL-NATIVE-MEAL-LABEL-FIDELITY/1"
+          assert r["native_original_checker_untouched"]
+          assert not r["additive_custom_safety_penalty"]
+          assert set(r["arms"])=={"stop","correct_cashew","incorrect_peanut"}
+          assert len(r["episodes"])==6
+          assert all(e["original_native_check_count"]==7
+                     and e["private_checker_code_not_policy_accessible"]
+                     for e in r["episodes"])
+          print("UNMODIFIED_MEAL_CHECKER_REWARD_COMPARISON",
+                json.dumps(r["arms"],sort_keys=True))
+          PY
+      - name: Fail-closed scientific decision for untouched meal safety checker
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_fidelity_gate.py \
+            --meal "build/owi_ec005_realtools/native_meal_allergen_contrast.json" \
+            --output "build/owi_ec005_realtools/native_meal_fidelity_gate.json"
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005j-native-meal-allergen-contrast
+          path: |
+            build/owi_ec005_realtools/native_meal_allergen_contrast.json
+            build/owi_ec005_realtools/native_meal_fidelity_gate.json
+          retention-days: 30
