@@ -11,6 +11,7 @@
       "experiments/owi_ec005_privileged.py",
       "experiments/owi_ec005_realtools_intake.py",
       "experiments/owi_ec005_realtools_schema.py",
+      "experiments/owi_ec005_realtools_split.py",
       "experiments/owi_ec005_summarize.py",
       "tests/test_owi_ec005.py",
       "tests/test_owi_ec005_realtools_intake.py"
