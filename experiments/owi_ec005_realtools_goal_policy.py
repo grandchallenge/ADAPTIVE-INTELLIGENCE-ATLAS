@@ -162,7 +162,8 @@ class GoalPolicy:
             else:
                 # Choose only a UNIQUE report matching the just-created public
                 # specification. Refuse ambiguous matches rather than guess.
-                candidates=[item for item in data if isinstance(item,dict)
+                candidates=[item for item in (data if isinstance(data,list) else [])
+                            if isinstance(item,dict)
                             and item.get("location_id")==self.state["location_id"]
                             and item.get("reporter_id")==self.state["reporter_id"]
                             and item.get("date_reported")==self.state["date_reported"]
