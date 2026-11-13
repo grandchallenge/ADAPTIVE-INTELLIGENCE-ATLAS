@@ -9,6 +9,12 @@
       "test_globs": [
         "tests/test_*.py"
       ]
+    },
+    {
+      "id": "owi-ec005-conditional-invariants",
+      "test_globs": [
+        "tests/test_owi_ec005.py"
+      ]
     }
   ],
   "legacy_test_paths": [
