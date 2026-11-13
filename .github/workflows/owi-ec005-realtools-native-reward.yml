@@ -1,0 +1,45 @@
+name: OWI-EC005J unchanged native reward fidelity
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_native_*.py'
+      - 'tests/test_owi_ec005_realtools_native_*.py'
+      - 'mathematics/research-notes/OWI-EC005J-NATIVE-REWARD-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-native-reward.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native-checker-scope:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Test candidate scope and prevent accidental private-oracle leakage
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_candidate_audit.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py
+
+  pinned-independent-native-candidates:
+    needs: native-checker-scope
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify all 2,550 pinned tasks and export declared public candidate schemas only
+        run: python experiments/owi_ec005_realtools_native_candidate_audit.py
