@@ -1,0 +1,65 @@
+name: OWI-EC005 conditional outcome-only identification
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_*.py'
+      - 'tests/test_owi_ec005.py'
+      - 'mathematics/research-notes/OWI-EC005-OUTCOME-ONLY-CAUSAL-IDENTIFICATION-20261113.md'
+      - '.github/workflows/owi-ec005.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conditional-invariants:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Conditional execution, leakage, support and gradient invariants
+        run: python -m unittest discover -s tests -p 'test_owi_ec005.py' -v
+      - name: Python compile checks
+        run: python -m py_compile experiments/owi_ec005_*.py tests/test_owi_ec005.py
+
+  five-seed-outcome-only:
+    needs: conditional-invariants
+    runs-on: ubuntu-24.04
+    timeout-minutes: 85
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Reproduce five independent trained policies and held-out environments
+        shell: bash
+        run: |
+          set -euo pipefail
+          for seed in 1 2 3 4 5; do
+            python experiments/owi_ec005_actor_critic.py \
+              --seed "$seed" --mode both --stage all \
+              --pretrain 250 --steps 600 --batch 192 --eval 512
+          done
+          python experiments/owi_ec005_summarize.py \
+            --seeds 1,2,3,4,5 --output build/owi_ec005/summary.json
+      - name: Retain per-seed evidence and explicit negative results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005-five-seed-conditional-evidence
+          path: |
+            build/owi_ec005/seed*_results.json
+            build/owi_ec005/summary.json
+          retention-days: 30
