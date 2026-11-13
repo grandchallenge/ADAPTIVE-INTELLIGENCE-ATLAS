@@ -55,6 +55,8 @@ class IntakeInvariantTests(unittest.TestCase):
         self.assertEqual(result["code_execution"], "none")
         self.assertEqual(result["scientific_acceptance"], "NOT_EVALUATED")
         self.assertNotIn(SECRET, json.dumps(result))
+        self.assertEqual(result["environment_top_key_types"]["tools:list"], 1)
+        self.assertEqual(result["environment_top_key_types"]["state:dict"], 1)
 
     def test_duplicate_public_task_detection(self):
         raw = (json.dumps(specimen()) + "\n").encode()
