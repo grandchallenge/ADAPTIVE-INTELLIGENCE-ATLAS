@@ -1,0 +1,59 @@
+name: OWI-EC005K native preservation outcome audit
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_native_schedule_*.py'
+      - 'experiments/owi_ec005_realtools_native_preservation_*.py'
+      - 'tests/test_owi_ec005_realtools_native_schedule_*.py'
+      - 'tests/test_owi_ec005_realtools_native_preservation_*.py'
+      - 'mathematics/research-notes/OWI-EC005K-NATIVE-PRESERVATION-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-native-preservation.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-scope-unit-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Test public source-only schedule and precise verifier custody
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_schedule_probe.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_schedule_probe.py
+
+  pinned-public-schedule-discovery:
+    needs: source-scope-unit-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify complete pinned raw source and produce authentic row-2301 bundles
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 2301 --output-dir "$RUNNER_TEMP/owi_ec005k_schedule"
+      - name: Execute original public read tool against original isolated environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_native_schedule_probe.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005k_schedule"
