@@ -91,6 +91,12 @@
         "tests/test_owi_ec005_realtools_native_meal_canary.py",
         "tests/test_owi_ec005_realtools_native_fidelity_gate.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-native-preservation",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_native_schedule_probe.py"
+      ]
     }
   ],
   "legacy_test_paths": [
