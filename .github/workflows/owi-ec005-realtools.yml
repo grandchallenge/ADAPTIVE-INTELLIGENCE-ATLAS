@@ -28,7 +28,7 @@ jobs:
       - name: Offline adversarial source-isolation invariants
         run: python -m unittest discover -s tests -p 'test_owi_ec005_realtools_intake.py' -v
       - name: Compile intake source
-        run: python -m py_compile experiments/owi_ec005_realtools_intake.py experiments/owi_ec005_realtools_schema.py experiments/owi_ec005_realtools_split.py
+        run: python -m py_compile experiments/owi_ec005_realtools_intake.py experiments/owi_ec005_realtools_schema.py experiments/owi_ec005_realtools_split.py experiments/owi_ec005_realtools_select.py experiments/owi_ec005_realtools_sandbox.py
 
   real-corpus-read-only-preflight:
     needs: source-isolation-tests
@@ -70,3 +70,44 @@ jobs:
             build/owi_ec005_realtools/ast_schema.json
             build/owi_ec005_realtools/group_split.json
           retention-days: 30
+
+  isolated-real-tool-execution:
+    needs: real-corpus-read-only-preflight
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify source digest and select verifier-free actual environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_select.py --output "$RUNNER_TEMP/owi-ec005-real-env.json"
+      - name: Execute one actual read-only declared API inside no-network Docker jail
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python:3.12-slim-bookworm
+          docker image inspect python:3.12-slim-bookworm --format 'IMAGE_RESOLVED_DIGEST={{index .RepoDigests 0}}'
+          docker run --rm --network none --cap-drop ALL \
+            --security-opt no-new-privileges --read-only \
+            --user 65534:65534 --pids-limit 64 --memory 768m --cpus 1 \
+            --tmpfs /tmp:rw,nosuid,nodev,size=32m \
+            --mount "type=bind,src=$PWD/experiments/owi_ec005_realtools_sandbox.py,dst=/worker.py,readonly" \
+            --mount "type=bind,src=$RUNNER_TEMP/owi-ec005-real-env.json,dst=/task.json,readonly" \
+            python:3.12-slim-bookworm python /worker.py /task.json > "$RUNNER_TEMP/owi-ec005-tool-smoke.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads((Path(os.environ['RUNNER_TEMP'])/'owi-ec005-tool-smoke.json').read_text())
+          assert x['actual_python_tool_invoked'] and not x['verifier_evaluated']
+          assert x['outcome_only_policy_trained'] is False
+          print('RESTRICTED_REAL_TOOL_EXECUTION',json.dumps(x,sort_keys=True))
+          PY
