@@ -3,7 +3,11 @@ name: OWI-EC005 conditional outcome-only identification
 on:
   pull_request:
     paths:
-      - 'experiments/owi_ec005_*.py'
+      - 'experiments/owi_ec005_actor_critic.py'
+      - 'experiments/owi_ec005_conditional.py'
+      - 'experiments/owi_ec005_identify.py'
+      - 'experiments/owi_ec005_privileged.py'
+      - 'experiments/owi_ec005_summarize.py'
       - 'tests/test_owi_ec005.py'
       - 'mathematics/research-notes/OWI-EC005-OUTCOME-ONLY-CAUSAL-IDENTIFICATION-20261113.md'
       - '.github/workflows/owi-ec005.yml'
