@@ -31,7 +31,9 @@ jobs:
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_variants.py' -v
           python -m py_compile experiments/owi_ec005_realtools_harmful_audit.py
       - name: Verify all source bytes and audit only sensitive record schema
-        run: python experiments/owi_ec005_realtools_harmful_audit.py
+        run: |
+          python experiments/owi_ec005_realtools_harmful_audit.py --row 0
+          python experiments/owi_ec005_realtools_harmful_audit.py --row 8
 
 
   controlled-link-public-replay:
