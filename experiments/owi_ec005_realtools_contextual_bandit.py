@@ -33,7 +33,8 @@ EXPLORE_ROUNDS=3
 
 
 def context_key(task):
-    x=task["context"].tolist()
+    context=task.get("context")
+    x=context.tolist() if hasattr(context,"tolist") else None
     if x==[1.0,0.0,1.0]:
         return "direct_publicly_available"
     if x==[0.0,1.0,1.0]:
