@@ -70,6 +70,15 @@
         "tests/test_owi_ec005_realtools_postprobe_discover.py",
         "tests/test_owi_ec005_realtools_postprobe_learner.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-harmful",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_harmful_audit.py",
+        "tests/test_owi_ec005_realtools_harmful_variants.py",
+        "tests/test_owi_ec005_realtools_harmful_knownid.py",
+        "tests/test_owi_ec005_realtools_harmful_learner.py"
+      ]
     }
   ],
   "legacy_test_paths": [
