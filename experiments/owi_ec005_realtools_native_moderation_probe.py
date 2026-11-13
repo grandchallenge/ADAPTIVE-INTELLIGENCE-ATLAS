@@ -83,6 +83,25 @@ def inspect(directory):
                         "refill" in str(v.get("review_text","")).lower()),
                 } for v in reviews[:4]],
             })
+        author_statuses=[]
+        author_ids=[]
+        for product in observations:
+            for candidate in product["pending_review_samples"]:
+                uid=candidate.get("user_id_public_read")
+                if isinstance(uid,str) and uid not in author_ids:
+                    author_ids.append(uid)
+        for uid in author_ids[:3]:
+            result=read("get_user_by_id",{"user_id":uid})
+            record=result.get("data")
+            if not isinstance(record,dict):
+                record={}
+            author_statuses.append({
+                "publicly_retrieved_user_id":uid,
+                "user_id_matched":record.get("user_id")==uid or
+                                  record.get("_id")==uid,
+                "public_account_status":record.get("account_status"),
+                "public_user_field_names":sorted(record),
+            })
         proc.stdin.write('{"action":"finish"}\n')
         proc.stdin.flush()
         final=receive(proc)
@@ -101,6 +120,7 @@ def inspect(directory):
         "products_seen":len(products),
         "public_selected_tool_calls":len(calls),
         "public_records":observations,
+        "public_author_statuses":author_statuses,
         "selected_tool_audit":calls,
         "private_final_state_discarded":True,
         "native_verifier_never_loaded":True,
