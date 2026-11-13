@@ -122,12 +122,10 @@ def train(cfg):
     if cfg.eval_episodes<1 or cfg.eval_episodes>5:
         raise ValueError("invalid evaluation count")
     rng=random.Random(cfg.seed*701+19)
-    tasks=load_tasks(cfg.input_dir)
-    keys={i:context_key(tasks[i]) for i in ALL_ROWS}
+    tasks=load_tasks(cfg.input_dir,indices=TRAIN_ROWS)
+    keys={i:context_key(tasks[i]) for i in TRAIN_ROWS}
     if len({keys[i] for i in TRAIN_ROWS})!=len(TRAIN_ROWS):
         raise ValueError("insufficient independent context support")
-    if keys[DIAGNOSTIC_ROW]!=keys[2]:
-        raise ValueError("withheld-context transfer class changed")
     learner=Bandit(cfg.epsilon)
     steps=defaultdict(int)
     trajectories=[]
@@ -158,6 +156,11 @@ def train(cfg):
             "private_state_or_verifier_in_policy":False,
         })
     table=learner.evidence() # frozen after chosen training episodes
+    # Withheld-family public task is not opened until after the final update.
+    tasks=load_tasks(cfg.input_dir,indices=ALL_ROWS)
+    keys={i:context_key(tasks[i]) for i in ALL_ROWS}
+    if keys[DIAGNOSTIC_ROW]!=keys[2]:
+        raise ValueError("withheld-context transfer class changed")
     global_choice=learner.globally_best()
     evaluations={}
     for idx in ALL_ROWS:
