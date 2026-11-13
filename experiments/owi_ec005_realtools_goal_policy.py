@@ -18,6 +18,7 @@ import hashlib
 import json
 import re
 import select
+import sys
 import subprocess
 import time
 from collections import Counter
@@ -154,6 +155,9 @@ class GoalPolicy:
         elif self.last_action=="list_reports_by_disease":
             self.state["prior"]=data if isinstance(data,list) else []
         elif self.last_action=="create_outbreak_report":
+            print("PUBLIC_CREATE_OBSERVATION",json.dumps({"keys":list(parsed),
+                  "data_type":type(data).__name__,
+                  "data_preview":str(data)[:500]},sort_keys=True),file=sys.stderr)
             if isinstance(data,dict):
                 self.state["report_id"]=data.get("report_id")
             if not self.state["report_id"] and isinstance(parsed.get("report_id"),str):
