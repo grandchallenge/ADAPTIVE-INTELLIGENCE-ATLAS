@@ -33,7 +33,8 @@ jobs:
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_high_review_canary.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_meal_probe.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_meal_canary.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py experiments/owi_ec005_realtools_native_high_review_canary.py experiments/owi_ec005_realtools_native_meal_probe.py experiments/owi_ec005_realtools_native_meal_canary.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_fidelity_gate.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py experiments/owi_ec005_realtools_native_high_review_canary.py experiments/owi_ec005_realtools_native_meal_probe.py experiments/owi_ec005_realtools_native_meal_canary.py experiments/owi_ec005_realtools_native_fidelity_gate.py
 
   pinned-independent-native-candidates:
     needs: native-checker-scope
@@ -121,6 +122,14 @@ jobs:
           print("NATIVE_HIGH_REVIEW_ORIGINAL_CHECKER_RESULT",
                 json.dumps(r["arm_summary"],sort_keys=True))
           PY
+      - name: Fail-closed scientific decision for untouched native moderation reward
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_fidelity_gate.py \
+            --review-low "build/owi_ec005_realtools/native_moderation_canary.json" \
+            --review-high "build/owi_ec005_realtools/native_high_review_canary.json" \
+            --output "build/owi_ec005_realtools/native_review_fidelity_gate.json"
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -128,6 +137,7 @@ jobs:
           path: |
             build/owi_ec005_realtools/native_moderation_canary.json
             build/owi_ec005_realtools/native_high_review_canary.json
+            build/owi_ec005_realtools/native_review_fidelity_gate.json
           retention-days: 30
 
 
@@ -179,9 +189,18 @@ jobs:
           print("UNMODIFIED_MEAL_CHECKER_REWARD_COMPARISON",
                 json.dumps(r["arms"],sort_keys=True))
           PY
+      - name: Fail-closed scientific decision for untouched meal safety checker
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_fidelity_gate.py \
+            --meal "build/owi_ec005_realtools/native_meal_allergen_contrast.json" \
+            --output "build/owi_ec005_realtools/native_meal_fidelity_gate.json"
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ec005j-native-meal-allergen-contrast
-          path: build/owi_ec005_realtools/native_meal_allergen_contrast.json
+          path: |
+            build/owi_ec005_realtools/native_meal_allergen_contrast.json
+            build/owi_ec005_realtools/native_meal_fidelity_gate.json
           retention-days: 30
