@@ -54,7 +54,16 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(a["arguments"]["location_id"],"L_FROM_TOOL")
         self.assertEqual(a["arguments"]["reporter_id"],"R_FROM_TOOL")
         self.assertEqual(a["arguments"]["date_reported"],"2024-04-18")
-        observe(p,a,{"success":True,"data":{"report_id":"NEW_FROM_TOOL"}})
+        observe(p,a,{"success":True,"message":"Created successfully"})
+        a=p.next_action()
+        self.assertEqual(a["tool"],"list_reports_by_disease")
+        observe(p,a,{"success":True,"data":[{
+            "report_id":"PREVIOUS","location_id":"L_FROM_TOOL",
+            "reporter_id":"R_FROM_TOOL","date_reported":"2024-04-17",
+            "case_count":9},{
+            "report_id":"NEW_FROM_TOOL","location_id":"L_FROM_TOOL",
+            "reporter_id":"R_FROM_TOOL","date_reported":"2024-04-18",
+            "case_count":6}]})
         a=p.next_action()
         self.assertEqual(a["tool"],"validate_reporter_credentials")
         observe(p,a,{"success":True,"data":{"reporter_id":"R_FROM_TOOL"}})
