@@ -66,17 +66,19 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--lock",type=Path,default=Path(
         "governance/research/OWI_EC005_TOOL_SOURCE_LOCK.json"))
+    ap.add_argument("--row",type=int,choices=(0,8),default=0)
     args=ap.parse_args()
     lock=json.loads(args.lock.read_text())
     rows=audit_source(lock)
-    chosen=build(rows,[ROW])
-    if len(chosen)!=1 or chosen[0][0]!=ROW:
+    chosen=build(rows,[args.row])
+    if len(chosen)!=1 or chosen[0][0]!=args.row:
         raise DatasetBoundaryError("source row drift")
     i,family,public,env,private=chosen[0]
     report=find_related_records(env)
     report.update({
         "contract":"OWI-EC005I-SUBSCRIPTION-STATE-AUDIT/1",
         "source_sha256":lock["sha256"],
+        "source_row_index":args.row,
         "source_family_sha256":family,
         "public_sha256":hashlib.sha256(canonical(public)).hexdigest(),
         "external_class_sha256":hashlib.sha256(
