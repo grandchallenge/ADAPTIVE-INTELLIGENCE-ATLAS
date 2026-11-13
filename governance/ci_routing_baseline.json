@@ -88,7 +88,8 @@
         "tests/test_owi_ec005_realtools_native_moderation_canary.py",
         "tests/test_owi_ec005_realtools_native_high_review_canary.py",
         "tests/test_owi_ec005_realtools_native_meal_probe.py",
-        "tests/test_owi_ec005_realtools_native_meal_canary.py"
+        "tests/test_owi_ec005_realtools_native_meal_canary.py",
+        "tests/test_owi_ec005_realtools_native_fidelity_gate.py"
       ]
     }
   ],
