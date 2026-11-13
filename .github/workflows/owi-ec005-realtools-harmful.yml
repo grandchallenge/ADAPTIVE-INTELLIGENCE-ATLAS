@@ -1,0 +1,33 @@
+name: OWI-EC005I source-locked harmful intervention study
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_harmful_*.py'
+      - 'tests/test_owi_ec005_realtools_harmful_*.py'
+      - 'mathematics/research-notes/OWI-EC005I-HARMFUL-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-harmful.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-state-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Assert private-source confidentiality and public-only target derivation
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_audit.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_harmful_audit.py
+      - name: Verify all source bytes and audit only sensitive record schema
+        run: python experiments/owi_ec005_realtools_harmful_audit.py
