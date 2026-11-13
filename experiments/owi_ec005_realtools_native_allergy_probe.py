@@ -30,7 +30,8 @@ def public_contract(public):
         if key not in task:
             raise ValueError("changed publicly assigned allergy task")
     tools={t["name"]:t["parameters"] for t in public["tools"]}
-    names={"get_authorized_user_info":{"user_id"},
+    names={"verify_user_authorization":{"user_id","patient_id","action"},
+           "get_authorized_user_info":{"user_id"},
            "get_patient_allergy_by_substance":{
             "user_id","patient_id","substance"},
            "get_allergy_details":{
@@ -78,11 +79,18 @@ def run(input_dir):
     public=json.loads((folder/"public.json").read_text())
     public_contract(public)
     args={"user_id":USER,"patient_id":PATIENT,"substance":SUBSTANCE}
-    selected_tools=("get_patient_allergy_by_substance","get_allergy_details",
-                    "get_authorized_user_info")
-    commands=[{"action":"call","tool":tool,
-               "arguments":args if tool!="get_authorized_user_info" else {"user_id":USER}}
-              for tool in selected_tools]+[{"action":"finish"}]
+    selected_tools=[
+        ("get_patient_allergy_by_substance",args,"allergy_lookup"),
+        ("get_allergy_details",args,"allergy_details"),
+        ("get_authorized_user_info",{"user_id":USER},"clinician_public_rights"),
+    ] + [
+        ("verify_user_authorization",{
+            "user_id":USER,"patient_id":PATIENT,"action":action},
+         "authorization_for_"+action)
+        for action in ("modify_allergy","update_patient_allergy","delete_patient_allergy")
+    ]
+    commands=[{"action":"call","tool":tool,"arguments":arguments}
+              for tool,arguments,_ in selected_tools]+[{"action":"finish"}]
     messages,wall=call_child(
         IMAGE,WORKER,folder/"environment.json",
         input_text="".join(json.dumps(x)+"\n" for x in commands))
@@ -92,15 +100,24 @@ def run(input_dir):
         messages[-1].get("kind")!="private_final_state"):
         raise RuntimeError("external source public-only worker contract drift")
     replies={}
-    for tool,msg in zip(selected_tools,messages[1:-1]):
+    for (tool,_,key),msg in zip(selected_tools,messages[1:-1]):
         if (msg.get("kind")!="observation" or msg.get("tool")!=tool
-            or msg.get("truncated") is True or msg.get("ok") is not True):
-            raise RuntimeError("selected public read failed")
+            or msg.get("truncated") is True):
+            raise RuntimeError("selected public read protocol drift")
+        if msg.get("ok") is not True:
+            if tool!="verify_user_authorization":
+                raise RuntimeError("original valid-source public read failed")
+            replies[key]={
+                "source_worker_call_ok":False,
+                "response_public_sha256":fingerprint(msg.get("content","")),
+                "public_verification_disposition":"tool_exception_not_authorization",
+            }
+            continue
         decoded=unpack_reply(msg.get("content",""))
         if tool=="get_authorized_user_info":
             info=decoded.get("data") if isinstance(decoded,dict) else None
             if not isinstance(info,dict):info={}
-            replies[tool]={
+            replies[key]={
                 "response_public_sha256":fingerprint(msg.get("content","")),
                 "public_success":decoded.get("success") if isinstance(decoded,dict) else None,
                 "public_data_keys":sorted(info),
@@ -109,8 +126,25 @@ def run(input_dir):
                 "public_permissions":info.get("permissions"),
                 "user_id_match":info.get("user_id")==USER,
             }
+        elif tool=="verify_user_authorization":
+            replies[key]={
+                "source_worker_call_ok":True,
+                "response_public_sha256":fingerprint(msg.get("content","")),
+                "public_response_keys":sorted(decoded) if isinstance(decoded,dict) else [],
+                "public_success":decoded.get("success") if isinstance(decoded,dict) else None,
+                "public_authorized":(
+                    decoded.get("authorized",decoded.get("is_authorized"))
+                    if isinstance(decoded,dict) else None),
+                "public_error":str(decoded.get("error",""))[:120]
+                    if isinstance(decoded,dict) else "unparsed",
+                "public_data_summary":(
+                    {k:v for k,v in decoded.get("data",{}).items()
+                     if k in ("authorized","is_authorized","allowed","action")}
+                    if isinstance(decoded,dict) and
+                       isinstance(decoded.get("data"),dict) else None),
+            }
         else:
-            replies[tool]={
+            replies[key]={
                 "response_public_sha256":fingerprint(msg.get("content","")),
                 **summarize_observed(decoded)} 
     return {
@@ -119,7 +153,7 @@ def run(input_dir):
         "public_action_user":USER,
         "public_action_patient":PATIENT,
         "public_allergy_substance":SUBSTANCE,
-        "actual_selected_public_read_calls":3,
+        "actual_selected_public_read_calls":6,
         "original_native_private_checker_loaded":False,
         "original_private_terminal_state_discarded":True,
         "external_code_run_on_host":False,
