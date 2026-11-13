@@ -66,6 +66,7 @@ def snapshot(obj):
 
 def serve(spec):
     obj, allowed = initialize(spec)
+    initial_snapshot = snapshot(obj)
     send({"kind": "ready", "max_calls": MAX_CALLS, "verifier_present": False})
     calls = 0
     for raw in sys.stdin:
@@ -80,6 +81,7 @@ def serve(spec):
                 raise ValueError("finish fields")
             # PRIVILEGED final state: only the orchestrator/verifier may read.
             send({"kind": "private_final_state", "state": snapshot(obj),
+                  "initial_state": initial_snapshot,
                   "tool_calls": calls,
                   "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
             return
