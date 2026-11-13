@@ -11,6 +11,7 @@ import torch
 from owi_ec004_core import Cfg, Core
 from owi_ec005_conditional import make_batch, run_policy, public_telemetry
 from owi_ec005_actor_critic import fit, Controller, evaluate
+from owi_ec005_identify import identify_probe_value
 
 
 class Forced:
@@ -120,6 +121,13 @@ class Tests(unittest.TestCase):
                           mode="fixed_both", kind="gaussian", length=9,
                           n=16, task="parity")
         self.assertTrue(math.isfinite(parity["objective"]))
+
+    def test_first_stage_ips_without_counterfactual_labels(self):
+        estimate = identify_probe_value(self.core, Controller(), self.cfg,
+                                        seed=9, batches=2, n=16)
+        self.assertEqual(estimate["n"], 32)
+        self.assertEqual(sum(estimate["arm_counts"]), 32)
+        self.assertTrue(math.isfinite(estimate["benefit_probe_A"]["estimate"]))
 
     def test_small_actor_critic_iteration_both_modes(self):
         for mode in ("active", "passive"):
