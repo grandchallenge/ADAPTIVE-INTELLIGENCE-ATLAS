@@ -1,0 +1,65 @@
+name: OWI-EC005 genuine tool-environment intake and leakage gate
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_*.py'
+      - 'tests/test_owi_ec005_realtools_*.py'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+      - 'mathematics/research-notes/OWI-EC005-REAL-TOOL-BENCHMARK-20261113.md'
+      - '.github/workflows/owi-ec005-realtools.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-isolation-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Offline adversarial source-isolation invariants
+        run: python -m unittest discover -s tests -p 'test_owi_ec005_realtools_intake.py' -v
+      - name: Compile intake source
+        run: python -m py_compile experiments/owi_ec005_realtools_intake.py
+
+  real-corpus-read-only-preflight:
+    needs: source-isolation-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Source SHA and full-corpus schema inventory without executing environment code
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_intake.py \
+            --output build/owi_ec005_realtools/source_inventory.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          row=json.loads(Path('build/owi_ec005_realtools/source_inventory.json').read_text())
+          assert len(row['revision'])==40
+          assert row['counts']['valid_tasks'] >= 1
+          assert row['no_private_payload_published']
+          assert row['training']=='NOT_PERFORMED'
+          print('SOURCE_INTAKE_READBACK',row['revision'],row['raw_file_sha256'],
+                row['counts']['valid_tasks'])
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005-real-corpus-schema-no-private-content
+          path: build/owi_ec005_realtools/source_inventory.json
+          retention-days: 30
