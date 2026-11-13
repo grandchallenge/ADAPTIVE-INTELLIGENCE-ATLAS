@@ -88,10 +88,14 @@ def one_episode(public, environment_path, verifier_path, worker, checker,
     if terminal["tool_calls"] != calls:
         raise RuntimeError("conditional tool execution count mismatch")
     private_state = terminal["state"]
+    if not isinstance(terminal.get("initial_state"), dict):
+        raise RuntimeError("missing post-constructor initial state")
+    private_initial = terminal["initial_state"]
     private_digest = fingerprint(private_state)
     # The terminal state is sent to an entirely separate, jailed process.
     # This is a trusted host data bridge, not an agent-facing observation.
-    checker_input = json.dumps({"state": private_state}) + "\n"
+    checker_input = json.dumps({"state": private_state,
+                                "initial_state": private_initial}) + "\n"
     result, check_elapsed = call_child(
         image, checker, verifier_path, input_text=checker_input)
     if len(result) != 1 or result[0].get("contract") != "OWI-EC005-TERMINAL-REWARD/1":
