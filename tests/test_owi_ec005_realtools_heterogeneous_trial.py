@@ -102,7 +102,8 @@ class TestHeterogeneousInterventions(unittest.TestCase):
             "product_id":"PROD-A","name":"PureView Daily Lens"}})
         a=p.next_action()
         self.assertEqual(a["tool"],"check_subscription_links")
-        observe(p,a,{"success":True,"data":{"valid":False}})
+        observe(p,a,{"success":True,"data":{
+            "user_linked":True,"product_linked":False}})
         self.assertEqual(p.next_action(),{"action":"finish"})
         p=Policy(0,public(0),"probe")
         a=p.next_action()
@@ -112,7 +113,8 @@ class TestHeterogeneousInterventions(unittest.TestCase):
         a=p.next_action()
         observe(p,a,{"success":True,"data":{"name":"PureView Daily Lens"}})
         a=p.next_action()
-        observe(p,a,{"success":True,"data":{"valid":True}})
+        observe(p,a,{"success":True,"data":{
+            "user_linked":True,"product_linked":True}})
         self.assertEqual(p.next_action()["tool"],"cancel_subscription")
 
     def test_refuses_untrusted_strings(self):
