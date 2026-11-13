@@ -95,7 +95,8 @@
     {
       "id": "owi-ec005-realtools-native-preservation",
       "test_globs": [
-        "tests/test_owi_ec005_realtools_native_schedule_probe.py"
+        "tests/test_owi_ec005_realtools_native_schedule_probe.py",
+        "tests/test_owi_ec005_realtools_native_preservation_canary.py"
       ]
     }
   ],
