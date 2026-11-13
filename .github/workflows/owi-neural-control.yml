@@ -1,0 +1,50 @@
+name: OWI neural endogenous-control pilot
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_neural_dynamics_pilot.py'
+      - 'mathematics/research-notes/OWI-NEURAL-SELF-DYNAMICS-PILOT-20261112.md'
+      - '.github/workflows/owi-neural-control.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  five-seed-neural-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install locked CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Replay five independent learned neural cores
+        run: |
+          python experiments/owi_neural_dynamics_pilot.py --seeds 1,2,3,4,5 --core-steps 330 --q-steps 650 --q-train 22000 --test 7000 --output owi-neural-results.json
+      - name: Verify positive and negative boundaries
+        run: |
+          python - <<'PY'
+          import json, statistics
+          d=json.load(open('owi-neural-results.json',encoding='utf-8'))
+          assert len(d['runs']) == 5
+          for row in d['runs']:
+              a=row['conditions']['gaussian']
+              assert row['core_clean_accuracy'] >= 0.98
+              assert a['learned'] < a['none'], row
+              assert a['learned'] < a['logits_only_learned'], row
+              assert a['learned'] < a['shuffled'], row
+              heldout=row['conditions']['signflip']
+              assert heldout['learned'] > heldout['repair_both'], row
+          print('PASS: in-distribution introspection benefit; held-out signflip failure boundary retained')
+          for kind in ('gaussian','dropout','signflip','permutation'):
+              print(kind,{k:round(statistics.mean(x['conditions'][kind][k] for x in d['runs']),6) for k in ('none','learned','logits_only_learned','learned_dynamics_probe','shuffled','repair_both','oracle')})
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-neural-five-seed-results
+          path: owi-neural-results.json
+          retention-days: 30
