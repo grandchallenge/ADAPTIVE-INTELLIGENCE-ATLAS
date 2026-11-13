@@ -74,7 +74,7 @@ class IntakeInvariantTests(unittest.TestCase):
         source = json.dumps(report)
         self.assertNotIn(SECRET, source)
         self.assertNotIn("class E", source)
-        self.assertNotIn("verifier", source.split('"partitions"')[1])
+        self.assertTrue(all("verifier" not in task for tasks in report["partitions"].values() for task in tasks))
 
     def test_nonexecuting_audit_and_source_hash(self):
         row = specimen()
