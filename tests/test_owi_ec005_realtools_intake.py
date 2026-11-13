@@ -8,6 +8,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
+from owi_ec005_realtools_schema import shape
 from owi_ec005_realtools_intake import (
     DatasetBoundaryError, audit_lines, public_view, private_inventory,
     canonical, remote_lines,
@@ -44,6 +45,14 @@ class IntakeInvariantTests(unittest.TestCase):
         private = private_inventory(row)
         self.assertTrue(private["has_skill_fields"])
         self.assertNotIn(SECRET, str(private))
+
+    def test_static_class_ast_inspection_does_not_execute_code(self):
+        row = specimen()
+        row["extra_info"]["environment"]["class_code"] = "class Example:\n    def inspect(self):\n        raise RuntimeError('must not execute')\n"
+        info = shape(row)
+        self.assertIn("inspect", info["class_methods"])
+        self.assertEqual(info["tools_per_environment"], 1)
+        self.assertIn("code:str", info["tool_dict_shapes"][0])
 
     def test_nonexecuting_audit_and_source_hash(self):
         row = specimen()
