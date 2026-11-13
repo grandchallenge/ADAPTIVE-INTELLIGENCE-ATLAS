@@ -81,7 +81,7 @@ def main():
     state = json.loads(raw)
     if not isinstance(state, dict) or set(state) != {"initial_state", "state"}:
         raise SystemExit("private final state message required")
-    result = run_verifier(data, state["state"])
+    result = run_verifier(data, state)
     print(json.dumps(result, sort_keys=True), flush=True)
 
 if __name__ == "__main__":
