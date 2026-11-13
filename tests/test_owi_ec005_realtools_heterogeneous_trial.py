@@ -117,6 +117,16 @@ class TestHeterogeneousInterventions(unittest.TestCase):
             "user_linked":True,"product_linked":True}})
         self.assertEqual(p.next_action()["tool"],"cancel_subscription")
 
+    def test_explicit_broken_subscription_link_overrides_generic_success(self):
+        self.assertFalse(Policy._valid_links({
+            "success": True, "valid": True,
+            "data": {"user_linked": True, "product_linked": False}}))
+        self.assertFalse(Policy._valid_links({
+            "links_valid": True,
+            "data": {"user_linked": False, "product_linked": True}}))
+        self.assertTrue(Policy._valid_links({
+            "success": True, "data": {"user_linked": True, "product_linked": True}}))
+
     def test_refuses_untrusted_strings(self):
         p=Policy(0,public(0),"probe")
         a=p.next_action()
