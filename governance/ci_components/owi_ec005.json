@@ -23,6 +23,10 @@
       "experiments/owi_ec005_realtools_heterogeneous_trial.py",
       "experiments/owi_ec005_realtools_intake.py",
       "experiments/owi_ec005_realtools_outcome_learner.py",
+      "experiments/owi_ec005_realtools_postprobe_discover.py",
+      "experiments/owi_ec005_realtools_postprobe_learner.py",
+      "experiments/owi_ec005_realtools_postprobe_status_audit.py",
+      "experiments/owi_ec005_realtools_postprobe_variants.py",
       "experiments/owi_ec005_realtools_randomized.py",
       "experiments/owi_ec005_realtools_sandbox.py",
       "experiments/owi_ec005_realtools_schema.py",
@@ -38,7 +42,9 @@
       "tests/test_owi_ec005_realtools_goal.py",
       "tests/test_owi_ec005_realtools_heterogeneous_trial.py",
       "tests/test_owi_ec005_realtools_intake.py",
-      "tests/test_owi_ec005_realtools_learner.py"
+      "tests/test_owi_ec005_realtools_learner.py",
+      "tests/test_owi_ec005_realtools_postprobe_discover.py",
+      "tests/test_owi_ec005_realtools_postprobe_learner.py"
     ],
     "prefixes": [],
     "test_prefixes": []
@@ -53,6 +59,7 @@
     "owi-ec005-realtools-family-survey",
     "owi-ec005-realtools-heterogeneous-intervention",
     "owi-ec005-realtools-contextual-learner",
-    "owi-ec005-realtools-contextual-bandit"
+    "owi-ec005-realtools-contextual-bandit",
+    "owi-ec005-realtools-postprobe"
   ]
 }
