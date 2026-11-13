@@ -33,6 +33,12 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_goal.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-learned-gates",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_learner.py"
+      ]
     }
   ],
   "legacy_test_paths": [
