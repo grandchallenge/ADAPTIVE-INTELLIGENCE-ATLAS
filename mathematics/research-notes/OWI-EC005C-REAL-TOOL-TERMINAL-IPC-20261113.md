@@ -34,6 +34,14 @@ Save chosen action and propensity, realized selected tool reply hash, actual too
 
 Adversarial tests exercise trusted state-changing fixtures, correct post-constructor snapshots, absence of verifier/source in the public view, missing/verifier-error invalidity, no-action abstention, and deterministic support for all three randomized arms. A separate GitHub Actions job runs the actual source-locked task in two separately jailed processes and retains only nonprivileged, bounded evidence. Protected merge requires the final head's required Atlas validation and the real live reward-loop job to pass.
 
+## Live randomized tool/terminal-check execution
+
+First successful [GitHub Actions job 43387178623](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43387178623) executed **12 real source-locked episodes**, not simulated counterfactual outcomes. Task row 1 had **13 private checklist functions**, and each completed episode obtained a valid scalar checker result after actual selected calls in the isolated environment worker and independent private verifier. The fixed randomized seed was 12; **stop: 2**, **probe once: 7**, **probe then retry: 3**, with logged first-stage action probability **1/3** for every realized episode. The chosen read-only API was list_notifiable_diseases. Thus 13 actual selected tool invocations were dispatched across the 12 episodes, with no unchosen tool calls.
+
+The observed mean checker reward was **0.1538 in every action arm** (consistent with 2 of 13 private checks passing), and the audit found **identical terminal environment state across arms**. This is the expected negative-control result: merely reading an unchanged database more often did not complete the user task. It is evidence of a working *real task-state / selected action / separate terminal verifier* causal measurement path, not evidence of an improving or reflective learner.
+
+The first integration attempt had no stdin-enabled Docker invocation and received only the worker readiness message; the corrected input channel then reached the checker and exposed a second state-envelope forwarding defect. Both were repaired in the source, and this final run passed the full live path. The pipeline's valid-reward evidence is restricted to the named source-pinned task, the deterministic randomization schedule, and the specified verifier semantics. The 51-family transfer and goal-directed state mutation experiments remain open.
+
 ## Remaining scientific programme
 
 - Add an independently verifiable **goal-directed mutating** action, not merely read-only probes, and measure causal improvement against no-action.
