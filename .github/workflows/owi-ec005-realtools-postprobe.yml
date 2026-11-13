@@ -1,0 +1,46 @@
+name: OWI-EC005H source-locked post-probe research
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_postprobe_*.py'
+      - 'tests/test_owi_ec005_realtools_postprobe_*.py'
+      - '.github/workflows/owi-ec005-realtools-postprobe.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+      - 'mathematics/research-notes/OWI-EC005H-POSTPROBE-20261113.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  public-variant-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Strict source family and private-field non-disclosure
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_postprobe_discover.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_postprobe_discover.py
+
+  pinned-natural-task-inventory:
+    needs: public-variant-boundary
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Read only verified public descriptions from three train families
+        run: |
+          python experiments/owi_ec005_realtools_postprobe_discover.py --limit 16
