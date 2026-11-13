@@ -11,6 +11,7 @@ import argparse
 import json
 from pathlib import Path
 from owi_ec005_realtools_randomized import IMAGE,call_child
+from owi_ec005_realtools_goal_policy import unpack_reply
 
 PROBES={
     0:("list_user_subscriptions",{"user_id":"USR001"},"USR001"),
@@ -49,5 +50,35 @@ def main():
             "private_terminal_state_discarded":True,
             "private_checker_never_mounted":True,
         },sort_keys=True,ensure_ascii=False))
+        if idx==0:
+            parsed=unpack_reply(rows[1]["content"])
+            candidates=[
+                item for item in (parsed.get("data") if isinstance(parsed.get("data"),list) else [])
+                if isinstance(item,dict)
+                and item.get("user_id")==kwargs["user_id"]
+                and item.get("subscription_status")=="active"
+                and item.get("recurrence_pattern")=="monthly"
+            ]
+            if not candidates:
+                raise RuntimeError("no publicly identifiable monthly subscription")
+            item=candidates[0]
+            actions=[
+                {"action":"call","tool":"get_product_by_id",
+                 "arguments":{"product_id":item["product_id"]}},
+                {"action":"call","tool":"check_subscription_links",
+                 "arguments":{"subscription_id":item["subscription_id"]}},
+                {"action":"finish"}]
+            result,_=call_child(
+                IMAGE,"experiments/owi_ec005_realtools_episode_worker.py",
+                task/"environment.json",
+                input_text="".join(json.dumps(a)+"\n" for a in actions))
+            if len(result)!=4 or any(x.get("kind")!="observation" for x in result[1:3]):
+                raise RuntimeError("public product/link IPC mismatch")
+            print("HETERO_SUBSCRIPTION_PUBLIC_DETAILS",json.dumps({
+                "name_lookup":result[1]["content"][:2200],
+                "link_validation":result[2]["content"][:2200],
+                "tool_schema_declared":all(a["tool"] in declared for a in actions[:-1]),
+                "private_checker_never_mounted":True,
+                "private_terminal_state_discarded":True},sort_keys=True))
 if __name__=="__main__":
     main()
