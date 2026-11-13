@@ -160,6 +160,8 @@ def run(config):
                      for arm in counts}
     same_state = all(len(x) == 1 for x in by_arm_states.values()) and (
         len(set(next(iter(x)) for x in by_arm_states.values())) == 1)
+    for row in rows:
+        row.pop("private_state_sha256_audit_only", None)
     report = {
         "contract": CONTRACT,
         "seed": config.seed, "episodes": len(rows),
