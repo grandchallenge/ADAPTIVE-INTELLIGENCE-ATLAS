@@ -99,9 +99,9 @@ def choose_ablation_context(original, kind, other):
     raise ValueError("unknown ablation")
 
 
-def load_tasks(input_dir):
+def load_tasks(input_dir,indices=ALL_ROWS):
     tasks={}
-    for i in ALL_ROWS:
+    for i in indices:
         folder=Path(input_dir)/str(i)
         public=json.loads((folder/"public.json").read_text())
         # Family preparation and lock verification are in the CI before this
@@ -110,9 +110,9 @@ def load_tasks(input_dir):
         tasks[i]={"public":public,"context":context,
                   "environment":folder/"environment.json",
                   "verifier":folder/"verifier.json"}
-    if float(tasks[0]["context"][0])!=0:
+    if 0 in tasks and float(tasks[0]["context"][0])!=0:
         raise ValueError("subscription unexpectedly has a direct target ID")
-    if any(float(tasks[i]["context"][0])!=1 for i in (2,3)):
+    if any(float(tasks[i]["context"][0])!=1 for i in (2,3) if i in tasks):
         raise ValueError("direct option unexpectedly unavailable")
     return tasks
 
@@ -179,7 +179,7 @@ def train(cfg):
     before=torch.cat([x.detach().flatten() for x in actor.parameters()])
     opt=torch.optim.Adam(actor.parameters(),lr=cfg.lr)
     rng=random.Random(cfg.seed*4051+47)
-    tasks=load_tasks(cfg.input_dir)
+    tasks=load_tasks(cfg.input_dir,indices=TRAIN_ROWS)
     baseline=defaultdict(lambda:None)
     trajectories=[]
     for n in range(cfg.episodes):
@@ -222,7 +222,9 @@ def train(cfg):
     weights_sha=hashlib.sha256(json.dumps(final.tolist(),
                        separators=(",",":")).encode()).hexdigest()
     actor.eval()
-    results=evaluate(actor,tasks,seed=cfg.seed,episodes=cfg.eval_episodes)
+    # First access to withheld family public context occurs after optimizer freeze.
+    evaluation_tasks=load_tasks(cfg.input_dir,indices=ALL_ROWS)
+    results=evaluate(actor,evaluation_tasks,seed=cfg.seed,episodes=cfg.eval_episodes)
     report={
         "contract":CONTRACT,
         "source_train_rows":list(TRAIN_ROWS),
