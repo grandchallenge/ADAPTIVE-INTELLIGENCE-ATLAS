@@ -23,13 +23,13 @@ class Stage2SafetyUnit(unittest.TestCase):
     def test_exact_source_public_action_mapping(self):
         self.assertEqual(stage2_action("stop"),None)
         self.assertEqual(stage2_action("reapply_correct"),"unavailable")
-        self.assertEqual(stage2_action("regress_unsafe"),"available")
-        self.assertEqual(set(ARMS),{"stop","reapply_correct","regress_unsafe"})
+        self.assertEqual(stage2_action("regress_noncompliant"),"available")
+        self.assertEqual(set(ARMS),{"stop","reapply_correct","regress_noncompliant"})
         self.assertEqual(stage2_action("stop","dinner"),None)
         self.assertEqual(stage2_action("reapply_correct","dinner"),"available")
-        self.assertEqual(stage2_action("regress_unsafe","dinner"),"unavailable")
+        self.assertEqual(stage2_action("regress_noncompliant","dinner"),"unavailable")
         with self.assertRaises(ValueError):
-            stage2_action("regress_unsafe","other_slot")
+            stage2_action("regress_noncompliant","other_slot")
         for forbidden in ("invented","oracle","private_state","fix_any",None):
             with self.assertRaises(ValueError):
                 stage2_action(forbidden)
