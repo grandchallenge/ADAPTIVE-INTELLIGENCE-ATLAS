@@ -21,9 +21,11 @@ MAX_CHECKS = 40
 MAX_CODE_CHARS = 120000
 
 def run_verifier(private, state):
-    if not isinstance(private, dict) or set(private) != {"verifier", "initial_state"}:
+    if not isinstance(private, dict) or set(private) != {"verifier"}:
         raise ValueError("invalid private verification bundle")
-    if not isinstance(private["initial_state"], dict) or not isinstance(state, dict):
+    if not isinstance(state, dict) or set(state) != {"initial_state", "state"}:
+        raise ValueError("expected initial/final state transport")
+    if not isinstance(state["initial_state"], dict) or not isinstance(state["state"], dict):
         raise ValueError("expected JSON state objects")
     verifier = private["verifier"]
     if not isinstance(verifier, dict) or verifier.get("kind") != "checklist_func":
@@ -38,14 +40,14 @@ def run_verifier(private, state):
         source = item["check_func"]
         if len(source) > MAX_CODE_CHARS:
             raise ValueError("oversized checker")
-        namespace = {"initial_state": deepcopy(private["initial_state"])}
+        namespace = {"initial_state": deepcopy(state["initial_state"])}
         try:
             # Intentionally executed ONLY in verifier's own restricted OS jail.
             exec(source, namespace)
             check = namespace.get("check_func")
             if not callable(check):
                 raise TypeError("check_func missing")
-            result = check(deepcopy(state))
+            result = check(deepcopy(state["state"]))
             if not isinstance(result, bool):
                 raise TypeError("check_func did not return bool")
             passed += int(result)
@@ -77,7 +79,7 @@ def main():
     if len(raw) > MAX_STATE_BYTES or not raw:
         raise SystemExit("invalid state message length")
     state = json.loads(raw)
-    if not isinstance(state, dict) or set(state) != {"state"}:
+    if not isinstance(state, dict) or set(state) != {"initial_state", "state"}:
         raise SystemExit("private final state message required")
     result = run_verifier(data, state["state"])
     print(json.dumps(result, sort_keys=True), flush=True)
