@@ -9,6 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from owi_ec005_realtools_schema import shape
+from owi_ec005_realtools_split import partition
 from owi_ec005_realtools_intake import (
     DatasetBoundaryError, audit_lines, public_view, private_inventory,
     canonical, remote_lines,
@@ -53,6 +54,27 @@ class IntakeInvariantTests(unittest.TestCase):
         self.assertIn("inspect", info["class_methods"])
         self.assertEqual(info["tools_per_environment"], 1)
         self.assertIn("code:str", info["tool_dict_shapes"][0])
+
+    def test_group_splits_prevent_environment_and_code_leakage(self):
+        rows = []
+        for i in range(10):
+            item = specimen()
+            item["prompt"][1]["content"] += " case " + str(i)
+            item["extra_info"]["environment"]["env_id"] = "env-" + str(i)
+            item["extra_info"]["environment"]["class_code"] = "class E" + str(i) + ": pass"
+            rows.append(item)
+        # Distinct identities sharing one underlying implementation MUST not
+        # cross partitions even if environment_id differs.
+        rows[1]["extra_info"]["environment"]["class_code"] = rows[0]["extra_info"]["environment"]["class_code"]
+        report = partition(rows, seed=11)
+        self.assertEqual(report["raw_task_count"], 10)
+        self.assertEqual(report["independent_connected_environment_families"], 9)
+        self.assertEqual(sum(report["partition_task_counts"].values()), 10)
+        self.assertTrue(report["invariants"]["no_shared_class_code"])
+        source = json.dumps(report)
+        self.assertNotIn(SECRET, source)
+        self.assertNotIn("class E", source)
+        self.assertNotIn("verifier", source.split('"partitions"')[1])
 
     def test_nonexecuting_audit_and_source_hash(self):
         row = specimen()
