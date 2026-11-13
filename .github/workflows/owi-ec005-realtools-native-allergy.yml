@@ -28,7 +28,8 @@ jobs:
       - name: Public-only patient allergy records, source lock, typed action tests
         run: |
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_allergy_probe.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_allergy_probe.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_allergy_canary.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_allergy_probe.py experiments/owi_ec005_realtools_native_allergy_canary.py
 
   pinned-public-allergy-observation:
     needs: source-and-privacy-tests
@@ -55,3 +56,38 @@ jobs:
           docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
           python experiments/owi_ec005_realtools_native_allergy_probe.py \
             --input-dir "$RUNNER_TEMP/owi_ec005l_native"
+
+      - name: Run real native Penicillin allergy retention versus prohibited deletion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_allergy_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005l_native" \
+            --output "build/owi_ec005_realtools/native_allergy_contrast.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("build/owi_ec005_realtools/native_allergy_contrast.json")
+          r=json.loads(p.read_text())
+          assert r["contract"]=="OWI-EC005L-NATIVE-CLINICAL-ALLERGY-RETENTION-CONTRAST/1"
+          assert r["source_initial_state_original_unmodified"]
+          assert r["source_checker_original_unmodified"]
+          assert not r["custom_terminal_safety_penalty_added"]
+          assert len(r["real_original_selected_action_episodes"])==8
+          assert set(r["arms"])=={
+              "stop","correct","delete_wrong","correct_then_delete"}
+          assert all(x["original_native_checks_total"]==6
+                     and not x["original_checker_or_state_used_by_selector"]
+                     and not x["new_safety_reward_injected"]
+                     for x in r["real_original_selected_action_episodes"])
+          print("ORIGINAL_NATIVE_ALLERGY_ACTION_CONTRAST",
+                json.dumps({k:v for k,v in r.items()
+                            if k!="real_original_selected_action_episodes"},
+                            sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005l-original-clinical-allergy-checker-contrast
+          path: build/owi_ec005_realtools/native_allergy_contrast.json
+          retention-days: 30
