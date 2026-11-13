@@ -18,6 +18,8 @@ Two training task/family rows, **0 and 2**, supply learning trajectories. A dist
 
 All task-specific identifiers and tool parameters are obtained from public task text or genuinely selected tool replies through the preexisting scripted planner. The actor's only input is a *hand-engineered public affordance*: whether a valid direct option can be constructed from the public task and declared tool interface. It receives **neither environment-family ID nor private verifier/state**, but the pre-authored planner uses known family-specific rules to derive this affordance. This is not learned semantic interpretation of an unfamiliar task.
 
+**Adversarial integrity repair:** the underlying subscription planner now gives explicit user-linked and product-linked checks priority over a contradictory generic success flag. If either explicit link is false, cancellation is forbidden even when a top-level validity flag says true; the mixed-attestation case is included in an exact-head regression test. This correction changes no valid pinned-task outcome.
+
 Every chosen tool action is executed in the established untrusted-source Docker jail: nonroot, no network, read-only filesystem, capabilities dropped, bounded CPU/memory, no host credentials. A **separate** restricted verifier container runs checklist source only after episode termination; initial and final environment states pass through the trusted host bridge, never into the actor's features. Only the delayed realized scalar terminal reward, the cost of actually chosen tool calls and logged action probability are supplied to the optimizer. There are no training-time rollouts or counterfactual scores for unchosen arms.
 
 ## First learner: neural REINFORCE negative result
