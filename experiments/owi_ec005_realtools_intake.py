@@ -11,7 +11,6 @@ import argparse
 import hashlib
 import json
 import re
-import statistics
 import urllib.request
 from collections import Counter
 from pathlib import Path
@@ -120,7 +119,8 @@ def audit_lines(lines: Iterable[bytes], *, sha256_expected: str = "",
         counts["public_message_total"] += len(view["messages"])
         environment_types[internal["environment_type"]] += 1
         verifier_types[internal["verifier_type"]] += 1
-        key_types.update(internal["environment_top_key_types"])
+        for key, type_name in internal["environment_top_key_types"].items():
+            key_types[f"{key}:{type_name}"] += 1
         if internal["has_skill_fields"]:
             counts["private_skill_bearing_records"] += 1
     actual = source_hash.hexdigest()
@@ -169,18 +169,37 @@ def main():
     ap.add_argument("--source-file", type=Path,
                     help="Local JSONL for offline tests, no network")
     ap.add_argument("--source-sha256", default="")
+    ap.add_argument("--source-lock", type=Path,
+                    default=Path("governance/research/OWI_EC005_TOOL_SOURCE_LOCK.json"))
     ap.add_argument("--output", type=Path,
                     default=Path("build/owi_ec005_realtools/source_inventory.json"))
     args = ap.parse_args()
-    revision = args.revision or ("offline-fixture" if args.source_file
-                                 else discover_revision())
+    pinned_sha = args.source_sha256
+    if args.source_file:
+        revision = args.revision or "offline-fixture"
+    else:
+        if args.source_lock.exists():
+            lock = json.loads(args.source_lock.read_text())
+            if (lock.get("repository") != REPO or lock.get("filename") != FILE
+                    or not REVISION.fullmatch(lock.get("revision", ""))
+                    or not re.fullmatch(r"[a-f0-9]{64}", lock.get("sha256", ""))):
+                raise DatasetBoundaryError("invalid pinned dataset lock")
+            if args.revision and args.revision != lock["revision"]:
+                raise DatasetBoundaryError("requested revision differs from source lock")
+            if pinned_sha and pinned_sha != lock["sha256"]:
+                raise DatasetBoundaryError("requested digest differs from source lock")
+            revision, pinned_sha = lock["revision"], lock["sha256"]
+        else:
+            if not args.revision:
+                raise DatasetBoundaryError("missing source lock or explicit pinned revision")
+            revision = args.revision
     if args.source_file:
         with args.source_file.open("rb") as f:
-            record = audit_lines(f, sha256_expected=args.source_sha256,
+            record = audit_lines(f, sha256_expected=pinned_sha,
                                  source_revision=revision)
     else:
         record = audit_lines(remote_lines(revision),
-                             sha256_expected=args.source_sha256,
+                             sha256_expected=pinned_sha,
                              source_revision=revision)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(record, sort_keys=True, indent=2) + "\n")
