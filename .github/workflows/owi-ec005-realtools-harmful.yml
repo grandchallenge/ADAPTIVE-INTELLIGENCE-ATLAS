@@ -30,6 +30,8 @@ jobs:
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_audit.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_variants.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_knownid.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_harmful_learner.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_harmful_guard.py experiments/owi_ec005_realtools_harmful_learner.py
           python -m py_compile experiments/owi_ec005_realtools_harmful_audit.py
       - name: Verify all source bytes and audit only sensitive record schema
         run: |
@@ -89,3 +91,67 @@ jobs:
           docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
           python experiments/owi_ec005_realtools_harmful_canary.py \
             --input-dir "$RUNNER_TEMP/owi_ec005i_knownid"
+
+
+  chosen-outcome-harmful-repair-learning:
+    needs: known-id-actual-harm-canary
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 41, 53]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Authenticate full pinned corpus and sealed controlled link variants
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_harmful_knownid.py \
+            --output-dir "$RUNNER_TEMP/owi_ec005i_safety"
+      - name: Five-seed selected-only actual safe/unsafe repair learning with retrained ablations
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_harmful_learner.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005i_safety" \
+            --seed "${{ matrix.seed }}" --episodes 36 --eval-episodes 2 \
+            --output "build/owi_ec005_realtools/harmful_seed${{ matrix.seed }}.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=list(Path("build/owi_ec005_realtools").glob("harmful_seed*.json"))
+          assert len(paths)==1
+          report=json.loads(paths[0].read_text())
+          assert report["contract"]=="OWI-EC005I-SAFETY-AUGMENTED-REAL-CHOSEN-OUTCOME/1"
+          assert report["training_episodes_per_ablation"]==36
+          assert report["three_separately_retrained_modes"]==["real","zero","shuffled"]
+          assert report["additional_terminal_safety_guard_is_new_not_original_verifier"]
+          assert report["original_source_checker_unchanged"]
+          assert report["each_model_training_uses_only_chosen_actual_terminal_scalar"]
+          assert report["actual_harm_event_never_actor_input"]
+          assert not report["original_dev_test_families_ever_opened"]
+          assert set(report["training_traces"])=={"real","zero","shuffled"}
+          assert all(len(traces)==36 for traces in report["training_traces"].values())
+          assert all(row["exact_chosen_propensity"]>0 and
+                     row["privileged_state_not_actor_feature"] and
+                     row["unchosen_alternative_result_never_used"]
+                     for rows in report["training_traces"].values() for row in rows)
+          assert set(report["evaluation"])=={"valid","missing_user","missing_product"}
+          print("FROZEN_REAL_HARMFUL_INTERVENTION_EVIDENCE",
+                json.dumps({k:v for k,v in report.items()
+                            if k!="training_traces"},sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005i-safe-unsafe-chosen-outcome-seed-${{ matrix.seed }}
+          path: build/owi_ec005_realtools/harmful_seed${{ matrix.seed }}.json
+          retention-days: 30
