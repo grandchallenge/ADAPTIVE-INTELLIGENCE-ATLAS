@@ -31,7 +31,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_schedule_probe.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_preservation_canary.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_schedule_probe.py experiments/owi_ec005_realtools_native_preservation_canary.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_preservation_gate.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_schedule_probe.py experiments/owi_ec005_realtools_native_preservation_canary.py experiments/owi_ec005_realtools_native_preservation_gate.py
 
   pinned-public-schedule-discovery:
     needs: source-scope-unit-tests
@@ -92,6 +93,29 @@ jobs:
                   json.dumps({k:v for k,v in r.items()
                               if k!="selected_executions"},sort_keys=True))
           PY
+      - name: Source-native reward suitability, independently reconciled selected outcomes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_preservation_gate.py \
+            --lunch "build/owi_ec005_realtools/native_preservation_lunch.json" \
+            --dinner "build/owi_ec005_realtools/native_preservation_dinner.json" \
+            --output "build/owi_ec005_realtools/native_preservation_gate.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ec005_realtools/native_preservation_gate.json").read_text())
+          assert r["contract"]=="OWI-EC005K-NATIVE-PRESERVATION-SUITABILITY/1"
+          assert r["unmodified_original_native_terminal_checker"]
+          assert not r["new_terminal_reward_used"]
+          assert r["actual_source_executions"]==12
+          assert r["exact_native_penalty_mechanisms"]==["dinner"]
+          assert r["original_native_reward_blind_spots"]==["lunch"]
+          assert not r["all_original_task_safety_criteria_certified"]
+          assert not r["outcome_only_reflective_control_established"]
+          print("SOURCE_LOCKED_NATIVE_SAFETY_ADJUDICATION",
+                json.dumps(r,sort_keys=True))
+          PY
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -99,4 +123,5 @@ jobs:
           path: |
             build/owi_ec005_realtools/native_preservation_lunch.json
             build/owi_ec005_realtools/native_preservation_dinner.json
+            build/owi_ec005_realtools/native_preservation_gate.json
           retention-days: 30
