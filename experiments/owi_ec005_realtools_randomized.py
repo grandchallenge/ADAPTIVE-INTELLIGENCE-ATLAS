@@ -32,7 +32,7 @@ def call_child(image, script, datafile, *, input_text="", timeout=30):
     source = Path(script).resolve()
     payload = Path(datafile).resolve()
     cmd = [
-        "docker", "run", "--rm", "--network", "none", "--cap-drop", "ALL",
+        "docker", "run", "-i", "--rm", "--network", "none", "--cap-drop", "ALL",
         "--security-opt", "no-new-privileges", "--read-only",
         "--user", "65534:65534", "--pids-limit", "64", "--memory", "768m",
         "--cpus", "1", "--tmpfs", "/tmp:rw,nosuid,nodev,size=32m",
