@@ -184,6 +184,10 @@ def train(cfg):
                                  for r in realized)/len(realized),
                 "evaluation_episodes":len(realized),
                 "sum_tool_seconds":sum(r["actual_tool_seconds"] for r in realized),
+                "mean_environment_container_seconds":sum(r["env_container_seconds"]
+                        for r in realized)/len(realized),
+                "mean_verifier_container_seconds":sum(r["checker_container_seconds"]
+                        for r in realized)/len(realized),
             }
         # Prospective baseline evaluator uses all options AFTER learner frozen.
         # It is not sent back to bandit update, no pseudo-counterfactual learning.
@@ -192,7 +196,10 @@ def train(cfg):
             r=run_option(tasks,idx,choice)
             controls[arm]={"terminal_reward":r["private_terminal_reward"],
                            "designed_utility":r["designed_utility"],
-                           "real_calls":r["chosen_calls"]}
+                           "real_calls":r["chosen_calls"],
+                           "environment_container_seconds":r["env_container_seconds"],
+                           "verifier_container_seconds":r["checker_container_seconds"],
+                           "actual_tool_seconds":r["actual_tool_seconds"]}
         evaluations[str(idx)]={
             "partition":"train" if idx in TRAIN_ROWS
                         else "training_partition_prospective_family_holdout",
