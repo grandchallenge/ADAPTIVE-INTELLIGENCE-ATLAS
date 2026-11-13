@@ -251,7 +251,8 @@ def run(config):
     delta=float((final_weights-initial_weights).abs().sum())
     if delta<=1e-8:
         raise RuntimeError("no genuine controller learning/update")
-    checksum=hashlib.sha256(final_weights.numpy().tobytes()).hexdigest()
+    checksum=hashlib.sha256(json.dumps(final_weights.tolist(),
+                           separators=(",",":")).encode()).hexdigest()
     # Held-out *episodes*, same task and same environment family: NOT transfer.
     evaluation={}
     for condition,abl in (("learned_normal","normal"),
