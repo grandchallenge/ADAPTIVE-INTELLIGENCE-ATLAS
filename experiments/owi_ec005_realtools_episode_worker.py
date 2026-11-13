@@ -20,7 +20,7 @@ from pathlib import Path
 
 MAX_COMMAND_BYTES = 65536
 MAX_OBSERVATION_CHARS = 8192
-MAX_CALLS = 6
+MAX_CALLS = 8
 
 def send(data):
     print(json.dumps(data, sort_keys=True, ensure_ascii=False), flush=True)
