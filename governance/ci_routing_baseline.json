@@ -84,7 +84,8 @@
       "id": "owi-ec005-realtools-native-reward",
       "test_globs": [
         "tests/test_owi_ec005_realtools_native_candidate_audit.py",
-        "tests/test_owi_ec005_realtools_native_moderation_probe.py"
+        "tests/test_owi_ec005_realtools_native_moderation_probe.py",
+        "tests/test_owi_ec005_realtools_native_moderation_canary.py"
       ]
     }
   ],
