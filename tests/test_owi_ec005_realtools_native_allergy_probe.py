@@ -9,6 +9,7 @@ from owi_ec005_realtools_native_allergy_probe import (
 
 def public():
     params={
+        "verify_user_authorization":["user_id","patient_id","action"],
         "get_authorized_user_info":["user_id"],
         "get_patient_allergy_by_substance":["user_id","patient_id","substance"],
         "get_allergy_details":["user_id","patient_id","substance"],
@@ -26,11 +27,11 @@ def public():
 
 class AllergySourceBoundary(unittest.TestCase):
     def test_declared_public_contract(self):
-        self.assertEqual(len(public_contract(public())),5)
+        self.assertEqual(len(public_contract(public())),6)
         with self.assertRaises(ValueError):
             public_contract({**public(),"verifier":"SECRET"})
         p=public()
-        p["tools"][1]["parameters"]["required"]=["user_id"]
+        p["tools"][2]["parameters"]["required"]=["user_id"]
         with self.assertRaises(ValueError):
             public_contract(p)
     def test_private_patient_demographics_not_exported(self):
