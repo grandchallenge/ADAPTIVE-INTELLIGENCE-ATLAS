@@ -21,6 +21,7 @@ from torch import nn
 from owi_ec004_core import Cfg, Core
 from owi_ec004_train import train_base
 from owi_ec005_conditional import make_batch, run_policy
+from owi_ec005_identify import identify_probe_value
 
 
 class Controller(nn.Module):
@@ -216,6 +217,13 @@ def main():
                         core, controller, cfg, seed=args.seed, mode=mode,
                         kind="gaussian", length=9, n=args.eval,
                         ablation=ablation)
+        if "active" in results:
+            actor = Controller()
+            saved = torch.load(folder / f"seed{args.seed}_active.pt",
+                               map_location="cpu", weights_only=True)
+            actor.load_state_dict(saved["controller"])
+            results["active"]["randomized_probe_identification"] = identify_probe_value(
+                core, actor, cfg, args.seed, batches=6, n=min(args.eval, 256))
         record = {
             "research": "OWI-EC-005", "seed": args.seed,
             "core_clean_accuracy": accuracy,
