@@ -1,0 +1,94 @@
+name: OWI-EC005G contextual real chosen-outcome training
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_contextual_learner.py'
+      - 'tests/test_owi_ec005_realtools_contextual_learner.py'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+      - 'mathematics/research-notes/OWI-EC005G-CONTEXTUAL-REAL-LEARNING-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-contextual.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contextual-boundary-and-gradient:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch for 12-parameter controller
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Adversarial context, sealed holdout and true chosen-action propensity tests
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_contextual_learner.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_contextual_learner.py
+
+  source-locked-contextual-learner:
+    needs: contextual-boundary-and-gradient
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Source pin, class-code grouping and training-family isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 0,2,3 --output-dir "$RUNNER_TEMP/owi_ec005g_contextual"
+      - name: Train selected-action only contextual bandit in physically isolated tool environments
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_contextual_learner.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005g_contextual" \
+            --seed "${{ matrix.seed }}" --episodes 96 --eval-episodes 2 \
+            --output "build/owi_ec005_realtools/contextual_seed${{ matrix.seed }}.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files=list(Path("build/owi_ec005_realtools").glob("contextual_seed*.json"))
+          assert len(files)==1
+          x=json.loads(files[0].read_text())
+          assert x["contract"]=="OWI-EC005G-REAL-CONTEXTUAL-CHOSEN-OUTCOME/1"
+          assert x["training_episodes"]==96
+          assert x["source_train_rows"]==[0,2]
+          assert x["prospective_train_partition_holdout_row"]==3
+          assert x["heldout_family_used_for_training"] is False
+          assert x["development_family_used"] is False
+          assert x["sealed_test_family_used"] is False
+          assert x["actor_parameter_l1_delta"]>0.0
+          assert all(t["private_fields_in_actor"] is False and
+                     t["unchosen_arm_evaluated_during_learning"] is False
+                     for t in x["training_trace"])
+          print("CONTEXTUAL_BOUNDED_FINAL_EVIDENCE",
+                json.dumps({k:v for k,v in x.items() if k!="training_trace"},
+                           sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005g-real-contextual-seed-${{ matrix.seed }}
+          path: build/owi_ec005_realtools/contextual_seed${{ matrix.seed }}.json
+          retention-days: 30
