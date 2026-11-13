@@ -85,7 +85,8 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_native_candidate_audit.py",
         "tests/test_owi_ec005_realtools_native_moderation_probe.py",
-        "tests/test_owi_ec005_realtools_native_moderation_canary.py"
+        "tests/test_owi_ec005_realtools_native_moderation_canary.py",
+        "tests/test_owi_ec005_realtools_native_high_review_canary.py"
       ]
     }
   ],
