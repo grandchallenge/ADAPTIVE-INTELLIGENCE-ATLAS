@@ -1,0 +1,44 @@
+name: OWI active self-probing witness
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_selfprobe.py'
+      - 'mathematics/research-notes/OWI-ACTIVE-SELF-PROBING-20261112.md'
+      - '.github/workflows/owi-selfprobe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check exact oracle and control invariants
+        run: python experiments/owi_selfprobe.py --self-test
+      - name: Five-seed randomized-intervention benchmark
+        run: python experiments/owi_selfprobe.py --seeds 1,2,3,4,5 --train 100000 --eval 70000 --output owi-results.json > /dev/null
+      - name: Verify empirical ordering and conservative certificate
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          data = json.load(open('owi-results.json', encoding='utf-8'))
+          for r in data['runs']:
+              x = r['risk']
+              assert x['active'] < x['passive'] < x['fixed']
+              assert x['active'] < x['shuffled']
+              assert r['probe_by_signal'] == {'evidence': False, 'compute': False, '?': True}
+              assert r['guaranteed_gain_vs_fixed_if_positive'] > 0
+          print('Five-seed randomized witness: PASS')
+          print(json.dumps(data['summary'], sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: owi-active-self-probing-five-seeds
+          path: owi-results.json
