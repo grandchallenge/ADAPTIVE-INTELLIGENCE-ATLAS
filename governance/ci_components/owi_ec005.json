@@ -1,0 +1,22 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005",
+  "owner": "OWI-EC-005 research implementation and adversarial replay, no mathematical certification",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005_actor_critic.py",
+      "experiments/owi_ec005_conditional.py",
+      "experiments/owi_ec005_identify.py",
+    "experiments/owi_ec005_privileged.py",
+      "experiments/owi_ec005_summarize.py",
+      "tests/test_owi_ec005.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "owi-ec005-conditional-invariants"
+  ]
+}
