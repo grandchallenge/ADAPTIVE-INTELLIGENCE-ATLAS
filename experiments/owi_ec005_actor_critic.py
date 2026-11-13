@@ -46,6 +46,7 @@ def fit(core, cfg, seed, mode, steps, *, batch_size=192, log=None):
     env_rng = torch.Generator().manual_seed(seed * 1000 + 511)
     actor_rng = torch.Generator().manual_seed(seed * 1000 + 512)
     records = []
+    sampled_trajectories = []  # logged chosen actions only, never audit labels
     core.eval()
     for p in core.parameters():
         p.requires_grad_(False)
@@ -73,6 +74,19 @@ def fit(core, cfg, seed, mode, steps, *, batch_size=192, log=None):
         loss.backward()
         nn.utils.clip_grad_norm_(controller.parameters(), 3.0)
         optimizer.step()
+        if (step + 1) % max(1, steps // 20) == 0:
+            for j in range(min(8, batch_size)):
+                sampled_trajectories.append({
+                    "step": step + 1, "position": j,
+                    "probe": int(out["probe"][j]),
+                    "repair": int(out["repair"][j]),
+                    "probe_propensity": (None if mode == "passive" else
+                                          float(out["propensity_probe"][j].detach())),
+                    "repair_propensity": float(out["propensity_repair"][j].detach()),
+                    "realized_terminal_loss": float(target[j]),
+                    "realized_replays": int(out["spent"][j]),
+                    "delayed_outcome_after_decisions": 2,
+                })
         if (step + 1) % max(1, steps // 10) == 0:
             row = {
                 "step": step + 1,
@@ -82,15 +96,15 @@ def fit(core, cfg, seed, mode, steps, *, batch_size=192, log=None):
                 "abstain_both_rate": float(((out["probe"] == 0) &
                                            (out["repair"] == 0)).float().mean()),
                 "behavior_probe_propensity": (None if mode == "passive"
-                    else float(out["propensity_probe"].mean())),
-                "behavior_repair_propensity": float(out["propensity_repair"].mean()),
+                    else float(out["propensity_probe"].detach().mean())), 
+                "behavior_repair_propensity": float(out["propensity_repair"].detach().mean()),
                 "behavior_epsilon": epsilon,
             }
             records.append(row)
             if log:
                 log({f"{mode}/{k}": v for k, v in row.items() if v is not None},
                     step=step + 1)
-    return controller, records
+    return controller, records, sampled_trajectories
 
 
 @torch.no_grad()
@@ -183,14 +197,16 @@ def main():
     modes = ["active", "passive"] if args.mode == "both" else [args.mode]
     if args.stage in ("train", "all"):
         for mode in modes:
-            controller, curve = fit(core, cfg, args.seed, mode, args.steps,
+            controller, curve, trace = fit(core, cfg, args.seed, mode, args.steps,
                                     batch_size=args.batch,
                                     log=(wb.log if wb else None))
             torch.save({"controller": controller.state_dict(), "curve": curve,
+                        "chosen_behavior_trace": trace,
                         "seed": args.seed, "mode": mode, "steps": args.steps},
                        folder / f"seed{args.seed}_{mode}.pt")
     if args.stage in ("evaluate", "all"):
         results = {}
+        trace_evidence = {}
         for mode in [*modes, "fixed_both"]:
             controller = None
             if mode != "fixed_both":
@@ -198,6 +214,7 @@ def main():
                                   map_location="cpu", weights_only=True)
                 controller = Controller()
                 controller.load_state_dict(data["controller"])
+                trace_evidence[mode] = data["chosen_behavior_trace"]
             results[mode] = {}
             for kind in ("gaussian", "dropout", "signflip", "roll", "small_noise",
                          "persistent", "coupled", "checkpoint"):
@@ -233,7 +250,8 @@ def main():
             "repair_behavior_support_floor": 0.05 / 4,
             "off_policy_correction": "none (updates use current mixture behavior policy)",
             "controller_core_joint_training": False,
-            "results": results, "elapsed_seconds": time.monotonic() - started,
+            "results": results, "chosen_behavior_trace": trace_evidence,
+            "elapsed_seconds": time.monotonic() - started,
         }
         dest = folder / f"seed{args.seed}_results.json"
         dest.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
