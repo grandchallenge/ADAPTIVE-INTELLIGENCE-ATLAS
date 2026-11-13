@@ -1,0 +1,12 @@
+{
+  "contract": "OWI-EC005-TOOL-SOURCE-LOCK/1",
+  "repository": "dongguanting/Agent-Reflex-RL-2K",
+  "filename": "train_envscaler_2550_with_skills.jsonl",
+  "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+  "sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+  "size_bytes": 159084981,
+  "observed_tasks": 2550,
+  "intake_run": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43383277037",
+  "source_usage": "Untrusted public data read-only; skills/verifier/environment private; never execute source code during intake",
+  "scientific_claim": "NOT_EVALUATED"
+}
