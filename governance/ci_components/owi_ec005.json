@@ -29,6 +29,9 @@
       "experiments/owi_ec005_realtools_harmful_variants.py",
       "experiments/owi_ec005_realtools_heterogeneous_trial.py",
       "experiments/owi_ec005_realtools_intake.py",
+      "experiments/owi_ec005_realtools_native_allergy_canary.py",
+      "experiments/owi_ec005_realtools_native_allergy_gate.py",
+      "experiments/owi_ec005_realtools_native_allergy_probe.py",
       "experiments/owi_ec005_realtools_native_candidate_audit.py",
       "experiments/owi_ec005_realtools_native_fidelity_gate.py",
       "experiments/owi_ec005_realtools_native_high_review_canary.py",
@@ -64,6 +67,9 @@
       "tests/test_owi_ec005_realtools_heterogeneous_trial.py",
       "tests/test_owi_ec005_realtools_intake.py",
       "tests/test_owi_ec005_realtools_learner.py",
+      "tests/test_owi_ec005_realtools_native_allergy_canary.py",
+      "tests/test_owi_ec005_realtools_native_allergy_gate.py",
+      "tests/test_owi_ec005_realtools_native_allergy_probe.py",
       "tests/test_owi_ec005_realtools_native_candidate_audit.py",
       "tests/test_owi_ec005_realtools_native_fidelity_gate.py",
       "tests/test_owi_ec005_realtools_native_high_review_canary.py",
@@ -94,6 +100,7 @@
     "owi-ec005-realtools-postprobe",
     "owi-ec005-realtools-harmful",
     "owi-ec005-realtools-native-reward",
-    "owi-ec005-realtools-native-preservation"
+    "owi-ec005-realtools-native-preservation",
+    "owi-ec005-realtools-native-allergy"
   ]
 }
