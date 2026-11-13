@@ -103,7 +103,8 @@
     {
       "id": "owi-ec005-realtools-native-allergy",
       "test_globs": [
-        "tests/test_owi_ec005_realtools_native_allergy_probe.py"
+        "tests/test_owi_ec005_realtools_native_allergy_probe.py",
+        "tests/test_owi_ec005_realtools_native_allergy_canary.py"
       ]
     }
   ],
