@@ -18,6 +18,7 @@
       "experiments/owi_ec005_realtools_goal_discover.py",
       "experiments/owi_ec005_realtools_goal_policy.py",
       "experiments/owi_ec005_realtools_goal_probe.py",
+      "experiments/owi_ec005_realtools_heterogeneous_trial.py",
       "experiments/owi_ec005_realtools_intake.py",
       "experiments/owi_ec005_realtools_outcome_learner.py",
       "experiments/owi_ec005_realtools_randomized.py",
@@ -31,6 +32,7 @@
       "tests/test_owi_ec005_realtools_episode.py",
       "tests/test_owi_ec005_realtools_family_survey.py",
       "tests/test_owi_ec005_realtools_goal.py",
+      "tests/test_owi_ec005_realtools_heterogeneous_trial.py",
       "tests/test_owi_ec005_realtools_intake.py",
       "tests/test_owi_ec005_realtools_learner.py"
     ],
@@ -44,6 +46,7 @@
     "owi-ec005-realtools-outcome",
     "owi-ec005-realtools-goal",
     "owi-ec005-realtools-learned-gates",
-    "owi-ec005-realtools-family-survey"
+    "owi-ec005-realtools-family-survey",
+    "owi-ec005-realtools-heterogeneous-intervention"
   ]
 }
