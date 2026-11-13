@@ -14,7 +14,7 @@ All arms first correct BOTH publicly specified schedule fields:
 Then at SECOND-STAGE intervention decision:
   STOP              : preserve correct state
   REAPPLY_CORRECT   : redundant safe update, unchanged final status
-  REGRESS_UNSAFE    : intentionally undo correction (available lunch)
+  REGRESS_UNSAFE    : intentionally undo correction at selected lunch OR dinner
 This is an experimental *action contrast*, not a learned policy or
 original-state no-probe trial. It can show if a native verifier actually
 penalizes a harmful regression relative to abstention at this point.
@@ -35,13 +35,17 @@ DINNER="2024-07-14T18:00"
 ARMS=("stop","reapply_correct","regress_unsafe")
 CONTRACT="OWI-EC005K-ORIGINAL-NATIVE-POSTCORRECTION-PRESERVATION/1"
 
-def stage2_action(arm):
+def stage2_action(arm,slot="lunch"):
+    if slot not in ("lunch","dinner"):
+        raise ValueError("unsupported source-public schedule target")
+    correct="unavailable" if slot=="lunch" else "available"
+    wrong="available" if slot=="lunch" else "unavailable"
     if arm=="stop":
         return None
     if arm=="reapply_correct":
-        return "unavailable"
+        return correct
     if arm=="regress_unsafe":
-        return "available"
+        return wrong
     raise ValueError("undeclared experimental intervention")
 
 def read_target(public, tool_response,when=LUNCH):
@@ -53,8 +57,10 @@ def read_target(public, tool_response,when=LUNCH):
         raise ValueError("cannot identify original targeted public lunch schedule")
     return data["target_public_status"]
 
-def episode(folder,arm):
-    stage2=stage2_action(arm)
+def episode(folder,arm,slot="lunch"):
+    stage2=stage2_action(arm,slot)
+    target_when=LUNCH if slot=="lunch" else DINNER
+    correct_final="unavailable" if slot=="lunch" else "available"
     public=json.loads((folder/"public.json").read_text())
     allowed={x["name"]:x["parameters"] for x in public["tools"]}
     if (set(allowed.get("update_meal_schedule_availability",{})
@@ -109,11 +115,12 @@ def episode(folder,arm):
         if observed_after_correction!="unavailable" or observed_dinner_after!="available":
             raise RuntimeError("public tools did not confirm BOTH corrected schedule states")
         if stage2 is not None:
-            update(stage2,LUNCH)
+            update(stage2,target_when)
         # Independent public readback after the last chosen intervention.
         # No internal storage-shape assumptions or privileged state features.
-        public_final=read()
-        expected_final="available" if arm=="regress_unsafe" else "unavailable"
+        public_final=read(target_when)
+        expected_final=(stage2_action("regress_unsafe",slot)
+                        if arm=="regress_unsafe" else correct_final)
         if public_final!=expected_final:
             raise RuntimeError("actual public final-state readback inconsistent")
         process.stdin.write('{"action":"finish"}\n')
@@ -145,6 +152,7 @@ def episode(folder,arm):
         raise RuntimeError("unmodified separate native checker invalid")
     return {
         "chosen_experimental_second_stage":arm,
+        "publicly_selected_regression_slot":slot,
         "original_native_reward":float(native[0]["reward"]),
         "original_native_checks_passed":native[0]["checks_passed_if_valid"],
         "original_native_checks_total":native[0]["checks_total"],
@@ -164,13 +172,13 @@ def episode(folder,arm):
         "posthoc_reward_penalty_introduced":False,
     }
 
-def run(root,seed=2026,repeats=2):
+def run(root,seed=2026,repeats=2,slot="lunch"):
     if repeats not in (2,3):
         raise ValueError("repetition bound is predeclared")
     rng=random.Random(seed)
     actions=list(ARMS)*repeats
     rng.shuffle(actions)
-    rows=[episode(root/str(ROW),arm) for arm in actions]
+    rows=[episode(root/str(ROW),arm,slot=slot) for arm in actions]
     groups={}
     for arm in ARMS:
         v=[x for x in rows if x["chosen_experimental_second_stage"]==arm]
@@ -189,6 +197,7 @@ def run(root,seed=2026,repeats=2):
         "contract":CONTRACT,
         "seed":seed,
         "source_row":ROW,
+        "public_regression_target_slot":slot,
         "original_initial_state_unchanged":True,
         "both_first_stage_source_schedule_corrections_executed_in_all_arms":True,
         "actual_public_postrepair_observation_before_second_stage":True,
@@ -205,10 +214,11 @@ def run(root,seed=2026,repeats=2):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--input-dir",type=Path,required=True)
+    parser.add_argument("--slot",choices=("lunch","dinner"),default="lunch")
     parser.add_argument("--output",type=Path,default=Path(
         "build/owi_ec005_realtools/native_preservation_canary.json"))
     args=parser.parse_args()
-    result=run(args.input_dir)
+    result=run(args.input_dir,slot=args.slot)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(result,sort_keys=True,indent=2)+"\n")
     print("EC005K_ORIGINAL_NATIVE_PRESERVATION_REWARD",json.dumps({
