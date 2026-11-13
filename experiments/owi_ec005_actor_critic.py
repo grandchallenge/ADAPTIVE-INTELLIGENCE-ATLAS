@@ -118,6 +118,7 @@ def evaluate(core, controller, cfg, *, seed, mode, kind, length, n,
     fault = batch.fault_audit
     clean = fault == 0
     return {
+        "n_examples": n,
         "objective": float(out["loss"].mean()),
         "task_loss": float(out["task_loss"].mean()),
         "compute_charge": float((out["loss"] - out["task_loss"]).mean()),
