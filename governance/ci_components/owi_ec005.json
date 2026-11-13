@@ -36,6 +36,9 @@
       "experiments/owi_ec005_realtools_native_meal_probe.py",
       "experiments/owi_ec005_realtools_native_moderation_canary.py",
       "experiments/owi_ec005_realtools_native_moderation_probe.py",
+      "experiments/owi_ec005_realtools_native_preservation_canary.py",
+      "experiments/owi_ec005_realtools_native_preservation_gate.py",
+      "experiments/owi_ec005_realtools_native_schedule_probe.py",
       "experiments/owi_ec005_realtools_outcome_learner.py",
       "experiments/owi_ec005_realtools_postprobe_discover.py",
       "experiments/owi_ec005_realtools_postprobe_learner.py",
@@ -68,6 +71,9 @@
       "tests/test_owi_ec005_realtools_native_meal_probe.py",
       "tests/test_owi_ec005_realtools_native_moderation_canary.py",
       "tests/test_owi_ec005_realtools_native_moderation_probe.py",
+      "tests/test_owi_ec005_realtools_native_preservation_canary.py",
+      "tests/test_owi_ec005_realtools_native_preservation_gate.py",
+      "tests/test_owi_ec005_realtools_native_schedule_probe.py",
       "tests/test_owi_ec005_realtools_postprobe_discover.py",
       "tests/test_owi_ec005_realtools_postprobe_learner.py"
     ],
@@ -87,6 +93,7 @@
     "owi-ec005-realtools-contextual-bandit",
     "owi-ec005-realtools-postprobe",
     "owi-ec005-realtools-harmful",
-    "owi-ec005-realtools-native-reward"
+    "owi-ec005-realtools-native-reward",
+    "owi-ec005-realtools-native-preservation"
   ]
 }
