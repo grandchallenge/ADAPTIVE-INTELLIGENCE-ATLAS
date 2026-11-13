@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'experiments/owi_ec005_realtools_family_survey.py'
+      - 'experiments/owi_ec005_realtools_family_public_specs.py'
       - 'tests/test_owi_ec005_realtools_family_survey.py'
       - 'governance/ci_components/owi_ec005.json'
       - 'governance/ci_routing_baseline.json'
@@ -27,7 +28,7 @@ jobs:
       - name: Verify survey source syntax and held-out-test privacy invariants
         run: |
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_family_survey.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_family_survey.py
+          python -m py_compile experiments/owi_ec005_realtools_family_survey.py experiments/owi_ec005_realtools_family_public_specs.py
 
   pinned-real-train-dev-survey:
     needs: sealed-family-split-and-leakage-tests
@@ -45,6 +46,8 @@ jobs:
           python experiments/owi_ec005_realtools_family_survey.py \
             --examples-per-family 2 \
             --output build/owi_ec005_realtools/heterogeneous_survey.json
+      - name: Inspect three preselected training families without private code/verification
+        run: python experiments/owi_ec005_realtools_family_public_specs.py --indices 0,2,3
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ec005f-public-train-dev-survey
