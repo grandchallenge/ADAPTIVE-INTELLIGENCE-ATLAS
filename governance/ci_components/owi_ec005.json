@@ -8,6 +8,7 @@
       "experiments/owi_ec005_actor_critic.py",
       "experiments/owi_ec005_conditional.py",
       "experiments/owi_ec005_identify.py",
+    "experiments/owi_ec005_privileged.py",
       "experiments/owi_ec005_summarize.py",
       "tests/test_owi_ec005.py"
     ],
