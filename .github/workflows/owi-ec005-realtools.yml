@@ -28,7 +28,7 @@ jobs:
       - name: Offline adversarial source-isolation invariants
         run: python -m unittest discover -s tests -p 'test_owi_ec005_realtools_intake.py' -v
       - name: Compile intake source
-        run: python -m py_compile experiments/owi_ec005_realtools_intake.py experiments/owi_ec005_realtools_schema.py
+        run: python -m py_compile experiments/owi_ec005_realtools_intake.py experiments/owi_ec005_realtools_schema.py experiments/owi_ec005_realtools_split.py
 
   real-corpus-read-only-preflight:
     needs: source-isolation-tests
@@ -48,6 +48,8 @@ jobs:
             --output build/owi_ec005_realtools/source_inventory.json
           python experiments/owi_ec005_realtools_schema.py \
             --output build/owi_ec005_realtools/ast_schema.json
+          python experiments/owi_ec005_realtools_split.py \
+            --output build/owi_ec005_realtools/group_split.json
           python - <<'PY'
           import json
           from pathlib import Path
@@ -66,4 +68,5 @@ jobs:
           path: |
             build/owi_ec005_realtools/source_inventory.json
             build/owi_ec005_realtools/ast_schema.json
+            build/owi_ec005_realtools/group_split.json
           retention-days: 30
