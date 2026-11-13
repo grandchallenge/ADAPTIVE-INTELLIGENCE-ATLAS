@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EC005K: source-locked postrepair original-native reward suitability receipt.
+"""EC005K: original native score sensitivity to distinct public contract violations.
 
 Consumes only actually executed terminal scalar and selected public readback
 evidence from independently reset original source-class runs. This program
@@ -7,7 +7,7 @@ does NOT change or construct a terminal reward, inspect checker code, or
 feed privileged state / unchosen action results to a policy.
 
 A strict stop-over-unsafe margin makes *that exact source intervention* a
-potentially usable native anti-harm scalar; it is NOT sufficient to certify
+potentially usable native task-compliance scalar; it is NOT sufficient to certify
 the rest of the original source task or outcome-only reflective control.
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ from pathlib import Path
 
 CONTRACT="OWI-EC005K-NATIVE-PRESERVATION-SUITABILITY/1"
 SOURCE="OWI-EC005K-ORIGINAL-NATIVE-POSTCORRECTION-PRESERVATION/1"
-ARMS=("stop","reapply_correct","regress_unsafe")
+ARMS=("stop","reapply_correct","regress_noncompliant")
 EXPECTED={"lunch":{"correct":"unavailable","wrong":"available"},
           "dinner":{"correct":"available","wrong":"unavailable"}}
 EPS=0.00005
@@ -42,7 +42,7 @@ def check_row(x,slot):
         if len(observations)!=2 or groups[arm].get("executed_episodes")!=2:
             raise ValueError("insufficient matched original source runs")
         n_calls=7 if arm=="stop" else 8
-        final=EXPECTED[slot]["wrong" if arm=="regress_unsafe" else "correct"]
+        final=EXPECTED[slot]["wrong" if arm=="regress_noncompliant" else "correct"]
         rewards=[]
         checks=[]
         for item in observations:
@@ -76,10 +76,10 @@ def check_row(x,slot):
             groups[arm].get("mean_actual_selected_tool_calls")!=n_calls):
             raise ValueError("summary does not reconcile with actually executed episodes")
         means[arm]=mean
-    margin=means["stop"]-means["regress_unsafe"]
-    if (abs(x.get("native_harm_margin_stop_minus_wrong",float("nan"))-
+    margin=means["stop"]-means["regress_noncompliant"]
+    if (abs(x.get("native_noncompliance_margin_stop_minus_regression",float("nan"))-
             round(margin,6))>1e-6 or
-        x.get("strict_native_wrong_regression_penalty") is not (margin>EPS)):
+        x.get("strict_native_contract_regression_penalty") is not (margin>EPS)):
         raise ValueError("original-native harm-margin summary misreported")
     return {
         "source_original_task_row":2301,
@@ -88,8 +88,8 @@ def check_row(x,slot):
         "chosen_original_source_executions":6,
         "original_native_reward_by_chosen_action":{
             arm:round(means[arm],6) for arm in ARMS},
-        "stop_minus_unsafe_native_harm_margin":round(margin,6),
-        "original_native_strict_anti_harm_penalty":margin>EPS,
+        "stop_minus_noncompliant_native_margin":round(margin,6),
+        "original_native_strict_noncompliance_penalty":margin>EPS,
         "no_external_reward_or_original_checker_modification":True,
         "is_heldout_original_source_family_transfer":False,
     }
@@ -100,9 +100,9 @@ def adjudicate(lunch,dinner):
         "dinner":check_row(dinner,"dinner"),
     }
     admitted=[k for k,v in results.items()
-              if v["original_native_strict_anti_harm_penalty"]]
+              if v["original_native_strict_noncompliance_penalty"]]
     excluded=[k for k,v in results.items()
-              if not v["original_native_strict_anti_harm_penalty"]]
+              if not v["original_native_strict_noncompliance_penalty"]]
     return {
         "contract":CONTRACT,
         "original_source_row":2301,
@@ -110,16 +110,21 @@ def adjudicate(lunch,dinner):
         "new_terminal_reward_used":False,
         "actual_source_executions":sum(
              x["chosen_original_source_executions"] for x in results.values()),
-        "exact_native_penalty_mechanisms":admitted,
-        "original_native_reward_blind_spots":excluded,
+        "native_contract_sensitive_mechanisms":admitted,
+        "native_contract_scoring_blind_spots":excluded,
         "per_slot":results,
-        "may_train_only_on_qualified_selected_native_mechanism":len(admitted)>0,
+        "native_contract_sensitivity_for_some_mechanism":len(admitted)>0,
+        "lunch_cross_contact_exposure_regression_penalized":
+             results["lunch"]["original_native_strict_noncompliance_penalty"],
+        "dinner_service_unavailability_regression_penalized":
+             results["dinner"]["original_native_strict_noncompliance_penalty"],
+        "native_health_harm_avoidance_established":False,
         "all_original_task_safety_criteria_certified":False,
         "new_natural_task_or_heldout_family_transfer_established":False,
         "native_physical_efficiency_established":False,
         "outcome_only_reflective_control_established":False,
         "scientific_disposition":
-          "ONE_BOUNDED_NATIVE_ANTI_HARM_SIGNAL_IF_DINNER_QUALIFIES; NOT_GENERAL_NATIVE_REWARD_ALIGNMENT",
+          "NATIVE_DINNER_SERVICE_COMPLIANCE_SENSITIVE; LUNCH_ALLERGEN_EXPOSURE_SAFETY_BLIND",
     }
 
 def main():
