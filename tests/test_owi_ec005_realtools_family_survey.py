@@ -8,6 +8,8 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"experiments"))
 from owi_ec005_realtools_family_survey import audit_source,public_family_survey
 from owi_ec005_realtools_intake import DatasetBoundaryError,REPO,FILE
+from owi_ec005_realtools_split import partition
+from owi_ec005_realtools_family_prepare import build
 
 
 def fixture():
@@ -61,6 +63,28 @@ class TestPublicHeterogeneousSurvey(unittest.TestCase):
             audit_source({**lock,"sha256":"0"*64},lines=lines)
         with self.assertRaises(DatasetBoundaryError):
             audit_source({**lock,"observed_tasks":9},lines=lines)
+
+    def test_private_bundle_rejected_on_heldout_and_separate_on_train(self):
+        rows=fixture()
+        for i,row in enumerate(rows):
+            row["extra_info"]["environment"]["class_name"]="Fixture"+str(i)
+        p=partition(rows,seed=4611)
+        index=p["partitions"]["train"][0]["row_index"]
+        hidden=p["partitions"]["test"][0]["row_index"]
+        selected=build(rows,[index])
+        self.assertEqual(len(selected),1)
+        idx,fam,public,environment,private=selected[0]
+        self.assertEqual(idx,index)
+        self.assertEqual(set(environment),{
+            "class_code","class_name","initial_state","tools"})
+        self.assertEqual(set(private),{"verifier"})
+        self.assertNotIn("SECRET_CHECK",json.dumps(public))
+        self.assertNotIn("DO_NOT_SHOW",json.dumps(public))
+        self.assertNotIn("SECRET_SKILL",json.dumps(public))
+        with self.assertRaises(DatasetBoundaryError):
+            build(rows,[hidden])
+        with self.assertRaises(DatasetBoundaryError):
+            build(rows,[index,index])
 
     def test_example_bounds(self):
         with self.assertRaises(DatasetBoundaryError):
