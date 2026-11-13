@@ -9,6 +9,7 @@
       "experiments/owi_ec005_conditional.py",
       "experiments/owi_ec005_identify.py",
       "experiments/owi_ec005_privileged.py",
+      "experiments/owi_ec005_realtools_contextual_learner.py",
       "experiments/owi_ec005_realtools_episode_select.py",
       "experiments/owi_ec005_realtools_episode_worker.py",
       "experiments/owi_ec005_realtools_family_prepare.py",
@@ -29,6 +30,7 @@
       "experiments/owi_ec005_realtools_terminal_verifier.py",
       "experiments/owi_ec005_summarize.py",
       "tests/test_owi_ec005.py",
+      "tests/test_owi_ec005_realtools_contextual_learner.py",
       "tests/test_owi_ec005_realtools_episode.py",
       "tests/test_owi_ec005_realtools_family_survey.py",
       "tests/test_owi_ec005_realtools_goal.py",
@@ -47,6 +49,7 @@
     "owi-ec005-realtools-goal",
     "owi-ec005-realtools-learned-gates",
     "owi-ec005-realtools-family-survey",
-    "owi-ec005-realtools-heterogeneous-intervention"
+    "owi-ec005-realtools-heterogeneous-intervention",
+    "owi-ec005-realtools-contextual-learner"
   ]
 }
