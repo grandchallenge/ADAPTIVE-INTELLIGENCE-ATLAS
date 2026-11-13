@@ -99,6 +99,12 @@
         "tests/test_owi_ec005_realtools_native_preservation_canary.py",
         "tests/test_owi_ec005_realtools_native_preservation_gate.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-native-allergy",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_native_allergy_probe.py"
+      ]
     }
   ],
   "legacy_test_paths": [
