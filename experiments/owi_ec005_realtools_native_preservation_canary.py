@@ -104,6 +104,12 @@ def episode(folder,arm):
             raise RuntimeError("source public tool did not confirm corrected state")
         if stage2 is not None:
             update(stage2)
+        # Independent public readback after the last chosen intervention.
+        # No internal storage-shape assumptions or privileged state features.
+        public_final=read()
+        expected_final="available" if arm=="regress_unsafe" else "unavailable"
+        if public_final!=expected_final:
+            raise RuntimeError("actual public final-state readback inconsistent")
         process.stdin.write('{"action":"finish"}\n')
         process.stdin.flush()
         terminal=receive(process)
@@ -131,20 +137,6 @@ def episode(folder,arm):
     if (len(native)!=1 or native[0].get("contract")!=
         "OWI-EC005-TERMINAL-REWARD/1" or native[0].get("valid") is not True):
         raise RuntimeError("unmodified separate native checker invalid")
-    # NOTE: direct final state is privileged, not an actor observation.
-    # Public selected verification already occurred prior to second action.
-    # We report only a coarse evaluator-only final-state predicate.
-    schedules=terminal["state"].get("meal_schedules")
-    if not isinstance(schedules,(list,dict)):
-        raise RuntimeError("original meal schedule state missing")
-    seq=list(schedules.values()) if isinstance(schedules,dict) else schedules
-    target=[v for v in seq if isinstance(v,dict) and v.get("meal_id")==TARGET
-            and v.get("scheduled_datetime")==LUNCH]
-    if len(target)!=1:
-        raise RuntimeError("inconsistent target final meal schedule")
-    final_status=target[0].get("availability_sta")
-    if final_status!=("available" if arm=="regress_unsafe" else "unavailable"):
-        raise RuntimeError("actual source state does not reflect chosen final action")
     return {
         "chosen_experimental_second_stage":arm,
         "original_native_reward":float(native[0]["reward"]),
@@ -153,7 +145,7 @@ def episode(folder,arm):
         "public_observed_before":"available",
         "public_observed_after_first_correction":"unavailable",
         "source_mutation_actually_occurred":True,
-        "privileged_evaluator_final_status_not_actor_feature":final_status,
+        "genuine_final_public_status_evaluator_only":public_final,
         "actual_selected_tool_calls":len(receipt),
         "actual_selected_tool_trace":receipt,
         "source_docker_wall_seconds":elapsed,
