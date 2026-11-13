@@ -22,6 +22,7 @@ from owi_ec004_core import Cfg, Core
 from owi_ec004_train import train_base
 from owi_ec005_conditional import make_batch, run_policy
 from owi_ec005_identify import identify_probe_value
+from owi_ec005_privileged import privileged_oracle
 
 
 class Controller(nn.Module):
@@ -241,6 +242,8 @@ def main():
             actor.load_state_dict(saved["controller"])
             results["active"]["randomized_probe_identification"] = identify_probe_value(
                 core, actor, cfg, args.seed, batches=6, n=min(args.eval, 256))
+        results["privileged_oracle"] = privileged_oracle(
+            core, cfg, args.seed, kind="gaussian", length=9, n=args.eval)
         record = {
             "research": "OWI-EC-005", "seed": args.seed,
             "core_clean_accuracy": accuracy,
@@ -257,7 +260,7 @@ def main():
         dest.write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
         print("EC005_RESULT", str(dest), "gaussian",
               {k: round(v["gaussian"]["objective"], 6)
-               for k, v in results.items()}, flush=True)
+               for k, v in results.items() if "gaussian" in v}, flush=True)
     if wb:
         wb.finish()
 
