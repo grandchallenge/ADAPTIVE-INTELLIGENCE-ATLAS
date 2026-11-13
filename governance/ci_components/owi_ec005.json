@@ -12,6 +12,7 @@
       "experiments/owi_ec005_realtools_episode_select.py",
       "experiments/owi_ec005_realtools_episode_worker.py",
       "experiments/owi_ec005_realtools_goal_discover.py",
+      "experiments/owi_ec005_realtools_goal_policy.py",
       "experiments/owi_ec005_realtools_goal_probe.py",
       "experiments/owi_ec005_realtools_intake.py",
       "experiments/owi_ec005_realtools_randomized.py",
@@ -23,6 +24,7 @@
       "experiments/owi_ec005_summarize.py",
       "tests/test_owi_ec005.py",
       "tests/test_owi_ec005_realtools_episode.py",
+      "tests/test_owi_ec005_realtools_goal.py",
       "tests/test_owi_ec005_realtools_intake.py"
     ],
     "prefixes": [],
@@ -32,6 +34,7 @@
   "checks": [
     "owi-ec005-conditional-invariants",
     "owi-ec005-realtools-source-isolation",
-    "owi-ec005-realtools-outcome"
+    "owi-ec005-realtools-outcome",
+    "owi-ec005-realtools-goal"
   ]
 }
