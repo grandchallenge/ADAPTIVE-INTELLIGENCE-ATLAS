@@ -29,7 +29,8 @@ jobs:
         run: |
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_candidate_audit.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_probe.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_canary.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py
 
   pinned-independent-native-candidates:
     needs: native-checker-scope
@@ -71,3 +72,34 @@ jobs:
           docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
           python experiments/owi_ec005_realtools_native_moderation_probe.py \
             --input-dir "$RUNNER_TEMP/owi_ec005j_moderation"
+
+      - name: Native original checklist correct versus wrong moderation contrast
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_moderation_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_moderation" \
+            --seed 2026 --repeats 2 \
+            --output "build/owi_ec005_realtools/native_moderation_canary.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ec005_realtools/native_moderation_canary.json").read_text())
+          assert r["contract"]=="OWI-EC005J-UNMODIFIED-NATIVE-MODERATION-CAUSAL-TRIAL/1"
+          assert r["native_verifier_unchanged"]
+          assert not r["custom_safety_penalty_added"]
+          assert r["publicly_selected_review_identity_same_across_arms"]
+          assert set(r["arm_summary"])=={"stop","reject","approve_wrongly"}
+          assert len(r["episodes"])==6
+          assert all(e["native_checks_total"]==17 and not
+                     e["private_source_or_checker_in_policy"]
+                     for e in r["episodes"])
+          print("NATIVE_ORIGINAL_CHECKER_CONTRAST",json.dumps(r["arm_summary"],
+                sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005j-native-checker-correct-wrong-review
+          path: build/owi_ec005_realtools/native_moderation_canary.json
+          retention-days: 30
