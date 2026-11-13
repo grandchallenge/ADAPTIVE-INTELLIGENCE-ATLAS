@@ -30,7 +30,8 @@ jobs:
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_candidate_audit.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_probe.py' -v
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_moderation_canary.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_high_review_canary.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_candidate_audit.py experiments/owi_ec005_realtools_native_moderation_probe.py experiments/owi_ec005_realtools_native_moderation_canary.py experiments/owi_ec005_realtools_native_high_review_canary.py
 
   pinned-independent-native-candidates:
     needs: native-checker-scope
@@ -97,9 +98,32 @@ jobs:
           print("NATIVE_ORIGINAL_CHECKER_CONTRAST",json.dumps(r["arm_summary"],
                 sort_keys=True))
           PY
+      - name: Native original checker high-rating active-review approval versus prohibited rejection
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_high_review_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005j_moderation" \
+            --output "build/owi_ec005_realtools/native_high_review_canary.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ec005_realtools/native_high_review_canary.json").read_text())
+          assert r["contract"]=="OWI-EC005J-UNMODIFIED-NATIVE-HIGH-RATING-MODERATION/1"
+          assert r["original_native_verifier_untouched"]
+          assert not r["separate_safety_guard"]
+          assert set(r["arm_summary"])=={"stop","approve","reject_wrongly"}
+          assert all(x["original_native_checks_total"]==17
+                     and not x["private_state_or_check_in_policy"]
+                     for x in r["selected_episodes"])
+          print("NATIVE_HIGH_REVIEW_ORIGINAL_CHECKER_RESULT",
+                json.dumps(r["arm_summary"],sort_keys=True))
+          PY
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ec005j-native-checker-correct-wrong-review
-          path: build/owi_ec005_realtools/native_moderation_canary.json
+          path: |
+            build/owi_ec005_realtools/native_moderation_canary.json
+            build/owi_ec005_realtools/native_high_review_canary.json
           retention-days: 30
