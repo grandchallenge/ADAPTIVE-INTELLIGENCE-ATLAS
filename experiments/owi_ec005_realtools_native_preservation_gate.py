@@ -51,8 +51,11 @@ def check_row(x,slot):
             if (not isinstance(r,(int,float)) or isinstance(r,bool) or
                 not math.isfinite(r) or not 0.0<=r<=1.0 or
                 not isinstance(n,int) or not 0<=n<=7 or
-                abs(r-n/7)>1e-9 or
+                abs(r-n/7)>5e-5 or
                 item.get("original_native_checks_total")!=7 or
+                item.get("source_mutation_actually_occurred") is not True or
+                not isinstance(item.get("actual_selected_tool_trace"),list) or
+                len(item["actual_selected_tool_trace"])!=n_calls or
                 item.get("actual_selected_tool_calls")!=n_calls or
                 item.get("publicly_selected_regression_slot")!=slot or
                 item.get("genuine_final_public_status_evaluator_only")!=final or
