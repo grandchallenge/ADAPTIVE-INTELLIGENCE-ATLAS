@@ -1,0 +1,91 @@
+name: OWI-EC005E real outcome-only learned option gates
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_realtools_outcome_learner.py'
+      - 'tests/test_owi_ec005_realtools_learner.py'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+      - 'mathematics/research-notes/OWI-EC005E-REAL-OUTCOME-LEARNING-20261113.md'
+      - '.github/workflows/owi-ec005-realtools-learning.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  neural-observation-boundary-and-gradient:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Test gate separation, chosen propensities and gradient
+        run: |
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_learner.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_goal.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_outcome_learner.py
+
+  source-locked-on-policy-real-training:
+    needs: neural-observation-boundary-and-gradient
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Verify full source digest and prepare isolated real task
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_episode_select.py --row-index 1 --destination "$RUNNER_TEMP/owi_ec005e_real"
+      - name: Train neural gates on chosen real terminal outcomes
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_outcome_learner.py \
+            --public "$RUNNER_TEMP/owi_ec005e_real/public.json" \
+            --environment "$RUNNER_TEMP/owi_ec005e_real/environment.json" \
+            --verifier "$RUNNER_TEMP/owi_ec005e_real/verifier.json" \
+            --seed "${{ matrix.seed }}" --episodes 72 --eval-episodes 4 \
+            --output "build/owi_ec005_realtools/learned_seed${{ matrix.seed }}.json"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rows=list(Path('build/owi_ec005_realtools').glob('learned_seed*.json'))
+          assert len(rows)==1
+          r=json.loads(rows[0].read_text())
+          assert r['training_episodes']==72
+          assert r['model_weight_l1_delta']>0
+          assert r['private_verifier_not_accessible_to_learner']
+          assert not r['counterfactual_actions_trained']
+          assert r['scientific_acceptance']=='NOT_ESTABLISHED'
+          assert all(len(x['chosen_gate_actions']) for x in r['training_curve'])
+          print('EXACT_SOURCE_REAL_OUTCOME_LEARNING',
+                json.dumps({k:v for k,v in r.items() if k not in ('training_curve',)},
+                           sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005e-real-chosen-learning-seed-${{ matrix.seed }}
+          path: build/owi_ec005_realtools/learned_seed${{ matrix.seed }}.json
+          retention-days: 30
