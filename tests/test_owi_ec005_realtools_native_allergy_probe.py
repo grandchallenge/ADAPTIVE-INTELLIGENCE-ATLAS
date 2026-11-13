@@ -30,7 +30,7 @@ class AllergySourceBoundary(unittest.TestCase):
         with self.assertRaises(ValueError):
             public_contract({**public(),"verifier":"SECRET"})
         p=public()
-        p["tools"][0]["parameters"]["required"]=["user_id"]
+        p["tools"][1]["parameters"]["required"]=["user_id"]
         with self.assertRaises(ValueError):
             public_contract(p)
     def test_private_patient_demographics_not_exported(self):
