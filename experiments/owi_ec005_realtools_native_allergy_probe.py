@@ -135,6 +135,15 @@ def run(input_dir):
                 "public_authorized":(
                     decoded.get("authorized",decoded.get("is_authorized"))
                     if isinstance(decoded,dict) else None),
+                "public_verification_details":(
+                    {k:decoded["details"][k] for k in (
+                        "reason","required_permission","required_right",
+                        "action","user_has_right","permission_checked")
+                     if k in decoded["details"]}
+                    if isinstance(decoded,dict) and
+                       isinstance(decoded.get("details"),dict) else
+                    str(decoded.get("details",""))[:160]
+                    if isinstance(decoded,dict) else None),
                 "public_error":str(decoded.get("error",""))[:120]
                     if isinstance(decoded,dict) else "unparsed",
                 "public_data_summary":(
