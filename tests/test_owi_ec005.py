@@ -12,6 +12,7 @@ from owi_ec004_core import Cfg, Core
 from owi_ec005_conditional import make_batch, run_policy, public_telemetry
 from owi_ec005_actor_critic import fit, Controller, evaluate
 from owi_ec005_identify import identify_probe_value
+from owi_ec005_privileged import privileged_oracle
 
 
 class Forced:
@@ -129,12 +130,24 @@ class Tests(unittest.TestCase):
         self.assertEqual(sum(estimate["arm_counts"]), 32)
         self.assertTrue(math.isfinite(estimate["benefit_probe_A"]["estimate"]))
 
+    def test_privileged_oracle_is_separate_and_paired(self):
+        audit = privileged_oracle(self.core, self.cfg, 55,
+                                  kind="gaussian", length=9, n=16)
+        fixed = evaluate(self.core, None, self.cfg, seed=55,
+                         mode="fixed_both", kind="gaussian", length=9, n=16)
+        self.assertAlmostEqual(audit["fixed_both"], fixed["objective"], places=6)
+        self.assertLessEqual(audit["omniscient_repair_lower_bound"],
+                             audit["fixed_both"])
+
     def test_small_actor_critic_iteration_both_modes(self):
         for mode in ("active", "passive"):
-            model, rows = fit(self.core, self.cfg, 1, mode, 3, batch_size=8)
+            model, rows, trace = fit(self.core, self.cfg, 1, mode, 3, batch_size=8)
             self.assertEqual(rows[-1]["step"], 3)
             self.assertTrue(math.isfinite(rows[-1]["outcome_only_cost"]))
             self.assertIsNotNone(model)
+            self.assertTrue(trace)
+            self.assertNotIn("fault_audit", trace[0])
+            self.assertIn("realized_terminal_loss", trace[0])
 
 
 if __name__ == "__main__":
