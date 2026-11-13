@@ -94,7 +94,7 @@ def summarize(folder, seeds):
         "mean_executed_dense_macs_per_example": {
             mode: statistics.mean(
                 r["results"][mode]["gaussian"]["executed_dense_macs"]["total"] /
-                2048 for r in records)
+                r["results"][mode]["gaussian"]["n_examples"] for r in records)
             for mode in ("active", "passive", "fixed_both")},
         "ec004_archived_comparison_not_matched": {
             "full_info_active_summary": 0.053109,
