@@ -18,7 +18,6 @@ import hashlib
 import json
 import re
 import select
-import sys
 import subprocess
 import time
 from collections import Counter
@@ -71,6 +70,7 @@ class GoalPolicy:
         self.actions=0
         self.state={"location_id":None,"reporter_id":None,
                     "prior": [],"report_id":None,"created":False,
+                    "date_reported":None,
                     "verified":False}
         self.allowed={x["name"] for x in public["tools"]}
         needed={"get_location_by_name","list_reporters_by_type",
@@ -111,24 +111,28 @@ class GoalPolicy:
                 # decline to invent a dated record.
                 return {"action":"finish"}
             proposed=(max(dates)+dt.timedelta(days=1)).isoformat()
+            self.state["date_reported"]=proposed
             tool,args="create_outbreak_report",{
                 "disease_name":g["disease"], "location_id":self.state["location_id"],
                 "date_reported":proposed,"reporter_id":self.state["reporter_id"],
                 "case_count":g["initial_count"]}
-        elif not self.state["created"] or not self.state["report_id"]:
+        elif not self.state["created"]:
             return {"action":"finish"}
         elif i==4:
+            # The real create API returns only a message, NOT an identifier.
+            # Resolve the new ID through an actual, declared read tool.
+            tool,args="list_reports_by_disease",{"disease_name":g["disease"]}
+        elif not self.state["report_id"]:
+            return {"action":"finish"}
+        elif i==5:
             tool,args="validate_reporter_credentials",{
                 "reporter_id":self.state["reporter_id"]}
-        elif i==5:
+        elif i==6:
             tool,args="update_case_count",{
                 "report_id":self.state["report_id"],
                 "case_count":g["target_count"]}
-        elif i==6:
+        elif i==7:
             tool,args="verify_outbreak_report",{
-                "report_id":self.state["report_id"]}
-        elif i==7 and self.state["verified"]:
-            tool,args="escalate_outbreak_report",{
                 "report_id":self.state["report_id"]}
         else:
             return {"action":"finish"}
@@ -153,16 +157,24 @@ class GoalPolicy:
             self.state["reporter_id"]=identifier(
                 data,self.goal["reporter"],"reporter_id")
         elif self.last_action=="list_reports_by_disease":
-            self.state["prior"]=data if isinstance(data,list) else []
+            if self.actions<=3:
+                self.state["prior"]=data if isinstance(data,list) else []
+            else:
+                # Choose only a UNIQUE report matching the just-created public
+                # specification. Refuse ambiguous matches rather than guess.
+                candidates=[item for item in data if isinstance(item,dict)
+                            and item.get("location_id")==self.state["location_id"]
+                            and item.get("reporter_id")==self.state["reporter_id"]
+                            and item.get("date_reported")==self.state["date_reported"]
+                            and item.get("case_count")==self.goal["initial_count"]]
+                if len(candidates)==1:
+                    self.state["report_id"]=candidates[0].get("report_id")
         elif self.last_action=="create_outbreak_report":
-            print("PUBLIC_CREATE_OBSERVATION",json.dumps({"keys":list(parsed),
-                  "data_type":type(data).__name__,
-                  "data_preview":str(data)[:500]},sort_keys=True),file=sys.stderr)
+            self.state["created"]=True
             if isinstance(data,dict):
                 self.state["report_id"]=data.get("report_id")
             if not self.state["report_id"] and isinstance(parsed.get("report_id"),str):
                 self.state["report_id"]=parsed["report_id"]
-            self.state["created"]=bool(self.state["report_id"])
         elif self.last_action=="verify_outbreak_report":
             self.state["verified"]=True
 
