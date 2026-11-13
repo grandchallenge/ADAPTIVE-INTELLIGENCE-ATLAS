@@ -10,6 +10,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from owi_ec005_realtools_schema import shape
 from owi_ec005_realtools_split import partition
+from owi_ec005_realtools_sandbox import run_environment
+from owi_ec005_realtools_select import eligible_methods
 from owi_ec005_realtools_intake import (
     DatasetBoundaryError, audit_lines, public_view, private_inventory,
     canonical, remote_lines,
@@ -75,6 +77,34 @@ class IntakeInvariantTests(unittest.TestCase):
         self.assertNotIn(SECRET, source)
         self.assertNotIn("class E", source)
         self.assertTrue(all("verifier" not in task for tasks in report["partitions"].values() for task in tasks))
+
+    def test_trusted_fixture_real_method_executes_without_verifier(self):
+        # This fixture is authored here; no external/untrusted code is run by CI.
+        row = specimen()
+        env = row["extra_info"]["environment"]
+        env["class_name"] = "FixtureEnvironment"
+        env["class_code"] = (
+            "class FixtureEnvironment:\n"
+            "    def __init__(self, initial_state):\n"
+            "        self.state = initial_state\n"
+            "    def list_users(self):\n"
+            "        return {'users': self.state['users']}\n"
+        )
+        env["initial_state"] = {"users": ["A", "B"]}
+        env["tools"] = [{
+            "type": "function",
+            "function": {"name": "list_users",
+                         "parameters": {"type": "object",
+                                        "properties": {}, "required": []}}}]
+        self.assertEqual(list(eligible_methods(env)), ["list_users"])
+        payload = {k: env[k] for k in
+                   ("class_code", "class_name", "initial_state", "tools")}
+        observed = run_environment(payload)
+        self.assertTrue(observed["actual_python_tool_invoked"])
+        self.assertEqual(observed["method"], "list_users")
+        self.assertFalse(observed["verifier_evaluated"])
+        with self.assertRaisesRegex(ValueError, "hidden"):
+            run_environment({**payload, "verifier": row["extra_info"]["verifier"]})
 
     def test_nonexecuting_audit_and_source_hash(self):
         row = specimen()
