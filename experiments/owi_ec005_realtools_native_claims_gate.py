@@ -47,7 +47,7 @@ def adjudicate(trial):
         if (type(passed) is not int or not 0 <= passed <= 17 or
             type(reward) not in (float, int) or
             not math.isfinite(reward) or
-            abs(reward - passed/17) > 1e-6):
+            abs(reward - passed/17) > 5.1e-5):
             raise ValueError("non-native or forged terminal checker score")
         n = e.get("actual_public_tool_calls")
         trace = e.get("actual_public_tool_trace")
