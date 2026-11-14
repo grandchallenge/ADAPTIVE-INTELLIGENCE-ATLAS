@@ -7,11 +7,12 @@ retrospective evaluation updates and overclaims. A scientific NEGATIVE result
 passes if real original-source evidence is complete and honestly recorded.
 """
 from __future__ import annotations
-import argparse,collections,hashlib,json,math
+import argparse,collections,hashlib,json,math,random
 from pathlib import Path
 from owi_ec005p_chosen_outcome_train import (
     CONTRACT,SEEDS,MODES,RULES,OPTIONS,STAGES,EVAL_BASELINES,
-    TRAIN_EPISODES,PRICE_PER_ACTUAL_TOOL_CALL)
+    TRAIN_EPISODES,PRICE_PER_ACTUAL_TOOL_CALL,
+    OnPolicyBandit,feature_for,sample_train_schedule)
 from owi_ec005p_real_source_policy import SPEC_SHA,SOURCE_SHA,CLASS_SHA
 
 CONTRACT_GATE="OWI-EC005P-INDEPENDENT-CHOSEN-OUTCOME-RESEARCH-GATE/1"
@@ -187,10 +188,27 @@ def adjudicate(r):
         if any(counts[t]!=TRAIN_EPISODES//len(RULES) for t in RULES):
             deny("not balanced original source target training visits")
         historical={}
+        replay=OnPolicyBandit()
+        rng=random.Random(r["seed"]*1009+MODES.index(mode)*151+17)
+        expected_schedule=sample_train_schedule(r["seed"])
         for i,rec in enumerate(rows):
+            if rec.get("train_rule_audit_only")!=expected_schedule[i]:
+                deny("actual source task schedule differs from frozen training plan")
             v=check_training_episode(mode,rec,i,historical)
+            k=rec["feature_actually_supplied_to_policy"]
+            action,propensity,key=replay.sample(k,rng)
+            if (action!=rec["source_selected_action"] or key!=k or
+                abs(propensity-rec["source_selected_propensity"])>1e-12):
+                deny("on-policy chosen action/propensity not from exact seeded history")
+            if mode=="shuffled_chosen_outcome_credit" and historical:
+                origin=rng.randrange(len(historical))
+                if origin!=rec["assigned_scalar_origin_episode"]:
+                    deny("shuffled chosen scalar credit origin not exact seeded replay")
+            replay.update(k,action,rec["assigned_scalar_to_policy_update"])
             historical[i]=v
         tables=frozen[mode]
+        if replay.readable()!=tables:
+            deny("frozen learned action policy mismatches causal online replay")
         observed=collections.defaultdict(lambda:collections.Counter())
         sums=collections.defaultdict(lambda:collections.defaultdict(float))
         for x in rows:
