@@ -1,0 +1,88 @@
+name: OWI-EC005P five-seed real chosen-only v1 controller
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005p_*.py'
+      - 'tests/test_owi_ec005p_chosen_outcome.py'
+      - 'governance/research/OWI_EC005P_CHOSEN_OUTCOME_PLAN_V1.json'
+      - 'mathematics/research-notes/OWI-EC005P-CHOSEN-OUTCOME-20261114.md'
+      - '.github/workflows/owi-ec005p-chosen-outcome.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chosen-only-source-five-seed:
+    name: chosen-only real source seed ${{ matrix.seed }}
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 41, 53]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 38
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Compile and hostile selected-outcome ablation tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile \
+            experiments/owi_ec005p_real_source_policy.py \
+            experiments/owi_ec005p_chosen_outcome_train.py \
+            experiments/owi_ec005p_chosen_outcome_gate.py
+          python -m unittest discover -s tests -p 'test_owi_ec005p_chosen_outcome.py' -v
+      - name: Source lock, training-family separation and original row 710
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 710 --output-dir "$RUNNER_TEMP/owi_ec005p"
+      - name: Execute actual chosen outcomes through original source and two private checkers
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005p_chosen_outcome_train.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005p" \
+            --revised-spec governance/research/OWI_EC005O_REVISED_MODERATION_V1.json \
+            --seed '${{ matrix.seed }}' \
+            --output-dir build/owi_ec005p
+      - name: Independently replay exact seeded action and scalar causality and source baselines
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005p_chosen_outcome_gate.py \
+            --trial 'build/owi_ec005p/source_chosen_outcome_seed_${{ matrix.seed }}.json' \
+            --output 'build/owi_ec005p/chosen_outcome_gate_seed_${{ matrix.seed }}.json'
+          python - <<'PY'
+          import glob,json
+          from pathlib import Path
+          paths=glob.glob('build/owi_ec005p/chosen_outcome_gate_seed_*.json')
+          assert len(paths)==1
+          r=json.loads(Path(paths[0]).read_text())
+          assert r['contract']=='OWI-EC005P-INDEPENDENT-CHOSEN-OUTCOME-RESEARCH-GATE/1'
+          assert r['source_episodes_train']==180
+          assert r['source_episodes_eval']==28
+          assert r['selected_outcome_only_online_policy_training_established']
+          assert r['new_terminal_reward_not_original_native']
+          assert not r['reflective_causal_identification_proved']
+          print('OWI_EC005P_GOVERNED_REAL_SOURCE_SEED',json.dumps(r,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005p-real-source-seed-${{ matrix.seed }}
+          path: |
+            build/owi_ec005p/source_chosen_outcome_seed_${{ matrix.seed }}.json
+            build/owi_ec005p/chosen_outcome_gate_seed_${{ matrix.seed }}.json
+          retention-days: 30

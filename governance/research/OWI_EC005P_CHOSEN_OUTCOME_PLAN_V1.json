@@ -1,0 +1,105 @@
+{
+  "contract": "OWI-EC005P-CHOSEN-ONLY-CONTROLLER-PLAN/1",
+  "source_provenance": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "full_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "train_row": 710,
+    "source_class_sha256": "ddfa0ad145cc43f1ab82545912b9e80410c5793b585d31d714f92c07b626dfba"
+  },
+  "new_corrected_benchmark": {
+    "path": "governance/research/OWI_EC005O_REVISED_MODERATION_V1.json",
+    "sha256": "63252f02eb28cef71b2af7c7ce77afdab2123dc44112598b5b56a25551cd3a7a",
+    "not_original_native_reward": true
+  },
+  "train_source_public_task_rules": [
+    "banned_reject",
+    "eligible_approve"
+  ],
+  "agent": {
+    "type": "online empirical tabular 3-arm epsilon-greedy chosen-outcome bandit",
+    "scope": "decision among STOP/APPROVE/REJECT after scripted genuine public tool target discovery; target selection and tool-call planning are not learned",
+    "inputs": [
+      "selected actual public account_status",
+      "selected actual public moderation_status"
+    ],
+    "never_inputs": [
+      "task rule identity",
+      "original class source",
+      "hidden original initial/final state",
+      "private original checklist or corrected scorer",
+      "unchosen counterfactual reward",
+      "heldout evaluation scalar"
+    ],
+    "actions": [
+      "stop",
+      "approved",
+      "rejected"
+    ],
+    "epsilon": 0.18,
+    "minimum_forced_visits_per_context_action": 2,
+    "chosen_scalar": "versioned v1 terminal reward minus 0.002 per actual source tool call",
+    "reward_timing": "only after original source finish and both separate restricted terminal checkers"
+  },
+  "training": {
+    "independent_seeds": [
+      11,
+      23,
+      37,
+      41,
+      53
+    ],
+    "episodes_per_seed_per_ablation": 60,
+    "task_rule_balance": "30/30 independently reset original source per mode",
+    "ablation_retraining": [
+      "true",
+      "zero_information",
+      "shuffled_chosen_outcome_credit"
+    ],
+    "shuffled_definition": "each episode except first is updated using a uniformly selected PRIOR actually chosen source outcome scalar, logged with its originating episode; no unchosen outcome or private oracle",
+    "true_definition": "online update only actual chosen terminal v1 score",
+    "zero_definition": "public identity/review status masked into one identical feature blind for both tasks; still actual chosen v1 terminal reward",
+    "source_training_episodes_per_seed": 180
+  },
+  "prospective_evaluation": {
+    "after_frozen_training": true,
+    "stages": [
+      "initial_pending",
+      "heldout_postcorrect"
+    ],
+    "heldout_postcorrect_definition": "evaluation-only public-rule legitimate first-stage correction performed on original untouched state, then frozen actor chooses a second action; new action context not observed during learning; not a different source family",
+    "learned_policies": [
+      "true",
+      "zero_information",
+      "shuffled_chosen_outcome_credit"
+    ],
+    "strong_fixed_policies": [
+      "always_stop",
+      "always_approve",
+      "always_reject",
+      "public_rule_correct"
+    ],
+    "episodes_per_stage_per_task_per_policy": 1,
+    "actual_original_source_evaluation_episodes_per_seed": 28,
+    "no_evaluation_learning": true
+  },
+  "acceptance": {
+    "five_exact_seed_results": true,
+    "source_total_episodes": 1040,
+    "source_original_checker_runs": 1040,
+    "source_versioned_checker_runs": 1040,
+    "original_source_and_checker_unchanged": true,
+    "independent_selected_outcome_evidence_gate": true,
+    "strict_no_positive_claim_without_beating_public_rule_correct_and_heldout_stage_baselines": true,
+    "positive_reflective_control_not_expected": true
+  },
+  "nonclaims": [
+    "No neural language model trained",
+    "No source-independent generalization or sealed test/dev family evaluation",
+    "No within-episode learned error detection/repair",
+    "No model-flop advantage inferred from source tool wall time",
+    "New corrected v1 reward engineered, not original source reward",
+    "Heldout postcorrect stage is not independent family transfer",
+    "No effect on protected Atlas editorial/manuscript/release/certification"
+  ]
+}
