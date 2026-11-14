@@ -78,6 +78,19 @@ class PairedEvidenceGate(unittest.TestCase):
                 d=paired();edit(d)
                 with self.assertRaises(ValueError):
                     adjudicate(d,SPEC)
+    def test_real_frozen_bytes_not_reserialized_keys(self):
+        # Regression for an actual source replay failure: JavaScript-style
+        # repository JSON key order differs from Python sorted JSON reemit.
+        raw=(ROOT/"governance/research/OWI_EC005O_REVISED_MODERATION_V1.json").read_bytes()
+        report=paired()
+        report["frozen_benchmark_spec_sha256"]=hashlib.sha256(raw).hexdigest()
+        self.assertEqual(
+            adjudicate(report,SPEC,spec_bytes=raw)["actual_original_source_episodes"],20)
+        with self.assertRaises(ValueError):
+            adjudicate(report,SPEC,spec_bytes=raw+b" ")
+        with self.assertRaises(ValueError):
+            adjudicate(report,SPEC,spec_bytes=b'{"contract":"tampered"}')
+
     def test_reject_revised_scoring_spec_change(self):
         d=copy.deepcopy(SPEC)
         d["scoring"]["native_task_completion_coefficient"]=1.0
