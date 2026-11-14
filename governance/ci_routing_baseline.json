@@ -113,6 +113,13 @@
       "test_globs": [
         "tests/test_owi_ec005_realtools_native_claims.py"
       ]
+    },
+    {
+      "id": "owi-ec005-realtools-native-professional",
+      "test_globs": [
+        "tests/test_owi_ec005_realtools_native_professional.py",
+        "tests/test_owi_ec005_realtools_native_professional_gate.py"
+      ]
     }
   ],
   "legacy_test_paths": [
