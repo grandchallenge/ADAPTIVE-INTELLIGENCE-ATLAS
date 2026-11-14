@@ -63,6 +63,9 @@
       "experiments/owi_ec005_versioned_moderation_gate.py",
       "experiments/owi_ec005_versioned_moderation_layout.py",
       "experiments/owi_ec005_versioned_moderation_paired.py",
+      "experiments/owi_ec005p_chosen_outcome_gate.py",
+      "experiments/owi_ec005p_chosen_outcome_train.py",
+      "experiments/owi_ec005p_real_source_policy.py",
       "tests/test_owi_ec005.py",
       "tests/test_owi_ec005_realtools_contextual_bandit.py",
       "tests/test_owi_ec005_realtools_contextual_learner.py",
@@ -95,7 +98,8 @@
       "tests/test_owi_ec005_realtools_postprobe_discover.py",
       "tests/test_owi_ec005_realtools_postprobe_learner.py",
       "tests/test_owi_ec005_versioned_moderation_checker.py",
-      "tests/test_owi_ec005_versioned_moderation_gate.py"
+      "tests/test_owi_ec005_versioned_moderation_gate.py",
+      "tests/test_owi_ec005p_chosen_outcome.py"
     ],
     "prefixes": [],
     "test_prefixes": []
@@ -118,6 +122,7 @@
     "owi-ec005-realtools-native-allergy",
     "owi-ec005-realtools-native-claims",
     "owi-ec005-realtools-native-professional",
-    "owi-ec005-versioned-moderation"
+    "owi-ec005-versioned-moderation",
+    "owi-ec005p-chosen-outcome"
   ]
 }
