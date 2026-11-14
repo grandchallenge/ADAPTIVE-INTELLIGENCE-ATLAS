@@ -30,7 +30,8 @@ jobs:
         run: |
           set -euo pipefail
           python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_professional.py' -v
-          python -m py_compile experiments/owi_ec005_realtools_native_professional_probe.py
+          python -m unittest discover -s tests -p 'test_owi_ec005_realtools_native_professional_gate.py' -v
+          python -m py_compile experiments/owi_ec005_realtools_native_professional_probe.py experiments/owi_ec005_realtools_native_professional_canary.py experiments/owi_ec005_realtools_native_professional_gate.py
       - name: Original source digest and sealed TRAIN row 710
         shell: bash
         run: |
@@ -51,4 +52,59 @@ jobs:
         with:
           name: owi-ec005n-original-public-source-professional-probe
           path: build/owi_ec005_realtools/native_professional_public.json
+          retention-days: 30
+
+  original-native-state-changing-moderation:
+    needs: original-public-source-probe
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Reestablish full source digest and independent original TRAIN row 710
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 710 --output-dir "$RUNNER_TEMP/owi_ec005n"
+      - name: Actually execute 20 selected source actions with separate original private checker
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_realtools_native_professional_canary.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005n" \
+            --output build/owi_ec005_realtools/native_professional_contrast.json
+      - name: Independently adjudicate actual wrong-state native penalty and preservation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_realtools_native_professional_gate.py \
+            --trial build/owi_ec005_realtools/native_professional_contrast.json \
+            --output build/owi_ec005_realtools/native_professional_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('build/owi_ec005_realtools/native_professional_gate.json')
+          r=json.loads(p.read_text())
+          assert r['contract']=='OWI-EC005N-NATIVE-PROFESSIONAL-STATE-SUITABILITY/1'
+          assert r['original_actual_selected_source_executions']==20
+          assert r['natural_training_environment_families']==1
+          assert r['original_private_checker_unchanged']
+          assert not r['new_terminal_reward_added']
+          assert not r['outcome_only_controller_training_or_heldout_family_transfer_established']
+          print('ORIGINAL_NATIVE_ACTUAL_WRONG_STATE_SCORE_CONTRAST',json.dumps(r,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005n-original-source-native-professional-actions
+          path: |
+            build/owi_ec005_realtools/native_professional_contrast.json
+            build/owi_ec005_realtools/native_professional_gate.json
           retention-days: 30
