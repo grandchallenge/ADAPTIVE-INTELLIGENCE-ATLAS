@@ -1,0 +1,31 @@
+{
+  "schema": "gcl.owi-ds002.first-gate.v1",
+  "status": "source-locked first implementation gate; no synthesized policy trained",
+  "parent_issue": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/483",
+  "scientific_parent": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/466",
+  "baseline": {
+    "repository": "grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS",
+    "branch": "main",
+    "commit_at_branch_creation": "3310f5cd6c65cf948bb402d5790ef74b0cd0753b",
+    "files": [
+      {"path": "experiments/owi_ec004_core.py", "git_blob_sha": "7fa2155c3c49d193c1d9cc27fd2e71605d405dd7"},
+      {"path": "experiments/owi_ec005_conditional.py", "git_blob_sha": "67040d9b940acb3982111ce14d8b5b6ec4ef8c2d"},
+      {"path": "tests/test_owi_ec005.py", "git_blob_sha": "462dd659239273f056518ef05b6a66f07fdd33d0"}
+    ]
+  },
+  "probe_contract": {
+    "allowed": "checkpoint-direction JVP of a previously executed per-example chosen GRU suffix, after actual probe/repair",
+    "forbidden": ["unexecuted branch", "unexecuted example", "fault_audit", "clean reference", "unchosen repair outcome", "native private checker", "zero-cost tangent query"],
+    "measure": ["jvp query count", "jvp example count", "elapsed_seconds"],
+    "limitations": ["not a derivative of discrete syntax", "no physical GPU FLOP or MAC certificate", "checkpoint tangent is not automatically an agent-observable public signal", "no controlled synthesis comparison yet"]
+  },
+  "frozen_evaluation_plan": {
+    "seeds": [1, 2, 3, 4, 5],
+    "train_mechanisms": ["gaussian", "dropout", "signflip"],
+    "heldout_mechanisms": ["persistent", "coupled", "checkpoint", "roll"],
+    "heldout_task": "parity",
+    "heldout_length": 13,
+    "comparators": ["symbolic", "neural-guided", "charged-derivative", "charged-derivative-reflective", "derivative-shuffled", "surrogate-only"],
+    "source_native_reward_gate": "BLOCKED pending native correctness/harmful-action signal fidelity under OWI-EC005J"
+  }
+}
