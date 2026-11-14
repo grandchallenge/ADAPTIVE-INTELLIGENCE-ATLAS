@@ -71,8 +71,8 @@ def adjudicate(trial):
         reapply=e.get("source_safe_reapply_accepted")
         after=e.get("public_status_after_real_correction")
         final=e.get("public_final_status")
-        if final not in ("pending","approved","rejected") or
-           e.get("actual_wrong_final_state") is not (final==t["wrong"]):
+        if (final not in ("pending","approved","rejected") or
+            e.get("actual_wrong_final_state") is not (final==t["wrong"])):
             raise ValueError("forged public moderation terminal state")
         mutation_count=names.count("change_review_moderation_status")
         if arm=="untouched":
@@ -105,10 +105,10 @@ def adjudicate(trial):
         if not all(isinstance(s,str) and len(s)==64 for s in (h,ident)):
             raise ValueError("missing public review/target identity fingerprints")
         keys[kind].add((h,ident))
-        if not isinstance(e.get("source_worker_wall_seconds"),(int,float)) or
-           e["source_worker_wall_seconds"]<0 or
-           not isinstance(e.get("private_checker_wall_seconds"),(int,float)) or
-           e["private_checker_wall_seconds"]<0:
+        if (not isinstance(e.get("source_worker_wall_seconds"),(int,float)) or
+            e["source_worker_wall_seconds"]<0 or
+            not isinstance(e.get("private_checker_wall_seconds"),(int,float)) or
+            e["private_checker_wall_seconds"]<0):
             raise ValueError("missing actual worker/checker timing evidence")
         by[kind][arm].append(e)
     if any(len(v)!=1 for v in keys.values()):
