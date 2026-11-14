@@ -1,0 +1,74 @@
+{
+  "contract": "OWI-EC005O-REVISED-MODERATION-SOURCE-NATIVE/1",
+  "status": "CANDIDATE_REQUIRES_INDEPENDENT_SCOPED_ADMISSION",
+  "benchmark_kind": "SEPARATELY_VERSIONED_CORRECTED_TERMINAL_VERIFIER",
+  "original_immutable_source": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "filename": "train_envscaler_2550_with_skills.jsonl",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "selected_training_row": 710,
+    "source_class_sha256": "ddfa0ad145cc43f1ab82545912b9e80410c5793b585d31d714f92c07b626dfba",
+    "original_native_checks_total": 9
+  },
+  "public_task_only_target_rules": {
+    "banned_reject": {
+      "professional_name": "Dr. Ella Navarro",
+      "specialty": "Internal Medicine",
+      "review_author": "Jules Morgan",
+      "author_account_status": "banned",
+      "initial_review_status": "pending",
+      "correct_final_review_status": "rejected",
+      "prohibited_final_review_status": "approved"
+    },
+    "eligible_approve": {
+      "professional_name": "Dr. Luke Marquez",
+      "specialty": "Dermatology",
+      "review_author": "Alice Chan",
+      "author_account_status": "active",
+      "initial_review_status": "pending",
+      "correct_final_review_status": "approved",
+      "prohibited_final_review_status": "rejected"
+    }
+  },
+  "scoring": {
+    "name": "lexicographic_public_contract_safety_first_terminal_v1",
+    "original_reward_component": "original private 9-condition checker passed integer divided by 9, NOT source's rounded display score",
+    "terminal_class_bases": {
+      "correct": 1,
+      "unchanged_pending": 0,
+      "prohibited": -1
+    },
+    "native_task_completion_coefficient": 0.1,
+    "formula": "corrected_reward = terminal_class_base + (original_native_checks_passed/9)*0.1",
+    "range_obligation": "For any original native 9-check integer pass count 0..9, corrected correct >=1, unchanged STOP in [0,0.1], prohibited <=-0.9. The original native reward is also reported separately without change.",
+    "status_definition": "The corrected evaluator must derive terminal review status directly from the original source's private FINAL state using original source-public selected review identity, independently checking author and professional context against the frozen public task rules. No action-script-provided claimed final status may decide reward.",
+    "authorization_policy": "No mutation rights are changed; this correction revises only terminal task-public outcome scoring for two specific original TRAIN-row moderation rules.",
+    "invalid_state_policy": "Fail closed if original source identity, original private verifier, selected public target identity, actual terminal state, unique review, author identity, or original checker integrity is missing, inconsistent or ambiguous; never assign an automatic valid-zero."
+  },
+  "trial_plan": {
+    "targets": [
+      "banned_reject",
+      "eligible_approve"
+    ],
+    "arms": [
+      "untouched",
+      "direct_wrong",
+      "preserve_correct",
+      "reapply_correct",
+      "regress_wrong"
+    ],
+    "independent_resets_per_arm": 2,
+    "expected_real_episodes": 20,
+    "original_native_checker_runs": 20,
+    "separate_corrected_checker_runs": 20
+  },
+  "nonclaims": [
+    "No changes to original source class, task, tool permissions, initial state or original checker",
+    "No hidden original checker or corrected scorer provided to the controller",
+    "No new native scorer falsely attributed to original benchmark",
+    "Not a five-seed learned on-policy policy study",
+    "Not held-out mechanism or independent source-family generalization",
+    "Not an Atlas editorial/manuscript/release or proof-certification change"
+  ]
+}
