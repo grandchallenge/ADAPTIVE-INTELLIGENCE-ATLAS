@@ -33,6 +33,8 @@
       "experiments/owi_ec005_realtools_native_allergy_gate.py",
       "experiments/owi_ec005_realtools_native_allergy_probe.py",
       "experiments/owi_ec005_realtools_native_candidate_audit.py",
+      "experiments/owi_ec005_realtools_native_claims_canary.py",
+      "experiments/owi_ec005_realtools_native_claims_gate.py",
       "experiments/owi_ec005_realtools_native_fidelity_gate.py",
       "experiments/owi_ec005_realtools_native_high_review_canary.py",
       "experiments/owi_ec005_realtools_native_meal_canary.py",
@@ -71,6 +73,7 @@
       "tests/test_owi_ec005_realtools_native_allergy_gate.py",
       "tests/test_owi_ec005_realtools_native_allergy_probe.py",
       "tests/test_owi_ec005_realtools_native_candidate_audit.py",
+      "tests/test_owi_ec005_realtools_native_claims.py",
       "tests/test_owi_ec005_realtools_native_fidelity_gate.py",
       "tests/test_owi_ec005_realtools_native_high_review_canary.py",
       "tests/test_owi_ec005_realtools_native_meal_canary.py",
@@ -101,6 +104,7 @@
     "owi-ec005-realtools-harmful",
     "owi-ec005-realtools-native-reward",
     "owi-ec005-realtools-native-preservation",
-    "owi-ec005-realtools-native-allergy"
+    "owi-ec005-realtools-native-allergy",
+    "owi-ec005-realtools-native-claims"
   ]
 }
