@@ -3,7 +3,7 @@
 
 Original TRAIN row 710 only, original state/class/checker untouched.
 Targets are selected from genuine public list/read tool replies, not source code
-or private checker. The six? No: 2 target rules x 5 arms x 2 resets = 20 real
+or private checker. Two target rules x five arms x two resets = 20 real
 isolated episodes. Each restricted source worker has a distinct after-terminal
 restricted private checker child. No controller is trained by this audit.
 
