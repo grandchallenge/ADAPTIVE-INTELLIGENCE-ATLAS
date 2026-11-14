@@ -127,6 +127,12 @@
         "tests/test_owi_ec005_versioned_moderation_checker.py",
         "tests/test_owi_ec005_versioned_moderation_gate.py"
       ]
+    },
+    {
+      "id": "owi-ec005p-chosen-outcome",
+      "test_globs": [
+        "tests/test_owi_ec005p_chosen_outcome.py"
+      ]
     }
   ],
   "legacy_test_paths": [
