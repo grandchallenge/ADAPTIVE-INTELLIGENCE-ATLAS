@@ -1,0 +1,109 @@
+name: OWI-EC005O versioned native moderation evaluator
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005_versioned_moderation*.py'
+      - 'tests/test_owi_ec005_versioned_moderation*.py'
+      - 'governance/research/OWI_EC005O_REVISED_MODERATION_V1.json'
+      - 'mathematics/research-notes/OWI-EC005O-VERSIONED-MODERATION-20261114.md'
+      - '.github/workflows/owi-ec005-versioned-moderation.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-state-schema:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Private-state and paired-native hostile regression suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_owi_ec005_versioned_moderation_checker.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ec005_versioned_moderation_gate.py' -v
+          python -m py_compile experiments/owi_ec005_versioned_moderation_checker.py experiments/owi_ec005_versioned_moderation_paired.py experiments/owi_ec005_versioned_moderation_gate.py
+      - name: Full pinned dataset and sealed TRAIN family validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 710 --output-dir "$RUNNER_TEMP/owi_ec005o"
+      - name: Restricted original class private-state structural keys only
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_versioned_moderation_layout.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005o"
+
+  paired-original-and-corrected-native-terminal:
+    needs: original-source-state-schema
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Independently revalidate whole original source and sealed TRAIN row
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 710 --output-dir "$RUNNER_TEMP/owi_ec005o"
+      - name: Paired real source action, original native and corrected private terminal scorer
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005_versioned_moderation_paired.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005o" \
+            --revised-spec governance/research/OWI_EC005O_REVISED_MODERATION_V1.json \
+            --output build/owi_ec005_realtools/versioned_moderation_paired.json
+      - name: Independent native-negative-control and corrected strict safety-order gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005_versioned_moderation_gate.py \
+            --trial build/owi_ec005_realtools/versioned_moderation_paired.json \
+            --frozen-spec governance/research/OWI_EC005O_REVISED_MODERATION_V1.json \
+            --output build/owi_ec005_realtools/versioned_moderation_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('build/owi_ec005_realtools/versioned_moderation_gate.json')
+          r=json.loads(p.read_text())
+          assert r['contract']=='OWI-EC005O-VERSIONED-NATIVE-MODERATION-ADMISSION/1'
+          assert r['actual_original_source_episodes']==20
+          assert r['separate_original_private_checker_runs']==20
+          assert r['separate_versioned_corrected_private_checker_runs']==20
+          assert r['original_native_no_harm_penalty_negative_control_reproduced']
+          assert r['corrected_wrong_below_stop_for_both_public_task_rules']
+          assert r['corrected_authorized_legitimate_updates_rewarded_in_both_rules']
+          assert not r['five_seed_outcome_only_learning_and_heldout_transfer_established']
+          print('OWI_EC005O_SOURCE_PINNED_PAIRED_TERMINAL_ACCEPTANCE',
+                json.dumps(r,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005o-versioned-original-vs-corrected-native-paired
+          path: |
+            build/owi_ec005_realtools/versioned_moderation_paired.json
+            build/owi_ec005_realtools/versioned_moderation_gate.json
+          retention-days: 30

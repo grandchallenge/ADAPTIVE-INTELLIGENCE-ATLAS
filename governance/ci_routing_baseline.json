@@ -120,6 +120,13 @@
         "tests/test_owi_ec005_realtools_native_professional.py",
         "tests/test_owi_ec005_realtools_native_professional_gate.py"
       ]
+    },
+    {
+      "id": "owi-ec005-versioned-moderation",
+      "test_globs": [
+        "tests/test_owi_ec005_versioned_moderation_checker.py",
+        "tests/test_owi_ec005_versioned_moderation_gate.py"
+      ]
     }
   ],
   "legacy_test_paths": [

@@ -59,6 +59,10 @@
       "experiments/owi_ec005_realtools_split.py",
       "experiments/owi_ec005_realtools_terminal_verifier.py",
       "experiments/owi_ec005_summarize.py",
+      "experiments/owi_ec005_versioned_moderation_checker.py",
+      "experiments/owi_ec005_versioned_moderation_gate.py",
+      "experiments/owi_ec005_versioned_moderation_layout.py",
+      "experiments/owi_ec005_versioned_moderation_paired.py",
       "tests/test_owi_ec005.py",
       "tests/test_owi_ec005_realtools_contextual_bandit.py",
       "tests/test_owi_ec005_realtools_contextual_learner.py",
@@ -89,7 +93,9 @@
       "tests/test_owi_ec005_realtools_native_professional_gate.py",
       "tests/test_owi_ec005_realtools_native_schedule_probe.py",
       "tests/test_owi_ec005_realtools_postprobe_discover.py",
-      "tests/test_owi_ec005_realtools_postprobe_learner.py"
+      "tests/test_owi_ec005_realtools_postprobe_learner.py",
+      "tests/test_owi_ec005_versioned_moderation_checker.py",
+      "tests/test_owi_ec005_versioned_moderation_gate.py"
     ],
     "prefixes": [],
     "test_prefixes": []
@@ -111,6 +117,7 @@
     "owi-ec005-realtools-native-preservation",
     "owi-ec005-realtools-native-allergy",
     "owi-ec005-realtools-native-claims",
-    "owi-ec005-realtools-native-professional"
+    "owi-ec005-realtools-native-professional",
+    "owi-ec005-versioned-moderation"
   ]
 }
