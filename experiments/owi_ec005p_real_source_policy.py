@@ -104,7 +104,11 @@ def source_episode(folder:Path,rule:str,choose,revised_spec:Path,
         # THIS is the sole policy decision: only genuinely selected PUBLIC
         # author/review observations, no task name, target IDs or checker.
         context=public_context(observed_author,present)
-        choice,propensity=choose(context)
+        choice,propensity,supplied=choose(context)
+        if supplied!="blind" and supplied not in (
+            "active:pending","banned:pending",
+            "active:approved","banned:rejected"):
+            raise ValueError("controller received unapproved public feature")
         if choice not in OPTIONS or type(propensity) not in (int,float) or not (
             0<propensity<=1):
             raise ValueError("controller chose unrecognized action/propensity")
@@ -169,6 +173,7 @@ def source_episode(folder:Path,rule:str,choose,revised_spec:Path,
         "corrected_spec_sha256":SPEC_SHA,
         "source_public_task_rule_audit_only":rule,
         "public_observed_context_only":context,
+        "actual_policy_supplied_context":supplied,
         "policy_selected_option":choice,
         "actual_selected_propensity":propensity,
         "original_source_public_initial_status":original_status,
