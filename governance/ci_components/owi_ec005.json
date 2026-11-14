@@ -43,6 +43,8 @@
       "experiments/owi_ec005_realtools_native_moderation_probe.py",
       "experiments/owi_ec005_realtools_native_preservation_canary.py",
       "experiments/owi_ec005_realtools_native_preservation_gate.py",
+      "experiments/owi_ec005_realtools_native_professional_canary.py",
+      "experiments/owi_ec005_realtools_native_professional_gate.py",
       "experiments/owi_ec005_realtools_native_professional_probe.py",
       "experiments/owi_ec005_realtools_native_schedule_probe.py",
       "experiments/owi_ec005_realtools_outcome_learner.py",
@@ -84,6 +86,7 @@
       "tests/test_owi_ec005_realtools_native_preservation_canary.py",
       "tests/test_owi_ec005_realtools_native_preservation_gate.py",
       "tests/test_owi_ec005_realtools_native_professional.py",
+      "tests/test_owi_ec005_realtools_native_professional_gate.py",
       "tests/test_owi_ec005_realtools_native_schedule_probe.py",
       "tests/test_owi_ec005_realtools_postprobe_discover.py",
       "tests/test_owi_ec005_realtools_postprobe_learner.py"
