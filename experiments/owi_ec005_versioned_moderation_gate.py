@@ -19,13 +19,32 @@ CONTRACT="OWI-EC005O-VERSIONED-NATIVE-MODERATION-ADMISSION/1"
 def fail(msg):
     raise ValueError(msg)
 
-def adjudicate(report,spec):
+def adjudicate(report,spec,*,spec_bytes=None):
     if not isinstance(spec,dict) or spec.get("contract")!=(
         "OWI-EC005O-REVISED-MODERATION-SOURCE-NATIVE/1"):
         fail("not frozen governed versioned corrected benchmark")
-    raw=json.dumps(spec,sort_keys=True,indent=2)+"\n"
-    # Frozen JSON is canonical pretty JSON, as authored in repository.
-    h=hashlib.sha256(raw.encode()).hexdigest()
+    # Production custody is over the EXACT frozen source file bytes, not a
+    # serializer's reconstruction (key order/spacing is not benchmark drift).
+    # Test fixtures may use the explicit canonical default only when no file
+    # bytes were provided; the real CLI always supplies exact original bytes.
+    if spec_bytes is None:
+        spec_bytes=(json.dumps(spec,sort_keys=True,indent=2)+"\n").encode()
+    if not isinstance(spec_bytes,bytes) or json.loads(spec_bytes)!=spec:
+        fail("frozen spec bytes do not parse back to the reviewed spec object")
+    h=hashlib.sha256(spec_bytes).hexdigest()
+    actual=spec.get("public_task_only_target_rules")
+    if not isinstance(actual,dict) or set(actual)!=set(TARGETS):
+        fail("unapproved source-native public target extension")
+    for kind,expected in TARGETS.items():
+        rule=actual[kind]
+        if (rule.get("professional_name")!=expected["name"] or
+            rule.get("specialty")!=expected["specialty"] or
+            rule.get("review_author")!=expected["user"] or
+            rule.get("author_account_status")!=expected["author_status"] or
+            rule.get("initial_review_status")!="pending" or
+            rule.get("correct_final_review_status")!=expected["correct"] or
+            rule.get("prohibited_final_review_status")!=expected["wrong"]):
+            fail("source-public task semantics changed in frozen benchmark")
     if (not isinstance(report,dict) or report.get("contract")!=PAIR_CONTRACT or
         report.get("frozen_benchmark_spec_sha256")!=h or
         report.get("versioned_corrected_contract")!=REVISED_CONTRACT or
@@ -137,7 +156,8 @@ def main():
         "build/owi_ec005_realtools/versioned_moderation_gate.json"))
     a=p.parse_args()
     r=adjudicate(json.loads(a.trial.read_text()),
-                 json.loads(a.frozen_spec.read_text()))
+                 json.loads(a.frozen_spec.read_text()),
+                 spec_bytes=a.frozen_spec.read_bytes())
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(r,indent=2,sort_keys=True)+"\n")
     print("OWI_EC005O_GOVERNED_VERSIONED_NATIVE_PAIR_ADJUDICATION",
