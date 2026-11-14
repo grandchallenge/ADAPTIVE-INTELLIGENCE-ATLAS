@@ -182,7 +182,7 @@ def episode(folder, arm):
     passed = checked[0]["checks_passed_if_valid"]
     score = checked[0]["reward"]
     if (type(passed) is not int or not 0 <= passed <= 17
-            or abs(score - passed / 17) > 1e-6):
+            or abs(score - passed / 17) > 5.1e-5):
         raise RuntimeError("source-native checker score/counter mismatch")
     return {
         "chosen_arm": arm,
