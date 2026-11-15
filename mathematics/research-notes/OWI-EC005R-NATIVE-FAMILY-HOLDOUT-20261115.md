@@ -51,4 +51,73 @@ The original source tasks from EC-005F already suggest that both trained origina
 
 The independent gate checks all original source and distinct-family identities, exact source tool sequences, original native pass numerator and reward for each arm, private/source absence from actor, seeded behavior propensities and chosen-only scalar updates, frozen model reconstruction, source-private terminal integrity, and all six real original-source fixed comparators. It **rejects** a claim of strict performance improvement over the strongest source-public admissible script if an executed arm exceeds it; that would mean the predeclared comparator is incomplete and requires critical diagnosis rather than retroactive adjudication. It explicitly records whether both natural public-reply feature values have *actual source training support*. Any learned transfer claim must be separated from preauthored domain-specific tool argument planning and original task public instruction.
 
-**Current boundary:** Candidate source-locked executable trial, hostile gate and five-seed CI still require exact-head live original-source execution and source-admission review. No protected merge, five-seed empirical score or source-native reflective-control success is claimed. Parent #466 remains OPEN. The existing Atlas 80-chapter editorial ledger, release and mathematical proof certification are outside this research transaction.
+## Complete real-source five-seed execution: heldout action transfer, no information discrimination
+
+The original-family, native-private-checker experiment passed all five seed jobs and their independent selected-outcome evidence gates in [GitHub Actions run 43710113666](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43710113666). This is the **first complete scientific source replay** of frozen R v1 before the research-note result was added. All seed jobs \`11, 23, 37, 41, 53\` passed actual original source tool selection, independent native checker validity/count and exact seeded on-policy conditional-action and delayed chosen-scalar replay.
+
+**Frozen protocol byte identity:** \`governance/research/OWI_EC005R_NATIVE_POSTPROBE_HOLDOUT_V1.json\`, exact SHA256 **\`4a794f6de98dc37c5bf3aae2b2d6f683e3566a56e1d836bf6bc3fbccf171204e\`**. The original entire 2,550-task raw corpus SHA256 \`3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a\` is unchanged. Three selected original executable source class hashes were distinct, each row in the preexisting source TRAIN partition, with original prompts, class implementation, environment initial state and unmodified independent original native private checklist untouched. **No** constructed source masking, source-state intervention, revised corrected scorer, dev/heldout sealed-test export or privileged training labels.
+
+**Actual physical execution:** Each seed executed 48 original-source reset source episodes per independently trained mode, times three modes, followed by 27 fresh original-source task-family/policy evaluation episodes. Across five seeds: **720 actual source-training episodes**, **135 genuinely new original-source evaluations**, **855 original source-worker episodes**, each followed by the unchanged native private checklist inside a separate restricted Docker verifier (**855 independent original-native verifier runs**). Each training episode used the realized native checker outcome of its **one** actually selected postprobe continuation or abstention; no unchosen action/checker outcome was supplied to actor. Original-public source tool-call sequence and hashes, checker pass numerator/total, worker wall/RSS, private checker seconds and all behavior propensities are in the source CI artifacts and independently reconciled by the gate.
+
+### Heldout independent source family 3
+
+Family 3's **original, unchanged** public task and first \`get_dietary_restriction_by_id(DR5)\` tool remain semantically different from trained original family 0 (subscription lookup/validation/cancellation) and 2 (account status/reactivation). Public task/schema and programmatically authored domain planner for family 3 were only opened by the **training/evaluation program** after freezing the learned scalar tables, but they had previously been studied in EC-005F/G, so this is not a fresh blinded research-domain benchmark.
+
+All five independent seeds obtained **exactly the same prospective source-native terminal results**:
+
+| Frozen policy/baseline on original family 3 | Original native terminal reward | Actual selected tool calls | Native reward minus 0.01/tool |
+| --- | ---: | ---: | ---: |
+| Learned after-probe option, actual source reply | **0.4762** | 2 | **0.4562** |
+| Independently retrained zero-information option | 0.4762 | 2 | 0.4562 |
+| Independently retrained randomized-reply option | 0.4762 | 2 | 0.4562 |
+| Always continue after real public probe | 0.4762 | 2 | 0.4562 |
+| Scripted public postprobe status option | 0.4762 | 2 | 0.4562 |
+| **Original-public DIRECT, no probe** | **0.4762** | **1** | **0.4662** |
+| **Strong public-affordance adaptive, no unnecessary probe** | **0.4762** | **1** | **0.4662** |
+| Stop after a real public probe | 0.2857 | 1 | 0.2757 |
+| Original-public STOP without probe | 0.2857 | 0 | 0.2857 |
+
+The original native private checker has **21** conditions on this task: the source-native STOP initial-state score is 6/21 and the original state-correct create action improves it to 10/21. The learned postprobe controller transferred CONTINUE in all five seeds and achieved the same original native checklist score as a direct source-native create action, but spent **one extra actual source-public tool call**, lowering designed utility by **0.010000**. There is no experiment-native task reward gain, task-plus-priced-compute improvement, or statistically supported advantage over the strongest comparator.
+
+### Original training families and the actual information-support obstruction
+
+All three independently retrained modes received a physically selected original native first-probe reply on every train episode. The original **genuine** source-public semantic feature in **every** one of the 48 training episodes per mode/seed was \`followup_available\`: original subscription lookup yielded a candidate requiring further identification and link verification, and original account status was suspended and called for a follow-up status update.
+
+Across five seeds this gives **240 true first-probe receipts per training mode**, all \`followup_available\` and **zero** naturally occurring \`no_followup\` receipts. The zero-information actor was exposed only to the common \`blind\` feature and learned the same unconditional CONTINUE policy. The independently randomized-feature actor saw artificial random features but still learned CONTINUE on both, because the true source state was always action-requiring. Its source-public replay was genuine; only the deliberately corrupted feature delivered to the actor was artificial. Thus the equality of normal/zero/randomized controls is **not** a failed data leak test; it is the predicted lack of identifiability when all natural source observations encode the same downstream action.
+
+The original source family 0 postprobe CONTINUE followed seven genuine selected tool calls to achieve native reward 0.5000, priced utility **0.4300**; original-public direct/STOP without a subscription ID did nothing, native reward 0.2500 and utility 0.2500. In source family 2 the learned postprobe CONTINUE achieved native reward 0.5385 and utility **0.5185** after two calls; original-public DIRECT achieved the exact same native reward after one call, utility **0.5285**. All five seeds and all observation modes agreed. This aligns with the known public task affordance that family 0 requires identification, while family 2 already exposes the target account ID and authorization.
+
+### A bounded exact original-source arm-set performance ceiling
+
+For the **specific three original source tasks and the predeclared STOP/DIRECT/PROBE+CONDITIONAL arms**, the source-realized native reward and physically selected tool count are deterministic under the reset original state. Let
+
+\[
+U_t(a)=R^{\mathrm{native}}_t(a)-0.01C_t(a).
+\]
+
+For any stochastic after-probe or first-stage policy \(\pi\) supported on these arms, its task-conditional expected designed utility satisfies
+
+\[
+\mathbb{E}_{a\sim\pi(\cdot\mid t)}U_t(a)
+=\sum_a\pi(a\mid t)U_t(a)\;\leq\;\max_a U_t(a).
+\]
+
+The *original-public* strong scripted comparator actually executes and attains the finite-arm pointwise envelope on the three tested task states:
+
+| Original source task | Max attainable arm among these scripts | Original-source-native utility |
+| --- | --- | ---: |
+| 0, unknown subscription ID | Public lookup, validate and conditionally cancel | **0.4300** |
+| 2, known account ID | Public DIRECT account update, skip redundant probe | **0.5285** |
+| 3, known restriction ID, heldout family | Public DIRECT restriction creation, skip redundant probe | **0.4662** |
+
+The bound holds for **this fixed bounded arm menu, these three unchanged source states, and the stated priced-tool objective**; it is not a universal theorem about more capable tool agents, new source states, learned exploration, lower-level tool planning, alternative compute objectives or full task success. The strong source-public comparator uses **no private state or checker**; it is hand-authored from already-known source-public task affordances. Therefore no randomized postprobe actor limited to this arm set can exhibit a **strict** advantage over this comparator on these tasks without changing the source context, admissible action set or cost definition. The negative result is an evidentiary and problem-support obstruction, not a mandate to optimize the same deterministic cases repeatedly.
+
+### Scientific interpretation and remaining obligations
+
+**Five-seed disposition:** \`FIVE_SEED_ORIGINAL_NATIVE_SOURCE_FAMILY_POSTPROBE_CONTINUE_TRANSFER_REPRODUCED; ZERO_AND_RANDOMIZED_OBSERVATION_ABLATIONS_INVARIANT; NATURAL_NEGATIVE_OBSERVATION_SUPPORT_ABSENT; DIRECT_PUBLIC_POLICY_BEATS_PROBED_LEARNER_ON_NATIVE_TASK_PLUS_PRICED_CALLS; SOURCE_PUBLIC_OPTIMAL_ARM_SCRIPT_CEILING\`.
+
+The learner used actual chosen outcomes only, selected real conditional source-tool actions, and successfully transferred the CONTINUE option to an original third executable source family. But the initial probe was **mandatory**, the feature mapping was **hand-authored by an earlier public tool planner**, and source training supplied no authentic clean/negative observation requiring abstention. It therefore has **not** learned the epistemic value of inspection or a general cross-family strategy for self-repair. The source-native private checklist is preserved, but rewards partial task criteria rather than certifying global harm prevention. The new heldout class is an original TRAIN source family withheld from training, not sealed dev/test and not entirely unknown to the research team. There is no measured neural FLOP or energy comparison; real source runtime, tool latency and worker RSS are recorded but the utility coefficient 0.01 is explicitly a proxy.
+
+**Next scientifically warranted move:** Stop spending source replay budget on identical always-work-needed states. Obtain an independent original-source family cohort **whose unchanged public task and actual original source probe replies naturally include both action-needed and no-action-needed cases**, with nondegenerate source-native or separately governed safety-sensitive terminal reward. Freeze train/heldout source family identities before learned policy construction; ensure the new observation is not a preauthored queue of fully determined actions; compare to a strong original-public direct/no-probe script, conditional probe script, outcome/observation ablations, full-information oracle, heldout independent mechanisms, and actual conditional neural model MACs/FLOPs plus wall and RSS. A naturally absent training support class constitutes an **evidentiary boundary**, not a reason to declare successful reflective cognition or to silently manufacture labels.
+
+**Admission state:** The first complete, 855-source-episode five-seed original-native real source run and independent gates [43710113666](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43710113666) passed. This scientific result-note amendment **changes the candidate PR head**; it requires fresh exact-final-head five-seed source replay, inherited CI including `validate`, scoped final critical review, protected merge and independent protected readback before the research tranche may be marked admitted. Parent #466 remains OPEN. Atlas 80-chapter editorial, release and mathematical proof-certification state are untouched.
