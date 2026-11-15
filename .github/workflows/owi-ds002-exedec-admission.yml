@@ -1,0 +1,58 @@
+name: OWI-DS002 ExeDec source-locked executable admission
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_exedec_*'
+      - 'tests/test_owi_ds002_exedec_admission.py'
+      - 'governance/ci_components/owi_ds002_exedec.json'
+      - '.github/workflows/owi-ds002-exedec-admission.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  executable-source-admission:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Compile and run bounded interpreter safety tests
+        run: |
+          python -m py_compile experiments/owi_ds002_exedec_admission.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+      - name: Re-fetch six official published splits and replay every source reference
+        run: |
+          python experiments/owi_ds002_exedec_admission.py --mode audit --output build/owi_ds002/exedec_source_audit.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('build/owi_ds002/exedec_source_audit.json').read_text())
+          assert d['status'] == 'SOURCE_LOCK_AND_REFERENCE_REPLAY_PASS'
+          assert len(d['splits']) == 6
+          assert sum(x['tasks'] for x in d['splits'].values()) == 1200
+          assert d['reference_examples_checked'] >= 3600
+          PY
+      - name: Verify that public projection excludes reference solutions
+        run: |
+          python experiments/owi_ds002_exedec_admission.py --mode preview --offline --index 0 --split LENGTH_GENERALIZATION --output build/owi_ds002/exedec_preview.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('build/owi_ds002/exedec_preview.json').read_text())
+          assert d['target_program_exposed'] is False
+          assert 'program' not in d and 'few_shot_examples' not in d
+          PY
+      - name: Preserve exact-head source and interpreter receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-exedec-source-execution-audit
+          path: build/owi_ds002/*.json
+          retention-days: 30
