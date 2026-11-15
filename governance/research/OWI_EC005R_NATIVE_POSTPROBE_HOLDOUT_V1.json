@@ -1,0 +1,97 @@
+{
+  "contract": "OWI-EC005R-SOURCE-NATIVE-POSTPROBE-FAMILY-HOLDOUT/1",
+  "source": {
+    "repo": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "full_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "group_seed": 4611,
+    "partition": "train",
+    "independent_train_rows": [
+      0,
+      2
+    ],
+    "heldout_distinct_train_partition_family": 3
+  },
+  "provenance": {
+    "original_source_public_task_unchanged": true,
+    "original_class_initial_state_and_tool_signatures_unchanged": true,
+    "original_nine_or_other_checklist_untouched": true,
+    "engineered_partial_observation_masking": false,
+    "controlled_source_mutations": false,
+    "sealed_dev_or_test_family_access": false
+  },
+  "scientific_question": "Can a post-probe decision learned only from real selected public original-source observations and delayed original private native terminal scalar on two distinct source families transfer to a completely heldout third source executable family, and beat the strong direct-without-probe and transparent scripted alternatives after actual call cost?",
+  "policy": {
+    "learned_choice": "continue existing preauthored public-goal procedure versus STOP after exactly one genuinely selected declared original public observation",
+    "initial_probe": "Mandatory by protocol, not learned; not a claim to spontaneous information acquisition",
+    "public_features": "A binary preauthored public-tool planner queue-nonempty signal after actual first source-public response; no source family index or target ID enters learned actor",
+    "options": [
+      "stop",
+      "continue"
+    ],
+    "family_aware_original_tool_planner": "Original source-public Policy from EC005F; identities/next tool syntax are explicitly scripted, not learned",
+    "updates": "Only real selected terminal private-native scalar less 0.01 per physical source call, after full episode; no unchosen rewards or private source state/checker/code access",
+    "forced_chosen_exploration": "Two selected outcomes per action per observed feature, followed by epsilon=0.20; exact behavior propensities logged"
+  },
+  "training": {
+    "seeds": [
+      11,
+      23,
+      37,
+      41,
+      53
+    ],
+    "modes": [
+      "actual_public_reply",
+      "zero_information",
+      "independently_randomized_reply"
+    ],
+    "per_mode_per_seed_source_episodes": 48,
+    "per_training_source_family_per_mode": 24,
+    "interleaved_training_sequence": true,
+    "original_train_family_rows": [
+      0,
+      2
+    ],
+    "actual_original_source_train_episodes_per_seed": 144
+  },
+  "evaluation": {
+    "frozen_before_heldout_public_open": true,
+    "heldout_original_source_family": 3,
+    "evaluated_original_rows": [
+      0,
+      2,
+      3
+    ],
+    "frozen_models": [
+      "actual_public_reply",
+      "zero_information",
+      "independently_randomized_reply"
+    ],
+    "fixed_controls": [
+      "always_continue_after_probe",
+      "always_stop_after_probe",
+      "scripted_public_status",
+      "direct_no_probe",
+      "stop_no_probe"
+    ],
+    "episodes_per_row_per_policy": 1,
+    "real_source_eval_episodes_per_seed": 24,
+    "source_native_not_versioned_corrected_terminal_reward": true
+  },
+  "accounting": {
+    "source_executions_total": 840,
+    "original_private_checkers_total": 840,
+    "per_seed_original_source_episodes": 168,
+    "price_per_selected_tool_call": 0.01,
+    "physical": "Actual source-public tool count/timing, source worker wall time and RSS, independently jailed verifier time; no FLOPs or energy claim"
+  },
+  "nonclaims": [
+    "No naturally occurring negative/clean first-probe feature may exist in these two original source tasks; constant observation support and a preauthored queue semantics parser limit causal identification",
+    "Heldout family row3 belongs to the source TRAIN partition, withheld from all actor training; it is not a never-inspected sealed dev or test family and was studied in EC005F/G",
+    "The source-native original private verifier rewards partial task completion, not general safety/agency",
+    "The original family-aware action planner is scripted; only continue/stop option value is learned",
+    "A strong direct-action baseline may beat the probe-based actor even if heldout postprobe correct",
+    "No language model reasoning, autonomous tool-argument synthesis, heldout intervention-mechanism family other than original source-family transfer or introspective cognition established"
+  ]
+}
