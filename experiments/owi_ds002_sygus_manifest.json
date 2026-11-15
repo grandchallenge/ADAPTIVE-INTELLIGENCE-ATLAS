@@ -1,0 +1,97 @@
+{
+  "schema": "gcl.owi-ds002.sygus-inv2017-source-lock.v1",
+  "purpose": "Independent SMT admission of synthesized inductive invariants on third-party SyGuS competition tasks; NOT an evaluated synthesis algorithm",
+  "origin": {
+    "repository": "SyGuS-Org/benchmarks",
+    "commit": "13c8deb68a873635879c9a69bc78caebd340f646",
+    "track": "comp/2017/Inv_Track",
+    "fetch": "https://raw.githubusercontent.com/SyGuS-Org/benchmarks/{commit}/{path}"
+  },
+  "logic": "LIA",
+  "test_protocol": {
+    "developer_tasks": [
+      "inc",
+      "dec",
+      "w1",
+      "ex11",
+      "sum4"
+    ],
+    "heldout_task_families": [
+      "ex7",
+      "ex14",
+      "ex23",
+      "fig1",
+      "fig3"
+    ],
+    "split_policy": "The heldout set must not be used for candidate selection; independent evidence of compliance required; public benchmark data are not secret",
+    "solver_timeout_ms": 10000,
+    "acceptance": "All initiation, consecution and safety negated VCs UNSAT; SAT/UNKNOWN/TIMEOUT is not admission",
+    "evidence_limitations": [
+      "Solver proof relative to extracted original formal spec and solver assumptions, not source-to-intent correctness",
+      "Benchmark source may contain errors; do not claim real software correctness",
+      "No synthesis, structural OOD competence or empirical differential advantage yet"
+    ]
+  },
+  "tasks": [
+    {
+      "name": "inc",
+      "path": "comp/2017/Inv_Track/inc.sl",
+      "git_blob_sha": "8f3443128f531c31c2b081ccec1e6a870550e4dc",
+      "split": "dev"
+    },
+    {
+      "name": "dec",
+      "path": "comp/2017/Inv_Track/dec.sl",
+      "git_blob_sha": "0350dcca4cb52206736a184af58bb50623d11cc0",
+      "split": "dev"
+    },
+    {
+      "name": "w1",
+      "path": "comp/2017/Inv_Track/w1.sl",
+      "git_blob_sha": "4f7f30fdbe9dd3575e871c62d405932573e832d2",
+      "split": "dev"
+    },
+    {
+      "name": "ex11",
+      "path": "comp/2017/Inv_Track/ex11.sl",
+      "git_blob_sha": "40c70098a1f9c8f7a0d5823ffb4dc0e5e98501fd",
+      "split": "dev"
+    },
+    {
+      "name": "sum4",
+      "path": "comp/2017/Inv_Track/sum4.sl",
+      "git_blob_sha": "3a7fc946be36334bca504a3cfe88fa9f2e700c01",
+      "split": "dev"
+    },
+    {
+      "name": "ex7",
+      "path": "comp/2017/Inv_Track/ex7.sl",
+      "git_blob_sha": "f68e573d59e8714c1d932c3bc42b1a2c2fe04ded",
+      "split": "heldout"
+    },
+    {
+      "name": "ex14",
+      "path": "comp/2017/Inv_Track/ex14.sl",
+      "git_blob_sha": "4d271e3c0255f7e8974a0f2aff30a7c9a386802a",
+      "split": "heldout"
+    },
+    {
+      "name": "ex23",
+      "path": "comp/2017/Inv_Track/ex23.sl",
+      "git_blob_sha": "ada3eae4e8e9f4368c2a3ca0d2ecb900624dc7f9",
+      "split": "heldout"
+    },
+    {
+      "name": "fig1",
+      "path": "comp/2017/Inv_Track/fig1.sl",
+      "git_blob_sha": "c670475683e0e8a80b86b132e587e618ce2b44e3",
+      "split": "heldout"
+    },
+    {
+      "name": "fig3",
+      "path": "comp/2017/Inv_Track/fig3.sl",
+      "git_blob_sha": "da4aaad6e92b4b38d93475f02ac5e267fab4a157",
+      "split": "heldout"
+    }
+  ]
+}
