@@ -24,7 +24,7 @@ MODES=("true","zero_probe_signal","randomized_probe_signal")
 BASELINES=("scripted_adaptive","always_probe_correct","always_stop",
            "always_approve","always_reject")
 TRAIN_EPISODES=96
-UNKNOWN_FORCED_PROBES=24
+UNKNOWN_FORCED_PROBES=12
 MIN_SUPPORT=2
 EPSILON=0.18
 REWARD_SCALAR_NAME="actual_selected_versioned_utility"
