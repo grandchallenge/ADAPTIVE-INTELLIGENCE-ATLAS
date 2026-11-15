@@ -1,0 +1,65 @@
+name: OWI-DS002 historical DeepCoder external solver diagnostic
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_exedec_legacy_solver.py'
+      - 'tests/test_owi_ds002_exedec_legacy_solver.py'
+      - 'governance/ci_components/owi_ds002_exedec_legacy.json'
+      - '.github/workflows/owi-ds002-exedec-legacy-solver.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  legacy-compatibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify adapter safety and semantic mismatch
+        run: |
+          python -m py_compile experiments/owi_ds002_exedec_legacy_solver.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_legacy_solver.py' -v
+      - name: Bind immutable original Microsoft DeepCoder C++ source and compile
+        run: |
+          set -euo pipefail
+          git clone --quiet https://github.com/microsoft/DeepCoder-Utils.git build/owi_ds002/legacy_cpp
+          git -C build/owi_ds002/legacy_cpp checkout --quiet --detach 794057dc41aab0bea3818b75416da06b25aff12f
+          test "$(git -C build/owi_ds002/legacy_cpp rev-parse HEAD)" = "794057dc41aab0bea3818b75416da06b25aff12f"
+          make -C build/owi_ds002/legacy_cpp/enumerative-search CFLAGS=-DVERBOSE_MODE=1 -j 2
+      - name: Execute five-seed external candidate diagnostic against exact ExeDec sources
+        run: |
+          python experiments/owi_ds002_exedec_legacy_solver.py \
+            --source-dir build/owi_ds002/legacy_cpp \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 --max-nodes 4 --timeout-seconds 1.5 \
+            --output build/owi_ds002/legacy_cpp_diagnostic.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("build/owi_ds002/legacy_cpp_diagnostic.json").read_text())
+          assert d["status"] == "LEGACY_EXTERNAL_CANDIDATE_PROPOSER_DIAGNOSTIC"
+          assert d["summary"]["trials"] == 60
+          assert len(d["records"]) == 60
+          assert d["external_source"]["commit"] == "794057dc41aab0bea3818b75416da06b25aff12f"
+          assert all(r["evaluator"] is None or
+                     r["evaluator"]["status"] != "SOLVED_BY_HISTORICAL_SEMANTICS"
+                     for r in d["records"])
+          print("Historical solver claimed:",d["summary"]["external_claimed_solved"])
+          print("Independent ExeDec admissions:",d["summary"]["bounded_verified"])
+          print("Timeouts:",d["summary"]["external_timeouts"])
+          PY
+      - name: Preserve per-task historical result and independent checker custody
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-exedec-legacy-deepcoder-source-diagnostic
+          path: build/owi_ds002/legacy_cpp_diagnostic.json
+          retention-days: 30
