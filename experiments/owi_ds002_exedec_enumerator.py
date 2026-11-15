@@ -58,7 +58,7 @@ def _catalog():
             if signature in ("L", "UL", "PL", "BL"):
                 unary.append((op, lam, "L"))
             elif signature in ("IL", "BLL"):
-                binary.append((op, lam, signature[0], signature[-1]))
+                binary.append((op, lam, signature[-2], signature[-1]))
             else:
                 raise ValueError("unexpected upstream operation signature: " + signature)
     return unary, binary
