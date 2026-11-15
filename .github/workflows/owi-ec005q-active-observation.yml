@@ -1,0 +1,92 @@
+name: OWI-EC005Q source-locked conditional observation and repair
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005q_*.py'
+      - 'tests/test_owi_ec005q_active_observation.py'
+      - 'governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json'
+      - 'mathematics/research-notes/OWI-EC005Q-ACTIVE-OBSERVATION-20261114.md'
+      - '.github/workflows/owi-ec005q-active-observation.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-conditional-observation:
+    name: original-source optional probe seed ${{ matrix.seed }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 42
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 41, 53]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Source-private leak and physically selected probe adversarial tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile experiments/owi_ec005q_source_active_episode.py \
+            experiments/owi_ec005q_active_train.py experiments/owi_ec005q_active_gate.py
+          python -m unittest discover -s tests \
+            -p 'test_owi_ec005q_active_observation.py' -v
+      - name: Verify complete source SHA256 and independent original TRAIN family row 710
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 710 --output-dir "$RUNNER_TEMP/owi_ec005q"
+      - name: Run truly conditional original source-public probe and two private checkers
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005q_active_train.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005q" \
+            --revised-spec governance/research/OWI_EC005O_REVISED_MODERATION_V1.json \
+            --task-spec governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json \
+            --seed '${{ matrix.seed }}' \
+            --output-dir build/owi_ec005q
+      - name: Independently replay seeded true/zero/random signal two-stage chosen-only policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005q_active_gate.py \
+            --task-spec governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json \
+            --trial 'build/owi_ec005q/active_source_seed_${{ matrix.seed }}.json' \
+            --output 'build/owi_ec005q/active_gate_seed_${{ matrix.seed }}.json'
+          python - <<'PY'
+          import glob,json
+          from pathlib import Path
+          paths=glob.glob('build/owi_ec005q/active_gate_seed_*.json')
+          assert len(paths)==1
+          r=json.loads(Path(paths[0]).read_text())
+          assert r['contract']=='OWI-EC005Q-INDEPENDENT-REAL-SOURCE-ACTIVE-OBSERVATION-GATE/1'
+          assert r['actual_original_source_train_episodes']==288
+          assert r['actual_original_source_eval_episodes']==48
+          assert r['actual_original_source_and_each_checker_runs']==336
+          assert r['source_tool_probes_physically_conditional_and_verified']
+          assert r['two_stage_online_selected_terminal_scalar_updates_replayed']
+          assert not r['independent_heldout_original_family_established']
+          assert not r['reflective_self_observation_and_heldout_family_generalization_proved']
+          print('OWI_EC005Q_ORIGINAL_SOURCE_ACTUAL_PROBE_AND_POSTPROBE_RESULT',
+                json.dumps(r,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005q-original-source-conditional-seed-${{ matrix.seed }}
+          path: |
+            build/owi_ec005q/active_source_seed_${{ matrix.seed }}.json
+            build/owi_ec005q/active_gate_seed_${{ matrix.seed }}.json
+          retention-days: 30
