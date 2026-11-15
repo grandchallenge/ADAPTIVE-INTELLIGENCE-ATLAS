@@ -7,7 +7,8 @@
     "exact": [
       "experiments/owi_ds002_exedec_admission.py",
       "experiments/owi_ds002_exedec_manifest.json",
-      "tests/test_owi_ds002_exedec_admission.py"
+      "tests/test_owi_ds002_exedec_admission.py",
+      "experiments/owi_ds002_exedec_semantics.py"
     ],
     "prefixes": [],
     "test_prefixes": []
