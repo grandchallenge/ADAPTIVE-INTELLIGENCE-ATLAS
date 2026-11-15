@@ -143,8 +143,8 @@ class ActiveProbeFalseProofTests(unittest.TestCase):
             self.assertGreater(chosen[1],0)
             ep=synthetic_receipt("banned_reject","unknown","probe",chosen[0])
             a.update_from_chosen_only(ep)
-        self.assertEqual(a.initial.count["unknown"][OPTIONS.index("probe")],24)
-        self.assertEqual(a.unknown_seen,24)
+        self.assertEqual(a.initial.count["unknown"][OPTIONS.index("probe")],UNKNOWN_FORCED_PROBES)
+        self.assertEqual(a.unknown_seen,UNKNOWN_FORCED_PROBES)
         with self.assertRaises(ValueError):
             a.initial_choice("private_target_name",rng)
         with self.assertRaises(ValueError):
