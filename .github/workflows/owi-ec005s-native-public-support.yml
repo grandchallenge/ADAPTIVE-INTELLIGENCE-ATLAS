@@ -1,0 +1,77 @@
+name: OWI-EC005S original public source natural observation support survey
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005s_*.py'
+      - 'tests/test_owi_ec005s_native_public_support.py'
+      - 'governance/research/OWI_EC005S_NATIVE_PUBLIC_SUPPORT_V1.json'
+      - 'mathematics/research-notes/OWI-EC005S-NATIVE-OBSERVATION-SUPPORT-20261115.md'
+      - '.github/workflows/owi-ec005s-native-public-support.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-public-only-source-evidence:
+    name: source-native product moderation and tag no-op support
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify independent public-source gate and hostile no-leak fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile experiments/owi_ec005s_native_public_support.py \
+            experiments/owi_ec005s_native_public_support_gate.py
+          python -m unittest discover -s tests \
+            -p 'test_owi_ec005s_native_public_support.py' -v
+      - name: Verify full pinned source and select ONLY two distinct original TRAIN families
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 2151,2001 --output-dir "$RUNNER_TEMP/owi_ec005s"
+      - name: Read-only source-public tool calls in restrictive networkless source worker
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005s_native_public_support.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005s" \
+            --task-spec governance/research/OWI_EC005S_NATIVE_PUBLIC_SUPPORT_V1.json \
+            --output build/owi_ec005s/public_original_source_receipts.json
+      - name: Independently reconstruct all real selected original public source categories
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005s_native_public_support_gate.py \
+            --trial build/owi_ec005s/public_original_source_receipts.json \
+            --task-spec governance/research/OWI_EC005S_NATIVE_PUBLIC_SUPPORT_V1.json \
+            --output build/owi_ec005s/independent_public_support_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('build/owi_ec005s/independent_public_support_gate.json').read_text())
+          assert x['contract']=='OWI-EC005S-INDEPENDENT-ORIGINAL-PUBLIC-NATURAL-SUPPORT-GATE/1'
+          assert x['source_original_executable_train_families']==[2151,2001]
+          assert x['original_dev_test_task_content_or_source_private_verifier_not_exported']
+          assert x['no_source_mutation_or_synthetic_masking']
+          assert x['no_learned_policy_or_private_terminal_reward_evidence']
+          print('OWI_EC005S_ORIGINAL_SOURCE_NATIVE_PUBLIC_ONLY_COHORT_RESULT',
+                json.dumps(x,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005s-original-source-public-only-native-support
+          path: build/owi_ec005s
+          retention-days: 30

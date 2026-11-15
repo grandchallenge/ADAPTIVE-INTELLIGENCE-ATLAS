@@ -1,0 +1,21 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005s",
+  "owner": "OWI-EC-005S original TRAIN native-public observation-support assay; source-private checker and independent heldout publication excluded",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005s_native_public_support.py",
+      "experiments/owi_ec005s_native_public_support_gate.py",
+      "governance/research/OWI_EC005S_NATIVE_PUBLIC_SUPPORT_V1.json",
+      "mathematics/research-notes/OWI-EC005S-NATIVE-OBSERVATION-SUPPORT-20261115.md",
+      "tests/test_owi_ec005s_native_public_support.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
