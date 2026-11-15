@@ -56,10 +56,43 @@ jobs:
                 row['aggregate']['bounded_verified'], '/', row['aggregate']['cases'])
           print('By published structural split:',row['by_split'])
           PY
+      - name: Evaluate larger depth-four search capacity without reference-access leakage
+        run: |
+          python experiments/owi_ds002_exedec_enumerator.py \
+            --indices 0,17,49 --seeds 1,2,3,4,5 \
+            --max-nodes 4 --max-evals 15000 --max-width 600 --probes 16 \
+            --output build/owi_ds002/exedec_enumerator_depth_four.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=json.loads(Path("build/owi_ds002/exedec_enumerator_five_seed.json").read_text())
+          large=json.loads(Path("build/owi_ds002/exedec_enumerator_depth_four.json").read_text())
+          assert base['aggregate']['cases'] == large['aggregate']['cases'] == 90
+          assert {(r['task_id'],r['seed']) for r in base['records']} == {
+              (r['task_id'],r['seed']) for r in large['records']}
+          assert large['protocol']['max_nodes'] == 4
+          assert large['protocol']['max_evals'] == 15000
+          assert all(r['search']['counts']['attempts'] <= 15000 for r in large['records'])
+          assert all(not r['search']['source_leakage_controls'].startswith('reference') for r in large['records'])
+          report = {
+              'lower_capacity_verified':base['aggregate']['bounded_verified'],
+              'larger_capacity_verified':large['aggregate']['bounded_verified'],
+              'paired_delta_verified_trials':large['aggregate']['bounded_verified'] -
+                                             base['aggregate']['bounded_verified'],
+              'lower_attempts':base['aggregate']['sum_search_attempts'],
+              'larger_attempts':large['aggregate']['sum_search_attempts'],
+              'lower_cpu_seconds':base['aggregate']['end_to_end_cpu_seconds'],
+              'larger_cpu_seconds':large['aggregate']['end_to_end_cpu_seconds'],
+              'note':'Same source-task/seed pairs; capacity regimes are not equal-compute algorithms.'
+          }
+          Path("build/owi_ds002/exedec_enumerator_ablation.json").write_text(
+              json.dumps(report,indent=2,sort_keys=True)+'\n')
+          print('Deterministic paired capacity comparison:',report)
+          PY
       - name: Preserve exact-head per-task outcome-only and evaluator receipts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ds002-exedec-enumerator-five-seed
-          path: build/owi_ds002/exedec_enumerator_five_seed.json
+          path: build/owi_ds002/exedec_enumerator_*.json
           retention-days: 30
