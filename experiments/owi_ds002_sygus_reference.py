@@ -63,7 +63,7 @@ def solver_input_sygus21(legacy_source: str) -> str:
                          ["declare-var", cmd[1] + "!", "Int"]))
         else:
             rows.append(cmd)
-    return "\\n".join(emit(row) for row in rows) + "\\n"
+    return "\n".join(emit(row) for row in rows) + "\n"
 
 
 def worker(task: str, cache: Path) -> int:
