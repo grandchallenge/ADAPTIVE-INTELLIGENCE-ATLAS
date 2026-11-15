@@ -1,0 +1,121 @@
+{
+  "contract": "OWI-EC005Q-MASKED-PARTIAL-OBSERVATION-SOURCE-BENCHMARK/1",
+  "status": "PREREGISTERED_CANDIDATE_NOT_ORIGINAL_NATIVE_DATASET",
+  "source": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "full_dataset_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "source_row": 710,
+    "source_class_sha256": "ddfa0ad145cc43f1ab82545912b9e80410c5793b585d31d714f92c07b626dfba",
+    "original_private_checks": 9
+  },
+  "separate_corrected_terminal_spec": {
+    "contract": "OWI-EC005O-REVISED-MODERATION-SOURCE-NATIVE/1",
+    "sha256": "63252f02eb28cef71b2af7c7ce77afdab2123dc44112598b5b56a25551cd3a7a"
+  },
+  "scientific_status": "VERSIONED_ACTIVE_OBSERVATION_WRAPPER_OVER_ORIGINAL_CLASS_NOT_ORIGINAL_NATIVE_PUBLIC_TASK",
+  "task_interface": {
+    "public_generic_instruction": "Moderate the selected pending review according to the review author's verified account standing; reject banned authors' reviews and approve active authors' reviews. If the review is already correctly resolved, preserve it. Optional source-public author-status probe has a cost.",
+    "target_selection": "Trusted environment fixture selects one of two distinct source-public original review cases; its exact identity and author standing are NOT delivered to policy in unknown regime.",
+    "trusted_setup": "The original source public read tools list_all_professionals, list_all_users and get_reviews_for_professional are invoked to bind an actual single existing review; target binding and rights are trusted benchmark infrastructure, NOT a policy observation or cost-free learned probe. Their physical calls and wall time remain audited.",
+    "policy_contexts": {
+      "unknown": "Neutral target alias, pending, no author standing; exact source author and task-name masked",
+      "certified": "Trusted fixture exposes original source-public author standing as a verified cached observation; no further probe needed",
+      "resolved": "Trusted fixture first makes a correct real source mutation and publishes source-public already-correct boolean; STOP avoids redundant calls"
+    },
+    "optional_probe": "Actually selected list_all_users original tool call, source-authenticated user status matched by trusted target ID; only selected status projection enters policy, not full source user list or target identity.",
+    "postprobe_choices": [
+      "stop",
+      "approved",
+      "rejected"
+    ],
+    "initial_choices": [
+      "stop",
+      "approved",
+      "rejected",
+      "probe"
+    ],
+    "leak_boundary": "Actor never sees selected rule ID, target user/name/review/professional IDs, original class code, private source state, checker/checklist, source scorer, or unchosen outcome."
+  },
+  "training": {
+    "seeds": [
+      11,
+      23,
+      37,
+      41,
+      53
+    ],
+    "modes": [
+      "true",
+      "zero_probe_signal",
+      "randomized_probe_signal"
+    ],
+    "source_episodes_per_mode_per_seed": 96,
+    "cohort_repetitions_per_mode": {
+      "unknown_active": 16,
+      "unknown_banned": 16,
+      "certified_active": 16,
+      "certified_banned": 16,
+      "resolved_active": 16,
+      "resolved_banned": 16
+    },
+    "policy": "Two-stage online chosen-only epsilon-greedy tabular option-value learner, initialization unbiased, distinct stage0 and postprobe stage1 tables, all updates strictly delayed terminal utility of actual chosen action. No supervised correct-option labels.",
+    "forced_support": {
+      "uncertain_first_probe_visits": 12,
+      "initial_each_supported_arm_min": 2,
+      "postprobe_each_supported_arm_min": 2
+    },
+    "epsilon": 0.18,
+    "selected_only_reward": "versioned v1 actual terminal reward minus 0.002 per physical original source tool call minus 0.02 if optional probe actually selected",
+    "original_checker": "Original terminal score independently retained as read-only audit negative control",
+    "zero_probe_signal": "Executed physical optional probe response is deliberately hidden from postprobe actor; subsequent action still selected from its own learned blind table.",
+    "randomized_probe_signal": "Executed actual source probe returns real status to trusted wrapper, but postprobe actor receives a fresh independent fair active/banned signal unrelated to target; corruption is explicitly versioned experimental observation ablation, not a faithful original source tool reply."
+  },
+  "evaluation": {
+    "source_episodes_per_seed_per_regime_per_policy_per_target": 1,
+    "regimes": [
+      "unknown",
+      "certified",
+      "resolved"
+    ],
+    "policies": [
+      "true",
+      "zero_probe_signal",
+      "randomized_probe_signal",
+      "scripted_adaptive",
+      "always_probe_correct",
+      "always_stop",
+      "always_approve",
+      "always_reject"
+    ],
+    "source_episodes_per_seed": 48,
+    "new_independent_family_holdout": false,
+    "all_original_source_state_reset": true,
+    "all_policies_frozen": true,
+    "baseline_scripted_adaptive": "For unknown: physically probe then use live author standing. For certified: use real source-public cached standing directly. For resolved: STOP. This strong transparent comparator knows wrapper rules but no private source state.",
+    "unselected_options_never_run_during_training": true
+  },
+  "physical_execution": {
+    "original_source_worker": "Original locked Docker image, no network, nonroot, read-only, cap-drop ALL",
+    "original_native_checker": "distinct restricted after-terminal Docker child",
+    "versioned_v1_checker": "distinct restricted after-terminal Docker child",
+    "measure": [
+      "actual selected source tool calls",
+      "source tool observed time",
+      "source worker wall time",
+      "original/checker container wall time",
+      "worker peak RSS"
+    ],
+    "no_flops_or_energy_claim_without_measurement": true
+  },
+  "limitations": [
+    "One original independent source TRAIN family and two review cases, repeated; no independent sealed test or heldout source-family transfer",
+    "Original task is intentionally masked by NEW public task wrapper; not a measurement on unchanged source-public information structure",
+    "Trusted setup accesses selected-public source author standing to bind fixture but withholds it from unknown actor; physical setup cost is recorded",
+    "Preauthored public target resolution and source tool execution are not learned planning",
+    "No neural language model, learned introspection theorem or general epistemic agent claim",
+    "The versioned corrected scorer is not original native source reward",
+    "A strong scripted adaptive probe/direct/stop baseline likely matches the optimal behavioral policy",
+    "A constructed active information problem with positive learning is not automatic fulfilment of OWI #466 heldout-family acceptance"
+  ]
+}
