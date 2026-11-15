@@ -282,6 +282,8 @@ def run(splits: list[str], indices: list[int], seeds: list[int], *,
                     eval_wall = time.perf_counter() - t
                 records.append({
                     "task_id": public["task_id"], "split": split, "index": index,
+                    "reference_operations_evaluator_only":
+                        len(rows[index]["test_problem"]["program"].split("|")) - len(public["inputs"]),
                     "seed": seed, "source_git_blob_sha": blob,
                     "public_projection_sha256": public_hash,
                     "search": synthesized,
