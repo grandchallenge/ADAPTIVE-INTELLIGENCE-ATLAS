@@ -47,6 +47,25 @@ def extract_solution(output: str, expected_names: list[str]):
     return emit(d[4])
 
 
+def solver_input_sygus21(legacy_source: str) -> str:
+    """Convert ONLY the SyGuS-2015 primed-variable sugar.
+
+    The 2015 standard defines (declare-primed-var x Int) to mean exactly
+    (declare-var x Int) plus (declare-var x! Int). Version 2.1 removed
+    the sugar. The original bytes remain SHA-locked and are used unchanged
+    for independent Z3 verification; only cvc5's input is translated.
+    """
+    read_task(legacy_source)
+    rows = []
+    for cmd in parse(legacy_source):
+        if cmd[0] == "declare-primed-var":
+            rows.extend((["declare-var", cmd[1], "Int"],
+                         ["declare-var", cmd[1] + "!", "Int"]))
+        else:
+            rows.append(cmd)
+    return "\\n".join(emit(row) for row in rows) + "\\n"
+
+
 def worker(task: str, cache: Path) -> int:
     import cvc5
 
@@ -57,7 +76,8 @@ def worker(task: str, cache: Path) -> int:
     solver.setOption("sygus", "true")
     solver.setOption("incremental", "false")
     parser = cvc5.InputParser(solver)
-    parser.setStringInput(cvc5.InputLanguage.SYGUS_2_1, source,
+    parser.setStringInput(cvc5.InputLanguage.SYGUS_2_1,
+                          solver_input_sygus21(source),
                           f"pinned-{task}")
     mgr = parser.getSymbolManager()
     output = []
