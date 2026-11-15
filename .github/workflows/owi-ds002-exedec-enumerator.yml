@@ -1,0 +1,65 @@
+name: OWI-DS002 source-blind typed symbolic enumerator
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_exedec_enumerator.py'
+      - 'tests/test_owi_ds002_exedec_enumerator.py'
+      - 'governance/ci_components/owi_ds002_exedec_enumerator.json'
+      - '.github/workflows/owi-ds002-exedec-enumerator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  typed-enumerator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Check typed grammar, outcome-only access, extraction, and bounded search
+        run: |
+          python -m py_compile experiments/owi_ds002_exedec_enumerator.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_enumerator.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+      - name: Execute five-seed six-split real source-pinned pilot
+        run: |
+          python experiments/owi_ds002_exedec_enumerator.py \
+            --indices 0,17,49 --seeds 1,2,3,4,5 \
+            --max-nodes 3 --max-evals 3000 --max-width 220 --probes 16 \
+            --output build/owi_ds002/exedec_enumerator_five_seed.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          row=json.loads(Path('build/owi_ds002/exedec_enumerator_five_seed.json').read_text())
+          assert row['status'] == 'INITIAL_OUTCOME_ONLY_ENUMERATOR_EVALUATED'
+          assert row['aggregate']['cases'] == 90
+          assert len(row['by_split']) == 6
+          assert row['protocol']['seeds'] == [1,2,3,4,5]
+          assert all(x['search']['counts']['attempts'] <= 3000 for x in row['records'])
+          assert all(x['search']['source_leakage_controls'].startswith('participant_view') for x in row['records'])
+          assert all(x['evaluator'] is None or x['evaluator']['status'] in
+            {'BOUNDED_EXECUTION_AGREEMENT_ONLY',
+             'REJECTED_PUBLIC_COUNTEREXAMPLE',
+             'REJECTED_EVALUATOR_COUNTEREXAMPLE',
+             'INCONCLUSIVE_INSUFFICIENT_VALID_PROBES'} for x in row['records'])
+          assert all(x['bounded_verified'] ==
+            (x['evaluator'] is not None and x['evaluator']['status'] ==
+             'BOUNDED_EXECUTION_AGREEMENT_ONLY') for x in row['records'])
+          print('Five-seed source-pinned initial enumeration baseline:',
+                row['aggregate']['bounded_verified'], '/', row['aggregate']['cases'])
+          print('By published structural split:',row['by_split'])
+          PY
+      - name: Preserve exact-head per-task outcome-only and evaluator receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-exedec-enumerator-five-seed
+          path: build/owi_ds002/exedec_enumerator_five_seed.json
+          retention-days: 30
