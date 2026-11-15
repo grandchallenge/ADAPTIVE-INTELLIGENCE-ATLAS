@@ -134,13 +134,14 @@ def probe_once(folder,row,name,args,allowed):
         raise RuntimeError("truncated or malformed original source public reply")
     # Terminal private initial/final state are deliberately not inspected.
     peak=results[-1].get("peak_rss_kib")
+    source_seconds=results[1].get("elapsed_seconds")
     results=None
     return {
         "original_source_row":row,"selected_read_only_tool":name,
         "selected_original_public_args":args,
         "raw_actual_original_public_reply":source_reply,
         "actual_public_reply_sha256":fingerprint(source_reply),
-        "source_public_tool_seconds":float(results_time) if False else 0.0,
+        "source_public_tool_seconds":source_seconds,
         "source_worker_container_wall_seconds":wall,
         "source_worker_peak_rss_kib":peak,
         "original_private_terminal_state_discarded":True,
