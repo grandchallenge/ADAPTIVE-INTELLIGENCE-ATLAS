@@ -128,9 +128,9 @@ class ActiveProbeFalseProofTests(unittest.TestCase):
             for stage in ("unknown","certified","resolved"):
                 for rule in RULES:
                     self.assertEqual(c[stage,rule],16)
-            first24=[r for st,r in s if st=="unknown"][:24]
-            self.assertEqual(first24.count("banned_reject"),12)
-            self.assertEqual(first24.count("eligible_approve"),12)
+            first_forced=[r for st,r in s if st=="unknown"][:UNKNOWN_FORCED_PROBES]
+            self.assertEqual(first_forced.count("banned_reject"),UNKNOWN_FORCED_PROBES//2)
+            self.assertEqual(first_forced.count("eligible_approve"),UNKNOWN_FORCED_PROBES//2)
     def test_learned_context_action_after_actual_chosen_scalar(self):
         a=TwoStageActor()
         rng=random.Random(4)
