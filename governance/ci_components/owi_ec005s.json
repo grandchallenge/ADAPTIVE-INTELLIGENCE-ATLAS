@@ -9,8 +9,7 @@
       "experiments/owi_ec005s_native_public_support_gate.py",
       "governance/research/OWI_EC005S_NATIVE_PUBLIC_SUPPORT_V1.json",
       "mathematics/research-notes/OWI-EC005S-NATIVE-OBSERVATION-SUPPORT-20261115.md",
-      "tests/test_owi_ec005s_native_public_support.py",
-      ".github/workflows/owi-ec005s-native-public-support.yml"
+      "tests/test_owi_ec005s_native_public_support.py"
     ],
     "prefixes": [],
     "test_prefixes": []
