@@ -143,7 +143,7 @@ def propose(view: dict, root: Path, seed: int, depth: int, timeout: float) -> di
                     "input_output_examples","target_program_exposed","source_blob"}:
         raise adm.Rejected("private data passed to external search")
     names, _, n = adm.validate_examples(view)
-    search_dir = root/"enumerative-search"
+    search_dir = root.resolve()/"enumerative-search"
     data_dir = search_dir/"data"
     prior=(data_dir/"example"/"prior.txt").read_text()
     with tempfile.TemporaryDirectory(prefix="gcl_owi_ds002_", dir=data_dir) as temp:
@@ -164,7 +164,12 @@ def propose(view: dict, root: Path, seed: int, depth: int, timeout: float) -> di
                     if "Failed!" in proc.stdout else "EXTERNAL_EXIT_NONSTANDARD")
             if proc.returncode != 0:
                 status="EXTERNAL_EXIT_NONZERO"
-            candidate=extract(proc.stdout, names) if proc.returncode == 0 else None
+            candidate=None
+            if proc.returncode == 0:
+                try:
+                    candidate=extract(proc.stdout, names)
+                except adm.Rejected:
+                    status="REJECTED_UNTRANSLATABLE_EXTERNAL_CANDIDATE"
             match=re.search(r"Nodes explored:\s*(\d+)",proc.stdout)
             explored=int(match.group(1)) if match else None
             rc=proc.returncode
