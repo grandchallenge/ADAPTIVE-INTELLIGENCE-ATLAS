@@ -56,10 +56,46 @@ jobs:
           print("Independent ExeDec admissions:",d["summary"]["bounded_verified"])
           print("Timeouts:",d["summary"]["external_timeouts"])
           PY
+      - name: Replay protected local enumerator on identical source-task and seed pairs
+        run: |
+          python experiments/owi_ds002_exedec_enumerator.py \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 --max-nodes 4 --max-evals 15000 --max-width 600 \
+            --output build/owi_ds002/legacy_cpp_matched_local.json
+          python - <<'PY'
+          from collections import Counter
+          import json
+          from pathlib import Path
+          base=Path("build/owi_ds002")
+          ext=json.loads((base/"legacy_cpp_diagnostic.json").read_text())
+          loc=json.loads((base/"legacy_cpp_matched_local.json").read_text())
+          e={(r["task_id"],r["seed"]):r for r in ext["records"]}
+          l={(r["task_id"],r["seed"]):r for r in loc["records"]}
+          assert e.keys() == l.keys() and len(e) == 60
+          diag={
+            "source_revision":ext["source_revision"],
+            "external_verified":sum(r["bounded_verified"] for r in e.values()),
+            "local_verified":sum(r["bounded_verified"] for r in l.values()),
+            "external_only":sum(e[k]["bounded_verified"] and not l[k]["bounded_verified"] for k in e),
+            "local_only":sum(l[k]["bounded_verified"] and not e[k]["bounded_verified"] for k in e),
+            "both_verified":sum(e[k]["bounded_verified"] and l[k]["bounded_verified"] for k in e),
+            "neither_verified":sum(not e[k]["bounded_verified"] and not l[k]["bounded_verified"] for k in e),
+            "external_claims":ext["summary"]["external_claimed_solved"],
+            "external_outcome_counts":dict(Counter(r["external"]["external_status"] for r in e.values())),
+            "external_evaluator_counts":dict(Counter(r["evaluator"]["status"] if r["evaluator"] else "NO_CANDIDATE" for r in e.values())),
+            "external_worker_wall_sum_seconds":sum(r["external"]["external_worker_wall_seconds"] for r in e.values()),
+            "local_end_to_end_cpu_seconds":loc["aggregate"]["end_to_end_cpu_seconds"],
+            "local_attempted_expressions":loc["aggregate"]["sum_search_attempts"],
+            "limits":"Exact same task-seed pairs, but not matched full compute, semantics or hardware",
+          }
+          (base/"legacy_cpp_matched_comparison.json").write_text(
+            json.dumps(diag,indent=2,sort_keys=True)+"\n")
+          print("Same-task/seed diagnostic comparison:",diag)
+          PY
       - name: Preserve per-task historical result and independent checker custody
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ds002-exedec-legacy-deepcoder-source-diagnostic
-          path: build/owi_ds002/legacy_cpp_diagnostic.json
+          path: build/owi_ds002/legacy_cpp_*.json
           retention-days: 30
