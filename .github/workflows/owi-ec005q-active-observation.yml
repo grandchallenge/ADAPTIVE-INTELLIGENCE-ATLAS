@@ -54,6 +54,7 @@ jobs:
           python experiments/owi_ec005q_active_train.py \
             --input-dir "$RUNNER_TEMP/owi_ec005q" \
             --revised-spec governance/research/OWI_EC005O_REVISED_MODERATION_V1.json \
+            --task-spec governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json \
             --seed '${{ matrix.seed }}' \
             --output-dir build/owi_ec005q
       - name: Independently replay seeded true/zero/random signal two-stage chosen-only policy
@@ -61,6 +62,7 @@ jobs:
         run: |
           set -euo pipefail
           python experiments/owi_ec005q_active_gate.py \
+            --task-spec governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json \
             --trial 'build/owi_ec005q/active_source_seed_${{ matrix.seed }}.json' \
             --output 'build/owi_ec005q/active_gate_seed_${{ matrix.seed }}.json'
           python - <<'PY'
