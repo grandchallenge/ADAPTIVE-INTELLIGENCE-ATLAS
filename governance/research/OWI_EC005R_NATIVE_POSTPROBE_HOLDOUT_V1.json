@@ -73,16 +73,18 @@
       "always_stop_after_probe",
       "scripted_public_status",
       "direct_no_probe",
-      "stop_no_probe"
+      "stop_no_probe",
+      "public_affordance_adaptive"
     ],
     "episodes_per_row_per_policy": 1,
-    "real_source_eval_episodes_per_seed": 24,
-    "source_native_not_versioned_corrected_terminal_reward": true
+    "real_source_eval_episodes_per_seed": 27,
+    "source_native_not_versioned_corrected_terminal_reward": true,
+    "strongest_control_definition": "The transparent public-affordance script first checks whether the preauthored public-only Policy can execute a direct intervention without a probe; if yes, take that direct action, otherwise run the original-public probe-plus-conditional continuation plan. This is a strong script, not a privileged checker oracle or a learned policy."
   },
   "accounting": {
-    "source_executions_total": 840,
-    "original_private_checkers_total": 840,
-    "per_seed_original_source_episodes": 168,
+    "source_executions_total": 855,
+    "original_private_checkers_total": 855,
+    "per_seed_original_source_episodes": 171,
     "price_per_selected_tool_call": 0.01,
     "physical": "Actual source-public tool count/timing, source worker wall time and RSS, independently jailed verifier time; no FLOPs or energy claim"
   },
