@@ -1,0 +1,65 @@
+name: OWI-DS002 official SyGuS invariant admission gate
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_sygus_admission.py'
+      - 'experiments/owi_ds002_sygus_manifest.json'
+      - 'tests/test_owi_ds002_sygus_admission.py'
+      - 'governance/ci_components/owi_ds002_sygus.json'
+      - '.github/workflows/owi-ds002-sygus-admission.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-invariant-admission:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install independent SMT checker
+        run: python -m pip install --no-cache-dir 'z3-solver==4.13.4.0'
+      - name: Compile and execute source-lock and admission tests
+        run: |
+          python -m py_compile experiments/owi_ds002_sygus_admission.py tests/test_owi_ds002_sygus_admission.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_sygus_admission.py' -v
+      - name: Publish exact-source positive and rejected-candidate receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/owi_ds002/sygus_receipts
+          python experiments/owi_ds002_sygus_admission.py \
+            --task inc --offline --candidate '(and (>= x 0) (<= x 100))' \
+            --output build/owi_ds002/sygus_receipts/valid_inc.json
+          if python experiments/owi_ds002_sygus_admission.py \
+            --task inc --offline --candidate '(= x 0)' \
+            --output build/owi_ds002/sygus_receipts/rejected_noninductive_inc.json; then
+            echo "FAIL: intentionally noninductive candidate admitted" >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("build/owi_ds002/sygus_receipts")
+          ok=json.loads((base/"valid_inc.json").read_text())
+          bad=json.loads((base/"rejected_noninductive_inc.json").read_text())
+          assert ok["status"] == "SOLVER_CHECKED_RELATIVE_TO_PINNED_SYGUS_SPEC"
+          assert all(v["result"] == "unsat" for v in ok["vcs"].values())
+          assert bad["status"] == "REJECTED_OR_UNDECIDED"
+          assert bad["vcs"]["consecution"]["result"] == "sat"
+          print("Source-locked SMT admission and negative counterexample verified")
+          PY
+      - name: Retain executable admission receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-sygus-2017-source-locked-admission
+          path: build/owi_ds002/sygus_receipts/*.json
+          retention-days: 30
