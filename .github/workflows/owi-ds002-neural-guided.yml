@@ -1,0 +1,84 @@
+name: OWI-DS002 A-B neural-guided typed search comparison
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_neural_guided.py'
+      - 'experiments/owi_ds002_policy_synthesis.py'
+      - 'tests/test_owi_ds002_neural_guided.py'
+      - '.github/workflows/owi-ds002-neural-guided.yml'
+      - 'governance/ci_components/owi_ds002.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chosen-outcome-neural-guidance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Unit tests for typed projection and chosen-action IPS
+        run: |
+          python -m py_compile experiments/owi_ds002_neural_guided.py tests/test_owi_ds002_neural_guided.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_neural_guided.py' -v
+      - name: Paired fresh A/B evaluations on five seeds
+        shell: bash
+        run: |
+          set -euo pipefail
+          for seed in 1 2 3 4 5; do
+            python experiments/owi_ds002_neural_guided.py \
+              --seed "$seed" --pretrain 250 --steps 300 \
+              --logging-examples 4095 --eval-examples 512 \
+              --output "build/owi_ds002/neural_seed_${seed}.json" \
+              > "neural_seed_${seed}.log"
+          done
+      - name: Summarize per-seed paired cost and unequal-compute limitation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, statistics
+          folder = Path("build/owi_ds002")
+          seeds = [json.loads((folder / f"neural_seed_{s}.json").read_text())
+                   for s in range(1,6)]
+          summary = []
+          for i in range(6):
+              deltas = [r["paired"][i]["b_minus_a_mean_cost"] for r in seeds]
+              summary.append({"condition": seeds[0]["paired"][i]["condition"],
+                              "paired_deltas": deltas,
+                              "mean_delta": statistics.mean(deltas),
+                              "sample_sd": statistics.stdev(deltas)})
+          report = {
+              "programme": "OWI-DS-002", "comparison": "A/B only", "n_seeds": 5,
+              "seed_ids": [1,2,3,4,5], "summary": summary,
+              "mean_B_training_seconds": statistics.mean(
+                  r["b_training_seconds"] for r in seeds),
+              "mean_A_selection_seconds": statistics.mean(
+                  r["a_select_seconds"] for r in seeds),
+              "interpretation": "B/A not equal total compute; descriptive pilot only",
+              "not_evaluated": ["derivative information", "causal self-model",
+                                "formal correctness", "full system compute parity"]}
+          (folder / "neural_five_seed_summary.json").write_text(
+              json.dumps(report, sort_keys=True, indent=2)+"\n")
+          print(json.dumps({"mean_B_minus_A":
+            {r["condition"]: r["mean_delta"] for r in summary},
+            "mean_B_training_seconds": report["mean_B_training_seconds"],
+            "mean_A_selection_seconds": report["mean_A_selection_seconds"]}))
+          PY
+      - name: Retain candidate programs and paired A-B evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-neural-guided-ab-five-seed
+          path: |
+            build/owi_ds002/neural_*.json
+            neural_seed_*.log
+          retention-days: 30

@@ -9,11 +9,15 @@
       "experiments/owi_ds002_benchmark_manifest.json",
       "experiments/owi_ds002_policy_synthesis.py",
       "tests/test_owi_ds002_chosen_tangents.py",
-      "tests/test_owi_ds002_policy_synthesis.py"
+      "tests/test_owi_ds002_policy_synthesis.py",
+      "experiments/owi_ds002_neural_guided.py",
+      "tests/test_owi_ds002_neural_guided.py"
     ],
     "prefixes": [],
     "test_prefixes": []
   },
   "depends_on": [],
-  "checks": ["atlas-repository-validation"]
+  "checks": [
+    "atlas-repository-validation"
+  ]
 }
