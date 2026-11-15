@@ -11,7 +11,7 @@ This establishes at most within-one-original-source synthetic-masked-task
 active information value; NOT an independently held-out source-family result.
 """
 from __future__ import annotations
-import argparse,collections,json,math,random,time
+import argparse,collections,hashlib,json,math,random,time
 from pathlib import Path
 from owi_ec005q_source_active_episode import (
     CONTRACT as EP_CONTRACT,source_episode,STAGES,OPTIONS,POST_OPTIONS,
@@ -28,6 +28,30 @@ UNKNOWN_FORCED_PROBES=24
 MIN_SUPPORT=2
 EPSILON=0.18
 REWARD_SCALAR_NAME="actual_selected_versioned_utility"
+TASK_SPEC_CONTRACT="OWI-EC005Q-MASKED-PARTIAL-OBSERVATION-SOURCE-BENCHMARK/1"
+
+def check_frozen_task_manifest(path):
+    """Validate the exact byte-identity and declared scope of Q's NEW task."""
+    raw=path.read_bytes()
+    manifest=json.loads(raw)
+    if (manifest.get("contract")!=TASK_SPEC_CONTRACT or
+        manifest.get("status")!="PREREGISTERED_CANDIDATE_NOT_ORIGINAL_NATIVE_DATASET" or
+        manifest.get("source",{}).get("source_row")!=710 or
+        manifest.get("source",{}).get("full_dataset_sha256")!=
+          "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a" or
+        manifest.get("source",{}).get("source_class_sha256")!=
+          "ddfa0ad145cc43f1ab82545912b9e80410c5793b585d31d714f92c07b626dfba" or
+        manifest.get("separate_corrected_terminal_spec",{}).get("sha256")!=SPEC_SHA or
+        manifest.get("training",{}).get("seeds")!=list(SEEDS) or
+        manifest.get("training",{}).get("modes")!=list(MODES) or
+        manifest.get("training",{}).get("source_episodes_per_mode_per_seed")!=TRAIN_EPISODES or
+        manifest.get("training",{}).get("forced_support",{}).get("uncertain_first_probe_visits")!=UNKNOWN_FORCED_PROBES or
+        manifest.get("training",{}).get("epsilon")!=EPSILON or
+        manifest.get("evaluation",{}).get("regimes")!=list(STAGES) or
+        manifest.get("evaluation",{}).get("policies")!=list((*MODES,*BASELINES)) or
+        manifest.get("evaluation",{}).get("source_episodes_per_seed")!=48):
+        raise ValueError("frozen versioned Q public-task/probe-reward manifest drift")
+    return hashlib.sha256(raw).hexdigest()
 RULES=("banned_reject","eligible_approve")
 SCHEDULE_PHASES=("unknown","certified","resolved")
 
@@ -217,9 +241,10 @@ def evaluation(folder,spec,seed,trained):
     if len(result)!=expected:raise AssertionError("missing source evaluation cases")
     return result
 
-def run(folder,spec,seed):
+def run(folder,spec,seed,task_spec):
     if seed not in SEEDS:raise ValueError("only five preregistered seeds")
     if not spec.exists():raise ValueError("frozen O-v1 versioned private scorer missing")
+    task_spec_sha=check_frozen_task_manifest(task_spec)
     started=time.perf_counter()
     actor,training={},{}
     for mode in MODES:
@@ -235,6 +260,7 @@ def run(folder,spec,seed):
         "generic_source_public_task_is_versioned_and_intentionally_masked":True,
         "new_versioned_terminal_reward_not_original_native":True,
         "corrected_spec_sha256":SPEC_SHA,
+        "frozen_versioned_masked_task_spec_sha256":task_spec_sha,
         "source_original_train_row":710,
         "one_original_independent_natural_training_family":True,
         "five_independent_seed_runs_required":True,
@@ -258,10 +284,11 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input-dir",type=Path,required=True)
     p.add_argument("--revised-spec",type=Path,required=True)
+    p.add_argument("--task-spec",type=Path,required=True)
     p.add_argument("--seed",type=int,choices=SEEDS,required=True)
     p.add_argument("--output-dir",type=Path,default=Path("build/owi_ec005q"))
     a=p.parse_args()
-    out=run(a.input_dir,a.revised_spec,a.seed)
+    out=run(a.input_dir,a.revised_spec,a.seed,a.task_spec)
     a.output_dir.mkdir(parents=True,exist_ok=True)
     target=a.output_dir/f"active_source_seed_{a.seed}.json"
     target.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
