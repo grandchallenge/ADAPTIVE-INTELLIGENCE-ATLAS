@@ -7,7 +7,9 @@
     "exact": [
       "experiments/owi_ds002_sygus_admission.py",
       "experiments/owi_ds002_sygus_manifest.json",
-      "tests/test_owi_ds002_sygus_admission.py"
+      "tests/test_owi_ds002_sygus_admission.py",
+      "experiments/owi_ds002_sygus_reference.py",
+      "tests/test_owi_ds002_sygus_reference.py"
     ],
     "prefixes": [],
     "test_prefixes": []

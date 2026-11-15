@@ -1,0 +1,71 @@
+name: OWI-DS002 official SyGuS cvc5 reference baseline
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_sygus_reference.py'
+      - 'experiments/owi_ds002_sygus_admission.py'
+      - 'experiments/owi_ds002_sygus_manifest.json'
+      - 'tests/test_owi_ds002_sygus_reference.py'
+      - 'governance/ci_components/owi_ds002_sygus.json'
+      - '.github/workflows/owi-ds002-sygus-reference.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-pinned-sygus-reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned independent synthesis and verification solvers
+        run: python -m pip install --no-cache-dir 'cvc5==1.4.2' 'z3-solver==4.13.4.0'
+      - name: Verify external source locks, output grammar, and independent checker
+        run: |
+          python -m py_compile experiments/owi_ds002_sygus_reference.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_sygus_reference.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_sygus_admission.py' -v
+      - name: Demand independently verified synthesis on an official development task
+        run: |
+          python experiments/owi_ds002_sygus_reference.py --task inc --offline \
+             --timeout-seconds 20 --output build/owi_ds002/sygus_reference_smoke.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('build/owi_ds002/sygus_reference_smoke.json').read_text())
+          assert result['verified'] == 1, 'official SyGuS inc not independently verified'
+          row=result['records'][0]
+          assert row['outcome'] == 'VERIFIED_INDUCTIVE_INVARIANT'
+          assert all(v['result'] == 'unsat' for v in row['certificate']['vcs'].values())
+          print('cvc5 candidate independently accepted by Z3 on exact official source')
+          PY
+      - name: Run all ten pinned competition problems under individual deadlines
+        run: |
+          python experiments/owi_ds002_sygus_reference.py --all --offline \
+            --timeout-seconds 15 --output build/owi_ds002/sygus_reference_ten.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          row=json.loads(Path('build/owi_ds002/sygus_reference_ten.json').read_text())
+          assert row['benchmarks'] == 10
+          assert all(r['source_git_blob_sha'] for r in row['records'])
+          print('Independently admitted SyGuS tasks:',
+                row['verified'], '/', row['benchmarks'])
+          print('Disposition of each task:',
+                [(r['task'], r['outcome']) for r in row['records']])
+          PY
+      - name: Archive fully parsed and independently admitted solver receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-sygus-cvc5-z3-reference-ten
+          path: |
+            build/owi_ds002/sygus_reference_*.json
+          retention-days: 30

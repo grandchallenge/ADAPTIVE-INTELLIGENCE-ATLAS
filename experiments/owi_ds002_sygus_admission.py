@@ -195,16 +195,42 @@ def read_task(raw: str) -> dict:
 
 
 def typecheck(expr, variables: set[str], *, max_nodes=128) -> tuple[str, int]:
-    """Small typed invariant AST; cannot call source oracle functions."""
+    """Bounded, typed SMT invariant with linear constant scaling and local let.
+
+    Scoped SMT-LIB let bindings are simultaneous, not recursive. Neither an
+    unknown function nor nonlinear multiplication is permitted.
+    """
     count = 0
 
-    def inner(e, depth):
+    def constant(e):
+        if isinstance(e, str) and NUM.fullmatch(e):
+            return int(e)
+        if not isinstance(e, list) or not e:
+            return None
+        op, *terms = e
+        xs = [constant(v) for v in terms]
+        if not xs or any(x is None for x in xs):
+            return None
+        if op == "+":
+            return sum(xs)
+        if op == "-":
+            return -xs[0] if len(xs) == 1 else xs[0] - sum(xs[1:])
+        if op == "*":
+            prod = 1
+            for x in xs:
+                prod *= x
+            return prod
+        return None
+
+    def inner(e, depth, scope):
         nonlocal count
         count += 1
         if count > max_nodes or depth > 30:
             raise AdmissionError("candidate exceeds grammar size/depth")
         if isinstance(e, str):
-            if e in variables or NUM.fullmatch(e):
+            if e in scope:
+                return scope[e]
+            if NUM.fullmatch(e):
                 return "Int"
             if e in ("true", "false"):
                 return "Bool"
@@ -212,7 +238,22 @@ def typecheck(expr, variables: set[str], *, max_nodes=128) -> tuple[str, int]:
         if not isinstance(e, list) or not e or not isinstance(e[0], str):
             raise AdmissionError("malformed candidate AST")
         op, *args = e
-        sorts = [inner(arg, depth + 1) for arg in args]
+        if op == "let":
+            if (len(args) != 2 or not isinstance(args[0], list)
+                    or not args[0] or len(args[0]) > 32):
+                raise AdmissionError("invalid let binding list")
+            definitions = {}
+            for binding in args[0]:
+                if (not isinstance(binding, list) or len(binding) != 2 or
+                        not isinstance(binding[0], str) or
+                        not SYMBOL.fullmatch(binding[0]) or
+                        binding[0] in scope or binding[0] in definitions):
+                    raise AdmissionError("duplicate, shadowing, or invalid let binding")
+                definitions[binding[0]] = inner(binding[1], depth + 1, scope)
+            local = dict(scope)
+            local.update(definitions)
+            return inner(args[1], depth + 1, local)
+        sorts = [inner(arg, depth + 1, scope) for arg in args]
         if op in ("and", "or", "=>") and len(args) >= 2 and all(x == "Bool" for x in sorts):
             return "Bool"
         if op == "not" and sorts == ["Bool"]:
@@ -224,13 +265,13 @@ def typecheck(expr, variables: set[str], *, max_nodes=128) -> tuple[str, int]:
         if op in ("+", "-") and len(args) >= 1 and all(x == "Int" for x in sorts):
             return "Int"
         if op == "*" and sorts == ["Int", "Int"] and any(
-                isinstance(arg, str) and NUM.fullmatch(arg) for arg in args):
-            return "Int"  # restricted linear multiplication only
+                constant(arg) is not None for arg in args):
+            return "Int"
         if op == "ite" and len(sorts) == 3 and sorts[0] == "Bool" and sorts[1] == sorts[2]:
             return sorts[1]
         raise AdmissionError(f"ill-typed or unsupported candidate operator: {op}")
 
-    typ = inner(expr, 0)
+    typ = inner(expr, 0, {v: "Int" for v in variables})
     if typ != "Bool":
         raise AdmissionError("invariant must have sort Bool")
     return typ, count
