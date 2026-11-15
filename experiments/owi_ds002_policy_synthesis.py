@@ -233,7 +233,14 @@ def evaluate(core, cfg, program, *, seed: int, mechanism: str,
             "mean_compute_charge": float((out["loss"] - out["task_loss"]).mean()),
             "actual_suffix_replays": int(out["spent"].sum()),
             "actual_replay_calls": int(out["replay_calls"]),
-            "dense_mac_proxy": out["dense_macs"],
+            "recurrent_dense_mac_proxy": {
+                "base": out["dense_macs"]["base"],
+                "conditional_replay": out["dense_macs"]["conditional_replay"]},
+            "symbolic_policy_macs": None,
+            "controller_cost_warning": "inherited run_policy neural-controller "
+                                       "MAC estimate is inapplicable to the "
+                                       "discrete grammar; normalized policy "
+                                       "overhead is not physical MACs",
             "execution_seconds": time.perf_counter() - start}
 
 
