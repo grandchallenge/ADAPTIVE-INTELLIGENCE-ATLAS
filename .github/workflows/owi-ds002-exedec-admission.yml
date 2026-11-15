@@ -39,6 +39,31 @@ jobs:
           assert sum(x['tasks'] for x in d['splits'].values()) == 1200
           assert d['reference_examples_checked'] >= 3600
           PY
+      - name: Exercise actual candidate-admission CLI with evaluator-only reference
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import subprocess
+          import sys
+          sys.path.insert(0, "experiments")
+          import owi_ds002_exedec_admission as adm
+          cache = Path("build/owi_ds002/exedec_sources")
+          rows, _ = adm.source_rows("NONE", cache, offline=True)
+          reference = rows[0]["test_problem"]["program"]
+          command = [sys.executable, "experiments/owi_ds002_exedec_admission.py",
+                     "--mode", "verify", "--split", "NONE", "--index", "0",
+                     "--candidate", reference, "--offline", "--probes", "16",
+                     "--output", "build/owi_ds002/exedec_ref_selfcheck.json"]
+          completed = subprocess.run(command, check=False, capture_output=True,
+                                     text=True, timeout=30)
+          receipt = json.loads(Path("build/owi_ds002/exedec_ref_selfcheck.json").read_text())
+          assert completed.returncode == 0, (completed.stderr, receipt)
+          assert receipt["status"] == "BOUNDED_EXECUTION_AGREEMENT_ONLY", receipt
+          assert receipt["independent_valid_cases"] == 16
+          assert receipt["source_revision"] == adm.manifest()["origin"]["commit"]
+          print("Evaluator-only reference self-check passed; this is not an independently synthesized solution")
+          PY
       - name: Verify that public projection excludes reference solutions
         run: |
           python experiments/owi_ds002_exedec_admission.py --mode preview --offline --index 0 --split LENGTH_GENERALIZATION --output build/owi_ds002/exedec_preview.json
