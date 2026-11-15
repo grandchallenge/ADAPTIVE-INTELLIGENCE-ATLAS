@@ -1,0 +1,50 @@
+name: OWI-DS002 typed policy synthesis baseline
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_policy_synthesis.py'
+      - 'tests/test_owi_ds002_policy_synthesis.py'
+      - 'governance/ci_components/owi_ds002.json'
+      - '.github/workflows/owi-ds002-policy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Compile and verify baseline contract
+        run: |
+          python -m py_compile experiments/owi_ds002_policy_synthesis.py tests/test_owi_ds002_policy_synthesis.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_policy_synthesis.py' -v
+      - name: Run independent online evaluation with extracted policy
+        run: |
+          python experiments/owi_ds002_policy_synthesis.py --seed 1 --pretrain 20 \
+            --logging-examples 600 --eval-examples 64 --output build/owi_ds002/seed1_A.json
+          python - <<'PY'
+          import json
+          p = json.load(open("build/owi_ds002/seed1_A.json"))
+          assert len(p["heldout"]) == 6
+          assert p["selection"]["qualified"] > 0
+          assert all(v["mean_total_cost"] >= 0 for v in p["heldout"])
+          print("Verified independent held-out executions:", len(p["heldout"]))
+          PY
+      - name: Archive executed candidate and evaluated outcomes
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-symbolic-baseline-seed1
+          path: build/owi_ds002/seed1_A.json
+          retention-days: 30
