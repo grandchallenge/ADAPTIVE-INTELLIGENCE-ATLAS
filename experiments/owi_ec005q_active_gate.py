@@ -73,11 +73,11 @@ def check_receipt(e,stage,rule,mode):
             deny("mixed true and randomized source probe receipt")
         effective=e["postprobe_selected_action"]
     else:
-        if any(e.get(key) is not None for key in (
+        if (any(e.get(key) is not None for key in (
             "actual_selected_original_public_probe_status_evaluator_only",
             "policy_supplied_postprobe_signal","postprobe_selected_action",
             "postprobe_selected_propensity")) or
-            e.get("randomized_probe_reply_ablation") is not False:
+            e.get("randomized_probe_reply_ablation") is not False):
             deny("fabricated unchosen optional probe or postprobe observation")
         effective=initial
     if e.get("effective_selected_terminal_action")!=effective:
