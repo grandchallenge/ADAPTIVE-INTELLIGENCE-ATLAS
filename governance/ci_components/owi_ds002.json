@@ -7,7 +7,9 @@
     "exact": [
       "experiments/owi_ds002_chosen_tangents.py",
       "experiments/owi_ds002_benchmark_manifest.json",
-      "tests/test_owi_ds002_chosen_tangents.py"
+      "experiments/owi_ds002_policy_synthesis.py",
+      "tests/test_owi_ds002_chosen_tangents.py",
+      "tests/test_owi_ds002_policy_synthesis.py"
     ],
     "prefixes": [],
     "test_prefixes": []
