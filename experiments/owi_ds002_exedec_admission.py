@@ -93,13 +93,13 @@ def source_rows(split: str, cache: Path, offline: bool = False) -> tuple[list[di
         with urllib.request.urlopen(url, timeout=20) as response:
             raw = response.read(MAX_BYTES + 1)
         if len(raw) > MAX_BYTES or git_blob(raw) != row["git_blob_sha"]:
-            raise Rejected("downloaded source hash/size mismatch")
+            raise Rejected("downloaded source hash/size mismatch: " + split + " expected=" + row["git_blob_sha"] + " observed=" + git_blob(raw) + " size=" + str(len(raw)))
         with tempfile.NamedTemporaryFile(dir=cache, delete=False) as tmp:
             tmp.write(raw)
             tmp_path = Path(tmp.name)
         tmp_path.replace(target)
     if len(raw) > MAX_BYTES or git_blob(raw) != row["git_blob_sha"]:
-        raise Rejected("cached source hash/size mismatch")
+        raise Rejected("cached source hash/size mismatch: " + split + " observed=" + git_blob(raw))
     rows = [json.loads(line) for line in raw.decode("utf-8").splitlines()]
     if len(rows) != row["count"] or [r.get("index") for r in rows] != list(range(row["count"])):
         raise Rejected("missing, reordered or duplicate source tasks")
