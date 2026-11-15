@@ -131,10 +131,25 @@ def check_receipt(e,stage,rule,mode):
     if (not finite(e.get("actual_selected_versioned_utility"),-2,2) or
         abs(e["actual_selected_versioned_utility"]-expected_utility)>1e-7):
         deny("realized actual source tool costs or active probe price wrong")
-    for k in ("source_worker_wall_seconds","original_native_checker_wall_seconds",
-              "separate_corrected_checker_wall_seconds"):
-        if not finite(e.get(k),0,120):
-            deny("missing physical source/checker runtime measurements")
+    if not finite(e.get("source_worker_wall_seconds"),0,600):
+        deny("missing bounded actual original source worker wall time")
+    for label,successful_key,total_key in (
+        ("original","original_native_checker_wall_seconds",
+         "original_checker_total_wall_seconds_with_retries"),
+        ("corrected","separate_corrected_checker_wall_seconds",
+         "corrected_checker_total_wall_seconds_with_retries"),
+    ):
+        replays=e.get(label+"_checker_exact_input_timeout_replays")
+        if type(replays) is not int or not 0<=replays<=2:
+            deny("unbounded or unrecorded source-private timeout recovery")
+        successful=e.get(successful_key)
+        overall=e.get(total_key)
+        if (not finite(successful,0,121) or
+            not finite(overall,0,400) or overall+1e-5<successful):
+            deny("source-private checker retries not physically timed")
+        # A timeout was real, not a fabricated free successful checker.
+        if replays and overall<replays*119:
+            deny("reported exact-input timeout recovery has no timeout elapsed evidence")
     if not finite(e.get("source_worker_peak_rss_kib"),1000,1_000_000):
         deny("missing original source OS worker peak RSS")
     return e["actual_selected_versioned_utility"]
@@ -233,7 +248,8 @@ def check_eval(seed,rows,trained):
             deny("actual source evaluation action differs from frozen/predeclared policy")
         s=summary.setdefault(stage,{}).setdefault(mode,{
             "correct":0,"source_cases":0,"probe_count":0,"utility_sum":0.,
-            "reward_sum":0.,"calls_sum":0,"worker_seconds_sum":0.})
+            "reward_sum":0.,"calls_sum":0,"worker_seconds_sum":0.,
+            "private_checker_timeout_replays":0})
         s["source_cases"]+=1
         s["correct"]+=int(ep["corrected_private_terminal_class_audit_only"]=="correct")
         s["probe_count"]+=int(ep["physical_optional_probe_executed"])
@@ -241,6 +257,9 @@ def check_eval(seed,rows,trained):
         s["reward_sum"]+=ep["actual_selected_versioned_terminal_reward"]
         s["calls_sum"]+=ep["original_source_actual_calls"]
         s["worker_seconds_sum"]+=ep["source_worker_wall_seconds"]
+        s["private_checker_timeout_replays"]+=(
+            ep["original_checker_exact_input_timeout_replays"]+
+            ep["corrected_checker_exact_input_timeout_replays"])
     for stage,policies in summary.items():
         for name,s in policies.items():
             if s["source_cases"]!=2:deny("not two public task-rule evaluation cases")
