@@ -31,7 +31,26 @@ The CI job successfully completed. Its deterministic `five_seed_summary.json` pr
 
 This is exact equality in the reported finite-precision aggregate, **not** an estimated performance gain. The baseline failed to improve task-plus-compute cost against the fixed-both policy in these six settings. This excludes no other tasks, priors, grammars, objectives, or greater sample sizes.
 
-The earlier one-seed smoke at 20 pretraining steps selected a redundant norm-triggered probe with always-repair-both, consuming two suffix replays per example. The five-seed aggregate also shows no effective cost reduction against fixed-both. The complete per-seed extracted expressions must be inspected before assigning a unique causal failure explanation; observational equivalence and redundant controls are candidate explanations, not proven root causes.
+### Exact-artifact inspection
+
+The retained ZIP was independently opened and all five per-seed JSON records inspected. **Every extracted program has `Repair(fixed, action=3)`**, always repairing both branches. Probe rules were fixed no-probe for seed 1, fixed probe A for seeds 2–3, and fixed probe B for seeds 4–5. Consequently each extracted program is behaviorally equivalent to always-repair-both on the measured final action and normalized replay cost, even when the extra probe is executed. This explains the exactly zero paired difference to the fixed-both comparator for every condition.
+
+The earlier one-seed smoke (20 pretraining steps) selected a norm-triggered probe plus fixed repair both. The five-seed full-pretraining study instead collapses to fixed probe choices plus always-both repair.
+
+The following are **five-seed means calculated from the retained per-seed JSON artifacts**, not just a qualitative diagnosis:
+
+| Held-out condition | Synthesized policy mean cost | Never-repair mean cost | Delta (synthesized minus never) |
+|---|---:|---:|---:|
+| persistent | 0.077434 | 1.005545 | -0.928111 |
+| coupled | 0.077406 | 1.022495 | -0.945089 |
+| **checkpoint** | **0.791860** | **0.007698** | **+0.784161** |
+| roll | 0.077791 | 0.462930 | -0.385139 |
+| length 13 | 0.103551 | 0.631648 | -0.528097 |
+| parity | 3.618723 | 3.757326 | -0.138603 |
+
+The checkpoint condition is decisive as a *failure witness*, not proof of a general causal theorem. In this held-out mechanism the trusted recovery checkpoint is damaged while the raw task trajectory is unchanged. The synthesized policy always uses both recovered checkpoints, losing substantially relative to leaving the raw states alone. The synthetic environment's normalized task-plus-compute loss does not imply verified correctness on external tasks.
+
+The next experimental discriminator should ask whether **chosen observations can identify checkpoint integrity before repair**, whether additional charged derivative observations help distinguish such cases, and whether the conditional-repair programme can abstain when recovery is contraindicated. Observational equivalence must be tested rather than assumed.
 
 ## Important accounting and inferential limitations
 
