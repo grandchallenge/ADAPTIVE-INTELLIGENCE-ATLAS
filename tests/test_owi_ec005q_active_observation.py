@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Q false-proof atlas: synthetic hostile fixtures; not native-source evidence."""
 from __future__ import annotations
-import collections,copy,random,sys,unittest
+import collections,copy,json,random,sys,tempfile,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"experiments"))
 from owi_ec005q_active_train import (
     TwoStageActor,ValueTable,OPTIONS,POST_OPTIONS,MODES,RULES,
     TRAIN_EPISODES,UNKNOWN_FORCED_PROBES,schedule,
-    baseline_choices,eval_baseline_after)
+    baseline_choices,eval_baseline_after,check_frozen_task_manifest)
 from owi_ec005q_source_active_episode import (
     CONTRACT as EP_CONTRACT,PRICE_PER_CALL,PRICE_FOR_PROBE)
 from owi_ec005q_active_gate import check_receipt
@@ -95,6 +95,30 @@ def synthetic_receipt(rule,stage,first,post=None,mode="true"):
     }
 
 class ActiveProbeFalseProofTests(unittest.TestCase):
+    def test_exact_masked_task_spec_and_mutant_rejection(self):
+        path=Path(__file__).resolve().parents[1]/(
+            "governance/research/OWI_EC005Q_ACTIVE_OBSERVATION_V1.json")
+        self.assertEqual(len(check_frozen_task_manifest(path)),64)
+        original=json.loads(path.read_text())
+        for label,change in [
+            ("source_edit",lambda d:d["source"].__setitem__(
+                "source_class_sha256","f"*64)),
+            ("scorer_switch",lambda d:d["separate_corrected_terminal_spec"].__setitem__(
+                "sha256","f"*64)),
+            ("disable_zero_ablation",lambda d:d["training"].__setitem__(
+                "modes",["true"])),
+            ("disable_probe_force",lambda d:d["training"]["forced_support"].__setitem__(
+                "uncertain_first_probe_visits",0)),
+            ("hide_strong_script",lambda d:d["evaluation"].__setitem__(
+                "policies",["true"])),
+        ]:
+            with self.subTest(label=label):
+                modified=copy.deepcopy(original);change(modified)
+                with tempfile.TemporaryDirectory() as folder:
+                    p=Path(folder)/"mutant.json"
+                    p.write_text(json.dumps(modified))
+                    with self.assertRaises(ValueError):
+                        check_frozen_task_manifest(p)
     def test_balanced_original_train_task_rule_schedule(self):
         self.assertEqual(len(MODES),3)
         for seed in (11,23,37,41,53):
