@@ -1,0 +1,19 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_sygus",
+  "owner": "Grand Challenge Labs / OWI-DS-002 benchmark and admission, issue #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_sygus_admission.py",
+      "experiments/owi_ds002_sygus_manifest.json",
+      "tests/test_owi_ds002_sygus_admission.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
