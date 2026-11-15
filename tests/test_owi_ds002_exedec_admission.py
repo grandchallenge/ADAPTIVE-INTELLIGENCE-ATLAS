@@ -48,8 +48,8 @@ class TypedExecutionTests(unittest.TestCase):
         self.assertEqual([ds.execute(code, x) for x, _ in ds.examples(p)], p["outputs"])
         proj = ds.participant_view("NONE", {"index": 3, "test_problem": p,
                                              "few_shot_examples": [{"program": "secret"}]})
-        self.assertNotIn("program", str(proj))
-        self.assertNotIn("few_shot_examples", str(proj))
+        self.assertNotIn("program", proj)
+        self.assertNotIn("few_shot_examples", proj)
         self.assertFalse(proj["target_program_exposed"])
 
     def test_source_blobs_and_immutable_manifest(self):
