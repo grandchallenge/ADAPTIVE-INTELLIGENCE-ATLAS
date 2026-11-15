@@ -1,0 +1,92 @@
+name: OWI-EC005R true source-native postprobe independent family holdout
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005r_*.py'
+      - 'tests/test_owi_ec005r_native_postprobe.py'
+      - 'governance/research/OWI_EC005R_NATIVE_POSTPROBE_HOLDOUT_V1.json'
+      - 'mathematics/research-notes/OWI-EC005R-NATIVE-FAMILY-HOLDOUT-20261115.md'
+      - '.github/workflows/owi-ec005r-native-postprobe-holdout.yml'
+      - 'governance/ci_components/owi_ec005.json'
+      - 'governance/ci_routing_baseline.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-native-independent-heldout:
+    name: native source train families 0/2, heldout 3, seed ${{ matrix.seed }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 32
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 41, 53]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Exact source-native task manifest, hostile no-leak original checker and learning tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile experiments/owi_ec005r_native_postprobe_episode.py \
+            experiments/owi_ec005r_native_postprobe_train.py \
+            experiments/owi_ec005r_native_postprobe_gate.py
+          python -m unittest discover -s tests \
+            -p 'test_owi_ec005r_native_postprobe.py' -v
+      - name: Pin complete untouched original source and group independent training partition families
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          python experiments/owi_ec005_realtools_family_prepare.py \
+            --indices 0,2,3 --output-dir "$RUNNER_TEMP/owi_ec005r"
+      - name: Execute ACTUAL original public source and original native private checker per chosen episode
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005r_native_postprobe_train.py \
+            --input-dir "$RUNNER_TEMP/owi_ec005r" \
+            --seed '${{ matrix.seed }}' \
+            --task-spec governance/research/OWI_EC005R_NATIVE_POSTPROBE_HOLDOUT_V1.json \
+            --output-dir build/owi_ec005r
+      - name: Independently recreate exact seeded chosen actions, native checklist and heldout no-probe controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005r_native_postprobe_gate.py \
+            --trial 'build/owi_ec005r/source_native_postprobe_seed_${{ matrix.seed }}.json' \
+            --task-spec governance/research/OWI_EC005R_NATIVE_POSTPROBE_HOLDOUT_V1.json \
+            --output 'build/owi_ec005r/native_family_gate_seed_${{ matrix.seed }}.json'
+          python - <<'PY'
+          import glob,json
+          from pathlib import Path
+          paths=glob.glob('build/owi_ec005r/native_family_gate_seed_*.json')
+          assert len(paths)==1
+          r=json.loads(Path(paths[0]).read_text())
+          assert r['contract']=='OWI-EC005R-INDEPENDENT-SOURCE-NATIVE-HELDOUT-FAMILY-GATE/1'
+          assert r['train_genuinely_independent_source_families']==[0,2]
+          assert r['withheld_original_distinct_source_family']==3
+          assert r['actual_original_source_chosen_training_episodes']==144
+          assert r['actual_original_source_prospective_evaluation_episodes']==27
+          assert r['original_native_reward_only_no_reweighting']
+          assert r['postprobe_selected_utility_only_policy_updates_verified']
+          assert not r['cross_family_reflective_causal_identification_proved']
+          print('OWI_EC005R_INDEPENDENT_NATIVE_SOURCE_FAMILY_RESEARCH_RESULT',
+                json.dumps(r,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005r-original-native-family-heldout-seed-${{ matrix.seed }}
+          path: |
+            build/owi_ec005r/source_native_postprobe_seed_${{ matrix.seed }}.json
+            build/owi_ec005r/native_family_gate_seed_${{ matrix.seed }}.json
+          retention-days: 30

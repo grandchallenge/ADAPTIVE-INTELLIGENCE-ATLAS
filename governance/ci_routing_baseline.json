@@ -139,6 +139,12 @@
       "test_globs": [
         "tests/test_owi_ec005q_active_observation.py"
       ]
+    },
+    {
+      "id": "owi-ec005r-native-postprobe-holdout",
+      "test_globs": [
+        "tests/test_owi_ec005r_native_postprobe.py"
+      ]
     }
   ],
   "legacy_test_paths": [
