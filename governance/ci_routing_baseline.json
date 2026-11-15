@@ -133,6 +133,12 @@
       "test_globs": [
         "tests/test_owi_ec005p_chosen_outcome.py"
       ]
+    },
+    {
+      "id": "owi-ec005q-active-observation",
+      "test_globs": [
+        "tests/test_owi_ec005q_active_observation.py"
+      ]
     }
   ],
   "legacy_test_paths": [
