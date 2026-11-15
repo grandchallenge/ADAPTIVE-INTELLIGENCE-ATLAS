@@ -12,7 +12,7 @@ from pathlib import Path
 from owi_ec005q_active_train import (
     CONTRACT,MODES,BASELINES,SEEDS,TRAIN_EPISODES,STAGES,RULES,
     TwoStageActor,schedule,baseline_choices,eval_baseline_after,
-    check_frozen_task_manifest)
+    check_frozen_task_manifest,UNKNOWN_FORCED_PROBES)
 from owi_ec005q_source_active_episode import (
     CONTRACT as EP_CONTRACT,OPTIONS,POST_OPTIONS,
     PRICE_PER_CALL,PRICE_FOR_PROBE,SPEC_SHA,CORPUS_SHA,CLASS_SHA)
@@ -194,9 +194,9 @@ def check_train_mode(seed,mode,rows,expected_frozen):
         actor.update_from_chosen_only(ep)
     if actor.readable()!=expected_frozen:
         deny("frozen model posttraining state differs from exact chosen-only episode replay")
-    if actor.unknown_seen!=32 or actor.readable()["forced_unknown_probe_count"]!=24:
+    if actor.unknown_seen!=32 or actor.readable()["forced_unknown_probe_count"]!=UNKNOWN_FORCED_PROBES:
         deny("intended forced original source information support absent")
-    if seen_probe<24:
+    if seen_probe<UNKNOWN_FORCED_PROBES:
         deny("source-physical selected probe was never explored sufficiently")
     return seen_probe
 
