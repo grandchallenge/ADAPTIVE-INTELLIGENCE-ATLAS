@@ -33,6 +33,32 @@ OPTIONS=("stop","approved","rejected","probe")
 POST_OPTIONS=("stop","approved","rejected")
 PRICE_PER_CALL=0.002
 PRICE_FOR_PROBE=0.020
+MAX_TERMINAL_CHECKER_ATTEMPTS=3
+CHECKER_TIMEOUT_SECONDS=120
+
+def private_terminal_score_with_timeout_replay(script,payload,private_input):
+    """Only a transient OS/docker child timeout gets exact-input replay.
+
+    A failed checker result, nonzero exit, native scorer protocol error or
+    changed source/checker identity never retries as a valid reward. The
+    original postterminal state is unchanged across all checker attempts;
+    each replay uses exactly the same source-private input and checker path.
+    """
+    began=time.perf_counter()
+    for attempt in range(MAX_TERMINAL_CHECKER_ATTEMPTS):
+        try:
+            rows,successful_seconds=call_child(
+                IMAGE,script,payload,input_text=private_input,
+                timeout=CHECKER_TIMEOUT_SECONDS)
+            return rows,successful_seconds,attempt,time.perf_counter()-began
+        except RuntimeError as exc:
+            if str(exc)!="restricted tool/verifier child timed out":
+                raise
+            if attempt+1>=MAX_TERMINAL_CHECKER_ATTEMPTS:
+                raise RuntimeError(
+                    "source-private terminal checker timeout exhaustion "
+                    "after three exact-input replays") from exc
+    raise AssertionError("unreachable timeout retry state")
 
 def source_episode(folder:Path,kind:str,stage:str,initial_decision,
                    conditional_decision,revised_spec:Path,
@@ -64,7 +90,7 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
         proc.stdin.write(json.dumps({"action":"call","tool":name,
                                       "arguments":args})+"\n")
         proc.stdin.flush()
-        msg=receive(proc)
+        msg=receive(proc,timeout=60)
         if (msg.get("kind")!="observation" or msg.get("tool")!=name or
             msg.get("ok") is not True or msg.get("truncated")):
             raise RuntimeError("actual source public tool response invalid")
@@ -88,7 +114,7 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
             raise RuntimeError("actual source-public selected author status unknown")
         return records[0]["account_status"]
     try:
-        ready=receive(proc)
+        ready=receive(proc,timeout=60)
         if ready.get("kind")!="ready" or ready.get("verifier_present") is not False:
             raise RuntimeError("original private checker crossed source worker boundary")
         # Benchmark fixture is trusted infrastructure, not the actor:
@@ -161,11 +187,11 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
         final_status=query_status(target,"selected_final_public_readback")
         proc.stdin.write('{"action":"finish"}\n')
         proc.stdin.flush()
-        final=receive(proc)
+        final=receive(proc,timeout=60)
         if final.get("kind")!="private_final_state":
             raise RuntimeError("original worker missing trusted terminal state")
         proc.stdin.close()
-        if proc.wait(timeout=10)!=0:
+        if proc.wait(timeout=30)!=0:
             raise RuntimeError("restricted original source worker failed")
     finally:
         if proc.poll() is None:proc.kill()
@@ -177,9 +203,10 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
         not isinstance(final.get("initial_state"),dict) or
         not isinstance(final.get("state"),dict)):
         raise RuntimeError("private final source-state bridge/actual call count mismatch")
-    orig,old_sec=call_child(IMAGE,CHECKER,folder/"verifier.json",
-        input_text=json.dumps({"initial_state":final["initial_state"],
-                               "state":final["state"]})+"\n")
+    orig,old_sec,old_replays,old_total_seconds=private_terminal_score_with_timeout_replay(
+        CHECKER,folder/"verifier.json",
+        json.dumps({"initial_state":final["initial_state"],
+                    "state":final["state"]})+"\n")
     if (len(orig)!=1 or orig[0].get("contract")!=CHECKER_CONTRACT or
         orig[0].get("valid") is not True or orig[0].get("checks_total")!=9):
         raise RuntimeError("unaltered original native private checker invalid")
@@ -188,8 +215,7 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
     if (type(n) is not int or not 0<=n<=9 or
         abs(original["reward"]-n/9)>5.1e-5):
         raise RuntimeError("unaltered native checker numerator mismatch")
-    corrected,new_sec=call_child(IMAGE,REVISED_CHECKER,revised_spec,
-        input_text=json.dumps({
+    corrected_input=json.dumps({
             "initial_state":final["initial_state"],
             "state":final["state"],"source_class_sha256":CLASS_SHA,
             "public_target":{
@@ -199,7 +225,9 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
                 "public_initial_status":original_public_status,
                 "public_final_status":final_status},
             "original_private_checker":original,
-        })+"\n")
+        })+"\n"
+    corrected,new_sec,new_replays,new_total_seconds=private_terminal_score_with_timeout_replay(
+        REVISED_CHECKER,revised_spec,corrected_input)
     if (len(corrected)!=1 or
         corrected[0].get("contract")!=REVISED_CONTRACT or
         corrected[0].get("valid") is not True or
@@ -247,6 +275,10 @@ def source_episode(folder:Path,kind:str,stage:str,initial_decision,
         "original_native_checker_wall_seconds":old_sec,
         "separate_corrected_checker_wall_seconds":new_sec,
         "source_worker_peak_rss_kib":final.get("peak_rss_kib"),
+        "original_checker_exact_input_timeout_replays":old_replays,
+        "corrected_checker_exact_input_timeout_replays":new_replays,
+        "original_checker_total_wall_seconds_with_retries":old_total_seconds,
+        "corrected_checker_total_wall_seconds_with_retries":new_total_seconds,
         "privileged_task_identity_or_source_state_in_actor":False,
         "unselected_counterfactual_terminal_outcome_in_actor":False,
         "original_source_code_or_original_or_corrected_checker_in_actor":False,
