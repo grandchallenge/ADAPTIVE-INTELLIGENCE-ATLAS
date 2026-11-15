@@ -7,11 +7,12 @@ single realized delayed terminal scalar. Does NOT certify source-independent
 generalization or that a constructed masked task is unchanged native benchmark.
 """
 from __future__ import annotations
-import argparse,collections,json,math,random
+import argparse,collections,hashlib,json,math,random
 from pathlib import Path
 from owi_ec005q_active_train import (
     CONTRACT,MODES,BASELINES,SEEDS,TRAIN_EPISODES,STAGES,RULES,
-    TwoStageActor,schedule,baseline_choices,eval_baseline_after)
+    TwoStageActor,schedule,baseline_choices,eval_baseline_after,
+    check_frozen_task_manifest)
 from owi_ec005q_source_active_episode import (
     CONTRACT as EP_CONTRACT,OPTIONS,POST_OPTIONS,
     PRICE_PER_CALL,PRICE_FOR_PROBE,SPEC_SHA,CORPUS_SHA,CLASS_SHA)
@@ -270,13 +271,18 @@ def check_eval(seed,rows,trained):
             s["mean_physical_worker_seconds"]=round(s.pop("worker_seconds_sum")/n,6)
     return summary
 
-def adjudicate(data):
+def adjudicate(data,*,task_spec):
+    # The source-backed Q interface itself is independently versioned,
+    # distinct from immutable original row 710 public task/checker. Preserve
+    # exact on-disk spec bytes, not an arbitrary reserialized JSON blob.
+    source_task_sha=check_frozen_task_manifest(task_spec)
     if (not isinstance(data,dict) or data.get("contract")!=CONTRACT or
         data.get("seed") not in SEEDS or
         data.get("original_corpus_and_checker_unmodified") is not True or
         data.get("generic_source_public_task_is_versioned_and_intentionally_masked") is not True or
         data.get("new_versioned_terminal_reward_not_original_native") is not True or
         data.get("corrected_spec_sha256")!=SPEC_SHA or
+        data.get("frozen_versioned_masked_task_spec_sha256")!=source_task_sha or
         data.get("source_original_train_row")!=710 or
         data.get("one_original_independent_natural_training_family") is not True or
         data.get("chosen_only_delayed_scalar_for_both_policy_stages") is not True or
@@ -323,6 +329,7 @@ def adjudicate(data):
         "new_masked_task_public_wrapper_not_original_native":True,
         "separately_versioned_terminal_v1_spec_sha256":SPEC_SHA,
         "source_train_independent_families":1,
+        "frozen_versioned_masked_public_task_sha256":source_task_sha,
         "actual_original_source_train_episodes":3*TRAIN_EPISODES,
         "actual_original_source_eval_episodes":48,
         "actual_original_source_and_each_checker_runs":3*TRAIN_EPISODES+48,
@@ -353,8 +360,9 @@ def main():
     p=argparse.ArgumentParser()
     p.add_argument("--trial",type=Path,required=True)
     p.add_argument("--output",type=Path,required=True)
+    p.add_argument("--task-spec",type=Path,required=True)
     a=p.parse_args()
-    result=adjudicate(json.loads(a.trial.read_text()))
+    result=adjudicate(json.loads(a.trial.read_text()),task_spec=a.task_spec)
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n")
     print("OWI_EC005Q_REAL_OPTIONAL_SOURCE_PROBE_INDEPENDENT_EVIDENCE_GATE",
