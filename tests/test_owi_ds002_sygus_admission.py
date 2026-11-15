@@ -48,6 +48,18 @@ class PureChecks(unittest.TestCase):
                 continue
             self.fail(f"unsupported candidate passed grammar: {expression}")
 
+    def test_bounded_linear_coefficient_and_parallel_let(self):
+        candidate = parse(
+            "(let ((_k (* (- 1) i))) "
+            "(and (>= (+ x _k) 0) (>= i 0)))")[0]
+        self.assertEqual(typecheck(candidate, {"x", "i"})[0], "Bool")
+        for term in ("(>= (* x i) 0)",
+                     "(let ((x 1)) (>= x 0))",
+                     "(let ((a (pre-f x))) (= a true))",
+                     "(let ((a 1) (a 2)) (>= a 0))"):
+            with self.subTest(term=term), self.assertRaises(AdmissionError):
+                typecheck(parse(term)[0], {"x", "i"})
+
     def test_manifest_pinned_splits(self):
         manifest, tasks = manifest_tasks()
         self.assertEqual(len(tasks), 10)
