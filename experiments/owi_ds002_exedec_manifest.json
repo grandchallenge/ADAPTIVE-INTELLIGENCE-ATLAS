@@ -1,0 +1,47 @@
+{
+  "schema": "gcl.owi-ds002.exedec-deepcoder-source-lock.v1",
+  "purpose": "Six published ExeDec/DeepCoder few-shot compositional transfer test distributions; evaluator only may inspect target programs",
+  "origin": {
+    "repository": "google-deepmind/exedec",
+    "commit": "ef046ce2cc3fcd024e32f5dfe00e69700dac82ed"
+  },
+  "license": "CC-BY-4.0 datasets; upstream Apache-2.0 source code",
+  "task_surface": "data/llm_data/deepcoder; 200 externally published test problems per split, four few-shot train-distribution examples per problem",
+  "splits": {
+    "NONE": {
+      "path": "data/llm_data/deepcoder/NONE.jsonl",
+      "git_blob_sha": "77d9165bd4c647ad8cdcfe592144240e03535493",
+      "count": 200
+    },
+    "LENGTH_GENERALIZATION": {
+      "path": "data/llm_data/deepcoder/LENGTH_GENERALIZATION.jsonl",
+      "git_blob_sha": "0a40de7bf56c514e97541718031946e3ee9061b2",
+      "count": 200
+    },
+    "COMPOSE_DIFFERENT_CONCEPTS": {
+      "path": "data/llm_data/deepcoder/COMPOSE_DIFFERENT_CONCEPTS.jsonl",
+      "git_blob_sha": "f6c2afb38c70cceab562b1dc17c0b7031944b9fe",
+      "count": 200
+    },
+    "SWITCH_CONCEPT_ORDER": {
+      "path": "data/llm_data/deepcoder/SWITCH_CONCEPT_ORDER.jsonl",
+      "git_blob_sha": "bd743d3c9bb346f0c67a1b2b897b6b3c655797dd",
+      "count": 200
+    },
+    "COMPOSE_NEW_OP": {
+      "path": "data/llm_data/deepcoder/COMPOSE_NEW_OP.jsonl",
+      "git_blob_sha": "53a7985272beeab3a0db7202e238f970cdf27b49",
+      "count": 200
+    },
+    "ADD_OP_FUNCTIONALITY": {
+      "path": "data/llm_data/deepcoder/ADD_OP_FUNCTIONALITY.jsonl",
+      "git_blob_sha": "fc15dd27d35e433b854a3333d2835151ae8e11ad",
+      "count": 200
+    }
+  },
+  "reference_semantics": {
+    "path": "tasks/deepcoder/deepcoder_dsl.py",
+    "git_blob_sha": "8bc0db8516e132aef19c9ca85cbb0d5210a9c565"
+  },
+  "source_limit": "Published test distributions are not secret; no resistance to contamination claimed. Success only bounded extensional agreement; benchmark is not a CDC differential surface."
+}
