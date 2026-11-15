@@ -9,7 +9,7 @@ import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from owi_ec004_core import Cfg, Core
-from owi_ec005_conditional import make_batch, run_policy
+from owi_ec005_conditional import make_batch, run_policy, public_telemetry
 from owi_ds002_policy_synthesis import (
     ExecutablePolicy, LoggedEpisode, Probe, Program, Repair,
     collect, grammar, offpolicy_risk, run, select)
@@ -74,6 +74,29 @@ class PolicySearch(unittest.TestCase):
                            torch.Generator().manual_seed(432),
                            mode="active", epsilon=0, greedy=True)
         self.assertTrue(torch.equal(out_a["loss"], out_b["loss"]))
+
+    def test_checkpoint_fault_is_preprobe_observationally_invisible(self):
+        # Identical x with no checkpoint faults vs faults in every example.
+        # The checkpoint is only consulted by a chosen replay. The raw path
+        # and hence public pre-probe telemetry must be exactly unchanged.
+        base = Cfg(h=5, length=9, suffix=3, p_fault=0.)
+        faulty = Cfg(h=5, length=9, suffix=3, p_fault=1.)
+        safe = make_batch(self.core, base,
+                          torch.Generator().manual_seed(7401),
+                          n=24, kind="checkpoint")
+        damaged = make_batch(self.core, faulty,
+                             torch.Generator().manual_seed(7401),
+                             n=24, kind="checkpoint")
+        self.assertTrue(torch.equal(safe.x, damaged.x))
+        self.assertTrue(torch.equal(safe.raw, damaged.raw))
+        self.assertTrue(torch.equal(public_telemetry(safe),
+                                    public_telemetry(damaged)))
+        self.assertTrue(torch.equal(safe.fault_audit,
+                                    torch.zeros_like(safe.fault_audit)))
+        self.assertTrue(bool((damaged.fault_audit > 0).all()))
+        self.assertTrue(any(not torch.equal(safe.checkpoints[c],
+                                            damaged.checkpoints[c])
+                            for c in (0, 1)))
 
     def test_positive_logging_support_and_discrete_selection(self):
         logged = collect(self.core, self.cfg, seed=4,
