@@ -265,6 +265,29 @@ def run(seed: int, *, pretrain: int = 250, n_log: int = 4096,
     heldout.append(evaluate(core, cfg, program, seed=seed * 101 + 12,
                             mechanism="gaussian", length=9, n=n_eval,
                             task="parity"))
+    # Paired control evaluation uses the same environment draw for every arm.
+    # It is evaluation-only and cannot feed information back into search.
+    comparator_programs = {
+        "never_repair": Program(Probe("fixed", branch=0),
+                                Repair("fixed", action=0)),
+        "always_repair_a": Program(Probe("fixed", branch=0),
+                                  Repair("fixed", action=1)),
+        "always_repair_b": Program(Probe("fixed", branch=0),
+                                  Repair("fixed", action=2)),
+        "always_repair_both": Program(Probe("fixed", branch=0),
+                                     Repair("fixed", action=3)),
+    }
+    scenarios = [(k, 9, "majority") for k in
+                 ("persistent", "coupled", "checkpoint", "roll")]
+    scenarios += [("gaussian", 13, "majority"),
+                  ("gaussian", 9, "parity")]
+    paired_comparators = {}
+    for name, comparator in comparator_programs.items():
+        paired_comparators[name] = [
+            evaluate(core, cfg, comparator,
+                     seed=seed * 101 + (i if i < 4 else (11 if i == 4 else 12)),
+                     mechanism=k, length=length, n=n_eval, task=task)
+            for i, (k, length, task) in enumerate(scenarios)]
     return {"research": "OWI-DS-002",
             "variant": "A: outcome-only typed symbolic policy synthesis",
             "claim": "baseline only; no differential advantage established",
@@ -275,6 +298,7 @@ def run(seed: int, *, pretrain: int = 250, n_log: int = 4096,
             "extracted_program": {"probe": asdict(program.probe),
                                   "repair": asdict(program.repair)},
             "heldout": heldout,
+            "paired_fixed_policy_controls": paired_comparators,
             "total_wall_seconds": time.perf_counter() - start,
             "compute_warning": "wall and dense MAC proxy only; not a matched "
                                "synthesis-compute comparison or formal proof"}
