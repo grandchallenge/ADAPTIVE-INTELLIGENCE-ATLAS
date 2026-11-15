@@ -1,0 +1,88 @@
+name: OWI-DS002 five-seed symbolic baseline evidence
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_policy_synthesis.py'
+      - 'tests/test_owi_ds002_policy_synthesis.py'
+      - '.github/workflows/owi-ds002-five-seed.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  five-seed-paired:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Install pinned CPU PyTorch
+        run: python -m pip install --no-cache-dir 'torch==2.10.0' --index-url https://download.pytorch.org/whl/cpu
+      - name: Run five independent outcome-only synthesis seeds
+        shell: bash
+        run: |
+          set -euo pipefail
+          for seed in 1 2 3 4 5; do
+            python experiments/owi_ds002_policy_synthesis.py \
+              --seed "$seed" --pretrain 250 \
+              --logging-examples 4095 --eval-examples 512 \
+              --output "build/owi_ds002/five_seed_${seed}.json" \
+              > "build_seed_${seed}.log"
+          done
+      - name: Aggregate paired results without postselection hypothesis claims
+        run: |
+          python - <<'PY'
+          import json, statistics
+          from pathlib import Path
+          root = Path("build/owi_ds002")
+          records = [json.loads((root / f"five_seed_{s}.json").read_text())
+                     for s in (1,2,3,4,5)]
+          labels = ["persistent", "coupled", "checkpoint", "roll", "length13", "parity"]
+          summaries = []
+          for idx, label in enumerate(labels):
+              rows = []
+              for r in records:
+                  candidate = r["heldout"][idx]
+                  fixed = r["paired_fixed_policy_controls"]["always_repair_both"][idx]
+                  rows.append({"seed": r["seed"],
+                               "candidate_cost": candidate["mean_total_cost"],
+                               "always_repair_both_cost": fixed["mean_total_cost"],
+                               "delta_candidate_minus_both":
+                                 candidate["mean_total_cost"] - fixed["mean_total_cost"],
+                               "candidate_replays": candidate["actual_suffix_replays"],
+                               "fixed_replays": fixed["actual_suffix_replays"]})
+              deltas = [x["delta_candidate_minus_both"] for x in rows]
+              summaries.append({"condition": label, "paired_rows": rows,
+                                "mean_paired_delta": statistics.mean(deltas),
+                                "sample_sd": statistics.stdev(deltas)})
+          result = {"research": "OWI-DS-002", "variant": "A only: symbolic outcome-only",
+                    "n_seeds": 5, "seeds": [1,2,3,4,5],
+                    "conditions": summaries,
+                    "claims": "descriptive five-seed pilot, no A/B/C/D comparison",
+                    "limitations": [
+                      "fixed policy comparisons are evaluator-only",
+                      "finite grammar and small synthetic recurrent task",
+                      "no causal self-model or derivative-guided synthesis",
+                      "dense MAC counts are proxies, not physical FLOPs",
+                      "no independent review or formal program correctness proof"]}
+          (root / "five_seed_summary.json").write_text(
+              json.dumps(result, indent=2, sort_keys=True) + "\n")
+          print(json.dumps({"seeds": result["seeds"],
+                            "mean_deltas": {r["condition"]: r["mean_paired_delta"]
+                                            for r in summaries}}, sort_keys=True))
+          PY
+      - name: Retain complete per-seed candidate and paired-control evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-symbolic-baseline-five-seed
+          path: |
+            build/owi_ds002/five_seed_*.json
+            build_seed_*.log
+          retention-days: 30
