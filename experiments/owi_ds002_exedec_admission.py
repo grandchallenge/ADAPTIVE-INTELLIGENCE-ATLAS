@@ -240,7 +240,8 @@ def examples(problem: dict):
 def participant_view(split: str, record: dict) -> dict:
     # Strict projection: target program and few-shot solution programs are withheld.
     p = record["test_problem"]
-    return {"task_id": split + ":" + str(record["index"]),
+    return {"status": "PARTICIPANT_VIEW_ONLY",
+            "task_id": split + ":" + str(record["index"]),
             "inputs": p["inputs"], "outputs": p["outputs"],
             "input_output_examples": len(p["outputs"]),
             "target_program_exposed": False}
@@ -361,7 +362,7 @@ def main() -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] in (
+    return 0 if result.get("status") in (
         "SOURCE_LOCK_AND_REFERENCE_REPLAY_PASS", "BOUNDED_EXECUTION_AGREEMENT_ONLY"
     ) or args.mode == "preview" and result.get("target_program_exposed") is False else 2
 
