@@ -39,6 +39,19 @@ jobs:
           assert sum(x['tasks'] for x in d['splits'].values()) == 1200
           assert d['reference_examples_checked'] >= 3600
           PY
+      - name: Compare source-locked independent semantics against pinned upstream interpreter
+        run: |
+          python -m pip install --no-cache-dir 'absl-py==2.1.0'
+          python experiments/owi_ds002_exedec_semantics.py --generated-per-task 8 --output build/owi_ds002/exedec_semantics.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("build/owi_ds002/exedec_semantics.json").read_text())
+          assert d["status"] == "BOUNDED_UPSTREAM_INTERPRETER_CONCORDANCE"
+          assert d["tasks"] == 1200
+          assert d["published_example_comparisons"] == 3600
+          assert d["generated_example_comparisons"] == 9600
+          PY
       - name: Exercise actual candidate-admission CLI with evaluator-only reference
         run: |
           python - <<'PY'
