@@ -67,6 +67,34 @@ class TypedExecutionTests(unittest.TestCase):
         self.assertEqual(a, b)
         self.assertNotEqual(a, list(ds.generated_inputs(p, 456))[:12])
 
+    def test_real_verification_decision_with_evaluator_custody(self):
+        from tempfile import TemporaryDirectory
+        from unittest.mock import patch
+        p = {"inputs": {"x0": [[1, -2], [0, 3], [-4]]},
+             "outputs": [[2, -1], [1, 4], [-3]],
+             "program": "x0 = INPUT | x1 = Map (+1) x0"}
+        source_row = {"index": 0, "test_problem": p,
+                      "few_shot_examples": [{"program": "not for learner"}] * 4}
+        with TemporaryDirectory() as tmp:
+            with patch.object(ds, "source_rows",
+                              return_value=([source_row], "0" * 40)):
+                correct = ds.verify("NONE", 0, p["program"], Path(tmp), True)
+                wrong = ds.verify("NONE", 0,
+                                  "x0 = INPUT | x1 = Map (-1) x0",
+                                  Path(tmp), True)
+        self.assertEqual(correct["status"], "BOUNDED_EXECUTION_AGREEMENT_ONLY")
+        self.assertEqual(correct["independent_valid_cases"], 16)
+        self.assertEqual(wrong["status"], "REJECTED_PUBLIC_COUNTEREXAMPLE")
+        self.assertNotIn("program", ds.participant_view("NONE", source_row))
+
+    def test_tampered_source_cache_is_rejected_offline(self):
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as tmp:
+            cache = Path(tmp)
+            (cache / "NONE.jsonl").write_text("{}\\n", encoding="utf-8")
+            with self.assertRaisesRegex(ds.Rejected, "source hash/size mismatch"):
+                ds.source_rows("NONE", cache, offline=True)
+
     def test_source_example_shape_rejected(self):
         with self.assertRaises(ds.Rejected):
             ds.validate_examples({"inputs": {"x0": [[1], ["invalid"]]},
