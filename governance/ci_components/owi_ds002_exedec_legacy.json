@@ -1,0 +1,21 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_exedec_legacy",
+  "owner": "OWI-DS-002 historical source-locked external DeepCoder candidate diagnostics #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_exedec_legacy_solver.py",
+      "tests/test_owi_ds002_exedec_legacy_solver.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_enumerator"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
