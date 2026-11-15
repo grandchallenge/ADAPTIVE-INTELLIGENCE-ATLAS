@@ -52,6 +52,12 @@ The checkpoint condition is decisive as a *failure witness*, not proof of a gene
 
 The next experimental discriminator should ask whether **chosen observations can identify checkpoint integrity before repair**, whether additional charged derivative observations help distinguish such cases, and whether the conditional-repair programme can abstain when recovery is contraindicated. Observational equivalence must be tested rather than assumed.
 
+## Source-level checkpoint observability obstruction
+
+**Conditional proposition.** For a fixed input sequence `x` and frozen `Core`, the pre-probe observation `public_telemetry(make_batch(core,cfg,rng,kind="checkpoint"))` is independent of the randomly selected checkpoint-fault index, provided the mechanism and code path are exactly those defined in `owi_ec005_conditional.py`. The checkpoint-fault branch perturbs only `check` and leaves the raw forward hidden trajectory `state=h1` unchanged; the post-suffix hidden states and output logits used by `public_telemetry` are therefore independent of the fault index. A controller seeing pre-probe telemetry alone cannot identify this fault within this mechanism. This does **not** imply indistinguishability *after* an informative selected replay probe, nor equivalence to a different fault mechanism or task distribution.
+
+**Operational falsification test.** The regression `test_checkpoint_fault_is_preprobe_observationally_invisible` constructs paired no-fault and all-fault checkpoint environments from the same exogenous input seed, asserting identical input sequences, raw logits and four public pre-probe features while the checkpoint tensors actually differ. This is a source-conditional invariant; the code test does not establish a formal categorical theorem or identify the full causal mechanism.
+
 ## Important accounting and inferential limitations
 
 The implementation relies on normalized replay charges, not equal measured *total synthesis* physical compute. Its inherited neural-controller MAC estimate was identified as inapplicable to discrete grammar policies and removed from the symbolic report at head `e6fcc3d`: recurrent base/replay MAC proxies are reported separately; symbolic-policy MACs remain unmeasured.
