@@ -69,6 +69,9 @@
       "experiments/owi_ec005q_active_gate.py",
       "experiments/owi_ec005q_active_train.py",
       "experiments/owi_ec005q_source_active_episode.py",
+      "experiments/owi_ec005r_native_postprobe_episode.py",
+      "experiments/owi_ec005r_native_postprobe_gate.py",
+      "experiments/owi_ec005r_native_postprobe_train.py",
       "tests/test_owi_ec005.py",
       "tests/test_owi_ec005_realtools_contextual_bandit.py",
       "tests/test_owi_ec005_realtools_contextual_learner.py",
@@ -103,7 +106,8 @@
       "tests/test_owi_ec005_versioned_moderation_checker.py",
       "tests/test_owi_ec005_versioned_moderation_gate.py",
       "tests/test_owi_ec005p_chosen_outcome.py",
-      "tests/test_owi_ec005q_active_observation.py"
+      "tests/test_owi_ec005q_active_observation.py",
+      "tests/test_owi_ec005r_native_postprobe.py"
     ],
     "prefixes": [],
     "test_prefixes": []
@@ -128,6 +132,7 @@
     "owi-ec005-realtools-native-professional",
     "owi-ec005-versioned-moderation",
     "owi-ec005p-chosen-outcome",
-    "owi-ec005q-active-observation"
+    "owi-ec005q-active-observation",
+    "owi-ec005r-native-postprobe-holdout"
   ]
 }
