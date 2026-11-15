@@ -6,10 +6,27 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 from owi_ds002_sygus_admission import AdmissionError
-from owi_ds002_sygus_reference import extract_solution
+from owi_ds002_sygus_reference import extract_solution, solver_input_sygus21
 
 
 class Tests(unittest.TestCase):
+    def test_legacy_primed_variable_translation_only(self):
+        original = """(set-logic LIA)
+        (synth-inv inv-f ((x Int)))
+        (declare-primed-var x Int)
+        (define-fun pre-f ((x Int)) Bool (= x 0))
+        (define-fun trans-f ((x Int) (x! Int)) Bool (= x! (+ x 1)))
+        (define-fun post-f ((x Int)) Bool (>= x 0))
+        (inv-constraint inv-f pre-f trans-f post-f)
+        (check-synth)"""
+        normalized = solver_input_sygus21(original)
+        self.assertEqual(normalized.count("(declare-var x Int)"), 1)
+        self.assertEqual(normalized.count("(declare-var x! Int)"), 1)
+        self.assertNotIn("declare-primed-var", normalized)
+        self.assertIn("(define-fun trans-f", normalized)
+        self.assertIn("(check-synth)", normalized)
+        self.assertIn("(declare-primed-var x Int)", original)
+
     def test_extract_single_valid_sygus_definition(self):
         output = """success
         (
