@@ -85,6 +85,10 @@ def synthetic_receipt(rule,stage,first,post=None,mode="true"):
         "original_native_checker_wall_seconds":.02,
         "separate_corrected_checker_wall_seconds":.02,
         "source_worker_peak_rss_kib":20000,
+        "original_checker_exact_input_timeout_replays":0,
+        "corrected_checker_exact_input_timeout_replays":0,
+        "original_checker_total_wall_seconds_with_retries":.023,
+        "corrected_checker_total_wall_seconds_with_retries":.023,
         "privileged_task_identity_or_source_state_in_actor":False,
         "unselected_counterfactual_terminal_outcome_in_actor":False,
         "original_source_code_or_original_or_corrected_checker_in_actor":False,
@@ -161,6 +165,12 @@ class ActiveProbeFalseProofTests(unittest.TestCase):
                 "public_versioned_task_is_not_original_source_public_task",False)),
             ("fabricated_free_probe",lambda z:z.__setitem__(
                 "actual_selected_versioned_utility",1.033333)),
+            ("fabricated_free_timeout_replay",lambda z:z.__setitem__(
+                "corrected_checker_exact_input_timeout_replays",1)),
+            ("unbounded_timeout_replay",lambda z:z.__setitem__(
+                "original_checker_exact_input_timeout_replays",5)),
+            ("checker_total_wall_negative",lambda z:z.__setitem__(
+                "corrected_checker_total_wall_seconds_with_retries",-.1)),
         ]
         for name,mutate in hostile:
             with self.subTest(name=name):
