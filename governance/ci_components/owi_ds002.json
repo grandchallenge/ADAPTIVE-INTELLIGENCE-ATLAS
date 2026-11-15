@@ -11,7 +11,9 @@
       "tests/test_owi_ds002_chosen_tangents.py",
       "tests/test_owi_ds002_policy_synthesis.py",
       "experiments/owi_ds002_neural_guided.py",
-      "tests/test_owi_ds002_neural_guided.py"
+      "tests/test_owi_ds002_neural_guided.py",
+      "experiments/owi_ds002_tangent_observability.py",
+      "tests/test_owi_ds002_tangent_observability.py"
     ],
     "prefixes": [],
     "test_prefixes": []
