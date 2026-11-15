@@ -91,6 +91,11 @@ class PolicySearch(unittest.TestCase):
         self.assertEqual(report["variant"],
                          "A: outcome-only typed symbolic policy synthesis")
         self.assertEqual(len(report["heldout"]), 6)
+        self.assertEqual(set(report["paired_fixed_policy_controls"]),
+                         {"never_repair", "always_repair_a",
+                          "always_repair_b", "always_repair_both"})
+        self.assertTrue(all(len(v) == 6 for v in
+                            report["paired_fixed_policy_controls"].values()))
         self.assertTrue(math.isfinite(report["total_wall_seconds"]))
         self.assertEqual(report["logging_examples"], 360)
         self.assertTrue(all(math.isfinite(r["mean_total_cost"])
