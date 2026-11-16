@@ -1,0 +1,102 @@
+name: OWI-DS002 adapted native 28-head exact ExeDec Access Scanl1 gate
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_lambdabeam_native_bridge.py'
+      - 'experiments/owi_ds002_lambdabeam_semantics_adapter.py'
+      - 'tests/test_owi_ds002_lambdabeam_semantics_adapter.py'
+      - 'governance/ci_components/owi_ds002_lambdabeam_semantics_adapter.json'
+      - '.github/workflows/owi-ds002-lambdabeam-semantics-adapter.yml'
+      - 'mathematics/research-notes/OWI-DS002-LAMBDABEAM-EXPLICIT-SCANL1-ADAPTER-20261116.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-native-semantic-adaptation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - name: Install minimal source import dependencies (no model weights or torch)
+        run: |
+          python -m pip install --disable-pip-version-check numpy==1.26.4 absl-py==2.1.0
+      - name: Pinned sparse source checkout; no redundant pretrained checkpoint
+        run: |
+          set -euo pipefail
+          git clone --quiet --filter=blob:none --no-checkout https://github.com/ellisk42/LambdaBeam.git build/owi_ds002/lambdabeam_native_source
+          git -C build/owi_ds002/lambdabeam_native_source sparse-checkout set --no-cone \
+            '/eval_config.py' '/lambdabeam/__init__.py' \
+            '/lambdabeam/algorithm/**' '/lambdabeam/dsl/**' \
+            '/lambdabeam/model/**' '/lambdabeam/experiment/**' \
+            '/lambdabeam/property_signatures/**'
+          git -C build/owi_ds002/lambdabeam_native_source checkout --quiet --detach 61986dc1a6d8cc9521fb17e3152f7f085b5d7c95
+          test "$(git -C build/owi_ds002/lambdabeam_native_source rev-parse HEAD)" = '61986dc1a6d8cc9521fb17e3152f7f085b5d7c95'
+          test ! -e build/owi_ds002/lambdabeam_native_source/lambdabeam-model.ckpt
+      - name: Source verified original vs exact adapted execution and adversarial tests
+        run: |
+          python -m py_compile experiments/owi_ds002_lambdabeam_native_bridge.py experiments/owi_ds002_lambdabeam_semantics_adapter.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_semantics_adapter.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_native_bridge.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_checkpoint_gate.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+      - name: Execute original-source and adapted 28-op Head ABI with 38 ExeDec atoms
+        run: |
+          python experiments/owi_ds002_lambdabeam_semantics_adapter.py \
+            --source-dir build/owi_ds002/lambdabeam_native_source \
+            --output build/owi_ds002/lambdabeam_native_adapted_38atom_witnesses.json
+      - name: Preserve exact claim boundaries and all source-native probe outcomes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/owi_ds002/lambdabeam_native_adapted_38atom_witnesses.json").read_text())
+          assert r["status"] == "EXPLICIT_28HEAD_SEMANTIC_ADAPTER_38_ATOMS_SOURCE_WITNESSED", r
+          assert r["original_source"]["source"]["commit"] == "61986dc1a6d8cc9521fb17e3152f7f085b5d7c95"
+          assert r["original_source"]["source"]["verified_source_git_blobs"] == 7
+          assert r["exe_dec_source_revision"] == "ef046ce2cc3fcd024e32f5dfe00e69700dac82ed"
+          assert r["audit"]["accepted_exe_dec_fixed_atoms"] == 38
+          assert r["audit"]["source_native_vs_exedec_finite_probe_pairs"] == 671
+          assert r["audit"]["mismatches"] == 0
+          assert r["adaptation"]["changed_native_operations"] == ["Access","Scanl1"]
+          assert r["adaptation"]["original_operator_head_count"] == 28
+          assert r["adaptation"]["adapted_operator_head_count"] == 28
+          assert r["adaptation"]["original_repr_order_preserved"]
+          assert r["adaptation"]["original_arity_binder_weight_name_preserved"]
+          assert r["adaptation"]["checkpoint_loaded"] is False
+          assert r["adaptation"]["trained_search_executed"] is False
+          assert r["adaptation"]["original_Access_minus1_result"] == 2
+          assert r["adaptation"]["original_Scanl1_empty_result"] == "UNDEFINED"
+          assert r["adaptation"]["original_Scanl1_mul_8_8_result"] == [8,64]
+          assert r["adaptation"]["adapted_Scanl1_mul_8_8_result"] is None
+          assert len(r["witnesses"]) == 38
+          src=r["retrospective_source_corpus"]
+          assert src["public_reference_tasks"] == 1200
+          assert src["syntactically_covered_operator_names_only"] == 1200
+          assert src["not_trained_synthesis_success"] and src["not_model_output_translation_success"]
+          print("EXPLICIT 28-HEAD ADAPTED NATIVE SOURCE SEMANTICS:",{
+            "original_git_commit":r["original_source"]["source"]["commit"],
+            "original_native_source_edited":r["adaptation"]["original_source_bytes_modified"],
+            "changed_source_semantics":r["adaptation"]["changed_native_operations"],
+            "fixed_exedec_atomic_witnesses":r["audit"]["accepted_exe_dec_fixed_atoms"],
+            "finite_source_native_adapted_vs_exedec_probe_pairs":r["audit"]["source_native_vs_exedec_finite_probe_pairs"],
+            "mismatches":r["audit"]["mismatches"],
+            "published_reference_tasks_operator_names_covered":src["syntactically_covered_operator_names_only"],
+            "native_checkpoint_inference_performed":False,
+            "claim_boundary":"runtime adapted, not unmodified pretrained model or all-program equivalence",
+          })
+          PY
+      - name: Upload full positive/negative source-identical native adapter evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-adapted-lambdabeam-scanl1-access-exedec
+          path: build/owi_ds002/lambdabeam_native_adapted_38atom_witnesses.json
+          retention-days: 30
