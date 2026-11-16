@@ -93,6 +93,7 @@ def load_real_checkpoint(source_root:Path):
         not isinstance(checkpoint["model"],dict) or
         type(checkpoint["step"]) is not int):
         raise adm.Rejected("published checkpoint structure not safe expected schema")
+    training_step=checkpoint["step"]
     model=DeepCoderModel(_args(),ops)
     expected=model.state_dict()
     supplied=checkpoint["model"]
@@ -115,7 +116,7 @@ def load_real_checkpoint(source_root:Path):
                             "source_blobs":len(custody.SOURCE_BLOBS)+len(upstream.BLOBS),
                             "checkpoint_blob":custody.CHECKPOINT_GIT_BLOB,
                             "checkpoint_sha256":checksum,
-                            "checkpoint_training_step":checkpoint_step if False else None,
+                            "checkpoint_training_step":training_step,
                             "weights_only":True,
                             "strict_model_state_loaded":True,
                             "trained_tensor_keys":len(expected),
