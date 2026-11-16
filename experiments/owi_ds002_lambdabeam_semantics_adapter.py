@@ -143,9 +143,11 @@ def execute_matched_witnesses(source_root:Path,cache:Path|None=None,
         ops["Scanl1"].apply_single([old["Add"].apply_single,[]])!=[]):
         raise adm.Rejected("adapter does not repair explicit source differences")
     # ExeDec bounds reject an originally permitted 8*8 intermediate.
-    if old["Scanl1"].apply_single([old["Multiply"].apply_single,[8,8]])!=[8,64]:
+    def multiply(a,b):
+        return old["Multiply"].apply_single([a,b])
+    if old["Scanl1"].apply_single([multiply,[8,8]])!=[8,64]:
         raise adm.Rejected("original Scanl1 bounds changed unexpectedly")
-    if ops["Scanl1"].apply_single([old["Multiply"].apply_single,[8,8]]) is not None:
+    if ops["Scanl1"].apply_single([multiply,[8,8]]) is not None:
         raise adm.Rejected("adapted Scanl1 failed source-exact overflow guard")
 
     valsI=[-4,-1,0,1,2,3,5]
