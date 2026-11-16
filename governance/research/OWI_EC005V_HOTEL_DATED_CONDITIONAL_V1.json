@@ -1,0 +1,134 @@
+{
+  "contract": "OWI-EC005V-ORIGINAL-HOTEL-DATED-CONDITIONAL-SOURCE-PUBLIC-V1",
+  "source": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "filename": "train_envscaler_2550_with_skills.jsonl",
+    "full_raw_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "split_seed": 4611,
+    "original_train_row": 236,
+    "original_source_group_sha256": "fd0d8974e2af1954f04775ff85b3bc002a4c6bc14b35c5883a28555d8adaa4df",
+    "original_public_prompt_sha256": "25d2be96389844fe56ff7490182876380bc2b0e153ee3da53598dc265b24708d",
+    "original_class_and_initial_state_unmodified": true,
+    "original_user_task_and_tool_schemas_unmodified": true,
+    "private_checker_never_mounted_or_executed": true,
+    "dev_and_sealed_test_tasks_not_exported": true
+  },
+  "public_original_user_task": {
+    "alice_original_double_booking": [
+      "2024-07-01",
+      "2024-07-05"
+    ],
+    "alice_replacement_segment_A": {
+      "room_type": "double",
+      "check_in": "2024-07-01",
+      "check_out_exclusive": "2024-07-04"
+    },
+    "alice_replacement_segment_B": {
+      "room_type": "suite",
+      "check_in": "2024-07-04",
+      "check_out_exclusive": "2024-07-06"
+    },
+    "jonathan_booking": {
+      "room_type": "double",
+      "check_in": "2024-07-02",
+      "check_out_exclusive": "2024-07-04",
+      "required_amenities": [
+        "WiFi",
+        "TV"
+      ],
+      "preferred_amenity": "Mountain View",
+      "conditionally_add_amenity": "Work Desk"
+    },
+    "alice_original_booking_must_be_cancelled_before_final_reservations": true,
+    "cannot_treat_a_pre_cancellation_conflict_due_only_to_alice_booking_as_final_skip": true,
+    "existing_other_bookings_must_not_be_mutated": true,
+    "original_user_task_authorizes_separate_select_or_skip_room_candidates_but_not_abstain_from_entire_rebooking": true
+  },
+  "precommitted_selection": {
+    "first_source_public_calls": [
+      [
+        "list_available_rooms",
+        {}
+      ],
+      [
+        "list_available_rooms_by_type",
+        {
+          "room_type": "double"
+        }
+      ],
+      [
+        "list_available_rooms_by_type",
+        {
+          "room_type": "suite"
+        }
+      ],
+      [
+        "list_bookings_by_guest",
+        {
+          "guest_id": "GUEST1"
+        }
+      ],
+      [
+        "list_bookings_by_guest",
+        {
+          "guest_id": "GUEST2"
+        }
+      ]
+    ],
+    "derived_source_public_room_ID_order": [
+      "first up to two original publicly available double room IDs",
+      "then up to two original publicly available suite room IDs",
+      "then first original GUEST1 active booking room ID if any",
+      "then first original GUEST2 active booking room ID if any"
+    ],
+    "max_distinct_rooms": 6,
+    "source_public_booking_ids_limit": 2,
+    "for_each_selected_room": [
+      "get_room_info",
+      "list_active_bookings_for_room"
+    ],
+    "for_each_selected_double_room": [
+      "get_room_amenities",
+      "check_room_availability_over_date_range for Alice A",
+      "check_room_availability_over_date_range for Jonathan"
+    ],
+    "for_each_selected_suite_room": [
+      "check_room_availability_over_date_range for Alice B"
+    ],
+    "room_type_must_be_observed_in_original_get_room_info": true,
+    "availability_tool_exact_required": [
+      "room_id",
+      "requested_check_in_date",
+      "requested_check_out_date"
+    ],
+    "availability_dates_only_from_original_user_task": true,
+    "downstream_selected_ids_only_from_previous_actual_original_source_public_replies": true,
+    "no_guessed_ids_from_original_hidden_initial_state": true,
+    "tool_missing_or_original_schema_mismatch_is_unresolved": true,
+    "max_actual_native_public_read_calls": 40,
+    "max_source_public_response_chars": 8192,
+    "source_native_docker_image": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+    "source_native_container": "nonroot UID65534, no network, cap drop ALL, read-only, no new privileges, CPU/memory/PID limits",
+    "source_private_input_bundle_outside_evidence_artifact_auto_destroyed": true,
+    "source_private_final_state_never_read": true,
+    "full_original_reply_recorded_sha256_only": true,
+    "public_credential_like_fields_redacted_before_output": true
+  },
+  "preregistered_scientific_adjudication": {
+    "actual_same_jonathan_double_room_selection_rule_requires_two_distinct_original_public_double_rooms": true,
+    "qualifying_positive_means_availability_true_for_exact_jonathan_dates_and_amenities_WiFi_TV": true,
+    "qualifying_negative_means_original_source_availability_false_for_same_jonathan_dates_and_original_non_cancellable_booking_overlaps": true,
+    "exclude_unavailable_rooms_blocked_only_by_original_alice_booking_scheduled_for_cancellation": true,
+    "room_status_available_now_does_not_prove_date_specific_availability": true,
+    "room_pre_cancellation_availability_does_not_prove_final_booking_state": true,
+    "qualifying_same_rule_positive_and_negative_are_candidate_room_SELECT_SKIP_not_whole_task_NOOP": true,
+    "conditional_Work_Desk_evidence_requires_two_available_eligible_jonathan_doubles_one_with_desk_one_without": true,
+    "single_candidate_or_other_room_type_or_unrelated_existing_booking_cannot_prove_matched_pair": true,
+    "incomplete_or_failed_source_public_read_cannot_be_interpreted_as_unavailable": true,
+    "source_actual_same_rule_support_may_be_negative_or_inconclusive": true,
+    "no_source_native_private_checker_or_terminal_reward_or_learning_claim": true,
+    "future_heldout_classes_and_seeds_not_claimed": true
+  },
+  "science_status": "PROSPECTIVE_FROZEN_PUBLIC_ONLY_HOTEL_NATIVE_CURRENT_STATE_DATED_CONDITIONAL_SUPPORT_AUDIT"
+}
