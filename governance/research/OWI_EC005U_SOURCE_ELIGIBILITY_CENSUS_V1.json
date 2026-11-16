@@ -1,0 +1,254 @@
+{
+  "contract": "OWI-EC005U-ORIGINAL-SOURCE-TRAIN-ELIGIBILITY-CENSUS-AND-PUBLIC-READS/1",
+  "source": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "full_bytes_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "grouping_seed": 4611,
+    "expected_total_tasks": 2550,
+    "expected_train_connected_classes": 30,
+    "expected_dev_connected_classes": 10,
+    "expected_sealed_test_connected_classes": 11,
+    "source_private_verifier_never_executed": true,
+    "sealed_dev_and_test_content_never_exported": true
+  },
+  "census": {
+    "scope": "ALL original TRAIN tasks in all 30 connected executable class/environment source families; never serialize DEV/TEST public prompts/tools",
+    "language_only_condition_markers": [
+      "if",
+      "unless",
+      "otherwise",
+      "only if",
+      "if needed",
+      "where applicable"
+    ],
+    "language_markers_are_not_empirical_source_state_evidence": true,
+    "families_seen_before_U": [
+      0,
+      2,
+      3,
+      2151,
+      2001,
+      1549,
+      1900,
+      5,
+      2000
+    ],
+    "no_new_task_repair_or_modified_initial_states": true
+  },
+  "precommitted_distinct_source_train_candidate_rows": [
+    25,
+    87,
+    185,
+    236,
+    672,
+    710,
+    735,
+    2199
+  ],
+  "precommitted_native_public_reads": [
+    {
+      "row": 25,
+      "theme": "psychiatry telehealth reschedule availability/conflict",
+      "public_task_anchors": [
+        "PAT-KAT-117",
+        "PROV-PSY-229",
+        "APPT-0002"
+      ],
+      "tool_candidates": [
+        {
+          "name": "get_patient_info",
+          "args_if_exact_required": {
+            "patient_id": "PAT-KAT-117"
+          }
+        },
+        {
+          "name": "list_provider_available_time_slots",
+          "args_if_exact_required": {
+            "provider_id": "PROV-PSY-229"
+          }
+        }
+      ]
+    },
+    {
+      "row": 87,
+      "theme": "new activity challenge and users",
+      "public_task_anchors": [
+        "CHALL2024-STEPS",
+        "November Step-Up"
+      ],
+      "tool_candidates": [
+        {
+          "name": "list_challenges",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "list_all_users",
+          "args_if_exact_required": {}
+        }
+      ]
+    },
+    {
+      "row": 185,
+      "theme": "equipment overdue return and equipment availability",
+      "public_task_anchors": [
+        "Jordan Diaz",
+        "patient monitor"
+      ],
+      "tool_candidates": [
+        {
+          "name": "get_user_by_name",
+          "args_if_exact_required": {
+            "name": "Jordan Diaz"
+          }
+        },
+        {
+          "name": "list_equipment_by_type",
+          "args_if_exact_required": {
+            "equipment_type": "monitor"
+          }
+        }
+      ]
+    },
+    {
+      "row": 236,
+      "theme": "hotel room booking overlap and availability",
+      "public_task_anchors": [
+        "GUEST1",
+        "GUEST2",
+        "2024-07-01"
+      ],
+      "tool_candidates": [
+        {
+          "name": "list_available_rooms",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "list_bookings_by_guest",
+          "args_if_exact_required": {
+            "guest_id": "GUEST1"
+          }
+        },
+        {
+          "name": "list_all_room_types",
+          "args_if_exact_required": {}
+        }
+      ]
+    },
+    {
+      "row": 672,
+      "theme": "donor scheduling and available time slots",
+      "public_task_anchors": [
+        "Samantha Elwood",
+        "June 24"
+      ],
+      "tool_candidates": [
+        {
+          "name": "list_locations",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "get_user_by_name",
+          "args_if_exact_required": {
+            "name": "Samantha Elwood"
+          }
+        }
+      ]
+    },
+    {
+      "row": 710,
+      "theme": "professional review moderation and avoiding duplicates",
+      "public_task_anchors": [
+        "Dr. Luke Marquez",
+        "Dr. Ella Navarro"
+      ],
+      "tool_candidates": [
+        {
+          "name": "list_all_professionals",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "list_all_users",
+          "args_if_exact_required": {}
+        }
+      ]
+    },
+    {
+      "row": 735,
+      "theme": "fitness class scheduling conflict avoidance",
+      "public_task_anchors": [
+        "Yoga Basics",
+        "Sean Avery",
+        "Alice Chan"
+      ],
+      "tool_candidates": [
+        {
+          "name": "get_user_by_name",
+          "args_if_exact_required": {
+            "name": "Alice Chan"
+          }
+        },
+        {
+          "name": "find_class_sessions",
+          "args_if_exact_required": {
+            "class_type": "Yoga Basics",
+            "date": "2024-06-10"
+          }
+        }
+      ]
+    },
+    {
+      "row": 2199,
+      "theme": "contact duplication and source catalog classification",
+      "public_task_anchors": [
+        "Alice Chan",
+        "Sports"
+      ],
+      "tool_candidates": [
+        {
+          "name": "list_all_contacts",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "list_all_categories",
+          "args_if_exact_required": {}
+        },
+        {
+          "name": "get_contacts_by_name",
+          "args_if_exact_required": {
+            "name": "Alice Chan"
+          }
+        }
+      ]
+    }
+  ],
+  "sampling": {
+    "no_test_or_dev_source_tasks_selected": true,
+    "source_original_class_and_initial_state_unmodified": true,
+    "public_tools_are_only_actual_original_declarations": true,
+    "only_exact_public_schema_required_argument_sets_admitted": true,
+    "no_original_source_write_tools": true,
+    "max_physical_selected_source_read_calls": 24,
+    "max_public_reply_chars_per_call": 8192,
+    "source_worker_image": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+    "source_worker_network": "none",
+    "source_worker_caps": "drop_ALL",
+    "source_worker_nonroot": true,
+    "redact_public_credentials_before_artifact_or_logs": true,
+    "full_source_reply_recorded_by_sha256_only": true,
+    "private_final_state_discarded": true,
+    "source_native_private_checker_not_mounted": true,
+    "timeout_seconds_per_selected_call": 90
+  },
+  "evidence": {
+    "original_public_read_success_required_for_state_classification": true,
+    "unavailable_declared_tool_or_argument_schema_is_unresolved_not_absence": true,
+    "public_prompt_word_if_is_not_observed_noop": true,
+    "existing_unrelated_record_is_not_task_authorized_no_action": true,
+    "mere_possible_conditional_branch_not_actual_mixed_support": true,
+    "full_mixed_action_no_action_requires_same_original_task_rule_and_two_actual_opposing_source_public_states": true,
+    "first_stage_is_eligibility_and_state_linkage_screen_not_learned_policy": true,
+    "no_native_private_checker_or_reward_or_training": true
+  },
+  "disposition": "PROSPECTIVE_TRAIN_ALL_FAMILY_CENSUS_AND_EIGHT_PRECOMMITTED_NATIVE_PUBLIC_SOURCE_READ_ELIGIBILITY_NOT_CAUSAL_IDENTIFICATION"
+}
