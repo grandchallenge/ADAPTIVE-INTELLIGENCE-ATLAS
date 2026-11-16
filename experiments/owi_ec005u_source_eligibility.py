@@ -12,7 +12,7 @@ Conditional words, available tools and existing unrelated records DO NOT
 constitute proof of natural matched action/no-action or learned cognition.
 """
 from __future__ import annotations
-import argparse,hashlib,json,re
+import argparse,hashlib,json,re,tempfile
 from collections import Counter,defaultdict
 from pathlib import Path
 from owi_ec005_realtools_family_survey import audit_source
@@ -242,11 +242,16 @@ def run(spec,lock,out_dir):
         raise DatasetBoundaryError("original source full-byte identity changed")
     rows=audit_source(source)
     chosen,census=inventory(rows,protocol)
-    bundles=out_dir/"source_native_private_worker_only"
-    write_selected(chosen,bundles)
-    # Drop entire original training/full raw rows before untrusted source worker.
+    # Private class/state only in an auto-discarding outside-artifact temporary
+    # directory. A failure MUST NOT cause private worker bundles to be uploaded.
+    import os
+    with tempfile.TemporaryDirectory(prefix="owi_ec005u_private_",
+          dir=os.environ.get("RUNNER_TEMP") or None) as temp:
+        bundles=Path(temp)/"only_docker_worker"
+        write_selected(chosen,bundles)
+        # All original source-private class/state is confined to that tree.
+        receipts,unavailable=original_native_read(bundles,chosen,protocol)
     del rows
-    receipts,unavailable=original_native_read(bundles,chosen,protocol)
     identities={
       str(i):{
         "original_train_group_sha256":p["environment_id_sha256"],
@@ -277,10 +282,8 @@ def run(spec,lock,out_dir):
        "actual_native_source_read_only_tool_count":len(receipts),
        "original_natural_same_conditional_rule_action_and_noaction_claim":"NOT_ESTABLISHED",
     }
-    # Only public/hashed audit JSON is retained. Delete transient original
-    # private worker bundles before exposing output artifact.
-    import shutil
-    shutil.rmtree(bundles)
+    # Source-private Docker input bundles were destroyed on exit, including
+    # exceptions, before any public evidence artifact is written.
     return report
 
 def main():
