@@ -15,8 +15,8 @@ class TrainedPilotTests(unittest.TestCase):
         self.assertEqual({x[0] for x in trained.PILOT_IDS},
                          set(adm.manifest()["splits"]))
         self.assertTrue(all(x[1]==0 for x in trained.PILOT_IDS))
-        self.assertEqual(trained.DEFAULT_MAX_VALUES,80)
-        self.assertEqual(trained.DEFAULT_BEAM,2)
+        self.assertEqual(trained.DEFAULT_MAX_VALUES,1000)
+        self.assertEqual(trained.DEFAULT_BEAM,10)
         self.assertEqual(trained.DEFAULT_TASK_SECONDS,7.0)
 
     def test_original_pretrained_constructor_config_explicit(self):
@@ -33,7 +33,7 @@ class TrainedPilotTests(unittest.TestCase):
 
     def test_fail_closed_on_task_or_resource_budget_before_loading(self):
         for args in (
-            (0,2,7.0),(1001,2,7.0),(80,0,7.0),(80,11,7.0),
+            (0,2,7.0),(5001,2,7.0),(80,0,7.0),(80,11,7.0),
             (80,2,0.0),(80,2,21.0),
         ):
             values,beam,seconds=args
