@@ -1,0 +1,137 @@
+{
+  "contract": "OWI-EC005W-ORIGINAL-TRAIN-REVIEW-TARGET-STATUS-PUBLIC-AUDIT/1",
+  "source": {
+    "repo": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "file": "train_envscaler_2550_with_skills.jsonl",
+    "full_raw_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "original_train_row": 710,
+    "group_seed": 4611,
+    "train_group_sha256": "a739046b13061603e09af000ceed469840dfecba0068db2e1919454b18394b0c",
+    "original_public_user_prompt_sha256": "97bca760aa53e15f281b71771a6b63a1ba294c1ce3123f9632b114cbf12d6d36",
+    "original_user_task_unchanged": true,
+    "original_class_state_and_schemas_unchanged": true,
+    "original_verifier_never_executed": true,
+    "no_dev_or_sealed_test_task_exposure": true
+  },
+  "source_original_named_targets": [
+    {
+      "professional": "Dr. Luke Marquez",
+      "specialty": "Dermatology",
+      "review_author": "Alice Chan",
+      "source_expected_review_before": "pending",
+      "requested_action": "approve",
+      "aggregate_after": "update_after_approval"
+    },
+    {
+      "professional": "Dr. Ella Navarro",
+      "specialty": "Internal Medicine",
+      "review_author": "Jules Morgan",
+      "source_expected_review_before": "pending",
+      "requested_action": "reject",
+      "aggregate_after": "no_aggregate_contribution_from_rejected"
+    },
+    {
+      "professional": "Dr. Ella Navarro",
+      "specialty": "Cardiology",
+      "review_author": "Ria Singh",
+      "source_expected_review_before": "approved",
+      "requested_action": "delete",
+      "aggregate_after": "update_after_approved_review_deletion"
+    },
+    {
+      "professional": "Dr. Sandy Torres",
+      "specialty": "Pediatrics",
+      "review_author": "Silas Huang",
+      "source_expected_review_before": "rejected",
+      "requested_action": "edit_then_set_pending",
+      "requested_rating_after": 2,
+      "aggregate_after": "do_not_update_until_approved"
+    }
+  ],
+  "original_task_authority": {
+    "every_one_of_four_named_reviews_requires_mutation": true,
+    "pure_leave_named_review_unchanged_action_authorized": false,
+    "authorized_aggregate_no_write_for_pending_Sandy": true,
+    "aggregate_update_after_approved_set_changes_for_Marquez_and_Cardiology_Ella": true,
+    "no_immediate_aggregate_update_for_Jules_rejection": true,
+    "no_review_moderation_noop_just_from_author_account_status": true,
+    "unknown_or_nonexistent_exact_specialty_user_review_is_not_noop": true,
+    "matching_by_only_shared_professional_name_without_specialty_is_forbidden": true,
+    "original_task_names_and_statuses_are_expectations_not_actual_source_state": true
+  },
+  "prospective_selected_original_public_reads": {
+    "first_fixed_calls": [
+      [
+        "list_all_professionals",
+        {}
+      ],
+      [
+        "list_all_users",
+        {}
+      ],
+      [
+        "get_professional_by_name",
+        {
+          "name": "Dr. Ella Navarro"
+        }
+      ]
+    ],
+    "resolve_professional_by_exact_name_and_exact_specialty_from_actual_PUBLIC_results": true,
+    "resolve_user_by_exact_username_from_actual_PUBLIC_results": true,
+    "require_unique_match_for_each_id": true,
+    "next_per_unique_professional": [
+      "get_reviews_for_professional",
+      "get_aggregated_rating_for_professional"
+    ],
+    "next_per_target_if_unique_professional_and_user": [
+      "get_review_by_user_and_professional"
+    ],
+    "next_per_target_if_actual_review_has_view_id": [
+      "get_review_moderation_status"
+    ],
+    "preserve_original_task_order": true,
+    "no_guessed_ids_from_private_state": true,
+    "no_intervention_no_source_write": true,
+    "max_original_native_selected_public_read_calls": 27,
+    "original_public_reply_chars_bound": 8192,
+    "exact_original_required_tool_arguments": {
+      "list_all_professionals": [],
+      "list_all_users": [],
+      "get_professional_by_name": [
+        "name"
+      ],
+      "get_reviews_for_professional": [
+        "professional_id"
+      ],
+      "get_aggregated_rating_for_professional": [
+        "professional_id"
+      ],
+      "get_review_by_user_and_professional": [
+        "user_id",
+        "professional_id"
+      ],
+      "get_review_moderation_status": [
+        "view_id"
+      ]
+    },
+    "source_nonroot_networkless_readonly_docker_image": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+    "stage_source_private_worker_in_auto_cleaned_RUNNER_TEMP_outside_public_artifact": true,
+    "discard_source_private_terminal_state_unexamined": true,
+    "sanitize_original_public_auth_secret_token_fields_before_logs_artifact": true,
+    "full_original_public_response_SHA256_only": true
+  },
+  "independent_science": {
+    "original_public_status_must_be_observed_not_inferred_from_prompt": true,
+    "four_distinct_task_named_professional_by_specialty_and_author_pairs_required_for_full_fidelity": true,
+    "requested_action_needed_requires_actual_source_review_and_before_status_linked_to_named_pair": true,
+    "pure_review_noop_not_authorized_by_original_row710": false,
+    "aggregate_update_vs_skip_is_different_decision_than_review_modification": true,
+    "aggregate_skip_requires_original_pending_or_rejected_review_plus_explicit_task_authority_not_just_no_rating_change": true,
+    "cross_target_aggregate_update_skip_not_proof_of_same_instance_variable_initial_state": true,
+    "positive_aggregate_contrast_if_some_verified_positive_approved_set_change_targets_and_verified_pending_no_update_target": true,
+    "unresolved_target_due_to_missing_user_professional_review_or_schema_does_not_count_positive_or_noop": true,
+    "no_heldout_reward_learning_active_observation_value_or_causal_reflection_claim": true
+  },
+  "disposition": "PROSPECTIVE_ORIGINAL_ROW710_REVIEW_STATUS_AND_AGGREGATE_WRITE_SUPPRESSION_AUDIT"
+}
