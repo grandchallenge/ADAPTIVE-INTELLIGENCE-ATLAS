@@ -65,6 +65,7 @@ def check_spec(path):
         auth.get("every_one_of_four_named_reviews_requires_mutation") is not True or
         auth.get("pure_leave_named_review_unchanged_action_authorized") is not False or
         auth.get("unknown_or_nonexistent_exact_specialty_user_review_is_not_noop") is not True or
+        auth.get("matching_by_only_shared_professional_name_without_specialty_is_forbidden") is not True or
         science.get("pure_review_noop_not_authorized_by_original_row710") is not False or
         science.get("cross_target_aggregate_update_skip_not_proof_of_same_instance_variable_initial_state") is not True or
         [tuple((q.get("professional"),q.get("specialty"),q.get("review_author"),
