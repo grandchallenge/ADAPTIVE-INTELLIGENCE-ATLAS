@@ -1,0 +1,103 @@
+{
+  "contract": "OWI-EC005T-ORIGINAL-NATIVE-SECOND-CANDIDATE-CURRENT-STATE-SUPPORT/1",
+  "parent_issue": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/issues/466",
+  "predecessor": "https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/pull/494",
+  "source": {
+    "repository": "dongguanting/Agent-Reflex-RL-2K",
+    "revision": "337c7eebaa3fd56825602d7252000c55a62e27f3",
+    "full_sha256": "3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a",
+    "group_seed": 4611,
+    "partition": "train",
+    "exact_distinct_original_family_rows": [
+      1549,
+      1900,
+      5,
+      2000
+    ],
+    "original_private_verifier_never_mounted_or_executed": true,
+    "sealed_dev_test_task_or_tools_never_opened": true
+  },
+  "candidates": [
+    {
+      "row": 1549,
+      "mechanism": "Original cart membership and requested final quantity can be already satisfied (no change) or differ (change).",
+      "first_read_tool": "get_user_by_name",
+      "public_requested_user_name": "Alice Chan",
+      "target_cart_id": "CRT-X01",
+      "public_target_quantities": {
+        "Lumina Wireless Earbuds": 0,
+        "Maple & Sage Candle": 3,
+        "Borealis Expedition Jacket": 1,
+        "Reverie: Short Stories": 2,
+        "Astra Stainless Water Bottle": 5
+      },
+      "requires_actual_public_current_quantity_for_noop": true,
+      "unresolved_or_tool_failure_never_counts_as_noop": true
+    },
+    {
+      "row": 1900,
+      "mechanism": "Original geolocation subscriber: only new SF location is subject to original create-if-not-existing clause; existing LA/London are explicitly to be mutated and are NOT valid no-op examples.",
+      "first_read_tool": "get_subscriber_by_email",
+      "public_requested_email": "alice.chan@example.com",
+      "public_conditional_create_locations": [
+        {
+          "label": "San Francisco",
+          "lat": 37.7749,
+          "long": -122.4194
+        }
+      ],
+      "public_other_requested_existing_locations_not_noop": [
+        "Los Angeles",
+        "London"
+      ],
+      "requires_original_public_exists_true_and_false_across_explicit_conditional_create_targets": true
+    },
+    {
+      "row": 5,
+      "mechanism": "Original trial participant: consent valid if already, withdraw from NeuroNova IV only if enrolled, remove withdrawn ImmunoStar III prior records if any.",
+      "first_read_tool": "get_user_account_by_username",
+      "public_requested_username": "farida.youssef",
+      "conditional_update_consent_status": "valid",
+      "conditional_withdraw_trial": "NeuroNova IV",
+      "conditional_reenroll_trial_id": "CT-C3",
+      "requires_public_status_not_private_verifier": true,
+      "original_public_instruction_noop_candidate_needs_real_satisfied_status": true
+    },
+    {
+      "row": 2000,
+      "mechanism": "Original bookmark/folder hierarchy and duplicate avoidance; a source-existing requested item can count as no-op only if the original public instruction explicitly allows preserving it (not simply because a different folder exists).",
+      "first_read_tool": "list_folders",
+      "public_requested_folder_names": [
+        "Health & Wellness",
+        "Traditional Chinese Medicine",
+        "Herbal Formulas",
+        "Acupuncture",
+        "Dietary Therapy"
+      ],
+      "original_user_task_must_authorize_conditional_noop": true
+    }
+  ],
+  "sampling": {
+    "all_tools_physical_original_declared_public_read_only": true,
+    "restricted_image": "python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df",
+    "source_initial_state_unmodified": true,
+    "original_user_task_unmodified": true,
+    "max_total_selected_public_tool_calls": 35,
+    "max_public_response_chars": 8192,
+    "max_container_seconds_per_call": 90,
+    "source_private_final_state_discarded": true,
+    "report_raw_selected_public_reply_and_sha256": true,
+    "no_source_write_tools": true,
+    "continue_other_candidate_on_source_public_tool_failure": true,
+    "source_public_missing_or_failure_never_means_absent": true
+  },
+  "qualification": {
+    "each_candidate_qualifies_only_on_actual_original_public_action_needed_and_original_public_authorized_noaction_both": true,
+    "opposite_conditions_must_apply_to_two_originally_requested_targets_with_same_action_semantics": true,
+    "existing_other_record_is_not_noop_for_requested_action": true,
+    "original_source_evidence_only_not_native_reward_or_policy_training": true,
+    "no_fabricated_counterfactual_private_checker_or_gold": true,
+    "no_promotion_of_previously_examined_candidates_as_pristine_heldout": true
+  },
+  "disposition": "PROSPECTIVE_ORIGINAL_NATIVE_PUBLIC_ONLY_COHORT_AUDIT_NOT_AN_ACTOR_TRAINING_TRIAL"
+}
