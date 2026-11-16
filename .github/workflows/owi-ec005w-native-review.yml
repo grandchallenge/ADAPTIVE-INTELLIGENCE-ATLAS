@@ -24,8 +24,47 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
-      - name: Exact original pinned corpus and row710 public user task/source declared tools
+      - name: Hostile original source/public reviewer status and no-false-noop tests
         shell: bash
         run: |
           set -euo pipefail
-          python experiments/owi_ec005w_review_public_preflight.py
+          python -m py_compile experiments/owi_ec005w_review_native_public.py \
+            experiments/owi_ec005w_review_native_public_gate.py
+          python -m unittest discover -s tests \
+            -p 'test_owi_ec005w_review_native_public.py' -v
+      - name: Rehash complete original 2550-task source and physically perform bounded original review PUBLIC tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005w_review_native_public.py \
+            --task-spec governance/research/OWI_EC005W_REVIEW_TARGET_STATUS_V1.json \
+            --output build/owi_ec005w/actual_original_review_public_receipts.json
+      - name: Independently reconstruct source-public four named reviewer statuses and aggregate write-suppression boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005w_review_native_public_gate.py \
+            --trial build/owi_ec005w/actual_original_review_public_receipts.json \
+            --task-spec governance/research/OWI_EC005W_REVIEW_TARGET_STATUS_V1.json \
+            --output build/owi_ec005w/independent_original_public_review_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('build/owi_ec005w/independent_original_public_review_gate.json').read_text())
+          assert x['contract']=='OWI-EC005W-INDEPENDENT-ORIGINAL-REVIEW-SOURCE-PUBLIC-STATUS-AGGREGATE-GATE/1'
+          assert x['source_full_original_pinned_sha256']=='3fa26f6ea0f8d88f04c87b7996ff2fee24b1778d6798b871bb3cbd84b356606a'
+          assert x['original_private_checker_never_used']
+          assert x['original_dev_and_sealed_test_task_content_unseen']
+          assert x['original_task_authorized_pure_review_noop_targets']==0
+          assert not x['actual_source_natural_same_review_rule_action_and_pure_noop_pair_proved']
+          assert not x['no_original_native_reward_or_learned_reflection_ever_evaluated'] is False
+          print('OWI_EC005W_FINAL_SOURCE_ORIGINAL_REVIEW_DISPOSITION',json.dumps(x,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005w-original-review-native-public-only
+          path: build/owi_ec005w/
+          retention-days: 30
