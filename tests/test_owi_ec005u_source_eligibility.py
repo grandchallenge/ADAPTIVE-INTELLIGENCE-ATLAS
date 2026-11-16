@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """OWI-EC005U hostile synthetic PUBLIC-only boundary fixtures; NOT empirical source."""
 from __future__ import annotations
-import copy,hashlib,json,sys,tempfile,unittest
+import copy,hashlib,json,sys,tempfile,unittest,os,stat
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"experiments"))
-from owi_ec005u_source_eligibility import check_protocol,redact
+from owi_ec005u_source_eligibility import check_protocol,redact,write_selected
 from owi_ec005u_source_eligibility_gate import (
   adjudicate,PREVIOUS_F_PUBLIC,ORIGINAL,ROWS,PRIOR,RUN,CONTRACT)
 from owi_ec005_realtools_randomized import fingerprint
@@ -90,6 +90,21 @@ class NativeOriginalTrainFamilyEligibility(unittest.TestCase):
         self.assertEqual(data["precommitted_distinct_source_train_candidate_rows"],list(ROWS))
         self.assertEqual(len(data["precommitted_native_public_reads"]),8)
         self.assertEqual(data["census"]["families_seen_before_U"],list(PRIOR))
+    def test_original_source_worker_bind_files_readable_to_uid_65534(self):
+        # The actual Docker child runs nonroot, and umask 077 alone creates
+        # unreadable 0600 files even if the host can inspect them.
+        old=os.umask(0o077)
+        try:
+            with tempfile.TemporaryDirectory() as temp:
+                payload={25:({"messages":[{"role":"user","content":"Public synthetic fixture"}],
+                              "tools":[]},{"class_code":"class Test: pass",
+                              "class_name":"Test","initial_state":{},"tools":[]},{},
+                              {"environment_id_sha256":"a"*64})}
+                write_selected(payload,Path(temp)/"source")
+                for name in ("public.json","environment.json"):
+                    f=Path(temp)/"source"/"25"/name
+                    self.assertEqual(stat.S_IMODE(f.stat().st_mode),0o444)
+        finally:os.umask(old)
     def test_public_tool_sensitive_fields_redacted_recursively(self):
         source={"success":True,"data":[{
             "name":"Alice Chan","hashed_password":"synthetic",
