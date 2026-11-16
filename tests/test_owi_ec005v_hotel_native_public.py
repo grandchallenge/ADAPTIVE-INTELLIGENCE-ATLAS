@@ -117,9 +117,13 @@ class OriginalHotelAdversarialTests(unittest.TestCase):
         self.assertEqual(g["original_same_rule_select_room_positive_eligible_candidates"],["D1","D2"])
         self.assertEqual(g["original_alice_original_bookings_identified_for_future_cancellation"],["BK1001"])
         self.assertFalse(g["original_entire_hotel_task_NO_ACTION_authorized_or_proved"])
+        self.assertTrue(g["alice_A_and_Jonathan_requested_dates_overlap"])
+        self.assertTrue(g["current_state_distinct_double_rooms_for_overlapping_Alice_A_and_Jonathan_proven"])
+        self.assertFalse(g["all_three_original_bookings_jointly_feasible_proven_by_selected_reads"])
     def test_original_alice_cancel_only_false_does_not_qualify(self):
         g=adjudicate(fixture(include_other=False),spec_path=SPEC)
         self.assertFalse(g["natural_same_original_jonathan_date_availability_SELECT_SKIP_pair_supported"])
+        self.assertTrue(g["current_state_distinct_double_rooms_for_overlapping_Alice_A_and_Jonathan_proven"])
         self.assertEqual(g["original_same_rule_skip_room_non_cancellable_conflict_candidates"],[])
         self.assertTrue(g["natural_same_original_Work_Desk_add_skip_pair_supported"])
     def test_same_desk_status_both_does_not_make_conditional_WorkDesk_support(self):
