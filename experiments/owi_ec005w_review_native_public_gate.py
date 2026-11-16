@@ -170,6 +170,14 @@ def adjudicate(report,*,spec_path):
         len(users)!=report.get("source_public_user_list_count") or
         len(ella_public)!=report.get("source_public_ella_name_lookup_count")):
         deny("actual original source first public lists don't match source receipt count")
+    # Crosscheck both identically named Ella professionals against the
+    # separately selected original get_professional_by_name public reply.
+    # Public name alone is not a unique professional identity.
+    ella_all=[x for x in professionals if x.get("name")=="Dr. Ella Navarro"]
+    ella_key=lambda x:(x.get("professional_id"),x.get("specialty"),x.get("name"))
+    if (len(ella_all)!=2 or len(ella_public)!=2 or
+        set(map(ella_key,ella_all))!=set(map(ella_key,ella_public))):
+        deny("original two-Ella professional specialty/public lookup crosscheck failed")
     all_targets=[]
     prof_ids=[]
     for index,(name,specialty,author,before,action,aggregate) in enumerate(TARGETS):
@@ -211,9 +219,11 @@ def adjudicate(report,*,spec_path):
             report["selected_actual_original_public_target_identity_matches"])!=4:
         deny("original source 4 target receipt count changed")
     summaries={}
+    source_professional_reviews={}
     for pid in prof_ids:
         rr=gate.take("get_reviews_for_professional",{"professional_id":pid})
         avg=gate.take("get_aggregated_rating_for_professional",{"professional_id":pid})
+        source_professional_reviews[pid]=rows(rr)
         summaries[pid]={"public_review_count":len(rows(rr)),
                         "current_original_public_aggregate":avg}
     for index,target in enumerate(all_targets):
@@ -237,14 +247,29 @@ def adjudicate(report,*,spec_path):
             current_status=source_status or direct_status
             target["actual_review_public_status"]=current_status
             target["actual_review_public_unique_id"]=actual_id if isinstance(actual_id,str) else None
-            same_user=review.get("user_id") in (uid,None)
-            same_pro=review.get("professional_id") in (pid,None)
+            same_user=review.get("user_id")==uid
+            same_pro=review.get("professional_id")==pid
+            listed=[x for x in source_professional_reviews.get(pid,[]) if
+                x.get("view_id")==actual_id and x.get("user_id")==uid and
+                x.get("professional_id")==pid] if isinstance(actual_id,str) else []
+            if (len(listed)==1 and isinstance(review_before(listed[0]),str) and
+                isinstance(current_status,str) and
+                review_before(listed[0])!=current_status):
+                deny("same original named review inconsistent across public professional list and direct/status lookup")
             target["actually_public_original_review_linkage_verified"]=(
-                same_user and same_pro and (isinstance(actual_id,str) or
-                isinstance(current_status,str)))
+                same_user and same_pro and isinstance(actual_id,str) and
+                len(listed)==1 and isinstance(current_status,str) and
+                review_before(listed[0])==current_status)
+            # Only Jules' banned and Ria's inactive account states are
+            # explicit original task preconditions. A mismatch stays UNKNOWN
+            # rather than being assumed true from user instructions.
+            account_matches=(target["original_public_author_account_status"]=="banned"
+                if index==1 else target["original_public_author_account_status"]=="inactive"
+                if index==2 else True)
             target["source_selected_review_current_state_matches_task_preconditions"]=(
                 target["actually_public_original_review_linkage_verified"] and
-                current_status==target["original_task_expected_review_status"])
+                current_status==target["original_task_expected_review_status"] and
+                account_matches)
     gate.done()
     verified=[x for x in all_targets if x["source_selected_review_current_state_matches_task_preconditions"]]
     verified_aggregate_update=[x["task_case"] for x in verified if
