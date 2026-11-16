@@ -1,0 +1,129 @@
+name: OWI-DS002 original LambdaBeam source-locked ExeDec search
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_exedec_lambdabeam_external.py'
+      - 'tests/test_owi_ds002_exedec_lambdabeam_external.py'
+      - 'governance/ci_components/owi_ds002_exedec_lambdabeam.json'
+      - '.github/workflows/owi-ds002-exedec-lambdabeam-external.yml'
+      - 'mathematics/research-notes/OWI-DS002-EXEDEC-LAMBDABEAM-SOURCE-ADAPTER-20261115.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-external-baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - name: Install minimal pinned import-time dependencies, not neural training stack
+        run: |
+          python -m pip install --disable-pip-version-check numpy==1.26.4 absl-py==2.1.0
+      - name: Exact immutable original published LambdaBeam source checkout
+        run: |
+          set -euo pipefail
+          git clone --quiet https://github.com/ellisk42/LambdaBeam.git build/owi_ds002/lambdabeam_source
+          git -C build/owi_ds002/lambdabeam_source checkout --quiet --detach 61986dc1a6d8cc9521fb17e3152f7f085b5d7c95
+          test "$(git -C build/owi_ds002/lambdabeam_source rev-parse HEAD)" = "61986dc1a6d8cc9521fb17e3152f7f085b5d7c95"
+      - name: Source pin, all typed DSL operations, leakage, and original real search smoke
+        run: |
+          python -m py_compile experiments/owi_ds002_exedec_lambdabeam_external.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_lambdabeam_external.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_register_search.py' -v
+      - name: Run original published external baseline with exact ExeDec DSL on same 60
+        run: |
+          python experiments/owi_ds002_exedec_lambdabeam_external.py \
+            --source-dir build/owi_ds002/lambdabeam_source \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 \
+            --max-weight 7 --max-explored 15000 --timeout-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/lambdabeam_matched60.json
+      - name: Repeat GCL exact ExeDec register baseline on same runner and identities
+        run: |
+          python experiments/owi_ds002_exedec_register_search.py \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 \
+            --max-nodes 4 --max-evals 15000 --beam-width 160 \
+            --time-limit-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/lambdabeam_gcl_matched60.json
+      - name: External baseline on prespecified disjoint 54 source-public tasks
+        run: |
+          python experiments/owi_ds002_exedec_lambdabeam_external.py \
+            --source-dir build/owi_ds002/lambdabeam_source \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 3,23,41,67,89,123,157,181,199 --seeds 11 \
+            --max-weight 7 --max-explored 15000 --timeout-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/lambdabeam_expanded54.json
+      - name: Exact identity, external-program evidence and matched-pair decision ledger
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          root=Path("build/owi_ds002")
+          ext=json.loads((root/"lambdabeam_matched60.json").read_text())
+          gcl=json.loads((root/"lambdabeam_gcl_matched60.json").read_text())
+          expansion=json.loads((root/"lambdabeam_expanded54.json").read_text())
+          assert ext["status"] == expansion["status"] == "ORIGINAL_EXTERNAL_ENUMERATOR_EXACT_EXEDEC_ADAPTER_EXECUTED"
+          assert ext["external_source"]["commit"] == "61986dc1a6d8cc9521fb17e3152f7f085b5d7c95"
+          assert len(ext["records"]) == len(gcl["records"]) == 60
+          assert len(expansion["records"]) == 54
+          e={(r["task_id"],r["seed"]):r for r in ext["records"]}
+          g={(r["task_id"],r["seed"]):r for r in gcl["records"]}
+          assert e.keys() == g.keys() and len(e)==60
+          assert len({r["task_id"] for r in expansion["records"]}) == 54
+          assert not ({r["task_id"] for r in expansion["records"]} &
+                      {r["task_id"] for r in ext["records"]})
+          assert len({ext["exedec_source_revision"],
+                      gcl["source_revision"],
+                      expansion["exedec_source_revision"]}) == 1
+          assert all(r["search"]["counts"]["num_values_explored"] <= 15000
+                     for r in ext["records"]+expansion["records"])
+          assert all(r["search"]["algorithm_identity"] ==
+                     "unmodified external LambdaBeam bottom-up enumeration"
+                     for r in ext["records"]+expansion["records"])
+          assert all(r["evaluator"] is None or r["bounded_verified"] ==
+                     (r["evaluator"]["status"]=="BOUNDED_EXECUTION_AGREEMENT_ONLY")
+                     for r in ext["records"]+expansion["records"])
+          outcome={
+             "external_reference":"Original NeurIPS-2023 LambdaBeam bottom-up enumeration; NOT trained neural LambdaBeam",
+             "source_commit":ext["external_source"]["commit"],
+             "exedec_commit":ext["exedec_source_revision"],
+             "tasks":12,"paired_task_seed_trials":60,
+             "external_bounded_verified":sum(r["bounded_verified"] for r in e.values()),
+             "gcl_register_bounded_verified":sum(r["bounded_verified"] for r in g.values()),
+             "external_only":sum(e[k]["bounded_verified"] and not g[k]["bounded_verified"] for k in e),
+             "gcl_only":sum(g[k]["bounded_verified"] and not e[k]["bounded_verified"] for k in e),
+             "both":sum(e[k]["bounded_verified"] and g[k]["bounded_verified"] for k in e),
+             "neither":sum(not e[k]["bounded_verified"] and not g[k]["bounded_verified"] for k in e),
+             "expanded_unique_tasks":54,
+             "expanded_bounded_verified":sum(r["bounded_verified"] for r in expansion["records"]),
+             "expanded_splits":expansion["by_split"],
+             "external_candidate_outcomes":dict(Counter(r["search"]["status"] for r in e.values())),
+             "external_attempted_values":ext["aggregate"]["search_explored"],
+             "external_search_cpu_seconds":ext["aggregate"]["search_cpu_seconds"],
+             "gcl_search_cpu_seconds":gcl["aggregate"]["search_cpu_seconds"],
+             "external_search_wall_seconds":ext["aggregate"]["search_wall_seconds"],
+             "gcl_search_wall_seconds":gcl["aggregate"]["search_wall_seconds"],
+             "limit":"Same runner, ExeDec semantics, task-seed pairs, 1.5s per-task wall cap and max 15k attempts; NOT proven equal full compute or neural model comparison",
+          }
+          (root/"lambdabeam_paired_comparison.json").write_text(
+              json.dumps(outcome,indent=2,sort_keys=True)+"\n")
+          print("SOURCE-LOCKED EXTERNAL LAMBDABEAM vs GCL:",outcome)
+          PY
+      - name: Retain all positive and negative exact source/task/seed artifacts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-source-locked-lambdabeam-external
+          path: build/owi_ds002/lambdabeam_*.json
+          retention-days: 30
