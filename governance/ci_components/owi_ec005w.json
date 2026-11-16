@@ -1,0 +1,22 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005w",
+  "owner": "OWI-EC005W original TRAIN professional review four named source-public before-state and aggregate update-vs-hold audit; no original native checker or purported pure review no-op",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005w_review_public_preflight.py",
+      "experiments/owi_ec005w_review_native_public.py",
+      "experiments/owi_ec005w_review_native_public_gate.py",
+      "tests/test_owi_ec005w_review_native_public.py",
+      "governance/research/OWI_EC005W_REVIEW_TARGET_STATUS_V1.json",
+      "mathematics/research-notes/OWI-EC005W-NATIVE-REVIEW-STATUS-20261115.md"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
