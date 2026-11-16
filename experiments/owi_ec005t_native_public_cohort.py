@@ -212,7 +212,10 @@ def read_cart(reader):
         reader.note(row,"original_requested_cart_not_authoritatively_identified")
     # CRT-X01 is from the unchanged ORIGINAL public user task. Read it,
     # but never certify it as that user's cart absent independent public linkage.
-    reader.call(row,"list_cart_items",{"cart_id":"CRT-X01"})
+    # Original tool list_cart_items is keyed by public user_id, NOT cart_id.
+    # A returned list is not evidence that CRT-X01 is Alice's cart if the
+    # public get_cart_by_user_id returned another cart.
+    reader.call(row,"list_cart_items",{"user_id":uid})
     for name in TARGETS:
         reader.call(row,"get_product_by_name",{"name":name})
 
@@ -254,7 +257,8 @@ def read_trial(reader):
         return
     if account_id:
         required=reader.schemas[row].get("get_participant_by_user_account",{}).get("required",[])
-        known={"user_account_id":account_id,"account_id":account_id}
+        known={"user_account_id":account_id,"account_id":account_id,
+               "username":"farida.youssef"}
         if isinstance(required,list) and set(required)<=set(known):
             participant=reader.call(row,"get_participant_by_user_account",
                                     {k:known[k] for k in required})
@@ -263,6 +267,8 @@ def read_trial(reader):
             if next_pid and pid and next_pid!=pid:
                 reader.note(row,"original_public_participant_id_link_mismatch")
             elif next_pid:pid=next_pid
+        else:
+            reader.note(row,"original_public_participant_lookup_schema_unknown")
     if not pid:
         reader.note(row,"original_source_participant_id_not_observed")
         return
@@ -310,6 +316,10 @@ def run(input_dir,spec):
         "frozen_original_source_current_state_protocol_sha256":proto,
         "original_source_train_rows":list(ROWS),
         "original_public_and_class_hashes":identities,
+        "selected_source_public_read_schema_required":{
+            str(row):{name:schemas[name].get("required",[])
+                      for name in sorted(SAFE[row]) if name in schemas}
+            for row,schemas in schema.items()},
         "original_private_source_and_native_verifier_not_exported":True,
         "original_source_initial_state_and_user_task_unmodified":True,
         "original_source_public_only_read_calls_physically_executed":len(reader.receipts),
