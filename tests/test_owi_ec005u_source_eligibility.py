@@ -108,11 +108,13 @@ class NativeOriginalTrainFamilyEligibility(unittest.TestCase):
     def test_public_tool_sensitive_fields_redacted_recursively(self):
         source={"success":True,"data":[{
             "name":"Alice Chan","hashed_password":"synthetic",
-            "api_key":"mock","nested":{"access_token":"x","status":"active"},
+            "api_key":"mock","authentication_info":"OAuth_Token:mocked",
+            "public_text":"Bearer mocked123","nested":{"access_token":"x","status":"active"},
             "arr":[{"secret_key":"x","room_id":"R1"}]}]}
         projection=redact(source)
         s=repr(projection)
-        for v in ("hashed_password","api_key","access_token","secret_key"):
+        for v in ("hashed_password","api_key","access_token","secret_key",
+                  "authentication_info","OAuth_Token:mocked","Bearer mocked123"):
             self.assertNotIn(v,s)
         self.assertIn("room_id",s)
     def test_independent_census_gate_for_synthetic_fixture(self):
