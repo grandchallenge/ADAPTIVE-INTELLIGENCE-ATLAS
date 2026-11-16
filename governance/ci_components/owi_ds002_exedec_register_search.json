@@ -1,0 +1,22 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_exedec_register_search",
+  "owner": "OWI-DS-002 exact source-semantics bounded register search and three-way comparator #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_exedec_register_search.py",
+      "tests/test_owi_ds002_exedec_register_search.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_enumerator",
+    "owi_ds002_exedec_legacy"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
