@@ -56,6 +56,19 @@ def load(root):
     check_source(root)
     if str(root) not in sys.path:
         sys.path.insert(0,str(root))
+    # Official enumeration imports property_signatures only when generating
+    # general lambda expressions. ExeDec grammar uses strictly closed,
+    # finite fixed lambda tokens and the search config forbids free variables.
+    # An explicit fail-closed stub avoids pulling the UNUSED neural-training
+    # import graph (including torch). Reaching the stub is a hard failure.
+    import types
+    shim="lambdabeam.property_signatures.property_signatures"
+    if shim not in sys.modules:
+        unused=types.ModuleType(shim)
+        def _forbidden_lambda(*args,**kwargs):
+            raise adm.Rejected("invalid free-variable lambda path in exact ExeDec")
+        unused.run_lambda=_forbidden_lambda
+        sys.modules[shim]=unused
     from lambdabeam.algorithm import baseline_enumeration as algorithm
     from lambdabeam.algorithm import variables
     from lambdabeam.dsl import operation_base, value, task
