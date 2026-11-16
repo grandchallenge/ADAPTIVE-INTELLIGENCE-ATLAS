@@ -153,5 +153,36 @@ class NativeBridgeTests(unittest.TestCase):
                              {"x0":"L"})
 
 
+    def test_candidate_receipt_executes_reference_only_after_valid_public_candidate(self):
+        from unittest import mock
+        from pathlib import Path
+        # Reference program deliberately not a valid executable statement;
+        # its existence must not influence search translation.
+        source=[{"index":0,"test_problem":{
+            "inputs":{"x0":[[1,2],[3,4]]},
+            "outputs":[[2,1],[4,3]],
+            "program":"CONFIDENTIAL_REFERENCE_DO_NOT_READ"}}]
+        records=[
+            {"split":"NONE","index":0,"native_expression":"Reverse(x0)"},
+            {"split":"NONE","index":0,"native_expression":"Sort(x0)"},
+            {"split":"NONE","index":0,"native_expression":"__import__('os')"},
+        ]
+        with mock.patch.object(native.adm,"source_rows",return_value=(source,"pinnedblob")),mock.patch.object(
+            native.adm,"verify",return_value={"status":"BOUNDED_EXECUTION_AGREEMENT_ONLY"}) as checker:
+            report=native.check_candidates(records,Path("unused"),offline=True)
+        self.assertEqual(report["count"],3)
+        self.assertEqual(report["bounded_verified"],1)
+        self.assertEqual([r["outcome"]["status"] for r in report["records"]],[
+            "PUBLIC_IO_CANDIDATE_FOUND",
+            "REJECTED_PUBLIC_EXAMPLE",
+            "REJECTED_NATIVE_TRANSLATION",
+        ])
+        self.assertEqual(checker.call_count,1)
+        args=checker.call_args.args
+        self.assertEqual(args[:2],("NONE",0))
+        self.assertEqual(args[2],"x0 = INPUT | x1 = Reverse x0")
+        self.assertNotIn("CONFIDENTIAL",args[2])
+
+
 if __name__=="__main__":
     unittest.main()
