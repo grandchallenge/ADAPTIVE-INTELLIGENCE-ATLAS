@@ -1,0 +1,23 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_lambdabeam_semantics_adapter",
+  "owner": "OWI-DS-002 explicit original 28-head runtime semantics adaptation to exact ExeDec #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_lambdabeam_semantics_adapter.py",
+      "tests/test_owi_ds002_lambdabeam_semantics_adapter.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_lambdabeam",
+    "owi_ds002_lambdabeam_checkpoint",
+    "owi_ds002_lambdabeam_native_bridge"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}

@@ -164,7 +164,11 @@ def fixed_lambda(node:ast.AST,kind:str)->str:
     raise adm.Rejected("native lambda not provably equal to a legal ExeDec fixed lambda")
 
 
-def translate(expression:str,types:dict[str,str])->str:
+def translate(expression:str,types:dict[str,str],*,semantics:str="original")->str:
+    if semantics not in ("original","explicit_exedec_adapter"):
+        raise adm.Rejected("native translation semantics mode must be explicit")
+    allowed=(ALL_TRANSLATABLE if semantics=="original"
+             else ALL_TRANSLATABLE|PROHIBITED)
     if (not isinstance(types,dict) or not 1<=len(types)<=3 or
         list(types)!=["x"+str(i) for i in range(len(types))] or
         any(t not in ("I","L") for t in types.values())):
@@ -185,8 +189,10 @@ def translate(expression:str,types:dict[str,str])->str:
         if not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name):
             raise adm.Rejected("native program expression is not an approved call")
         op=node.func.id
-        if op not in ALL_TRANSLATABLE:
-            raise adm.Rejected("native operation outside source-exact safe subset: "+op)
+        if op not in allowed:
+            reason=("native operation outside source-exact safe subset: " if semantics=="original"
+                    else "native operation outside selected exact source policy: ")
+            raise adm.Rejected(reason+op)
         if node.keywords:
             raise adm.Rejected("native operation keywords not supported")
         signature,out_type=adm.OPERATIONS[op]
@@ -246,7 +252,11 @@ def transfer_candidate(expression:str,view:dict)->dict:
 # Source-native witness semantics are intentionally implemented by the exact
 # UPSTREAM operation methods, not by calling the protected ExeDec lambdas.
 # The original source imports are delayed until upstream Git/blob verification.
-def native_execute(expr:str,values:dict,source_ops:dict):
+def native_execute(expr:str,values:dict,source_ops:dict,*,semantics:str="original"):
+    if semantics not in ("original","explicit_exedec_adapter"):
+        raise adm.Rejected("native execution semantics mode must be explicit")
+    allowed=(ALL_TRANSLATABLE if semantics=="original"
+             else ALL_TRANSLATABLE|PROHIBITED)
     tree=_syntax(expr)
     def lambda_impl(n,kind):
         token=fixed_lambda(n,kind)
@@ -277,7 +287,7 @@ def native_execute(expr:str,values:dict,source_ops:dict):
         if not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name):
             raise adm.Rejected("noncanonical native runnable expression")
         op=node.func.id
-        if op not in ALL_TRANSLATABLE:
+        if op not in allowed:
             raise adm.Rejected("native witness operation not admitted")
         signature,_=adm.OPERATIONS[op]
         args=[lambda_impl(a,k) if k in ("U","P","B") else walk(a)
