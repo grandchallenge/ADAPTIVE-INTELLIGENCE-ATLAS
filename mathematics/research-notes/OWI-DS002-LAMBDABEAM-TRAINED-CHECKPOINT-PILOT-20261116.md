@@ -35,3 +35,40 @@ This does NOT establish poor trained policy competence because the extremely sha
 Published-mode intermediate run [43810644245](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43810644245) executed source-pinned actual trained step-205000 model on the same six fixed source tasks, beam 10 / original UniqueRandomizer / at most 1,000 successors per task. Exactly 1,000 successors were explored on each; zero native candidates, zero translated/evaluator candidates, and total measured source CPU 2.360 seconds (not full end-to-end cost). This is bounded negative evidence, not an adequate performance comparison to the different GCL enumeration/search algorithms.
 
 The next complete exact-head test raises the budget once to at most 5,000 successors per task, 12s cap, same six identities, same model/checkpoint and inference configuration. Also adds two explicitly synthetic positive mechanism controls: a one-step Reverse and a one-step Sum public-input-only task, with independent 16 fresh exact ExeDec interpreter comparisons against their known target transformations. This gauges whether pretrained original neural search can emit a typed source-native expression and whether the opt-in adapter can independently verify a selected result. These controls are NOT held-out source benchmark tasks, and their target references never enter neural search. Their outcomes, whether success or negative, must be preserved. The CI workflow now cancels superseded runs on a PR head to avoid repeated CPU-wheel downloads after an obsolete branch update.
+
+
+## Final preregistered real pretrained inference results
+
+The original trained checkpoint CPU execution at candidate branch head c5fcb7ea7e67c343bd15da4e114229b919050265 completed with [actual trained-model workflow 43810871819](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43810871819), [adapted source regression 43810871810](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43810871810) and [Atlas validation 43810871799](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43810871799) all PASS. Source pinned LambdaBeam checkpoint step 205000, all 365 trained tensor keys, full original 28 operation-head architecture loaded with weights_only=True and strict=True. Authentic pretrained model forward and original trained neural synthesis executed; no substitution by random model or non-neural enumerator.
+
+**Public ExeDec six-task pilot:** one a priori selected published index-0 task per split, maximum 5000 explored values each, seed 11, beam 10, original UniqueRandomizer enabled, nominal 12 seconds per task.
+
+| Pinned split / task | Actual native trained solution | Explored | Search CPU seconds | Exact ExeDec verdict |
+|---|---|---:|---:|---|
+| NONE:0 | yes | 3014 | 1.7653 | strict translator rejects general lambda |
+| LENGTH_GENERALIZATION:0 | no | 5000 | 2.8802 | no native candidate |
+| COMPOSE_DIFFERENT_CONCEPTS:0 | no | 5000 | 2.9421 | no native candidate |
+| SWITCH_CONCEPT_ORDER:0 | yes | 3870 | 2.3099 | strict translator rejects non-finite lambda expression |
+| COMPOSE_NEW_OP:0 | yes | 3468 | 2.0400 | strict translator rejects generalized scalar/lambda expression |
+| ADD_OP_FUNCTIONALITY:0 | no | 5000 | 3.0111 | no native candidate |
+
+Original generated LambdaBeam expressions, reproduced verbatim as code lines below:
+
+    NONE:0  Take(-1, Scanl1(lambda u1, u2: Last(x0), x0))
+    SWITCH_CONCEPT_ORDER:0  Scanl1(lambda u1, u2: Subtract(4, Last(x0)), Reverse(Scanl1(lambda u1, u2: 0, Sort(x0))))
+    COMPOSE_NEW_OP:0  Scanl1(lambda u1, u2: Multiply(2, Subtract(Add(x0, -1), Square(x0))), Sort(x1))
+
+These three native-source programs matched their source-public I/O under the original trained search but are NOT legal ExeDec fixed-lambda grammar programs. No source target reference or evaluator probe was used to rewrite any native result. Therefore outcome is **three genuine native solutions from six published tasks, zero typed-translated ExeDec benchmark candidates, zero benchmark results admitted to independent 16-probe checks**. Total trained search CPU 14.9486s, excluding full model load/setup/runtime accounting. Source-public benchmark programmes are not confidential heldout.
+
+**Separate synthetic mechanism controls (NOT ExeDec benchmark tasks):**
+
+| Synthetic task | Genuine model-generated native expression | Explored values | Search CPU seconds | Exact independent fresh-input comparison |
+|---|---|---:|---:|---:|
+| Reverse | Reverse(x0) | 1473 | 0.82267 | 16/16 |
+| Sum | Sum(x0) | 1593 | 0.88869 | 16/16 |
+
+The original pretrained model generated both native expressions; each was automatically translated to exact ExeDec, then independently compared with a precommitted simple semantic function on 16 fresh inputs. Synthetic control reference programmes were NEVER passed to neural search, only the I/O examples. This demonstrates a nontrivial actual checkpoint-trained search-to-ExeDec-verifier positive-control path, not a benchmark win, hidden-heldout rate or universal program proof.
+
+**Source/record custody:** Machine-readable six-task and two-control receipts are retained in [artifact 14200566448](https://github.com/grandchallenge/ADAPTIVE-INTELLIGENCE-ATLAS/actions/runs/43810871819/artifacts/14200566448); ZIP SHA256 11be50d98133b6677d8360106d0250d14e0d11f5db904cf2d7c9d22dc679f461. Earlier 80- and 1000-value diagnostics remain individually preserved rather than overwritten. Updated workflow-level concurrency cancels superseded runs to reduce repeat CPU-wheel installs on subsequent commits.
+
+**Technical disposition:** ACTUAL_PINNED_PRETRAINED_NEURAL_INFERENCE_EXECUTED__TWO_CONTROL_PROGRAMS_VERIFIED__GENERAL_LAMBDA_EXEDEC_TRANSFER_BLOCKS_3_PUBLIC_CANDIDATES. The learned source-native model supports general input-capturing and nested lambdas, while ExeDec only admits finite fixed-lambda tokens. A full 38/38 operator-name semantic adaptation does not resolve this source-language representational mismatch. Further blind budget increases do not solve the translation problem. Next: a source-blind, mechanically checked exact-grammar semantic reduction of selected learned native expressions when possible, or appropriate fixed-lambda-constrained training; keep equal-total-compute A/B/C/D, legal C1 JVP, and D causal self-model OPEN. Do not promote as a six-task trained benchmark success; actual exact ExeDec verified benchmark solutions were 0/6.
