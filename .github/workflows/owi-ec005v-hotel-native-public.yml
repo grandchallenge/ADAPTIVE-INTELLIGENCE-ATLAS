@@ -1,0 +1,31 @@
+name: OWI-EC005V original hotel task public-only preflight
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ec005v_*.py'
+      - 'tests/test_owi_ec005v_*.py'
+      - 'governance/research/OWI_EC005V_*.json'
+      - 'mathematics/research-notes/OWI-EC005V-*.md'
+      - '.github/workflows/owi-ec005v-hotel-native-public.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-hotel-public-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Verify full source lock and print exact original TRAIN hotel user PUBLIC prompt and declared availability tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005v_hotel_public_preflight.py
