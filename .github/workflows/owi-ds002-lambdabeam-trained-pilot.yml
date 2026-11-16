@@ -4,12 +4,17 @@ on:
   pull_request:
     paths:
       - 'experiments/owi_ds002_lambdabeam_trained_pilot.py'
+      - 'experiments/owi_ds002_lambdabeam_trained_positive_control.py'
       - 'experiments/owi_ds002_lambdabeam_semantics_adapter.py'
       - 'tests/test_owi_ds002_lambdabeam_trained_pilot.py'
       - 'governance/ci_components/owi_ds002_lambdabeam_trained_pilot.json'
       - '.github/workflows/owi-ds002-lambdabeam-trained-pilot.yml'
       - 'mathematics/research-notes/OWI-DS002-LAMBDABEAM-TRAINED-CHECKPOINT-PILOT-20261116.md'
   workflow_dispatch:
+
+concurrency:
+  group: owi-ds002-trained-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -45,7 +50,7 @@ jobs:
           sha256sum build/owi_ds002/lambdabeam_real_trained_source/lambdabeam-model.ckpt
       - name: Original native model source, opt-in ExeDec operator adapter and fail-closed tests
         run: |
-          python -m py_compile experiments/owi_ds002_lambdabeam_trained_pilot.py
+          python -m py_compile experiments/owi_ds002_lambdabeam_trained_pilot.py experiments/owi_ds002_lambdabeam_trained_positive_control.py
           python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_trained_pilot.py' -v
           LAMBDABEAM_SOURCE=build/owi_ds002/lambdabeam_real_trained_source python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_semantics_adapter.py' -v
           python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
@@ -54,7 +59,7 @@ jobs:
         run: |
           python experiments/owi_ds002_lambdabeam_trained_pilot.py \
             --source-dir build/owi_ds002/lambdabeam_real_trained_source \
-            --seed 11 --beam 10 --max-values 1000 --task-seconds 7 \
+            --seed 11 --beam 10 --max-values 5000 --task-seconds 12 \
             --output build/owi_ds002/lambdabeam_real_trained_checkpoint_cpu_pilot.json
       - name: Validate real trained inference, source-blindness and exact evaluator scopes
         run: |
@@ -73,6 +78,7 @@ jobs:
           assert d["source"]["adapter_mode"]=="explicit_exedec_adapter"
           assert d["device"]=="cpu" and d["num_tasks"]==6
           assert d["checkpoint_backed_real_model_forwards"]==6
+          assert all(r["max_values_budget"]==5000 for r in d["records"])
           assert d["offpath_scatter_calls"]==0
           assert len(d["records"])==6
           assert 0<=d["independently_bounded_verified"]<=d["typed_translated_candidates"]<=d["native_public_io_candidates"]<=6
@@ -105,10 +111,40 @@ jobs:
             "equal_total_compute_claim":False,
           })
           PY
+      - name: Actual pretrained original neural search on two independent synthetic positive controls
+        timeout-minutes: 15
+        run: |
+          python experiments/owi_ds002_lambdabeam_trained_positive_control.py \
+            --source-dir build/owi_ds002/lambdabeam_real_trained_source \
+            --seed 11 --beam 10 --max-values 5000 --task-seconds 12 \
+            --output build/owi_ds002/lambdabeam_real_trained_positive_controls.json
+      - name: Validate actual pretrained synthetic controls independently and without benchmark promotion
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("build/owi_ds002/lambdabeam_real_trained_positive_controls.json").read_text())
+          assert d["status"]=="AUTHENTIC_CHECKPOINT_NEURAL_SEARCH_POSITIVE_CONTROLS_EXECUTED",d
+          assert d["num_controls"]==2
+          assert d["source"]["weights_only"] is True
+          assert d["source"]["strict_model_state_loaded"] is True
+          assert d["source"]["checkpoint_training_step"] == 205000
+          assert d["offpath_scatter_calls"]==0
+          assert 0<=d["independently_bounded_verified"]<=d["typed_candidates"]<=d["native_solutions"]<=2
+          assert all(r["task_class"]=="SYNTHETIC_POSITIVE_CONTROL_NOT_PUBLIC_BENCHMARK" for r in d["records"])
+          print("ACTUAL PRETRAINED NEURAL SYNTHETIC POSITIVE CONTROLS:",{
+            "native_solutions":d["native_solutions"],
+            "translatable_candidates":d["typed_candidates"],
+            "independent_16_fresh_agreements":d["independently_bounded_verified"],
+            "benchmark_task_success_claim":False,
+          })
+          PY
       - name: Preserve trained execution evidence and negative task receipts on any outcome
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: owi-ds002-original-lambdabeam-authentic-trained-cpu-pilot
-          path: build/owi_ds002/lambdabeam_real_trained_checkpoint_cpu_pilot.json
+          path: |
+            build/owi_ds002/lambdabeam_real_trained_checkpoint_cpu_pilot.json
+            build/owi_ds002/lambdabeam_real_trained_positive_controls.json
           retention-days: 30
