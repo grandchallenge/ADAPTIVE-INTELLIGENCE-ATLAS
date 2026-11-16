@@ -190,7 +190,9 @@ def translate(expression:str,types:dict[str,str],*,semantics:str="original")->st
             raise adm.Rejected("native program expression is not an approved call")
         op=node.func.id
         if op not in allowed:
-            raise adm.Rejected("native operation outside selected exact source policy: "+op)
+            reason=("native operation outside source-exact safe subset: " if semantics=="original"
+                    else "native operation outside selected exact source policy: ")
+            raise adm.Rejected(reason+op)
         if node.keywords:
             raise adm.Rejected("native operation keywords not supported")
         signature,out_type=adm.OPERATIONS[op]
