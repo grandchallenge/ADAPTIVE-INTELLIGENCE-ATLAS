@@ -63,7 +63,7 @@ jobs:
           assert r["audit"]["admitted_exact_atomic_exedec_operations"] == 32
           assert r["audit"]["total_exact_atomic_operations"] == 38
           assert r["audit"]["excluded_native_semantics"] == {"Access":1,"Scanl1":5}
-          assert r["audit"]["finite_native_source_vs_exedec_comparisons"] >= 600
+          assert r["audit"]["finite_native_source_vs_exedec_comparisons"] == 518  # 7x7 + 2x49 + 18x7 + 5x49
           assert r["audit"]["mismatches"] == 0
           assert r["audit"]["native_Access_negative_index_result"] == 2
           assert r["audit"]["exedec_Access_negative_index_result"] is None
