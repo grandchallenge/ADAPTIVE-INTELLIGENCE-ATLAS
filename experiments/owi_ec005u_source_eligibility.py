@@ -55,7 +55,8 @@ def check_protocol(path):
         sm.get("redact_public_credentials_before_artifact_or_logs") is not True or
         sm.get("source_native_private_checker_not_mounted") is not True or
         e.get("full_mixed_action_no_action_requires_same_original_task_rule_and_two_actual_opposing_source_public_states") is not True or
-        e.get("public_prompt_word_if_is_not_observed_noop") is not True):
+        e.get("public_prompt_word_if_is_not_observed_noop") is not True or
+        e.get("mere_possible_conditional_branch_not_actual_mixed_support") is not True):
         raise ValueError("precommitted original source/native public-only U protocol boundary drift")
     for c in candidates:
         if (not isinstance(c.get("public_task_anchors"),list) or
