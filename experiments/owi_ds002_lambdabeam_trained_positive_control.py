@@ -29,7 +29,7 @@ CONTROLS={
            "reference":"x0 = INPUT | x1 = Sum x0"},
 }
 FRESH=tuple([
-    [],[0],[1],[-1],[2,3],[-3,2],[5,-2,0],[-4,-3,-2,1],
+    [3,4,-2],[0],[1],[-1],[2,3],[-3,2],[5,-2,0],[-4,-3,-2,1],
     [1,1,1],[2,2],[4,5,0],[0,3,-3],[-1,0,1],[-2,-2,2],
     [4,-4,1],[3,1,2,0,4],
 ])
@@ -50,6 +50,9 @@ def evaluate(source:Path,seed:int,max_values:int,beam:int,
     domain=d._replace(operations=ops,small_value_filter=adapter.legal)
     records=[]
     for name,item in CONTROLS.items():
+        if len(set(map(tuple,FRESH))) != len(FRESH) or (
+                set(map(tuple,FRESH)) & set(map(tuple,item["examples"]))):
+            raise adm.Rejected("synthetic evaluator probes must all be unique and disjoint from public examples")
         reference=adm.compile_program(item["reference"],["x0"],{"x0":"L"})
         batch=item["examples"]
         outputs=[adm.execute(reference,{"x0":list(values)}) for values in batch]
