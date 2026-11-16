@@ -29,7 +29,7 @@ ROWS=(25,87,185,236,672,710,735,2199)
 PRIOR=(0,2,3,2151,2001,1549,1900,5,2000)
 WORDS=re.compile(r"\b(?:if|unless|otherwise)\b|\bwhere applicable\b",re.IGNORECASE)
 PRIVATE_FIELDS=("password","secret","token","credential","private_key","api_key","auth_header",
-                "ssn","social_security","authorization")
+                "authentication","oauth","client_secret","ssn","social_security","authorization")
 MAX_RAW=8192
 
 def sha(value):
@@ -77,6 +77,11 @@ def redact(value):
         return {str(k):redact(v) for k,v in value.items()
                 if not any(word in str(k).casefold() for word in PRIVATE_FIELDS)}
     if isinstance(value,list):return [redact(x) for x in value]
+    if isinstance(value,str) and re.search(
+        r"(?i)(?:oauth[_ -]?token|bearer\s+\S+|sk-[a-z0-9]|eyj[a-z0-9_-]{15,})",value):
+        # Some original source *public* text fields contain mock credential
+        # strings even when the key itself looks harmless.
+        return "[SOURCE_PUBLIC_CREDENTIAL_REDACTED]"
     return value
 
 def inventory(rows, protocol):
