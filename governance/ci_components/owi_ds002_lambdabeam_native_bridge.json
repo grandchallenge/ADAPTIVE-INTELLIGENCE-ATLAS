@@ -1,0 +1,22 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_lambdabeam_native_bridge",
+  "owner": "OWI-DS-002 strict original pretrained model program expression translator #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_lambdabeam_native_bridge.py",
+      "tests/test_owi_ds002_lambdabeam_native_bridge.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_lambdabeam",
+    "owi_ds002_lambdabeam_checkpoint"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
