@@ -1,0 +1,21 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005t",
+  "owner": "OWI-EC005T native-public additional-original-TRAIN-family cohort survey (not original checker, editor, or full reflective control)",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005t_native_public_cohort.py",
+      "experiments/owi_ec005t_native_public_cohort_gate.py",
+      "tests/test_owi_ec005t_native_public_cohort.py",
+      "governance/research/OWI_EC005T_NATIVE_SECOND_COHORT_V1.json",
+      "mathematics/research-notes/OWI-EC005T-NATIVE-SECOND-COHORT-20261115.md"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
