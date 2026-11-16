@@ -54,7 +54,7 @@ jobs:
         run: |
           python experiments/owi_ds002_lambdabeam_trained_pilot.py \
             --source-dir build/owi_ds002/lambdabeam_real_trained_source \
-            --seed 11 --beam 2 --max-values 80 --task-seconds 7 \
+            --seed 11 --beam 10 --max-values 1000 --task-seconds 7 \
             --output build/owi_ds002/lambdabeam_real_trained_checkpoint_cpu_pilot.json
       - name: Validate real trained inference, source-blindness and exact evaluator scopes
         run: |
