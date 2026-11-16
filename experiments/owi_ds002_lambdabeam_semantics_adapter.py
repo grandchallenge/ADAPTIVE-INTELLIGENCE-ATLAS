@@ -37,10 +37,24 @@ def legal(x):
         return False
 
 
-def load_adapted_operators(source_root: Path):
-    """Preserve EXACT original 28 op names/order to retain model head identity."""
+def load_adapted_operators(source_root: Path, *, authentic_neural: bool = False):
+    """Preserve 28 operation heads; use REAL property signatures for neural inference.
+
+    Default legacy source-comparison mode keeps the original benchmark's
+    fail-closed unused-lambda stub. For genuine trained inference that stub is
+    prohibited: the source-locked upstream signature machinery must execute.
+    """
     provenance=native.check_original_grammar(source_root)
-    source_loader.load(source_root)
+    if authentic_neural:
+        source_loader.check_source(source_root)
+        root=str(Path(source_root).resolve())
+        if root not in sys.path:
+            sys.path.insert(0,root)
+        shim=sys.modules.get("lambdabeam.property_signatures.property_signatures")
+        if shim is not None and not hasattr(shim, "property_signature_value"):
+            raise adm.Rejected("non-neural property-signature stub already imported")
+    else:
+        source_loader.load(source_root)
     from lambdabeam.dsl import deepcoder_operations as orig
     original=orig.get_operations()
     original_names=[repr(x) for x in original]
