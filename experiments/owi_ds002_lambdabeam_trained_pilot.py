@@ -32,9 +32,9 @@ import owi_ds002_lambdabeam_semantics_adapter as adapted
 
 TASKS=((name,0) for name in upstream.SPLITS)
 PILOT_IDS=tuple((name,0) for name in upstream.SPLITS)
-DEFAULT_MAX_VALUES=80
+DEFAULT_MAX_VALUES=1000
 DEFAULT_TASK_SECONDS=7.0
-DEFAULT_BEAM=2
+DEFAULT_BEAM=10
 MAX_TASKS=12
 
 
@@ -153,7 +153,7 @@ def _model_probe(torch,model,domain,task):
 
 def execute_pilot(source_root:Path,cache:Path,seed:int,max_values:int,
                   task_seconds:float,beam:int,only_task:tuple[str,int]|None=None)->dict:
-    if not 1<=max_values<=1000 or not 0.5<=task_seconds<=20 or not 1<=beam<=10:
+    if not 1<=max_values<=5000 or not 0.5<=task_seconds<=20 or not 1<=beam<=10:
         raise adm.Rejected("experimental budget out of allowed range")
     if only_task and (only_task[0] not in adm.manifest()["splits"] or
                       type(only_task[1]) is not int or not 0<=only_task[1]<200):
@@ -188,6 +188,8 @@ def execute_pilot(source_root:Path,cache:Path,seed:int,max_values:int,
                   name=split+":"+str(index))
         torch.manual_seed(seed)
         random.seed(seed)
+        import numpy as np
+        np.random.seed(seed)
         probe=_model_probe(torch,model,domain,task)
         start_wall=time.perf_counter()
         start_cpu=time.process_time()
@@ -200,7 +202,7 @@ def execute_pilot(source_root:Path,cache:Path,seed:int,max_values:int,
                     task,domain,model,device=torch.device("cpu"),
                     max_weight=12,k=beam,is_training=False,
                     timeout=task_seconds,max_values_explored=max_values,
-                    is_stochastic=False,random_beam=False,use_ur=False,
+                    is_stochastic=False,random_beam=False,use_ur=True,
                     masking=False,static_weight=False,temperature=1.0)
             except (AssertionError,IndexError,ValueError,RuntimeError,
                     TypeError,RecursionError) as exc:
@@ -244,6 +246,7 @@ def execute_pilot(source_root:Path,cache:Path,seed:int,max_values:int,
                         "process_peak_rss_kb":rr.ru_maxrss,
                         "model_source_training_step":cust["checkpoint_training_step"],
                         "seed":seed,"beam":beam,"max_weight":12,
+                        "use_unique_randomizer":True,
                         "max_values_budget":max_values,
                         "max_task_wall_seconds":task_seconds})
         print(json.dumps({"task":view["task_id"],"outcome":outcome,
@@ -256,6 +259,7 @@ def execute_pilot(source_root:Path,cache:Path,seed:int,max_values:int,
             "status":"REAL_ORIGINAL_TRAINED_CHECKPOINT_MODEL_FORWARD_AND_NATIVE_SEARCH_EXECUTED",
             "source":cust,"device":"cpu",
             "search_algorithm":"original published lambdabeam.algorithm.synthesis.synthesize",
+            "published_eval_search_mode":"unique_randomizer=True beam_size=10 max_search_weight=12",
             "adapter":"EXPLICIT adapted Access/Scanl1 28-head roster; not unmodified original",
             "task_preselection":"index 0, one from each of six ExeDec source splits, before search",
             "num_tasks":len(records),
