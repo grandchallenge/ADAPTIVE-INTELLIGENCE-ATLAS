@@ -24,8 +24,45 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
-      - name: Verify full source lock and print exact original TRAIN hotel user PUBLIC prompt and declared availability tools
+      - name: Hostile selected-source trust and original hotel temporal no-false-skip tests
         shell: bash
         run: |
           set -euo pipefail
-          python experiments/owi_ec005v_hotel_public_preflight.py
+          python -m py_compile experiments/owi_ec005v_hotel_native_public.py \
+            experiments/owi_ec005v_hotel_native_public_gate.py
+          python -m unittest discover -s tests \
+            -p 'test_owi_ec005v_hotel_native_public.py' -v
+      - name: Verify full original source byte lock and physically execute dated hotel public read-only tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          docker pull python@sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+          python experiments/owi_ec005v_hotel_native_public.py \
+            --task-spec governance/research/OWI_EC005V_HOTEL_DATED_CONDITIONAL_V1.json \
+            --output build/owi_ec005v/original_native_hotel_public_receipts.json
+      - name: Independent source public original room ID date and actual booking/cancel-aware conditional gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/owi_ec005v_hotel_native_public_gate.py \
+            --trial build/owi_ec005v/original_native_hotel_public_receipts.json \
+            --task-spec governance/research/OWI_EC005V_HOTEL_DATED_CONDITIONAL_V1.json \
+            --output build/owi_ec005v/independent_original_hotel_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          g=json.loads(Path('build/owi_ec005v/independent_original_hotel_gate.json').read_text())
+          assert g['contract']=='OWI-EC005V-INDEPENDENT-ORIGINAL-HOTEL-DATED-SUPPORT-GATE/1'
+          assert g['original_private_source_or_native_checker_never_used']
+          assert g['original_dev_and_sealed_test_task_content_not_accessed']
+          assert g['no_original_source_mutation_training_or_terminal_reward']
+          assert not g['original_entire_hotel_task_NO_ACTION_authorized_or_proved']
+          print('OWI_EC005V_FINAL_SOURCE_NATIVE_PUBLIC_ADJUDICATION',json.dumps(g,sort_keys=True))
+          PY
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ec005v-original-hotel-dated-native-public
+          path: build/owi_ec005v/
+          retention-days: 30
