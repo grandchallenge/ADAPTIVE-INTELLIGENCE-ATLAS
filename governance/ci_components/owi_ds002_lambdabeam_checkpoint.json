@@ -1,0 +1,21 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_lambdabeam_checkpoint",
+  "owner": "OWI-DS-002 safe original trained checkpoint compatibility gate #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_lambdabeam_checkpoint_gate.py",
+      "tests/test_owi_ds002_lambdabeam_checkpoint_gate.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_lambdabeam"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
