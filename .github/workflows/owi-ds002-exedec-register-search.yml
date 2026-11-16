@@ -1,0 +1,156 @@
+name: OWI-DS002 exact ExeDec register-program search and three-way comparison
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_exedec_register_search.py'
+      - 'tests/test_owi_ds002_exedec_register_search.py'
+      - 'governance/ci_components/owi_ds002_exedec_register_search.json'
+      - '.github/workflows/owi-ds002-exedec-register-search.yml'
+      - 'mathematics/research-notes/OWI-DS002-EXEDEC-EXACT-REGISTER-SEARCH-20261115.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-register-search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Check legal operator semantics, register-DAG composition, and privacy
+        run: |
+          python -m py_compile experiments/owi_ds002_exedec_register_search.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_register_search.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_enumerator.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_legacy_solver.py' -v
+      - name: Source-exact register search on matched 12 tasks x five seeds
+        run: |
+          python experiments/owi_ds002_exedec_register_search.py \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 \
+            --max-nodes 4 --max-evals 15000 --beam-width 160 \
+            --time-limit-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/exact_register_matched60.json
+      - name: Independently rerun older GCL source-bound enumerator on same 60 cases
+        run: |
+          python experiments/owi_ds002_exedec_enumerator.py \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 \
+            --max-nodes 4 --max-evals 15000 --max-width 600 --probes 16 \
+            --output build/owi_ds002/exact_register_previous60.json
+      - name: Compile hash-verified original historical DeepCoder external search
+        run: |
+          set -euo pipefail
+          git clone --quiet https://github.com/microsoft/DeepCoder-Utils.git build/owi_ds002/exact_legacy_cpp
+          git -C build/owi_ds002/exact_legacy_cpp checkout --quiet --detach 794057dc41aab0bea3818b75416da06b25aff12f
+          test "$(git -C build/owi_ds002/exact_legacy_cpp rev-parse HEAD)" = "794057dc41aab0bea3818b75416da06b25aff12f"
+          make -C build/owi_ds002/exact_legacy_cpp/enumerative-search CFLAGS=-DVERBOSE_MODE=1 -j 2
+      - name: Source-lock and independently adjudicate historical solver on same 60
+        run: |
+          python experiments/owi_ds002_exedec_legacy_solver.py \
+            --source-dir build/owi_ds002/exact_legacy_cpp \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 0,17 --seeds 1,2,3,4,5 --max-nodes 4 --timeout-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/exact_register_external60.json
+      - name: Evaluate expanded prespecified stratified 54-task one-seed cohort
+        run: |
+          python experiments/owi_ds002_exedec_register_search.py \
+            --splits NONE,LENGTH_GENERALIZATION,COMPOSE_DIFFERENT_CONCEPTS,SWITCH_CONCEPT_ORDER,COMPOSE_NEW_OP,ADD_OP_FUNCTIONALITY \
+            --indices 3,23,41,67,89,123,157,181,199 --seeds 11 \
+            --max-nodes 4 --max-evals 15000 --beam-width 160 \
+            --time-limit-seconds 1.5 --probes 16 \
+            --output build/owi_ds002/exact_register_expanded54.json
+      - name: Fail-closed comparison and independent evaluator provenance checks
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          import json
+          from pathlib import Path
+          root=Path("build/owi_ds002")
+          data={
+            name:json.loads((root/("exact_register_"+name+".json")).read_text())
+            for name in ("matched60","previous60","external60","expanded54")
+          }
+          exact=data["matched60"]["records"]
+          previous=data["previous60"]["records"]
+          external=data["external60"]["records"]
+          expanded=data["expanded54"]["records"]
+          all_sets=[{(x["task_id"],x["seed"]) for x in rows} for rows in
+                    (exact,previous,external)]
+          assert len(all_sets[0]) == 60
+          assert all(item==all_sets[0] for item in all_sets)
+          assert len(expanded)==54 and len({x["task_id"] for x in expanded})==54
+          assert not ({x["task_id"] for x in expanded} &
+                      {x["task_id"] for x in exact})
+          source_revisions={d["source_revision"] for d in data.values()}
+          assert len(source_revisions)==1, f"source revisions diverged: {source_revisions}"
+          assert data["external60"]["external_source"]["commit"] == (
+              "794057dc41aab0bea3818b75416da06b25aff12f")
+          assert all(x["search"]["semantics"] ==
+              "source-locked ExeDec interpreter at every successor"
+              for x in exact+expanded)
+          assert all(x["search"]["counts"]["attempted_successors"] <= 15000
+                     for x in exact+expanded)
+          assert all(x["search"]["search_wall_seconds"] >= 0
+                     for x in exact+expanded)
+          assert all(x["evaluator"] is None or
+                     x["bounded_verified"] == (
+                       x["evaluator"]["status"]=="BOUNDED_EXECUTION_AGREEMENT_ONLY")
+                     for x in exact+expanded)
+          assert all(x["evaluator"] is None or
+                     x["evaluator"]["source_revision"] ==
+                         data["matched60"]["source_revision"]
+                     for x in exact+expanded)
+          e={(x["task_id"],x["seed"]):x for x in exact}
+          p={(x["task_id"],x["seed"]):x for x in previous}
+          h={(x["task_id"],x["seed"]):x for x in external}
+          paired={
+            "source_revision":data["matched60"]["source_revision"],
+            "independent_source_program_access_during_search":False,
+            "distinct_tasks_matched":12,
+            "trial_pairs":60,
+            "verified_exact_register":sum(x["bounded_verified"] for x in e.values()),
+            "verified_previous_gcl":sum(x["bounded_verified"] for x in p.values()),
+            "verified_historical_external":sum(x["bounded_verified"] for x in h.values()),
+            "exact_only_over_previous":sum(e[k]["bounded_verified"] and
+                not p[k]["bounded_verified"] for k in e),
+            "previous_only_over_exact":sum(p[k]["bounded_verified"] and
+                not e[k]["bounded_verified"] for k in e),
+            "exact_only_over_historical":sum(e[k]["bounded_verified"] and
+                not h[k]["bounded_verified"] for k in e),
+            "historical_only_over_exact":sum(h[k]["bounded_verified"] and
+                not e[k]["bounded_verified"] for k in e),
+            "expanded_distinct_tasks":54,
+            "expanded_verified":sum(x["bounded_verified"] for x in expanded),
+            "expanded_by_split":data["expanded54"]["by_split"],
+            "exact_search_attempts":sum(x["search"]["counts"]["attempted_successors"]
+                                        for x in exact),
+            "exact_search_cpu_seconds":sum(x["search"]["search_cpu_seconds"] for x in exact),
+            "exact_search_wall_seconds":sum(x["search"]["search_wall_seconds"] for x in exact),
+            "previous_search_cpu_seconds":data["previous60"]["aggregate"]["sum_synthesis_cpu_seconds"],
+            "historical_worker_wall_seconds":sum(
+                x["external"]["external_worker_wall_seconds"] for x in external),
+            "limits":(
+                "Same task/seed identity, but different algorithms, interpreter costs, "
+                "and source semantics for original historical C++; not equal full compute"
+            ),
+          }
+          (root/"exact_register_three_way_comparison.json").write_text(
+              json.dumps(paired,indent=2,sort_keys=True)+"\n")
+          print("Three-way evidence and wider source-locked cohort:",paired)
+          PY
+      - name: Preserve per-task candidates, counterexamples, resource and provenance receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-exact-register-three-way-and-expanded
+          path: build/owi_ds002/exact_register_*.json
+          retention-days: 30
