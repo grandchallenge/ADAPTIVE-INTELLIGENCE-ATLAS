@@ -1,0 +1,69 @@
+name: OWI-DS002 pinned trained LambdaBeam checkpoint compatibility gate
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/owi_ds002_lambdabeam_checkpoint_gate.py'
+      - 'tests/test_owi_ds002_lambdabeam_checkpoint_gate.py'
+      - 'governance/ci_components/owi_ds002_lambdabeam_checkpoint.json'
+      - '.github/workflows/owi-ds002-lambdabeam-checkpoint-gate.yml'
+      - 'mathematics/research-notes/OWI-DS002-LAMBDABEAM-CHECKPOINT-COMPATIBILITY-20261115.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checkpoint-structural-compatibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.12'
+      - name: Test immutable blob gate, exact operator counting, and no-deserialization proof
+        run: |
+          python -m py_compile experiments/owi_ds002_lambdabeam_checkpoint_gate.py
+          python -m unittest discover -s tests -p 'test_owi_ds002_lambdabeam_checkpoint_gate.py' -v
+          python -m unittest discover -s tests -p 'test_owi_ds002_exedec_admission.py' -v
+      - name: Checkout exact original published model/checkpoint from independent upstream
+        run: |
+          set -euo pipefail
+          git clone --quiet https://github.com/ellisk42/LambdaBeam.git build/owi_ds002/lambdabeam_pinned_model
+          git -C build/owi_ds002/lambdabeam_pinned_model checkout --quiet --detach 61986dc1a6d8cc9521fb17e3152f7f085b5d7c95
+          test "$(git -C build/owi_ds002/lambdabeam_pinned_model rev-parse HEAD)" = 61986dc1a6d8cc9521fb17e3152f7f085b5d7c95
+          test "$(git -C build/owi_ds002/lambdabeam_pinned_model hash-object lambdabeam-model.ckpt)" = 91ab03f94972f4f523dfaa771a45ea28583f519f
+      - name: Inspect actual original checkpoint state metadata without untrusted deserialization
+        run: |
+          python experiments/owi_ds002_lambdabeam_checkpoint_gate.py \
+            --source-dir build/owi_ds002/lambdabeam_pinned_model \
+            --output build/owi_ds002/lambdabeam_trained_checkpoint_compatibility.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path=Path("build/owi_ds002/lambdabeam_trained_checkpoint_compatibility.json")
+          result=json.loads(path.read_text())
+          assert result["status"] == "DIRECT_CHECKPOINT_REUSE_IN_EXACT_EXEDEC_OPERATOR_MODEL_INCOMPATIBLE", result
+          assert result["original_source"]["commit"] == "61986dc1a6d8cc9521fb17e3152f7f085b5d7c95"
+          assert result["original_operator_classes"]["count"] == 28
+          assert result["exact_exedec_ops"]["count"] == 38
+          assert result["checkpoint"]["git_blob_sha"] == "91ab03f94972f4f523dfaa771a45ea28583f519f"
+          assert result["checkpoint"]["byte_size"] == 40750571
+          assert result["original_checkpoint_state"]["checkpoint_model_operation_lstm_indices"] == list(range(28))
+          assert result["original_checkpoint_state"]["checkpoint_model_init_operation_indices"] == list(range(28))
+          assert result["published_eval_config"]["use_op_specific_lstm"] is True
+          assert result["technical_obstruction"]["exact_model_load_directly_allowed"] is False
+          print("PINNED TRAINED CHECKPOINT COMPATIBILITY DISPOSITION:",result["status"])
+          print("Trusted source/checkpoint SHA-256:",result["checkpoint"]["sha256"])
+          print("Original model operator heads / exact ExeDec operations:",28,38)
+          PY
+      - name: Preserve actual checkpoint hash and non-executing metadata witness
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: owi-ds002-trained-checkpoint-safe-compatibility-gate
+          path: build/owi_ds002/lambdabeam_trained_checkpoint_compatibility.json
+          retention-days: 30
