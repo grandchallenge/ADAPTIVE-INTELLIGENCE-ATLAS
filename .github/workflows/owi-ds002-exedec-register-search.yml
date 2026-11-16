@@ -90,10 +90,8 @@ jobs:
           assert len(expanded)==54 and len({x["task_id"] for x in expanded})==54
           assert not ({x["task_id"] for x in expanded} &
                       {x["task_id"] for x in exact})
-          assert data["matched60"]["source_revision"] == (
-              data["previous60"]["source_revision"] ==
-              data["external60"]["source_revision"] ==
-              data["expanded54"]["source_revision"])
+          source_revisions={d["source_revision"] for d in data.values()}
+          assert len(source_revisions)==1, f"source revisions diverged: {source_revisions}"
           assert data["external60"]["external_source"]["commit"] == (
               "794057dc41aab0bea3818b75416da06b25aff12f")
           assert all(x["search"]["semantics"] ==
