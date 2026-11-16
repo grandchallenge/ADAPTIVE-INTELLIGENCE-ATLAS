@@ -338,6 +338,8 @@ def trial_gate(p):
             "original_source_withdraw_policy_status_counts":dict(counters),
             "source_public_prior_withdrawn_ctc3_found":prior_withdrawn_ctc3,
             "source_public_consent_status":consent,
+            "requested_public_consent_valid_status_already_satisfied":(
+                consent=="valid" if isinstance(consent,str) else None),
             "genuine_mixed_support":bool(
                 counters["withdraw_required"] and
                 counters["leave_active_non_suspended_trial_enrollment_unchanged"])}
@@ -398,6 +400,9 @@ def adjudicate(trial,*,task_spec):
         "independently_reconstructed_source_public_candidate_states":results,
         "qualifying_naturally_mixed_source_public_action_noaction_by_family":positive,
         "qualifying_original_mixed_condition_family_count":sum(positive.values()),
+        "predecessor_S_row_2001_class_also_used_by_T_row_2000":(
+            LOCK[2000][0]=="f32173b7fb07582f45d330c63ae31bb2328b315cc9218a385d433b52792022ac"),
+        "new_independent_executable_train_families_relative_to_S":[1549,1900,5],
         "original_private_checker_or_hidden_source_state_not_used":True,
         "source_development_and_sealed_test_families_not_opened":True,
         "native_original_source_mutation_not_executed":True,
