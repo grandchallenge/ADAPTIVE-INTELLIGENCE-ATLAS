@@ -146,6 +146,13 @@ class OriginalReviewSourceAdversarial(unittest.TestCase):
         x=fixture()
         # Consistent returned review status but different from original target
         for r in x["native_original_selected_read_receipts"]:
+            # Keep ALL independent source-public methods consistent in this
+            # altered-state fixture; the separate hostile test checks that
+            # inconsistent same-review source replies must raise ValueError.
+            if r["tool"]=="get_reviews_for_professional" and r["arguments"]["professional_id"]=="prof_sandy":
+                case=copy.deepcopy(REVIEW[3])
+                case["moderation_status"]="approved"
+                change_data(r,{"success":True,"data":[case]})
             if r["tool"]=="get_review_by_user_and_professional" and r["arguments"]["user_id"]=="u_silas":
                 original=ast_data(r)
                 original["data"]["moderation_status"]="approved"
