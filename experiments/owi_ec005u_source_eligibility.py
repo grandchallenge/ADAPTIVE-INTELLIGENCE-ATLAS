@@ -19,6 +19,7 @@ from owi_ec005_realtools_family_survey import audit_source
 from owi_ec005_realtools_split import partition
 from owi_ec005_realtools_intake import canonical,public_view,DatasetBoundaryError
 from owi_ec005_realtools_randomized import IMAGE,call_child,fingerprint
+from owi_ec005_realtools_episode_select import write_json
 from owi_ec005_realtools_goal_policy import WORKER,unpack_reply
 
 CONTRACT="OWI-EC005U-SOURCE-LOCKED-TRAIN-CENSUS-PUBLIC-READS/1"
@@ -168,8 +169,12 @@ def inventory(rows, protocol):
 def write_selected(selected,root):
     for row,(public,env,methods,item) in selected.items():
         dest=root/str(row);dest.mkdir(parents=True,exist_ok=True)
-        (dest/"public.json").write_text(json.dumps(public,sort_keys=True,ensure_ascii=False))
-        (dest/"environment.json").write_text(json.dumps(env,sort_keys=True,ensure_ascii=False))
+        # The trusted host source selector's 0444 file mode is essential:
+        # Docker's source child runs as UID 65534 and receives a *file*
+        # bind mount at /input.json. A private temp workspace + umask 077
+        # alone creates 0600 payload files and causes worker exit=1.
+        write_json(dest/"public.json",public)
+        write_json(dest/"environment.json",env)
 
 def original_native_read(root,selected,protocol):
     all_calls=[]
