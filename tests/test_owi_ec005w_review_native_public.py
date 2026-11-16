@@ -114,6 +114,29 @@ class OriginalReviewSourceAdversarial(unittest.TestCase):
         self.assertFalse(result["actual_source_natural_same_review_rule_action_and_pure_noop_pair_proved"])
         self.assertFalse(result["single_same_review_decision_naturally_variable_original_source_state_proved"])
         self.assertEqual(result["original_task_authorized_pure_review_noop_targets"],0)
+    def test_crossmethod_ella_professional_specialties_must_agree(self):
+        x=fixture()
+        r=x["native_original_selected_read_receipts"][2]
+        change_data(r,{"success":True,"data":[PROS[2],PROS[2]]})
+        with self.assertRaises(ValueError):adjudicate(x,spec_path=SPEC)
+    def test_public_user_banned_precondition_mismatch_is_unknown_not_proven(self):
+        x=fixture()
+        r=x["native_original_selected_read_receipts"][1]
+        users=copy.deepcopy(USERS);users[1]["account_status"]="active"
+        change_data(r,{"success":True,"data":users})
+        x["selected_actual_original_public_target_identity_matches"][1][
+          "public_author_account_status"]="active"
+        result=adjudicate(x,spec_path=SPEC)
+        self.assertEqual(result["actual_source_exact_linked_review_preconditions_confirmed"],3)
+        self.assertFalse(result["original_four_requested_named_moderation_targets"][1][
+            "source_selected_review_current_state_matches_task_preconditions"])
+    def test_public_professional_list_review_status_must_match_direct_review(self):
+        x=fixture()
+        r=x["native_original_selected_read_receipts"][3]
+        reviews=copy.deepcopy([REVIEW[0]])
+        reviews[0]["moderation_status"]="approved"
+        change_data(r,{"success":True,"data":reviews})
+        with self.assertRaises(ValueError):adjudicate(x,spec_path=SPEC)
     def test_public_source_credential_redacted(self):
         r={"success":True,"data":{"auth_token":"mock","_id":"u_alice",
                                    "authentication_info":"OAuth_Token:fake"}}
