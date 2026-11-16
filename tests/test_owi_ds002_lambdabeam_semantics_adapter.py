@@ -72,7 +72,7 @@ class ExactAdapterTests(unittest.TestCase):
             self.before["Scanl1"].apply_single([self.before["Add"].apply_single,[]])
 
     def test_original_bound_wider_than_exact_adapted_scanl1(self):
-        multiply=self.before["Multiply"].apply_single
+        multiply=lambda a,b:self.before["Multiply"].apply_single([a,b])
         self.assertEqual(self.before["Scanl1"].apply_single([multiply,[8,8]]),
                          [8,64])
         self.assertIsNone(self.after["Scanl1"].apply_single([multiply,[8,8]]))
