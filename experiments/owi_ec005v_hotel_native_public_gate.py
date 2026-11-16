@@ -302,6 +302,19 @@ def adjudicate(report,*,spec_path):
                   x["same_original_Jonathan_conditional_eligible_now"] and x["public_amenities_include_Work_Desk"] is False]
     support=any(a!=b for a in positive for b in negative)
     desk_support=bool(desk_present and desk_missing)
+    # Independent joint-capacity diagnostic: both Alice A and Jonathan
+    # request a double over overlapping dates, and a single double cannot
+    # host both even when each independent prebooking availability read is
+    # true. This does NOT modify the frozen select/skip qualification rule.
+    alice_a_current_positive=[
+        x["source_room_id"] for x in checks
+        if x["original_task_segment"]=="Alice A" and
+           x["original_source_native_date_available"] is True]
+    separate_current_double_pair=any(
+        a!=j for a in alice_a_current_positive for j in positive)
+    # No currently available suite in the observed original public source
+    # candidate sample is not a proof no other suite could ever be booked.
+    observed_suite=[rid for rid in observed if state[rid]["room_type"]=="suite"]
     status=("ACTUAL_ORIGINAL_HOTEL_NATIVE_JONATHAN_ROOM_SELECT_SKIP_CONTRAST_SUPPORTED"
            if support else "SCOPED_SOURCE_PUBLIC_HOTEL_DATED_SELECT_SKIP_NOT_QUALIFIED")
     return {
@@ -318,6 +331,11 @@ def adjudicate(report,*,spec_path):
       "source_native_date_specific_availability_cases":checks,
       "original_jonathan_double_room_source_public_conditional_cases":jon,
       "original_same_rule_select_room_positive_eligible_candidates":positive,
+      "alice_segment_A_individually_currently_available_double_rooms":alice_a_current_positive,
+      "current_state_distinct_double_rooms_for_overlapping_Alice_A_and_Jonathan_proven":separate_current_double_pair,
+      "alice_A_and_Jonathan_requested_dates_overlap":overlap(*ALICE_A,*JONATHAN),
+      "source_current_suite_room_candidate_count":len(observed_suite),
+      "all_three_original_bookings_jointly_feasible_proven_by_selected_reads":False,
       "original_same_rule_skip_room_non_cancellable_conflict_candidates":negative,
       "original_source_conditional_Work_Desk_already_present_candidates":desk_present,
       "original_source_conditional_Work_Desk_missing_add_candidates":desk_missing,
