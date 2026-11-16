@@ -31,7 +31,7 @@ PREVIOUS_F_PUBLIC={
  2199:("a9a5dadb652ba0ba5d3814323b78b1f51a099f008cd63d9ea173fd94e05f4be8","bdbf8a5ad894b7199b7a51f45d5cb1ee4b0556500bc657b188179b1ecebeaaf1")
 }
 BANNED=("password","secret","token","credential","private_key","api_key","auth_header",
-        "social_security","authorization")
+        "authentication","oauth","client_secret","social_security","authorization")
 def deny(msg):raise ValueError(msg)
 def okhash(x):
     return isinstance(x,str) and len(x)==64 and all(y in "0123456789abcdef" for y in x)
@@ -84,8 +84,10 @@ def one_reply(r):
         if r.get("actual_selected_original_public_redacted_sha256") is not None:
             deny("source redacted evidence missing but hash supplied")
         return None
-    if not isinstance(raw,str) or len(raw)>100000 or any(
-        re.search(r"""(?i)['"]?"""+word+r"""[a-z_]*['"]?\s*:""",raw) for word in BANNED):
+    if (not isinstance(raw,str) or len(raw)>100000 or
+        re.search(r"(?i)(?:oauth[_ -]?token|bearer\s+\S+|sk-[a-z0-9])",raw) or
+        any(re.search(r"""(?i)['"]?"""+word+r"""[a-z_]*['"]?\s*:""",raw)
+            for word in BANNED)):
         deny("source-public original tool projection invalid or sensitive")
     checksum=hashlib.sha256(json.dumps(raw,sort_keys=True,separators=(",",":"),
                                 ensure_ascii=False).encode()).hexdigest()
