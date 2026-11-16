@@ -1,0 +1,21 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005u",
+  "owner": "OWI-EC005U original TRAIN all-family public-only census, eight native source public read eligibility checks, independent no-false-noop audit",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005u_source_eligibility.py",
+      "experiments/owi_ec005u_source_eligibility_gate.py",
+      "tests/test_owi_ec005u_source_eligibility.py",
+      "governance/research/OWI_EC005U_SOURCE_ELIGIBILITY_CENSUS_V1.json",
+      "mathematics/research-notes/OWI-EC005U-TRAIN-FAMILY-ELIGIBILITY-20261115.md"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
