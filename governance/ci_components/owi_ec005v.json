@@ -1,0 +1,22 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ec005v",
+  "owner": "OWI-EC005V original TRAIN hotel dated source-public eligibility and independent cancellation-aware same-rule observation audit; no source checker or native task reward",
+  "paths": {
+    "exact": [
+      "experiments/owi_ec005v_hotel_public_preflight.py",
+      "experiments/owi_ec005v_hotel_native_public.py",
+      "experiments/owi_ec005v_hotel_native_public_gate.py",
+      "tests/test_owi_ec005v_hotel_native_public.py",
+      "governance/research/OWI_EC005V_HOTEL_DATED_CONDITIONAL_V1.json",
+      "mathematics/research-notes/OWI-EC005V-HOTEL-DATED-NATIVE-CONTRAST-20261115.md"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
