@@ -89,6 +89,15 @@ def parse_public(row,folder):
         raise ValueError("precommitted first original source public read not declared")
     return pub,schemas,task
 
+def public_projection(value):
+    """Drop source-public credential-like fields even from synthetic benchmark replies."""
+    if isinstance(value,dict):
+        return {k:public_projection(v) for k,v in value.items() if
+                not any(t in str(k).casefold() for t in
+                        ("password","secret","token","credential","private_key","api_key"))}
+    if isinstance(value,list):return [public_projection(x) for x in value]
+    return value
+
 def public_value(rec):
     if not isinstance(rec,dict) or rec.get("status")!="source_success":
         return None
@@ -161,13 +170,17 @@ class NativeReader:
             raise RuntimeError("oversized or wrong source actual public reply")
         ok=result[1].get("ok") is True
         native=unpack_reply(actual_reply) if ok else {"success":False}
+        public_evidence=public_projection(native)
+        safe_reply=repr(public_evidence)
         status="source_success" if ok and native.get("success") is True else "source_failure"
         record={
             "original_row":row,
             "selected_public_read_tool":tool,
             "actual_original_source_public_arguments":args,
-            "raw_actual_original_public_reply":actual_reply,
-            "sha256_actual_original_public_reply":fingerprint(actual_reply),
+            "raw_actual_original_public_reply":safe_reply,
+            "sha256_actual_original_public_reply":fingerprint(safe_reply),
+            "sha256_full_original_reply_audit_only":hashlib.sha256(actual_reply.encode()).hexdigest(),
+            "source_public_sensitive_field_redacted":public_evidence!=native,
             "status":status,
             "physical_original_source_tool_seconds":result[1].get("elapsed_seconds"),
             "physical_source_worker_wall_seconds":wall,
@@ -197,14 +210,20 @@ def read_cart(reader):
     cid=primitive_id(c,("cart_id","_id","id"))
     if cid!="CRT-X01":
         reader.note(row,"original_requested_cart_not_authoritatively_identified")
-        return
-    reader.call(row,"list_cart_items",{"cart_id":cid})
+    # CRT-X01 is from the unchanged ORIGINAL public user task. Read it,
+    # but never certify it as that user's cart absent independent public linkage.
+    reader.call(row,"list_cart_items",{"cart_id":"CRT-X01"})
     for name in TARGETS:
         reader.call(row,"get_product_by_name",{"name":name})
 
 def read_subscriber(reader):
     row=1900
-    rec=reader.call(row,*FIRST[row])
+    # Alias 'email_address' comes from the original public *declared schema*,
+    # not hidden state. Our first canary revealed that schema name.
+    declared=reader.schemas[row].get("get_subscriber_by_email",{}).get("required",[])
+    email_args=({"email_address":"alice.chan@example.com"}
+                if declared==["email_address"] else FIRST[row][1])
+    rec=reader.call(row,"get_subscriber_by_email",email_args)
     who=first(public_value(rec))
     subscriber=primitive_id(who,("subscriber_id","_id","id"))
     if not subscriber:
@@ -228,14 +247,22 @@ def read_trial(reader):
     row=5
     rec=reader.call(row,*FIRST[row])
     who=first(public_value(rec))
-    account_id=primitive_id(who,("user_account_id","user_id","_id","id"))
-    if not account_id:
+    account_id=primitive_id(who,("account_id","user_account_id","user_id","_id","id"))
+    pid=primitive_id(who,("participant_id",))
+    if not account_id and not pid:
         reader.note(row,"original_public_user_account_not_observed")
         return
-    participant=reader.call(row,"get_participant_by_user_account",
-                            {"user_account_id":account_id})
-    p=first(public_value(participant))
-    pid=primitive_id(p,("participant_id","_id","id"))
+    if account_id:
+        required=reader.schemas[row].get("get_participant_by_user_account",{}).get("required",[])
+        known={"user_account_id":account_id,"account_id":account_id}
+        if isinstance(required,list) and set(required)<=set(known):
+            participant=reader.call(row,"get_participant_by_user_account",
+                                    {k:known[k] for k in required})
+            p=first(public_value(participant))
+            next_pid=primitive_id(p,("participant_id","_id","id"))
+            if next_pid and pid and next_pid!=pid:
+                reader.note(row,"original_public_participant_id_link_mismatch")
+            elif next_pid:pid=next_pid
     if not pid:
         reader.note(row,"original_source_participant_id_not_observed")
         return
