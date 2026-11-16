@@ -1,0 +1,24 @@
+{
+  "contract_id": "GCL-CIR-001",
+  "version": "1.0.0",
+  "component_id": "owi_ds002_lambdabeam_trained_pilot",
+  "owner": "OWI-DS-002 authentic published pretrained LambdaBeam 28-head CPU inference & independent exact ExeDec pilot #483",
+  "paths": {
+    "exact": [
+      "experiments/owi_ds002_lambdabeam_trained_pilot.py",
+      "tests/test_owi_ds002_lambdabeam_trained_pilot.py"
+    ],
+    "prefixes": [],
+    "test_prefixes": []
+  },
+  "depends_on": [
+    "owi_ds002_exedec",
+    "owi_ds002_exedec_lambdabeam",
+    "owi_ds002_lambdabeam_checkpoint",
+    "owi_ds002_lambdabeam_native_bridge",
+    "owi_ds002_lambdabeam_semantics_adapter"
+  ],
+  "checks": [
+    "atlas-repository-validation"
+  ]
+}
